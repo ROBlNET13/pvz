@@ -1960,7 +1960,7 @@ dd.yellow {
     overflow: hidden;
     top: 600px;
     width: 900px;
-    background: url('new_skin/game_bg.png') no-repeat 0 0;
+    background: url('new_skin/pvz/game_bg.png') no-repeat 0 0;
     z-index: 65535
 }
 
@@ -1996,7 +1996,7 @@ dd.yellow {
     width: 79px;
     height: 26px;
     margin-right: 10px;
-    background: url(new_skin/game_ipt.png) no-repeat;
+    background: url(new_skin/pvz/game_ipt.png) no-repeat;
     border: 0;
     font-weight: 600;
     color: #FFF;
