@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant vs. Zombies Official</title>
+  <link rel="stylesheet" type="text/css" href="w3navigation.css" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+   
+
+    #iframe-container {
+      position: relative;
+      width: 780px;
+      height: 530px;
+      background-color: #1a1a1a;
+      border: 2px solid #333;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    iframe {
+      
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .container {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+    }
+
+    button {
+      margin: 1px;
+      padding: 1px 1px;
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    /* Add a slight shadow effect on button hover */
+    button:hover {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Keyframes for the shaking animation */
+    @keyframes shake {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      25% {
+        transform: translateY(-5px);
+      }
+      50% {
+        transform: translateY(5px);
+      }
+      75% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .chrome-button {
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      transition: opacity 0.2s, background-color 0.2s, box-shadow 0.2s;
+    }
+
+    /* Add the shake animation to the button on hover */
+    .chrome-button:hover {
+      animation: shake 0.5s ease-in-out infinite;
+      opacity: 0.9;
+    }
+
+ 
+   
+    }
+  </style>
+</head>
+
+<body>
+  <div id="iframe-container">
+  </div>
+  <div class="container">
+    <button class="chrome-button" id="fullscreenButton">🔎 Full</button>
+    <button class="chrome-button" id="rateButton">⭐ Rate</button>
+  </div>
+  <script src="ext.js"></script>
+</body>
+</html>
