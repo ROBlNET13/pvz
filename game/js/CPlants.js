@@ -1514,15 +1514,15 @@ oCherryBomb = InheritO(CPlants, {
 }),
 oJalapeno = InheritO(oCherryBomb, {
     EName: "oJalapeno",
-    CName: "火爆辣椒",
+    CName: "Hot Chili Pepper",
     width: 68,
     height: 89,
     SunNum: 125,
     beAttackedPointR: 48,
     PicArr: ["images/Card/Plants/Jalapeno.png", "images/Plants/Jalapeno/0.gif", "images/Plants/Jalapeno/Jalapeno.gif", "images/Plants/Jalapeno/JalapenoAttack.gif"],
     AudioArr: ["jalapeno"],
-    Tooltip: "消灭整行的敌人",
-    Produce: '火爆辣椒可以摧毁一整条线上的敌人。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">整条线上的僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎！！！”火爆辣椒说。他现在</font><br>不会爆炸，还不到时候，不过快了，喔~，快了快</font><br>了，快来了。他知道，他感受到了，他一生都是</font><br>在等待这个时刻！',
+    Tooltip: "Destroy an entire row of enemies",
+    Produce: 'Hot peppers can destroy an entire line of enemies。<p>Harm:<font color="#FF0000">extremely high</font><br>Scope:<font color="#FF0000">整条线上的僵尸</font><br>用法：<font color="#FF0000">Use alone，Effective immediately</font></p>“quack quack quack quack！！！”Hot Chili Pepper said. Right now he</font><br>It won't explode, it's not time yet, but it's coming soon, oh~, it's coming soon</font><br>了，coming soon. He knew it, he felt it, his whole life</font><br>waiting for this moment！',
     PrivateBirth: function(a) {
         oSym.addTask(40, function(j) {
             var h = $P[j];
