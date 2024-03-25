@@ -1901,7 +1901,7 @@ var $User = (function () {
         SetBlock($("dHandBookZ"));
     },
     ViewProducePlant = function (b) {
-        PlayAudio("plant1");
+        PlayAudio("tap");
         var a = b.prototype;
         $("pHandBookPlant").style.backgroundImage =
             "url(" + a.PicArr[a.StaticGif] + ")";
