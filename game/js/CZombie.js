@@ -5364,7 +5364,7 @@ var CZombies = (function (b, a) {
   })),
   (oCZombie = InheritO(OrnNoneZombies, {
     EName: "oCZombie",
-    CName: "Zombie",
+    CName: "Ordinary zombie",
     StandGif: 9,
     PicArr: (function () {
       var a = "images/Zombies/wall/Zombie/";
@@ -5382,7 +5382,7 @@ var CZombies = (function (b, a) {
       ];
     })(),
     Produce:
-      '身着古装的僵尸。<p>韧性：<font color="#FF0000">低</font></p>这样的庶民气质是不是让你想到了普通僵尸？是的，他是普通僵尸在中国的远房表亲。这一族都是忠实的脑髓追求者。',
+      'Zombie in costume。<p>toughness：<font color="#FF0000">Low</font></p>Does this common people's temperament remind you of ordinary zombies？Yes, he's the distant Chinese cousin of the common zombie. This family are all loyal brain seekers。',
   })),
   (oCZombie2 = InheritO(
     oCZombie,
@@ -5406,7 +5406,7 @@ var CZombies = (function (b, a) {
   ));
 oCConeheadZombie = InheritO(OrnIZombies, {
   EName: "oCConeheadZombie",
-  CName: "竹篓僵尸",
+  CName: "bamboo basket zombie",
   OrnHP: 370,
   Lvl: 2,
   SunNum: 75,
@@ -5440,7 +5440,7 @@ oCBucketheadZombie = InheritO(
   oCConeheadZombie,
   {
     EName: "oCBucketheadZombie",
-    CName: "乞丐僵尸",
+    CName: "beggar zombie",
     OrnHP: 1100,
     Lvl: 3,
     SunNum: 125,
