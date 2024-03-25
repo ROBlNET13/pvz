@@ -1,10 +1,14 @@
 // when j is pressed, let the user spawn a sun at a random location
 document.addEventListener("keydown", function (event) {
     if (event.keyCode == 74) {
+        let suns = prompt("Spawn Sun", "50");
+        if (suns == null) {
+            return;
+        }
         AppearSun(
             GetX(Math.floor(1 + Math.random() * oS.C)),
             GetY(Math.floor(1 + Math.random() * oS.R)),
-            prompt("Spawn Sun", "50"),
+            suns,
             1
         );
     }
