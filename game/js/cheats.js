@@ -2,7 +2,7 @@
 document.addEventListener("keydown", function (event) {
     if (event.keyCode == 74) {
         let suns = prompt("Spawn Sun", "50");
-        if (suns == null) {
+        if (suns == null || isNaN(suns)) {
             return;
         }
         AppearSun(
