@@ -1541,7 +1541,7 @@ var CZombies = (function (b, a) {
   }),
   oZombie = InheritO(OrnNoneZombies, {
     EName: "oZombie",
-    CName: "Zombie",
+    CName: "普通僵尸",
     StandGif: 9,
     PicArr: (function () {
       var a = "images/Zombies/Zombie/";
@@ -5364,7 +5364,7 @@ var CZombies = (function (b, a) {
   })),
   (oCZombie = InheritO(OrnNoneZombies, {
     EName: "oCZombie",
-    CName: "Zombie",
+    CName: "庶民僵尸",
     StandGif: 9,
     PicArr: (function () {
       var a = "images/Zombies/wall/Zombie/";
