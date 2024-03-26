@@ -1913,7 +1913,7 @@ var $User = (function () {
             -200 * a.BookHandBack + "px 0";
     },
     ViewProduceZombie = function (b) {
-        PlayAudio("plant1");
+        PlayAudio("tap");
         var a = b.prototype;
         $("pHandBookZombie").style.background =
             "url(" +
