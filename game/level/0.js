@@ -132,8 +132,8 @@ oS.Init({
                   (b.onerror = function () {
                       ClearChild(this);
                   }),
-         //         (b.src = "" + Math.random()))
-          //      : ($("").innerHTML = oS.Version);
+                  (b.src = "" + Math.random()))
+                : ($("").innerHTML = oS.Version);
         })();
         $("dServer") && SetBlock($("dServer"));
     },
