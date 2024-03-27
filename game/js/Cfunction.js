@@ -2178,9 +2178,10 @@ var $User = (function () {
      // PlayAudio("seedlift"); 
         var g = ArCard[(oS.ChoseCard = d)];
         if (!(g.CDReady && g.SunReady)) {
-                PlayAudio("seedlift")
+                PlayAudio("buzzer")
             return;
         }
+            PlayAudio("seedlift"); 
         h = window.event || h;
         var b =
                 h.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
