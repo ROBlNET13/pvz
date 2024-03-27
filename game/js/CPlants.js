@@ -527,7 +527,7 @@ oLotusRoot = InheritO(oPeashooter, {
     width: 130,
     height: 114,
     beAttackedPointR: 70,
-    SunNum: 225,
+    SunNum: 250,
     BookHandBack: 4.9,
     coolTime: 25,
     getShadow: function(a) {
@@ -3036,7 +3036,7 @@ width: 75,
 height: 226,
 beAttackedPointR: 55,
 beAttackedPointR: 80,
-SunNum: 75,
+SunNum: 50,
 BookHandBack: 3.5,
 GetDY: function(b, c, a) {
     return 5
