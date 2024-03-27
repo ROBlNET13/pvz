@@ -2826,7 +2826,7 @@ PrivateBirth: function(c) {
             w, i, t = false;
         if (z.CanAttack && (A = oZ.getZ0(r, a)) && A.getCrushed(z)) {
             u = A.id;
-            PlayAudio(["bowlingimpact", "bowlingimpact2"][Math.floor(Math.random() * 2)]);
+ //           PlayAudio(["bowlingimpact", "bowlingimpact2"][Math.floor(Math.random() * 2)]);
             switch (A.Ornaments) {
                 case 0:
                     A.NormalDie();
