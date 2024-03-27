@@ -2818,7 +2818,7 @@ CanGrow: function(e, d, f) {
 NormalAttack: null,
 PrivateBirth: function(c) {
     var d = $(c.id);
-    PlayAudio("bowling");
+    PlayAudio("seastar_roll");
     (function(z, y, q, r, p, x, e, g, b) {
         var a = z.R,
             l = z.C,
