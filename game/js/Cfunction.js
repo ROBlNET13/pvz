@@ -871,10 +871,8 @@ var $User = (function () {
                 image.style.animationPlayState = "paused";
                 PlayAudio("balloon_pop");
                 setTimeout(function () {
-                    if (
-                        document.querySelector("#dSunNum").style.visibility ==
-                        ""
-                    ) {
+                    image.parentNode.removeChild(image);
+                    if (document.querySelector("#dSunNum").style.visibility == '') {
                         AppearSun(
                             GetX(Math.floor(1 + Math.random() * oS.C)),
                             GetY(Math.floor(1 + Math.random() * oS.R)),
@@ -882,7 +880,7 @@ var $User = (function () {
                             1
                         );
                     }
-                    image.parentNode.removeChild(image);
+
                 }, 100);
             };
             image.style.animation =
