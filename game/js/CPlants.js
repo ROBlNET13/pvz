@@ -2308,6 +2308,59 @@ var CPlants = NewO({
                 : c.Die(1);
         },
     }),
+    oBalloon = InheritO(CPlants, {
+        EName: "oBalloon",
+        CName: "Balloon",
+        width: 65,
+        height: 73,
+        beAttackedPointR: 45,
+        SunNum: 50,
+        coolTime: 15.5,
+        HP: 4e3,
+        PicArr: [
+            "images/Card/Plants/BalloonGoober.png",
+            "images/Zombies/Balloon/balloonidle.png",
+            "images/Zombies/Balloon/popped.png",
+        ],
+        Tooltip:
+            "我没有对此的描述，所以这里有一个通用的中文描述",
+        Produce:
+            '我没有对此的描述，所以这里有一个通用的中文描述',
+        CanGrow: function (c, b, f) {
+            var a = b + "_" + f,
+                d = c[1],
+                e = oS.ArP;
+            return e
+                ? oGd.$LF[b] == 1
+                    ? f > 0 &&
+                      f < e.ArC[1] &&
+                      !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
+                    : c[0] && !d
+                : d && d.EName == "oBalloon"
+                ? 1
+                : oGd.$LF[b] == 1
+                ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
+                : c[0] && !d;
+        },
+        InitTrigger: function () {},
+        HurtStatus: 0,
+        getHurt: function (e, b, a) {
+            var c = this,
+                d = $(c.id).childNodes[1];
+            !(b % 3)
+                ? (c.HP -= a) < 1
+                    ? c.Die()
+                    : c.HP < 1334
+                    ? c.HurtStatus < 2 &&
+                      ((c.HurtStatus = 2),
+                      (d.src = "images/Card/Plants/BalloonGoober.png"))
+                    : c.HP < 2667 &&
+                      c.HurtStatus < 1 &&
+                      ((c.HurtStatus = 1),
+                      (d.src = "images/Zombies/Balloon/popped.png"))
+                : c.Die(1);
+        },
+    }),
     oLing = InheritO(oWallNut, {
         EName: "oLing",
         CName: "南湖菱",

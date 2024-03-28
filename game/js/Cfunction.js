@@ -1869,6 +1869,7 @@ var $User = (function () {
                 oLaserBean,
                 oBigChomper,
                 oFlamesMushroom,
+                oBalloon,
             ],
             a = e.length,
             b = 0,
