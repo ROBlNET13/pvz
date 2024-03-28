@@ -829,7 +829,7 @@ var $User = (function () {
                 const top = parseFloat(computedStyle.top);
                 return { left, top };
             }
-            let image = NewImg('', 'images/Zombies/Balloon/balloonidle.png', 'position: absolute; display: block; left: 875px; z-index: 0;', document.body);
+            let image = NewImg('', 'images/Zombies/Balloon/balloonidle.png', 'position: absolute; display: block; left: 875px; z-index: 0;', document.querySelector('#dPZ'));
             let styleSheet = document.styleSheets[0];
             function getRandomY() {
                 let randomY = GetY(Math.floor(1 + Math.random() * oS.R));
