@@ -2857,7 +2857,7 @@ var $User = (function () {
         LoadLvl(g);
     },
     GotoAuthorWebsite = function () {
-        window.open("http://w3technic.com");
+        window.open("http://example.com/removed");
         return;
     },
     InitGame = function () {
