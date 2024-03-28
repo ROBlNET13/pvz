@@ -2001,9 +2001,9 @@ var CPlants = NewO({
                 oGd.$Tombstones[a]
             );
         },
-        Tooltip: "莲叶可以让你在它上面种植非水生植物。",
+        Tooltip: "Lotus leaves allow you to grow non-aquatic plants on them。",
         Produce:
-            '莲叶可以让你种植非水生植物在它上面。<p>Features:<font color="#FF0000">非水生植物可以种植在它上面<br>必须种植在水面</font></p>莲叶从不抱怨，它也从来不想知道发生了什么</font><br>事。在它身上种植物，它也不会说什么。难道</font><br>，它有什么惊奇想法或者可怕的秘密？没人</font><br>知道。莲叶把这些都埋藏在心底。',
+            'Lotus leaves allow you to grow non-aquatic plants on top of them。<p>Features:<font color="#FF0000">非水生植物可以种植在它上面<br>必须种植在水面</font></p>莲叶从不抱怨，它也从来不想知道发生了什么</font><br>事。在它身上种植物，它也不会说什么。难道</font><br>，它有什么惊奇想法或者可怕的秘密？没人</font><br>知道。莲叶把这些都埋藏在心底。',
     }),
     oLilyPad1 = InheritO(oLilyPad, {
         EName: "oLilyPad1",
