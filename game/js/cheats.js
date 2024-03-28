@@ -15,3 +15,9 @@ document.addEventListener("keydown", function (event) {
         ViewHandBook();
     }
 });
+// when b is pressed, run oP.Balloon()
+document.addEventListener("keydown", function (event) {
+    if (event.keyCode == 66) {
+        oP.Balloon();
+    }
+});
