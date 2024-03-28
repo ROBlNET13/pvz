@@ -882,7 +882,7 @@ var $User = (function () {
                             1
                         );
                     }
-                        image.parentNode.removeChild(image);
+                    image.parentNode.removeChild(image);
                 }, 100);
             };
             image.style.animation =
