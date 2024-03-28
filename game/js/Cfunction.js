@@ -842,8 +842,8 @@ var $User = (function () {
             let randomY = getRandomY();
             styleSheet.insertRule(`
               @keyframes moveLeft {
-                from { left: 875px; }
-                to { left: 125px; }
+                from { left: 910px; }
+                to { left: -75px; }
               }
             `, styleSheet.cssRules.length);
             
@@ -869,7 +869,7 @@ var $User = (function () {
                     image.parentNode.removeChild(image);
                 }, 100);
             };
-            image.style.animation = 'moveLeft 10s linear, bobbing 2s ease-in-out infinite';
+            image.style.animation = 'moveLeft 13s linear, bobbing 2s ease-in-out infinite';
             image.style.top = `${randomY}px`
             image.style.cursor = 'pointer';
             image.addEventListener('animationend', () => {
