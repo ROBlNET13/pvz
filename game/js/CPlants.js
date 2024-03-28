@@ -2010,7 +2010,7 @@ var CPlants = NewO({
     }),
     oPotatoMine = InheritO(CPlants, {
         EName: "oPotatoMine",
-        CName: "土豆雷",
+        CName: "Potato Mine",
         width: 75,
         height: 55,
         beAttackedPointR: 55,
@@ -2047,7 +2047,7 @@ var CPlants = NewO({
         ],
         Tooltip: "Explodes on enemy contact<br>need time to set up",
         Produce:
-            'Potato mines are powerful, but they take time</font><br>to arm yourself. You should plant them in the way of zombies</font><br>, which explode when they are touched.<p>Harm:<font color="FF0000">巨大</font><br>Scope:<font color="#FF0000">All zombies in a small area</font><br>Instructions:<font color="#FF0000">It takes some preparation time to use alone.</font></p>Some people say Potato Ray is lazy because he always puts everything</font><br>Save for last. Tudou Lei didnt have time to talk to them, he was busy with exams</font><br>Consider his investment strategy.',
+            'Potato mines are powerful, but they take time</font><br>to arm yourself. You should plant them in the way of zombies</font><br>, which explode when they are touched.<p>Harm:<font color="FF0000">huge</font><br>Scope:<font color="#FF0000">All zombies in a small area</font><br>Instructions:<font color="#FF0000">It takes some preparation time to use alone.</font></p>Some people say Potato Ray is lazy because he always puts everything</font><br>Save for last. Tudou Lei didnt have time to talk to them, he was busy with exams</font><br>Consider his investment strategy.',
         Status: 0,
         AudioArr: ["potato_mine"],
         canTrigger: 0,
@@ -2255,7 +2255,7 @@ var CPlants = NewO({
     }),
     oWallNut = InheritO(CPlants, {
         EName: "oWallNut",
-        CName: "坚果墙",
+        CName: "Wall-Nut",
         width: 65,
         height: 73,
         beAttackedPointR: 45,
@@ -2272,7 +2272,7 @@ var CPlants = NewO({
         Tooltip:
             "Nut Walls have a hard shell that is strong enough to protect other plants.",
         Produce:
-            'Nut Walls are tough enough for you to use to protect other plants</font><br>shell.<p>Toughness:<font color="FF0000">高</font></p>Wall of Nuts: People want to know what its like to be constantly gnawed by zombies</font><br>how? They dont know that my limited senses can only let me</font><br>Feel a tingling, like, relaxing back massage. "',
+            'Nut Walls are tough enough for you to use to protect other plants</font><br>shell.<p>Toughness:<font color="FF0000">high</font></p>Wall of Nuts: People want to know what its like to be constantly gnawed by zombies</font><br>how? They dont know that my limited senses can only let me</font><br>Feel a tingling, like, relaxing back massage. "',
         CanGrow: function (c, b, f) {
             var a = b + "_" + f,
                 d = c[1],
@@ -3246,7 +3246,7 @@ if (yuckrng == 1) {
     }),
     oChomper = InheritO(CPlants, {
         EName: "oChomper",
-        CName: "大嘴花",
+        CName: "Chomper",
         width: 130,
         height: 114,
         beAttackedPointR: 70,
@@ -3259,9 +3259,9 @@ if (yuckrng == 1) {
             "images/Plants/Chomper/ChomperAttack.gif",
             "images/Plants/Chomper/ChomperDigest.gif",
         ],
-        Tooltip: "能一口气吞下一只僵尸, 但处于咀嚼状态中十分脆弱",
+        Tooltip: "Can swallow a zombie in one breath, but is very fragile in the chewing state",
         Produce:
-            '大嘴花可以一口吞掉一整只僵尸，但是他们消</font><br>化僵尸的时候很脆弱。<p>Harm:<font color="#FF0000">巨大</font><br>Scope:<font color="#FF0000">非常近</font><br>Features:<font color="#FF0000">消化时间很长</font></p>大嘴花几乎可以去“恐怖小店”，来表演它的绝</font><br>技了，不过他的经纪人压榨了他太多的钱，所</font><br>以他没去成。尽管如此，大嘴花没有怨言，只</font><br>说了句这只是交易的一部分。',
+            'Big-mouthed flowers can swallow a whole zombie in one bite, but they are very fragile when digesting zombies.<p>Harm:<font color="#FF0000">huge</font><br>Scope:<font color="#FF0000">very close</font><br>Features:<font color="#FF0000">Digestion takes a long time</font></p>Big Mouth Flower can almost go to "Little Shop of Horrors"”，to perform its absolute best</font><br>Skilled, but his agent squeezed him too much money.</font><br>Because he didnt go. Despite this, Dazuihua has no complaints, only</font><br>Said it was just part of the deal.',
         GetDX: function () {
             return -40;
         },
