@@ -780,7 +780,7 @@ var CPlants = NewO({
     }),
     oPeashooter = InheritO(CPlants, {
         EName: "oPeashooter",
-        CName: "Pea shooter",
+        CName: "Peashooter",
         width: 71,
         height: 71,
         beAttackedPointR: 51,
@@ -803,7 +803,7 @@ var CPlants = NewO({
         ],
         Tooltip: "Shoot peas at the enemy",
         Produce:
-            'Pea shooter, your first line of defense. they shoot peas</font><br>beans to attack zombies.<p>Harm:<font color="#FF0000">medium</font></p>How can a plant grow so fast and launch so</font><br>How many peas? Pea Shooter: "Work hard, give yourself</font><br>Self, plus a balance of sunlight, high fiber and carbon oxides</font><br>With, this healthy breakfast makes it all possible. ',
+            'Pea shooters are your first line of defense. They shoot peas at attacking zombies.<p>Damage: <font color="#FF0000">normal</font></p>How can a single plant grow and shoot so many peas so quickly? Peashooter says, "Hard work, commitment, and a healthy, well-balanced breakfast of sunlight and high-fiber carbon dioxide make it all possible." ',
         PrivateBirth: function (a) {
             a.BulletEle = NewImg(
                 0,
