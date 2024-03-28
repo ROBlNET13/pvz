@@ -823,6 +823,63 @@ var $User = (function () {
                 });
         },
         AddZombiesFlag: function (d) {
+            if (Math.floor(Math.random() * 5) == 1) {
+                function getAnimatedPosition(element) {
+                    const computedStyle = getComputedStyle(element);
+                    const left = parseFloat(computedStyle.left);
+                    const top = parseFloat(computedStyle.top);
+                    return { left, top };
+                }
+                let image = NewImg('', 'images/Zombies/Balloon/balloonidle.png', 'position: absolute; display: block; left: 875px; z-index: 0;', document.body);
+                let styleSheet = document.styleSheets[0];
+                function getRandomY() {
+                    let randomY = GetY(Math.floor(1 + Math.random() * oS.R));
+                    if (randomY > 430) {
+                        return getRandomY();
+                    } else {
+                        return randomY;
+                    }
+                }
+                let randomY = getRandomY();
+                styleSheet.insertRule(`
+                  @keyframes moveLeft {
+                    from { left: 875px; }
+                    to { left: 125px; }
+                  }
+                `, styleSheet.cssRules.length);
+                
+                styleSheet.insertRule(`
+                  @keyframes bobbing {
+                    0%, 100% { top: ${randomY}px; }
+                    50% { top: ${randomY + 10}px; }
+                  }
+                `, styleSheet.cssRules.length);
+                image.width = 75;
+                image.onclick = function() {
+                    image.onclick = null;
+                    image.src = 'images/Zombies/Balloon/popped.png';
+                    image.style.animationPlayState = 'paused';
+                    PlayAudio('balloon_pop');
+                    setTimeout(function() {
+                        AppearSun(
+                            GetX(Math.floor(1 + Math.random() * oS.C)),
+                            GetY(Math.floor(1 + Math.random() * oS.R)),
+                            75,
+                            1
+                        );
+                        image.parentNode.removeChild(image);
+                    }, 100);
+                };
+                image.style.animation = 'moveLeft 10s linear, bobbing 2s ease-in-out infinite';
+                image.style.top = `${randomY}px`
+                image.style.cursor = 'pointer';
+                image.addEventListener('animationend', () => {
+                  image.parentNode.removeChild(image);
+                });
+                PlayAudio('ballooninflate');
+                // console.log(image);
+                // console.log(image.parentElement);
+            }
             var g = oP,
                 c = oS.LargeWaveFlag,
                 e,
