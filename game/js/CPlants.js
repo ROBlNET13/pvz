@@ -3072,7 +3072,14 @@ var CPlants = NewO({
         InitTrigger: function () {},
         HurtStatus: 0,
         getHurt: function (e, b, a) {
-                console.log("nom")
+                let yuckrng = Math.floor(Math.random() * 2) + 1 // note the uppercase M in Math
+if (yuckrng == 1) {
+  PlayAudio("yuck")
+        console.log("nom")
+} else if (yuckrng == 2) {
+  PlayAudio("yuck2")
+        console.log("nom2")
+}
             var c = this,
                 d = $(c.id).childNodes[1];
             !(b % 3)
