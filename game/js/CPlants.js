@@ -2003,7 +2003,7 @@ var CPlants = NewO({
         },
         Tooltip: "Lilypads allow you to grow non-aquatic plants on them。",
         Produce:
-            'Lilypads allow you to grow non-aquatic plants on top of them。<p>Features:<font color="#FF0000">Non-aquatic plants can be planted on it<br>Must be planted on water</font></p>Lilypad never complains, it never wants to know what happened</font><br> Plant a plant on it and it won't say anything.</font><br>，Does it have any surprising ideas or terrible secrets?？没人</font><br>Lotus Ye buries all these in her heart。',
+            'Lilypads allow you to grow non-aquatic plants on top of them。<p>Features:<font color="#FF0000">Non-aquatic plants can be planted on it<br>Must be planted on water</font></p>Lilypad never complains, it never wants to know what happened</font><br> Plant a plant on it and it wont say anything.</font><br>，Does it have any surprising ideas or terrible secrets?？</font><br>Lotus Ye buries all these inside of her heart。',
     }),
     oLilyPad1 = InheritO(oLilyPad, {
         EName: "oLilyPad1",
