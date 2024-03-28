@@ -231,7 +231,7 @@ var CPlants = NewO({
             return -30;
         },
         InitTrigger: function () {},
-        Tooltip: "Biting the tombstone will eat the tombstone.",
+        Tooltip: "Plant it on a grave to remove the grave",
         Produce:
             'Biting the Tombstone is used to eat the tombstone.<p>Instructions:<font color="#FF0000">Single use, only effective on tombstones.</font><br>Features:<font color="#FF0000">Devour tombstones.</font></p>Despite his intimidating appearance, he wants everyone</font><br>Everyone knows that he actually likes kittens, and uses his spare time</font><br>while volunteering at a zombie rehabilitation center. "Im just</font><br>doing the right thing, he said.',
         PrivateBirth: function (a) {
@@ -3422,7 +3422,7 @@ if (yuckrng == 1) {
             "images/Plants/FumeShroom/FumeShroomBullet.gif",
         ],
         AudioArr: ["fume"],
-        Tooltip: "Fume-shroom",
+        Tooltip: "Shoots fumes that can pass through screen doors",
         Produce:
             '大喷菇喷出的臭气可以穿透铁丝网门。<p>Harm:<font color="#FF0000">普通，可穿透铁丝网门</font><br>Scope:<font color="#FF0000">臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房</font><br>生产酵母孢，”大喷菇说。“然后小喷菇，上帝</font><br>保佑它，告诉了我这个喷杀僵尸的机会。现在</font><br>我真觉得自己完全不同了。”',
         GetDY: function (b, c, a) {
@@ -3857,7 +3857,7 @@ if (yuckrng == 1) {
     }),
     oScaredyShroom = InheritO(oFumeShroom, {
         EName: "oScaredyShroom",
-        CName: "胆小菇",
+        CName: "Scaredy-shroom",
         width: 57,
         height: 81,
         beAttackedPointR: 37,
@@ -3874,7 +3874,7 @@ if (yuckrng == 1) {
             "images/Plants/ShroomBullet.gif",
             "images/Plants/ShroomBulletHit.gif",
         ],
-        Tooltip: "远程射手, 但敌人靠近时会蜷缩不动",
+        Tooltip: "Long-ranged shooter that hides when enemies get near it",
         Produce:
             '胆小菇是一种远程射手，敌人接近后会躲起来。<p>Harm:<font color="#FF0000">普通</font><br>Features:<font color="#FF0000">敌人接近后就停止攻击<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“</font><br>走开！我不想见任何人。除非……除非你是马</font><br>戏团的人。”',
         GetDX: CPlants.prototype.GetDX,
@@ -4003,7 +4003,7 @@ if (yuckrng == 1) {
     }),
     oHypnoShroom = InheritO(oFumeShroom, {
         EName: "oHypnoShroom",
-        CName: "魅惑菇",
+        CName: "Hypno-shroom",
         width: 71,
         height: 78,
         beAttackedPointL: 10,
@@ -4017,7 +4017,7 @@ if (yuckrng == 1) {
             "images/Plants/HypnoShroom/HypnoShroom.gif",
             "images/Plants/HypnoShroom/HypnoShroomSleep.gif",
         ],
-        Tooltip: "让一只僵尸为你作战",
+        Tooltip: "Makes a zombie fight for you",
         Produce:
             '当僵尸吃下魅惑菇后，他将会掉转方向为你作</font><br>战。<p>Instructions:<font color="#FF0000">单独使用，接触生效</font><br>Features:<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被</font><br>严重误解了，僵尸们在我们的生态环境里扮演着</font><br>重要角色。我们可以也应当更努力地让他们学</font><br>会用我们的方式来思考。”',
         InitTrigger: function () {},
@@ -4038,7 +4038,7 @@ if (yuckrng == 1) {
     }),
     oIceShroom = InheritO(oFumeShroom, {
         EName: "oIceShroom",
-        CName: "寒冰菇",
+        CName: "Ice-shroom",
         width: 83,
         height: 75,
         beAttackedPointR: 63,
@@ -4053,7 +4053,7 @@ if (yuckrng == 1) {
             "images/Plants/IceShroom/icetrap.gif",
         ],
         AudioArr: ["frozen", "wakeup"],
-        Tooltip: "暂时使画面里的所有敌人停止行动",
+        Tooltip: "Temporarily immobilizes all zombies on the screen",
         Produce:
             '寒冰菇，能短暂的冻结屏幕上所有僵尸。<p>Harm:<font color="#FF0000">非常低，冻结僵尸</font><br>Scope:<font color="#FF0000">屏幕上的所有僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效<br>白天睡觉</font></p>寒冰菇皱着眉头，倒不是因为它不高兴或不满</font><br>意，只是因为，它儿时因受创伤而</font><br>遗留下了面瘫。',
         GetDX: CPlants.prototype.GetDX,
