@@ -9,23 +9,23 @@ document.addEventListener("keydown", function (event) {
         );
     }
 });
-// when k is pressed, show handbook
+// when k is pressed, show handbook (almanac)
 document.addEventListener("keydown", function (event) {
     if (event.keyCode == 75) {
         ViewHandBook();
     }
 });
-// when b, l, and n are pressed down at the same time, run oP.Balloon()
-document.addEventListener("keydown", function (event) {
-    if (event.keyCode == 66) {
-        document.addEventListener("keydown", function (event) {
-            if (event.keyCode == 76) {
-                document.addEventListener("keydown", function (event) {
-                    if (event.keyCode == 78) {
-                        oP.Balloon();
-                    }
-                });
-            }
-        });
-    }
+// when b, l, and n are pressed down at the same time, spawn a balloon
+let keysPressed = {};
+
+document.addEventListener('keydown', event => {
+  keysPressed[event.key] = true;
+  
+  if (keysPressed['b'] && keysPressed['l'] && keysPressed['n']) {
+    oP.Balloon();
+  }
+});
+
+document.addEventListener('keyup', event => {
+  keysPressed[event.key] = false;
 });
