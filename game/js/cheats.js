@@ -15,9 +15,17 @@ document.addEventListener("keydown", function (event) {
         ViewHandBook();
     }
 });
-// when b is pressed, run oP.Balloon()
+// when b, l, and n are pressed down at the same time, run oP.Balloon()
 document.addEventListener("keydown", function (event) {
     if (event.keyCode == 66) {
-        oP.Balloon();
+        document.addEventListener("keydown", function (event) {
+            if (event.keyCode == 76) {
+                document.addEventListener("keydown", function (event) {
+                    if (event.keyCode == 78) {
+                        oP.Balloon();
+                    }
+                });
+            }
+        });
     }
 });
