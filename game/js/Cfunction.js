@@ -870,11 +870,11 @@ var $User = (function () {
                 image.src = "images/Zombies/Balloon/popped.png";
                 image.style.animationPlayState = "paused";
                 PlayAudio("balloon_pop");
-                if (
-                    !document.querySelector("#dSunNum").style.visibility ==
-                    "hidden"
-                ) {
-                    setTimeout(function () {
+                setTimeout(function () {
+                    if (
+                        !document.querySelector("#dSunNum").style.visibility ==
+                        "hidden"
+                    ) {
                         AppearSun(
                             GetX(Math.floor(1 + Math.random() * oS.C)),
                             GetY(Math.floor(1 + Math.random() * oS.R)),
@@ -882,8 +882,8 @@ var $User = (function () {
                             1
                         );
                         image.parentNode.removeChild(image);
-                    }, 100);
-                }
+                    }
+                }, 100);
             };
             image.style.animation =
                 "moveLeft 13s linear, bobbing 2s ease-in-out infinite";
