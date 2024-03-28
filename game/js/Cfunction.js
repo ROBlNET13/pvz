@@ -829,7 +829,12 @@ var $User = (function () {
                 const top = parseFloat(computedStyle.top);
                 return { left, top };
             }
-            let image = NewImg('', 'images/Zombies/Balloon/balloonidle.png', 'position: absolute; display: block; left: 875px; z-index: 0;', document.querySelector('#dPZ'));
+            let image = NewImg(
+                "",
+                "images/Zombies/Balloon/balloonidle.png",
+                "position: absolute; display: block; left: 875px; z-index: 0;",
+                document.querySelector("#dPZ")
+            );
             let styleSheet = document.styleSheets[0];
             function getRandomY() {
                 let randomY = GetY(Math.floor(1 + Math.random() * oS.R));
@@ -840,43 +845,55 @@ var $User = (function () {
                 }
             }
             let randomY = getRandomY();
-            styleSheet.insertRule(`
+            styleSheet.insertRule(
+                `
               @keyframes moveLeft {
                 from { left: 910px; }
                 to { left: -75px; }
               }
-            `, styleSheet.cssRules.length);
-            
-            styleSheet.insertRule(`
+            `,
+                styleSheet.cssRules.length
+            );
+
+            styleSheet.insertRule(
+                `
               @keyframes bobbing {
                 0%, 100% { top: ${randomY}px; }
                 50% { top: ${randomY + 10}px; }
               }
-            `, styleSheet.cssRules.length);
+            `,
+                styleSheet.cssRules.length
+            );
             image.width = 75;
-            image.onclick = function() {
+            image.onclick = function () {
                 image.onclick = null;
-                image.src = 'images/Zombies/Balloon/popped.png';
-                image.style.animationPlayState = 'paused';
-                PlayAudio('balloon_pop');
-                setTimeout(function() {
-                    AppearSun(
-                        GetX(Math.floor(1 + Math.random() * oS.C)),
-                        GetY(Math.floor(1 + Math.random() * oS.R)),
-                        75,
-                        1
-                    );
-                    image.parentNode.removeChild(image);
-                }, 100);
+                image.src = "images/Zombies/Balloon/popped.png";
+                image.style.animationPlayState = "paused";
+                PlayAudio("balloon_pop");
+                if (
+                    !document.querySelector("#dSunNum").style.visibility ==
+                    "hidden"
+                ) {
+                    setTimeout(function () {
+                        AppearSun(
+                            GetX(Math.floor(1 + Math.random() * oS.C)),
+                            GetY(Math.floor(1 + Math.random() * oS.R)),
+                            75,
+                            1
+                        );
+                        image.parentNode.removeChild(image);
+                    }, 100);
+                }
             };
-            image.style.animation = 'moveLeft 13s linear, bobbing 2s ease-in-out infinite';
-            image.style.top = `${randomY}px`
-            image.style.cursor = 'pointer';
-            image.style.zIndex = '999'
-            image.addEventListener('animationend', () => {
-              image.parentNode.removeChild(image);
+            image.style.animation =
+                "moveLeft 13s linear, bobbing 2s ease-in-out infinite";
+            image.style.top = `${randomY}px`;
+            image.style.cursor = "pointer";
+            image.style.zIndex = "999";
+            image.addEventListener("animationend", () => {
+                image.parentNode.removeChild(image);
             });
-            PlayAudio('ballooninflate');
+            PlayAudio("ballooninflate");
             // console.log(image);
             // console.log(image.parentElement);
         },
@@ -2237,13 +2254,13 @@ var $User = (function () {
         })(b, c);
     },
     ChosePlant = function (h, d) {
-     // PlayAudio("seedlift"); 
+        // PlayAudio("seedlift");
         var g = ArCard[(oS.ChoseCard = d)];
         if (!(g.CDReady && g.SunReady)) {
-                PlayAudio("buzzer")
+            PlayAudio("buzzer");
             return;
         }
-            PlayAudio("seedlift"); 
+        PlayAudio("seedlift");
         h = window.event || h;
         var b =
                 h.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
