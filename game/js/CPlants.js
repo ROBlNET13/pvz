@@ -2831,9 +2831,9 @@ var CPlants = NewO({
             "images/Plants/CherryBomb/Boom.gif" + $Random,
         ],
         AudioArr: ["cherrybomb"],
-        Tooltip: "炸掉一定区域内的所有僵尸",
+        Tooltip: "Blow up all zombies in a certain area",
         Produce:
-            '樱桃炸弹，能炸掉一定区域内所有僵尸。他们</font><br>一种下就会立刻引爆。所以请把他们种在僵尸</font><br>们的身边。<p>Harm:<font color="#FF0000">巨大</font><br>Scope:<font color="#FF0000">一个中等区域内的所有僵尸</font><br>Instructions:<font color="#FF0000">单独使用，立即爆炸</font></p>“我要‘爆’开了。”樱桃一号说。“不，我们是</font><br>‘炸’开了！”它哥哥樱桃二号说。经过激烈的商</font><br>议之后，他们才统一“爆炸这个说法。”',
+            'Cherry bomb can blow up all zombies in a certain area.</font><br>One will detonate immediately. So please plant them on zombies</font><br>around them.<p>Harm:<font color="#FF0000">huge</font><br>Scope:<font color="#FF0000">All zombies in a medium area</font><br>Instructions:<font color="#FF0000">Instant use, it explodes immediately</font></p>“I am going to explode. "Cherry No. 1 said. "No, we are</font><br>‘炸’开了！”Said its brother Cherry No. 2. After intense discussion</font><br>After discussion, they finally agreed on the term "explosion."”',
         InitTrigger: function () {},
         getHurt: function () {},
         PrivateBirth: function (a) {
