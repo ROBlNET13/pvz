@@ -4950,13 +4950,13 @@ var CPlants = NewO({
             "images/Plants/Oxygen/0.gif",
             "images/Plants/Oxygen/Oxygen1.gif",
         ],
-        // PKind: 0,
-        Stature: -1,
+        PKind: 0,
+        Stature: 0,
         GetDY: function (b, c, a) {
             return -15;
         },
         getShadow: function (a) {
-            return "display:none";
+            return "";
             return (
                 "left:" +
                 (a.width * 0.5 - 20) +
