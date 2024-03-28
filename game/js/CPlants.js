@@ -801,7 +801,7 @@ var CPlants = NewO({
             "images/Plants/PB00.gif",
             "images/Plants/PeaBulletHit.gif",
         ],
-        Tooltip: "Shoot peas at the enemy",
+        Tooltip: "Shoots peas at the enemy",
         Produce:
             'Pea shooters are your first line of defense. They shoot peas at attacking zombies.<p>Damage: <font color="#FF0000">normal</font></p>How can a single plant grow and shoot so many peas so quickly? Peashooter says, "Hard work, commitment, and a healthy, well-balanced breakfast of sunlight and high-fiber carbon dioxide make it all possible." ',
         PrivateBirth: function (a) {
@@ -1612,9 +1612,9 @@ var CPlants = NewO({
             "images/Plants/SunFlower/SunFlower.gif",
         ],
         Tooltip:
-            "Sunflower, the base crop that produces more sun for you. Plant as many as you can!",
+            "Gives you additional sun",
         Produce:
-            'Sunflowers, cash crops that produce extra sun for you. try</font><br>Plant as many as you can!<p>阳光产量：<font color="#FF0000">中等</font></p>Sunflower cant help but dance to the beat. what beat</font><br>Woolen cloth? Hi, its the jazz beat the earth itself uses to pick up, this</font><br>A beat of a frequency that only a sunflower can hear.',
+            'Sunflowers are essential for you to produce extra sun. Try planting as many as you can!<p>Sun production: <font color="#FF0000">normal</font></p>Sunflower can't resist bouncing to the beat. Which beat is that? Why, the life-giving jazzy rhythm of the Earth itself, thumping at a frequency only Sunflower can hear.',
         BirthStyle: function (c, e, b, a) {
             var d = b.childNodes[1];
             d.src = "images/Plants/SunFlower/SunFlower.gif";
