@@ -4950,7 +4950,7 @@ var CPlants = NewO({
             "images/Plants/Oxygen/0.gif",
             "images/Plants/Oxygen/Oxygen1.gif",
         ],
-        PKind: 0,
+        // PKind: 0,
         Stature: -1,
         GetDY: function (b, c, a) {
             return -15;
