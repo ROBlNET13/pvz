@@ -2818,7 +2818,7 @@ var CPlants = NewO({
     }),
     oCherryBomb = InheritO(CPlants, {
         EName: "oCherryBomb",
-        CName: "樱桃炸弹",
+        CName: "Cherry Bomb",
         width: 112,
         height: 81,
         beAttackedPointR: 92,
