@@ -872,6 +872,7 @@ var $User = (function () {
             image.style.animation = 'moveLeft 13s linear, bobbing 2s ease-in-out infinite';
             image.style.top = `${randomY}px`
             image.style.cursor = 'pointer';
+            image.style.zIndex = '999'
             image.addEventListener('animationend', () => {
               image.parentNode.removeChild(image);
             });
