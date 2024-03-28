@@ -1053,7 +1053,7 @@ var CPlants = NewO({
             "shieldhit2",
             "plastichit",
         ],
-        Tooltip: "Frost Archer deals damage, Also has a deceleration effect",
+        Tooltip: "Shoots frozen peas that damage and slow the enemy",
         Produce:
             'The Frost Archer fires Frozen Peas to attack enemies and has</font><br>Slow down effect.<p>Harm:<font color="#FF0000">Medium, with a slowing effect</font></p>People often tell the ice shooter how cold he is, or</font><br>Admonish him to be calm. They told him to keep your composure. cold</font><br>The ice shooter just rolled his eyes. In fact, he heard it all.',
         NormalAttack: function () {
@@ -1181,7 +1181,7 @@ var CPlants = NewO({
             "shieldhit",
             "shieldhit2",
         ],
-        Tooltip: "Fires two peas at once",
+        Tooltip: "Fires two peas at a time",
         Produce:
             'Dual shooters can shoot two peas at once<p>Harm:<font color="#FF0000">Medium (per piece)</font><br>Launch speed:<font color="#FF0000">double</font></p>The dual shooter is fierce, and he grew up on the street. Hes not in now</font><br>Regardless of anyones opinion, whether its a plant or a zombie, he fights</font><br>Out of peas, is to keep others away from him. Actually, double</font><br>The launcher has been secretly longing for love.',
         NormalAttack1: oPeashooter.prototype.NormalAttack,
@@ -2045,7 +2045,7 @@ var CPlants = NewO({
             "images/Plants/PotatoMine/PotatoMine_mashed.gif",
             "images/Plants/PotatoMine/ExplosionSpudow.gif",
         ],
-        Tooltip: "Explodes on enemy contact<br>need time to set up",
+        Tooltip: "Explodes on contact, but takes time to arm itself",
         Produce:
             'Potato mines are powerful, but they take time</font><br>to arm yourself. You should plant them in the way of zombies</font><br>, which explode when they are touched.<p>Harm:<font color="FF0000">huge</font><br>Scope:<font color="#FF0000">All zombies in a small area</font><br>Instructions:<font color="#FF0000">It takes some preparation time to use alone.</font></p>Some people say Potato Ray is lazy because he always puts everything</font><br>Save for last. Tudou Lei didnt have time to talk to them, he was busy with exams</font><br>Consider his investment strategy.',
         Status: 0,
@@ -2270,7 +2270,7 @@ var CPlants = NewO({
             "images/Plants/WallNut/Wallnut_cracked2.gif",
         ],
         Tooltip:
-            "Nut Walls have a hard shell that is strong enough to protect other plants.",
+            "Blocks off zombies and protects your other plants",
         Produce:
             'Nut Walls are tough enough for you to use to protect other plants</font><br>shell.<p>Toughness:<font color="FF0000">high</font></p>Wall of Nuts: People want to know what its like to be constantly gnawed by zombies</font><br>how? They dont know that my limited senses can only let me</font><br>Feel a tingling, like, relaxing back massage. "',
         CanGrow: function (c, b, f) {
@@ -2831,7 +2831,7 @@ var CPlants = NewO({
             "images/Plants/CherryBomb/Boom.gif" + $Random,
         ],
         AudioArr: ["cherrybomb"],
-        Tooltip: "Blow up all zombies in a certain area",
+        Tooltip: "Blows up all zombies in an area",
         Produce:
             'Cherry bomb can blow up all zombies in a certain area.</font><br>One will detonate immediately. So please plant them on zombies</font><br>around them.<p>Harm:<font color="#FF0000">huge</font><br>Scope:<font color="#FF0000">All zombies in a medium area</font><br>Instructions:<font color="#FF0000">Instant use, it explodes immediately</font></p>“I am going to explode. "Cherry No. 1 said. "No, we are</font><br>‘炸’开了！”Said its brother Cherry No. 2. After intense discussion</font><br>After discussion, they finally agreed on the term "explosion."”',
         InitTrigger: function () {},
@@ -3259,7 +3259,7 @@ if (yuckrng == 1) {
             "images/Plants/Chomper/ChomperAttack.gif",
             "images/Plants/Chomper/ChomperDigest.gif",
         ],
-        Tooltip: "Can swallow a zombie in one breath, but is very fragile in the chewing state",
+        Tooltip: "Devours a zombie whole, but is vulnerable while chewing",
         Produce:
             'Big-mouthed flowers can swallow a whole zombie in one bite, but they are very fragile when digesting zombies.<p>Harm:<font color="#FF0000">huge</font><br>Scope:<font color="#FF0000">very close</font><br>Features:<font color="#FF0000">Digestion takes a long time</font></p>Big Mouth Flower can almost go to "Little Shop of Horrors"”，to perform its absolute best</font><br>Skilled, but his agent squeezed him too much money.</font><br>Because he didnt go. Despite this, Dazuihua has no complaints, only</font><br>Said it was just part of the deal.',
         GetDX: function () {
@@ -3405,7 +3405,7 @@ if (yuckrng == 1) {
     }),
     oFumeShroom = InheritO(CPlants, {
         EName: "oFumeShroom",
-        CName: "大喷菇",
+        CName: "Fume-shroom",
         width: 100,
         height: 88,
         beAttackedPointR: 80,
@@ -3422,7 +3422,7 @@ if (yuckrng == 1) {
             "images/Plants/FumeShroom/FumeShroomBullet.gif",
         ],
         AudioArr: ["fume"],
-        Tooltip: "喷射可以穿过门板的气液",
+        Tooltip: "Fume-shroom",
         Produce:
             '大喷菇喷出的臭气可以穿透铁丝网门。<p>Harm:<font color="#FF0000">普通，可穿透铁丝网门</font><br>Scope:<font color="#FF0000">臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房</font><br>生产酵母孢，”大喷菇说。“然后小喷菇，上帝</font><br>保佑它，告诉了我这个喷杀僵尸的机会。现在</font><br>我真觉得自己完全不同了。”',
         GetDY: function (b, c, a) {
@@ -3776,7 +3776,7 @@ if (yuckrng == 1) {
     }),
     oPuffShroom = InheritO(oFumeShroom, {
         EName: "oPuffShroom",
-        CName: "小喷菇",
+        CName: "Puff-shroom",
         width: 40,
         height: 66,
         beAttackedPointL: 15,
@@ -3792,9 +3792,9 @@ if (yuckrng == 1) {
             "images/Plants/ShroomBulletHit.gif",
         ],
         AudioArr: ["puff"],
-        Tooltip: "向敌人发射短程孢子",
+        Tooltip: "Shoots short-ranged spores at the enemy",
         Produce:
-            '小喷菇是免费的，不过射程很近。<p>Harm:<font color="#FF0000">中等</font><br>Scope:<font color="#FF0000">近<br>白天要睡觉</font></p>小喷菇：“我也是最近才知道僵尸的存在，和</font><br>很多蘑菇一样，我只是把他们想象成童话和电</font><br>影里的怪物。不过这次的经历已经让我大开眼</font><br>界了。',
+            '小喷菇是免费的，不过射程很近。<p>Harm: <font color="#FF0000">中等</font><br>Scope:<font color="#FF0000">近<br>白天要睡觉</font></p>小喷菇：“我也是最近才知道僵尸的存在，和</font><br>很多蘑菇一样，我只是把他们想象成童话和电</font><br>影里的怪物。不过这次的经历已经让我大开眼</font><br>界了。',
         GetDX: CPlants.prototype.GetDX,
         getTriggerRange: function (a, b, c) {
             return [[b, Math.min(c + 250, oS.W), 0]];
@@ -4112,7 +4112,7 @@ if (yuckrng == 1) {
     }),
     oSunShroom = InheritO(oFumeShroom, {
         EName: "oSunShroom",
-        CName: "阳光菇",
+        CName: "Sun-shroom",
         width: 59,
         height: 61,
         beAttackedPointL: 15,
@@ -4127,7 +4127,7 @@ if (yuckrng == 1) {
             "images/Plants/SunShroom/SunShroomSleep.gif",
             "images/Plants/SunShroom/SunShroom.gif",
         ],
-        Tooltip: "阳光菇开始提供少量阳光，稍后提供正常数量阳光。",
+        Tooltip: "Gives small sun at first and normal sun later",
         Produce:
             '阳光菇开始提供少量阳光，稍后提供正常数量</font><br>阳光。<p>生产阳光：<font color="#FF0000">开始低，之后正常<br>白天睡觉</font></p>阳光菇讨厌阳光。恨到当它内部产生点阳光时</font><br>，就尽可能快的吐出来。它就是不能忍受这个</font><br>。对它来说，阳光令人厌恶。',
         GetDX: CPlants.prototype.GetDX,
@@ -4206,7 +4206,7 @@ if (yuckrng == 1) {
     }),
     oDoomShroom = InheritO(oFumeShroom, {
         EName: "oDoomShroom",
-        CName: "毁灭菇",
+        CName: "Doom-shroom",
         width: 102,
         height: 91,
         beAttackedPointR: 80,
