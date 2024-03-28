@@ -3072,6 +3072,7 @@ var CPlants = NewO({
         InitTrigger: function () {},
         HurtStatus: 0,
         getHurt: function (e, b, a) {
+                console.log("nom")
             var c = this,
                 d = $(c.id).childNodes[1];
             !(b % 3)
