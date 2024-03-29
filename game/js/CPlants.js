@@ -2315,7 +2315,7 @@ var CPlants = NewO({
         height: 73,
         beAttackedPointR: 45,
         SunNum: '+75',
-        coolTime: 0,
+        coolTime: 'Wave',
         HP: 1,
         PicArr: [
             "images/Card/Plants/BalloonGoober.png",
