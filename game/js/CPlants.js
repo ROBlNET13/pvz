@@ -2310,7 +2310,7 @@ var CPlants = NewO({
     }),
     oBalloon = InheritO(CPlants, {
         EName: "oBalloon",
-        CName: "Balloon",
+        CName: "Balloonatic",
         width: 65,
         height: 73,
         beAttackedPointR: 45,
@@ -2325,7 +2325,7 @@ var CPlants = NewO({
         Tooltip:
             "goober",
         Produce:
-            'Has a chance to spawn every wave. Popping the balloon<br> gives you a sun worth 75 sun.</font><br>.<p>Toughness:<font color="FF0000">low</font></p> ">:3" says the balloon, ">:3" says the balloon, again.',
+            'Has a chance to spawn every wave. Popping Balloonatic<br> gives you a sun worth 75 sun.</font><br>.<p>Toughness:<font color="FF0000">low</font></p> ">:3" says Balloonatic, ">:3" says the Balloonatic, again.',
         CanGrow: function (c, b, f) {
             var a = b + "_" + f,
                 d = c[1],
