@@ -2314,7 +2314,7 @@ var CPlants = NewO({
         width: 65,
         height: 73,
         beAttackedPointR: 45,
-        SunNum: 0,
+        SunNum: +75,
         coolTime: 0,
         HP: 1,
         PicArr: [
@@ -2323,9 +2323,9 @@ var CPlants = NewO({
             "images/Zombies/Balloon/popped.png",
         ],
         Tooltip:
-            "我没有对此的描述，所以这里有一个通用的中文描述",
+            "goober",
         Produce:
-            '我没有对此的描述，所以这里有一个通用的中文描述',
+            'Has a chance to spawn every wave. Popping the balloon gives you a sun worth 75 sun.</font><br>.<p>Toughness:<font color="FF0000">low</font></p> ">:3" says the balloon, ">:3" says the balloon, again.',
         CanGrow: function (c, b, f) {
             var a = b + "_" + f,
                 d = c[1],
