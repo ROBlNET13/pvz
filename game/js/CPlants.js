@@ -2319,7 +2319,7 @@ var CPlants = NewO({
         HP: 4e3,
         PicArr: [
             "images/Card/Plants/BalloonGoober.png",
-            "images/Zombies/Balloon/balloonidle.png",
+            "images/Zombies/Balloon/balloon.png",
             "images/Zombies/Balloon/popped.png",
         ],
         Tooltip:
