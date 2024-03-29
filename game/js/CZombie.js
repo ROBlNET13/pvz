@@ -1541,7 +1541,7 @@ var CZombies = (function (b, a) {
   }),
   oZombie = InheritO(OrnNoneZombies, {
     EName: "oZombie",
-    CName: "普通僵尸",
+    CName: "Zombie2",
     StandGif: 9,
     PicArr: (function () {
       var a = "images/Zombies/Zombie/";
@@ -1603,7 +1603,7 @@ var CZombies = (function (b, a) {
       ];
     })(),
     EName: "oFlagZombie",
-    CName: "旗帜僵尸",
+    CName: "Flag Zombie",
     OSpeed: 2.2,
     Speed: 2.2,
     beAttackedPointR: 101,
@@ -1651,7 +1651,7 @@ var CZombies = (function (b, a) {
   })(),
   oConeheadZombie = InheritO(OrnIZombies, {
     EName: "oConeheadZombie",
-    CName: "路障僵尸",
+    CName: "Conehead Zombie",
     OrnHP: 370,
     Lvl: 2,
     SunNum: 75,
@@ -1717,7 +1717,7 @@ var CZombies = (function (b, a) {
     oConeheadZombie,
     {
       EName: "oBucketheadZombie",
-      CName: "铁桶僵尸",
+      CName: "Buckethead Zombie",
       OrnHP: 1100,
       Lvl: 3,
       SunNum: 125,
@@ -1740,7 +1740,7 @@ var CZombies = (function (b, a) {
   ),
   oFootballZombie = InheritO(oConeheadZombie, {
     EName: "oFootballZombie",
-    CName: "橄榄球僵尸",
+    CName: "Football Zombie",
     OrnHP: 1400,
     Lvl: 3,
     SunNum: 175,
@@ -1835,7 +1835,7 @@ var CZombies = (function (b, a) {
   }),
   oPoleVaultingZombie = InheritO(OrnNoneZombies, {
     EName: "oPoleVaultingZombie",
-    CName: "撑杆僵尸",
+    CName: "Pole Vaulting Zombie",
     HP: 270,
     width: 348,
     height: 218,
@@ -2153,7 +2153,7 @@ var CZombies = (function (b, a) {
   }),
   oNewspaperZombie = InheritO(OrnIIZombies, {
     EName: "oNewspaperZombie",
-    CName: "读报僵尸",
+    CName: "Newspaper Zombie",
     OrnHP: 150,
     Lvl: 2,
     LostPaperGif: 13,
@@ -2434,7 +2434,7 @@ var CZombies = (function (b, a) {
   }),
   oScreenDoorZombie = InheritO(oNewspaperZombie, {
     EName: "oScreenDoorZombie",
-    CName: "铁栅门僵尸",
+    CName: "Screen Door Zombie",
     OrnHP: 1100,
     Lvl: 3,
     SunNum: 100,
