@@ -1541,7 +1541,7 @@ var CZombies = (function (b, a) {
   }),
   oZombie = InheritO(OrnNoneZombies, {
     EName: "oZombie",
-    CName: "Zombie2",
+    CName: "Zombie",
     StandGif: 9,
     PicArr: (function () {
       var a = "images/Zombies/Zombie/";
