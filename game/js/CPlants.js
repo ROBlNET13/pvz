@@ -1614,7 +1614,7 @@ var CPlants = NewO({
         Tooltip:
             "Gives you additional sun",
         Produce:
-            'Sunflowers are essential for you to produce extra sun. Try planting as many as you can!<p>Sun production: <font color="#FF0000">normal</font></p>Sunflower can′t resist bouncing to the beat. Which beat is that? Why, the life-giving jazzy rhythm of the Earth itself, thumping at a frequency only Sunflower can hear.',
+            'Sunflowers are essential for you to produce extra sun. Try planting as many as you can!<p>Sun production: <font color="#FF0000">normal</font></p>Sunflower can\'t resist bouncing to the beat. Which beat is that? Why, the life-giving jazzy rhythm of the Earth itself, thumping at a frequency only Sunflower can hear.',
         BirthStyle: function (c, e, b, a) {
             var d = b.childNodes[1];
             d.src = "images/Plants/SunFlower/SunFlower.gif";
