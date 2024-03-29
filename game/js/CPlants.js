@@ -2325,7 +2325,7 @@ var CPlants = NewO({
         Tooltip:
             "goober",
         Produce:
-            'Has a chance to spawn every wave. Popping Balloonatic<br> gives you a sun worth 75 sun.</font><br>.<p>Toughness:<font color="FF0000">low</font></p> ">:3" says Balloonatic, ">:3" says the Balloonatic, again.',
+            'Has a chance to spawn every wave. Popping Balloonatic<br> gives you a sun worth 75 sun.</font><br>.<p>Toughness:<font color="FF0000">low</font></p> ">:3" says Balloonatic, ">:3" says Balloonatic, again.',
         CanGrow: function (c, b, f) {
             var a = b + "_" + f,
                 d = c[1],
