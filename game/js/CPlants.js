@@ -2314,7 +2314,7 @@ var CPlants = NewO({
         width: 65,
         height: 73,
         beAttackedPointR: 45,
-        SunNum: +75,
+        SunNum: '+75',
         coolTime: 0,
         HP: 1,
         PicArr: [
