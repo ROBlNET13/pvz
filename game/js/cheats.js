@@ -24,6 +24,10 @@ document.addEventListener('keydown', event => {
   if (keysPressed['b'] && keysPressed['l'] && keysPressed['n']) {
     oP.Balloon();
   }
+  // next level
+  if (keysPressed['n'] && keysPressed['l']) {
+    document.querySelector('#btnNextLevel').click();
+  }
 });
 
 document.addEventListener('keyup', event => {
