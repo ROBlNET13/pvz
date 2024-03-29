@@ -1985,7 +1985,7 @@ var $User = (function () {
         $("dProducePlant").innerHTML = a.Produce;
         innerText($("dHandBookPlantName"), a.CName);
         innerText($("spSunNum"), a.SunNum);
-        innerText($("spCoolTime"), a.coolTime + "Second");
+        innerText($("spCoolTime"), a.coolTime + "s");
         $("pPlantBack").style.backgroundPosition =
             -200 * a.BookHandBack + "px 0";
     },
@@ -2010,7 +2010,7 @@ var $User = (function () {
             a.CName +
             "<br>cooldown:" +
             a.coolTime +
-            "Second<br>" +
+            "s<br>" +
             (oS.DKind && a.night
                 ? '<span style="color:#F00">Nocturnal - sleeps during the day</span><br>' +
                   a.Tooltip
@@ -2156,7 +2156,7 @@ var $User = (function () {
             c = e.PName.prototype,
             a = c.CName;
         !oS.CardKind &&
-            ((a += "<br>cooldown:" + c.coolTime + "Second<br>" + c.Tooltip),
+            ((a += "<br>cooldown:" + c.coolTime + "s<br>" + c.Tooltip),
             !e.CDReady &&
                 (a += '<br><span style="color:#F00">ReLoading...</span>'));
         !e.SunReady &&
