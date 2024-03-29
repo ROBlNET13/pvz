@@ -1143,9 +1143,9 @@ var CPlants = NewO({
             "images/Plants/PeaBulletHit1.gif",
         ],
         Tooltip:
-            "The Dual Ice Archer can fire two bullets with a slowing effect",
+            "Fires two frozen peas that damage and slow the enemy at a time",
         Produce:
-            'The Twin Ice Archer fires two bullets with a slowing effect.<p>Harm:<font color="#FF0000">medium (each)</font><br>Launch speed:<font color="#FF0000">double</font></p>The dual-shot ice shooter is a shooting enthusiast, he often</font><br>People mention how accurate their shots are. Well, although things</font><br>Not so.',
+            'Fires two frozen peas that damage and slow the enemy at a time.<p>Harm:<font color="#FF0000">medium (each)</font><br>Launch speed:<font color="#FF0000">double</font></p>The dual-shot ice shooter is a shooting enthusiast, he often</font><br>People mention how accurate their shots are. Well, although things</font><br>Not so.',
         NormalAttack1: oSnowPea.prototype.NormalAttack,
         NormalAttack: function (a) {
             this.NormalAttack1();
