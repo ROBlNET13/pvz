@@ -11,7 +11,7 @@ document.addEventListener('keydown', event => {
     document.querySelector('#btnNextLevel').click();
   }
   // almanac (handbook)
-  if (keysPressed('k')) {
+  if (keysPressed['k']) {
     ViewHandBook();
   }
   // sun
