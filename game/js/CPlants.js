@@ -469,7 +469,7 @@ var CPlants = NewO({
             "images/Plants/Starfruit/Starfruit.gif",
             "images/Plants/Starfruit/Star.gif",
         ],
-        Tooltip: "Shoot small carambola in five directions",
+        Tooltip: "Shoots stars in 5 directions",
         Produce:
             'Starfruit can fire small starfruits in five directions.<p>Harm:<font color="#FF0000">medium</font><br>Scope:<font color="#FF0000">five directions</font></p>Starfruit: "Hey man, I went to the dentist one day and he said</font><br>I have four cavities. When I count, I only have one tooth! one</font><br>Carambola: "Hey man, theres a tooth with four cavities? Why is that?" I went to the dentist and he said',
         getTriggerRange: function (e, g, f) {
@@ -1220,7 +1220,7 @@ var CPlants = NewO({
             "shieldhit",
             "shieldhit2",
         ],
-        Tooltip: "Shoots three rows of peas at once",
+        Tooltip: "Shoots peas in three lanes",
         Produce:
             'A three-line shooter can shoot peas on three lines at the same time.<p>Harm:<font color="#FF0000">Ordinary (each)</font><br>Scope:<font color="#FF0000">three lines</font></p>The three-line shooter enjoys reading, playing chess and sitting in the park. he</font><br>Also enjoys performing, especially modern jazz. "Im looking for</font><br>The other half of my life," he said. The third-line shooters favorite number</font><br>The word is 5.',
         getTriggerR: function (a) {
@@ -1349,7 +1349,7 @@ var CPlants = NewO({
     }),
     oGatlingPea = InheritO(oPeashooter, {
         EName: "oGatlingPea",
-        CName: "GatlingPea",
+        CName: "Gatling Pea",
         width: 88,
         height: 84,
         beAttackedPointR: 68,
@@ -1369,7 +1369,7 @@ var CPlants = NewO({
             "shieldhit",
             "shieldhit2",
         ],
-        Tooltip: "Fires four peas at once<br>",
+        Tooltip: "Shoots four peas at a time",
         Produce:
             'The machine gun shooter can fire four peas at once<p>Harm:<font color="#FF0000">medium (each)</font><br>Launch speed:<font color="#FF0000">four times<br>Can be planted on dual launchers</font></p>He was worried, and they said to him in unison: "When Gatlin announced that he was going to join the army, his parents were very excited,</font><br>He was worried, and they said to him in unison: "My dear,</font><br>Its too dangerous. "Gatlin refuses to budge," life is in danger</font><br>Dangerous," he replied, and in his eyes,</font><br>Flashes of steely faith.',
         PrivateBirth: function (c) {
@@ -1428,7 +1428,7 @@ var CPlants = NewO({
     }),
     oSplitPea = InheritO(oPeashooter, {
         EName: "oSplitPea",
-        CName: "SplitPea",
+        CName: "Split Pea",
         width: 92,
         height: 72,
         beAttackedPointR: 72,
@@ -1449,7 +1449,7 @@ var CPlants = NewO({
             "shieldhit",
             "shieldhit2",
         ],
-        Tooltip: "Two-way firing peas front and rear",
+        Tooltip: "Shoots peas forward and backwards",
         Produce:
             'A split shooter that can fire peas in both forward and back directions.<p>Harm:<font color="#FF0000">medium</font><br>Scope:<font color="#FF0000">front and back</font><br>Launch speed:<font color="#FF0000">Normal speed at the front, double speed at the back</font></p>Split Sagittarius: "Yes, Im a Gemini. I know,</font><br>This is really surprising. However, there are two heads, or the actual</font><br>on the top, with a head and a head-like thing, on the back,</font><br>Great help for my defense on this line.',
         GetDX: function () {
@@ -1736,7 +1736,7 @@ var CPlants = NewO({
     }),
     oTwinSunflower = InheritO(oSunFlower, {
         EName: "oTwinSunflower",
-        CName: "TwinSunflower",
+        CName: "Twin Sunflower",
         width: 83,
         height: 84,
         beAttackedPointR: 63,
@@ -1748,7 +1748,7 @@ var CPlants = NewO({
             "images/Plants/TwinSunflower/TwinSunflower.gif",
         ],
         Tooltip:
-            "Twin sunflowers produce twice as much sunlight as regular sunflowers<br>",
+            "Gives twice as much sun as a sunflower",
         Produce:
             'Twin sunflowers produce twice as much sunlight as regular sunflowers.<p>Sunlight Yield:<font color="#FF0000">double<br>Can be planted on common sunflowers</font></p>Its a crazy night where forbidden science and technology make double</font><br>The cell sunflower came to this world. Lightning, thunder, gust of wind, roar</font><br>, are expressing the worlds rejection of him. but everything</font><br>To no avail, Gemini Sunflower is still alive!',
         CanGrow: function (c, b, f) {
@@ -1833,7 +1833,7 @@ var CPlants = NewO({
     }),
     oPumpkinHead = InheritO(CPlants, {
         EName: "oPumpkinHead",
-        CName: "PumpkinHead",
+        CName: "Pumpkin",
         width: 97,
         height: 67,
         beAttackedPointL: 15,
@@ -1853,7 +1853,7 @@ var CPlants = NewO({
             "images/Plants/PumpkinHead/pumpkin_damage2.gif",
             "images/Plants/PumpkinHead/Pumpkin_back.gif",
         ],
-        Tooltip: "Pumpkin head, can use his shell to protect other plants.",
+        Tooltip: "Protects plants that are within its shell",
         Produce:
             'Pumpkin head, can use his shell to protect other plants.<p>Toughness:<font color="#FF0000">high</font><br>Features:<font color="#FF0000">可以种在其他植物上</font></p>Pumpkin head hasnt been received recently, about his cousin Resfield</font><br>information. Clearly, Renfield is a big star, a kind of...</font><br>What is a sports star called...? Pegg jump ball big</font><br>division? Pumpkin Head doesnt understand what exercise is anyway, he just wants to do well</font><br>his own work.',
         CanGrow: function (c, b, d) {
@@ -1923,7 +1923,7 @@ var CPlants = NewO({
     }),
     oFlowerPot = InheritO(CPlants, {
         EName: "oFlowerPot",
-        CName: "FlowerPot",
+        CName: "Flower Pot",
         width: 72,
         height: 68,
         beAttackedPointR: 52,
@@ -1957,7 +1957,7 @@ var CPlants = NewO({
                     : !(a || e[0] || oGd.$Crater[c])
                 : 0;
         },
-        Tooltip: "Plants can be planted on the roof",
+        Tooltip: "Lets you plant on the roof",
         Produce:
             'Pots allow you to grow plants on your roof.<p>Features:<font color="#FF0000">Allows you to plant on the roof</font></p>"I am a pot for plants, but I am also a</font><br>plant. Is it surprising?',
         InitTrigger: function () {},
@@ -2144,7 +2144,7 @@ var CPlants = NewO({
     }),
     oTorchwood = InheritO(CPlants, {
         EName: "oTorchwood",
-        CName: "火炬树桩",
+        CName: "Torchwood",
         width: 73,
         height: 83,
         beAttackedPointR: 53,
@@ -2161,7 +2161,7 @@ var CPlants = NewO({
         ],
         AudioArr: ["firepea", "ignite", "ignite2"],
         Tooltip:
-            "Torch Stump can turn peas that pass through him into fireballs, causing the peas to deal twice as much damage.",
+            "Peas that pass through it turn into fireballs",
         Produce:
             'Torch Stump can turn peas that pass through him into fireballs, causing</font><br>Double damage.<p>Features:<font color="#FF0000">Causes fireballs that pass through him to deal double damage. fireball also</font><br>against nearby zombies</font><br>Deals splash damage</font></p>Everyone loves and respects torch stumps. they like his</font><br>Honest and steadfast friendship, and the ability to increase pea damage.</font><br>But he also has his own secret: he cant read!',
         PrivateBirth: function (c) {
@@ -2412,7 +2412,7 @@ var CPlants = NewO({
     }),
     oNutBowling = InheritO(CPlants, {
         EName: "oNutBowling",
-        CName: "坚果保龄球",
+        CName: "Wall-nut",
         width: 71,
         height: 71,
         beAttackedPointL: 10,
@@ -2566,7 +2566,7 @@ var CPlants = NewO({
     }),
     oHugeNutBowling = InheritO(oNutBowling, {
         EName: "oHugeNutBowling",
-        CName: "巨型坚果保龄球",
+        CName: "Giant Wall-nut",
         width: 142,
         height: 142,
         beAttackedPointL: 5,
@@ -2610,7 +2610,7 @@ var CPlants = NewO({
     }),
     oBoomNutBowling = InheritO(oNutBowling, {
         EName: "oBoomNutBowling",
-        CName: "爆炸坚果",
+        CName: "Explode-o-nut",
         PicArr: [
             "images/Card/Plants/BoomWallNut.png",
             "images/Plants/WallNut/1.gif",
@@ -2683,7 +2683,7 @@ var CPlants = NewO({
     }),
     oTallNut = InheritO(oWallNut, {
         EName: "oTallNut",
-        CName: "高坚果",
+        CName: "Tall-nut",
         width: 83,
         height: 119,
         beAttackedPointR: 63,
@@ -2697,7 +2697,7 @@ var CPlants = NewO({
             "images/Plants/TallNut/TallnutCracked1.gif",
             "images/Plants/TallNut/TallnutCracked2.gif",
         ],
-        Tooltip: "不会被跳过的坚实壁垒",
+        Tooltip: "Heavy-duty wall that can't be vaulted over",
         Produce:
             '高坚果是重型壁垒植物，而且不会被跳过。<p>Toughness:<font color="#FF0000">非常高</font><br>特殊：<font color="#FF0000">不会被跨过或越过</font></p>人们想知道，坚果墙和高坚果是否在竞争。高</font><br>坚果以男中音的声调大声笑了。“我们之间怎么</font><br>会存在竞争关系？我们是哥们儿。你知道坚果墙</font><br>为我做了什么吗……”高坚果的声音越来越小，</font><br>他狡黠地笑着。”',
         CanGrow: function (c, b, f) {
@@ -2879,7 +2879,7 @@ var CPlants = NewO({
     }),
     oJalapeno = InheritO(oCherryBomb, {
         EName: "oJalapeno",
-        CName: "火爆辣椒",
+        CName: "Jalapeno",
         width: 68,
         height: 89,
         SunNum: 125,
@@ -2891,7 +2891,7 @@ var CPlants = NewO({
             "images/Plants/Jalapeno/JalapenoAttack.gif",
         ],
         AudioArr: ["jalapeno"],
-        Tooltip: "消灭整行的敌人",
+        Tooltip: "Destroys an entire lane of zombies",
         Produce:
             '火爆辣椒可以摧毁一整条线上的敌人。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">整条线上的僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎！！！”火爆辣椒说。他现在</font><br>不会爆炸，还不到时候，不过快了，喔~，快了快</font><br>了，快来了。他知道，他感受到了，他一生都是</font><br>在等待这个时刻！',
         PrivateBirth: function (a) {
@@ -2938,7 +2938,7 @@ var CPlants = NewO({
     }),
     oSpikeweed = InheritO(CPlants, {
         EName: "oSpikeweed",
-        CName: "地刺",
+        CName: "Spikeweed",
         width: 85,
         height: 35,
         beAttackedPointL: 10,
@@ -2953,7 +2953,7 @@ var CPlants = NewO({
         ],
         Attack: 20,
         ArZ: {},
-        Tooltip: "扎破轮胎, 也能伤害走在上面的僵尸",
+        Tooltip: "Pops tires and hurts zombies that step on it",
         Produce:
             '地刺可以扎破轮胎，并对踩到他的僵尸造成伤</font><br>害<p>Harm:<font color="#FF0000">普通</font><br>Scope:<font color="#FF0000">所有踩到他的僵尸</font><br>Features:<font color="#FF0000">不会被僵尸吃掉</font></p>地刺痴迷冰球，他买了包厢的季票。他一直关</font><br>注着他喜欢的球员，他也始终如一的在赛后清理</font><br>冰球场。但只有一个问题：他害怕冰球。',
         CanGrow: function (c, b, e) {
@@ -3030,7 +3030,7 @@ var CPlants = NewO({
     }),
     oSpikerock = InheritO(oSpikeweed, {
         EName: "oSpikerock",
-        CName: "地刺王",
+        CName: "Spikerock",
         width: 84,
         height: 43,
         beAttackedPointL: 10,
@@ -3044,7 +3044,7 @@ var CPlants = NewO({
             "images/Plants/Spikerock/3.gif",
         ],
         Attack: 40,
-        Tooltip: "能扎破多个轮胎, 并伤害经过上面的僵尸",
+        Tooltip: "Pops multiple tires and damages zombies that walk over it",
         Produce:
             '地刺王可以扎破多个轮胎，并对踩到他的僵尸</font><br>造成伤害。<p><font color="#FF0000">可以种植在地刺上</font></p>地刺王刚刚从欧洲旅行回来。他玩的很高兴，</font><br>也认识了很多有趣的人。这些都真的拓展了他</font><br>视野——他从来不知道，他们建造了这么大博</font><br>物馆，有这么多的画作。这对他说太惊奇了。',
         CanGrow: function (c, b, e) {
@@ -3090,7 +3090,7 @@ var CPlants = NewO({
     }),
     oGarlic = InheritO(CPlants, {
         EName: "oGarlic",
-        CName: "大蒜",
+        CName: "Garlic",
         width: 60,
         height: 59,
         beAttackedPointR: 40,
@@ -3103,7 +3103,7 @@ var CPlants = NewO({
             "images/Plants/Garlic/Garlic_body2.gif",
             "images/Plants/Garlic/Garlic_body3.gif",
         ],
-        Tooltip: "将僵尸赶到其它的横行",
+        Tooltip: "Diverts zombies into other lanes",
         Produce:
             '大蒜可以让僵尸改变前进的路线。<p>Scope:<font color="#FF0000">近距离接触</font><br>Features:<font color="#FF0000">改变僵尸的前进路线</font></p>路线转向，这不仅仅是大蒜的专业，更是他</font><br>的热情所在。他在布鲁塞尔大学里，获得了转向</font><br>学的博士学位。他能把路线向量和反击阵列，讲</font><br>上一整天。他甚至会把家里的东西，推到街上去</font><br>。不知道为啥，他老婆还可以忍受这些。',
         CanGrow: function (c, b, f) {
@@ -3152,7 +3152,7 @@ if (yuckrng == 1) {
     }),
     oSquash = InheritO(CPlants, {
         EName: "oSquash",
-        CName: "窝瓜",
+        CName: "Squash",
         width: 100,
         height: 226,
         beAttackedPointR: 67,
@@ -3166,7 +3166,7 @@ if (yuckrng == 1) {
             "images/Plants/Squash/SquashR.png",
         ],
         AudioArr: ["squash_hmm", "gargantuar_thump"],
-        Tooltip: "压扁接近的僵尸",
+        Tooltip: "Squashes zombies",
         Produce:
             '窝瓜会压扁第一个接近它的僵尸。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">短，覆盖所有它压到的僵尸。</font><br>用法：<font color="#FF0000">单独使用</font></p>“我准备好了！”窝瓜大吼道，“干吧！！算我</font><br>一份！没人比我厉害！我就是你要的人！来啊！</font><br>等啥啊？要的就是这个！”',
         GetDY: function (b, c, a) {
@@ -3632,7 +3632,7 @@ if (yuckrng == 1) {
     }),
     oGloomShroom = InheritO(oFumeShroom, {
         EName: "oGloomShroom",
-        CName: "忧郁菇",
+        CName: "Gloom-shroom",
         width: 112,
         height: 81,
         beAttackedPointR: 92,
@@ -3646,7 +3646,7 @@ if (yuckrng == 1) {
             "images/Plants/GloomShroom/GloomShroomBullet.gif",
         ],
         AudioArr: ["kernelpult", "kernelpult2"],
-        Tooltip: "围绕自身释放大量孢子<br>",
+        Tooltip: "Releases heavy fumes in an area around itself",
         Produce:
             '围绕自身释放大量孢子<p><font color="#FF0000">可以种植在大喷菇上</font></p>“我喜欢喷射大量烟雾。”忧郁蘑菇说，“我</font><br>知道许多人不喜欢这样，他们说这又粗鲁啦烟</font><br>雾又很臭啦之类的，我只想说，你们想不想自</font><br>己的脑袋被僵尸吃掉？”',
         CanGrow: function (c, b, f) {
@@ -4420,7 +4420,7 @@ if (yuckrng == 1) {
     }),
     oTangleKlep = InheritO(CPlants, {
         EName: "oTangleKlep",
-        CName: "缠绕水草",
+        CName: "Tangle Kelp",
         width: 90,
         height: 72,
         beAttackedPointL: 15,
@@ -4440,7 +4440,7 @@ if (yuckrng == 1) {
             "images/Plants/TangleKlep/Grab.png",
             "images/interface/splash.png",
         ],
-        Tooltip: "可以将僵尸拉入水底的水生植物",
+        Tooltip: "Shoots peas in three lanes",
         Produce:
             '缠绕水草是一种可以把接近他的僵尸拉进水中</font><br>的水生植物。<p>Harm:<font color="#FF0000">极高</font><br>用法：<font color="#FF0000">单独使用，接触后生效</font><br>Features:<font color="#FF0000">必须种在水中</font></p>“我是完全隐形的，”缠绕水草自己想，“我就</font><br>藏在水面下，没人会看到我。”他的朋友告诉他</font><br>，他们可以清楚地看到他。不过，缠绕水草似</font><br>乎不想改变自己的看法。',
         CanGrow: function (c, b, d) {
@@ -4573,7 +4573,7 @@ if (yuckrng == 1) {
     }),
     oSeaShroom = InheritO(oPuffShroom, {
         EName: "oSeaShroom",
-        CName: "海蘑菇",
+        CName: "Sea-shroom",
         width: 48,
         height: 99,
         beAttackedPointL: 10,
@@ -4614,13 +4614,13 @@ if (yuckrng == 1) {
                 EDPZ
             );
         },
-        Tooltip: "发射短距离孢子的水生植物",
+        Tooltip: "Aquatic plant that shoots short-ranged spores",
         Produce:
             '海蘑菇，能够发射短程孢子的水生植物。<p>Harm:<font color="#FF0000">普通</font><br>射程：<font color="#FF0000">短<br>必须种在水上</font></p>海蘑菇从来没看到过大海，大海就在他的名字</font><br>里，他总听到关于大海的事。他只是没找到合适的</font><br>时间，总有一天……是的，他会见到海的。',
     });
 (oCactus = InheritO(CPlants, {
     EName: "oCactus",
-    CName: "仙人掌",
+    CName: "Cactus",
     width: 122,
     height: 157,
     SunNum: 125,
@@ -4641,7 +4641,7 @@ if (yuckrng == 1) {
             "images/Plants/Cactus/Projectile32.png",
         ];
     })(),
-    Tooltip: "能发射刺穿气球的子弹",
+    Tooltip: "Shoots spikes that can pop balloons",
     Produce:
         '仙人掌发射的穿刺弹可以用来打击地面和空中</font><br>目标<p>Harm:<font color="#FF0000">中等</font><br>Scope:<font color="#FF0000">地面和空中</font></p>确实，仙人掌非常“刺儿”，但是她的刺下，隐</font><br>藏着颗温柔的心，充满着爱和善良。她只是想拥</font><br>抱别人，和被别人拥抱。大多数人都做不到这点</font><br>，但是仙人掌她并不介意。她盯着一只铠甲鼠好</font><br>一阵子了，这次好像真的可以抱抱了。',
     getShadow: function (a) {
@@ -5047,7 +5047,7 @@ if (yuckrng == 1) {
     })),
     (oPlantern = InheritO(CPlants, {
         EName: "oPlantern",
-        CName: "路灯花",
+        CName: "Plantern",
         width: 250,
         height: 242,
         beAttackedPointL: 105,
@@ -5060,7 +5060,7 @@ if (yuckrng == 1) {
             "images/Plants/Plantern/0.gif",
             "images/Plants/Plantern/Plantern.gif",
         ],
-        Tooltip: "照亮一片区域, 让玩家可以看穿战场迷雾",
+        Tooltip: "Plantern",
         Produce:
             '路灯花，能照亮一片区域，让你看清战场迷雾<p>Scope:<font color="#FF0000">一片圆形区域</font><br>Features:<font color="#FF0000">使你看清战场迷雾</font></p>灯笼草拒绝科学，他只会埋头苦干。其他植物</font><br>吃的是光，挤出的是氧气。灯笼草吃的是黑暗，</font><br>挤出的却是光。对于他如何能产生光这件事，灯</font><br>笼草持谨慎态度。“我不会说这是‘巫术’，我</font><br>也不会使用‘黑暗力量’，我只是……我想我说</font><br>得够多的了。”',
         PrivateBirth: function (c) {
@@ -5687,7 +5687,7 @@ if (yuckrng == 1) {
     })),
     (oMagneticmuShroom = InheritO(CPlants, {
         EName: "oMagneticmuShroom",
-        CName: "磁力菇",
+        CName: "Magnet-shroom",
         width: 176,
         height: 148,
         beAttackedPointR: 50,
@@ -5700,7 +5700,7 @@ if (yuckrng == 1) {
             "images/Plants/MagneticmuShroom/Shrubbery.gif",
             "images/Plants/MagneticmuShroom/ShrubberyBoom.gif" + $Random,
         ],
-        Tooltip: "磁力菇可以用磁力吸取僵尸的头盔等其它金属物品。",
+        Tooltip: "Removes helmets and other metal objects from zombies。",
         Produce:
             '磁力菇可以吸走周围僵尸的护具<p>Scope:<font color="#FF0000">约一行</font><br>Instructions:<font color="#FF0000">安放即可使用（一次性）</font></p>磁力是一种强大的力量，非常强大，强大到有</font><br>时都吓到磁力菇自己了。能力越大，责任越大</font><br>，他不知道自己能否肩负得起这责任',
         InitTrigger: function () {},
