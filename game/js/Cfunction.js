@@ -2467,7 +2467,7 @@ var $User = (function () {
               ),
               oSym.addTask(800, DisappearSun, [g], 3));
         ArSun[g] = { id: g, N: e, C: 1, left: h, top: d };
-        NewImg(g, "images/interface/Sun.gif", c, EDAll, {
+        NewImg(g, "images/interface/Sun.png", c, EDAll, {
             onclick: function () {
                 ClickSun(this.id);
             },
