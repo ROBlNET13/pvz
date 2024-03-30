@@ -864,7 +864,7 @@ var CPlants = NewO({
                               left: o + 28 + "px",
                           }).src = [
                               "images/Plants/PeaBulletHit.gif",
-                              "images/Plants/PeaBulletHit2.gif",
+                              "images/Plants/FireBulletHit.png",
                           ][m]),
                           oSym.addTask(10, ClearChild, [j]))
                         : (n += l = !c ? 5 : -5) < oS.W && n > 100
@@ -1210,7 +1210,7 @@ var CPlants = NewO({
             "images/Plants/Threepeater/Threepeater.gif",
             "images/Plants/PB00.gif",
             "images/Plants/PeaBulletHit.gif",
-            "images/Plants/PeaBulletHit2.gif",
+            "images/Plants/FireBulletHit.png",
         ],
         AudioArr: [
             "splat1",
@@ -1312,7 +1312,7 @@ var CPlants = NewO({
                                   left: q + 28 + "px",
                               }).src = [
                                   "images/Plants/PeaBulletHit.gif",
-                                  "images/Plants/PeaBulletHit2.gif",
+                                  "images/Plants/FireBulletHit.png",
                               ][o]),
                               oSym.addTask(10, ClearChild, [l]))
                             : (p += n = !e ? 5 : -5) < oS.W && p > 100
@@ -1573,7 +1573,7 @@ var CPlants = NewO({
                                       left: r + 28 + "px",
                                   }).src = [
                                       "images/Plants/PeaBulletHit.gif",
-                                      "images/Plants/PeaBulletHit2.gif",
+                                      "images/Plants/FireBulletHit.png",
                                   ][m]),
                                   oSym.addTask(10, ClearChild, [m]))
                                 : (q += o = !f ? 5 : -5) < oS.W && q > 100
@@ -2220,7 +2220,7 @@ var CPlants = NewO({
                           ](d, h, c),
                           (SetStyle(j, {
                               left: o + 28 + "px",
-                          }).src = "images/Plants/PeaBulletHit2.gif"),
+                          }).src = "images/Plants/FireBulletHit.png"),
                           oSym.addTask(75, ClearChild, [j]))
                         : (n += l = !c ? 5 : -5) < oS.W && n > 100
                         ? ((j.style.left = (o += l) + "px"),
