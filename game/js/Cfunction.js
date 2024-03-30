@@ -2872,7 +2872,7 @@ var $User = (function () {
         LoadLvl(g);
     },
     GotoAuthorWebsite = function () {
-        window.open("http://example.com/removed");
+        window.open("https://github.com/ROBlNET13/pvz");
         return;
     },
     InitGame = function () {
