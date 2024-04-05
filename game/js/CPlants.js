@@ -2155,7 +2155,7 @@ var CPlants = NewO({
             "images/Plants/Torchwood/Torchwood.gif",
             "images/Plants/PB00.gif",
             "images/Plants/PB01.gif",
-            "images/Plants/FirePeaBullet.png",
+            "images/Plants/PB10.png",
             "images/Plants/PB11.gif",
             "images/Plants/Torchwood/SputteringFire.gif",
         ],
