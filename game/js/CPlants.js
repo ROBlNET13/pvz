@@ -851,7 +851,7 @@ var CPlants = NewO({
                         (m = 1),
                         (h = 40),
                         (k = e),
-                        (j.src = "images/Plants/PB" + m + c + ".gif"));
+                        (j.src = "images/Plants/PB" + m + c + ".png"));
                     d && d.Altitude == 1
                         ? (d[
                               {
