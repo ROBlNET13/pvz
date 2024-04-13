@@ -30,7 +30,7 @@ document.title = configTitle + " " + configVersionName;
 
 // /src="https://run-3-unblocked.github.io/"
 
-
+/*
 class MyGame {
     constructor() {
       this.configHomepageURL = chrome.runtime.getManifest().homepage_url;
@@ -43,7 +43,7 @@ class MyGame {
       this.loadMenuItems(); // Call the function here initially
   
     }
-  
+  */
   
     setupNavigation() {
       const fragment = new DocumentFragment();
@@ -147,12 +147,12 @@ class MyGame {
       document.title = this.configTitle + " " + this.configVersionName;
     }
   }
-  const myGame = new MyGame();
+//  const myGame = new MyGame();
 
 
 // Function to open a URL in fullscreen mode
 function openFullscreenURL() {
-    window.open('https://pvz.ee', '_blank', 'fullscreen=yes');
+//    window.open('https://example.com', '_blank', 'fullscreen=yes');
   }
   
   // Function to open the rate link of the extension
