@@ -1,7 +1,5 @@
 {
-"update_url": "https://clients2.google.com/service/update2/crx",
-
-
+    "update_url": "https://clients2.google.com/service/update2/crx",
     "manifest_version": 3,
     "name": "__MSG_AppName__",
     "version": "2.3.12",
@@ -15,10 +13,6 @@
         "default_title": "Click to open the popup",
         "default_popup": "index.html"
     },
-    "background": {
-        "service_worker": "update.js"
-    },
-
     "offline_enabled": true,
     "default_locale": "en",
     "description": "__MSG_AppDesc__",
@@ -28,7 +22,6 @@
         "256": "img/256x256.png"
     },
     "options_page": "index.html",
-
     "content_security_policy": {
         "sandbox": "sandbox allow-scripts allow-pointer-lock; script-src 'self' 'unsafe-eval' blob: 'unsafe-inline'; object-src 'self' 'unsafe-eval' blob: 'unsafe-inline';child-src 'self' 'unsafe-eval' blob: 'unsafe-inline' ; worker-src 'self' 'unsafe-eval' blob: 'unsafe-inline'; script-src-elem 'self' 'unsafe-eval' blob: 'unsafe-inline'"
     },
@@ -36,8 +29,5 @@
         "pages": [
             "game/iframe.html"
         ]
-    },
-    "homepage_url": "https://pvz.ee"
-
+    }
 }
-
