@@ -1,6 +1,6 @@
 const configGameURL = "game/iframe.html";
 
-document.title = configTitle + " " + configVersionName;
+document.title = 'Plants vs. Zombies MODDED Official';
 
 var iframe = document.createElement('iframe');
 iframe.src = configGameURL;
