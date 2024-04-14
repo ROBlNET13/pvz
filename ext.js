@@ -1,5 +1,9 @@
 const configGameURL = "game/iframe.html";
 
+if (document.location.href.includes('chrome-extension://') == false) {
+    document.location.replace(configGameURL);
+}
+
 document.title = 'Plants vs. Zombies MODDED Official';
 
 var iframe = document.createElement('iframe');
