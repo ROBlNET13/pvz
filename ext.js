@@ -1,9 +1,5 @@
 const configGameURL = "game/iframe.html";
 
-const configHomepageURL = chrome.runtime.getManifest().homepage_url;
-const configTitle = chrome.runtime.getManifest().name;
-const configVersionName = chrome.runtime.getManifest().version_name;
-
 document.title = configTitle + " " + configVersionName;
 
 var iframe = document.createElement('iframe');
