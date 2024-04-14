@@ -171,7 +171,8 @@ var CZombies = (function (b, a) {
             d +
             e[1] +
             f +
-            e[2] +
+        
+    e[2] +
             g +
             e[3] +
             i +
@@ -1561,6 +1562,28 @@ var CZombies = (function (b, a) {
     Produce:
       '韧性：<font color="#FF0000">低</font></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。',
   }),
+oIZombie = InheritO(OrnNoneZombies, {
+    EName: "oIZombie",
+    CName: "Zombie",
+    StandGif: 9,
+    PicArr: (function () {
+      var a = "images/Zombies/Zombie/";
+      return [
+        "images/Card/Zombies/IZombie.png",
+        a + "0.gif",
+        a + "Zombie.gif",
+        a + "ZombieAttack.gif",
+        a + "ZombieLostHead.gif",
+        a + "ZombieLostHeadAttack.gif",
+        a + "ZombieHead.gif" + $Random,
+        a + "ZombieDie.gif" + $Random,
+        "images/Zombies/BoomDie.gif" + $Random,
+        a + "1.gif",
+      ];
+    })(),
+    Produce:
+      '韧性：<font color="#FF0000">低</font></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。',
+  }),
   oZombie2 = InheritO(oZombie, { EName: "oZombie2" }),
   oZombie3 = InheritO(oZombie, { EName: "oZombie3" }),
   oMustacheZombie = InheritO(oZombie, {
@@ -1738,6 +1761,31 @@ var CZombies = (function (b, a) {
       },
     }
   ),
+oIBucketheadZombie = InheritO(
+    oConeheadZombie,
+    {
+      EName: "oIBucketheadZombie",
+      CName: "Buckethead Zombie",
+      OrnHP: 1100,
+      Lvl: 3,
+      SunNum: 125,
+      PlayNormalballAudio: function () {
+        PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+      },
+      Produce:
+        '他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#FF0000">高</font><br>弱点：<font color="#FF0000">土豆雷</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。',
+    },
+    {
+      PicArr: {
+        0: "images/Card/Zombies/IBucketheadZombie.png",
+        1: "images/Zombies/BucketheadZombie/0.gif",
+        2: "images/Zombies/BucketheadZombie/BucketheadZombie.gif",
+        3: "images/Zombies/BucketheadZombie/BucketheadZombieAttack.gif",
+        9: "images/Zombies/Zombie/Zombie.gif",
+        11: "images/Zombies/BucketheadZombie/1.gif",
+      },
+    }
+  ),
   oFootballZombie = InheritO(oConeheadZombie, {
     EName: "oFootballZombie",
     CName: "Football Zombie",
@@ -1758,6 +1806,47 @@ var CZombies = (function (b, a) {
       var a = "images/Zombies/FootballZombie/";
       return [
         "images/Card/Zombies/FootballZombie.png",
+        a + "0.gif",
+        a + "FootballZombie.gif",
+        a + "Attack.gif",
+        a + "LostHead.gif",
+        a + "LostHeadAttack.gif",
+        "images/Zombies/Zombie/ZombieHead.gif" + $Random,
+        a + "Die.gif" + $Random,
+        "images/Zombies/BoomDie.gif" + $Random,
+        a + "OrnLost.gif",
+        a + "OrnLostAttack.gif",
+        a + "1.gif",
+      ];
+    })(),
+    getShadow: function (a) {
+      return (
+        "left:" + (a.beAttackedPointL + 15) + "px;top:" + (a.height - 22) + "px"
+      );
+    },
+    Produce:
+      '橄榄球僵尸的表演秀。<p>韧性：<font color="#FF0000">极高</font><br>速度：<font color="#FF0000">快</font></p>在球场上，橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他完全不知道橄榄球是什么。',
+  }),
+oIFootballZombie = InheritO(oConeheadZombie, {
+    EName: "oIFootballZombie",
+    CName: "Football Zombie",
+    OrnHP: 1400,
+    Lvl: 3,
+    SunNum: 175,
+    StandGif: 11,
+    width: 154,
+    height: 160,
+    OSpeed: 3.2,
+    Speed: 3.2,
+    beAttackedPointL: 40,
+    beAttackedPointR: 134,
+    PlayNormalballAudio: function () {
+      PlayAudio("plastichit");
+    },
+    PicArr: (function () {
+      var a = "images/Zombies/FootballZombie/";
+      return [
+        "images/Card/Zombies/IFootballZombie.png",
         a + "0.gif",
         a + "FootballZombie.gif",
         a + "Attack.gif",
@@ -6414,3 +6503,5 @@ oCBucketheadZombie = InheritO(
       },
     });
   })());
+
+
