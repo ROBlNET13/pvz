@@ -2,6 +2,10 @@ let keysPressed = {};
 
 document.addEventListener('keydown', event => {
   keysPressed[event.key] = true;
+   // super fast
+  if (keysPressed['s'] && keysPressed['f']) {
+    CSpeed(1000,10,1000);
+  }
   // balloon
   if (keysPressed['b'] && keysPressed['l'] && keysPressed['n']) {
     oP.Balloon();
