@@ -3822,6 +3822,113 @@ if (yuckrng == 1) {
             );
         },
     }),
+    oIFumeShroom = InheritO(CPlants, {
+        EName: "oIFumeShroom",
+        CName: "Fume-shroom",
+        width: 100,
+        height: 88,
+        beAttackedPointR: 80,
+        SunNum: 75,
+        BookHandBack: 2.5,
+        SleepGif: 3,
+        NormalGif: 2,
+        night: true,
+        PicArr: [
+            "images/Card/Plants/FumeShroom.png",
+            "images/Plants/FumeShroom/0.gif",
+            "images/Plants/FumeShroom/FumeShroom.gif",
+            "images/Plants/FumeShroom/FumeShroomSleep.gif",
+            "images/Plants/FumeShroom/FumeShroomAttack.gif",
+            "images/Plants/FumeShroom/FumeShroomBullet.gif",
+        ],
+        AudioArr: ["fume"],
+        Tooltip: "Shoots fumes that can pass through screen doors",
+        Produce:
+            '大喷菇喷出的臭气可以穿透铁丝网门。<p>Harm:<font color="#FF0000">普通，可穿透铁丝网门</font><br>Scope:<font color="#FF0000">臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房</font><br>生产酵母孢，”大喷菇说。“然后小喷菇，上帝</font><br>保佑它，告诉了我这个喷杀僵尸的机会。现在</font><br>我真觉得自己完全不同了。”',
+        GetDY: function (b, c, a) {
+            return a[0] ? -18 : -10;
+        },
+        GetDX: function () {
+            return -45;
+        },
+        BirthStyle: function (c, d, b, a) {
+            oS.DKind &&
+                ((c.canTrigger = 1),
+                (c.Sleep = 0),
+                (b.childNodes[1].src = c.PicArr[c.NormalGif]));
+            EditEle(
+                b,
+                {
+                    id: d,
+                },
+                a,
+                EDPZ
+            );
+        },
+        PrivateBirth: function (b) {
+            var a = b.id;
+            NewEle(
+                a + "_Bullet",
+                "div",
+                "position:absolute;visibility:hidden;width:343px;height:62px;left:" +
+                    b.AttackedRX +
+                    "px;top:" +
+                    (b.pixelTop + 5) +
+                    "px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" +
+                    (b.zIndex + 1),
+                0,
+                EDPZ
+            );
+        },
+        PrivateDie: function (a) {
+            ClearChild($(a.id + "_Bullet"));
+        },
+        getTriggerRange: function (a, b, c) {
+            return [[b, Math.min(c + 330, oS.W), 0]];
+        },
+        NormalAttack: function () {
+            PlayAudio("fume");
+            var f = this,
+                d = oZ.getArZ(
+                    f.AttackedLX,
+                    Math.min(f.AttackedRX + 330, oS.W),
+                    f.R
+                ),
+                e = d.length,
+                g,
+                c = f.id,
+                b = $(c),
+                a = c + "_Bullet";
+            while (e--) {
+                (g = d[e]).Altitude < 2 && g.getHit1(g, 20);
+            }
+            b.childNodes[1].src =
+                "images/Plants/FumeShroom/FumeShroomAttack.gif";
+            SetVisible($(a));
+            ImgSpriter(
+                a,
+                c,
+                [
+                    ["0 0", 9, 1],
+                    ["0 -62px", 9, 2],
+                    ["0 -124px", 9, 3],
+                    ["0 -186px", 9, 4],
+                    ["0 -248px", 9, 5],
+                    ["0 -310px", 9, 6],
+                    ["0 -372px", 9, 7],
+                    ["0 -434px", 9, -1],
+                ],
+                0,
+                function (i, j) {
+                    var h = $(j);
+                    $P[j] &&
+                        ((h.childNodes[1].src =
+                            "images/Plants/FumeShroom/FumeShroom.gif"),
+                        SetHidden($(i)));
+                }
+            );
+        },
+    }),
     oIceFumeShroom = InheritO(oFumeShroom, {
         EName: "oIceFumeShroom",
         CName: "寒冰大喷菇",
@@ -4314,8 +4421,190 @@ if (yuckrng == 1) {
             );
         },
     }),
+    oIScaredyShroom = InheritO(oIFumeShroom, {
+        EName: "oIScaredyShroom",
+        CName: "Scaredy-shroom",
+        width: 57,
+        height: 81,
+        beAttackedPointR: 37,
+        SunNum: 25,
+        Cry: 0,
+        ArZ: [],
+        Attacking: 0,
+        StandGif: 2,
+        PicArr: [
+            "images/Card/Plants/ScaredyShroom.png",
+            "images/Plants/ScaredyShroom/0.gif",
+            "images/Plants/ScaredyShroom/ScaredyShroom.gif",
+            "images/Plants/ScaredyShroom/ScaredyShroomSleep.gif",
+            "images/Plants/ScaredyShroom/ScaredyShroomCry.gif",
+            "images/Plants/ShroomBullet.gif",
+            "images/Plants/ShroomBulletHit.gif",
+        ],
+        Tooltip: "Long-ranged shooter that hides when enemies get near it",
+        Produce:
+            '胆小菇是一种远程射手，敌人接近后会躲起来。<p>Harm:<font color="#FF0000">普通</font><br>Features:<font color="#FF0000">敌人接近后就停止攻击<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“</font><br>走开！我不想见任何人。除非……除非你是马</font><br>戏团的人。”',
+        GetDX: CPlants.prototype.GetDX,
+        getTriggerRange: CPlants.prototype.getTriggerRange,
+        getTriggerR: function (c) {
+            var b = (this.MinR = c > 2 ? c - 1 : 1),
+                a = (this.MaxR = c < oS.R ? Number(c) + 1 : c);
+            return [b, a];
+        },
+        TriggerCheck: function (e, c) {
+            var b = this,
+                a = b.id;
+            e.PZ && Math.abs(e.ZX - b.MX) < 121 && e.beAttacked
+                ? (b.ArZ.push(e.id),
+                  !b.Cry &&
+                      ((b.Cry = 1),
+                      ($(a).childNodes[1].src =
+                          "images/Plants/ScaredyShroom/ScaredyShroomCry.gif"),
+                      b.CryCheck(a)))
+                : e.R == b.R &&
+                  !b.Cry &&
+                  !b.Attacking &&
+                  e.Altitude > 0 &&
+                  e.Altitude < 3 &&
+                  b.NormalAttack();
+        },
+        PrivateBirth: function (c) {
+            var b = c.AttackedLX,
+                a = b - 46;
+            c.BulletClass = NewO({
+                X: b,
+                R: c.R,
+                pixelLeft: a,
+                F: oGd.MB2,
+            });
+            c.BulletEle = NewImg(
+                0,
+                "images/Plants/ShroomBullet.gif",
+                "left:" +
+                    a +
+                    "px;top:" +
+                    (c.pixelTop + 35) +
+                    "px;visibility:hidden;z-index:" +
+                    (c.zIndex + 2)
+            );
+            c.MX = b + 9;
+        },
+        PrivateDie: function (a) {
+            a.BulletEle = null;
+        },
+        NormalAttack: function () {
+            var c = this,
+                a = c.id,
+                d = "SSB" + Math.random(),
+                b = c.AttackedLX;
+            EditEle(
+                c.BulletEle.cloneNode(false),
+                {
+                    id: d,
+                },
+                0,
+                EDPZ
+            );
+            oSym.addTask(
+                1,
+                function (k, e, f, g, h) {
+                    var j = GetC(f),
+                        i = oZ.getZ0(f, g);
+                    i && i.Altitude == 1
+                        ? (i.getPea(i, 20, 0),
+                          (SetStyle(e, {
+                              left: h + 38 + "px",
+                          }).src = "images/Plants/ShroomBulletHit.gif"),
+                          oSym.addTask(10, ClearChild, [e]))
+                        : (f += 5) < oS.W
+                        ? ((e.style.left = (h += 5) + "px"),
+                          oSym.addTask(1, arguments.callee, [k, e, f, g, h]))
+                        : ClearChild(e);
+                },
+                [d, $(d), b, c.R, b - 46]
+            );
+            c.Attacking = 1;
+            oSym.addTask(
+                10,
+                function (g, e) {
+                    var f = $(g);
+                    f && SetVisible(f);
+                    oSym.addTask(
+                        130,
+                        function (h) {
+                            var i = $P[h];
+                            i && (i.Attacking = 0);
+                        },
+                        [e]
+                    );
+                },
+                [d, a]
+            );
+        },
+        CryCheck: function (a) {
+            oSym.addTask(
+                140,
+                function (b) {
+                    var d = $P[b],
+                        c,
+                        f,
+                        e;
+                    if (d) {
+                        c = (f = d.ArZ).length;
+                        while (c--) {
+                            (!(e = $Z[f[c]]) ||
+                                !e.PZ ||
+                                Math.abs(e.ZX - d.MX) > 120) &&
+                                f.splice(c, 1);
+                        }
+                        f.length
+                            ? d.CryCheck(b)
+                            : ((d.Cry = 0),
+                              ($(b).childNodes[1].src =
+                                  "images/Plants/ScaredyShroom/ScaredyShroom.gif"));
+                    }
+                },
+                [a]
+            );
+        },
+    }),
     oHypnoShroom = InheritO(oFumeShroom, {
         EName: "oHypnoShroom",
+        CName: "Hypno-shroom",
+        width: 71,
+        height: 78,
+        beAttackedPointL: 10,
+        beAttackedPointR: 61,
+        SunNum: 75,
+        coolTime: 30,
+        HP: 1,
+        PicArr: [
+            "images/Card/Plants/HypnoShroom.png",
+            "images/Plants/HypnoShroom/0.gif",
+            "images/Plants/HypnoShroom/HypnoShroom.gif",
+            "images/Plants/HypnoShroom/HypnoShroomSleep.gif",
+        ],
+        Tooltip: "Makes a zombie fight for you",
+        Produce:
+            '当僵尸吃下魅惑菇后，他将会掉转方向为你作</font><br>战。<p>Instructions:<font color="#FF0000">单独使用，接触生效</font><br>Features:<font color="#FF0000">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被</font><br>严重误解了，僵尸们在我们的生态环境里扮演着</font><br>重要角色。我们可以也应当更努力地让他们学</font><br>会用我们的方式来思考。”',
+        InitTrigger: function () {},
+        getHurt: function (d, b, a) {
+            var c = this;
+            switch (b) {
+                case 3:
+                    (c.HP -= a) < 1 && c.Die();
+                    break;
+                case 0:
+                    !c.Sleep && d.bedevil(d);
+                    c.Die();
+                    break;
+                default:
+                    c.Die(1);
+            }
+        },
+    }),
+    oIHypnoShroom = InheritO(oIFumeShroom, {
+        EName: "oIHypnoShroom",
         CName: "Hypno-shroom",
         width: 71,
         height: 78,
