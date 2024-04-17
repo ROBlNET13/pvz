@@ -17,6 +17,7 @@ oS.Init({
       a + "izombie7.png",
       a + "izombie8.png",
       a + "izombie9.png",
+      a + "izombie10.png",
     ];
   })(),
   LevelName: "I, Zombie Menu",
@@ -135,6 +136,17 @@ oS.Init({
       {
         onclick: function () {
           SelectModal('' + 'izombie9' + '');
+        },
+      }
+    );
+    NewImg(
+      "imgSF",
+      "images/interface/izombie10.png",
+      "left:650px;top:270px",
+      EDAll,
+      {
+        onclick: function () {
+          SelectModal('' + 'izombie10' + '');
         },
       }
     );
