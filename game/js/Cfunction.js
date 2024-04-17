@@ -587,6 +587,11 @@ var $User = (function () {
                     11: [950, 1030],
                 });
             };
+            getRowColumnFromPixels = function (pixelX, pixelY) {
+                let rowWidth = 129;
+                let columnWidth = 170;
+                return [Math.floor(pixelX / rowWidth) + 1, Math.floor(pixelY / columnWidth)];
+            };
             !oS.InitLawnMower &&
                 (oS.InitLawnMower = function () {
                     var a = 6;
