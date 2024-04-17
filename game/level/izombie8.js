@@ -1,5 +1,5 @@
 oS.Init({
-    PName: [oPeashooter, oSunFlower, oWallNut, oPotatoMine, oSquash],
+    PName: [oPeashooter, oSunFlower, oWallNut, oIPotatoMine, oSquash],
     ZName: [oIImp, oIConeheadZombie, oIBucketheadZombie, oIJackinTheBoxZombie, oIPoleVaultingZombie, oIScreenDoorZombie],
     PicArr: [
         "images/interface/background2.jpg",
