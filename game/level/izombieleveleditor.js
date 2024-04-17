@@ -47,7 +47,6 @@
 			}; a(0);
 		},
 		StartGame: function() {
-			oS.InitLawnMower();
 			oP.Monitor({
 				ar: [],
 				f: function() {
