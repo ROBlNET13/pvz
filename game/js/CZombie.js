@@ -3837,6 +3837,30 @@ oIFootballZombie = InheritO(oConeheadZombie, {
     })(),
     AudioArr: ["zombie_entering_water"],
   }),
+  oIDuckyTubeZombie1 = InheritO(oAquaticZombie, {
+    EName: "oIDuckyTubeZombie1",
+    CName: "Ducky Tube Zombie",
+    beAttackedPointR: 130,
+    GetDY: function () {
+      return 5;
+    },
+    Produce:
+      '鸭子救生圈能让僵尸能浮在水面上。<p>韧性：<font color="#FF0000">低</font><br>只在水池Level出现</font></p>只有特定的僵尸才能成为救生圈僵尸。并不是每个僵尸都能胜任的。有些救生圈有点漏气，但他们没能注意到，所以他们离开并放弃了对脑子的渴求。',
+    PicArr: (function () {
+      var a = "images/Zombies/DuckyTubeZombie1/";
+      return [
+        "images/Card/Zombies/IDuckyTubeZombie1.png",
+        a + "0.gif",
+        a + "Walk1.gif",
+        a + "Walk2.gif",
+        a + "1.gif",
+        a + "Attack.gif",
+        a + "ZombieHead.gif" + $Random,
+        a + "Die.gif" + $Random,
+      ];
+    })(),
+    AudioArr: ["zombie_entering_water"],
+  }),
   oWarshipsZombie = InheritO(oDuckyTubeZombie1, {
     EName: "oWarshipsZombie",
     CName: "Warships Zombie",
@@ -3870,7 +3894,7 @@ oIFootballZombie = InheritO(oConeheadZombie, {
   }),
   oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
     EName: "oDuckyTubeZombie2",
-    CName: "路障僵尸骑鸭子",
+    CName: "Ducky Tube Conehead Zombie",
     OrnHP: 370,
     Lvl: 2,
     SunNum: 75,
@@ -3904,9 +3928,45 @@ oIFootballZombie = InheritO(oConeheadZombie, {
     getHit2: OrnIZombies.prototype.getHit2,
     getHit3: OrnIZombies.prototype.getHit3,
   }),
+  oIDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
+    EName: "oIDuckyTubeZombie2",
+    CName: "Ducky Tube Conehead Zombie",
+    OrnHP: 370,
+    Lvl: 2,
+    SunNum: 75,
+    CanDisplay: 0,
+    OrnLostNormalGif: 9,
+    OrnLostAttackGif: 10,
+    PlayNormalballAudio: function () {
+      PlayAudio("plastichit");
+    },
+    PicArr: (function () {
+      var b = "images/Zombies/DuckyTubeZombie2/",
+        a = "images/Zombies/DuckyTubeZombie1/";
+      return [
+        "images/Card/Zombies/IDuckyTubeZombie2.png",
+        b + "Walk2.gif",
+        b + "Walk1.gif",
+        b + "Walk2.gif",
+        b + "Walk2.gif",
+        b + "Attack.gif",
+        "images/Zombies/Zombie/ZombieHead.gif" + $Random,
+        a + "Die.gif" + $Random,
+        a + "Walk1.gif",
+        a + "Walk2.gif",
+        a + "Attack.gif",
+      ];
+    })(),
+    AudioArr: ["plastichit", "zombie_entering_water"],
+    getHit: OrnIZombies.prototype.getHit,
+    getHit0: OrnIZombies.prototype.getHit0,
+    getHit1: OrnIZombies.prototype.getHit1,
+    getHit2: OrnIZombies.prototype.getHit2,
+    getHit3: OrnIZombies.prototype.getHit3,
+  }),
   oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
     EName: "oDuckyTubeZombie3",
-    CName: "Ducky Tube Bucket Head Zombie",
+    CName: "Ducky Tube Buckethead Zombie",
     OrnHP: 1100,
     Lvl: 3,
     SunNum: 125,
@@ -3923,6 +3983,34 @@ oIFootballZombie = InheritO(oConeheadZombie, {
         b + "Walk1.gif",
         b + "Walk2.gif",
         b + "1.gif",
+        b + "Attack.gif",
+        "images/Zombies/Zombie/ZombieHead.gif" + $Random,
+        a + "Die.gif" + $Random,
+        a + "Walk1.gif",
+        a + "Walk2.gif",
+        a + "Attack.gif",
+      ];
+    })(),
+  }),
+  oIDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
+    EName: "oIDuckyTubeZombie3",
+    CName: "Ducky Tube Buckethead Zombie",
+    OrnHP: 1100,
+    Lvl: 3,
+    SunNum: 125,
+    PlayNormalballAudio: function () {
+      PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+    },
+    AudioArr: ["shieldhit", "shieldhit2", "zombie_entering_water"],
+    PicArr: (function () {
+      var b = "images/Zombies/DuckyTubeZombie3/",
+        a = "images/Zombies/DuckyTubeZombie1/";
+      return [
+        "images/Card/Zombies/IDuckyTubeZombie3.png",
+        b + "Walk2.gif",
+        b + "Walk1.gif",
+        b + "Walk2.gif",
+        b + "Walk2.gif",
         b + "Attack.gif",
         "images/Zombies/Zombie/ZombieHead.gif" + $Random,
         a + "Die.gif" + $Random,
