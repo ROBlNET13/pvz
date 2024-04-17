@@ -1,3 +1,7 @@
+var customplants 
+var customtitle = "I, Zombie Level Editor"
+var customcolumns = 4
+var customsun = 150
 oS.Init({
   PicArr: (function () {
     a = "images/interface/";
@@ -18,9 +22,9 @@ oS.Init({
   LevelName: "I, Zombie Menu",
   LevelEName: 150,
   ShowScroll: 1,
-  LoadMusic: "Cerebrawl",
+  LoadMusic: "cerebrawl",
   StartGameMusic: "cerebrawl",
-  AudioArr: ["Cerebrawl", "pvzs"],
+  AudioArr: ["cerebrawl", "pvzs"],
   backgroundImage: "images/interface/IZombie_Background.png",
   LoadAccess: function (a) {
     NewImg(
