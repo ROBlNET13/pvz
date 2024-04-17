@@ -22,9 +22,9 @@ oS.Init({
   LevelName: "I, Zombie Menu",
   LevelEName: 150,
   ShowScroll: 1,
-  LoadMusic: "cerebrawl",
-  StartGameMusic: "cerebrawl",
-  AudioArr: ["cerebrawl", "pvzs"],
+  LoadMusic: "Cerebrawl",
+  StartGameMusic: "Cerebrawl",
+  AudioArr: ["Cerebrawl", "pvzs"],
   backgroundImage: "images/interface/IZombie_Background.png",
   LoadAccess: function (a) {
     NewImg(
