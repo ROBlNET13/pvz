@@ -2224,6 +2224,39 @@ var CPlants = NewO({
         Produce:
             'Lilypads allow you to grow non-aquatic plants on top of them。<p>Features:<font color="#FF0000">Non-aquatic plants can be planted on it<br>Must be planted on water</font></p>Lilypad never complains, it never wants to know what happened</font><br> Plant a plant on it and it wont say anything.</font><br>，Does it have any surprising ideas or terrible secrets?？</font><br>Lotus Ye buries all these inside of her heart。',
     }),
+    oILilyPad = InheritO(oFlowerPot, {
+        BookHandBack: 4.9,
+        Stature: -2,
+        EName: "oILilyPad",
+        CName: "LilyPad",
+        width: 79,
+        height: 58,
+        beAttackedPointR: 59,
+        HP: 1e3,
+        PicArr: [
+            "images/Card/Plants/LilyPad.png",
+            "images/Plants/LilyPad/0.gif",
+            "images/Plants/LilyPad/LilyPad.gif",
+        ],
+        getShadow: function (a) {
+            return "left:-8px;top:25px";
+        },
+        CanGrow: function (c, b, d) {
+            var a = b + "_" + d;
+            return !(
+                d < 1 ||
+                d > 9 ||
+                oGd.$LF[b] - 2 ||
+                c[0] ||
+                c[1] ||
+                oGd.$Crater[a] ||
+                oGd.$Tombstones[a]
+            );
+        },
+        Tooltip: "Lilypads allow you to grow non-aquatic plants on them。",
+        Produce:
+            'Lilypads allow you to grow non-aquatic plants on top of them。<p>Features:<font color="#FF0000">Non-aquatic plants can be planted on it<br>Must be planted on water</font></p>Lilypad never complains, it never wants to know what happened</font><br> Plant a plant on it and it wont say anything.</font><br>，Does it have any surprising ideas or terrible secrets?？</font><br>Lotus Ye buries all these inside of her heart。',
+    }),
     oLilyPad1 = InheritO(oLilyPad, {
         EName: "oLilyPad1",
     }),
@@ -2273,140 +2306,6 @@ var CPlants = NewO({
         BirthStyle: function (d, e, c, b, a) {
             c.childNodes[1].src = !a
                 ? "images/Plants/PotatoMine/PotatoMineNotReady.gif"
-                : (~(function () {
-                      d.Status = 1;
-                      d.canTrigger = 1;
-                      d.getHurt = d.getHurt2;
-                  })(),
-                  "images/Plants/PotatoMine/PotatoMine.gif");
-            EditEle(
-                c,
-                {
-                    id: e,
-                },
-                b,
-                EDPZ
-            );
-        },
-        getHurt2: function (d, b, a) {
-            var c = this;
-            b > 2
-                ? (c.HP -= a) < 1 && c.Die()
-                : c.NormalAttack(c.pixelLeft, c.pixelRight, c.R);
-        },
-        PrivateBirth: function (b, a) {
-            !a &&
-                oSym.addTask(
-                    1500,
-                    function (d) {
-                        var c = $P[d];
-                        c &&
-                            (($(d).childNodes[1].src =
-                                "images/Plants/PotatoMine/PotatoMine.gif"),
-                            (c.Status = 1),
-                            (c.canTrigger = 1),
-                            (c.getHurt = c.getHurt2));
-                    },
-                    [b.id]
-                );
-        },
-        getTriggerRange: function (a, b, c) {
-            return [[b, c, 0]];
-        },
-        TriggerCheck: function (e, c) {
-            var a = this.R,
-                b = this.C;
-            e.beAttacked &&
-                e.Altitude < 2 &&
-                !oGd.$[a + "_" + b + "_2"] &&
-                this.NormalAttack(this.pixelLeft, this.pixelRight, this.R);
-        },
-        NormalAttack: function (j, h, e) {
-            var g = this,
-                b = g.id,
-                d = $(b),
-                c = oZ.getArZ(j, h, e),
-                f = c.length,
-                a;
-            while (f--) {
-                (a = c[f]).Altitude < 2 && a.getThump();
-            }
-            g.Die(1);
-            PlayAudio("potato_mine");
-            EditEle(
-                d.childNodes[1],
-                {
-                    src: "images/Plants/PotatoMine/PotatoMine_mashed.gif",
-                },
-                {
-                    width: "132px",
-                    height: "93px",
-                    left: "-40px",
-                    top: "-20px",
-                }
-            );
-            NewImg(
-                0,
-                "images/Plants/PotatoMine/ExplosionSpudow.gif",
-                "left:-90px;top:-40px",
-                d
-            );
-            oSym.addTask(
-                200,
-                function (i) {
-                    ClearChild(i.lastChild);
-                    oSym.addTask(100, ClearChild, [i]);
-                },
-                [d]
-            );
-        },
-    }),
-        oIPotatoMine = InheritO(CPlants, {
-        EName: "oIPotatoMine",
-        CName: "Potato Mine",
-        width: 75,
-        height: 55,
-        beAttackedPointR: 55,
-        SunNum: 25,
-        coolTime: 1,
-        Stature: -1,
-        HP: 13,
-        CanGrow: function (c, b, e) {
-            var a = b + "_" + e,
-                d = oS.ArP;
-            return d
-                ? oGd.$LF[b] == 1
-                    ? e > 0 &&
-                      e < d.ArC[1] &&
-                      !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1])
-                    : c[0] && !c[1]
-                : oGd.$LF[b] == 1
-                ? !(
-                      e < 1 ||
-                      e > 9 ||
-                      oGd.$Crater[a] ||
-                      oGd.$Tombstones[a] ||
-                      c[1]
-                  )
-                : c[0] && !c[1];
-        },
-        PicArr: [
-            "images/Card/Plants/PotatoMine.png",
-            "images/Plants/PotatoMine/0.gif",
-            "images/Plants/PotatoMine/PotatoMine.gif",
-            "images/Plants/PotatoMine/PotatoMineNotReady.gif",
-            "images/Plants/PotatoMine/PotatoMine_mashed.gif",
-            "images/Plants/PotatoMine/ExplosionSpudow.gif",
-        ],
-        Tooltip: "Explodes on contact, but takes time to arm itself",
-        Produce:
-            'Potato mines are powerful, but they take time</font><br>to arm yourself. You should plant them in the way of zombies</font><br>, which explode when they are touched.<p>Harm:<font color="FF0000">huge</font><br>Scope:<font color="#FF0000">All zombies in a small area</font><br>Instructions:<font color="#FF0000">It takes some preparation time to use alone.</font></p>Some people say Potato Ray is lazy because he always puts everything</font><br>Save for last. Tudou Lei didnt have time to talk to them, he was busy with exams</font><br>Consider his investment strategy.',
-        Status: 0,
-        AudioArr: ["potato_mine"],
-        canTrigger: 0,
-        BirthStyle: function (d, e, c, b, a) {
-            c.childNodes[1].src = !a
-                ? "images/Plants/PotatoMine/PotatoMine.gif"
                 : (~(function () {
                       d.Status = 1;
                       d.canTrigger = 1;
