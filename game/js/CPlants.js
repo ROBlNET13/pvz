@@ -4744,7 +4744,7 @@ if (yuckrng == 1) {
         beAttackedPointR: 61,
         SunNum: 75,
         coolTime: 30,
-        HP: 1,
+        HP: 0,
         PicArr: [
             "images/Card/Plants/HypnoShroom.png",
             "images/Plants/HypnoShroom/0.gif",
