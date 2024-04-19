@@ -4763,6 +4763,7 @@ if (yuckrng == 1) {
                     break;
                 case 0:
                     !c.Sleep && d.bedevil(d);
+                     PlayAudio("mindcontrolled");
                     c.Die();
                     break;
                 default:
