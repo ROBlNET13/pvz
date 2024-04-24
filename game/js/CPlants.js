@@ -1817,7 +1817,7 @@ var CPlants = NewO({
             b();
         },
     }),
-    oSunFlower = InheritO(CPlants, {
+oSunFlower = InheritO(CPlants, {
         EName: "oSunFlower",
         CName: "SunFlower",
         width: 73,
@@ -1834,20 +1834,22 @@ var CPlants = NewO({
             "Gives you additional sun",
         Produce:
             'Sunflowers are essential for you to produce extra sun. Try planting as many as you can!<p>Sun production: <font color="#FF0000">normal</font></p>Sunflower can\'t resist bouncing to the beat. Which beat is that? Why, the life-giving jazzy rhythm of the Earth itself, thumping at a frequency only Sunflower can hear.',
-        BirthStyle: function (c, e, b, a) {
-            var d = b.childNodes[1];
-            d.src = "images/Plants/SunFlower/SunFlower.gif";
-            d.style.clip = "rect(0,auto,74px,0)";
-            d.style.height = "148px";
-            EditEle(
-                b,
-                {
-                    id: e,
-                },
-                a,
-                EDPZ
-            );
-        },
+      /*
+            BirthStyle: function (c, e, b, a) {
+                var d = b.childNodes[1];
+                d.src = "images/Plants/SunFlower/SunFlower.gif";
+                d.style.clip = "rect(0,auto,74px,0)";
+                d.style.height = "148px";
+                EditEle(
+                    b,
+                    {
+                        id: e,
+                    },
+                    a,
+                    EDPZ
+                );
+            },
+            */ // unused stuff lol (why didnt they just remove this instead of making both of the gifs like that)
         ChangePosition: function (c, a) {
             var b = c.childNodes[1];
             a
@@ -1866,7 +1868,7 @@ var CPlants = NewO({
                       500,
                       function (d, c, b) {
                           $P[d] &&
-                              (a.ChangePosition($(d), 1),
+                              (a.ChangePosition($(d), 0),
                               oSym.addTask(
                                   100,
                                   function (h, g, f, e) {
@@ -1986,6 +1988,7 @@ var CPlants = NewO({
                 ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
                 : c[0] && !d;
         },
+        /*
         BirthStyle: function (c, e, b, a) {
             var d = b.childNodes[1];
             d.src = "images/Plants/TwinSunflower/TwinSunflower.gif";
@@ -2000,6 +2003,7 @@ var CPlants = NewO({
                 EDPZ
             );
         },
+        */ // same thing here
         ChangePosition: function (c, a) {
             var b = c.childNodes[1];
             a
@@ -2018,7 +2022,7 @@ var CPlants = NewO({
                 500,
                 function (f, d, c, e) {
                     $P[f] &&
-                        (a.ChangePosition($(f), 1),
+                        (a.ChangePosition($(f), 0),
                         oSym.addTask(
                             100,
                             function (k, h, g, j, i) {
