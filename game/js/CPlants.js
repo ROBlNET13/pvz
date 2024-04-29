@@ -1365,7 +1365,11 @@ var CPlants = NewO({
             "Fires two frozen peas that damage and slow the enemy at a time",
         Produce:
             'Fires two frozen peas that damage and slow the enemy at a time.<p>Harm:<font color="#FF0000">medium (each)</font><br>Launch speed:<font color="#FF0000">double</font></p>The dual-shot ice shooter is a shooting enthusiast, he often</font><br>People mention how accurate their shots are. Well, although things</font><br>Not so.',
-        NormalAttack1: oSnowPea.prototype.NormalAttack,
+                CanGrow: function(b, a, d) {
+    var c = b[1];
+    return c && (c.EName === "oRepeater" || c.EName === "oSnowpea");
+}
+	    NormalAttack1: oSnowPea.prototype.NormalAttack,
         NormalAttack: function (a) {
             this.NormalAttack1();
             oSym.addTask(
@@ -1378,10 +1382,6 @@ var CPlants = NewO({
             );
         },
     }),
-        CanGrow: function(b, a, d) {
-    var c = b[1];
-    return c && (c.EName === "oRepeater" || c.EName === "oSnowpea");
-}
     oRepeater = InheritO(oPeashooter, {
         EName: "oRepeater",
         CName: "Repeater",
