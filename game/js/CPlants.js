@@ -1378,11 +1378,6 @@ var CPlants = NewO({
             );
         },
     }),
-	CanGrow: function(b, a, d) {
-    var c = b[1];
-    return c && c.EName === "oRepeater" || c.EName === "oSnowpea";
-}
-
     oRepeater = InheritO(oPeashooter, {
         EName: "oRepeater",
         CName: "Repeater",
