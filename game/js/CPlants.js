@@ -3852,10 +3852,6 @@ if (yuckrng == 1) {
             );
         },
     }),
-        CanGrow: function(b, a, d) {
-		var c = b[1];
-		return c && c.EName == "oChomper"
-	},
     oFumeShroom = InheritO(CPlants, {
         EName: "oFumeShroom",
         CName: "Fume-shroom",
