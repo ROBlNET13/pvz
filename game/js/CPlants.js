@@ -3797,7 +3797,11 @@ if (yuckrng == 1) {
             "超级大嘴花能一口气吞下一只僵尸, 并且咀嚼速度是普通大嘴花的50%",
         Produce:
             '超级大嘴花能一口气吞下一只僵尸, 并且咀嚼速</font><br>度是普通大嘴花的50%。<p>Harm:<font color="#FF0000">巨大</font><br>Scope:<font color="#FF0000">非常近</font><br>Features:<font color="#FF0000">咀嚼时间短</font></p>超级大嘴花曾经是电视节目“超级大胃王”节</font><br>目的常客，但后来他被踢出了节目组，原因是</font><br>它的存在直接影响到观众的饮食量和节目收视</font><br>率。没办法，为了糊口他只得干起吞食僵尸行</font><br>动。',
-        NormalAttack: function (a, b) {
+       CanGrow: function(b, a, d) {
+		var c = b[1];
+		return c && c.EName == "oChomper"
+	},
+	    NormalAttack: function (a, b) {
             $(a).childNodes[1].src =
                 "images/Plants/BigChomper/ChomperAttack.gif" +
                 $Random +
