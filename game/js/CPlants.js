@@ -1378,6 +1378,10 @@ var CPlants = NewO({
             );
         },
     }),
+        CanGrow: function(b, a, d) {
+    var c = b[1];
+    return c && (c.EName === "oRepeater" || c.EName === "oSnowpea");
+}
     oRepeater = InheritO(oPeashooter, {
         EName: "oRepeater",
         CName: "Repeater",
@@ -1572,7 +1576,7 @@ var CPlants = NewO({
         width: 88,
         height: 84,
         beAttackedPointR: 68,
-        SunNum: 275,
+        SunNum: 250,
         PicArr: [
             "images/Card/Plants/GatlingPea.png",
             "images/Plants/GatlingPea/0.gif",
@@ -1615,22 +1619,10 @@ var CPlants = NewO({
                     (c.zIndex + 2)
             );
         },
-        CanGrow: function (c, b, f) {
-            var a = b + "_" + f,
-                d = c[1],
-                e = oS.ArP;
-            return e
-                ? oGd.$LF[b] == 1
-                    ? f > 0 &&
-                      f < e.ArC[1] &&
-                      !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
-                    : c[0] && !d
-                : d && d.EName == "oRepeater"
-                ? 1
-                : oGd.$LF[b] == 1
-                ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
-                : c[0] && !d;
-        },
+        CanGrow: function(b, a, d) {
+		var c = b[1];
+		return c && c.EName == "oRepeater"
+	},
         NormalAttack1: oPeashooter.prototype.NormalAttack,
         NormalAttack: function (a) {
             this.NormalAttack1();
@@ -1972,22 +1964,10 @@ oSunFlower = InheritO(CPlants, {
             "Gives twice as much sun as a sunflower",
         Produce:
             'Twin sunflowers produce twice as much sunlight as regular sunflowers.<p>Sunlight Yield:<font color="#FF0000">double<br>Can be planted on common sunflowers</font></p>Its a crazy night where forbidden science and technology make double</font><br>The cell sunflower came to this world. Lightning, thunder, gust of wind, roar</font><br>, are expressing the worlds rejection of him. but everything</font><br>To no avail, Gemini Sunflower is still alive!',
-        CanGrow: function (c, b, f) {
-            var a = b + "_" + f,
-                d = c[1],
-                e = oS.ArP;
-            return e
-                ? oGd.$LF[b] == 1
-                    ? f > 0 &&
-                      f < e.ArC[1] &&
-                      !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
-                    : c[0] && !d
-                : d && d.EName == "oSunFlower"
-                ? 1
-                : oGd.$LF[b] == 1
-                ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
-                : c[0] && !d;
-        },
+        CanGrow: function(b, a, d) {
+		var c = b[1];
+		return c && c.EName == "oSunFlower"
+	},
         /*
         BirthStyle: function (c, e, b, a) {
             var d = b.childNodes[1];
@@ -3437,21 +3417,10 @@ oSunFlower = InheritO(CPlants, {
         Tooltip: "Pops multiple tires and damages zombies that walk over it",
         Produce:
             '地刺王可以扎破多个轮胎，并对踩到他的僵尸</font><br>造成伤害。<p><font color="#FF0000">可以种植在地刺上</font></p>地刺王刚刚从欧洲旅行回来。他玩的很高兴，</font><br>也认识了很多有趣的人。这些都真的拓展了他</font><br>视野——他从来不知道，他们建造了这么大博</font><br>物馆，有这么多的画作。这对他说太惊奇了。',
-        CanGrow: function (c, b, e) {
-            var a = b + "_" + e,
-                d = oS.ArP;
-            return d
-                ? e > 0 && e < d.ArC[1] && oGd.$LF[b] == 1 && !(c[1] || c[0])
-                : !(
-                      e < 1 ||
-                      e > 9 ||
-                      oGd.$LF[b] - 1 ||
-                      c[1] ||
-                      c[0] ||
-                      oGd.$Crater[a] ||
-                      oGd.$Tombstones[a]
-                  );
-        },
+        CanGrow: function(b, a, d) {
+		var c = b[1];
+		return c && c.EName == "oSpikeweed"
+	},
         GetDY: function (b, c, a) {
             return 0;
         },
@@ -3887,6 +3856,10 @@ if (yuckrng == 1) {
             );
         },
     }),
+        CanGrow: function(b, a, d) {
+		var c = b[1];
+		return c && c.EName == "oChomper"
+	},
     oFumeShroom = InheritO(CPlants, {
         EName: "oFumeShroom",
         CName: "Fume-shroom",
@@ -4240,22 +4213,10 @@ if (yuckrng == 1) {
         Tooltip: "Releases heavy fumes in an area around itself",
         Produce:
             '围绕自身释放大量孢子<p><font color="#FF0000">可以种植在大喷菇上</font></p>“我喜欢喷射大量烟雾。”忧郁蘑菇说，“我</font><br>知道许多人不喜欢这样，他们说这又粗鲁啦烟</font><br>雾又很臭啦之类的，我只想说，你们想不想自</font><br>己的脑袋被僵尸吃掉？”',
-        CanGrow: function (c, b, f) {
-            var a = b + "_" + f,
-                d = c[1],
-                e = oS.ArP;
-            return e
-                ? oGd.$LF[b] == 1
-                    ? f > 0 &&
-                      f < e.ArC[1] &&
-                      !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
-                    : c[0] && !d
-                : d && d.EName == "oFumeShroom"
-                ? 1
-                : oGd.$LF[b] == 1
-                ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
-                : c[0] && !d;
-        },
+CanGrow: function(b, a, d) {
+		var c = b[1];
+		return c && c.EName == "oFumeShroom"
+	},
         BirthStyle: function (c, d, b, a) {
             oS.DKind &&
                 ((c.canTrigger = 0),
