@@ -1885,7 +1885,7 @@ var $User = (function () {
                 oSnowRepeater,
                 oLing,
                 oLotusRoot,
-                oMagneticmuShroom,
+                oIceFumeShroom,
                 oLaserBean,
                 oBigChomper,
                 oFlamesMushroom,
