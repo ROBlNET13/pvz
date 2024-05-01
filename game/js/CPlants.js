@@ -4213,20 +4213,10 @@ CanGrow: function(b, a, d) {
 		var c = b[1];
 		return c && c.EName == "oFumeShroom"
 	},
-        BirthStyle: function (c, d, b, a) {
-            oS.DKind &&
-                ((c.canTrigger = 0),
-                (c.Sleep = 1),
-                (b.childNodes[1].src = c.PicArr[c.SleepGif]));
-            EditEle(
-                b,
-                {
-                    id: d,
-                },
-                a,
-                EDPZ
-            );
-        },
+	BirthStyle: function(c, d, b, a) {
+		oGd.$[c.R + "_" + c.C + "_1"] && oGd.$[c.R + "_" + c.C + "_1"].Sleep && (c.canTrigger = 0, c.Sleep = 1, b.childNodes[1].src = c.PicArr[3]);
+		EditEle(b, { id: d }, a, EDPZ);
+	},
         GetDX: function () {
             return -58;
         },
