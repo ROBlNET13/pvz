@@ -3102,7 +3102,7 @@ oSunFlower = InheritO(CPlants, {
     }),
     oTenManNut = InheritO(CPlants, {
         EName: "oTenManNut",
-        CName: "藤蔓坚果",
+        CName: "Vine-nut",
         width: 155,
         height: 130,
         beAttackedPointL: 63,
@@ -3784,7 +3784,7 @@ if (yuckrng == 1) {
     }),
     oBigChomper = InheritO(oChomper, {
         EName: "oBigChomper",
-        CName: "超级大嘴花",
+        CName: "Super Chomper",
         coolTime: 15,
         PicArr: [
             "images/Card/Plants/BigChomper.png",
@@ -4128,7 +4128,7 @@ if (yuckrng == 1) {
     }),
     oCoffeeBean = InheritO(CPlants, {
         EName: "oCoffeeBean",
-        CName: "咖啡豆",
+        CName: "Coffee Bean",
         width: 39,
         height: 97,
         beAttackedPointL: 10,
@@ -5604,7 +5604,7 @@ CanGrow: function(b, a, d) {
 })),
     (oOxygen = InheritO(CPlants, {
         EName: "oOxygen",
-        CName: "氧气藻",
+        CName: "Oxygen",
         width: 73,
         height: 74,
         beAttackedPointR: 53,
@@ -5665,7 +5665,7 @@ CanGrow: function(b, a, d) {
     })),
     (oFlamesMushroom = InheritO(CPlants, {
         EName: "oFlamesMushroom",
-        CName: "烈焰菇",
+        CName: "Fire-shroom",
         width: 102,
         height: 91,
         beAttackedPointR: 80,
@@ -5829,7 +5829,7 @@ CanGrow: function(b, a, d) {
     })),
     (ostar = InheritO(CPlants, {
         EName: "ostar",
-        CName: "海星果",
+        CName: "Sea Starfruit",
         width: 71,
         height: 71,
         beAttackedPointL: 10,
@@ -6044,7 +6044,7 @@ CanGrow: function(b, a, d) {
     })),
     (oGun = InheritO(oPuffShroom, {
         EName: "oGun",
-        CName: "水枪草",
+        CName: "Water Gun Grass",
         Sleep: 0,
         width: 40,
         height: 66,
@@ -6148,7 +6148,7 @@ CanGrow: function(b, a, d) {
     })),
     (oSeaAnemone = InheritO(oGloomShroom, {
         EName: "oSeaAnemone",
-        CName: "电海葵",
+        CName: "Electric Anemone",
         width: 83,
         height: 119,
         beAttackedPointR: 63,
@@ -6276,7 +6276,7 @@ CanGrow: function(b, a, d) {
     })),
     (oTTS = InheritO(CPlants, {
         EName: "oTTS",
-        CName: "荆棘海草",
+        CName: "Thorn Seaweed",
         width: 75,
         height: 226,
         beAttackedPointR: 55,
@@ -6497,7 +6497,7 @@ CanGrow: function(b, a, d) {
     })),
     (oLaserBean = InheritO(CPlants, {
         EName: "oLaserBean",
-        CName: "激光蚕豆",
+        CName: "Laser Bean",
         width: 80,
         height: 80,
         beAttackedPointR: 80,
