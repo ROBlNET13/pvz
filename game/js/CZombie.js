@@ -4582,9 +4582,9 @@ oIFootballZombie = InheritO(oConeheadZombie, {
   oSubZombie = InheritO(oSnorkelZombie, {
     EName: "oSubZombie",
     CName: "Submarine Zombie",
-    HP: "500",
-    OSpeed: 1,
-    Speed: 1,
+    HP: "450",
+    OSpeed: 0.9,
+    Speed: 0.9,
     width: 464,
     height: 364,
     beAttackedPointL: 140,
