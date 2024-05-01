@@ -4215,8 +4215,8 @@ CanGrow: function(b, a, d) {
 	},
         BirthStyle: function (c, d, b, a) {
             oS.DKind &&
-                ((c.canTrigger = b[1].canTrigger),
-                (c.Sleep = b[1].Sleep),
+                ((c.canTrigger = 0),
+                (c.Sleep = 1),
                 (b.childNodes[1].src = c.PicArr[c.SleepGif]));
             EditEle(
                 b,
