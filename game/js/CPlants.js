@@ -2729,7 +2729,7 @@ oSunFlower = InheritO(CPlants, {
     }),
     oLing = InheritO(oWallNut, {
         EName: "oLing",
-        CName: "南湖菱",
+        CName: "Water-nut",
         width: 90,
         height: 72,
         beAttackedPointL: 15,
