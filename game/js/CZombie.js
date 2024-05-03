@@ -2164,7 +2164,7 @@ oIZombie = InheritO(OrnNoneZombies, {
   oZombie3 = InheritO(oZombie, { EName: "oZombie3" }),
   oMustacheZombie = InheritO(oZombie, {
     EName: "oMustacheZombie",
-    CName: "胡子僵尸",
+    CName: "Mustache Zombie",
     HP: 540,
     Produce:
       '出没于常青之塔的神秘僵尸。<p>韧性：<font color="#FF0000">高</font></p>姜还是老的辣，僵尸界也有这种说法。于是，一些老僵尸也上战场了。',
@@ -2314,7 +2314,7 @@ oIZombie = InheritO(OrnNoneZombies, {
   }),
   oLionDanceZombie = InheritO(oConeheadZombie, {
     EName: "oLionDanceZombie",
-    CName: "舞狮僵尸",
+    CName: "Lion Dancer Zombie",
     HP: 370,
     OrnHP: 1100,
     Speed: 4.8,
@@ -5885,7 +5885,7 @@ oIFootballZombie = InheritO(oConeheadZombie, {
   }),
   oJX = InheritO(OrnNoneZombies, {
     EName: "oJX",
-    CName: "蟹将僵尸",
+    CName: "Crab Imp",
     HP: 275,
     Lvl: 4,
     StandGif: 9,
@@ -6711,7 +6711,7 @@ oIBalloonZombie = InheritO(OrnIZombies, {
 });
   (oJY = InheritO(oBalloonZombie, {
     EName: "oJY",
-    CName: "贱鱼僵尸",
+    CName: "Fish Thrower Imp",
     OrnHP: 1,
     HP: 1,
     PicArr: (function () {
