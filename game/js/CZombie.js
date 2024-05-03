@@ -661,7 +661,7 @@ var CZombies = (function (b, a) {
   })(),
   oBackupDancer = InheritO(OrnNoneZombies, {
     EName: "oBackupDancer",
-    CName: "伴舞僵尸",
+    CName: "Backup Dancer",
     OSpeed: 3.5,
     Speed: 3.5,
     Lvl: 1,
@@ -5002,7 +5002,7 @@ oIFootballZombie = InheritO(oConeheadZombie, {
     };
     return InheritO(OrnNoneZombies, {
       EName: "oZomboni",
-      CName: "冰车僵尸",
+      CName: "Zomboni",
       HP: 1350,
       Lvl: 3,
       StandGif: 2,
@@ -5607,7 +5607,7 @@ oIFootballZombie = InheritO(oConeheadZombie, {
   })(),
   oDolphinRiderZombie = InheritO(oAquaticZombie, {
     EName: "oDolphinRiderZombie",
-    CName: "海豚骑士僵尸",
+    CName: "Dolphin Rider Zombie",
     HP: 270,
     Lvl: 2,
     BreakPoint: 167,
@@ -6873,7 +6873,7 @@ oIBalloonZombie = InheritO(OrnIZombies, {
   })),
   (oCZombie = InheritO(OrnNoneZombies, {
     EName: "oCZombie",
-    CName: "庶民僵尸",
+    CName: "Commoner Zombie",
     StandGif: 9,
     PicArr: (function () {
       var a = "images/Zombies/wall/Zombie/";
@@ -6915,7 +6915,7 @@ oIBalloonZombie = InheritO(OrnIZombies, {
   ));
 oCConeheadZombie = InheritO(OrnIZombies, {
   EName: "oCConeheadZombie",
-  CName: "竹篓僵尸",
+  CName: "Bamboo Baskethead Zombie",
   OrnHP: 370,
   Lvl: 2,
   SunNum: 75,
@@ -6949,7 +6949,7 @@ oCBucketheadZombie = InheritO(
   oCConeheadZombie,
   {
     EName: "oCBucketheadZombie",
-    CName: "乞丐僵尸",
+    CName: "Beggar Zombie",
     OrnHP: 1100,
     Lvl: 3,
     SunNum: 125,
@@ -6972,7 +6972,7 @@ oCBucketheadZombie = InheritO(
 );
 (othugZombie = InheritO(OrnNoneZombies, {
   EName: "othugZombie",
-  CName: "刺客僵尸",
+  CName: "Assassin Zombie",
   HP: 550,
   width: 348,
   height: 218,
@@ -7167,7 +7167,7 @@ oCBucketheadZombie = InheritO(
 })),
   (oEunZombie = InheritO(OrnIIZombies, {
     EName: "oEunZombie",
-    CName: "灵符僵尸",
+    CName: "Talisman Zombie",
     OrnHP: 500,
     HP: 270,
     Lvl: 2,
@@ -7446,7 +7446,7 @@ oCBucketheadZombie = InheritO(
   }));
 (oZZ = InheritO(OrnNoneZombies, {
   EName: "oZZ",
-  CName: "怨灵僵尸",
+  CName: "Wraith Zombie",
   Lvl: 4,
   HP: 500,
   StandGif: 9,
@@ -7479,7 +7479,7 @@ oCBucketheadZombie = InheritO(
 })),
   (oEmperor = InheritO(oCZombie, {
     EName: "oEmperor",
-    CName: "秦始皇僵尸",
+    CName: "Emperor Zombot",
     HP: 15e3,
     width: 464,
     height: 364,
@@ -7511,7 +7511,7 @@ oCBucketheadZombie = InheritO(
   })),
   (oWJY = InheritO(oEunZombie, {
     EName: "oWJY",
-    CName: "作者僵尸",
+    CName: "Author Zombie",
     HP: 17e3,
     OrnHP: 1e4,
     lvl: 8,
@@ -7544,7 +7544,7 @@ oCBucketheadZombie = InheritO(
   }));
 (oWJY1 = InheritO(oDuckyTubeZombie1, {
   EName: "oWJY1",
-  CName: "作者僵尸-水",
+  CName: "Author Zombie-Water",
   OSpeed: 0.1,
   Speed: 0.1,
   HP: 2e4,
@@ -7572,7 +7572,7 @@ oCBucketheadZombie = InheritO(
 })),
   (oXBZombie = InheritO(OrnNoneZombies, {
     EName: "oXBZombie",
-    CName: "虾兵僵尸",
+    CName: "Lobsterhead Runner Zombie",
     Lvl: 4,
     StandGif: 9,
     OSpeed: 3.2,
@@ -7679,7 +7679,7 @@ oCBucketheadZombie = InheritO(
     };
     return InheritO(oZomboni, {
       EName: "oLGBOSS",
-      CName: "东海龙王",
+      CName: "Dragon King Zombie",
       HP: 6e3,
       width: 464,
       height: 377,
@@ -8395,7 +8395,7 @@ oCBucketheadZombie = InheritO(
         } (),
         oBackupDancer = InheritO(OrnNoneZombies, {
           EName: "oBackupDancer",
-          CName: "伴舞僵尸",
+          CName: "Backup Dancer",
           OSpeed: 3.5,
           Speed: 3.5,
           Lvl: 1,
