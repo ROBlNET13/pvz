@@ -416,7 +416,7 @@ var $User = (function () {
             c.style.cursor = "default";
             SetHidden($("dFlagMeterContent"), dFlagMeter);
             $("dFlagMeter").style.top = "490px";
-                $("dFlagMeter").style.left = "805px";
+  //          $("dFlagMeter").style.left = "805px";
             $("sFlagMeterTitleF").innerHTML = $("dFlagMeterTitleB").innerHTML =
                 f.LevelName;
             $("imgFlagHead").style.left = "139px";
