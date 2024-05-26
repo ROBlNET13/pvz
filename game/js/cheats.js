@@ -20,7 +20,7 @@ document.addEventListener('keydown', event => {
   }
   // sun
  if (keysPressed['j']) {
-    if (oS.StaticCard != 0) {
+if (document.querySelector("#dSunNum").style.visibility == '') {
       AppearSun(
           GetX(Math.floor(1 + Math.random() * oS.C)),
           GetY(Math.floor(1 + Math.random() * oS.R)),
