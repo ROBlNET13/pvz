@@ -1,5 +1,5 @@
 let keysPressed = {};
-
+console.log("test")
 document.addEventListener('keydown', event => {
   keysPressed[event.key] = true;
    // super fast
