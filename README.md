@@ -4,3 +4,5 @@ cool pvz game that works as a browser extension n stuff
 co developer is ClaytonTDM
 
 dont use on your own site without written permission from me beforehand  
+
+(C) 2024 ROBLNET13 and ClaytonTDM
