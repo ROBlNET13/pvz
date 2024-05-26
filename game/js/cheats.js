@@ -19,7 +19,7 @@ document.addEventListener('keydown', event => {
     ViewHandBook();
   }
   // sun
- if (keysPressed['j']) {
+  if (keysPressed['j']) {
 if (document.querySelector("#dSunNum").style.visibility == '') {
       AppearSun(
           GetX(Math.floor(1 + Math.random() * oS.C)),
@@ -28,7 +28,7 @@ if (document.querySelector("#dSunNum").style.visibility == '') {
           1
       );
     }
-  }
+});
 
 document.addEventListener('keyup', event => {
   keysPressed[event.key] = false;
