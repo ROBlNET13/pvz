@@ -1,5 +1,5 @@
 let keysPressed = {};
-console.log("test")
+
 document.addEventListener('keydown', event => {
   keysPressed[event.key] = true;
    // super fast
@@ -19,15 +19,16 @@ document.addEventListener('keydown', event => {
     ViewHandBook();
   }
   // sun
-  if (keysPressed['j']) {
-    AppearSun(
-        GetX(Math.floor(1 + Math.random() * oS.C)),
-        GetY(Math.floor(1 + Math.random() * oS.R)),
-        25,
-        1
-    );
+ if (keysPressed['j']) {
+    if (oS.StaticCard != 0) {
+      AppearSun(
+          GetX(Math.floor(1 + Math.random() * oS.C)),
+          GetY(Math.floor(1 + Math.random() * oS.R)),
+          25,
+          1
+      );
+    }
   }
-});
 
 document.addEventListener('keyup', event => {
   keysPressed[event.key] = false;
