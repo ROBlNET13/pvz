@@ -2426,6 +2426,7 @@ var $User = (function () {
    
 
     AutoProduceSun = function (a) {
+            console.log("ROBLNET13 on github")
         AppearSun(
             GetX(Math.floor(1 + Math.random() * oS.C)),
             GetY(Math.floor(1 + Math.random() * oS.R)),
