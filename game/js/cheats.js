@@ -4,7 +4,7 @@ document.addEventListener('keydown', event => {
   keysPressed[event.key] = true;
    // super fast
   if (keysPressed['s'] && keysPressed['f']) {
-    CSpeed(1000,10,1000);
+    CSpeed(1000, 10, 1000);
   }
   // balloon
   if (keysPressed['b'] && keysPressed['l'] && keysPressed['n']) {
@@ -20,15 +20,16 @@ document.addEventListener('keydown', event => {
   }
   // sun
   if (keysPressed['j']) {
-if (document.querySelector("#dSunNum").style.visibility == '') {
+    if (document.querySelector("#dSunNum").style.visibility == '') {
       AppearSun(
-          GetX(Math.floor(1 + Math.random() * oS.C)),
-          GetY(Math.floor(1 + Math.random() * oS.R)),
-          25,
-          1
+        GetX(Math.floor(1 + Math.random() * oS.C)),
+        GetY(Math.floor(1 + Math.random() * oS.R)),
+        25,
+        1
       );
     }
-});
+  }
+}); 
 
 document.addEventListener('keyup', event => {
   keysPressed[event.key] = false;
