@@ -172,7 +172,7 @@
 							LvlList = function (BLvl, SLvl1, SLvl2) {
 								var s = '', startlvl = BLvl * 10;
 								do {
-									s += '<span class="lvl" onclick="StartAdventure(' + (startlvl + SLvl1) + ')">No. 1' + ArLvl[SLvl1] + 'close</span>';
+									s += '<span class="lvl" onclick="StartAdventure(' + (startlvl + SLvl1) + ')">Level ' + ArLvl[SLvl1] + '.</span>';
 								} while (SLvl1++ < SLvl2)
 								document.write(s);
 							};
