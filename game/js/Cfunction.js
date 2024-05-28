@@ -88,10 +88,12 @@ var $User = (function () {
                         c = a.length,
                         b,
                         e;
-                    while (c--) {
-                        d.Now >= (b = a[c]).T &&
-                            ((e = b.f).apply(e, b.ar), d.removeTask(c));
-                    }
+                        while (c--) {
+                            if (d.Now >= (b = a[c]).T) {
+                                try { (e = b.f).apply(e, b.ar); } catch (Reason) { console.error(Reason); };
+                                d.removeTask(c);
+                            }
+                        }
                     d.execTask = setTimeout(arguments.callee, d.TimeStep);
                 })();
             }
@@ -1885,7 +1887,7 @@ var $User = (function () {
                 oSpikerock,
                 oTenManNut,
                 oSnowRepeater,
-                oLing,
+                oCattail,
                 oLotusRoot,
                 oIceFumeShroom,
                 oLaserBean,
