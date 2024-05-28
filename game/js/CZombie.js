@@ -29,6 +29,14 @@ var CZombies = (function (b, a) {
         OrnHP: 0,
         OSpeed: 1.6,
         Speed: 1.6,
+        FangXiang: 'GoLeft',
+        isGoingDie: 0,
+        DeltaDirectionSpeed: {
+            'GoLeft': 1,
+            'GoRight': -1,
+            'GoUp': 0,
+            'GoDown': 0
+        },
         CSS_fliph: "",
         CSS_alpha: "",
         AKind: 0,
@@ -42,6 +50,111 @@ var CZombies = (function (b, a) {
         FreeFreezeTime: 0,
         FreeSlowTime: 0,
         AudioArr: ["zombie_falling_1"],
+            HeadPosition: [{
+                x: 62,
+                y: 16,
+                width: 40,
+                height: 40
+            }, {
+                x: 62,
+                y: 16,
+                width: 40,
+                height: 40
+            }],
+            Ifgc:0,
+            getButter(self, time = 400, img = null, wh = [1, 1], delta = [0, 0]) {
+                if (!$Z[self.id] || self.HP < self.BreakPoint) {
+                    return;
+                }
+                if (img === null) {
+                    img = "images/Plants/KernelPult/butter.png";
+                }
+                var body = self._TMP_ELEBODY ? self._TMP_ELEBODY : self.EleBody;
+                var bodyStyle = body.style;
+                var oOpacity = bodyStyle.opacity;
+                var canvas, ctx;
+                if (!self.FreeSetbodyTime) {
+                    canvas = NewEle("Buttered_Zombie_" + Math.random(), "canvas", bodyStyle.cssText, {
+                        "height": body.offsetHeight,
+                        "width": body.offsetWidth
+                    }, self.Ele);
+                    ctx = canvas.getContext("2d");
+                    ctx.drawImage(self.EleBody, 0, 0, body.offsetWidth, body.offsetHeight);
+                    self._TMP_ELEBODY = self.EleBody;
+                    self.EleBody.style.opacity = 0;
+                    self.Speed = 0;
+                    self.EleBody = canvas;
+                    for (var i = 0; i < self._TMP_ELEBODY.attributes.length; i++) {
+                        var name = self._TMP_ELEBODY.attributes[i].nodeName;
+                        if (!/id|width|height|style/.test(name)) {
+                            self.EleBody.setAttribute(name, self._TMP_ELEBODY.attributes[i].nodeValue);
+                        }
+                    }
+                    oSym.addTask(1, function CheckSPC(last = null) {
+                        if (!$Z[self.id] || self.HP < self.BreakPoint) {
+                            if (self._FREESetBody_) {
+                                self._FREESetBody_();
+                            }
+                        } else if ($Z[self.id] && self.FreeSetbodyTime) {
+                            if (canvas.src) {
+                                self._TMP_ELEBODY.src = canvas.src;
+                                canvas.src = "";
+                            }
+                            if (last != self._TMP_ELEBODY.src) {
+                                ctx.clearRect(0, 0, body.offsetWidth * 2, body.offsetHeight * 2);
+                                ctx.drawImage(self._TMP_ELEBODY, 0, 0, body.offsetWidth, body.offsetHeight);
+                                last = self._TMP_ELEBODY.src;
+                            }
+                            var position = self.HeadPosition.length > self.isAttacking ? self.HeadPosition[self.isAttacking] : self.HeadPosition[0];
+                            for (var i of self._Butter_Img_) {
+                                if (position.x != Number.parseInt(i.style.left) || position.y != Number.parseInt(i.style.top)) {
+                                    i.style.left = (position.x + delta[0]) + "px";
+                                    i.style.top = (position.y + delta[1]) + "px";
+                                }
+                            }
+                            oSym.addTask(1, CheckSPC, [last]);
+                        }
+                    });
+                    self._FREESetBody_ = function() {
+                        self.FreeSetbodyTime = 0;
+                        self.EleBody = self._TMP_ELEBODY;
+                        if (self.EleBody) {
+                            self.EleBody.style.opacity = oOpacity;
+                            for (var i = 0; i < canvas.attributes.length; i++) {
+                                var name = canvas.attributes[i].nodeName;
+                                if (!/id|width|height/.test(name)) {
+                                    self.EleBody.setAttribute(name, canvas.attributes[i].nodeValue);
+                                }
+                            }
+                            canvas.src && (self.EleBody.src = canvas.src);
+                        }
+                        ClearChild(canvas);
+                        delete self._TMP_ELEBODY;
+                        for (var i = self._Butter_Img_.length - 1; i >= 0; i--) {
+                            ClearChild(self._Butter_Img_[i]);
+                        }
+                        delete self._Butter_Img_;
+                        if (!self.FreeFreezeTime) {
+                            self.Speed = self.FreeSlowTime ? self.OSpeed / 2 : self.OSpeed;
+                            self.isAttacking && self.JudgeAttack();
+                        }
+                        delete self._FREESetBody_;
+                    }
+                } else {
+                    canvas = self.EleBody;
+                    ctx = canvas.getContext("2d");
+                }
+                if (!$("butter" + self.id + img)) {
+                    !self._Butter_Img_ && (self._Butter_Img_ = []);
+                    var position = self.HeadPosition.length > self.isAttacking ? self.HeadPosition[self.isAttacking] : self.HeadPosition[0];
+                    self._Butter_Img_.push(NewImg("butter_" + self.id + img, img, (self.FangXiang == "GoRight" ? 'transform:rotateY(180deg);' : "") + `position:absolute;left:${position.x+delta[0]}px;top:${position.y+delta[1]}px;width:${position.width*wh[0]}px;height:${position.height*wh[1]}px;`, self.Ele));
+                }
+                oSym.addTask(time, expectedFSBT => {
+                    if ($Z[self.id] && self.FreeSetbodyTime === expectedFSBT && self._FREESetBody_) {
+                        self._FREESetBody_();
+                    }
+                }, [self.FreeSetbodyTime = oSym.Now + time]);
+            },
         CanPass: function (d, c) {
           return c && c != 2;
         },
@@ -591,6 +704,7 @@ var CZombies = (function (b, a) {
     );
   })(),
   OrnNoneZombies = (function () {
+    
     var a = function (c, b) {
       if ((c.HP -= b) < c.BreakPoint) {
         c.GoingDie(
@@ -608,6 +722,7 @@ var CZombies = (function (b, a) {
         [c.id]
       );
     };
+    
     return InheritO(CZombies, {
       getHit: a,
       getHit0: a,
@@ -648,6 +763,7 @@ var CZombies = (function (b, a) {
             function (h, d) {
               var i = $Z[h];
               i &&
+              
                 i.FreeSlowTime == d &&
                 ((i.FreeSlowTime = 0),
                 (i.Attack = 100),
@@ -673,6 +789,17 @@ var CZombies = (function (b, a) {
     height: 176,
     Speed: 3.5,
     OSpeed: 3.5,
+    HeadPosition: [{
+      x: 82,
+      y: 30,
+      width: 40,
+      height: 40
+  }, {
+      x: 82,
+      y: 30,
+      width: 40,
+      height: 40
+  }],
     getShadow: function (a) {
       return "display:none";
     },
@@ -2120,6 +2247,17 @@ var CZombies = (function (b, a) {
     EName: "oZombie",
     CName: "Zombie",
     StandGif: 9,
+    HeadPosition: [{
+      x: 82,
+      y: 30,
+      width: 40,
+      height: 40
+  }, {
+      x: 82,
+      y: 30,
+      width: 40,
+      height: 40
+  }],
     PicArr: (function () {
       var a = "images/Zombies/Zombie/";
       return [
@@ -2255,6 +2393,17 @@ oIZombie = InheritO(OrnNoneZombies, {
     Lvl: 2,
     SunNum: 75,
     StandGif: 11,
+    HeadPosition: [{
+      x: 82,
+      y: 30,
+      width: 40,
+      height: 40
+  }, {
+      x: 82,
+      y: 30,
+      width: 40,
+      height: 40
+  }],
     PicArr: (function () {
       var b = "images/Zombies/ConeheadZombie/",
         a = "images/Zombies/Zombie/";
@@ -2287,6 +2436,17 @@ oIZombie = InheritO(OrnNoneZombies, {
     Lvl: 2,
     SunNum: 75,
     StandGif: 11,
+    HeadPosition: [{
+      x: 82,
+      y: 30,
+      width: 40,
+      height: 40
+  }, {
+      x: 82,
+      y: 30,
+      width: 40,
+      height: 40
+  }],
     PicArr: (function () {
       var b = "images/Zombies/ConeheadZombie/",
         a = "images/Zombies/Zombie/";
@@ -2323,6 +2483,17 @@ oIZombie = InheritO(OrnNoneZombies, {
     height: 164,
     beAttackedPointL: 60,
     beAttackedPointR: 130,
+    HeadPosition: [{
+      x: 82,
+      y: 30,
+      width: 40,
+      height: 40
+  }, {
+      x: 82,
+      y: 30,
+      width: 40,
+      height: 40
+  }],
     PicArr: (function () {
       var b = "images/Zombies/LionDanceZombie/",
         a = "images/Zombies/LionDanceZombie/";
@@ -2352,6 +2523,17 @@ oIZombie = InheritO(OrnNoneZombies, {
       OrnHP: 1100,
       Lvl: 3,
       SunNum: 125,
+      HeadPosition: [{
+        x: 82,
+        y: 30,
+        width: 40,
+        height: 40
+    }, {
+        x: 82,
+        y: 30,
+        width: 40,
+        height: 40
+    }],
       PlayNormalballAudio: function () {
         PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
       },
@@ -6897,6 +7079,7 @@ oIBalloonZombie = InheritO(OrnIZombies, {
     oCZombie,
     { EName: "oCZombie2" },
     {
+    
       PicArr: {
         2: "images/Zombies/wall/Zombie/Zombie.gif",
         9: "images/Zombies/wall/Zombie/1.gif",
@@ -6907,6 +7090,7 @@ oIBalloonZombie = InheritO(OrnIZombies, {
     oCZombie,
     { EName: "oCZombie3" },
     {
+   
       PicArr: {
         2: "images/Zombies/wall/Zombie/Zombie.gif",
         9: "images/Zombies/wall/Zombie/1.gif",
@@ -6920,6 +7104,7 @@ oCConeheadZombie = InheritO(OrnIZombies, {
   Lvl: 2,
   SunNum: 75,
   StandGif: 11,
+  
   PicArr: (function () {
     var b = "images/Zombies/wall/ConeheadZombie/",
       a = "images/Zombies/wall/Zombie/";
@@ -6953,6 +7138,7 @@ oCBucketheadZombie = InheritO(
     OrnHP: 1100,
     Lvl: 3,
     SunNum: 125,
+    
     PlayNormalballAudio: function () {
       PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
     },
@@ -6981,6 +7167,7 @@ oCBucketheadZombie = InheritO(
   beAttackedPointL: 215,
   beAttackedPointR: 260,
   StandGif: 13,
+  
   GetDX: function () {
     return -238;
   },
@@ -8342,6 +8529,7 @@ oCBucketheadZombie = InheritO(
           a
         } (),
         OrnNoneZombies = function() {
+          
           var a = function(c, b) {
             if ((c.HP -= b) < c.BreakPoint) {
               c.GoingDie(c.PicArr[[c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]]);
