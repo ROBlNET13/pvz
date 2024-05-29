@@ -2762,7 +2762,7 @@ oSunFlower = InheritO(CPlants, {
         AudioArr: ["CabbageAttack1", "CabbageAttack2"],
         PicArr: (function() {
             var a = "images/Plants/Cattail/";
-            return ["images/Card/Plants/Catttail.png", a + "cat.gif", a + "cat.gif", "images/Plants/Cactus/Projectile" + ($User.Browser.IE6 ? 8 : 32) + ".png","images/interface/blank.png", a + "Attack.gif"]
+            return ["images/Card/Plants/Catttail.png", a + "0.gif", a + "cat.gif", "images/Plants/Cactus/Projectile" + ($User.Browser.IE6 ? 8 : 32) + ".png","images/interface/blank.png", a + "Attack.gif"]
         })(),
         Tooltip: "猫尾草能够攻击气球僵尸或任何一条路上的僵尸。",
         Produce: '猫尾草能够攻击气球僵尸或任何一条路上的僵尸。<p><font color="#FF0000">必须种在睡莲上。</font></p>魔法猫咪！稳辣！稳辣！猫尾草不知道从哪里听的这句话，总之在听完之后，她破防了，她怒骂道：“一群*东西！我下次就用我对待僵尸的方式十倍来对待你们！”', 
