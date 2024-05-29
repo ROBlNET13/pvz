@@ -1647,6 +1647,7 @@ var CPlants = NewO({
             "images/Plants/PB00.gif",
             "images/Plants/PB01.gif",
             "images/Plants/PeaBulletHit.gif",
+        	"images/Plants/PeaBulletHit.gif",
         ],
         AudioArr: [
             "splat1",
