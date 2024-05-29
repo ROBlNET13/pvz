@@ -2523,7 +2523,7 @@ oSunFlower = InheritO(CPlants, {
             "images/Plants/PB00.gif",
             "images/Plants/PB01.gif",
             "images/Plants/PB10.png",
-            "images/Plants/PB11.gif",
+            "images/Plants/PB11.png",
             "images/Plants/Torchwood/SputteringFire.gif",
         ],
         AudioArr: ["firepea", "ignite", "ignite2"],
