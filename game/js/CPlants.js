@@ -2180,7 +2180,7 @@ oSunFlower = InheritO(CPlants, {
         width: 79,
         height: 58,
         beAttackedPointR: 59,
-        HP: 1e3,
+//        HP: 1e3,
         PicArr: [
             "images/Card/Plants/LilyPad.png",
             "images/Plants/LilyPad/0.gif",
@@ -2213,7 +2213,7 @@ oSunFlower = InheritO(CPlants, {
         width: 79,
         height: 58,
         beAttackedPointR: 59,
-        HP: 1e3,
+//        HP: 1e3,
         PicArr: [
             "images/Card/Plants/LilyPad.png",
             "images/Plants/LilyPad/0.gif",
