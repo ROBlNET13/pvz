@@ -5847,8 +5847,8 @@ CanGrow: function(b, a, d) {
     (oOxygen = InheritO(CPlants, {
         EName: "oOxygen",
         CName: "Oxygen",
-        width: 73,
-        height: 74,
+        width: 115,
+        height: 102,
         beAttackedPointR: 53,
         SunNum: 25,
         HP: 300,
@@ -5862,7 +5862,9 @@ CanGrow: function(b, a, d) {
         Tooltip: "Oxygen provides algae to plants on the ground",
         Produce:
             '氧气藻可以提供氧气给地上的植物<p>Toughness:<font color="FF0000">中</font><p><font color="#000000">Scope:<font color="#1F470B">3x3</font></p>噗咕……氧气藻默默地吐着气泡，倒不是他愿</font><br>意一直吐，只怪他昨天喝了太多汽水。不过有传</font><br>言说，他除了吐气泡就不会别的了。',
-        CanGrow: function (e, d, f) {
+    
+            
+            CanGrow: function (e, d, f) {
             var c = d + "_" + f,
                 b = oGd.$LF[d],
                 a = f < 1 || f > 9;
@@ -5891,6 +5893,7 @@ CanGrow: function(b, a, d) {
                 LFR,
                 _$ = oGd.$,
                 rc;
+               
             for (R1 = R - 1; R1 <= R + 1; R1++) {
                 if (R1 > 0 && R1 <= MaxR) {
                     LFR = LF[R];
