@@ -1038,7 +1038,7 @@ var CPlants = NewO({
             "images/Plants/LotusRoot/BulletHit.png",
         ],
         Tooltip:
-            "Fire high-powered rocket launchers, inflicting heavy damage on warships and submarines",
+            "Fire high-powered rocket launchers, inflicting heavy damage",
         Produce:
             'The lotus root rocket launcher can launch high-fire rocket launchers, targeting warships and</font><br>The submarine inflicted heavy damage.<p>Harm:<font color="#FF0000">极高</font></p>What else can the lotus root rocket launcher do besides firing shells. Ok,</font><br>For this question, you should ask the intensive phobia patient</font><br>。”',
         CanGrow: function (c, b, d) {
@@ -1588,7 +1588,7 @@ var CPlants = NewO({
             "shieldhit",
             "shieldhit2",
         ],
-        Tooltip: "Shoots four peas at a time",
+        Tooltip: 'shoots four peas at a time <p> <font color="#FF0000">(requires repeater)</font>',
         Produce:
             'The machine gun shooter can fire four peas at once<p>Harm:<font color="#FF0000">medium (each)</font><br>Launch speed:<font color="#FF0000">four times<br>Can be planted on dual launchers</font></p>He was worried, and they said to him in unison: "When Gatlin announced that he was going to join the army, his parents were very excited,</font><br>He was worried, and they said to him in unison: "My dear,</font><br>Its too dangerous. "Gatlin refuses to budge," life is in danger</font><br>Dangerous," he replied, and in his eyes,</font><br>Flashes of steely faith.',
         PrivateBirth: function (c) {
@@ -1647,7 +1647,6 @@ var CPlants = NewO({
             "images/Plants/PB00.gif",
             "images/Plants/PB01.gif",
             "images/Plants/PeaBulletHit.gif",
-        	"images/Plants/PeaBulletHit.gif",
         ],
         AudioArr: [
             "splat1",
@@ -1958,7 +1957,7 @@ oSunFlower = InheritO(CPlants, {
             "images/Plants/TwinSunflower/TwinSunflower.gif",
         ],
         Tooltip:
-            "Gives twice as much sun as a sunflower",
+            'Gives twice as much sun as a sunflower  <p> <font color="#FF0000">(requires sunflower)</font>',
         Produce:
             'Twin sunflowers produce twice as much sunlight as regular sunflowers.<p>Sunlight Yield:<font color="#FF0000">double<br>Can be planted on common sunflowers</font></p>Its a crazy night where forbidden science and technology make double</font><br>The cell sunflower came to this world. Lightning, thunder, gust of wind, roar</font><br>, are expressing the worlds rejection of him. but everything</font><br>To no avail, Gemini Sunflower is still alive!',
         CanGrow: function(b, a, d) {
@@ -2180,7 +2179,7 @@ oSunFlower = InheritO(CPlants, {
         width: 79,
         height: 58,
         beAttackedPointR: 59,
-//        HP: 1e3,
+   //     HP: 1e3,
         PicArr: [
             "images/Card/Plants/LilyPad.png",
             "images/Plants/LilyPad/0.gif",
@@ -2213,7 +2212,7 @@ oSunFlower = InheritO(CPlants, {
         width: 79,
         height: 58,
         beAttackedPointR: 59,
-//        HP: 1e3,
+        HP: 1e3,
         PicArr: [
             "images/Card/Plants/LilyPad.png",
             "images/Plants/LilyPad/0.gif",
@@ -2523,7 +2522,7 @@ oSunFlower = InheritO(CPlants, {
             "images/Plants/PB00.gif",
             "images/Plants/PB01.gif",
             "images/Plants/PB10.png",
-            "images/Plants/PB11.png",
+            "images/Plants/PB11.gif",
             "images/Plants/Torchwood/SputteringFire.gif",
         ],
         AudioArr: ["firepea", "ignite", "ignite2"],
@@ -2763,9 +2762,9 @@ oSunFlower = InheritO(CPlants, {
         AudioArr: ["CabbageAttack1", "CabbageAttack2"],
         PicArr: (function() {
             var a = "images/Plants/Cattail/";
-            return ["images/Card/Plants/Catttail.png", a + "0.gif", a + "cat.gif", "images/Plants/Cactus/Projectile" + ($User.Browser.IE6 ? 8 : 32) + ".png","images/interface/blank.png", a + "Attack.gif"]
+            return ["images/Card/Plants/Catttail.png", a + "cat.gif", a + "cat.gif", "images/Plants/Cactus/Projectile" + ($User.Browser.IE6 ? 8 : 32) + ".png","images/interface/blank.png", a + "Attack.gif"]
         })(),
-        Tooltip: "猫尾草能够攻击气球僵尸或任何一条路上的僵尸。",
+        Tooltip: 'Attacks any lane and shoots down balloon zombies <p> <font color="#FF0000">(requires lily pad)</font>',
         Produce: '猫尾草能够攻击气球僵尸或任何一条路上的僵尸。<p><font color="#FF0000">必须种在睡莲上。</font></p>魔法猫咪！稳辣！稳辣！猫尾草不知道从哪里听的这句话，总之在听完之后，她破防了，她怒骂道：“一群*东西！我下次就用我对待僵尸的方式十倍来对待你们！”', 
         TriggerCheck: function(b, a) {
             this.AttackCheck2(b) && ((this.canTrigger = 0, this.CheckLoop(b.id, a)))
@@ -3355,7 +3354,7 @@ oSunFlower = InheritO(CPlants, {
         ],
         Attack: 40,
         ArZ: {},
-        Tooltip: "能近距离攻击僵尸",
+        Tooltip: "Damages zombies that eat it",
         Produce:
             '能近距离攻击僵尸<p>Harm:<font color="#FF0000">普通</font><br>强度：<font color="#FF0000">非常高</font></p>大家一直在质疑高坚果和坚果的特殊关系，直</font><br>到高坚果找到了属于他的藤蔓，这种谣言才不</font><br>攻自散。',
         getHurt: function (f, c, b) {
@@ -3647,7 +3646,7 @@ oSunFlower = InheritO(CPlants, {
             "images/Plants/Spikerock/3.gif",
         ],
         Attack: 40,
-        Tooltip: "Pops multiple tires and damages zombies that walk over it",
+        Tooltip: 'Pops multiple tires and damages zombies that walk over it  <p> <font color="#FF0000">(requires spikeweed)</font>',
         Produce:
             '地刺王可以扎破多个轮胎，并对踩到他的僵尸</font><br>造成伤害。<p><font color="#FF0000">可以种植在地刺上</font></p>地刺王刚刚从欧洲旅行回来。他玩的很高兴，</font><br>也认识了很多有趣的人。这些都真的拓展了他</font><br>视野——他从来不知道，他们建造了这么大博</font><br>物馆，有这么多的画作。这对他说太惊奇了。',
         CanGrow: function(b, a, d) {
@@ -4031,7 +4030,7 @@ if (yuckrng == 1) {
             "images/Plants/BigChomper/ChomperDigest.gif",
         ],
         Tooltip:
-            "超级大嘴花能一口气吞下一只僵尸, 并且咀嚼速度是普通大嘴花的50%",
+            "Can devour multiple zombie whole at once, but is vulnerable while rapidly chewing",
         Produce:
             '超级大嘴花能一口气吞下一只僵尸, 并且咀嚼速</font><br>度是普通大嘴花的50%。<p>Harm:<font color="#FF0000">巨大</font><br>Scope:<font color="#FF0000">非常近</font><br>Features:<font color="#FF0000">咀嚼时间短</font></p>超级大嘴花曾经是电视节目“超级大胃王”节</font><br>目的常客，但后来他被踢出了节目组，原因是</font><br>它的存在直接影响到观众的饮食量和节目收视</font><br>率。没办法，为了糊口他只得干起吞食僵尸行</font><br>动。',
        CanGrow: function(b, a, d) {
@@ -4318,7 +4317,7 @@ if (yuckrng == 1) {
             "images/Plants/IcyFumeShroom/FumeShroomAttack.gif",
             "images/Plants/IcyFumeShroom/FumeShroomBullet.gif",
         ],
-        Tooltip: "Shoots icy fumes that can pass through screen doors",
+        Tooltip: 'Shoots icy fumes that can pass through screen doors  <p> <font color="#FF0000">(requires fume-shroom)</font>',
         Produce:
             '大喷菇喷出的臭气可以穿透铁丝网门。<p>Harm:<font color="#FF0000">普通，可穿透铁丝网门</font><br>Scope:<font color="#FF0000">臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房</font><br>生产酵母孢，”大喷菇说。“然后小喷菇，上帝</font><br>保佑它，告诉了我这个喷杀僵尸的机会。现在</font><br>我真觉得自己完全不同了。”',
             PrivateBirth: function (b) {
@@ -4396,7 +4395,7 @@ if (yuckrng == 1) {
             "images/Plants/CoffeeBean/CoffeeBeanEat.gif" + $Random,
         ],
         AudioArr: ["coffee", "wakeup"],
-        Tooltip: "咖啡豆，可以唤醒睡眠中的蘑菇们。",
+        Tooltip: "Plant it on a mushroom to wake it up",
         Produce:
             '咖啡豆，可以唤醒睡眠中的蘑菇们。<p>Instructions:<font color="#FF0000">单独使用，立即生效</font><br>Features:<font color="#FF0000">可以种在其他植物上，用来唤醒蘑菇们</font></p>咖啡豆：“嘿，伙计们！嘿，怎么回事？是谁？</font><br>嘿！你瞧见那个东西没？什么东西？哇！是狮子</font><br>！”嗯，咖啡豆确定，这样可以让自己很兴奋</font><br>。',
         InitTrigger: function () {},
@@ -4459,7 +4458,7 @@ if (yuckrng == 1) {
             "images/Plants/GloomShroom/GloomShroomBullet.gif",
         ],
         AudioArr: ["kernelpult", "kernelpult2"],
-        Tooltip: "Releases heavy fumes in an area around itself",
+        Tooltip: 'Releases heavy fumes in an area around itself  <p> <font color="#FF0000">(requires fume-shroom)</font>',
         Produce:
             '围绕自身释放大量孢子<p><font color="#FF0000">可以种植在大喷菇上</font></p>“我喜欢喷射大量烟雾。”忧郁蘑菇说，“我</font><br>知道许多人不喜欢这样，他们说这又粗鲁啦烟</font><br>雾又很臭啦之类的，我只想说，你们想不想自</font><br>己的脑袋被僵尸吃掉？”',
 CanGrow: function(b, a, d) {
@@ -5202,7 +5201,7 @@ CanGrow: function(b, a, d) {
             "images/Plants/DoomShroom/crater31.png",
             "images/Plants/DoomShroom/Boom.png",
         ],
-        Tooltip: "造成大规模的伤害, 但会在原地留下一个坑, 坑中无法种植物",
+        Tooltip: "Destroys a large area, leaving a crater in its wake",
         Produce:
             '毁灭菇可以摧毁大范围的僵尸，并留下一个不</font><br>能种植物的大弹坑。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">大范围内的所有僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font><br>Features:<font color="#FF0000">留下一个弹坑<br>白天睡觉</font></p>“你很幸运，我是和你一伙的，”毁灭菇说，“</font><br>我能摧毁任何你所珍视的东西，小菜一碟。”',
         InitTrigger: function () {},
@@ -5415,7 +5414,7 @@ CanGrow: function(b, a, d) {
             "images/Plants/TangleKlep/Grab.png",
             "images/interface/splash.png",
         ],
-        Tooltip: "Shoots peas in three lanes",
+        Tooltip: "Aquatic plant that pulls a zombie underwater",
         Produce:
             '缠绕水草是一种可以把接近他的僵尸拉进水中</font><br>的水生植物。<p>Harm:<font color="#FF0000">极高</font><br>用法：<font color="#FF0000">单独使用，接触后生效</font><br>Features:<font color="#FF0000">必须种在水中</font></p>“我是完全隐形的，”缠绕水草自己想，“我就</font><br>藏在水面下，没人会看到我。”他的朋友告诉他</font><br>，他们可以清楚地看到他。不过，缠绕水草似</font><br>乎不想改变自己的看法。',
         CanGrow: function (c, b, d) {
@@ -5860,7 +5859,7 @@ CanGrow: function(b, a, d) {
             "images/Plants/Oxygen/0.gif",
             "images/Plants/Oxygen/Oxygen.gif",
         ],
-        Tooltip: "氧气藻可以提供氧气给地上的植物",
+        Tooltip: "Oxygen provides algae to plants on the ground",
         Produce:
             '氧气藻可以提供氧气给地上的植物<p>Toughness:<font color="FF0000">中</font><p><font color="#000000">Scope:<font color="#1F470B">3x3</font></p>噗咕……氧气藻默默地吐着气泡，倒不是他愿</font><br>意一直吐，只怪他昨天喝了太多汽水。不过有传</font><br>言说，他除了吐气泡就不会别的了。',
         CanGrow: function (e, d, f) {
@@ -6035,7 +6034,7 @@ CanGrow: function(b, a, d) {
             "images/Plants/Plantern/0.gif",
             "images/Plants/Plantern/Plantern.gif",
         ],
-        Tooltip: "Plantern",
+        Tooltip: "Lights up an area, letting you see through fog",
         Produce:
             '路灯花，能照亮一片区域，让你看清战场迷雾<p>Scope:<font color="#FF0000">一片圆形区域</font><br>Features:<font color="#FF0000">使你看清战场迷雾</font></p>灯笼草拒绝科学，他只会埋头苦干。其他植物</font><br>吃的是光，挤出的是氧气。灯笼草吃的是黑暗，</font><br>挤出的却是光。对于他如何能产生光这件事，灯</font><br>笼草持谨慎态度。“我不会说这是‘巫术’，我</font><br>也不会使用‘黑暗力量’，我只是……我想我说</font><br>得够多的了。”',
         PrivateBirth: function (c) {
@@ -6081,7 +6080,7 @@ CanGrow: function(b, a, d) {
         HP: 4e3,
         canEat: 0,
         BookHandBack: 3.5,
-        Tooltip: "海星果的触手可以轻易掀翻僵尸并造成混乱",
+        Tooltip: "Sea Starfruit rolls and destroys any obstacles in its way",
         Produce:
             '海星果的触手可以轻易掀翻僵尸并造成混乱<p>攻击：<font color="#FF0000">较大</font><br>路径：<font color="#FF0000">随机的撞击线</font></p>海星果永远保持着迷人的微笑，没人知道他那</font><br>么热爱转圈圈却不会头晕的秘密，有人说因为他</font><br>那双斗鸡眼只看一点才不会转晕。',
         PicArr: [
@@ -6408,7 +6407,7 @@ CanGrow: function(b, a, d) {
             "images/Plants/SeaAnemone/GloomShroomBullet.gif",
         ],
         AudioArr: ["kernelpult", "kernelpult2"],
-        Tooltip: "电海葵花可以对在他周围的僵尸造成巨大伤害<br>",
+        Tooltip: "Hurts zombies around it",
         Produce:
             "电海葵花可以对在他周围的僵尸造成巨大伤害</font></p>自信的电海葵花毫不畏惧任何困难，一头杀马</font><br>特式的发型是他引以为傲的事情，可他说这是上</font><br>次在村口找王师傅给剃的。",
         BirthStyle: function (c, d, b, a) {
@@ -6538,7 +6537,7 @@ CanGrow: function(b, a, d) {
             "images/Plants/TTS/Grab.png",
             "images/Plants/TTS/splash.png",
         ],
-        Tooltip: "会用力抓住靠近他的任何东西",
+        Tooltip: "Grabs zombies in front of it",
         Produce:
             '荆棘海草会用力抓住靠近他的任何东西并拖入</font><br>地下。<p>Harm:<font color="FF0000">巨大</font><br>Scope:<font color="#FF0000">一格</font><br>Instructions:<font color="#FF0000">一次性使用。</font></p>荆棘海草最近一次的表白又被捷足先登了，这</font><br>使他很伤心。不过很快他就重新振作起来并吸取</font><br>教训。一定要抓住机会！但他似乎对这句话理解</font><br>有误：他无论碰到什么都会死死地抓住。',
         CanGrow: function (e, d, f) {
@@ -6757,7 +6756,7 @@ CanGrow: function(b, a, d) {
             "images/Plants/LaserPea/LaserPeaBullet.gif",
         ],
         AudioArr: ["LaserBean"],
-        Tooltip: "向一整排僵尸发射高火力激光。",
+        Tooltip: "Fires a high-powered laser at an entire row of zombies",
         Produce:
             '激光蚕豆向一整排僵尸发射激光<p>Scope:<font color="#FF0000">一整排僵尸<p>本豆由上海宝开绘制<br></font><p><br>这位就是大名鼎鼎的激光豆。但是为什么他是</font><br>蚕豆？恐怕没人搞得清楚。',
         CheckLoop: function (b, c) {
