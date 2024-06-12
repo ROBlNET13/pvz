@@ -705,7 +705,7 @@ td.HandBookZombie {
     line-height: 26px;
     background: url(images/interface/Almanac_CloseButton.png);
     color: #000080;
-    font-size: 12px
+    font-size: 14px
 }
 
 #dSelectCard {
@@ -891,14 +891,14 @@ td.HandBookZombie {
 #dHandBook .close {
     margin-top: 20px;
     margin-left: 670px;
-    text-align: center;
+    text-align: left;
     cursor: pointer;
     width: 89px;
     height: 26px;
     line-height: 26px;
     background: url(images/interface/Almanac_CloseButton.png);
     color: #000080;
-    font-size: 16px
+    font-size: 14px
 }
 
 #btnViewPlant {
