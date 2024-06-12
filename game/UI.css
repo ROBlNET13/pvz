@@ -898,7 +898,7 @@ td.HandBookZombie {
     line-height: 26px;
     background: url(images/interface/Almanac_CloseButton.png);
     color: #000080;
-    font-size: 12px
+    font-size: 16px
 }
 
 #btnViewPlant {
@@ -1855,7 +1855,7 @@ dd.yellow {
     line-height: 26px;
     background: url(images/interface/Almanac_IndexButton.png);
     color: #000080;
-    font-size: 12px
+    font-size: 16px
 }
 
 #dRiddle1 {
