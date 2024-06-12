@@ -9,7 +9,7 @@
 
 td {
     font-family: Verdana;
-    font-size: 12px
+    font-size: 14px
 }
 
 div {
@@ -533,7 +533,7 @@ td.HandBookZombie {
 .BigLevel {
     float: left;
     color: #FC6;
-    font-size: 12px;
+    font-size: 14px;
     width: 100%;
     height: 35px
 }
@@ -605,7 +605,7 @@ td.HandBookZombie {
     position: absolute;
     background-color: #FFD;
     width: 180px;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
     line-height: 1.5;
     border: 1px solid #000;
@@ -891,7 +891,7 @@ td.HandBookZombie {
 #dHandBook .close {
     margin-top: 20px;
     margin-left: 670px;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
     width: 89px;
     height: 26px;
@@ -954,7 +954,7 @@ td.HandBookZombie {
     height: 26px;
     line-height: 26px;
     color: #000080;
-    font-size: 12px
+    font-size: 14px
 }
 
 #dHandBookPZ .dButton .button1 {
@@ -1162,7 +1162,7 @@ td.HandBookZombie {
     width: 76%;
     height: 210px;
     text-align: left;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 16px;
     font-family: Tahoma
 }
@@ -1293,7 +1293,7 @@ td.HandBookZombie {
 #dProcess2 {
     overflow: auto;
     line-height: 18px;
-    font-size: 12px;
+    font-size: 14px;
     text-align: left;
     width: 100%;
     height: 500px
@@ -1310,7 +1310,7 @@ dt {
 
 dd {
     line-height: 22px;
-    font-size: 12px;
+    font-size: 14px;
     margin: 0
 }
 
@@ -1413,7 +1413,7 @@ dd.yellow {
     width: 161px;
     text-align: center;
     background: #f0f0f0;
-    font-size: 12px;
+    font-size: 14px;
     border: 0 solid #ccd3df
 }
 
@@ -1425,7 +1425,7 @@ dd.yellow {
 .a5gg a {
     text-decoration: none;
     color: #336cd8;
-    font-size: 12px
+    font-size: 14px
 }
 
 .a5gg dd {
@@ -1881,7 +1881,7 @@ dd.yellow {
     line-height: 26px;
     background: url(images/interface/Almanac_CloseButton.png);
     color: #000080;
-    font-size: 12px
+    font-size: 14px
 }
 
 #dRiddle1 .list {
@@ -2000,7 +2000,7 @@ dd.yellow {
     border: 0;
     font-weight: 600;
     color: #FFF;
-    font-size: 12px;
+    font-size: 14px;
     vertical-align: top;
     cursor: pointer
 }
