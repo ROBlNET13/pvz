@@ -27,6 +27,13 @@
 		}
 		
 	</style>
+	<script>
+        window.addEventListener('beforeunload', function (e) {
+            var confirmationMessage = 'Are you sure you want to leave? Progress does not save and any progress will be lost.';
+            e.returnValue = confirmationMessage; // For most browsers
+            return confirmationMessage;          // For some older browsers
+        });
+    </script>
 	<script src="js/cheats.js"></script>
 	<meta name="description"
 		content="Play Plants vs Zombie Modded here for Free - A tower defense game created by PopCap Games and released on May 5, 2009. Click to Play now! Mod by ROBLNET13 on Github." />
