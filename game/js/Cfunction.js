@@ -3591,8 +3591,7 @@ var $User = (function () {
                     case oS.Chose == 1 && oS.ChoseCard == d: break; // 选中
                     case t > 500: e.style.opacity = 1; break; // 未到闪烁时间
                     case t > 0: e.style.opacity = [1, 0.5][Math.ceil(t / 50) % 2]; break; // 闪烁
-                 //   default: delete ArCard[d], ClearChild(e); return;
-                                SetHidden($(f.DID));
+                    default: delete ArCard[d], ClearChild(e); return;
                 }
                 e = $(d), oSym.addTask(q, arguments.callee, [t - q]);
             }; f(r);
