@@ -6296,7 +6296,7 @@ CanGrow: function(b, a, d) {
         beAttackedPointL: 15,
         beAttackedPointR: 25,
         BookHandBack: 3.5,
-        SunNum: 0,
+        SunNum: 25,
         PicArr: [
             "images/Card/Plants/gun.png",
             "images/Plants/gun/0.gif",
