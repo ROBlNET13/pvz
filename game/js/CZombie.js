@@ -777,53 +777,23 @@ var CZombies = (function (b, a) {
   })(),
   oBackupDancer = InheritO(OrnNoneZombies, {
     EName: "oBackupDancer",
-    CName: "Backup Dancer",
+    CName: "伴舞僵尸",
     OSpeed: 3.5,
     Speed: 3.5,
     Lvl: 1,
     StandGif: 9,
     CanSelect: 0,
-    beAttackedPointL: 40,
-    beAttackedPointR: 85,
-    width: 184,
-    height: 176,
+    width: 126,
+    height: 152,
+    beAttackedPointL: 50,
+    beAttackedPointR: 95,
     Speed: 3.5,
     OSpeed: 3.5,
-    HeadPosition: [{
-      x: 82,
-      y: 30,
-      width: 40,
-      height: 40
-  }, {
-      x: 82,
-      y: 30,
-      width: 40,
-      height: 40
-  }],
-    getShadow: function (a) {
-      return "display:none";
-    },
-    PicArr: (function () {
+    PicArr: (function() {
       var a = "images/Zombies/BackupDancer/";
-      return [
-        "images/Card/Zombies/BackupDancer.png",
-        a + "0.gif",
-        a + "BackupDancer.gif",
-        a + "Attack.gif",
-        a + "LostHead.gif",
-        a + "LostHeadAttack.gif",
-        a + "Head.gif" + $Random,
-        a + "Die.gif" + $Random,
-        "images/Zombies/BoomDie.gif" + $Random,
-        a + "Dancing.gif" + $Random,
-        a + "LostHeadDancing.gif" + $Random,
-        a + "Mound.gif" + $Random,
-      ];
+      return ["images/Card/Zombies/BackupDancer.png", a + "0.gif", a + "BackupDancer.gif", a + "Attack.gif", a + "LostHead.gif", a + "LostHeadAttack.gif", a + "Head.gif" + $Random, a + "Die.gif" + $Random, a + "BoomDie.gif" + $Random, a + "Dancing.gif" + $Random, a + "LostHeadDancing.gif" + $Random, a + "Mound.gif" + $Random]
     })(),
-    GetDY: function () {
-      return 0;
-    },
-    bedevil: function (a) {
+    bedevil: function(a) {
       a.ExchangeLR(a, 1);
       a.JudgeAttack = a.JudgeAttackH;
       a.PZ = 0;
@@ -832,187 +802,122 @@ var CZombies = (function (b, a) {
       a.ChkActs = a.ChkActs1;
       a.Speed = 3.5;
       a.ChangeChkActsTo1(a, a.id, a.EleBody);
-      oP.MonPrgs();
+      oP.MonPrgs()
     },
-    getSlow: function (f, d, e) {
+    getSlow: function(f, d, e) {
       var b = oSym.Now + e,
-        c = f.FreeSlowTime,
-        a = 0;
+      c = f.FreeSlowTime,
+      a = 0;
       switch (true) {
-        case !c:
-          f.PlaySlowballAudio();
-          f.Attack = 50;
-          f.FreeSlowTime = b;
-          a = 1;
-          break;
-        case c < b:
-          f.PlayNormalballAudio();
-          f.FreeSlowTime = b;
-          a = 1;
+      case ! c: f.PlaySlowballAudio();
+        f.Attack = 50;
+        f.FreeSlowTime = b;
+        a = 1;
+        break;
+      case c < b: f.PlayNormalballAudio();
+        f.FreeSlowTime = b;
+        a = 1
       }
-      a &&
-        oSym.addTask(
-          e,
-          function (h, g) {
-            var i = $Z[h];
-            i &&
-              i.FreeSlowTime == g &&
-              ((i.FreeSlowTime = 0), (i.Attack = 100));
-          },
-          [d, b]
-        );
+      a && oSym.addTask(e,
+      function(h, g) {
+        var i = $Z[h];
+        i && i.FreeSlowTime == g && (i.FreeSlowTime = 0, i.Attack = 100)
+      },
+      [d, b])
     },
-    getFreeze: function (b, a) {
+    getFreeze: function(b, a) {
       b.beAttacked && b.getHit0(b, 20, 0);
-      oSym.addTask(
-        400,
-        function (e, d, c) {
-          ClearChild(c);
-          var f = $Z[e];
-          f &&
-            f.FreeFreezeTime == d &&
-            ((f.FreeFreezeTime = 0),
-            (f.Attack = 50),
-            !f.FreeSetbodyTime && f.isAttacking && f.JudgeAttack(),
-            oSym.addTask(
-              1500,
-              function (h, g) {
-                var i = $Z[h];
-                i &&
-                  i.FreeSlowTime == g &&
-                  ((i.FreeSlowTime = 0), (i.Attack = 100));
-              },
-              [e, (f.FreeSlowTime = oSym.Now + 1500)]
-            ));
+      oSym.addTask(400,
+      function(e, d, c) {
+        ClearChild(c);
+        var f = $Z[e];
+        f && f.FreeFreezeTime == d && (f.FreeFreezeTime = 0, f.Attack = 50, !f.FreeSetbodyTime && f.isAttacking && f.JudgeAttack(), oSym.addTask(1500,
+        function(h, g) {
+          var i = $Z[h];
+          i && i.FreeSlowTime == g && (i.FreeSlowTime = 0, i.Attack = 100)
         },
-        [
-          a,
-          (b.FreeFreezeTime = oSym.Now + 400),
-          NewImg(
-            "icetrap_" + Math.random(),
-            "images/Plants/IceShroom/icetrap.gif",
-            b.getShadow(b),
-            b.Ele
-          ),
-        ]
-      );
+        [e, f.FreeSlowTime = oSym.Now + 1500]))
+      },
+      [a, b.FreeFreezeTime = oSym.Now + 400, NewImg("icetrap_" + Math.random(), "images/Plants/IceShroom/icetrap.gif", b.getShadow(b), b.Ele)])
     },
-    CustomBirth: function (g, d, a, b, j) {
+    CustomBirth: function(g, d, a, b, j) {
       var e = this,
-        c = GetY(g) + e.GetDY(),
-        f = c - e.height,
-        i = e.beAttackedPointL,
-        h = e.beAttackedPointR;
+      c = GetY(g) + e.GetDY(),
+      f = c - e.height,
+      i = e.beAttackedPointL,
+      h = e.beAttackedPointR;
       e.AttackedRX = (e.X = (e.ZX = e.AttackedLX = d - (h - i) * 0.5) - i) + h;
-      e.R = g;
-      (e.delayT = a) && (e.FreeSetbodyTime = oSym.Now);
-      return e.getHTML(
-        (e.id = b),
-        e.X,
-        (e.pixelTop = f),
-        (e.zIndex = 3 * g + 1),
-        "none",
-        j || 0,
-        e.height + "px",
-        e.PicArr[e.StandGif]
-      );
+      e.R = g; (e.delayT = a) && (e.FreeSetbodyTime = oSym.Now);
+      return e.getHTML(e.id = b, e.X, e.pixelTop = f, e.zIndex = 3 * g + 1, "none", j || 0, e.height + "px", e.PicArr[e.StandGif])
     },
-    Produce:
-      '当舞者僵尸摇摆时，这种僵尸四个结伙出现。</p><p>韧性：<font color="#FF0000">低</font><br>伴舞僵尸曾在位于僵尸纽约城的“咀利牙”表演艺术学院钻研过六年的舞技。',
-    BirthCallBack: function (e) {
+    Produce: '当舞王僵尸摇摆时，这种僵尸四个结伙出现。</p><p>韧性：<font color="#FF0000">低</font><br>伴舞僵尸曾在位于僵尸纽约城的“咀利牙”表演艺术学院钻研过六年的舞技。',
+    BirthCallBack: function(e) {
       var d = e.delayT,
-        c = e.id,
-        b = (e.Ele = $(c)),
-        a = (e.EleBody = b.childNodes[1]);
+      c = e.id,
+      b = e.Ele = $(c),
+      a = e.EleBody = b.childNodes[1];
       e.EleShadow = b.firstChild;
-      oSym.addTask(
-        d,
-        function (g, f) {
-          var h = $Z[g];
-          h && ((h.FreeSetbodyTime = 0), SetBlock(f));
-        },
-        [c, b]
-      );
+      oSym.addTask(d,
+      function(g, f) {
+        var h = $Z[g];
+        h && (h.FreeSetbodyTime = 0, SetBlock(f))
+      },
+      [c, b])
     },
-    ChangeChkActsTo0: function (c, b, a) {
+    ChangeChkActsTo0: function(c, b, a) {
       if (!c.PZ) {
         c.ChangeChkActsTo1(c, b, a);
-        return;
+        return
       }
       c.LostHeadGif = 10;
-      c.NormalGif = 9;
-      !c.isAttacking && (a.src = c.PicArr[9]);
+      c.NormalGif = 9; ! c.isAttacking && (a.src = c.PicArr[9]);
       c.Speed = c.DZStep = 0;
-      oSym.addTask(
-        200,
-        function (e, d) {
-          var f = $Z[e];
-          f && f.beAttacked && f.ChangeChkActsTo1(f, e, d);
-        },
-        [b, a]
-      );
+      oSym.addTask(200,
+      function(e, d) {
+        var f = $Z[e];
+        f && f.beAttacked && f.ChangeChkActsTo1(f, e, d)
+      },
+      [b, a])
     },
-    ChangeChkActsTo1: function (c, b, a) {
+    ChangeChkActsTo1: function(c, b, a) {
       c.LostHeadGif = 4;
       c.NormalGif = 2;
-      c.DZStep = 1;
-      !c.isAttacking && (a.src = c.PicArr[2]);
-      c.PZ &&
-        oSym.addTask(
-          220,
-          function (e, d) {
-            var f = $Z[e];
-            f && f.beAttacked && f.ChangeChkActsTo0(f, e, d);
-          },
-          [b, a]
-        );
+      c.DZStep = 1; ! c.isAttacking && (a.src = c.PicArr[2]);
+      c.PZ && oSym.addTask(220,
+      function(e, d) {
+        var f = $Z[e];
+        f && f.beAttacked && f.ChangeChkActsTo0(f, e, d)
+      },
+      [b, a])
     },
-    ChkActs: function (g, d, h, c) {
-      var e, b, a, f;
-      !(g.FreeFreezeTime || g.FreeSetbodyTime)
-        ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(),
-          (e = g.id),
-          !g.isAttacking
-            ? (a = g.AttackedRX -= b = g.Speed) < -50
-              ? (h.splice(c, 1), g.DisappearDie(), (f = 0))
-              : (a < 100 &&
-                  !g.PointZombie &&
-                  ((g.PointZombie = 1),
-                  !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
-                  g.ChangeR({
-                    R: d,
-                    ar: [oS.R - 1],
-                    CustomTop: 400 - g.height + g.GetDY(),
-                  })),
-                (g.ZX = g.AttackedLX -= b),
-                (g.Ele.style.left = Math.floor((g.X -= b)) + "px"),
-                (f = 1))
-            : (f = 1))
-        : (f = 1);
+    ChkActs: function(g, d, h, c) {
+      var e, b, a, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
+        R: d,
+        ar: [oS.R - 1],
+        CustomTop: 400 - g.height + g.GetDY()
+      })), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
       g.ChkSpeed(g);
-      return f;
+      return f
     },
-    ChkSpeed: function (b) {
+    ChkSpeed: function(b) {
       if (!b.DZStep) {
-        return;
+        return
       }
       var a = b.Speed;
       switch (true) {
-        case (b.FreeFreezeTime || b.FreeSetbodyTime) == 1:
-          a && (b.Speed = 0);
-          break;
-        case b.FreeSlowTime > 0:
-          a != 1.75 && (b.Speed = 1.75);
-          break;
-        default:
-          a != 3.5 && (b.Speed = 3.5);
+      case(b.FreeFreezeTime || b.FreeSetbodyTime) == 1 : a && (b.Speed = 0);
+        break;
+      case b.FreeSlowTime > 0 : a != 1.75 && (b.Speed = 1.75);
+        break;
+      default:
+        a != 3.5 && (b.Speed = 3.5)
       }
-    },
+    }
   }),
   oDancingZombie = InheritO(OrnNoneZombies, {
     EName: "oDancingZombie",
-    CName: "Dancing Zombie",
-    HP: 270,
+    CName: "Dancing Zombie ",
+    HP: 500,
     BreakPoint: 166,
     Lvl: 3,
     StandGif: 9,
@@ -1027,120 +932,74 @@ var CZombies = (function (b, a) {
     Speed: 7.2,
     NormalGif: 9,
     GetDTop: 5,
-    getShadow: function (a) {
-      return "left:30px;top:146px";
+    getShadow: function(a) {
+      return "left:30px;top:146px"
     },
-    GetDX: function () {
-      return -50;
+    GetDX: function() {
+      return - 50
     },
-    GetDY: function () {
-      return -5;
+    GetDY: function() {
+      return - 5
     },
     LostHeadGif: 14,
-    addSpotlight: (function () {
+    addSpotlight: (function() {
       var a, b;
-      $User.Browser.IE6
-        ? ((a = "_8"), (b = "filter:alpha(opacity=30)"))
-        : (a = b = "");
-      return function (d, f, c) {
+      $User.Browser.IE6 ? (a = "_8", b = "filter:alpha(opacity=30)") : a = b = "";
+      return function(d, f, c) {
         var g = $Z[d],
-          e;
-        NewEle(
-          d + "_spotlightCon",
-          "div",
-          "position:absolute;left:-30px;top:-400px;width:184px;height:600px;overflow:hidden",
-          0,
-          c
-        ).appendChild(
-          (g.spotlight = NewImg(
-            d + "_spotlight",
-            "images/Zombies/DancingZombie/spotlight" + a + ".png",
-            "left:0;top:0;width:920px;height:600px;" + b
-          ))
-        );
-        e = NewEle(
-          d + "_spotlight2Con",
-          "div",
-          "position:absolute;left:-25px;top:135px;width:184px;height:60px;overflow:hidden",
-          0
-        );
+        e;
+        NewEle(d + "_spotlightCon", "div", "position:absolute;left:-30px;top:-400px;width:184px;height:600px;overflow:hidden", 0, c).appendChild(g.spotlight = NewImg(d + "_spotlight", "images/Zombies/DancingZombie/spotlight" + a + ".png", "left:0;top:0;width:920px;height:600px;" + b));
+        e = NewEle(d + "_spotlight2Con", "div", "position:absolute;left:-25px;top:135px;width:184px;height:60px;overflow:hidden", 0);
         c.insertBefore(e, f.EleShadow);
-        e.appendChild(
-          (g.spotlight2 = NewImg(
-            d + "_spotlight2",
-            "images/Zombies/DancingZombie/spotlight2" + a + ".png",
-            "left:0;top:0;width:920px;height:60px;" + b
-          ))
-        );
-      };
+        e.appendChild(g.spotlight2 = NewImg(d + "_spotlight2", "images/Zombies/DancingZombie/spotlight2" + a + ".png", "left:0;top:0;width:920px;height:60px;" + b))
+      }
     })(),
-    PicArr: (function () {
+    PicArr: (function() {
       var d = "images/Zombies/DancingZombie/",
-        c = $User.Browser.IE6 ? "_8" : "",
-        a = d + "spotlight" + c + ".png" + $Random,
-        b = d + "spotlight2" + c + ".png" + $Random;
-      return [
-        "images/Card/Zombies/DancingZombie.png",
-        d + "0.gif",
-        d + "DancingZombie.gif",
-        d + "Attack.gif",
-        d + "LostHead.gif",
-        d + "LostHeadAttack.gif",
-        d + "Head.gif" + $Random,
-        d + "Die.gif" + $Random,
-        "images/Zombies/BoomDie.gif" + $Random,
-        d + "SlidingStep.gif" + $Random,
-        d + "Dancing.gif" + $Random,
-        d + "Summon1.gif",
-        d + "Summon2.gif",
-        d + "Summon3.gif",
-        d + "LostHeadSlidingStep.gif" + $Random,
-        d + "LostHeadDancing.gif" + $Random,
-        d + "LostHeadSummon.gif" + $Random,
-        a,
-        b,
-      ];
+      c = $User.Browser.IE6 ? "_8": "",
+      a = d + "spotlight" + c + ".png" + $Random,
+      b = d + "spotlight2" + c + ".png" + $Random;
+      return ["images/Card/Zombies/DancingZombie.png", d + "0.gif", d + "DancingZombie.gif", d + "Attack.gif", d + "LostHead.gif", d + "LostHeadAttack.gif", d + "Head.gif" + $Random, d + "Die.gif" + $Random, d + "BoomDie.gif" + $Random, d + "SlidingStep.gif" + $Random, d + "Dancing.gif" + $Random, d + "Summon1.gif", d + "Summon2.gif", d + "Summon3.gif", d + "LostHeadSlidingStep.gif" + $Random, d + "LostHeadDancing.gif" + $Random, d + "LostHeadSummon.gif" + $Random, a, b]
     })(),
-    Produce:
-      '舞者僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中</font><br>特点：<font color="#FF0000">召唤伴舞僵尸</font></p>舞者僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。',
-    getSnowPea: function () {
-      Z.PlaySlowballAudio();
+    Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中</font><br>特点：<font color="#FF0000">召唤伴舞僵尸</font></p>舞王僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。',
+    getSnowPea: function() {
+      this.PlaySlowballAudio();
     },
-    NormalDie: function () {
+    NormalDie: function() {
       var a = this;
       a.ResetBackupDancer(a);
       a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
       oSym.addTask(250, ClearChild, [a.Ele]);
       a.HP = 0;
       delete $Z[a.id];
-      a.PZ && oP.MonPrgs();
+      a.PZ && oP.MonPrgs()
     },
-    ExplosionDie: function () {
+    ExplosionDie: function() {
       var a = this;
       a.ResetBackupDancer(a);
       a.EleBody.src = a.PicArr[a.BoomDieGif] + Math.random();
       oSym.addTask(300, ClearChild, [a.Ele]);
       a.HP = 0;
       delete $Z[a.id];
-      a.PZ && oP.MonPrgs();
+      a.PZ && oP.MonPrgs()
     },
-    DisappearDie: function () {
+    DisappearDie: function() {
       this.ResetBackupDancer(this);
       ClearChild(this.Ele);
       this.HP = 0;
       delete $Z[this.id];
-      this.PZ && oP.MonPrgs();
+      this.PZ && oP.MonPrgs()
     },
-    CrushDie: function () {
+    CrushDie: function() {
       var a = this;
       a.ResetBackupDancer(a);
       a.GoingDieHead(a.id, a.PicArr, a);
       ClearChild(a.Ele);
       a.HP = 0;
       delete $Z[a.id];
-      a.PZ && oP.MonPrgs();
+      a.PZ && oP.MonPrgs()
     },
-    bedevil: function (b) {
+    bedevil: function(b) {
       var a = b.id;
       b.ExchangeLR(b, 1);
       b.JudgeAttack = b.JudgeAttackH;
@@ -1150,485 +1009,319 @@ var CZombies = (function (b, a) {
       b.ChkActs = b.ChkActs1;
       b.ChangeChkActsTo1(b, a, b.EleBody);
       b.ResetBackupDancer(b);
-      ($(a + "_spotlightCon").style.left = "20px"),
-        ($(a + "_spotlight2Con").style.left = "25px");
-      oP.MonPrgs();
+      $(a + "_spotlightCon").style.left = "20px",
+      $(a + "_spotlight2Con").style.left = "25px";
+      oP.MonPrgs()
     },
-    ResetBackupDancer: function (f) {
+    ResetBackupDancer: function(f) {
       var g = f.ArDZ,
-        d = g.length,
-        c,
-        b,
-        e,
-        a = f.DZStep;
+      d = g.length,
+      c, b, e, a = f.DZStep;
       while (d--) {
         if ((c = g[d]) && (b = c[0]) && (e = $Z[b]) && e.beAttacked) {
           if (a > 0) {
             switch (true) {
-              case (e.FreeFreezeTime || e.FreeSetbodyTime) == 1:
-                e.Speed = 0;
-                break;
-              case e.FreeSlowTime > 0:
-                e.Speed = 1.75;
-                break;
-              default:
-                e.Speed = 3.5;
+            case(e.FreeFreezeTime || e.FreeSetbodyTime) == 1 : e.Speed = 0;
+              break;
+            case e.FreeSlowTime > 0 : e.Speed = 1.75;
+              break;
+            default:
+              e.Speed = 3.5
             }
           }
         }
       }
-      a > -1 &&
-        oSym.addTask(
-          f.DZStepT - oSym.Now,
-          function (o, j) {
-            var m = 4,
-              l,
-              k,
-              n,
-              h = "ChangeChkActsTo" + j;
-            while (m--) {
-              (l = o[m]) &&
-                (k = l[0]) &&
-                (n = $Z[k]) &&
-                n.beAttacked &&
-                ((n.DZStep = j), n[h](n, k, n.EleBody));
-            }
-          },
-          [g, [1, 0][a]]
-        );
+      a > -1 && oSym.addTask(f.DZStepT - oSym.Now,
+      function(o, j) {
+        var m = 4,
+        l, k, n, h = "ChangeChkActsTo" + j;
+        while (m--) { (l = o[m]) && (k = l[0]) && (n = $Z[k]) && n.beAttacked && (n.DZStep = j, n[h](n, k, n.EleBody))
+        }
+      },
+      [g, [1, 0][a]])
     },
-    BirthCallBack: function (d) {
+    BirthCallBack: function(d) {
       var b = d.delayT,
-        l = d.id,
-        a = (d.Ele = $(l)),
-        c = 320,
-        i = oGd.$LF,
-        g = d.R,
-        s = g - 1,
-        n = g + 1,
-        e,
-        r,
-        q = LX - 60,
-        m = LX + 100,
-        k = LX - 130,
-        j = LX - 70,
-        h = LX + 30,
-        f = (d.ArDZ = [0, 0, 0, 0]);
+      l = d.id,
+      a = d.Ele = $(l),
+      c = 320,
+      i = oGd.$LF,
+      g = d.R,
+      s = g - 1,
+      n = g + 1,
+      e,
+      r,
+      q = LX - 60,
+      m = LX + 100,
+      k = LX - 130,
+      j = LX - 70,
+      h = LX + 30,
+      f = d.ArDZ = [0, 0, 0, 0];
       d.EleShadow = a.firstChild;
       d.EleBody = a.childNodes[1];
-      s > 0 &&
-        (e = i[s]) &&
-        e != 2 &&
-        (f[0] = [
-          "",
-          s,
-          function (o) {
-            return o;
-          },
-          3 * s + 2,
-          function (o) {
-            return o - 70;
-          },
-          GetY(s) - 155,
-        ]);
-      n <= oS.R &&
-        (e = i[n]) &&
-        e != 2 &&
-        (f[2] = [
-          "",
-          n,
-          function (o) {
-            return o;
-          },
-          3 * n + 2,
-          function (o) {
-            return o - 70;
-          },
-          GetY(n) - 155,
-        ]);
+      s > 0 && (e = i[s]) && e != 2 && (f[0] = ["", s,
+      function(o) {
+        return o
+      },
+      3 * s + 2,
+      function(o) {
+        return o - 70
+      },
+      GetY(s) - 155]);
+      n <= oS.R && (e = i[n]) && e != 2 && (f[2] = ["", n,
+      function(o) {
+        return o
+      },
+      3 * n + 2,
+      function(o) {
+        return o - 70
+      },
+      GetY(n) - 155]);
       e = 3 * g + 2;
       r = GetY(g) - 155;
-      f[3] = [
-        "",
-        g,
-        function (o) {
-          return o - 60;
-        },
-        e,
-        function (o) {
-          return o - 130;
-        },
-        r,
-      ];
-      f[1] = [
-        "",
-        g,
-        function (o) {
-          return o + 100;
-        },
-        e,
-        function (o) {
-          return o + 30;
-        },
-        r,
-      ];
-      func = function (t, o) {
+      f[3] = ["", g,
+      function(o) {
+        return o - 60
+      },
+      e,
+      function(o) {
+        return o - 130
+      },
+      r];
+      f[1] = ["", g,
+      function(o) {
+        return o + 100
+      },
+      e,
+      function(o) {
+        return o + 30
+      },
+      r];
+      func = function(t, o) {
         var u = $Z[t];
-        u &&
-          (u.ExchangeLR(d, 1),
-          (u.DZMSpeed = 7.2),
-          (u.DZStep = -1),
-          (u.DZStepT = oSym.Now + 220),
-          (u.FreeSetbodyTime = 0),
-          SetBlock(o));
+        u && (u.ExchangeLR(d, 1), u.DZMSpeed = 7.2, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
       };
-      b ? (oSym.addTask(b, func, [l, a]), (c += b)) : func(l, a);
-      oSym.addTask(
-        c,
-        function (o) {
-          var t = $Z[o];
-          t && t.beAttacked && !t.isAttacking && t.NormalAttack(o);
-        },
-        [d.id]
-      );
+      b ? (oSym.addTask(b, func, [l, a]), c += b) : func(l, a);
+      oSym.addTask(c,
+      function(o) {
+        var t = $Z[o];
+        t && t.beAttacked && !t.isAttacking && t.NormalAttack(o)
+      },
+      [d.id])
     },
-    ChkActs1: function (e, b, f, a) {
-      var c, d;
-      !(e.FreeFreezeTime || e.FreeSetbodyTime)
-        ? (e.beAttacked && !e.isAttacking && e.JudgeAttack(),
-          (c = e.id),
-          !e.isAttacking
-            ? (e.AttackedLX += 3.5) > oS.W
-              ? (f.splice(a, 1), e.DisappearDie(), (d = 0))
-              : ((e.ZX = e.AttackedRX += 3.5),
-                (e.Ele.style.left = Math.ceil((e.X += 3.5)) + "px"),
-                (d = 1))
-            : (d = 1))
-        : (d = 1);
-      return d;
+    ChkActs1: function(e, b, f, a) {
+      var c, d; ! (e.FreeFreezeTime || e.FreeSetbodyTime) ? (e.beAttacked && !e.isAttacking && e.JudgeAttack(), c = e.id, !e.isAttacking ? (e.AttackedLX += 3.5) > oS.W ? (f.splice(a, 1), e.DisappearDie(), d = 0) : (e.ZX = e.AttackedRX += 3.5, e.Ele.style.left = Math.ceil(e.X += 3.5) + "px", d = 1) : d = 1) : d = 1;
+      return d
     },
-    ChkTmp: function (c, b, d, a) {
+    ChkTmp: function(c, b, d, a) {
       c.ChkSpeed(c);
-      return 0;
+      return 0
     },
-    ChkActs: function (g, d, h, c) {
-      var e, b, a, f;
-      !(g.FreeFreezeTime || g.FreeSetbodyTime)
-        ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(),
-          (e = g.id),
-          !g.isAttacking
-            ? (a = g.AttackedRX -= b = g.Speed) < -50
-              ? (h.splice(c, 1), g.DisappearDie(), (f = 0))
-              : (a < 100 &&
-                  !g.PointZombie &&
-                  ((g.PointZombie = 1),
-                  !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
-                  g.ChangeR({
-                    R: d,
-                    ar: [oS.R - 1],
-                    CustomTop: 400 - g.height + g.GetDY(),
-                  })),
-                (g.ZX = g.AttackedLX -= b),
-                (g.Ele.style.left = Math.floor((g.X -= b)) + "px"),
-                (f = 1))
-            : (f = 1))
-        : (f = 1);
+    ChkActs: function(g, d, h, c) {
+      var e, b, a, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
+        R: d,
+        ar: [oS.R - 1],
+        CustomTop: 400 - g.height + g.GetDY()
+      })), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
       g.ChkSpeed(g);
-      return f;
+      return f
     },
-    ChkSpeed: function (g) {
+    ChkSpeed: function(g) {
       if (!g.DZStep) {
-        return;
+        return
       }
       var h = g.ArDZ,
-        d = 4,
-        c,
-        b,
-        e,
-        a = g.OSpeed,
-        f = [];
+      d = 4,
+      c, b, e, a = g.OSpeed,
+      f = [];
       switch (true) {
-        case (g.isAttacking || g.FreeFreezeTime || g.FreeSetbodyTime) == 1:
-          a = 0;
-          break;
-        case g.FreeSlowTime > 0:
-          a != 1.75 && (a = 1.75);
+      case(g.isAttacking || g.FreeFreezeTime || g.FreeSetbodyTime) == 1 : a = 0;
+        break;
+      case g.FreeSlowTime > 0 : a != 1.75 && (a = 1.75)
       }
       while (d--) {
         if ((c = h[d]) && (b = c[0]) && (e = $Z[b]) && e.beAttacked) {
           f.push(e);
           switch (true) {
-            case (e.isAttacking || e.FreeFreezeTime || e.FreeSetbodyTime) == 1:
-              a = 0;
-              break;
-            case e.FreeSlowTime > 0:
-              a != 1.75 && (a = 1.75);
+          case(e.isAttacking || e.FreeFreezeTime || e.FreeSetbodyTime) == 1 : a = 0;
+            break;
+          case e.FreeSlowTime > 0 : a != 1.75 && (a = 1.75)
           }
         }
       }
       if (a != g.DZMSpeed) {
         g.DZMSpeed = a;
         d = f.length;
-        while (d--) {
-          (e = f[d]).Speed != a && (e.Speed = a);
+        while (d--) { (e = f[d]).Speed != a && (e.Speed = a)
         }
-        g.Speed != a && (g.Speed = a);
+        g.Speed != a && (g.Speed = a)
       }
     },
-    AttackZombie: function (a) {
+    AttackZombie: function(a) {
       this.ExchangeLR(this, 0);
       var b = this.id;
       this.isAttacking = 1;
       this.EleBody.src = this.PicArr[this.AttackGif];
-      oSym.addTask(
-        10,
-        function (d, c) {
-          var f = $Z[d],
-            e;
-          f &&
-            f.beAttacked &&
-            !f.FreeFreezeTime &&
-            !f.FreeSetbodyTime &&
-            ((e = $Z[c])
-              ? (e.getHit0(e, 10, 0),
-                oSym.addTask(10, arguments.callee, [d, c]))
-              : ((f.isAttacking = 0),
-                (f.EleBody.src = f.PicArr[f.NormalGif]),
-                f.TurnLeft(f)));
-        },
-        [b, a]
-      );
+      oSym.addTask(10,
+      function(d, c) {
+        var f = $Z[d],
+        e;
+        f && f.beAttacked && !f.FreeFreezeTime && !f.FreeSetbodyTime && ((e = $Z[c]) ? (e.getHit0(e, 10, 0), oSym.addTask(10, arguments.callee, [d, c])) : (f.isAttacking = 0, f.EleBody.src = f.PicArr[f.NormalGif], f.TurnLeft(f)))
+      },
+      [b, a])
     },
-    ChkBackupDancer: function (h, g, f) {
+    ChkBackupDancer: function(h, g, f) {
       if (!h.PZ) {
         h.ChangeChkActsTo1(h, g, f);
-        return;
+        return
       }
       var b = h.ArDZ,
-        d = 4,
-        j = 1,
-        c,
-        e,
-        a;
-      while (d--) {
-        (e = b[d]) &&
-          (!(c = e[0]) ||
-            !(a = $Z[c]) ||
-            (a.PZ ? false : ((e[0] = ""), true))) &&
-          (d = j = 0);
-      }
-      !h.isAttacking && j ? (f.src = h.PicArr[10]) : h.Summon(h, g);
-      h.ChangeChkActsTo0(h, g, f);
+      d = 4,
+      j = 1,
+      c, e, a;
+      while (d--) { (e = b[d]) && (!(c = e[0]) || !(a = $Z[c]) || (a.PZ ? false: (e[0] = "", true))) && (d = j = 0)
+      } ! h.isAttacking && j ? f.src = h.PicArr[10] : h.Summon(h, g);
+      h.ChangeChkActsTo0(h, g, f)
     },
-    ChangeChkActsTo0: function (g, e, a) {
+    ChangeChkActsTo0: function(g, e, a) {
       if (!g.PZ) {
         g.ChangeChkActsTo1(g, e, a);
-        return;
+        return
       }
       var d = 4,
-        h = g.ArDZ,
-        c,
-        b,
-        f;
-      while (d--) {
-        (b = h[d]) &&
-          (c = b[0]) &&
-          (f = $Z[c]) &&
-          f.beAttacked &&
-          ((f.LostHeadGif = 10),
-          (f.NormalGif = 9),
-          !f.isAttacking && (f.EleBody.src = f.PicArr[9]),
-          (f.Speed = 0));
+      h = g.ArDZ,
+      c, b, f;
+      while (d--) { (b = h[d]) && (c = b[0]) && (f = $Z[c]) && f.beAttacked && (f.LostHeadGif = 10, f.NormalGif = 9, !f.isAttacking && (f.EleBody.src = f.PicArr[9]), f.Speed = 0)
       }
       g.LostHeadGif = 15;
       g.NormalGif = 10;
       g.Speed = g.DZMSpeed = g.DZStep = 0;
       g.DZStepT = oSym.Now + 200;
-      oSym.addTask(
-        200,
-        function (j, i) {
-          var k = $Z[j];
-          k && k.beAttacked && k.ChangeChkActsTo1(k, j, i);
-        },
-        [e, a]
-      );
+      oSym.addTask(200,
+      function(j, i) {
+        var k = $Z[j];
+        k && k.beAttacked && k.ChangeChkActsTo1(k, j, i)
+      },
+      [e, a])
     },
-    ChangeChkActsTo1: function (g, e, a) {
+    ChangeChkActsTo1: function(g, e, a) {
       var d = 4,
-        h = g.ArDZ,
-        c,
-        b,
-        f;
-      while (d--) {
-        (b = h[d]) &&
-          (c = b[0]) &&
-          (f = $Z[c]) &&
-          f.beAttacked &&
-          ((f.LostHeadGif = 4),
-          (f.NormalGif = 2),
-          !f.isAttacking && (f.EleBody.src = f.PicArr[2]));
+      h = g.ArDZ,
+      c, b, f;
+      while (d--) { (b = h[d]) && (c = b[0]) && (f = $Z[c]) && f.beAttacked && (f.LostHeadGif = 4, f.NormalGif = 2, !f.isAttacking && (f.EleBody.src = f.PicArr[2]))
       }
       g.LostHeadGif = 4;
       g.NormalGif = 2;
       g.DZStep = 1;
-      g.DZStepT = oSym.Now + 220;
-      !g.isAttacking && (a.src = g.PicArr[2]);
-      g.PZ &&
-        oSym.addTask(
-          220,
-          function (j, i) {
-            var k = $Z[j];
-            k && k.beAttacked && k.ChkBackupDancer(k, j, i);
-          },
-          [e, a]
-        );
+      g.DZStepT = oSym.Now + 220; ! g.isAttacking && (a.src = g.PicArr[2]);
+      g.PZ && oSym.addTask(220,
+      function(j, i) {
+        var k = $Z[j];
+        k && k.beAttacked && k.ChkBackupDancer(k, j, i)
+      },
+      [e, a])
     },
-    TurnLeft: function (c) {
+    TurnLeft: function(c) {
       var a = CZombies.prototype,
-        b = c.id;
+      b = c.id;
       c.AttackZombie = a.AttackZombie;
       c.NormalAttack = a.NormalAttack;
-      c.OSpeed = 3.5;
-      !(c.FreeSlowTime || c.FreeFreezeTime || c.FreeSetbodyTime) &&
-        (c.Speed = 3.5);
+      c.OSpeed = 3.5; ! (c.FreeSlowTime || c.FreeFreezeTime || c.FreeSetbodyTime) && (c.Speed = 3.5);
       c.getSnowPea = OrnNoneZombies.prototype.getSnowPea;
       c.getFreeze = CZombies.prototype.getFreeze;
-      oSym.addTask(
-        20,
-        function (d, e) {
-          $Z[d] &&
-            e.beAttacked &&
-            (e.addSpotlight(d, e, e.Ele),
-            oSym.addTask(
-              200,
-              function (g, f, i, h, k) {
-                var j = $Z[g];
-                j &&
-                  (h > -736 ? (h -= 184) : (h = 0),
-                  (f.style.left = h + "px"),
-                  k > -736 ? (k -= 184) : (k = 0),
-                  (i.style.left = k + "px"),
-                  oSym.addTask(100, arguments.callee, [g, f, i, h, k]));
-              },
-              [d, e.spotlight, e.spotlight2, 0, 0]
-            ),
-            oSym.addTask(
-              200,
-              function (h, g) {
-                var f;
-                $Z[g] &&
-                  h.beAttacked &&
-                  ((f = h.EleBody),
-                  !h.isAttacking ? (f.src = h.PicArr[10]) : (h.isAttacking = 0),
-                  h.ChangeChkActsTo0(h, g, f));
-              },
-              [e, d]
-            ));
+      oSym.addTask(20,
+      function(d, e) {
+        $Z[d] && e.beAttacked && (e.addSpotlight(d, e, e.Ele), oSym.addTask(200,
+        function(g, f, i, h, k) {
+          var j = $Z[g];
+          j && (h > -736 ? h -= 184 : h = 0, f.style.left = h + "px", k > -736 ? k -= 184 : k = 0, i.style.left = k + "px", oSym.addTask(100, arguments.callee, [g, f, i, h, k]))
         },
-        [b, c]
-      );
-      c.Summon(c, b);
+        [d, e.spotlight, e.spotlight2, 0, 0]), oSym.addTask(200,
+        function(h, g) {
+          var f;
+          $Z[g] && h.beAttacked && (f = h.EleBody, !h.isAttacking ? f.src = h.PicArr[10] : h.isAttacking = 0, h.ChangeChkActsTo0(h, g, f))
+        },
+        [e, d]))
+      },
+      [b, c]);
+      c.Summon(c, b)
     },
-    NormalAttack: function (a) {
+    NormalAttack: function(a) {
       var b = $Z[a];
       b.ExchangeLR(b, 0);
-      b.TurnLeft(b);
+      b.TurnLeft(b)
     },
-    Summon: function (d, c) {
+    Summon: function(d, c) {
       d.LostHeadGif = 16;
       var a = d.EleBody,
-        b = d.ChkActs;
+      b = d.ChkActs;
       d.ChkActs = d.ChkTmp;
       d.ChkTmp = b;
       a.src = "images/Zombies/DancingZombie/Summon1.gif";
       PlayAudio("dancer");
-      oSym.addTask(
-        10,
-        function (f, e) {
-          var g = $Z[f];
-          g &&
-            g.beAttacked &&
-            ((e.src = "images/Zombies/DancingZombie/Summon2.gif"),
-            oSym.addTask(
-              10,
-              function (t, s, x) {
-                var h = $Z[t],
-                  v = h.ZX,
-                  m = h.ArDZ,
-                  n = [],
-                  k =
-                    "images/Zombies/BackupDancer/Mound.gif" +
-                    $Random +
-                    Math.random(),
-                  r = 4,
-                  w = [],
-                  u = [],
-                  o = 0,
-                  q,
-                  l;
-                if (h && h.beAttacked) {
-                  s.src = "images/Zombies/DancingZombie/Summon3.gif";
-                  oSym.addTask(
-                    220,
-                    function () {
-                      var i = arguments.length;
-                      while (i--) {
-                        ClearChild(arguments[i]);
-                      }
-                    },
-                    n
-                  );
-                  oSym.addTask(
-                    110,
-                    function (A, y, z, i) {
-                      var B = $Z[A];
-                      B &&
-                        B.beAttacked &&
-                        (oP.AppearUP(y, z, i),
-                        oSym.addTask(
-                          100,
-                          function (D, C) {
-                            var E = $Z[D];
-                            if (E && E.beAttacked) {
-                              return;
-                            }
-                            var j = C.length,
-                              E;
-                            while (j--) {
-                              (E = C[j]).ChangeChkActsTo0(E, E.id, E.EleBody);
-                            }
-                          },
-                          [A, z]
-                        ));
-                    },
-                    [t, u, w, o]
-                  );
-                  oSym.addTask(
-                    200,
-                    function (y, i) {
-                      var z = $Z[y],
-                        j;
-                      z &&
-                        z.beAttacked &&
-                        ((j = z.ChkActs),
-                        (z.ChkActs = z.ChkTmp),
-                        (z.ChkTmp = j));
-                    },
-                    [t, s]
-                  );
+      oSym.addTask(10,
+      function(f, e) {
+        var g = $Z[f];
+        g && g.beAttacked && (e.src = "images/Zombies/DancingZombie/Summon2.gif", oSym.addTask(10,
+        function(t, s, x) {
+          var h = $Z[t],
+          v = h.ZX,
+          m = h.ArDZ,
+          n = [],
+          k = "images/Zombies/BackupDancer/Mound.gif" + $Random + Math.random(),
+          r = 4,
+          w = [],
+          u = [],
+          o = 0,
+          q,
+          l;
+          if (h && h.beAttacked) {
+            s.src = "images/Zombies/DancingZombie/Summon3.gif";
+            while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+            }
+            oSym.addTask(220,
+            function() {
+              var i = arguments.length;
+              while (i--) {
+                ClearChild(arguments[i])
+              }
+            },
+            n);
+            oSym.addTask(110,
+            function(A, y, z, i) {
+              var B = $Z[A];
+              B && B.beAttacked && (oP.AppearUP(y, z, i), oSym.addTask(100,
+              function(D, C) {
+                var E = $Z[D];
+                if (E && E.beAttacked) {
+                  return
+                }
+                var j = C.length,
+                E;
+                while (j--) { (E = C[j]).ChangeChkActsTo0(E, E.id, E.EleBody)
                 }
               },
-              [f, e]
-            ));
+              [A, z]))
+            },
+            [t, u, w, o]);
+            oSym.addTask(200,
+            function(y, i) {
+              var z = $Z[y],
+              j;
+              z && z.beAttacked && (j = z.ChkActs, z.ChkActs = z.ChkTmp, z.ChkTmp = j)
+            },
+            [t, s])
+          }
         },
-        [c, a]
-      );
-    },
+        [f, e]))
+      },
+      [c, a])
+    }
   }),
   oIDancingZombie = InheritO(OrnNoneZombies, {
     EName: "oIDancingZombie",
     CName: "Dancing Zombie",
-    HP: 270,
+    HP: 500,
     BreakPoint: 166,
     Lvl: 3,
     StandGif: 9,
@@ -1643,120 +1336,74 @@ var CZombies = (function (b, a) {
     Speed: 7.2,
     NormalGif: 9,
     GetDTop: 5,
-    getShadow: function (a) {
-      return "left:30px;top:146px";
+    getShadow: function(a) {
+      return "left:30px;top:146px"
     },
-    GetDX: function () {
-      return -50;
+    GetDX: function() {
+      return - 50
     },
-    GetDY: function () {
-      return -5;
+    GetDY: function() {
+      return - 5
     },
     LostHeadGif: 14,
-    addSpotlight: (function () {
+    addSpotlight: (function() {
       var a, b;
-      $User.Browser.IE6
-        ? ((a = "_8"), (b = "filter:alpha(opacity=30)"))
-        : (a = b = "");
-      return function (d, f, c) {
+      $User.Browser.IE6 ? (a = "_8", b = "filter:alpha(opacity=30)") : a = b = "";
+      return function(d, f, c) {
         var g = $Z[d],
-          e;
-        NewEle(
-          d + "_spotlightCon",
-          "div",
-          "position:absolute;left:-30px;top:-400px;width:184px;height:600px;overflow:hidden",
-          0,
-          c
-        ).appendChild(
-          (g.spotlight = NewImg(
-            d + "_spotlight",
-            "images/Zombies/DancingZombie/spotlight" + a + ".png",
-            "left:0;top:0;width:920px;height:600px;" + b
-          ))
-        );
-        e = NewEle(
-          d + "_spotlight2Con",
-          "div",
-          "position:absolute;left:-25px;top:135px;width:184px;height:60px;overflow:hidden",
-          0
-        );
+        e;
+        NewEle(d + "_spotlightCon", "div", "position:absolute;left:-30px;top:-400px;width:184px;height:600px;overflow:hidden", 0, c).appendChild(g.spotlight = NewImg(d + "_spotlight", "images/Zombies/DancingZombie/spotlight" + a + ".png", "left:0;top:0;width:920px;height:600px;" + b));
+        e = NewEle(d + "_spotlight2Con", "div", "position:absolute;left:-25px;top:135px;width:184px;height:60px;overflow:hidden", 0);
         c.insertBefore(e, f.EleShadow);
-        e.appendChild(
-          (g.spotlight2 = NewImg(
-            d + "_spotlight2",
-            "images/Zombies/DancingZombie/spotlight2" + a + ".png",
-            "left:0;top:0;width:920px;height:60px;" + b
-          ))
-        );
-      };
+        e.appendChild(g.spotlight2 = NewImg(d + "_spotlight2", "images/Zombies/DancingZombie/spotlight2" + a + ".png", "left:0;top:0;width:920px;height:60px;" + b))
+      }
     })(),
-    PicArr: (function () {
+    PicArr: (function() {
       var d = "images/Zombies/DancingZombie/",
-        c = $User.Browser.IE6 ? "_8" : "",
-        a = d + "spotlight" + c + ".png" + $Random,
-        b = d + "spotlight2" + c + ".png" + $Random;
-      return [
-        "images/Card/Zombies/IDancingZombie.png",
-        d + "0.gif",
-        d + "DancingZombie.gif",
-        d + "Attack.gif",
-        d + "LostHead.gif",
-        d + "LostHeadAttack.gif",
-        d + "Head.gif" + $Random,
-        d + "Die.gif" + $Random,
-        "images/Zombies/BoomDie.gif" + $Random,
-        d + "SlidingStep.gif" + $Random,
-        d + "Dancing.gif" + $Random,
-        d + "Summon1.gif",
-        d + "Summon2.gif",
-        d + "Summon3.gif",
-        d + "LostHeadSlidingStep.gif" + $Random,
-        d + "LostHeadDancing.gif" + $Random,
-        d + "LostHeadSummon.gif" + $Random,
-        a,
-        b,
-      ];
+      c = $User.Browser.IE6 ? "_8": "",
+      a = d + "spotlight" + c + ".png" + $Random,
+      b = d + "spotlight2" + c + ".png" + $Random;
+      return ["images/Card/Zombies/IDancingZombie.png", d + "0.gif", d + "DancingZombie.gif", d + "Attack.gif", d + "LostHead.gif", d + "LostHeadAttack.gif", d + "Head.gif" + $Random, d + "Die.gif" + $Random, d + "BoomDie.gif" + $Random, d + "SlidingStep.gif" + $Random, d + "Dancing.gif" + $Random, d + "Summon1.gif", d + "Summon2.gif", d + "Summon3.gif", d + "LostHeadSlidingStep.gif" + $Random, d + "LostHeadDancing.gif" + $Random, d + "LostHeadSummon.gif" + $Random, a, b]
     })(),
-    Produce:
-      '舞者僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中</font><br>特点：<font color="#FF0000">召唤伴舞僵尸</font></p>舞者僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。',
-    getSnowPea: function () {
-      Z.PlaySlowballAudio();
+    Produce: '舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#FF0000">中</font><br>特点：<font color="#FF0000">召唤伴舞僵尸</font></p>舞王僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。',
+    getSnowPea: function() {
+      this.PlaySlowballAudio();
     },
-    NormalDie: function () {
+    NormalDie: function() {
       var a = this;
       a.ResetBackupDancer(a);
       a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
       oSym.addTask(250, ClearChild, [a.Ele]);
       a.HP = 0;
       delete $Z[a.id];
-      a.PZ && oP.MonPrgs();
+      a.PZ && oP.MonPrgs()
     },
-    ExplosionDie: function () {
+    ExplosionDie: function() {
       var a = this;
       a.ResetBackupDancer(a);
       a.EleBody.src = a.PicArr[a.BoomDieGif] + Math.random();
       oSym.addTask(300, ClearChild, [a.Ele]);
       a.HP = 0;
       delete $Z[a.id];
-      a.PZ && oP.MonPrgs();
+      a.PZ && oP.MonPrgs()
     },
-    DisappearDie: function () {
+    DisappearDie: function() {
       this.ResetBackupDancer(this);
       ClearChild(this.Ele);
       this.HP = 0;
       delete $Z[this.id];
-      this.PZ && oP.MonPrgs();
+      this.PZ && oP.MonPrgs()
     },
-    CrushDie: function () {
+    CrushDie: function() {
       var a = this;
       a.ResetBackupDancer(a);
       a.GoingDieHead(a.id, a.PicArr, a);
       ClearChild(a.Ele);
       a.HP = 0;
       delete $Z[a.id];
-      a.PZ && oP.MonPrgs();
+      a.PZ && oP.MonPrgs()
     },
-    bedevil: function (b) {
+    bedevil: function(b) {
       var a = b.id;
       b.ExchangeLR(b, 1);
       b.JudgeAttack = b.JudgeAttackH;
@@ -1766,482 +1413,314 @@ var CZombies = (function (b, a) {
       b.ChkActs = b.ChkActs1;
       b.ChangeChkActsTo1(b, a, b.EleBody);
       b.ResetBackupDancer(b);
-      ($(a + "_spotlightCon").style.left = "20px"),
-        ($(a + "_spotlight2Con").style.left = "25px");
-      oP.MonPrgs();
+      $(a + "_spotlightCon").style.left = "20px",
+      $(a + "_spotlight2Con").style.left = "25px";
+      oP.MonPrgs()
     },
-    ResetBackupDancer: function (f) {
+    ResetBackupDancer: function(f) {
       var g = f.ArDZ,
-        d = g.length,
-        c,
-        b,
-        e,
-        a = f.DZStep;
+      d = g.length,
+      c, b, e, a = f.DZStep;
       while (d--) {
         if ((c = g[d]) && (b = c[0]) && (e = $Z[b]) && e.beAttacked) {
           if (a > 0) {
             switch (true) {
-              case (e.FreeFreezeTime || e.FreeSetbodyTime) == 1:
-                e.Speed = 0;
-                break;
-              case e.FreeSlowTime > 0:
-                e.Speed = 1.75;
-                break;
-              default:
-                e.Speed = 3.5;
+            case(e.FreeFreezeTime || e.FreeSetbodyTime) == 1 : e.Speed = 0;
+              break;
+            case e.FreeSlowTime > 0 : e.Speed = 1.75;
+              break;
+            default:
+              e.Speed = 3.5
             }
           }
         }
       }
-      a > -1 &&
-        oSym.addTask(
-          f.DZStepT - oSym.Now,
-          function (o, j) {
-            var m = 4,
-              l,
-              k,
-              n,
-              h = "ChangeChkActsTo" + j;
-            while (m--) {
-              (l = o[m]) &&
-                (k = l[0]) &&
-                (n = $Z[k]) &&
-                n.beAttacked &&
-                ((n.DZStep = j), n[h](n, k, n.EleBody));
-            }
-          },
-          [g, [1, 0][a]]
-        );
+      a > -1 && oSym.addTask(f.DZStepT - oSym.Now,
+      function(o, j) {
+        var m = 4,
+        l, k, n, h = "ChangeChkActsTo" + j;
+        while (m--) { (l = o[m]) && (k = l[0]) && (n = $Z[k]) && n.beAttacked && (n.DZStep = j, n[h](n, k, n.EleBody))
+        }
+      },
+      [g, [1, 0][a]])
     },
-    BirthCallBack: function (d) {
+    BirthCallBack: function(d) {
       var b = d.delayT,
-        l = d.id,
-        a = (d.Ele = $(l)),
-        c = 320,
-        i = oGd.$LF,
-        g = d.R,
-        s = g - 1,
-        n = g + 1,
-        e,
-        r,
-        q = LX - 60,
-        m = LX + 100,
-        k = LX - 130,
-        j = LX - 70,
-        h = LX + 30,
-        f = (d.ArDZ = [0, 0, 0, 0]);
+      l = d.id,
+      a = d.Ele = $(l),
+      c = 320,
+      i = oGd.$LF,
+      g = d.R,
+      s = g - 1,
+      n = g + 1,
+      e,
+      r,
+      q = LX - 60,
+      m = LX + 100,
+      k = LX - 130,
+      j = LX - 70,
+      h = LX + 30,
+      f = d.ArDZ = [0, 0, 0, 0];
       d.EleShadow = a.firstChild;
       d.EleBody = a.childNodes[1];
-      s > 0 &&
-        (e = i[s]) &&
-        e != 2 &&
-        (f[0] = [
-          "",
-          s,
-          function (o) {
-            return o;
-          },
-          3 * s + 2,
-          function (o) {
-            return o - 70;
-          },
-          GetY(s) - 155,
-        ]);
-      n <= oS.R &&
-        (e = i[n]) &&
-        e != 2 &&
-        (f[2] = [
-          "",
-          n,
-          function (o) {
-            return o;
-          },
-          3 * n + 2,
-          function (o) {
-            return o - 70;
-          },
-          GetY(n) - 155,
-        ]);
+      s > 0 && (e = i[s]) && e != 2 && (f[0] = ["", s,
+      function(o) {
+        return o
+      },
+      3 * s + 2,
+      function(o) {
+        return o - 70
+      },
+      GetY(s) - 155]);
+      n <= oS.R && (e = i[n]) && e != 2 && (f[2] = ["", n,
+      function(o) {
+        return o
+      },
+      3 * n + 2,
+      function(o) {
+        return o - 70
+      },
+      GetY(n) - 155]);
       e = 3 * g + 2;
       r = GetY(g) - 155;
-      f[3] = [
-        "",
-        g,
-        function (o) {
-          return o - 60;
-        },
-        e,
-        function (o) {
-          return o - 130;
-        },
-        r,
-      ];
-      f[1] = [
-        "",
-        g,
-        function (o) {
-          return o + 100;
-        },
-        e,
-        function (o) {
-          return o + 30;
-        },
-        r,
-      ];
-      func = function (t, o) {
+      f[3] = ["", g,
+      function(o) {
+        return o - 60
+      },
+      e,
+      function(o) {
+        return o - 130
+      },
+      r];
+      f[1] = ["", g,
+      function(o) {
+        return o + 100
+      },
+      e,
+      function(o) {
+        return o + 30
+      },
+      r];
+      func = function(t, o) {
         var u = $Z[t];
-        u &&
-          (u.ExchangeLR(d, 1),
-          (u.DZMSpeed = 7.2),
-          (u.DZStep = -1),
-          (u.DZStepT = oSym.Now + 220),
-          (u.FreeSetbodyTime = 0),
-          SetBlock(o));
+        u && (u.ExchangeLR(d, 1), u.DZMSpeed = 7.2, u.DZStep = -1, u.DZStepT = oSym.Now + 220, u.FreeSetbodyTime = 0, SetBlock(o))
       };
-      b ? (oSym.addTask(b, func, [l, a]), (c += b)) : func(l, a);
-      oSym.addTask(
-        c,
-        function (o) {
-          var t = $Z[o];
-          t && t.beAttacked && !t.isAttacking && t.NormalAttack(o);
-        },
-        [d.id]
-      );
+      b ? (oSym.addTask(b, func, [l, a]), c += b) : func(l, a);
+      oSym.addTask(c,
+      function(o) {
+        var t = $Z[o];
+        t && t.beAttacked && !t.isAttacking && t.NormalAttack(o)
+      },
+      [d.id])
     },
-    ChkActs1: function (e, b, f, a) {
-      var c, d;
-      !(e.FreeFreezeTime || e.FreeSetbodyTime)
-        ? (e.beAttacked && !e.isAttacking && e.JudgeAttack(),
-          (c = e.id),
-          !e.isAttacking
-            ? (e.AttackedLX += 3.5) > oS.W
-              ? (f.splice(a, 1), e.DisappearDie(), (d = 0))
-              : ((e.ZX = e.AttackedRX += 3.5),
-                (e.Ele.style.left = Math.ceil((e.X += 3.5)) + "px"),
-                (d = 1))
-            : (d = 1))
-        : (d = 1);
-      return d;
+    ChkActs1: function(e, b, f, a) {
+      var c, d; ! (e.FreeFreezeTime || e.FreeSetbodyTime) ? (e.beAttacked && !e.isAttacking && e.JudgeAttack(), c = e.id, !e.isAttacking ? (e.AttackedLX += 3.5) > oS.W ? (f.splice(a, 1), e.DisappearDie(), d = 0) : (e.ZX = e.AttackedRX += 3.5, e.Ele.style.left = Math.ceil(e.X += 3.5) + "px", d = 1) : d = 1) : d = 1;
+      return d
     },
-    ChkTmp: function (c, b, d, a) {
+    ChkTmp: function(c, b, d, a) {
       c.ChkSpeed(c);
-      return 0;
+      return 0
     },
-    ChkActs: function (g, d, h, c) {
-      var e, b, a, f;
-      !(g.FreeFreezeTime || g.FreeSetbodyTime)
-        ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(),
-          (e = g.id),
-          !g.isAttacking
-            ? (a = g.AttackedRX -= b = g.Speed) < -50
-              ? (h.splice(c, 1), g.DisappearDie(), (f = 0))
-              : (a < 100 &&
-                  !g.PointZombie &&
-                  ((g.PointZombie = 1),
-                  !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
-                  g.ChangeR({
-                    R: d,
-                    ar: [oS.R - 1],
-                    CustomTop: 400 - g.height + g.GetDY(),
-                  })),
-                (g.ZX = g.AttackedLX -= b),
-                (g.Ele.style.left = Math.floor((g.X -= b)) + "px"),
-                (f = 1))
-            : (f = 1))
-        : (f = 1);
+    ChkActs: function(g, d, h, c) {
+      var e, b, a, f; ! (g.FreeFreezeTime || g.FreeSetbodyTime) ? (g.beAttacked && !g.isAttacking && g.JudgeAttack(), e = g.id, !g.isAttacking ? ((a = g.AttackedRX -= (b = g.Speed)) < -50 ? (h.splice(c, 1), g.DisappearDie(), f = 0) : (a < 100 && !g.PointZombie && (g.PointZombie = 1, !oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)), g.ChangeR({
+        R: d,
+        ar: [oS.R - 1],
+        CustomTop: 400 - g.height + g.GetDY()
+      })), g.ZX = g.AttackedLX -= b, g.Ele.style.left = Math.floor(g.X -= b) + "px", f = 1)) : f = 1) : f = 1;
       g.ChkSpeed(g);
-      return f;
+      return f
     },
-    ChkSpeed: function (g) {
+    ChkSpeed: function(g) {
       if (!g.DZStep) {
-        return;
+        return
       }
       var h = g.ArDZ,
-        d = 4,
-        c,
-        b,
-        e,
-        a = g.OSpeed,
-        f = [];
+      d = 4,
+      c, b, e, a = g.OSpeed,
+      f = [];
       switch (true) {
-        case (g.isAttacking || g.FreeFreezeTime || g.FreeSetbodyTime) == 1:
-          a = 0;
-          break;
-        case g.FreeSlowTime > 0:
-          a != 1.75 && (a = 1.75);
+      case(g.isAttacking || g.FreeFreezeTime || g.FreeSetbodyTime) == 1 : a = 0;
+        break;
+      case g.FreeSlowTime > 0 : a != 1.75 && (a = 1.75)
       }
       while (d--) {
         if ((c = h[d]) && (b = c[0]) && (e = $Z[b]) && e.beAttacked) {
           f.push(e);
           switch (true) {
-            case (e.isAttacking || e.FreeFreezeTime || e.FreeSetbodyTime) == 1:
-              a = 0;
-              break;
-            case e.FreeSlowTime > 0:
-              a != 1.75 && (a = 1.75);
+          case(e.isAttacking || e.FreeFreezeTime || e.FreeSetbodyTime) == 1 : a = 0;
+            break;
+          case e.FreeSlowTime > 0 : a != 1.75 && (a = 1.75)
           }
         }
       }
       if (a != g.DZMSpeed) {
         g.DZMSpeed = a;
         d = f.length;
-        while (d--) {
-          (e = f[d]).Speed != a && (e.Speed = a);
+        while (d--) { (e = f[d]).Speed != a && (e.Speed = a)
         }
-        g.Speed != a && (g.Speed = a);
+        g.Speed != a && (g.Speed = a)
       }
     },
-    AttackZombie: function (a) {
+    AttackZombie: function(a) {
       this.ExchangeLR(this, 0);
       var b = this.id;
       this.isAttacking = 1;
       this.EleBody.src = this.PicArr[this.AttackGif];
-      oSym.addTask(
-        10,
-        function (d, c) {
-          var f = $Z[d],
-            e;
-          f &&
-            f.beAttacked &&
-            !f.FreeFreezeTime &&
-            !f.FreeSetbodyTime &&
-            ((e = $Z[c])
-              ? (e.getHit0(e, 10, 0),
-                oSym.addTask(10, arguments.callee, [d, c]))
-              : ((f.isAttacking = 0),
-                (f.EleBody.src = f.PicArr[f.NormalGif]),
-                f.TurnLeft(f)));
-        },
-        [b, a]
-      );
+      oSym.addTask(10,
+      function(d, c) {
+        var f = $Z[d],
+        e;
+        f && f.beAttacked && !f.FreeFreezeTime && !f.FreeSetbodyTime && ((e = $Z[c]) ? (e.getHit0(e, 10, 0), oSym.addTask(10, arguments.callee, [d, c])) : (f.isAttacking = 0, f.EleBody.src = f.PicArr[f.NormalGif], f.TurnLeft(f)))
+      },
+      [b, a])
     },
-    ChkBackupDancer: function (h, g, f) {
+    ChkBackupDancer: function(h, g, f) {
       if (!h.PZ) {
         h.ChangeChkActsTo1(h, g, f);
-        return;
+        return
       }
       var b = h.ArDZ,
-        d = 4,
-        j = 1,
-        c,
-        e,
-        a;
-      while (d--) {
-        (e = b[d]) &&
-          (!(c = e[0]) ||
-            !(a = $Z[c]) ||
-            (a.PZ ? false : ((e[0] = ""), true))) &&
-          (d = j = 0);
-      }
-      !h.isAttacking && j ? (f.src = h.PicArr[10]) : h.Summon(h, g);
-      h.ChangeChkActsTo0(h, g, f);
+      d = 4,
+      j = 1,
+      c, e, a;
+      while (d--) { (e = b[d]) && (!(c = e[0]) || !(a = $Z[c]) || (a.PZ ? false: (e[0] = "", true))) && (d = j = 0)
+      } ! h.isAttacking && j ? f.src = h.PicArr[10] : h.Summon(h, g);
+      h.ChangeChkActsTo0(h, g, f)
     },
-    ChangeChkActsTo0: function (g, e, a) {
+    ChangeChkActsTo0: function(g, e, a) {
       if (!g.PZ) {
         g.ChangeChkActsTo1(g, e, a);
-        return;
+        return
       }
       var d = 4,
-        h = g.ArDZ,
-        c,
-        b,
-        f;
-      while (d--) {
-        (b = h[d]) &&
-          (c = b[0]) &&
-          (f = $Z[c]) &&
-          f.beAttacked &&
-          ((f.LostHeadGif = 10),
-          (f.NormalGif = 9),
-          !f.isAttacking && (f.EleBody.src = f.PicArr[9]),
-          (f.Speed = 0));
+      h = g.ArDZ,
+      c, b, f;
+      while (d--) { (b = h[d]) && (c = b[0]) && (f = $Z[c]) && f.beAttacked && (f.LostHeadGif = 10, f.NormalGif = 9, !f.isAttacking && (f.EleBody.src = f.PicArr[9]), f.Speed = 0)
       }
       g.LostHeadGif = 15;
       g.NormalGif = 10;
       g.Speed = g.DZMSpeed = g.DZStep = 0;
       g.DZStepT = oSym.Now + 200;
-      oSym.addTask(
-        200,
-        function (j, i) {
-          var k = $Z[j];
-          k && k.beAttacked && k.ChangeChkActsTo1(k, j, i);
-        },
-        [e, a]
-      );
+      oSym.addTask(200,
+      function(j, i) {
+        var k = $Z[j];
+        k && k.beAttacked && k.ChangeChkActsTo1(k, j, i)
+      },
+      [e, a])
     },
-    ChangeChkActsTo1: function (g, e, a) {
+    ChangeChkActsTo1: function(g, e, a) {
       var d = 4,
-        h = g.ArDZ,
-        c,
-        b,
-        f;
-      while (d--) {
-        (b = h[d]) &&
-          (c = b[0]) &&
-          (f = $Z[c]) &&
-          f.beAttacked &&
-          ((f.LostHeadGif = 4),
-          (f.NormalGif = 2),
-          !f.isAttacking && (f.EleBody.src = f.PicArr[2]));
+      h = g.ArDZ,
+      c, b, f;
+      while (d--) { (b = h[d]) && (c = b[0]) && (f = $Z[c]) && f.beAttacked && (f.LostHeadGif = 4, f.NormalGif = 2, !f.isAttacking && (f.EleBody.src = f.PicArr[2]))
       }
       g.LostHeadGif = 4;
       g.NormalGif = 2;
       g.DZStep = 1;
-      g.DZStepT = oSym.Now + 220;
-      !g.isAttacking && (a.src = g.PicArr[2]);
-      g.PZ &&
-        oSym.addTask(
-          220,
-          function (j, i) {
-            var k = $Z[j];
-            k && k.beAttacked && k.ChkBackupDancer(k, j, i);
-          },
-          [e, a]
-        );
+      g.DZStepT = oSym.Now + 220; ! g.isAttacking && (a.src = g.PicArr[2]);
+      g.PZ && oSym.addTask(220,
+      function(j, i) {
+        var k = $Z[j];
+        k && k.beAttacked && k.ChkBackupDancer(k, j, i)
+      },
+      [e, a])
     },
-    TurnLeft: function (c) {
+    TurnLeft: function(c) {
       var a = CZombies.prototype,
-        b = c.id;
+      b = c.id;
       c.AttackZombie = a.AttackZombie;
       c.NormalAttack = a.NormalAttack;
-      c.OSpeed = 3.5;
-      !(c.FreeSlowTime || c.FreeFreezeTime || c.FreeSetbodyTime) &&
-        (c.Speed = 3.5);
+      c.OSpeed = 3.5; ! (c.FreeSlowTime || c.FreeFreezeTime || c.FreeSetbodyTime) && (c.Speed = 3.5);
       c.getSnowPea = OrnNoneZombies.prototype.getSnowPea;
       c.getFreeze = CZombies.prototype.getFreeze;
-      oSym.addTask(
-        20,
-        function (d, e) {
-          $Z[d] &&
-            e.beAttacked &&
-            (e.addSpotlight(d, e, e.Ele),
-            oSym.addTask(
-              200,
-              function (g, f, i, h, k) {
-                var j = $Z[g];
-                j &&
-                  (h > -736 ? (h -= 184) : (h = 0),
-                  (f.style.left = h + "px"),
-                  k > -736 ? (k -= 184) : (k = 0),
-                  (i.style.left = k + "px"),
-                  oSym.addTask(100, arguments.callee, [g, f, i, h, k]));
-              },
-              [d, e.spotlight, e.spotlight2, 0, 0]
-            ),
-            oSym.addTask(
-              200,
-              function (h, g) {
-                var f;
-                $Z[g] &&
-                  h.beAttacked &&
-                  ((f = h.EleBody),
-                  !h.isAttacking ? (f.src = h.PicArr[10]) : (h.isAttacking = 0),
-                  h.ChangeChkActsTo0(h, g, f));
-              },
-              [e, d]
-            ));
+      oSym.addTask(20,
+      function(d, e) {
+        $Z[d] && e.beAttacked && (e.addSpotlight(d, e, e.Ele), oSym.addTask(200,
+        function(g, f, i, h, k) {
+          var j = $Z[g];
+          j && (h > -736 ? h -= 184 : h = 0, f.style.left = h + "px", k > -736 ? k -= 184 : k = 0, i.style.left = k + "px", oSym.addTask(100, arguments.callee, [g, f, i, h, k]))
         },
-        [b, c]
-      );
-      c.Summon(c, b);
+        [d, e.spotlight, e.spotlight2, 0, 0]), oSym.addTask(200,
+        function(h, g) {
+          var f;
+          $Z[g] && h.beAttacked && (f = h.EleBody, !h.isAttacking ? f.src = h.PicArr[10] : h.isAttacking = 0, h.ChangeChkActsTo0(h, g, f))
+        },
+        [e, d]))
+      },
+      [b, c]);
+      c.Summon(c, b)
     },
-    NormalAttack: function (a) {
+    NormalAttack: function(a) {
       var b = $Z[a];
       b.ExchangeLR(b, 0);
-      b.TurnLeft(b);
+      b.TurnLeft(b)
     },
-    Summon: function (d, c) {
+    Summon: function(d, c) {
       d.LostHeadGif = 16;
       var a = d.EleBody,
-        b = d.ChkActs;
+      b = d.ChkActs;
       d.ChkActs = d.ChkTmp;
       d.ChkTmp = b;
       a.src = "images/Zombies/DancingZombie/Summon1.gif";
       PlayAudio("dancer");
-      oSym.addTask(
-        10,
-        function (f, e) {
-          var g = $Z[f];
-          g &&
-            g.beAttacked &&
-            ((e.src = "images/Zombies/DancingZombie/Summon2.gif"),
-            oSym.addTask(
-              10,
-              function (t, s, x) {
-                var h = $Z[t],
-                  v = h.ZX,
-                  m = h.ArDZ,
-                  n = [],
-                  k =
-                    "images/Zombies/BackupDancer/Mound.gif" +
-                    $Random +
-                    Math.random(),
-                  r = 4,
-                  w = [],
-                  u = [],
-                  o = 0,
-                  q,
-                  l;
-                if (h && h.beAttacked) {
-                  s.src = "images/Zombies/DancingZombie/Summon3.gif";
-         //         while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("images/interface/blank.png", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)   
-         //         }
-                  oSym.addTask(
-                    220,
-                    function () {
-                      var i = arguments.length;
-                      while (i--) {
-                        ClearChild(arguments[i]);
-                      }
-                    },
-                    n
-                  );
-                  oSym.addTask(
-                    110,
-                    function (A, y, z, i) {
-                      var B = $Z[A];
-                      B &&
-                        B.beAttacked &&
-                        (oP.AppearUP(y, z, i),
-                        oSym.addTask(
-                          100,
-                          function (D, C) {
-                            var E = $Z[D];
-                            if (E && E.beAttacked) {
-                              return;
-                            }
-                            var j = C.length,
-                              E;
-                            while (j--) {
-                              (E = C[j]).ChangeChkActsTo0(E, E.id, E.EleBody);
-                            }
-                          },
-                          [A, z]
-                        ));
-                    },
-                    [t, u, w, o]
-                  );
-                  oSym.addTask(
-                    200,
-                    function (y, i) {
-                      var z = $Z[y],
-                        j;
-                      z &&
-                        z.beAttacked &&
-                        ((j = z.ChkActs),
-                        (z.ChkActs = z.ChkTmp),
-                        (z.ChkTmp = j));
-                    },
-                    [t, s]
-                  );
+      oSym.addTask(10,
+      function(f, e) {
+        var g = $Z[f];
+        g && g.beAttacked && (e.src = "images/Zombies/DancingZombie/Summon2.gif", oSym.addTask(10,
+        function(t, s, x) {
+          var h = $Z[t],
+          v = h.ZX,
+          m = h.ArDZ,
+          n = [],
+          k = "images/Zombies/BackupDancer/Mound.gif" + $Random + Math.random(),
+          r = 4,
+          w = [],
+          u = [],
+          o = 0,
+          q,
+          l;
+          if (h && h.beAttacked) {
+            s.src = "images/Zombies/DancingZombie/Summon3.gif";
+            while (r--) { (q = m[r]) && (!(l = q[0]) || !$Z[l]) && (u[o] = (w[o] = new oBackupDancer).CustomBirth(q[1], q[2](v), 100, q[0] = "Z_" + Math.random()), n.push(NewImg("", k, "z-index:" + q[3] + ";left:" + q[4](v) + "px;top:" + q[5] + "px", EDPZ)), ++o)
+            }
+            oSym.addTask(220,
+            function() {
+              var i = arguments.length;
+              while (i--) {
+                ClearChild(arguments[i])
+              }
+            },
+            n);
+            oSym.addTask(110,
+            function(A, y, z, i) {
+              var B = $Z[A];
+              B && B.beAttacked && (oP.AppearUP(y, z, i), oSym.addTask(100,
+              function(D, C) {
+                var E = $Z[D];
+                if (E && E.beAttacked) {
+                  return
+                }
+                var j = C.length,
+                E;
+                while (j--) { (E = C[j]).ChangeChkActsTo0(E, E.id, E.EleBody)
                 }
               },
-              [f, e]
-            ));
+              [A, z]))
+            },
+            [t, u, w, o]);
+            oSym.addTask(200,
+            function(y, i) {
+              var z = $Z[y],
+              j;
+              z && z.beAttacked && (j = z.ChkActs, z.ChkActs = z.ChkTmp, z.ChkTmp = j)
+            },
+            [t, s])
+          }
         },
-        [c, a]
-      );
-    },
+        [f, e]))
+      },
+      [c, a])
+    }
   }),
   oZombie = InheritO(OrnNoneZombies, {
     EName: "oZombie",
@@ -8583,7 +8062,7 @@ oCBucketheadZombie = InheritO(
         } (),
         oBackupDancer = InheritO(OrnNoneZombies, {
           EName: "oBackupDancer",
-          CName: "Backup Dancer",
+          CName: "伴舞僵尸",
           OSpeed: 3.5,
           Speed: 3.5,
           Lvl: 1,
@@ -8719,10 +8198,9 @@ oCBucketheadZombie = InheritO(
               a != 3.5 && (b.Speed = 3.5)
             }
           }
-        }),
-        oDancingZombie = InheritO(OrnNoneZombies, {
+        }),oDancingZombie = InheritO(OrnNoneZombies, {
           EName: "oDancingZombie",
-          CName: "舞王僵尸",
+          CName: "Dancing Zombie ",
           HP: 500,
           BreakPoint: 166,
           Lvl: 3,
