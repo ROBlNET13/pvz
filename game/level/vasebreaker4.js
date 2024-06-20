@@ -1,11 +1,11 @@
-// VaseKiller1
+// VaseKiller4
 oS.Init({
-	PName: [oCherryBomb, oSeedPeashooter, oSeedSnowPea, oSeedSquash], 
-	ZName: [oZombie, oZombie2, oZombie3, oBucketheadZombie, oJackinTheBoxZombie], 
+	PName: [oCherryBomb, oSeedRepeater2, oSeedPuffShroom, oSeedHypnoShroom],
+	ZName: [oZombie, oZombie2, oZombie3, oFootballZombie, oJackinTheBoxZombie],
 	PicArr: ["images/interface/background2.jpg","images/interface/trophy.png","images/interface/PointerDown.gif","images/interface/Stripe.png"], 
 	backgroundImage: "images/interface/background2.jpg", 
 	DKind: 0, ShowScroll: false, ProduceSun: false, 
-	LevelName: "Vasebreaker", LvlEName: "vasebreaker1", 
+	LevelName: "Chain Reaction", LvlEName: "vasebreaker4", 
 	CanSelectCard: 0, StartGameMusic: "Cerebrawl", SunNum: 0, 
 	RiddleAutoGrow: function() {
 		var P = oS.VaseArP, L = P.Left, R = P.Right, GNum = P.GreenNum, VaseList = [], GroundList = [];
@@ -42,10 +42,11 @@ oS.Init({
 
 		oS.RiddleAutoGrow(), f(); // f 的调用一定要在生成罐子后面
 	}, 
+
 	VaseArP : {
-		GreenNum: 2, Left: 5, Right: 9, 
-		ZombieP: [0, 0, 1, 1, 2, 2, 3, 3, 3, 4], 
-		PlantP: [1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3], 
+		GreenNum: 2, Left: 3, Right: 9, 
+		ZombieP: [0, 0, 0, 1, 1, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4], 
+		PlantP: [1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3], 
 		SunP: [] 
 	}
 }, 0, {
