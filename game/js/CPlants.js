@@ -6291,8 +6291,8 @@ CanGrow: function(b, a, d) {
         EName: "oGun",
         CName: "Water Gun Grass",
         Sleep: 0,
-        width: 40,
-        height: 66,
+        width: 100,
+        height: 100,
         beAttackedPointL: 15,
         beAttackedPointR: 25,
         BookHandBack: 3.5,
@@ -6352,9 +6352,12 @@ CanGrow: function(b, a, d) {
         },
         NormalAttack: function () {
             PlayAudio("puff");
+            var k = this;
             var b = this,
                 c = "PSB" + Math.random(),
                 a = b.AttackedLX;
+                j = k.id,
+                d = $(j),
             EditEle(
                 b.BulletEle.cloneNode(false),
                 {
@@ -6389,6 +6392,12 @@ CanGrow: function(b, a, d) {
                 },
                 [c, $(c), a, b.R, a - 46]
             );
+            d.childNodes[1].src =
+            "images/Plants/gun/SeaShroomShoot.gif";
+            setTimeout(() => {
+                d.childNodes[1].src =
+                "images/Plants/gun/SeaShroom.gif";;
+            }, 750);
         },
     })),
     (oSeaAnemone = InheritO(oGloomShroom, {
