@@ -2413,8 +2413,8 @@ var $User = (function () {
                 }),
             ]);
     
-            // Check if the chosen plant is oVasePeashooter, oVaseSnowPea, or oVaseSquash
-            if (h === oVasePeashooter || h === oVaseSnowPea || h === oVaseSquash) {
+            // Check if the chosen plant is a seed
+            if (h === oSeedPeashooter || h === oSeedSnowPea || h === oSeedSquash || h === oSeedPotatoMine || h === oSeedWallNut || h === oSeedRepeater2 || h === oSeedHypnoShroom || h === oSeedPuffShroom || h === oSeedPumpkinHead || h === oSeedPlantern || h === oSeedThreepeater || h === oSeedTallNut || h === oSeedTorchwood) {
                 // Hide the card instead of removing it
                 SetHidden($(f.DID));
             }
