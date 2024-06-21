@@ -5,7 +5,7 @@ oS.Init({
 	PicArr: ["images/interface/background2.jpg","images/interface/trophy.png","images/interface/PointerDown.gif","images/interface/Stripe.png"], 
 	backgroundImage: "images/interface/background2.jpg", 
 	DKind: 0, ShowScroll: false, ProduceSun: false, 
-	LevelName: "Chain Reaction", LvlEName: "vasebreaker4", 
+	LevelName: "Ace of Vase", LvlEName: "vasebreaker9", 
 	CanSelectCard: 0, StartGameMusic: "Cerebrawl", SunNum: 0, 
 	RiddleAutoGrow: function() {
 		var P = oS.VaseArP, L = P.Left, R = P.Right, GNum = P.GreenNum, VaseList = [], GroundList = [];
