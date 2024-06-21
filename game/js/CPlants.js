@@ -4795,10 +4795,12 @@ oBigChomper = InheritO(oChomper, {
         "Can devour multiple zombie whole at once, but is vulnerable while rapidly chewing",
     Produce:
         '超级大嘴花能一口气吞下一只僵尸, 并且咀嚼速</font><br>度是普通大嘴花的50%。<p>Harm:<font color="#FF0000">巨大</font><br>Scope:<font color="#FF0000">非常近</font><br>Features:<font color="#FF0000">咀嚼时间短</font></p>超级大嘴花曾经是电视节目“超级大胃王”节</font><br>目的常客，但后来他被踢出了节目组，原因是</font><br>它的存在直接影响到观众的饮食量和节目收视</font><br>率。没办法，为了糊口他只得干起吞食僵尸行</font><br>动。',
+  /*
    CanGrow: function(b, a, d) {
     var c = b[1];
     return c && c.EName == "oChomper"
 },
+*/
     NormalAttack: function (a, b) {
         $(a).childNodes[1].src =
             "images/Plants/BigChomper/ChomperAttack.gif" +
@@ -6919,38 +6921,27 @@ NormalAttack2: function () {
     Tooltip: "Lights up an area, letting you see through fog",
     Produce:
         '路灯花，能照亮一片区域，让你看清战场迷雾<p>Scope:<font color="#FF0000">一片圆形区域</font><br>Features:<font color="#FF0000">使你看清战场迷雾</font></p>灯笼草拒绝科学，他只会埋头苦干。其他植物</font><br>吃的是光，挤出的是氧气。灯笼草吃的是黑暗，</font><br>挤出的却是光。对于他如何能产生光这件事，灯</font><br>笼草持谨慎态度。“我不会说这是‘巫术’，我</font><br>也不会使用‘黑暗力量’，我只是……我想我说</font><br>得够多的了。”',
-    PrivateBirth: function (c) {
-        var a = c.R,
+        PrivateBirth: function(c) {
+            var a = c.R,
             b = c.C;
-        NewImg(
-            "",
-            "",
-            "filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" +
-                c.zIndex,
-            $(c.id)
-        );
-        oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 0);
-    },
-    InitTrigger: function () {},
-    PrivateDie: function (c) {
-        var a = c.R,
+            oGd.$Plantern[a + "_" + b] = c.id;
+            NewImg("", "images/Plants/Plantern/light.gif", "filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" + c.zIndex, $(c.id));
+            oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 0), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
+        },
+        InitTrigger: function() {},
+        PrivateDie: function(c) {
+            var a = c.R,
             b = c.C;
-        delete oGd.$Plantern[a + "_" + b];
-        oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 1);
-    },
-    GetDY: function (b, c, a) {
-        return a[0] ? 70 : 74;
-    },
-    getShadow: function (a) {
-        return (
-            "left:" +
-            (a.width * 0.5 - 43) +
-            "px;top:" +
-            (a.height - 100) +
-            "px"
-        );
-    },
-})),
+            delete oGd.$Plantern[a + "_" + b];
+            oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 1), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
+        },
+        GetDY: function(b, c, a) {
+            return a[0] ? 70 : 74
+        },
+        getShadow: function(a) {
+            return "left:" + (a.width * 0.5 - 43) + "px;top:" + (a.height - 100) + "px"
+        }
+    })),
 oSeedPlantern = InheritO(CPlants, {
 	EName: "oSeedPlantern",
 	CName: "Plantern",
