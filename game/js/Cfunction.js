@@ -2413,12 +2413,30 @@ var $User = (function () {
                 }),
             ]);
     
-            // Check if the chosen plant is a seed
-            if (h === oSeedPeashooter || h === oSeedSnowPea || h === oSeedSquash || h === oSeedPotatoMine || h === oSeedWallNut || h === oSeedRepeater2 || h === oSeedHypnoShroom || h === oSeedPuffShroom || h === oSeedPumpkinHead || h === oSeedPlantern || h === oSeedThreepeater || h === oSeedTallNut || h === oSeedTorchwood) {
-                // Hide the card instead of removing it
-                SetHidden($(f.DID));
-            }
-        }
+              // List of seed plants
+      const seedPlants = [
+        oSeedPeashooter,
+        oSeedSnowPea,
+        oSeedSquash,
+        oSeedPotatoMine,
+        oSeedWallNut,
+        oSeedRepeater2,
+        oSeedHypnoShroom,
+        oSeedPuffShroom,
+        oSeedPumpkinHead,
+        oSeedPlantern,
+        oSeedThreepeater,
+        oSeedTallNut,
+        oSeedTorchwood,
+      ];
+
+      // Check if the chosen plant is a seed variant
+      if (seedPlants.includes(h)) {
+        // Hide the card instead of removing it
+        SetHidden($(f.DID));
+      }
+      
+    }
     
         // Clear plant selection
         CancelPlant();
