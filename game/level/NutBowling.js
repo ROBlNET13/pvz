@@ -22,7 +22,7 @@ oS.Init(
         LF: [0, 1, 1, 1, 1, 1],
         CanSelectCard: 0,
         DKind: 0,
-        LevelName: "小游戏:坚果保龄球",
+        LevelName: "Wall-nut Bowling",
         LvlEName: "NutBowling",
         LargeWaveFlag: {
             10: $("imgFlag3"),
