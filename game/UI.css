@@ -101,8 +101,10 @@ td.HandBookZombie {
 }
 
 .WindowFrame {
-    transform: scale(.9); /* Điều chỉnh tỷ lệ theo nhu cầu */
-      transform-origin: left; /* Đặt điểm gốc cho hiệu ứng scale */
+    transform: scale(.9);
+    /* Điều chỉnh tỷ lệ theo nhu cầu */
+    transform-origin: left;
+    /* Đặt điểm gốc cho hiệu ứng scale */
     position: absolute;
     top: -27;
     width: 900px;
@@ -460,7 +462,7 @@ td.HandBookZombie {
     top: 70px
 }
 
-@#dSelectLevel {
+#dSelectLevel {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -488,7 +490,7 @@ td.HandBookZombie {
     overflow: hidden
 }
 
-@#dTitleSmallContainer span {
+#dTitleSmallContainer span {
     cursor: pointer
 }
 
@@ -1261,7 +1263,7 @@ td.HandBookZombie {
     visibility: hidden;
     z-index: 250;
     padding: 6px;
-    *padding: 6px 5px 10px 2px
+    padding: 6px 5px 10px 2px
 }
 
 #dProcess img {
@@ -1540,7 +1542,7 @@ dd.yellow {
 .Sunflower_trophy img {
     position: absolute;
     left: -157px;
-    *filter: glow(color=#ffffff, strength=8)
+    filter: glow(color=#ffffff, strength=8)
 }
 
 #dLogin {
