@@ -4,7 +4,13 @@
     overflow-y: hidden;
     background: #000;
     font-family: Tahoma, Verdana, fixedsys;
-    overflow-x: hidden
+    overflow: hidden;
+    width: 1280px;
+    height: 720px;
+}
+
+* {
+    overflow: hidden !important;
 }
 
 td {
