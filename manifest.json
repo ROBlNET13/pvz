@@ -1,5 +1,4 @@
 {
-    "update_url": "https://clients2.google.com/service/update2/crx",
     "manifest_version": 3,
     "name": "__MSG_AppName__",
     "version": "2.3.12",
@@ -27,7 +26,7 @@
     },
     "sandbox": {
         "pages": [
-            "game/iframe.html"
+            "game/index.html"
         ]
     }
 }
