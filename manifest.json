@@ -1,5 +1,4 @@
 {
-    "update_url": "https://clients2.google.com/service/update2/crx",
     "manifest_version": 3,
     "name": "__MSG_AppName__",
     "version": "2.3.12",
@@ -11,7 +10,7 @@
             "256": "img/256x256.png"
         },
         "default_title": "Click to open the popup",
-        "default_popup": "index.html"
+        "default_popup": "game/iframe.html"
     },
     "offline_enabled": true,
     "default_locale": "en",
@@ -21,7 +20,6 @@
         "48": "img/48x48.png",
         "256": "img/256x256.png"
     },
-    "options_page": "index.html",
     "content_security_policy": {
         "sandbox": "sandbox allow-scripts allow-pointer-lock; script-src 'self' 'unsafe-eval' blob: 'unsafe-inline'; object-src 'self' 'unsafe-eval' blob: 'unsafe-inline';child-src 'self' 'unsafe-eval' blob: 'unsafe-inline' ; worker-src 'self' 'unsafe-eval' blob: 'unsafe-inline'; script-src-elem 'self' 'unsafe-eval' blob: 'unsafe-inline'"
     },
