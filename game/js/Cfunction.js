@@ -2422,20 +2422,34 @@ var $User = (function () {
 
             // List of seed plants
             const seedPlants = [
-                oSeedPeashooter,
-                oSeedSnowPea,
-                oSeedSquash,
-                oSeedPotatoMine,
-                oSeedWallNut,
-                oSeedRepeater2,
-                oSeedHypnoShroom,
-                oSeedPuffShroom,
-                oSeedPumpkinHead,
-                oSeedPlantern,
-                oSeedThreepeater,
-                oSeedTallNut,
-                oSeedTorchwood,
-            ];
+        oSeedPeashooter,
+        oSeedSnowPea,
+        oSeedSquash,
+        oSeedPotatoMine,
+        oSeedWallNut,
+        oSeedRepeater2,
+        oSeedHypnoShroom,
+        oSeedPuffShroom,
+        oSeedPumpkinHead,
+        oSeedPlantern,
+        oSeedThreepeater,
+        oSeedTallNut,
+        oSeedTorchwood,
+        oSeedLilyPad,
+        oSeedCherryBomb,
+        oSeedChomper,
+        oSeedRepeater,
+        oSeedGarlic,
+        oSeedScaredyShroom,
+        oSeedBlover,
+        oSeedStarfruit,
+        oSeedCactus,
+        oSeedFumeShroom,
+        oSeedDoomShroom,
+        oSeedSeaShroom,
+        oSeedJalapeno,
+        oSeedTangleKelp,
+      ];
 
             // Check if the chosen plant is a seed variant
             if (seedPlants.includes(h)) {
