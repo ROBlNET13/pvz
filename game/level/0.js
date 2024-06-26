@@ -133,7 +133,7 @@ oS.Init({
                       ClearChild(this);
                   }),
                   (b.src = "" + Math.random()))
-                : ($("").innerHTML = oS.Version);
+                : (console.log('h')/*$("").innerHTML = 4/* oS.Version */);
         })();
         $("dServer") && SetBlock($("dServer"));
     },

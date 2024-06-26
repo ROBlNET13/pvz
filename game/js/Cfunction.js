@@ -88,12 +88,16 @@ var $User = (function () {
                         c = a.length,
                         b,
                         e;
-                        while (c--) {
-                            if (d.Now >= (b = a[c]).T) {
-                                try { (e = b.f).apply(e, b.ar); } catch (Reason) { console.error(Reason); };
-                                d.removeTask(c);
+                    while (c--) {
+                        if (d.Now >= (b = a[c]).T) {
+                            try {
+                                (e = b.f).apply(e, b.ar);
+                            } catch (Reason) {
+                                console.error(Reason);
                             }
+                            d.removeTask(c);
                         }
+                    }
                     d.execTask = setTimeout(arguments.callee, d.TimeStep);
                 })();
             }
@@ -419,8 +423,8 @@ var $User = (function () {
             c.style.cursor = "default";
             SetHidden($("dFlagMeterContent"), dFlagMeter);
             $("dFlagMeter").style.top = "490px";
-  //          $("dFlagMeter").style.left = "805px"; // not good
- //           $("dFlagMeter").style.left = (currentLeft + 15) + "px"; // not good either
+            //          $("dFlagMeter").style.left = "805px"; // not good
+            //           $("dFlagMeter").style.left = (currentLeft + 15) + "px"; // not good either
             $("sFlagMeterTitleF").innerHTML = $("dFlagMeterTitleB").innerHTML =
                 f.LevelName;
             $("imgFlagHead").style.left = "139px";
@@ -595,7 +599,10 @@ var $User = (function () {
             getRowColumnFromPixels = function (pixelX, pixelY) {
                 let rowWidth = 129;
                 let columnWidth = 170;
-                return [Math.floor(pixelX / rowWidth) + 1, Math.floor(pixelY / columnWidth) + 1];
+                return [
+                    Math.floor(pixelX / rowWidth) + 1,
+                    Math.floor(pixelY / columnWidth) + 1,
+                ];
             };
             !oS.InitLawnMower &&
                 (oS.InitLawnMower = function () {
@@ -882,7 +889,10 @@ var $User = (function () {
                 PlayAudio("balloon_pop");
                 setTimeout(function () {
                     image.parentNode.removeChild(image);
-                    if (document.querySelector("#dSunNum").style.visibility == '') {
+                    if (
+                        document.querySelector("#dSunNum").style.visibility ==
+                        ""
+                    ) {
                         AppearSun(
                             GetX(Math.floor(1 + Math.random() * oS.C)),
                             GetY(Math.floor(1 + Math.random() * oS.R)),
@@ -890,7 +900,6 @@ var $User = (function () {
                             1
                         );
                     }
-
                 }, 100);
             };
             image.style.animation =
@@ -2376,7 +2385,7 @@ var $User = (function () {
             i = k.coolTime,
             a,
             g = oGd.$LF[e];
-    
+
         // Check if the plant can grow at the selected location
         if (k.CanGrow(l, e, b)) {
             // Play planting audio based on soil type
@@ -2385,7 +2394,7 @@ var $User = (function () {
                     ? "plant" + Math.floor(1 + Math.random() * 2)
                     : "plant_water"
             );
-    
+
             // Plant the selected plant at the specified location
             !oS.CardKind
                 ? new h().Birth(d, c, e, b, l)
@@ -2397,13 +2406,13 @@ var $User = (function () {
                       },
                       a
                   );
-    
+
             // Deduct sun points based on plant's cost
             innerText(ESSunNum, (oS.SunNum -= k.SunNum));
-    
+
             // Start cooldown timer for the plant
             i && ((f.CDReady = 0), DoCoolTimer(j, k.coolTime));
-    
+
             // Show planting animation
             oSym.addTask(20, SetHidden, [
                 SetStyle(g != 2 ? $("imgGrowSoil") : $("imgGrowSpray"), {
@@ -2413,52 +2422,46 @@ var $User = (function () {
                     visibility: "visible",
                 }),
             ]);
-    
-              // List of seed plants
-      const seedPlants = [
-        oSeedPeashooter,
-        oSeedSnowPea,
-        oSeedSquash,
-        oSeedPotatoMine,
-        oSeedWallNut,
-        oSeedRepeater2,
-        oSeedHypnoShroom,
-        oSeedPuffShroom,
-        oSeedPumpkinHead,
-        oSeedPlantern,
-        oSeedThreepeater,
-        oSeedTallNut,
-        oSeedTorchwood,
-      ];
 
-      // Check if the chosen plant is a seed variant
-      if (seedPlants.includes(h)) {
-        // Hide the card instead of removing it
-        SetHidden($(f.DID));
-      }
-      
-    }
-    
+            // List of seed plants
+            const seedPlants = [
+                oSeedPeashooter,
+                oSeedSnowPea,
+                oSeedSquash,
+                oSeedPotatoMine,
+                oSeedWallNut,
+                oSeedRepeater2,
+                oSeedHypnoShroom,
+                oSeedPuffShroom,
+                oSeedPumpkinHead,
+                oSeedPlantern,
+                oSeedThreepeater,
+                oSeedTallNut,
+                oSeedTorchwood,
+            ];
+
+            // Check if the chosen plant is a seed variant
+            if (seedPlants.includes(h)) {
+                // Hide the card instead of removing it
+                SetHidden($(f.DID));
+            }
+        }
+
         // Clear plant selection
         CancelPlant();
     };
-    
 
-   
-
-    AutoProduceSun = function (a) {
- //           console.log("ROBLNET13 on github")
-        AppearSun(
-            GetX(Math.floor(1 + Math.random() * oS.C)),
-            GetY(Math.floor(1 + Math.random() * oS.R)),
-            a,
-            1
-        );
-        oSym.addTask(Math.floor(9 + Math.random() * 3) * 100, AutoProduceSun, [
-            a,
-        ]);
-    },
-    AppearSun = function (h, f, e, a) {
+(AutoProduceSun = function (a) {
+    //           console.log("ROBLNET13 on github")
+    AppearSun(
+        GetX(Math.floor(1 + Math.random() * oS.C)),
+        GetY(Math.floor(1 + Math.random() * oS.R)),
+        a,
+        1
+    );
+    oSym.addTask(Math.floor(9 + Math.random() * 3) * 100, AutoProduceSun, [a]);
+}),
+    (AppearSun = function (h, f, e, a) {
         var b,
             d,
             g = "Sun" + Math.random(),
@@ -2526,8 +2529,8 @@ var $User = (function () {
             },
         });
         oS.AutoSun && oSym.addTask(100, ClickSun, [g]);
-    },
-    MoveDropSun = function (c, b) {
+    }),
+    (MoveDropSun = function (c, b) {
         var a = ArSun[c];
         a &&
             a.C &&
@@ -2535,17 +2538,17 @@ var $User = (function () {
                 ? (($(c).style.top = (a.top += 3) + "px"),
                   oSym.addTask(5, MoveDropSun, [c, b]))
                 : oSym.addTask(800, DisappearSun, [c]));
-    },
-    DisappearSun = function (b) {
+    }),
+    (DisappearSun = function (b) {
         var a = ArSun[b];
         a && a.C && (delete ArSun[b], ClearChild($(b)));
-    },
-    ClickSun = function (b) {
+    }),
+    (ClickSun = function (b) {
         PlayAudio("points");
         var a = ArSun[b];
         a && a.C && ((a.C = 0), oSym.addTask(0, MoveClickSun, [b]));
-    },
-    MoveClickSun = function (b) {
+    }),
+    (MoveClickSun = function (b) {
         var a = 15,
             c = ArSun[b],
             e = 85,
@@ -2582,14 +2585,14 @@ var $User = (function () {
                   delete ArSun[k],
                   oSym.addTask(20, ClearChild, [$(k)]));
         })(b, c, e, i, d, h, 1, g, f);
-    },
-    AutoClickSun = function () {
+    }),
+    (AutoClickSun = function () {
         var a, b;
         for (b in ArSun) {
             ArSun[b].C && ClickSun(b);
         }
-    },
-    ShowLargeWave = function (a) {
+    }),
+    (ShowLargeWave = function (a) {
         PlayAudio("hugewave");
         NewImg(
             "LargeWave",
@@ -2619,8 +2622,8 @@ var $User = (function () {
             },
             [858, 102, a]
         );
-    },
-    ShowFinalWave = function () {
+    }),
+    (ShowFinalWave = function () {
         var a = function (b) {
             PlayAudio("finalwave");
             NewImg(
@@ -2656,8 +2659,8 @@ var $User = (function () {
                   oSym.addTask(560, a, [150]);
               })
             : a(500);
-    },
-    ShowBOSS = function (a) {
+    }),
+    (ShowBOSS = function (a) {
         PlayAudio("finalwave");
         NewImg(
             "ShowBOSS",
@@ -2687,8 +2690,8 @@ var $User = (function () {
             },
             [858, 102, a]
         );
-    },
-    GameOver = function () {
+    }),
+    (GameOver = function () {
         PlayAudio("scream");
         NewImg(
             "iGameOver",
@@ -2702,8 +2705,8 @@ var $User = (function () {
             }
         );
         oSym.Stop();
-    },
-    PrepareGrowPlants = function (a) {
+    }),
+    (PrepareGrowPlants = function (a) {
         var b = function () {
             PlayAudio("readysetplant");
             oSym.addTask(
@@ -2744,19 +2747,19 @@ var $User = (function () {
             );
         };
         oS.HaveFog ? oGd.MoveFogLeft(b) : b();
-    },
-    CustomPlants = function (b, a, c) {
+    }),
+    (CustomPlants = function (b, a, c) {
         new ArCard[b].PName().Birth(GetX(c), GetY(a), a, c, []);
-    },
-    CustomSpecial = function (c, b, d, a) {
+    }),
+    (CustomSpecial = function (c, b, d, a) {
         new c().Birth(GetX(d), GetY(b), b, d, [], a);
-    },
-    CheckAutoSun = function (a) {
+    }),
+    (CheckAutoSun = function (a) {
         var b = a.checked ? 1 : 0;
         b != oS.AutoSun &&
             (addCookie("JSPVZAutoSun", (oS.AutoSun = b)), b && AutoClickSun());
-    },
-    GetNewCard = function (a, b, c) {
+    }),
+    (GetNewCard = function (a, b, c) {
         StopMusic();
         PlayAudio("winmusic");
         oSym.Clear();
@@ -2795,8 +2798,8 @@ var $User = (function () {
             },
             [0, $("DivA")]
         );
-    },
-    getCookie1 = function (b, g) {
+    }),
+    (getCookie1 = function (b, g) {
         var d = document.cookie,
             f = d.split(";"),
             c = f.length,
@@ -2827,8 +2830,8 @@ var $User = (function () {
             }
         }
         return 0;
-    },
-    getCookie = function (b) {
+    }),
+    (getCookie = function (b) {
         var a = document.cookie.match(
             new RegExp("(^| )" + b + "=([^;]*)(;|$)")
         );
@@ -2836,8 +2839,8 @@ var $User = (function () {
             return unescape(a[2]);
         }
         return 0;
-    },
-    addCookie = function (b, d, e) {
+    }),
+    (addCookie = function (b, d, e) {
         var c = b + "=" + escape(d);
         if (e) {
             var a = new Date();
@@ -2845,13 +2848,13 @@ var $User = (function () {
             c += ";expire=" + a.toGMTString();
         }
         document.cookie = c;
-    },
-    deleteCookie = function (a) {
+    }),
+    (deleteCookie = function (a) {
         document.cookie = a + "=0;";
-    },
-    WordUTF8 =
-        '<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:pointer" onclick="PlayAudio(\'gravebutton\');SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'));ShowNameDiv()"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:pointer;z-index:300" onclick="SetVisible($(\'dProcess\'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>',
-    ShowNameDiv = function () {
+    }),
+    (WordUTF8 =
+        '<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:pointer" onclick="PlayAudio(\'gravebutton\');SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'));ShowNameDiv()"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:pointer;z-index:300" onclick="SetVisible($(\'dProcess\'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>'),
+    (ShowNameDiv = function () {
         oSym.Start();
         (function (c) {
             var b = c[0],
@@ -2870,19 +2873,19 @@ var $User = (function () {
             [-8, 136, 189, 17],
             [-8, 134, 187, 10],
         ]);
-    },
-    ShowLoginDiv = function () {
+    }),
+    (ShowLoginDiv = function () {
         $User.isAuthorWebsite ? PlayAudio("tap") : GotoAuthorWebsite("");
-    },
-    CheckLogin = function () {
+    }),
+    (CheckLogin = function () {
         var c = $("txtName").value,
             e = $("txtPass").value,
             a = /^\w{3,10}$/,
             b = /^[\u4e00-\u9fa5\w]{3,10}$/,
             d = /^\w{3,20}$/;
         return (a.exec(c) || b.exec(c)) && d.exec(e) ? true : false;
-    },
-    SelectModal = function (g) {
+    }),
+    (SelectModal = function (g) {
         HiddenLevel();
         HiddenMiniGame(1);
         HiddenRiddleGame(1);
@@ -2923,12 +2926,12 @@ var $User = (function () {
         EDAll = $("dBody").replaceChild(EDNewAll, EDAll);
         $("dBody").replaceChild(EDNewFlagMeter, $("dFlagMeter"));
         LoadLvl(g);
-    },
-    GotoAuthorWebsite = function () {
+    }),
+    (GotoAuthorWebsite = function () {
         window.open("https://github.com/ROBlNET13/pvz");
         return;
-    },
-    InitGame = function () {
+    }),
+    (InitGame = function () {
         var e = NewEle(
                 "dServer",
                 "div",
@@ -2954,8 +2957,8 @@ var $User = (function () {
                 a.firstChild
             );
         LoadLvl();
-    },
-    LoadLvl = function (e, c) {
+    }),
+    (LoadLvl = function (e, c) {
         oSym.Timer && oSym.Stop();
         var b = oSym.Now == c,
             d = $User,
@@ -2979,10 +2982,10 @@ var $User = (function () {
             },
             [e && b ? 0 : e]
         );
-        $("aLvlLink").href =
-            "html/2-1" + (e && !isNaN(e) ? "-" + e : "") + ".htm";
-    },
-    AppearTombstones = function (n, e, m) {
+        /* $("aLvlLink").href =
+            "html/2-1" + (e && !isNaN(e) ? "-" + e : "") + ".htm"; */
+    }),
+    (AppearTombstones = function (n, e, m) {
         var r = oGd.$Tombstones,
             k = [],
             h = oS.R + 1,
@@ -3033,8 +3036,8 @@ var $User = (function () {
                 ).cloneNode(false))
             ).className = "Tom2";
         }
-    },
-    ResetGame = function (b) {
+    }),
+    (ResetGame = function (b) {
         AllAudioPauseCanceled();
         var a = oSym;
         a.Start();
@@ -3042,16 +3045,16 @@ var $User = (function () {
         $("dMenu1").onclick = ClickMenu;
         SetNone($("dSurface"), $("dPause"));
         $("dPauseAD").innerHTML = "";
-    },
-    PauseGame = function (c, a) {
+    }),
+    (PauseGame = function (c, a) {
         var b = oSym;
         AllAudioPaused();
         b.Stop();
         innerText(c, "Speed");
         $("dMenu1").onclick = null;
         !a && SetBlock($("dSurface"), $("dPause"));
-    },
-    ClickMenu = function () {
+    }),
+    (ClickMenu = function () {
         oSym.Timer &&
             (AllAudioPaused(),
             PlayAudio("pause"),
@@ -3059,69 +3062,69 @@ var $User = (function () {
             SetBlock($("dSurface")),
             innerText($("dMenu0"), "Speed"),
             ShowOptions());
-    },
-    OptionsMenuDown = function (b, a) {
+    }),
+    (OptionsMenuDown = function (b, a) {
         b.className = "OptionsMenuButtonDown";
         a.style.lineHeight = "102px";
-    },
-    OptionsMenuUP = function (b, a) {
+    }),
+    (OptionsMenuUP = function (b, a) {
         b.className = "OptionsMenuButton";
         a.style.lineHeight = "100px";
-    },
-    ShowSpeed = function () {
+    }),
+    (ShowSpeed = function () {
         var b = oSym;
         b.Stop();
         PlayAudio("gravebutton");
         SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
         SetBlock($("dSpeedContainer"));
-    },
-    HiddenSpeed = function () {
+    }),
+    (HiddenSpeed = function () {
         PlayAudio("tap");
         SetNone($("dSpeedContainer"));
         oS.Lvl && ResetGame($("dMenu0"));
-    },
-    CSpeed = function (a, c, b) {
+    }),
+    (CSpeed = function (a, c, b) {
         $User.Visitor.NowStep = oSym.NowStep = a;
         $User.Visitor.TimeStep = oSym.TimeStep = c;
         $("dDisplaySpeed").innerHTML = b;
-    },
-    ShowLevel = function () {
+    }),
+    (ShowLevel = function () {
         PlayAudio("gravebutton");
         SetNone($("dOptionsMenu"));
         SetBlock($("dAdvSmallContainer"));
-    },
-    HiddenLevel = function () {
+    }),
+    (HiddenLevel = function () {
         PlayAudio("tap");
         SetNone($("dOptionsMenuback"), $("dAdvSmallContainer"));
         oS.Lvl && (SetNone($("dSurface")), ResetGame($("dMenu0")));
-    },
-    ShowMiniGame = function () {
+    }),
+    (ShowMiniGame = function () {
         PlayAudio("gravebutton");
         SetBlock($("dMiniSmallContainer"));
-    },
-    HiddenMiniGame = function (a) {
+    }),
+    (HiddenMiniGame = function (a) {
         !a && PlayAudio("tap");
         SetNone($("dMiniSmallContainer"));
-    },
-    ShowRiddleGame = function () {
+    }),
+    (ShowRiddleGame = function () {
         PlayAudio("gravebutton");
         SetBlock($("dRiddleSmallContainer"));
-    },
-    HiddenRiddleGame = function (a) {
+    }),
+    (HiddenRiddleGame = function (a) {
         !a && PlayAudio("tap");
         SetNone($("dRiddleSmallContainer"));
-    },
-    ShowOptions = function () {
+    }),
+    (ShowOptions = function () {
         PlayAudio(oS.Lvl ? "gravebutton" : "tap");
         SetBlock($("dOptionsMenuback"), $("dOptionsMenu"));
-    },
-    HiddenOptions = function () {
+    }),
+    (HiddenOptions = function () {
         PlayAudio("gravebutton");
         PlayAudio("buttonclick");
         SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
         oS.Lvl && (SetNone($("dSurface")), ResetGame($("dMenu0")));
-    },
-    ViewHandBook = function () {
+    }),
+    (ViewHandBook = function () {
         SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
         oS.Lvl
             ? (AllAudioPaused(),
@@ -3133,13 +3136,13 @@ var $User = (function () {
             : (AllAudioPaused(), PlayAudio("tap"));
         PlayAudio("Look up at the Sky");
         SetVisible($("dHandBook"));
-    },
-    ReturnHandBookInx = function () {
+    }),
+    (ReturnHandBookInx = function () {
         PlayAudio("tap");
         SetNone($("dHandBookP"), $("dHandBookZ"));
         SetHidden($("dHandBookPZ"));
-    },
-    CloseHandBook = function () {
+    }),
+    (CloseHandBook = function () {
         PlayAudio("tap");
         StopAudio("Look up at the Sky");
         oS.Lvl
@@ -3147,22 +3150,22 @@ var $User = (function () {
             : oSym.addTask(100, AllAudioPauseCanceled);
         SetNone($("dHandBookP"), $("dHandBookZ"));
         SetHidden($("dHandBookPZ"), $("dHandBook"));
-    },
-    ShowHelp = function () {
+    }),
+    (ShowHelp = function () {
         PlayAudio("tap");
         SetBlock($("dHelp"));
-    },
-    HiddenHelp = function () {
+    }),
+    (HiddenHelp = function () {
         PlayAudio("tap");
         SetNone($("dHelp"));
-    },
-    $ = function (a) {
+    }),
+    ($ = function (a) {
         return document.getElementById(a);
-    },
-    $n = function (a) {
+    }),
+    ($n = function (a) {
         return document.createElement(a);
-    },
-    ClearChild = function () {
+    }),
+    (ClearChild = function () {
         var a = arguments.length,
             c;
         while (a--) {
@@ -3172,47 +3175,49 @@ var $User = (function () {
                 c = null;
             } catch (b) {}
         }
-    },
-    SetBlock = function () {
+    }),
+    (SetBlock = function () {
         var a = arguments.length;
         while (a--) {
             arguments[a].style.display = "block";
         }
-    },
-    SetNone = function () {
+    }),
+    (SetNone = function () {
         var a = arguments.length;
         while (a--) {
-            arguments[a].style.display = "none";
+            if (arguments[a] && arguments[a].style) {
+                arguments[a].style.display = "none";
+            }
         }
-    },
-    SetHidden = function () {
+    }),
+    (SetHidden = function () {
         var a = arguments.length;
         while (a--) {
             arguments[a].style.visibility = "hidden";
         }
-    },
-    SetVisible = function () {
+    }),
+    (SetVisible = function () {
         var a = arguments.length;
         while (a--) {
             arguments[a].style.visibility = "visible";
         }
-    },
-    SetAlpha = $User.Browser.IE6
+    }),
+    (SetAlpha = $User.Browser.IE6
         ? function (c, b, a) {
               c.style.filter = "alpha(opacity=" + b + ")";
           }
         : function (c, b, a) {
               c.style.opacity = a;
-          },
-    SetStyle = function (d, b) {
+          }),
+    (SetStyle = function (d, b) {
         var c = d.style,
             a;
         for (a in b) {
             c[a] = b[a];
         }
         return d;
-    },
-    NewImg = function (f, e, b, c, d) {
+    }),
+    (NewImg = function (f, e, b, c, d) {
         var a = $n("img");
         a.src = e;
         b && (a.style.cssText = b);
@@ -3224,15 +3229,15 @@ var $User = (function () {
         f && (a.id = f);
         c && c.appendChild(a);
         return a;
-    },
-    EditImg = function (e, f, c, b, a) {
+    }),
+    (EditImg = function (e, f, c, b, a) {
         f && (e.id = f);
         c && (e.src = c);
         b && SetStyle(e, b);
         a && a.appendChild(e);
         return e;
-    },
-    NewEle = function (h, b, d, a, e, f, g, c) {
+    }),
+    (NewEle = function (h, b, d, a, e, f, g, c) {
         g = $n(b);
         h && (g.id = h);
         d && (g.style.cssText = d);
@@ -3248,8 +3253,8 @@ var $User = (function () {
         }
         e && e.appendChild(g);
         return g;
-    },
-    EditEle = function (g, f, a, e, b, c) {
+    }),
+    (EditEle = function (g, f, a, e, b, c) {
         if (f) {
             for (c in f) {
                 g.setAttribute(c, f[c]);
@@ -3263,17 +3268,17 @@ var $User = (function () {
         }
         e && e.appendChild(g);
         return g;
-    },
-    NewO = function (b, a) {
+    }),
+    (NewO = function (b, a) {
         return ((a = function () {}).prototype = b), a;
-    },
-    SetPrototype = function (d, c, a) {
+    }),
+    (SetPrototype = function (d, c, a) {
         a = d.prototype;
         for (var b in c) {
             a[b] = c[b];
         }
-    },
-    InheritO = function (d, i, c, g, b, h, f, e, a) {
+    }),
+    (InheritO = function (d, i, c, g, b, h, f, e, a) {
         var g = function () {};
         g.prototype = new d();
         i && SetPrototype(g, i);
@@ -3289,11 +3294,11 @@ var $User = (function () {
             }
         }
         return g;
-    },
-    Compare = function (e, b, a, c, d) {
+    }),
+    (Compare = function (e, b, a, c, d) {
         return (d = e < b ? b : e > a ? a : e), c ? [c(d), d] : [d];
-    },
-    $Switch = function (h, d, c, a, g, b, e) {
+    }),
+    ($Switch = function (h, d, c, a, g, b, e) {
         b = 0;
         g = d.length;
         e = c;
@@ -3304,10 +3309,10 @@ var $User = (function () {
             ++b;
         }
         return a[b];
-    },
-    $SEql = function (c, b, a) {
+    }),
+    ($SEql = function (c, b, a) {
         return c in b ? b[c] : b["default"];
-    };
+    });
 ($SSml = function (d, c, a) {
     var b = 0;
     LX = c.length;
@@ -3588,30 +3593,114 @@ var $User = (function () {
                   (addCookie("JSPVZSilence", (oS.Silence = b)),
                   b ? PauseMusic() : NewMusic(oS.StartGameMusic));
           }),
+    (AppearCard = function (h, f, e, a, t) {
+        // x, y, 植物id, 移动卡槽类型, 消失时间（默认 15s）
+        var b,
+            d,
+            g = "dCard" + Math.random(),
+            c =
+                "opacity:1;width:100px;height:120px;cursor:pointer;clip:rect(auto,auto,60px,auto);left:" +
+                h +
+                "px;top:-1000",
+            t = t || 1500;
 
-          AppearCard = function (h, f, e, a, t) { // x, y, 植物id, 移动卡槽类型, 消失时间（默认 15s）
-            var b, d, g = "dCard" + Math.random(), c = "opacity:1;width:100px;height:120px;cursor:pointer;clip:rect(auto,auto,60px,auto);left:" + h + "px;top:-1000", t = t || 1500;
-        
-            if (a) d = 0, oSym.addTask(1, MoveDropCard, [g, f, t]); // 从天而降，反之抛物线掉落
-            else d = f - 15 - 20, c += ";top:" + d + "px", oSym.addTask(1, DisappearCard, [g, t]), oSym.addTask(1,function(q,p,n,j,l,k,m,i){if(ArCard[q]&&$(q)){SetStyle($(q),{left:(p=p+j*k)+"px",top:(n=n+Number(l[0]))+"px"});l.shift();--m;m>0&&((l.length==0)&&(l=[8,16,24,32]),oSym.addTask(i,arguments.callee,[q,p,n,j,l,k,m,++i]))}},[g,h,d,Math.floor(Math.random()*4),[-32,-24,-16,-8],[-1,1][Math.floor(Math.random()*2)],8,2]); // 开始记时，确定抛物线，与阳光部分相似故压缩
-        
-            ArCard[g] = { DID: g, PName: e, PixelTop: 600, CDReady: 1, SunReady: 1, top: d, HasChosen: false, Kind: 1 }; // 生成卡片数据，是否被点击过
-            NewImg(g, e.prototype.PicArr[e.prototype.CardGif], c, $("dCardList"), { // 生成卡片 ele
-                onclick: function (g) { 
-                    var self = this, style = self.style, id = self.id; ClearChild($("MovePlant"), $("MovePlantAlpha")), CancelPlant(), style && (style.opacity = 0.5), ChosePlant(g, id), ArCard[id] && (ArCard[id].HasChosen = true);
-                } 
-            });
-        }, MoveDropCard = function (c, b, t) { // 掉落目标
-            var a = ArCard[c], ele = $(c); a && ele && ((!a.HasChosen && a.top < b - 52) ? (ele.style.top = (a.top += 2) + "px", oSym.addTask(5, MoveDropCard, [c, b, t])) : DisappearCard(c, t));
-        }, DisappearCard = function (d, r) {
-            var q = 5, e = $(d), f = function (t) {
+        if (a) (d = 0), oSym.addTask(1, MoveDropCard, [g, f, t]);
+        // 从天而降，反之抛物线掉落
+        else
+            (d = f - 15 - 20),
+                (c += ";top:" + d + "px"),
+                oSym.addTask(1, DisappearCard, [g, t]),
+                oSym.addTask(
+                    1,
+                    function (q, p, n, j, l, k, m, i) {
+                        if (ArCard[q] && $(q)) {
+                            SetStyle($(q), {
+                                left: (p = p + j * k) + "px",
+                                top: (n = n + Number(l[0])) + "px",
+                            });
+                            l.shift();
+                            --m;
+                            m > 0 &&
+                                (l.length == 0 && (l = [8, 16, 24, 32]),
+                                oSym.addTask(i, arguments.callee, [
+                                    q,
+                                    p,
+                                    n,
+                                    j,
+                                    l,
+                                    k,
+                                    m,
+                                    ++i,
+                                ]));
+                        }
+                    },
+                    [
+                        g,
+                        h,
+                        d,
+                        Math.floor(Math.random() * 4),
+                        [-32, -24, -16, -8],
+                        [-1, 1][Math.floor(Math.random() * 2)],
+                        8,
+                        2,
+                    ]
+                ); // 开始记时，确定抛物线，与阳光部分相似故压缩
+
+        ArCard[g] = {
+            DID: g,
+            PName: e,
+            PixelTop: 600,
+            CDReady: 1,
+            SunReady: 1,
+            top: d,
+            HasChosen: false,
+            Kind: 1,
+        }; // 生成卡片数据，是否被点击过
+        NewImg(g, e.prototype.PicArr[e.prototype.CardGif], c, $("dCardList"), {
+            // 生成卡片 ele
+            onclick: function (g) {
+                var self = this,
+                    style = self.style,
+                    id = self.id;
+                ClearChild($("MovePlant"), $("MovePlantAlpha")),
+                    CancelPlant(),
+                    style && (style.opacity = 0.5),
+                    ChosePlant(g, id),
+                    ArCard[id] && (ArCard[id].HasChosen = true);
+            },
+        });
+    }),
+    (MoveDropCard = function (c, b, t) {
+        // 掉落目标
+        var a = ArCard[c],
+            ele = $(c);
+        a &&
+            ele &&
+            (!a.HasChosen && a.top < b - 52
+                ? ((ele.style.top = (a.top += 2) + "px"),
+                  oSym.addTask(5, MoveDropCard, [c, b, t]))
+                : DisappearCard(c, t));
+    }),
+    (DisappearCard = function (d, r) {
+        var q = 5,
+            e = $(d),
+            f = function (t) {
                 switch (true) {
-                    case !ArCard[d] || !e: return; // 卡片已经消失，不做处理
-                    case oS.Chose == 1 && oS.ChoseCard == d: break; // 选中
-                    case t > 500: e.style.opacity = 1; break; // 未到闪烁时间
-                    case t > 0: e.style.opacity = [1, 0.5][Math.ceil(t / 50) % 2]; break; // 闪烁
-                    default: delete ArCard[d], ClearChild(e); return;
+                    case !ArCard[d] || !e:
+                        return; // 卡片已经消失，不做处理
+                    case oS.Chose == 1 && oS.ChoseCard == d:
+                        break; // 选中
+                    case t > 500:
+                        e.style.opacity = 1;
+                        break; // 未到闪烁时间
+                    case t > 0:
+                        e.style.opacity = [1, 0.5][Math.ceil(t / 50) % 2];
+                        break; // 闪烁
+                    default:
+                        delete ArCard[d], ClearChild(e);
+                        return;
                 }
-                e = $(d), oSym.addTask(q, arguments.callee, [t - q]);
-            }; f(r);
-        };
+                (e = $(d)), oSym.addTask(q, arguments.callee, [t - q]);
+            };
+        f(r);
+    });

@@ -16,8 +16,8 @@ Bye = function () {
         clearInterval(timer);
       } else {
         alpha = alpha + speed;
-        run.style.filter = "alpha(opacity=" + alpha + ")";
-        run.style.opacity = alpha / 100;
+        /* run.style.filter = "alpha(opacity=" + alpha + ")";
+        run.style.opacity = alpha / 100; */
       }
     }, 30);
   }
