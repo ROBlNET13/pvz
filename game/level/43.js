@@ -96,14 +96,14 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oPumpkinHead, 44);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:490px;left:836px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

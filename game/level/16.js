@@ -66,14 +66,14 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oScaredyShroom, 17);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:235px;left:596px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

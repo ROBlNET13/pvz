@@ -58,7 +58,7 @@ oS.Init(
                     Pos[0],
                     Pos[1],
                     Top.Type == "Plants" ? GNum-- > 0 : 0,
-                    Top,
+                    Top
                 ); // 生成罐子
 
                 --VaseList.length, --GroundList.length;
@@ -92,5 +92,5 @@ oS.Init(
             // 只选择樱桃炸弹
             SelectCard(oCherryBomb.prototype.EName);
         },
-    },
+    }
 );

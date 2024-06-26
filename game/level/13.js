@@ -70,14 +70,14 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oGraveBuster, 14);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:490px;left:836px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

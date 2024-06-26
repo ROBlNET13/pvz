@@ -57,7 +57,7 @@ oS.Init(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -75,16 +75,16 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Have you ever thought that zombies can also practice a pair of fast feet?",
+                            "Have you ever thought that zombies can also practice a pair of fast feet?"
                         );
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -96,13 +96,13 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "What a terrible thing that is!");
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -114,7 +114,7 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "Protect our house");
                         break;
@@ -127,7 +127,7 @@ oS.Init(
                                 ClearChild($("dDave"));
                                 a(0);
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -153,7 +153,7 @@ oS.Init(
                         oP.AddZombiesFlag();
                         SetVisible($("dFlagMeterContent"));
                     },
-                    [],
+                    []
                 );
             });
         },
@@ -185,14 +185,14 @@ oS.Init(
                     onclick: function () {
                         SelectModal(26);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:185px;left:676px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

@@ -71,14 +71,14 @@ oS.Init(
                     onclick: function () {
                         SelectModal(15);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:490px;left:836px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

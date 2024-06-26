@@ -25,14 +25,14 @@ var CPlants = NewO({
                       !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1])
                     : c[0] && !c[1]
                 : oGd.$LF[b] == 1
-                  ? !(
-                        e < 1 ||
-                        e > 9 ||
-                        oGd.$Crater[a] ||
-                        oGd.$Tombstones[a] ||
-                        c[1]
-                    )
-                  : c[0] && !c[1];
+                ? !(
+                      e < 1 ||
+                      e > 9 ||
+                      oGd.$Crater[a] ||
+                      oGd.$Tombstones[a] ||
+                      c[1]
+                  )
+                : c[0] && !c[1];
         },
         getHurt: function (e, c, b) {
             var d = this,
@@ -70,7 +70,7 @@ var CPlants = NewO({
                 (e.R = h),
                 (e.C = a),
                 (e.AttackedLX = k + e.beAttackedPointL),
-                (e.AttackedRX = k + e.beAttackedPointR),
+                (e.AttackedRX = k + e.beAttackedPointR)
             );
             $P[b] = e;
             $P.length += 1;
@@ -83,7 +83,7 @@ var CPlants = NewO({
                     top: g + "px",
                     zIndex: j,
                 },
-                n,
+                n
             );
             oGd.add(e, h + "_" + a + "_" + e.PKind);
             e.PrivateBirth(e, n);
@@ -104,7 +104,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         PrivateBirth: function (a) {},
@@ -137,7 +137,7 @@ var CPlants = NewO({
                     var g;
                     (g = $P[e]) && g.AttackCheck1(f, h);
                 },
-                [a, b, c],
+                [a, b, c]
             );
         },
         AttackCheck1: function (g, f) {
@@ -224,7 +224,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         GetDY: function (b, c, a) {
@@ -254,10 +254,10 @@ var CPlants = NewO({
                                 Math.floor(GetX(f) + Math.random() * 41),
                                 GetY(d),
                                 25,
-                                0,
+                                0
                             ));
                 },
-                [a.id],
+                [a.id]
             );
         },
     }),
@@ -361,7 +361,7 @@ var CPlants = NewO({
                                 height: "131px",
                                 left: 120 - h.pixelLeft + "px",
                                 top: "-42px",
-                            },
+                            }
                         );
                         oSym.addTask(135, ClearChild, [b]);
                         ClearChild($("dIceCar" + f));
@@ -372,7 +372,7 @@ var CPlants = NewO({
                         }
                     }
                 },
-                [a.id],
+                [a.id]
             );
         },
     }),
@@ -433,7 +433,7 @@ var CPlants = NewO({
                           Math.floor(GetX(d.C) - 40 + Math.random() * 41),
                           GetY(d.R),
                           50,
-                          0,
+                          0
                       );
                       (b = --oS.BrainsNum)
                           ? ((c = b * d.DieStep),
@@ -539,7 +539,7 @@ var CPlants = NewO({
             d.BulletEle = NewImg(
                 0,
                 "images/Plants/Starfruit/Star.gif",
-                "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2),
+                "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2)
             );
         },
         PrivateDie: function (a) {
@@ -569,7 +569,7 @@ var CPlants = NewO({
                         var i = $(j);
                         i && SetVisible(i);
                     },
-                    [h],
+                    [h]
                 );
                 oSym.addTask(
                     1,
@@ -596,10 +596,10 @@ var CPlants = NewO({
                                 id: h,
                             },
                             0,
-                            EDPZ,
+                            EDPZ
                         ),
                         a,
-                    ],
+                    ]
                 );
             })("StarB" + Math.random());
             (function (h) {
@@ -609,7 +609,7 @@ var CPlants = NewO({
                         var i = $(j);
                         i && SetVisible(i);
                     },
-                    [h],
+                    [h]
                 );
                 oSym.addTask(
                     1,
@@ -638,10 +638,10 @@ var CPlants = NewO({
                                 id: h,
                             },
                             0,
-                            EDPZ,
+                            EDPZ
                         ),
                         a,
-                    ],
+                    ]
                 );
             })("StarB" + Math.random());
             (function (h) {
@@ -651,7 +651,7 @@ var CPlants = NewO({
                         var i = $(j);
                         i && SetVisible(i);
                     },
-                    [h],
+                    [h]
                 );
                 oSym.addTask(
                     1,
@@ -680,10 +680,10 @@ var CPlants = NewO({
                                 id: h,
                             },
                             0,
-                            EDPZ,
+                            EDPZ
                         ),
                         a,
-                    ],
+                    ]
                 );
             })("StarB" + Math.random());
             (function (h) {
@@ -693,7 +693,7 @@ var CPlants = NewO({
                         var i = $(j);
                         i && SetVisible(i);
                     },
-                    [h],
+                    [h]
                 );
                 oSym.addTask(
                     1,
@@ -725,10 +725,10 @@ var CPlants = NewO({
                                 id: h,
                             },
                             0,
-                            EDPZ,
+                            EDPZ
                         ),
                         a,
-                    ],
+                    ]
                 );
             })("StarB" + Math.random());
             (function (h) {
@@ -738,7 +738,7 @@ var CPlants = NewO({
                         var i = $(j);
                         i && SetVisible(i);
                     },
-                    [h],
+                    [h]
                 );
                 oSym.addTask(
                     1,
@@ -770,10 +770,10 @@ var CPlants = NewO({
                                 id: h,
                             },
                             0,
-                            EDPZ,
+                            EDPZ
                         ),
                         a,
-                    ],
+                    ]
                 );
             })("StarB" + Math.random());
         },
@@ -864,7 +864,7 @@ var CPlants = NewO({
             d.BulletEle = NewImg(
                 0,
                 "images/Plants/Starfruit/Star.gif",
-                "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2),
+                "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2)
             );
         },
         PrivateDie: function (a) {
@@ -894,7 +894,7 @@ var CPlants = NewO({
                         var i = $(j);
                         i && SetVisible(i);
                     },
-                    [h],
+                    [h]
                 );
                 oSym.addTask(
                     1,
@@ -921,10 +921,10 @@ var CPlants = NewO({
                                 id: h,
                             },
                             0,
-                            EDPZ,
+                            EDPZ
                         ),
                         a,
-                    ],
+                    ]
                 );
             })("StarB" + Math.random());
             (function (h) {
@@ -934,7 +934,7 @@ var CPlants = NewO({
                         var i = $(j);
                         i && SetVisible(i);
                     },
-                    [h],
+                    [h]
                 );
                 oSym.addTask(
                     1,
@@ -963,10 +963,10 @@ var CPlants = NewO({
                                 id: h,
                             },
                             0,
-                            EDPZ,
+                            EDPZ
                         ),
                         a,
-                    ],
+                    ]
                 );
             })("StarB" + Math.random());
             (function (h) {
@@ -976,7 +976,7 @@ var CPlants = NewO({
                         var i = $(j);
                         i && SetVisible(i);
                     },
-                    [h],
+                    [h]
                 );
                 oSym.addTask(
                     1,
@@ -1005,10 +1005,10 @@ var CPlants = NewO({
                                 id: h,
                             },
                             0,
-                            EDPZ,
+                            EDPZ
                         ),
                         a,
-                    ],
+                    ]
                 );
             })("StarB" + Math.random());
             (function (h) {
@@ -1018,7 +1018,7 @@ var CPlants = NewO({
                         var i = $(j);
                         i && SetVisible(i);
                     },
-                    [h],
+                    [h]
                 );
                 oSym.addTask(
                     1,
@@ -1050,10 +1050,10 @@ var CPlants = NewO({
                                 id: h,
                             },
                             0,
-                            EDPZ,
+                            EDPZ
                         ),
                         a,
-                    ],
+                    ]
                 );
             })("StarB" + Math.random());
             (function (h) {
@@ -1063,7 +1063,7 @@ var CPlants = NewO({
                         var i = $(j);
                         i && SetVisible(i);
                     },
-                    [h],
+                    [h]
                 );
                 oSym.addTask(
                     1,
@@ -1095,10 +1095,10 @@ var CPlants = NewO({
                                 id: h,
                             },
                             0,
-                            EDPZ,
+                            EDPZ
                         ),
                         a,
-                    ],
+                    ]
                 );
             })("StarB" + Math.random());
         },
@@ -1138,7 +1138,7 @@ var CPlants = NewO({
                     "px;top:" +
                     (a.pixelTop + 3) +
                     "px;visibility:hidden;z-index:" +
-                    (a.zIndex + 2),
+                    (a.zIndex + 2)
             );
         },
         PrivateDie: function (a) {
@@ -1153,7 +1153,7 @@ var CPlants = NewO({
                     id: b,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 15,
@@ -1161,7 +1161,7 @@ var CPlants = NewO({
                     var c = $(d);
                     c && SetVisible(c);
                 },
-                [b],
+                [b]
             );
             oSym.addTask(
                 1,
@@ -1193,20 +1193,20 @@ var CPlants = NewO({
                           ][m]),
                           oSym.addTask(10, ClearChild, [j]))
                         : (n += l = !c ? 5 : -5) < oS.W && n > 100
-                          ? ((j.style.left = (o += l) + "px"),
-                            oSym.addTask(1, arguments.callee, [
-                                f,
-                                j,
-                                h,
-                                c,
-                                n,
-                                i,
-                                m,
-                                k,
-                                o,
-                                g,
-                            ]))
-                          : ClearChild(j);
+                        ? ((j.style.left = (o += l) + "px"),
+                          oSym.addTask(1, arguments.callee, [
+                              f,
+                              j,
+                              h,
+                              c,
+                              n,
+                              i,
+                              m,
+                              k,
+                              o,
+                              g,
+                          ]))
+                        : ClearChild(j);
                 },
                 [
                     b,
@@ -1219,7 +1219,7 @@ var CPlants = NewO({
                     0,
                     a.AttackedLX - 40,
                     oGd.$Torch,
-                ],
+                ]
             );
         },
     }),
@@ -1258,7 +1258,7 @@ var CPlants = NewO({
                     "px;top:" +
                     (a.pixelTop + 3) +
                     "px;visibility:hidden;z-index:" +
-                    (a.zIndex + 2),
+                    (a.zIndex + 2)
             );
         },
         PrivateDie: function (a) {
@@ -1273,7 +1273,7 @@ var CPlants = NewO({
                     id: b,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 15,
@@ -1281,7 +1281,7 @@ var CPlants = NewO({
                     var c = $(d);
                     c && SetVisible(c);
                 },
-                [b],
+                [b]
             );
             oSym.addTask(
                 1,
@@ -1313,20 +1313,20 @@ var CPlants = NewO({
                           ][m]),
                           oSym.addTask(10, ClearChild, [j]))
                         : (n += l = !c ? 5 : -5) < oS.W && n > 100
-                          ? ((j.style.left = (o += l) + "px"),
-                            oSym.addTask(1, arguments.callee, [
-                                f,
-                                j,
-                                h,
-                                c,
-                                n,
-                                i,
-                                m,
-                                k,
-                                o,
-                                g,
-                            ]))
-                          : ClearChild(j);
+                        ? ((j.style.left = (o += l) + "px"),
+                          oSym.addTask(1, arguments.callee, [
+                              f,
+                              j,
+                              h,
+                              c,
+                              n,
+                              i,
+                              m,
+                              k,
+                              o,
+                              g,
+                          ]))
+                        : ClearChild(j);
                 },
                 [
                     b,
@@ -1339,7 +1339,7 @@ var CPlants = NewO({
                     0,
                     a.AttackedLX - 40,
                     oGd.$Torch,
-                ],
+                ]
             );
         },
     }),
@@ -1386,7 +1386,7 @@ var CPlants = NewO({
                     "px;top:" +
                     (a.pixelTop + 3) +
                     "px;visibility:hidden;z-index:" +
-                    (a.zIndex + 2),
+                    (a.zIndex + 2)
             );
         },
         PrivateDie: function (a) {
@@ -1401,7 +1401,7 @@ var CPlants = NewO({
                     id: b,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 15,
@@ -1409,7 +1409,7 @@ var CPlants = NewO({
                     $(a.id).childNodes[1].src =
                         "images/Plants/LotusRoot/Peashooter.gif";
                 },
-                [this],
+                [this]
             );
             oSym.addTask(
                 15,
@@ -1417,7 +1417,7 @@ var CPlants = NewO({
                     var c = $(d);
                     c && SetVisible(c);
                 },
-                [b],
+                [b]
             );
             oSym.addTask(
                 1,
@@ -1446,20 +1446,20 @@ var CPlants = NewO({
                           }).src = "images/Plants/LotusRoot/BulletHit.png"),
                           oSym.addTask(10, ClearChild, [j]))
                         : (n += l = !c ? 5 : -5) < oS.W && n > 100
-                          ? ((j.style.left = (o += l) + "px"),
-                            oSym.addTask(1, arguments.callee, [
-                                f,
-                                j,
-                                h,
-                                c,
-                                n,
-                                i,
-                                m,
-                                k,
-                                o,
-                                g,
-                            ]))
-                          : ClearChild(j);
+                        ? ((j.style.left = (o += l) + "px"),
+                          oSym.addTask(1, arguments.callee, [
+                              f,
+                              j,
+                              h,
+                              c,
+                              n,
+                              i,
+                              m,
+                              k,
+                              o,
+                              g,
+                          ]))
+                        : ClearChild(j);
                 },
                 [
                     b,
@@ -1472,7 +1472,7 @@ var CPlants = NewO({
                     0,
                     a.AttackedLX - 40,
                     oGd.$Torch,
-                ],
+                ]
             );
         },
     }),
@@ -1509,7 +1509,7 @@ var CPlants = NewO({
                     id: b,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 15,
@@ -1517,7 +1517,7 @@ var CPlants = NewO({
                     var c = $(d);
                     c && SetVisible(c);
                 },
-                [b],
+                [b]
             );
             oSym.addTask(
                 1,
@@ -1545,20 +1545,20 @@ var CPlants = NewO({
                           }).src = "images/Plants/PeaBulletHit1.gif"),
                           oSym.addTask(10, ClearChild, [j]))
                         : (n += l = !c ? 5 : -5) < oS.W && n > 100
-                          ? ((j.style.left = (o += l) + "px"),
-                            oSym.addTask(1, arguments.callee, [
-                                f,
-                                j,
-                                h,
-                                c,
-                                n,
-                                i,
-                                m,
-                                k,
-                                o,
-                                g,
-                            ]))
-                          : ClearChild(j);
+                        ? ((j.style.left = (o += l) + "px"),
+                          oSym.addTask(1, arguments.callee, [
+                              f,
+                              j,
+                              h,
+                              c,
+                              n,
+                              i,
+                              m,
+                              k,
+                              o,
+                              g,
+                          ]))
+                        : ClearChild(j);
                 },
                 [
                     b,
@@ -1571,7 +1571,7 @@ var CPlants = NewO({
                     0,
                     a.AttackedLX - 40,
                     oGd.$Torch,
-                ],
+                ]
             );
         },
     }),
@@ -1608,7 +1608,7 @@ var CPlants = NewO({
                     id: b,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 15,
@@ -1616,7 +1616,7 @@ var CPlants = NewO({
                     var c = $(d);
                     c && SetVisible(c);
                 },
-                [b],
+                [b]
             );
             oSym.addTask(
                 1,
@@ -1644,20 +1644,20 @@ var CPlants = NewO({
                           }).src = "images/Plants/PeaBulletHit1.gif"),
                           oSym.addTask(10, ClearChild, [j]))
                         : (n += l = !c ? 5 : -5) < oS.W && n > 100
-                          ? ((j.style.left = (o += l) + "px"),
-                            oSym.addTask(1, arguments.callee, [
-                                f,
-                                j,
-                                h,
-                                c,
-                                n,
-                                i,
-                                m,
-                                k,
-                                o,
-                                g,
-                            ]))
-                          : ClearChild(j);
+                        ? ((j.style.left = (o += l) + "px"),
+                          oSym.addTask(1, arguments.callee, [
+                              f,
+                              j,
+                              h,
+                              c,
+                              n,
+                              i,
+                              m,
+                              k,
+                              o,
+                              g,
+                          ]))
+                        : ClearChild(j);
                 },
                 [
                     b,
@@ -1670,7 +1670,7 @@ var CPlants = NewO({
                     0,
                     a.AttackedLX - 40,
                     oGd.$Torch,
-                ],
+                ]
             );
         },
     }),
@@ -1698,7 +1698,7 @@ var CPlants = NewO({
                     var b = $P[c];
                     b && b.NormalAttack1();
                 },
-                [this.id],
+                [this.id]
             );
         },
     }),
@@ -1736,7 +1736,7 @@ var CPlants = NewO({
                     var b = $P[c];
                     b && b.NormalAttack1();
                 },
-                [this.id],
+                [this.id]
             );
         },
     }),
@@ -1774,7 +1774,7 @@ var CPlants = NewO({
                     var b = $P[c];
                     b && b.NormalAttack1();
                 },
-                [this.id],
+                [this.id]
             );
         },
     }),
@@ -1798,7 +1798,7 @@ var CPlants = NewO({
                     id: b,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 15,
@@ -1806,7 +1806,7 @@ var CPlants = NewO({
                     var c = $(d);
                     c && SetVisible(c);
                 },
-                [b],
+                [b]
             );
             oSym.addTask(
                 1,
@@ -1837,20 +1837,20 @@ var CPlants = NewO({
                           }).src = "images/Plants/PeaBulletHit.gif"),
                           oSym.addTask(10, ClearChild, [j]))
                         : (n += l = !c ? 5 : -5) < oS.W && n > 100
-                          ? ((j.style.left = (o += l) + "px"),
-                            oSym.addTask(1, arguments.callee, [
-                                f,
-                                j,
-                                h,
-                                c,
-                                n,
-                                i,
-                                m,
-                                k,
-                                o,
-                                g,
-                            ]))
-                          : ClearChild(j);
+                        ? ((j.style.left = (o += l) + "px"),
+                          oSym.addTask(1, arguments.callee, [
+                              f,
+                              j,
+                              h,
+                              c,
+                              n,
+                              i,
+                              m,
+                              k,
+                              o,
+                              g,
+                          ]))
+                        : ClearChild(j);
                 },
                 [
                     b,
@@ -1863,7 +1863,7 @@ var CPlants = NewO({
                     0,
                     a.AttackedRX,
                     oGd.$Torch,
-                ],
+                ]
             );
         },
         getTriggerRange: function (a, b, c) {
@@ -1889,7 +1889,7 @@ var CPlants = NewO({
                     id: b,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 15,
@@ -1897,7 +1897,7 @@ var CPlants = NewO({
                     var c = $(d);
                     c && SetVisible(c);
                 },
-                [b],
+                [b]
             );
             oSym.addTask(
                 1,
@@ -1928,20 +1928,20 @@ var CPlants = NewO({
                           }).src = "images/Plants/PeaBulletHit.gif"),
                           oSym.addTask(10, ClearChild, [j]))
                         : (n += l = !c ? 5 : -5) < oS.W && n > 100
-                          ? ((j.style.left = (o += l) + "px"),
-                            oSym.addTask(1, arguments.callee, [
-                                f,
-                                j,
-                                h,
-                                c,
-                                n,
-                                i,
-                                m,
-                                k,
-                                o,
-                                g,
-                            ]))
-                          : ClearChild(j);
+                        ? ((j.style.left = (o += l) + "px"),
+                          oSym.addTask(1, arguments.callee, [
+                              f,
+                              j,
+                              h,
+                              c,
+                              n,
+                              i,
+                              m,
+                              k,
+                              o,
+                              g,
+                          ]))
+                        : ClearChild(j);
                 },
                 [
                     b,
@@ -1954,7 +1954,7 @@ var CPlants = NewO({
                     0,
                     a.AttackedRX,
                     oGd.$Torch,
-                ],
+                ]
             );
         },
         getTriggerRange: function (a, b, c) {
@@ -2009,7 +2009,7 @@ var CPlants = NewO({
                         ChangeC: 0,
                         pixelLeft: d,
                         F: oGd.MB1,
-                    }),
+                    })
                 );
                 f.BulletEle.push(
                     NewImg(
@@ -2020,8 +2020,8 @@ var CPlants = NewO({
                             "px;top:" +
                             (GetY(b) - 50) +
                             "px;visibility:hidden;z-index:" +
-                            (3 * b + 2),
-                    ),
+                            (3 * b + 2)
+                    )
                 );
             }
         },
@@ -2040,7 +2040,7 @@ var CPlants = NewO({
                         id: (d = "PB" + Math.random()),
                     },
                     0,
-                    EDPZ,
+                    EDPZ
                 );
                 oSym.addTask(
                     15,
@@ -2048,7 +2048,7 @@ var CPlants = NewO({
                         var e = $(f);
                         e && SetVisible(e);
                     },
-                    [d],
+                    [d]
                 );
                 oSym.addTask(
                     1,
@@ -2080,20 +2080,20 @@ var CPlants = NewO({
                               ][o]),
                               oSym.addTask(10, ClearChild, [l]))
                             : (p += n = !e ? 5 : -5) < oS.W && p > 100
-                              ? ((l.style.left = (q += n) + "px"),
-                                oSym.addTask(1, arguments.callee, [
-                                    h,
-                                    l,
-                                    j,
-                                    e,
-                                    p,
-                                    k,
-                                    o,
-                                    m,
-                                    q,
-                                    i,
-                                ]))
-                              : ClearChild(l);
+                            ? ((l.style.left = (q += n) + "px"),
+                              oSym.addTask(1, arguments.callee, [
+                                  h,
+                                  l,
+                                  j,
+                                  e,
+                                  p,
+                                  k,
+                                  o,
+                                  m,
+                                  q,
+                                  i,
+                              ]))
+                            : ClearChild(l);
                     },
                     [
                         d,
@@ -2106,7 +2106,7 @@ var CPlants = NewO({
                         0,
                         c.AttackedLX - 40,
                         oGd.$Torch,
-                    ],
+                    ]
                 );
             }
         },
@@ -2159,7 +2159,7 @@ var CPlants = NewO({
                         ChangeC: 0,
                         pixelLeft: d,
                         F: oGd.MB1,
-                    }),
+                    })
                 );
                 f.BulletEle.push(
                     NewImg(
@@ -2170,8 +2170,8 @@ var CPlants = NewO({
                             "px;top:" +
                             (GetY(b) - 50) +
                             "px;visibility:hidden;z-index:" +
-                            (3 * b + 2),
-                    ),
+                            (3 * b + 2)
+                    )
                 );
             }
         },
@@ -2190,7 +2190,7 @@ var CPlants = NewO({
                         id: (d = "PB" + Math.random()),
                     },
                     0,
-                    EDPZ,
+                    EDPZ
                 );
                 oSym.addTask(
                     15,
@@ -2198,7 +2198,7 @@ var CPlants = NewO({
                         var e = $(f);
                         e && SetVisible(e);
                     },
-                    [d],
+                    [d]
                 );
                 oSym.addTask(
                     1,
@@ -2230,20 +2230,20 @@ var CPlants = NewO({
                               ][o]),
                               oSym.addTask(10, ClearChild, [l]))
                             : (p += n = !e ? 5 : -5) < oS.W && p > 100
-                              ? ((l.style.left = (q += n) + "px"),
-                                oSym.addTask(1, arguments.callee, [
-                                    h,
-                                    l,
-                                    j,
-                                    e,
-                                    p,
-                                    k,
-                                    o,
-                                    m,
-                                    q,
-                                    i,
-                                ]))
-                              : ClearChild(l);
+                            ? ((l.style.left = (q += n) + "px"),
+                              oSym.addTask(1, arguments.callee, [
+                                  h,
+                                  l,
+                                  j,
+                                  e,
+                                  p,
+                                  k,
+                                  o,
+                                  m,
+                                  q,
+                                  i,
+                              ]))
+                            : ClearChild(l);
                     },
                     [
                         d,
@@ -2256,7 +2256,7 @@ var CPlants = NewO({
                         0,
                         c.AttackedLX - 40,
                         oGd.$Torch,
-                    ],
+                    ]
                 );
             }
         },
@@ -2308,7 +2308,7 @@ var CPlants = NewO({
                     "px;top:" +
                     (c.pixelTop + 8) +
                     "px;visibility:hidden;z-index:" +
-                    (c.zIndex + 2),
+                    (c.zIndex + 2)
             );
         },
         CanGrow: function (b, a, d) {
@@ -2325,7 +2325,7 @@ var CPlants = NewO({
                     c && c.NormalAttack1();
                     --b && oSym.addTask(15, arguments.callee, [d, b]);
                 },
-                [this.id, 3],
+                [this.id, 3]
             );
         },
     }),
@@ -2417,7 +2417,7 @@ var CPlants = NewO({
                     var f;
                     (f = $P[c]) && f.AttackCheck1(e, g);
                 },
-                [this.id, a, b],
+                [this.id, a, b]
             );
         },
         NormalAttack: function (c) {
@@ -2429,7 +2429,7 @@ var CPlants = NewO({
                           function (f) {
                               $P[f] && b(1);
                           },
-                          [d.id],
+                          [d.id]
                       ),
                       d.AttackedRX - 16)
                     : d.AttackedLX - 40,
@@ -2440,7 +2440,7 @@ var CPlants = NewO({
                             id: (e = "PB" + Math.random()),
                         },
                         0,
-                        EDPZ,
+                        EDPZ
                     );
                     oSym.addTask(
                         15,
@@ -2448,7 +2448,7 @@ var CPlants = NewO({
                             var f = $(g);
                             f && SetVisible(f);
                         },
-                        [e],
+                        [e]
                     );
                     oSym.addTask(
                         1,
@@ -2480,33 +2480,22 @@ var CPlants = NewO({
                                   ][m]),
                                   oSym.addTask(10, ClearChild, [m]))
                                 : (q += o = !f ? 5 : -5) < oS.W && q > 100
-                                  ? ((m.style.left = (r += o) + "px"),
-                                    oSym.addTask(1, arguments.callee, [
-                                        i,
-                                        m,
-                                        k,
-                                        f,
-                                        q,
-                                        l,
-                                        p,
-                                        n,
-                                        r,
-                                        j,
-                                    ]))
-                                  : ClearChild(m);
+                                ? ((m.style.left = (r += o) + "px"),
+                                  oSym.addTask(1, arguments.callee, [
+                                      i,
+                                      m,
+                                      k,
+                                      f,
+                                      q,
+                                      l,
+                                      p,
+                                      n,
+                                      r,
+                                      j,
+                                  ]))
+                                : ClearChild(m);
                         },
-                        [
-                            e,
-                            $(e),
-                            20,
-                            c,
-                            d.AttackedLX,
-                            d.R,
-                            0,
-                            0,
-                            a,
-                            oGd.$Torch,
-                        ],
+                        [e, $(e), 20, c, d.AttackedLX, d.R, 0, 0, a, oGd.$Torch]
                     );
                 };
             b();
@@ -2569,11 +2558,11 @@ var CPlants = NewO({
                                       $P[h] &&
                                           (AppearSun(
                                               Math.floor(
-                                                  g + Math.random() * 41,
+                                                  g + Math.random() * 41
                                               ),
                                               f,
                                               50,
-                                              0,
+                                              0
                                           ),
                                           oSym.addTask(
                                               100,
@@ -2581,14 +2570,14 @@ var CPlants = NewO({
                                                   $P[i] &&
                                                       a.ChangePosition($(i), 0);
                                               },
-                                              [h],
+                                              [h]
                                           ),
                                           oSym.addTask(2400, e, [h, g, f]));
                                   },
-                                  [d, c, b, arguments.callee],
+                                  [d, c, b, arguments.callee]
                               ));
                       },
-                      [a.id, GetX(a.C) - 40, GetY(a.R)],
+                      [a.id, GetX(a.C) - 40, GetY(a.R)]
                   )
                 : (a.getHurt = function (f, c, b) {
                       var e = this;
@@ -2598,11 +2587,11 @@ var CPlants = NewO({
                               !(d % 100) &&
                                   (AppearSun(
                                       Math.floor(
-                                          GetX(e.C) - 40 + Math.random() * 41,
+                                          GetX(e.C) - 40 + Math.random() * 41
                                       ),
                                       GetY(e.R),
                                       25,
-                                      0,
+                                      0
                                   ),
                                   oSym.addTask(
                                       50,
@@ -2611,14 +2600,14 @@ var CPlants = NewO({
                                               Math.floor(
                                                   GetX(h) -
                                                       40 +
-                                                      Math.random() * 41,
+                                                      Math.random() * 41
                                               ),
                                               GetY(g),
                                               25,
-                                              0,
+                                              0
                                           );
                                       },
-                                      [e.C, e.R],
+                                      [e.C, e.R]
                                   ),
                                   d < 1
                                       ? e.Die()
@@ -2629,14 +2618,14 @@ var CPlants = NewO({
                                                     Math.floor(
                                                         GetX(h) -
                                                             40 +
-                                                            Math.random() * 41,
+                                                            Math.random() * 41
                                                     ),
                                                     GetY(g),
                                                     25,
-                                                    0,
+                                                    0
                                                 );
                                             },
-                                            [e.C, e.R],
+                                            [e.C, e.R]
                                         ));
                               break;
                           case 3:
@@ -2712,27 +2701,27 @@ var CPlants = NewO({
                                     Math.floor(h + Math.random() * 21),
                                     j,
                                     50,
-                                    0,
+                                    0
                                 ),
                                     AppearSun(
                                         Math.floor(g + Math.random() * 21),
                                         j,
                                         50,
-                                        0,
+                                        0
                                     ),
                                     oSym.addTask(
                                         100,
                                         function (l) {
                                             $P[l] && a.ChangePosition($(l), 0);
                                         },
-                                        [k],
+                                        [k]
                                     ),
                                     oSym.addTask(2400, i, [k, h, g, j]);
                             },
-                            [f, d, c, e, arguments.callee],
+                            [f, d, c, e, arguments.callee]
                         ));
                 },
-                [a.id, b - 40, b - 20, GetY(a.R)],
+                [a.id, b - 40, b - 20, GetY(a.R)]
             );
         },
     }),
@@ -2766,8 +2755,8 @@ var CPlants = NewO({
             return c[2]
                 ? 1
                 : oGd.$LF[b] == 1
-                  ? !(d < 1 || d > 9 || oGd.$Crater[a] || oGd.$Tombstones[a])
-                  : c[0];
+                ? !(d < 1 || d > 9 || oGd.$Crater[a] || oGd.$Tombstones[a])
+                : c[0];
         },
         GetDY: function (b, c, a) {
             return a[0] ? -12 : -5;
@@ -2808,7 +2797,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
             NewImg(
                 d + "_2",
@@ -2819,7 +2808,7 @@ var CPlants = NewO({
                     c.pixelTop +
                     "px;z-index:" +
                     (c.zIndex - 2),
-                EDPZ,
+                EDPZ
             );
         },
         PrivateDie: function (a) {
@@ -2856,8 +2845,8 @@ var CPlants = NewO({
             return c[2]
                 ? 1
                 : oGd.$LF[b] == 1
-                  ? !(d < 1 || d > 9 || oGd.$Crater[a] || oGd.$Tombstones[a])
-                  : c[0];
+                ? !(d < 1 || d > 9 || oGd.$Crater[a] || oGd.$Tombstones[a])
+                : c[0];
         },
         GetDY: function (b, c, a) {
             return a[0] ? -12 : -5;
@@ -2898,7 +2887,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
             NewImg(
                 d + "_2",
@@ -2909,7 +2898,7 @@ var CPlants = NewO({
                     c.pixelTop +
                     "px;z-index:" +
                     (c.zIndex - 2),
-                EDPZ,
+                EDPZ
             );
         },
         PrivateDie: function (a) {
@@ -3089,14 +3078,14 @@ var CPlants = NewO({
                       !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1])
                     : c[0] && !c[1]
                 : oGd.$LF[b] == 1
-                  ? !(
-                        e < 1 ||
-                        e > 9 ||
-                        oGd.$Crater[a] ||
-                        oGd.$Tombstones[a] ||
-                        c[1]
-                    )
-                  : c[0] && !c[1];
+                ? !(
+                      e < 1 ||
+                      e > 9 ||
+                      oGd.$Crater[a] ||
+                      oGd.$Tombstones[a] ||
+                      c[1]
+                  )
+                : c[0] && !c[1];
         },
         PicArr: [
             "images/Card/Plants/PotatoMine.png",
@@ -3127,7 +3116,7 @@ var CPlants = NewO({
                     id: e,
                 },
                 b,
-                EDPZ,
+                EDPZ
             );
         },
         getHurt2: function (d, b, a) {
@@ -3149,7 +3138,7 @@ var CPlants = NewO({
                             (c.canTrigger = 1),
                             (c.getHurt = c.getHurt2));
                     },
-                    [b.id],
+                    [b.id]
                 );
         },
         getTriggerRange: function (a, b, c) {
@@ -3185,13 +3174,13 @@ var CPlants = NewO({
                     height: "93px",
                     left: "-40px",
                     top: "-20px",
-                },
+                }
             );
             NewImg(
                 0,
                 "images/Plants/PotatoMine/ExplosionSpudow.gif",
                 "left:-90px;top:-40px",
-                d,
+                d
             );
             oSym.addTask(
                 200,
@@ -3199,7 +3188,7 @@ var CPlants = NewO({
                     ClearChild(i.lastChild);
                     oSym.addTask(100, ClearChild, [i]);
                 },
-                [d],
+                [d]
             );
         },
     }),
@@ -3223,14 +3212,14 @@ var CPlants = NewO({
                       !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1])
                     : c[0] && !c[1]
                 : oGd.$LF[b] == 1
-                  ? !(
-                        e < 1 ||
-                        e > 9 ||
-                        oGd.$Crater[a] ||
-                        oGd.$Tombstones[a] ||
-                        c[1]
-                    )
-                  : c[0] && !c[1];
+                ? !(
+                      e < 1 ||
+                      e > 9 ||
+                      oGd.$Crater[a] ||
+                      oGd.$Tombstones[a] ||
+                      c[1]
+                  )
+                : c[0] && !c[1];
         },
         PicArr: [
             "images/Card/Plants/PotatoMine.png",
@@ -3261,7 +3250,7 @@ var CPlants = NewO({
                     id: e,
                 },
                 b,
-                EDPZ,
+                EDPZ
             );
         },
         getHurt2: function (d, b, a) {
@@ -3283,7 +3272,7 @@ var CPlants = NewO({
                             (c.canTrigger = 1),
                             (c.getHurt = c.getHurt2));
                     },
-                    [b.id],
+                    [b.id]
                 );
         },
         getTriggerRange: function (a, b, c) {
@@ -3319,13 +3308,13 @@ var CPlants = NewO({
                     height: "93px",
                     left: "-40px",
                     top: "-20px",
-                },
+                }
             );
             NewImg(
                 0,
                 "images/Plants/PotatoMine/ExplosionSpudow.gif",
                 "left:-90px;top:-40px",
-                d,
+                d
             );
             oSym.addTask(
                 200,
@@ -3333,7 +3322,7 @@ var CPlants = NewO({
                     ClearChild(i.lastChild);
                     oSym.addTask(100, ClearChild, [i]);
                 },
-                [d],
+                [d]
             );
         },
     }),
@@ -3357,14 +3346,14 @@ var CPlants = NewO({
                       !(oGd.$Crater[a] || oGd.$Tombstones[a] || c[1])
                     : c[0] && !c[1]
                 : oGd.$LF[b] == 1
-                  ? !(
-                        e < 1 ||
-                        e > 9 ||
-                        oGd.$Crater[a] ||
-                        oGd.$Tombstones[a] ||
-                        c[1]
-                    )
-                  : c[0] && !c[1];
+                ? !(
+                      e < 1 ||
+                      e > 9 ||
+                      oGd.$Crater[a] ||
+                      oGd.$Tombstones[a] ||
+                      c[1]
+                  )
+                : c[0] && !c[1];
         },
         PicArr: [
             "images/Card/Plants/PotatoMine.png",
@@ -3395,7 +3384,7 @@ var CPlants = NewO({
                     id: e,
                 },
                 b,
-                EDPZ,
+                EDPZ
             );
         },
         getHurt2: function (d, b, a) {
@@ -3417,7 +3406,7 @@ var CPlants = NewO({
                             (c.canTrigger = 1),
                             (c.getHurt = c.getHurt2));
                     },
-                    [b.id],
+                    [b.id]
                 );
         },
         getTriggerRange: function (a, b, c) {
@@ -3453,13 +3442,13 @@ var CPlants = NewO({
                     height: "93px",
                     left: "-40px",
                     top: "-20px",
-                },
+                }
             );
             NewImg(
                 0,
                 "images/Plants/PotatoMine/ExplosionSpudow.gif",
                 "left:-90px;top:-40px",
-                d,
+                d
             );
             oSym.addTask(
                 200,
@@ -3467,7 +3456,7 @@ var CPlants = NewO({
                     ClearChild(i.lastChild);
                     oSym.addTask(100, ClearChild, [i]);
                 },
-                [d],
+                [d]
             );
         },
     }),
@@ -3514,7 +3503,7 @@ var CPlants = NewO({
                     id: b,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 15,
@@ -3522,7 +3511,7 @@ var CPlants = NewO({
                     var c = $(d);
                     c && SetVisible(c);
                 },
-                [b],
+                [b]
             );
             oSym.addTask(
                 1,
@@ -3551,20 +3540,20 @@ var CPlants = NewO({
                           }).src = "images/Plants/FireBulletHit.png"),
                           oSym.addTask(75, ClearChild, [j]))
                         : (n += l = !c ? 5 : -5) < oS.W && n > 100
-                          ? ((j.style.left = (o += l) + "px"),
-                            oSym.addTask(1, arguments.callee, [
-                                f,
-                                j,
-                                h,
-                                c,
-                                n,
-                                i,
-                                m,
-                                k,
-                                o,
-                                g,
-                            ]))
-                          : ClearChild(j);
+                        ? ((j.style.left = (o += l) + "px"),
+                          oSym.addTask(1, arguments.callee, [
+                              f,
+                              j,
+                              h,
+                              c,
+                              n,
+                              i,
+                              m,
+                              k,
+                              o,
+                              g,
+                          ]))
+                        : ClearChild(j);
                 },
                 [
                     b,
@@ -3577,7 +3566,7 @@ var CPlants = NewO({
                     0,
                     a.AttackedLX - 40,
                     oGd.$Torch,
-                ],
+                ]
             );
         },
     }),
@@ -3624,7 +3613,7 @@ var CPlants = NewO({
                     id: b,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 15,
@@ -3632,7 +3621,7 @@ var CPlants = NewO({
                     var c = $(d);
                     c && SetVisible(c);
                 },
-                [b],
+                [b]
             );
             oSym.addTask(
                 1,
@@ -3661,20 +3650,20 @@ var CPlants = NewO({
                           }).src = "images/Plants/FireBulletHit.png"),
                           oSym.addTask(75, ClearChild, [j]))
                         : (n += l = !c ? 5 : -5) < oS.W && n > 100
-                          ? ((j.style.left = (o += l) + "px"),
-                            oSym.addTask(1, arguments.callee, [
-                                f,
-                                j,
-                                h,
-                                c,
-                                n,
-                                i,
-                                m,
-                                k,
-                                o,
-                                g,
-                            ]))
-                          : ClearChild(j);
+                        ? ((j.style.left = (o += l) + "px"),
+                          oSym.addTask(1, arguments.callee, [
+                              f,
+                              j,
+                              h,
+                              c,
+                              n,
+                              i,
+                              m,
+                              k,
+                              o,
+                              g,
+                          ]))
+                        : ClearChild(j);
                 },
                 [
                     b,
@@ -3687,7 +3676,7 @@ var CPlants = NewO({
                     0,
                     a.AttackedLX - 40,
                     oGd.$Torch,
-                ],
+                ]
             );
         },
     }),
@@ -3721,16 +3710,10 @@ var CPlants = NewO({
                       !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
                     : c[0] && !d
                 : d && d.EName == "oWallNut"
-                  ? 1
-                  : oGd.$LF[b] == 1
-                    ? !(
-                          f < 1 ||
-                          f > 9 ||
-                          oGd.$Crater[a] ||
-                          oGd.$Tombstones[a] ||
-                          d
-                      )
-                    : c[0] && !d;
+                ? 1
+                : oGd.$LF[b] == 1
+                ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
+                : c[0] && !d;
         },
         InitTrigger: function () {},
         HurtStatus: 0,
@@ -3741,13 +3724,13 @@ var CPlants = NewO({
                 ? (c.HP -= a) < 1
                     ? c.Die()
                     : c.HP < 1334
-                      ? c.HurtStatus < 2 &&
-                        ((c.HurtStatus = 2),
-                        (d.src = "images/Plants/WallNut/Wallnut_cracked2.gif"))
-                      : c.HP < 2667 &&
-                        c.HurtStatus < 1 &&
-                        ((c.HurtStatus = 1),
-                        (d.src = "images/Plants/WallNut/Wallnut_cracked1.gif"))
+                    ? c.HurtStatus < 2 &&
+                      ((c.HurtStatus = 2),
+                      (d.src = "images/Plants/WallNut/Wallnut_cracked2.gif"))
+                    : c.HP < 2667 &&
+                      c.HurtStatus < 1 &&
+                      ((c.HurtStatus = 1),
+                      (d.src = "images/Plants/WallNut/Wallnut_cracked1.gif"))
                 : c.Die(1);
         },
     }),
@@ -3781,16 +3764,10 @@ var CPlants = NewO({
                       !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
                     : c[0] && !d
                 : d && d.EName == "oWallNut"
-                  ? 1
-                  : oGd.$LF[b] == 1
-                    ? !(
-                          f < 1 ||
-                          f > 9 ||
-                          oGd.$Crater[a] ||
-                          oGd.$Tombstones[a] ||
-                          d
-                      )
-                    : c[0] && !d;
+                ? 1
+                : oGd.$LF[b] == 1
+                ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
+                : c[0] && !d;
         },
         InitTrigger: function () {},
         HurtStatus: 0,
@@ -3801,13 +3778,13 @@ var CPlants = NewO({
                 ? (c.HP -= a) < 1
                     ? c.Die()
                     : c.HP < 1334
-                      ? c.HurtStatus < 2 &&
-                        ((c.HurtStatus = 2),
-                        (d.src = "images/Plants/WallNut/Wallnut_cracked2.gif"))
-                      : c.HP < 2667 &&
-                        c.HurtStatus < 1 &&
-                        ((c.HurtStatus = 1),
-                        (d.src = "images/Plants/WallNut/Wallnut_cracked1.gif"))
+                    ? c.HurtStatus < 2 &&
+                      ((c.HurtStatus = 2),
+                      (d.src = "images/Plants/WallNut/Wallnut_cracked2.gif"))
+                    : c.HP < 2667 &&
+                      c.HurtStatus < 1 &&
+                      ((c.HurtStatus = 1),
+                      (d.src = "images/Plants/WallNut/Wallnut_cracked1.gif"))
                 : c.Die(1);
         },
     }),
@@ -3839,16 +3816,10 @@ var CPlants = NewO({
                       !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
                     : c[0] && !d
                 : d && d.EName == "oBalloon"
-                  ? 1
-                  : oGd.$LF[b] == 1
-                    ? !(
-                          f < 1 ||
-                          f > 9 ||
-                          oGd.$Crater[a] ||
-                          oGd.$Tombstones[a] ||
-                          d
-                      )
-                    : c[0] && !d;
+                ? 1
+                : oGd.$LF[b] == 1
+                ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
+                : c[0] && !d;
         },
         InitTrigger: function () {},
         HurtStatus: 0,
@@ -3859,13 +3830,13 @@ var CPlants = NewO({
                 ? (c.HP -= a) < 1
                     ? c.Die()
                     : c.HP < 1334
-                      ? c.HurtStatus < 2 &&
-                        ((c.HurtStatus = 2),
-                        (d.src = "images/Card/Plants/BalloonGoober.png"))
-                      : c.HP < 2667 &&
-                        c.HurtStatus < 1 &&
-                        ((c.HurtStatus = 1),
-                        (d.src = "images/Zombies/Balloon/popped.png"))
+                    ? c.HurtStatus < 2 &&
+                      ((c.HurtStatus = 2),
+                      (d.src = "images/Card/Plants/BalloonGoober.png"))
+                    : c.HP < 2667 &&
+                      c.HurtStatus < 1 &&
+                      ((c.HurtStatus = 1),
+                      (d.src = "images/Zombies/Balloon/popped.png"))
                 : c.Die(1);
         },
     }),
@@ -3981,7 +3952,7 @@ var CPlants = NewO({
                     "px;top:" +
                     (a.pixelTop + 10) +
                     "px;visibility:hidden;z-index:" +
-                    (a.zIndex + 2),
+                    (a.zIndex + 2)
             );
             var p,
                 oBalloon,
@@ -4048,7 +4019,7 @@ var CPlants = NewO({
                     id: "CB" + Math.random(),
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             //alert(bullet);
             self.AttackAnim(ele, self);
@@ -4058,7 +4029,7 @@ var CPlants = NewO({
                     (_) =>
                         $P[self.id] &&
                         (ele.childNodes[1].src =
-                            self.PicArr[self.NormalGif] + "?" + this.id),
+                            self.PicArr[self.NormalGif] + "?" + this.id)
                 );
             }
             oSym.addTask(85, (_) => {
@@ -4107,7 +4078,7 @@ var CPlants = NewO({
                     x + vx,
                     y + vy + gravity,
                     last[0],
-                    last[1],
+                    last[1]
                 );
                 var x3 = x + s,
                     t = 0,
@@ -4118,12 +4089,12 @@ var CPlants = NewO({
                         x = self.one(
                             self.one(x1, x2, t / ws),
                             self.one(x2, x3, t / ws),
-                            t / ws,
+                            t / ws
                         );
                         y = self.one(
                             self.one(y1, y2, t / ws),
                             self.one(y2, y3, t / ws),
-                            t / ws,
+                            t / ws
                         );
                         var ab = self.catlen(x, y, last);
                         while (t < ws / 2 && ab < 1.5) {
@@ -4131,18 +4102,23 @@ var CPlants = NewO({
                             x = self.one(
                                 self.one(x1, x2, t / ws),
                                 self.one(x2, x3, t / ws),
-                                t / ws,
+                                t / ws
                             );
                             y = self.one(
                                 self.one(y1, y2, t / ws),
                                 self.one(y2, y3, t / ws),
-                                t / ws,
+                                t / ws
                             );
                             ab = self.catlen(x, y, last);
                         }
                         bullet.style.left = x + "px";
                         bullet.style.top = y + "px";
-                        bullet.style.transform = `rotate(${self.getAngle(x, y, last[0], last[1])}deg)`;
+                        bullet.style.transform = `rotate(${self.getAngle(
+                            x,
+                            y,
+                            last[0],
+                            last[1]
+                        )}deg)`;
                         t++;
 
                         if (t >= ws + 1) {
@@ -4168,12 +4144,12 @@ var CPlants = NewO({
                                 x = self.one(
                                     self.one(x1, x2, t / ws),
                                     self.one(x2, x3, t / ws),
-                                    t / ws,
+                                    t / ws
                                 );
                                 y = self.one(
                                     self.one(y1, y2, t / ws),
                                     self.one(y2, y3, t / ws),
-                                    t / ws,
+                                    t / ws
                                 );
                                 var ab = self.catlen(x, y, last);
                                 while (t < ws / 2 && ab < 1.5) {
@@ -4181,18 +4157,23 @@ var CPlants = NewO({
                                     x = self.one(
                                         self.one(x1, x2, t / ws),
                                         self.one(x2, x3, t / ws),
-                                        t / ws,
+                                        t / ws
                                     );
                                     y = self.one(
                                         self.one(y1, y2, t / ws),
                                         self.one(y2, y3, t / ws),
-                                        t / ws,
+                                        t / ws
                                     );
                                     ab = self.catlen(x, y, last);
                                 }
                                 bullet.style.left = x + "px";
                                 bullet.style.top = y + "px";
-                                bullet.style.transform = `rotate(${self.getAngle(x, y, last[0], last[1])}deg)`;
+                                bullet.style.transform = `rotate(${self.getAngle(
+                                    x,
+                                    y,
+                                    last[0],
+                                    last[1]
+                                )}deg)`;
                                 t++;
 
                                 if (t >= ws + 1) {
@@ -4219,7 +4200,12 @@ var CPlants = NewO({
                             } else {
                                 bullet.style.left = (x -= 3) + "px";
                                 bullet.style.top = (y -= 3) + "px";
-                                bullet.style.transform = `rotate(${self.getAngle(x, y, last[0], last[1])}deg)`;
+                                bullet.style.transform = `rotate(${self.getAngle(
+                                    x,
+                                    y,
+                                    last[0],
+                                    last[1]
+                                )}deg)`;
                                 if (x <= 0 || y <= 0) {
                                     bullet &&
                                         ((bullet.src = self.PicArr[4]),
@@ -4278,13 +4264,13 @@ var CPlants = NewO({
                 ? (c.HP -= a) < 1
                     ? c.Die()
                     : c.HP < 1334
-                      ? c.HurtStatus < 2 &&
-                        ((c.HurtStatus = 2),
-                        (d.src = "images/Plants/Ling/Ling.gif"))
-                      : c.HP < 2667 &&
-                        c.HurtStatus < 1 &&
-                        ((c.HurtStatus = 1),
-                        (d.src = "images/Plants/Ling/Ling.gif"))
+                    ? c.HurtStatus < 2 &&
+                      ((c.HurtStatus = 2),
+                      (d.src = "images/Plants/Ling/Ling.gif"))
+                    : c.HP < 2667 &&
+                      c.HurtStatus < 1 &&
+                      ((c.HurtStatus = 1),
+                      (d.src = "images/Plants/Ling/Ling.gif"))
                 : c.Die(1);
         },
     }),
@@ -4332,7 +4318,7 @@ var CPlants = NewO({
                     PlayAudio(
                         ["bowlingimpact", "bowlingimpact2"][
                             Math.floor(Math.random() * 2)
-                        ],
+                        ]
                     );
                     switch (A.Ornaments) {
                         case 0:
@@ -4352,7 +4338,7 @@ var CPlants = NewO({
                                       A.PicArr,
                                       0,
                                       0,
-                                      0,
+                                      0
                                   );
                     }
                     z.CanAttack = 0;
@@ -4438,7 +4424,7 @@ var CPlants = NewO({
                 d,
                 0,
                 GetY1Y2(1)[0],
-                600,
+                600
             );
         },
     }),
@@ -4528,7 +4514,7 @@ var CPlants = NewO({
                             height: "160px",
                             left: "-50px",
                             top: "-30px",
-                        },
+                        }
                     );
                     oSym.addTask(65, ClearChild, [m]);
                 } else {
@@ -4589,16 +4575,10 @@ var CPlants = NewO({
                       !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
                     : c[0] && !d
                 : d && d.EName == "oTallNut"
-                  ? 1
-                  : oGd.$LF[b] == 1
-                    ? !(
-                          f < 1 ||
-                          f > 9 ||
-                          oGd.$Crater[a] ||
-                          oGd.$Tombstones[a] ||
-                          d
-                      )
-                    : c[0] && !d;
+                ? 1
+                : oGd.$LF[b] == 1
+                ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
+                : c[0] && !d;
         },
         Stature: 1,
         getHurt: function (e, b, a) {
@@ -4608,13 +4588,13 @@ var CPlants = NewO({
                 ? (c.HP -= a) < 1
                     ? c.Die()
                     : c.HP < 2667
-                      ? c.HurtStatus < 2 &&
-                        ((c.HurtStatus = 2),
-                        (d.src = "images/Plants/TallNut/TallnutCracked2.gif"))
-                      : c.HP < 5333 &&
-                        c.HurtStatus < 1 &&
-                        ((c.HurtStatus = 1),
-                        (d.src = "images/Plants/TallNut/TallnutCracked1.gif"))
+                    ? c.HurtStatus < 2 &&
+                      ((c.HurtStatus = 2),
+                      (d.src = "images/Plants/TallNut/TallnutCracked2.gif"))
+                    : c.HP < 5333 &&
+                      c.HurtStatus < 1 &&
+                      ((c.HurtStatus = 1),
+                      (d.src = "images/Plants/TallNut/TallnutCracked1.gif"))
                 : c.Die(1);
         },
     }),
@@ -4648,16 +4628,10 @@ var CPlants = NewO({
                       !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
                     : c[0] && !d
                 : d && d.EName == "oTallNut"
-                  ? 1
-                  : oGd.$LF[b] == 1
-                    ? !(
-                          f < 1 ||
-                          f > 9 ||
-                          oGd.$Crater[a] ||
-                          oGd.$Tombstones[a] ||
-                          d
-                      )
-                    : c[0] && !d;
+                ? 1
+                : oGd.$LF[b] == 1
+                ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
+                : c[0] && !d;
         },
         Stature: 1,
         getHurt: function (e, b, a) {
@@ -4667,13 +4641,13 @@ var CPlants = NewO({
                 ? (c.HP -= a) < 1
                     ? c.Die()
                     : c.HP < 2667
-                      ? c.HurtStatus < 2 &&
-                        ((c.HurtStatus = 2),
-                        (d.src = "images/Plants/TallNut/TallnutCracked2.gif"))
-                      : c.HP < 5333 &&
-                        c.HurtStatus < 1 &&
-                        ((c.HurtStatus = 1),
-                        (d.src = "images/Plants/TallNut/TallnutCracked1.gif"))
+                    ? c.HurtStatus < 2 &&
+                      ((c.HurtStatus = 2),
+                      (d.src = "images/Plants/TallNut/TallnutCracked2.gif"))
+                    : c.HP < 5333 &&
+                      c.HurtStatus < 1 &&
+                      ((c.HurtStatus = 1),
+                      (d.src = "images/Plants/TallNut/TallnutCracked1.gif"))
                 : c.Die(1);
         },
     }),
@@ -4752,7 +4726,7 @@ var CPlants = NewO({
                         var k = $P[d];
                         k && delete k.ArZ[j];
                     },
-                    [this.id, c],
+                    [this.id, c]
                 ));
         },
         AttackCheck2: function (a) {
@@ -4811,12 +4785,12 @@ var CPlants = NewO({
                                 height: "196px",
                                 left: "-50px",
                                 top: "-37px",
-                            },
+                            }
                         );
                         oSym.addTask(120, ClearChild, [f]);
                     }
                 },
-                [a.id],
+                [a.id]
             );
         },
     }),
@@ -4872,12 +4846,12 @@ var CPlants = NewO({
                                 height: "196px",
                                 left: "-50px",
                                 top: "-37px",
-                            },
+                            }
                         );
                         oSym.addTask(120, ClearChild, [f]);
                     }
                 },
-                [a.id],
+                [a.id]
             );
         },
     }),
@@ -4925,7 +4899,7 @@ var CPlants = NewO({
                                 height: "131px",
                                 left: 120 - h.pixelLeft + "px",
                                 top: "-42px",
-                            },
+                            }
                         );
                         oSym.addTask(135, ClearChild, [b]);
                         ClearChild($("dIceCar" + f));
@@ -4936,7 +4910,7 @@ var CPlants = NewO({
                         }
                     }
                 },
-                [a.id],
+                [a.id]
             );
         },
     }),
@@ -4984,7 +4958,7 @@ var CPlants = NewO({
                                 height: "131px",
                                 left: 120 - h.pixelLeft + "px",
                                 top: "-42px",
-                            },
+                            }
                         );
                         oSym.addTask(135, ClearChild, [b]);
                         ClearChild($("dIceCar" + f));
@@ -4995,7 +4969,7 @@ var CPlants = NewO({
                         }
                     }
                 },
-                [a.id],
+                [a.id]
             );
         },
     }),
@@ -5084,7 +5058,7 @@ var CPlants = NewO({
                         var k = $P[d];
                         k && delete k.ArZ[j];
                     },
-                    [this.id, c],
+                    [this.id, c]
                 ));
         },
         AttackCheck2: function (a) {
@@ -5176,7 +5150,7 @@ var CPlants = NewO({
                         var k = $P[d];
                         k && delete k.ArZ[j];
                     },
-                    [this.id, c],
+                    [this.id, c]
                 ));
         },
         AttackCheck2: function (a) {
@@ -5262,16 +5236,10 @@ var CPlants = NewO({
                       !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
                     : c[0] && !d
                 : d && d.EName == "oGarlic"
-                  ? 1
-                  : oGd.$LF[b] == 1
-                    ? !(
-                          f < 1 ||
-                          f > 9 ||
-                          oGd.$Crater[a] ||
-                          oGd.$Tombstones[a] ||
-                          d
-                      )
-                    : c[0] && !d;
+                ? 1
+                : oGd.$LF[b] == 1
+                ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
+                : c[0] && !d;
         },
         InitTrigger: function () {},
         HurtStatus: 0,
@@ -5330,16 +5298,10 @@ var CPlants = NewO({
                       !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
                     : c[0] && !d
                 : d && d.EName == "oGarlic"
-                  ? 1
-                  : oGd.$LF[b] == 1
-                    ? !(
-                          f < 1 ||
-                          f > 9 ||
-                          oGd.$Crater[a] ||
-                          oGd.$Tombstones[a] ||
-                          d
-                      )
-                    : c[0] && !d;
+                ? 1
+                : oGd.$LF[b] == 1
+                ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
+                : c[0] && !d;
         },
         InitTrigger: function () {},
         HurtStatus: 0,
@@ -5397,7 +5359,7 @@ var CPlants = NewO({
                 ? c.NormalAttack(
                       c,
                       d.id,
-                      d.ZX + d.Speed * 4 * (!d.WalkDirection ? -1 : 1) - 50,
+                      d.ZX + d.Speed * 4 * (!d.WalkDirection ? -1 : 1) - 50
                   )
                 : (c.HP -= a) < 1 && c.Die();
         },
@@ -5429,7 +5391,7 @@ var CPlants = NewO({
                         b,
                         h.id,
                         h.ZX + h.Speed * 4 * (!h.WalkDirection ? -1 : 1) - 50,
-                    ],
+                    ]
                 ));
         },
         NormalAttack: function (d, c, b) {
@@ -5459,7 +5421,7 @@ var CPlants = NewO({
                     }
                     oSym.addTask(185, ClearChild, [f]);
                 },
-                [a, b, d.R],
+                [a, b, d.R]
             );
         },
     }),
@@ -5491,7 +5453,7 @@ var CPlants = NewO({
                 ? c.NormalAttack(
                       c,
                       d.id,
-                      d.ZX + d.Speed * 4 * (!d.WalkDirection ? -1 : 1) - 50,
+                      d.ZX + d.Speed * 4 * (!d.WalkDirection ? -1 : 1) - 50
                   )
                 : (c.HP -= a) < 1 && c.Die();
         },
@@ -5523,7 +5485,7 @@ var CPlants = NewO({
                         b,
                         h.id,
                         h.ZX + h.Speed * 4 * (!h.WalkDirection ? -1 : 1) - 50,
-                    ],
+                    ]
                 ));
         },
         NormalAttack: function (d, c, b) {
@@ -5553,7 +5515,7 @@ var CPlants = NewO({
                     }
                     oSym.addTask(185, ClearChild, [f]);
                 },
-                [a, b, d.R],
+                [a, b, d.R]
             );
         },
     }),
@@ -5609,7 +5571,7 @@ var CPlants = NewO({
                                 g &&
                                     ((h = $Z[f]) && h.beAttacked && h.PZ
                                         ? ($(e).childNodes[1].src = h.getRaven(
-                                              e,
+                                              e
                                           )
                                               ? (oSym.addTask(
                                                     4200,
@@ -5618,11 +5580,11 @@ var CPlants = NewO({
                                                         j &&
                                                             ((j.canTrigger = 1),
                                                             ($(
-                                                                i,
+                                                                i
                                                             ).childNodes[1].src =
                                                                 "images/Plants/Chomper/Chomper.gif"));
                                                     },
-                                                    [e],
+                                                    [e]
                                                 ),
                                                 "images/Plants/Chomper/ChomperDigest.gif")
                                               : ((g.canTrigger = 1),
@@ -5636,13 +5598,13 @@ var CPlants = NewO({
                                                       ($(i).childNodes[1].src =
                                                           "images/Plants/Chomper/Chomper.gif"));
                                               },
-                                              [e],
+                                              [e]
                                           ));
                             },
-                            [c, d],
+                            [c, d]
                         );
                 },
-                [a, b],
+                [a, b]
             );
         },
     }),
@@ -5698,7 +5660,7 @@ var CPlants = NewO({
                                 g &&
                                     ((h = $Z[f]) && h.beAttacked && h.PZ
                                         ? ($(e).childNodes[1].src = h.getRaven(
-                                              e,
+                                              e
                                           )
                                               ? (oSym.addTask(
                                                     4200,
@@ -5707,11 +5669,11 @@ var CPlants = NewO({
                                                         j &&
                                                             ((j.canTrigger = 1),
                                                             ($(
-                                                                i,
+                                                                i
                                                             ).childNodes[1].src =
                                                                 "images/Plants/Chomper/Chomper.gif"));
                                                     },
-                                                    [e],
+                                                    [e]
                                                 ),
                                                 "images/Plants/Chomper/ChomperDigest.gif")
                                               : ((g.canTrigger = 1),
@@ -5725,13 +5687,13 @@ var CPlants = NewO({
                                                       ($(i).childNodes[1].src =
                                                           "images/Plants/Chomper/Chomper.gif"));
                                               },
-                                              [e],
+                                              [e]
                                           ));
                             },
-                            [c, d],
+                            [c, d]
                         );
                 },
-                [a, b],
+                [a, b]
             );
         },
     }),
@@ -5774,7 +5736,7 @@ var CPlants = NewO({
                                 g &&
                                     ((h = $Z[f]) && h.beAttacked && h.PZ
                                         ? ($(e).childNodes[1].src = h.getRaven(
-                                              e,
+                                              e
                                           )
                                               ? (oSym.addTask(
                                                     2100,
@@ -5783,11 +5745,11 @@ var CPlants = NewO({
                                                         j &&
                                                             ((j.canTrigger = 1),
                                                             ($(
-                                                                i,
+                                                                i
                                                             ).childNodes[1].src =
                                                                 "images/Plants/BigChomper/Chomper.gif"));
                                                     },
-                                                    [e],
+                                                    [e]
                                                 ),
                                                 "images/Plants/BigChomper/ChomperDigest.gif")
                                               : ((g.canTrigger = 1),
@@ -5801,13 +5763,13 @@ var CPlants = NewO({
                                                       ($(i).childNodes[1].src =
                                                           "images/Plants/BigChomper/Chomper.gif"));
                                               },
-                                              [e],
+                                              [e]
                                           ));
                             },
-                            [c, d],
+                            [c, d]
                         );
                 },
-                [a, b],
+                [a, b]
             );
         },
     }),
@@ -5850,7 +5812,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         PrivateBirth: function (b) {
@@ -5865,7 +5827,7 @@ var CPlants = NewO({
                     "px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" +
                     (b.zIndex + 1),
                 0,
-                EDPZ,
+                EDPZ
             );
         },
         PrivateDie: function (a) {
@@ -5880,7 +5842,7 @@ var CPlants = NewO({
                 d = oZ.getArZ(
                     f.AttackedLX,
                     Math.min(f.AttackedRX + 330, oS.W),
-                    f.R,
+                    f.R
                 ),
                 e = d.length,
                 g,
@@ -5913,7 +5875,7 @@ var CPlants = NewO({
                         ((h.childNodes[1].src =
                             "images/Plants/FumeShroom/FumeShroom.gif"),
                         SetHidden($(i)));
-                },
+                }
             );
         },
     }),
@@ -5956,7 +5918,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         PrivateBirth: function (b) {
@@ -5971,7 +5933,7 @@ var CPlants = NewO({
                     "px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" +
                     (b.zIndex + 1),
                 0,
-                EDPZ,
+                EDPZ
             );
         },
         PrivateDie: function (a) {
@@ -5986,7 +5948,7 @@ var CPlants = NewO({
                 d = oZ.getArZ(
                     f.AttackedLX,
                     Math.min(f.AttackedRX + 330, oS.W),
-                    f.R,
+                    f.R
                 ),
                 e = d.length,
                 g,
@@ -6019,7 +5981,7 @@ var CPlants = NewO({
                         ((h.childNodes[1].src =
                             "images/Plants/FumeShroom/FumeShroom.gif"),
                         SetHidden($(i)));
-                },
+                }
             );
         },
     }),
@@ -6063,7 +6025,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         PrivateBirth: function (b) {
@@ -6078,7 +6040,7 @@ var CPlants = NewO({
                     "px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" +
                     (b.zIndex + 1),
                 0,
-                EDPZ,
+                EDPZ
             );
         },
         PrivateDie: function (a) {
@@ -6093,7 +6055,7 @@ var CPlants = NewO({
                 d = oZ.getArZ(
                     f.AttackedLX,
                     Math.min(f.AttackedRX + 330, oS.W),
-                    f.R,
+                    f.R
                 ),
                 e = d.length,
                 g,
@@ -6126,7 +6088,7 @@ var CPlants = NewO({
                         ((h.childNodes[1].src =
                             "images/Plants/FumeShroom/FumeShroom.gif"),
                         SetHidden($(i)));
-                },
+                }
             );
         },
     }),
@@ -6158,7 +6120,7 @@ var CPlants = NewO({
                     "px;background:url(images/Plants/IcyFumeShroom/FumeShroomBullet.gif);z-index:" +
                     (b.zIndex + 1),
                 0,
-                EDPZ,
+                EDPZ
             );
         },
         NormalAttack: function () {
@@ -6167,7 +6129,7 @@ var CPlants = NewO({
                 d = oZ.getArZ(
                     f.AttackedLX,
                     Math.min(f.AttackedRX + 330, oS.W),
-                    f.R,
+                    f.R
                 ),
                 e = d.length,
                 g,
@@ -6200,7 +6162,7 @@ var CPlants = NewO({
                         ((h.childNodes[1].src =
                             "images/Plants/IcyFumeShroom/FumeShroom.gif"),
                         SetHidden($(i)));
-                },
+                }
             );
         },
     }),
@@ -6242,7 +6204,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         PrivateBirth: function (a) {
@@ -6264,7 +6226,7 @@ var CPlants = NewO({
                             : b(d));
                     a.Die();
                 },
-                [a.R + "_" + a.C + "_1"],
+                [a.R + "_" + a.C + "_1"]
             );
         },
     }),
@@ -6315,7 +6277,7 @@ var CPlants = NewO({
                     "px;background:url(images/Plants/GloomShroom/GloomShroomBullet.gif);z-index:" +
                     (b.zIndex + 1),
                 0,
-                EDPZ,
+                EDPZ
             );
         },
         PrivateDie: function (a) {
@@ -6358,11 +6320,11 @@ var CPlants = NewO({
                     PlayAudio(
                         ["kernelpult", "kernelpult2"][
                             Math.floor(Math.random() * 2)
-                        ],
+                        ]
                     );
                     --i && oSym.addTask(100, arguments.callee, [i]);
                 },
-                [4],
+                [4]
             );
             d.childNodes[1].src =
                 "images/Plants/GloomShroom/GloomShroomAttack.gif";
@@ -6391,7 +6353,7 @@ var CPlants = NewO({
                         (i.childNodes[1].src =
                             "images/Plants/GloomShroom/GloomShroom.gif");
                     SetHidden($(m));
-                },
+                }
             );
         },
     }),
@@ -6429,7 +6391,7 @@ var CPlants = NewO({
                     "px;top:" +
                     (a.pixelTop + 40) +
                     "px;visibility:hidden;z-index:" +
-                    (a.zIndex + 2),
+                    (a.zIndex + 2)
             );
         },
         PrivateDie: function (a) {
@@ -6446,7 +6408,7 @@ var CPlants = NewO({
                     id: c,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 15,
@@ -6454,7 +6416,7 @@ var CPlants = NewO({
                     var d = $(e);
                     d && SetVisible(d);
                 },
-                [c],
+                [c]
             );
             oSym.addTask(
                 1,
@@ -6468,11 +6430,11 @@ var CPlants = NewO({
                           }).src = "images/Plants/ShroomBulletHit.gif"),
                           oSym.addTask(10, ClearChild, [d]))
                         : (e += 5) < oS.W
-                          ? ((d.style.left = (g += 5) + "px"),
-                            oSym.addTask(1, arguments.callee, [j, d, e, f, g]))
-                          : ClearChild(d);
+                        ? ((d.style.left = (g += 5) + "px"),
+                          oSym.addTask(1, arguments.callee, [j, d, e, f, g]))
+                        : ClearChild(d);
                 },
-                [c, $(c), a, b.R, a - 46],
+                [c, $(c), a, b.R, a - 46]
             );
         },
     }),
@@ -6510,7 +6472,7 @@ var CPlants = NewO({
                     "px;top:" +
                     (a.pixelTop + 40) +
                     "px;visibility:hidden;z-index:" +
-                    (a.zIndex + 2),
+                    (a.zIndex + 2)
             );
         },
         PrivateDie: function (a) {
@@ -6527,7 +6489,7 @@ var CPlants = NewO({
                     id: c,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 15,
@@ -6535,7 +6497,7 @@ var CPlants = NewO({
                     var d = $(e);
                     d && SetVisible(d);
                 },
-                [c],
+                [c]
             );
             oSym.addTask(
                 1,
@@ -6549,11 +6511,11 @@ var CPlants = NewO({
                           }).src = "images/Plants/ShroomBulletHit.gif"),
                           oSym.addTask(10, ClearChild, [d]))
                         : (e += 5) < oS.W
-                          ? ((d.style.left = (g += 5) + "px"),
-                            oSym.addTask(1, arguments.callee, [j, d, e, f, g]))
-                          : ClearChild(d);
+                        ? ((d.style.left = (g += 5) + "px"),
+                          oSym.addTask(1, arguments.callee, [j, d, e, f, g]))
+                        : ClearChild(d);
                 },
-                [c, $(c), a, b.R, a - 46],
+                [c, $(c), a, b.R, a - 46]
             );
         },
     }),
@@ -6620,7 +6582,7 @@ var CPlants = NewO({
                     "px;top:" +
                     (c.pixelTop + 35) +
                     "px;visibility:hidden;z-index:" +
-                    (c.zIndex + 2),
+                    (c.zIndex + 2)
             );
             c.MX = b + 9;
         },
@@ -6638,7 +6600,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 1,
@@ -6652,11 +6614,11 @@ var CPlants = NewO({
                           }).src = "images/Plants/ShroomBulletHit.gif"),
                           oSym.addTask(10, ClearChild, [e]))
                         : (f += 5) < oS.W
-                          ? ((e.style.left = (h += 5) + "px"),
-                            oSym.addTask(1, arguments.callee, [k, e, f, g, h]))
-                          : ClearChild(e);
+                        ? ((e.style.left = (h += 5) + "px"),
+                          oSym.addTask(1, arguments.callee, [k, e, f, g, h]))
+                        : ClearChild(e);
                 },
-                [d, $(d), b, c.R, b - 46],
+                [d, $(d), b, c.R, b - 46]
             );
             c.Attacking = 1;
             oSym.addTask(
@@ -6670,10 +6632,10 @@ var CPlants = NewO({
                             var i = $P[h];
                             i && (i.Attacking = 0);
                         },
-                        [e],
+                        [e]
                     );
                 },
-                [d, a],
+                [d, a]
             );
         },
         CryCheck: function (a) {
@@ -6699,7 +6661,7 @@ var CPlants = NewO({
                                   "images/Plants/ScaredyShroom/ScaredyShroom.gif"));
                     }
                 },
-                [a],
+                [a]
             );
         },
     }),
@@ -6766,7 +6728,7 @@ var CPlants = NewO({
                     "px;top:" +
                     (c.pixelTop + 35) +
                     "px;visibility:hidden;z-index:" +
-                    (c.zIndex + 2),
+                    (c.zIndex + 2)
             );
             c.MX = b + 9;
         },
@@ -6784,7 +6746,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 1,
@@ -6798,11 +6760,11 @@ var CPlants = NewO({
                           }).src = "images/Plants/ShroomBulletHit.gif"),
                           oSym.addTask(10, ClearChild, [e]))
                         : (f += 5) < oS.W
-                          ? ((e.style.left = (h += 5) + "px"),
-                            oSym.addTask(1, arguments.callee, [k, e, f, g, h]))
-                          : ClearChild(e);
+                        ? ((e.style.left = (h += 5) + "px"),
+                          oSym.addTask(1, arguments.callee, [k, e, f, g, h]))
+                        : ClearChild(e);
                 },
-                [d, $(d), b, c.R, b - 46],
+                [d, $(d), b, c.R, b - 46]
             );
             c.Attacking = 1;
             oSym.addTask(
@@ -6816,10 +6778,10 @@ var CPlants = NewO({
                             var i = $P[h];
                             i && (i.Attacking = 0);
                         },
-                        [e],
+                        [e]
                     );
                 },
-                [d, a],
+                [d, a]
             );
         },
         CryCheck: function (a) {
@@ -6845,7 +6807,7 @@ var CPlants = NewO({
                                   "images/Plants/ScaredyShroom/ScaredyShroom.gif"));
                     }
                 },
-                [a],
+                [a]
             );
         },
     }),
@@ -6913,7 +6875,7 @@ var CPlants = NewO({
                     "px;top:" +
                     (c.pixelTop + 35) +
                     "px;visibility:hidden;z-index:" +
-                    (c.zIndex + 2),
+                    (c.zIndex + 2)
             );
             c.MX = b + 9;
         },
@@ -6931,7 +6893,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 0,
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 1,
@@ -6945,11 +6907,11 @@ var CPlants = NewO({
                           }).src = "images/Plants/ShroomBulletHit.gif"),
                           oSym.addTask(10, ClearChild, [e]))
                         : (f += 5) < oS.W
-                          ? ((e.style.left = (h += 5) + "px"),
-                            oSym.addTask(1, arguments.callee, [k, e, f, g, h]))
-                          : ClearChild(e);
+                        ? ((e.style.left = (h += 5) + "px"),
+                          oSym.addTask(1, arguments.callee, [k, e, f, g, h]))
+                        : ClearChild(e);
                 },
-                [d, $(d), b, c.R, b - 46],
+                [d, $(d), b, c.R, b - 46]
             );
             c.Attacking = 1;
             oSym.addTask(
@@ -6963,10 +6925,10 @@ var CPlants = NewO({
                             var i = $P[h];
                             i && (i.Attacking = 0);
                         },
-                        [e],
+                        [e]
                     );
                 },
-                [d, a],
+                [d, a]
             );
         },
         CryCheck: function (a) {
@@ -6992,7 +6954,7 @@ var CPlants = NewO({
                                   "images/Plants/ScaredyShroom/ScaredyShroom.gif"));
                     }
                 },
-                [a],
+                [a]
             );
         },
     }),
@@ -7167,14 +7129,14 @@ var CPlants = NewO({
                                         (f.pixelTop - 80) +
                                         "px",
                                     0,
-                                    EDPZ,
+                                    EDPZ
                                 ),
-                            ],
+                            ]
                         );
                         f.Die();
                     }
                 },
-                [a],
+                [a]
             );
         },
     }),
@@ -7241,14 +7203,14 @@ var CPlants = NewO({
                                         (f.pixelTop - 80) +
                                         "px",
                                     0,
-                                    EDPZ,
+                                    EDPZ
                                 ),
-                            ],
+                            ]
                         );
                         f.Die();
                     }
                 },
-                [a],
+                [a]
             );
         },
     }),
@@ -7289,7 +7251,7 @@ var CPlants = NewO({
                           var e = $P[h];
                           e && e.ProduceSun(e, g, f);
                       },
-                      [d, GetX(c.C) - 40, GetY(c.R)],
+                      [d, GetX(c.C) - 40, GetY(c.R)]
                   ),
                   oSym.addTask(
                       12e3,
@@ -7301,7 +7263,7 @@ var CPlants = NewO({
                                   "images/Plants/SunShroom/SunShroom.gif"),
                               (e.Status = 1));
                       },
-                      [d],
+                      [d]
                   ));
             EditEle(
                 b,
@@ -7309,7 +7271,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         ProduceSun: function (a, c, b) {
@@ -7317,7 +7279,7 @@ var CPlants = NewO({
                 Math.floor(c + Math.random() * 41),
                 b,
                 !a.Status ? 15 : 25,
-                0,
+                0
             ),
                 oSym.addTask(
                     2400,
@@ -7325,7 +7287,7 @@ var CPlants = NewO({
                         var d = $P[g];
                         d && d.ProduceSun(d, f, e);
                     },
-                    [a.id, c, b],
+                    [a.id, c, b]
                 );
         },
         WakeUP: function (a) {
@@ -7342,7 +7304,7 @@ var CPlants = NewO({
                             "images/Plants/SunShroom/SunShroom.gif"),
                         (c.Status = 1));
                 },
-                [b],
+                [b]
             );
         },
     }),
@@ -7387,7 +7349,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         WakeUP: function (a) {
@@ -7438,7 +7400,7 @@ var CPlants = NewO({
                                 (d.pixelTop - 220) +
                                 "px;background:url(images/Plants/DoomShroom/Boom.png) no-repeat",
                             0,
-                            EDPZ,
+                            EDPZ
                         );
                         oSym.addTask(
                             20,
@@ -7451,9 +7413,9 @@ var CPlants = NewO({
                                     "div",
                                     "position:absolute;z-index:20;width:900px;height:600px;left:0;top:0;background:#FFF;*filter:alpha(opacity=50);opacity:.5",
                                     0,
-                                    EDPZ,
+                                    EDPZ
                                 ),
-                            ],
+                            ]
                         );
                         ImgSpriter(
                             q,
@@ -7478,13 +7440,13 @@ var CPlants = NewO({
                                     l,
                                     b,
                                     d.pixelLeft + 3,
-                                    d.pixelTop + 50,
+                                    d.pixelTop + 50
                                 );
-                            },
+                            }
                         );
                     }
                 },
-                [a],
+                [a]
             );
         },
         setCrater: function (f, b, d, e, c) {
@@ -7504,7 +7466,7 @@ var CPlants = NewO({
                             (c || GetY(b) - 30) +
                             "px",
                         0,
-                        EDPZ,
+                        EDPZ
                     );
                     break;
                 case 2:
@@ -7521,7 +7483,7 @@ var CPlants = NewO({
                             (c || GetY(b) - 26) +
                             "px",
                         0,
-                        EDPZ,
+                        EDPZ
                     );
                     break;
                 case 3:
@@ -7536,7 +7498,7 @@ var CPlants = NewO({
                             (c || GetY(b) - 19) +
                             "px",
                         0,
-                        EDPZ,
+                        EDPZ
                     );
                     break;
                 default:
@@ -7553,10 +7515,10 @@ var CPlants = NewO({
                             ClearChild(i);
                             delete oGd.$Crater[j];
                         },
-                        [g, h],
+                        [g, h]
                     );
                 },
-                [a],
+                [a]
             );
         },
     }),
@@ -7601,7 +7563,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         WakeUP: function (a) {
@@ -7652,7 +7614,7 @@ var CPlants = NewO({
                                 (d.pixelTop - 220) +
                                 "px;background:url(images/Plants/DoomShroom/Boom.png) no-repeat",
                             0,
-                            EDPZ,
+                            EDPZ
                         );
                         oSym.addTask(
                             20,
@@ -7665,9 +7627,9 @@ var CPlants = NewO({
                                     "div",
                                     "position:absolute;z-index:20;width:900px;height:600px;left:0;top:0;background:#FFF;*filter:alpha(opacity=50);opacity:.5",
                                     0,
-                                    EDPZ,
+                                    EDPZ
                                 ),
-                            ],
+                            ]
                         );
                         ImgSpriter(
                             q,
@@ -7692,13 +7654,13 @@ var CPlants = NewO({
                                     l,
                                     b,
                                     d.pixelLeft + 3,
-                                    d.pixelTop + 50,
+                                    d.pixelTop + 50
                                 );
-                            },
+                            }
                         );
                     }
                 },
-                [a],
+                [a]
             );
         },
         setCrater: function (f, b, d, e, c) {
@@ -7718,7 +7680,7 @@ var CPlants = NewO({
                             (c || GetY(b) - 30) +
                             "px",
                         0,
-                        EDPZ,
+                        EDPZ
                     );
                     break;
                 case 2:
@@ -7735,7 +7697,7 @@ var CPlants = NewO({
                             (c || GetY(b) - 26) +
                             "px",
                         0,
-                        EDPZ,
+                        EDPZ
                     );
                     break;
                 case 3:
@@ -7750,7 +7712,7 @@ var CPlants = NewO({
                             (c || GetY(b) - 19) +
                             "px",
                         0,
-                        EDPZ,
+                        EDPZ
                     );
                     break;
                 default:
@@ -7767,10 +7729,10 @@ var CPlants = NewO({
                             ClearChild(i);
                             delete oGd.$Crater[j];
                         },
-                        [g, h],
+                        [g, h]
                     );
                 },
-                [a],
+                [a]
             );
         },
     }),
@@ -7825,7 +7787,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         getHurt: function (d, b, a) {
@@ -7852,7 +7814,7 @@ var CPlants = NewO({
                     "px;top:" +
                     (b.height - 67) +
                     "px",
-                b.Ele,
+                b.Ele
             );
             oSym.addTask(
                 50,
@@ -7871,7 +7833,7 @@ var CPlants = NewO({
                             (g.pixelTop - 16) +
                             "px;width:97px;height:88px;over-flow:hidden",
                         0,
-                        EDPZ,
+                        EDPZ
                     );
                     NewEle(
                         c,
@@ -7882,7 +7844,7 @@ var CPlants = NewO({
                             (h.pixelTop + h.height - 88) +
                             "px;width:97px;height:88px;over-flow:hidden",
                         0,
-                        EDPZ,
+                        EDPZ
                     );
                     ImgSpriter(
                         d,
@@ -7900,7 +7862,7 @@ var CPlants = NewO({
                         0,
                         function (i, j) {
                             ClearChild($(i));
-                        },
+                        }
                     );
                     ImgSpriter(
                         c,
@@ -7918,12 +7880,12 @@ var CPlants = NewO({
                         0,
                         function (i, j) {
                             ClearChild($(i));
-                        },
+                        }
                     );
                     h.DisappearDie();
                     g.Die();
                 },
-                [a, b],
+                [a, b]
             );
         },
     }),
@@ -7978,7 +7940,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         getHurt: function (d, b, a) {
@@ -8005,7 +7967,7 @@ var CPlants = NewO({
                     "px;top:" +
                     (b.height - 67) +
                     "px",
-                b.Ele,
+                b.Ele
             );
             oSym.addTask(
                 50,
@@ -8024,7 +7986,7 @@ var CPlants = NewO({
                             (g.pixelTop - 16) +
                             "px;width:97px;height:88px;over-flow:hidden",
                         0,
-                        EDPZ,
+                        EDPZ
                     );
                     NewEle(
                         c,
@@ -8035,7 +7997,7 @@ var CPlants = NewO({
                             (h.pixelTop + h.height - 88) +
                             "px;width:97px;height:88px;over-flow:hidden",
                         0,
-                        EDPZ,
+                        EDPZ
                     );
                     ImgSpriter(
                         d,
@@ -8053,7 +8015,7 @@ var CPlants = NewO({
                         0,
                         function (i, j) {
                             ClearChild($(i));
-                        },
+                        }
                     );
                     ImgSpriter(
                         c,
@@ -8071,12 +8033,12 @@ var CPlants = NewO({
                         0,
                         function (i, j) {
                             ClearChild($(i));
-                        },
+                        }
                     );
                     h.DisappearDie();
                     g.Die();
                 },
-                [a, b],
+                [a, b]
             );
         },
     }),
@@ -8120,7 +8082,7 @@ var CPlants = NewO({
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         Tooltip: "Aquatic plant that shoots short-ranged spores",
@@ -8167,7 +8129,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 id: d,
             },
             a,
-            EDPZ,
+            EDPZ
         );
     },
     Tooltip: "Aquatic plant that shoots short-ranged spores",
@@ -8220,7 +8182,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     var g;
                     (g = $P[e]) && g.ES() && g.AttackCheck1(f, h);
                 },
-                [a, b, c],
+                [a, b, c]
             );
     },
     CheckLoop2: function (b, c) {
@@ -8234,7 +8196,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     var g;
                     (g = $P[e]) && g.ES() && g.AttackCheck12(f, h);
                 },
-                [a, b, c],
+                [a, b, c]
             );
     },
     AttackCheck1: function (g, f) {
@@ -8291,7 +8253,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                         d.canTrigger = 1;
                     }
                 },
-                [b],
+                [b]
             );
             return false;
         }
@@ -8324,7 +8286,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                         d.canTrigger = 1;
                     }
                 },
-                [b],
+                [b]
             );
             return false;
         }
@@ -8340,7 +8302,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 var d = $(e);
                 d && (d.childNodes[1].src = "images/Plants/Cactus/Cactus.gif");
             },
-            [a],
+            [a]
         );
         NewImg(
             c,
@@ -8351,7 +8313,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 (b.pixelTop + 103) +
                 "px;visibility:hidden;z-index:" +
                 (b.zIndex + 2),
-            EDPZ,
+            EDPZ
         );
         oSym.addTask(
             30,
@@ -8359,7 +8321,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 var d = $(e);
                 d && SetVisible(d);
             },
-            [c],
+            [c]
         );
         oSym.addTask(
             1,
@@ -8370,11 +8332,11 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 e && e.Altitude == 1
                     ? (e.getPea(e, 30, d), ClearChild(i))
                     : (k += j = !d ? 5 : -5) < oS.W && k > 100
-                      ? ((i.style.left = (l += j) + "px"),
-                        oSym.addTask(1, arguments.callee, [g, i, d, k, h, l]))
-                      : ClearChild(i);
+                    ? ((i.style.left = (l += j) + "px"),
+                      oSym.addTask(1, arguments.callee, [g, i, d, k, h, l]))
+                    : ClearChild(i);
             },
-            [c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40],
+            [c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40]
         );
     },
     NormalAttack2: function () {
@@ -8388,7 +8350,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 var d = $(e);
                 d && (d.childNodes[1].src = "images/Plants/Cactus/Cactus2.gif");
             },
-            [a],
+            [a]
         );
         NewImg(
             c,
@@ -8399,7 +8361,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 (b.pixelTop + 33) +
                 "px;visibility:hidden;z-index:" +
                 (b.zIndex + 2),
-            EDPZ,
+            EDPZ
         );
         oSym.addTask(
             20,
@@ -8407,7 +8369,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 var d = $(e);
                 d && SetVisible(d);
             },
-            [c],
+            [c]
         );
         oSym.addTask(
             1,
@@ -8418,11 +8380,11 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 e && e.Altitude == 3
                     ? (e.getHit0(e, 20, d), e.Drop(), ClearChild(i))
                     : (k += j = !d ? 5 : -5) < oS.W && k > 100
-                      ? ((i.style.left = (l += j) + "px"),
-                        oSym.addTask(1, arguments.callee, [g, i, d, k, h, l]))
-                      : ClearChild(i);
+                    ? ((i.style.left = (l += j) + "px"),
+                      oSym.addTask(1, arguments.callee, [g, i, d, k, h, l]))
+                    : ClearChild(i);
             },
-            [c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40],
+            [c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40]
         );
     },
 })),
@@ -8472,7 +8434,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                         var g;
                         (g = $P[e]) && g.ES() && g.AttackCheck1(f, h);
                     },
-                    [a, b, c],
+                    [a, b, c]
                 );
         },
         CheckLoop2: function (b, c) {
@@ -8486,7 +8448,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                         var g;
                         (g = $P[e]) && g.ES() && g.AttackCheck12(f, h);
                     },
-                    [a, b, c],
+                    [a, b, c]
                 );
         },
         AttackCheck1: function (g, f) {
@@ -8543,7 +8505,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                             d.canTrigger = 1;
                         }
                     },
-                    [b],
+                    [b]
                 );
                 return false;
             }
@@ -8576,7 +8538,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                             d.canTrigger = 1;
                         }
                     },
-                    [b],
+                    [b]
                 );
                 return false;
             }
@@ -8594,7 +8556,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                         (d.childNodes[1].src =
                             "images/Plants/Cactus/Cactus.gif");
                 },
-                [a],
+                [a]
             );
             NewImg(
                 c,
@@ -8605,7 +8567,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     (b.pixelTop + 103) +
                     "px;visibility:hidden;z-index:" +
                     (b.zIndex + 2),
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 30,
@@ -8613,7 +8575,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     var d = $(e);
                     d && SetVisible(d);
                 },
-                [c],
+                [c]
             );
             oSym.addTask(
                 1,
@@ -8624,18 +8586,11 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     e && e.Altitude == 1
                         ? (e.getPea(e, 30, d), ClearChild(i))
                         : (k += j = !d ? 5 : -5) < oS.W && k > 100
-                          ? ((i.style.left = (l += j) + "px"),
-                            oSym.addTask(1, arguments.callee, [
-                                g,
-                                i,
-                                d,
-                                k,
-                                h,
-                                l,
-                            ]))
-                          : ClearChild(i);
+                        ? ((i.style.left = (l += j) + "px"),
+                          oSym.addTask(1, arguments.callee, [g, i, d, k, h, l]))
+                        : ClearChild(i);
                 },
-                [c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40],
+                [c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40]
             );
         },
         NormalAttack2: function () {
@@ -8651,7 +8606,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                         (d.childNodes[1].src =
                             "images/Plants/Cactus/Cactus2.gif");
                 },
-                [a],
+                [a]
             );
             NewImg(
                 c,
@@ -8662,7 +8617,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     (b.pixelTop + 33) +
                     "px;visibility:hidden;z-index:" +
                     (b.zIndex + 2),
-                EDPZ,
+                EDPZ
             );
             oSym.addTask(
                 20,
@@ -8670,7 +8625,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     var d = $(e);
                     d && SetVisible(d);
                 },
-                [c],
+                [c]
             );
             oSym.addTask(
                 1,
@@ -8681,18 +8636,11 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     e && e.Altitude == 3
                         ? (e.getHit0(e, 20, d), e.Drop(), ClearChild(i))
                         : (k += j = !d ? 5 : -5) < oS.W && k > 100
-                          ? ((i.style.left = (l += j) + "px"),
-                            oSym.addTask(1, arguments.callee, [
-                                g,
-                                i,
-                                d,
-                                k,
-                                h,
-                                l,
-                            ]))
-                          : ClearChild(i);
+                        ? ((i.style.left = (l += j) + "px"),
+                          oSym.addTask(1, arguments.callee, [g, i, d, k, h, l]))
+                        : ClearChild(i);
                 },
-                [c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40],
+                [c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40]
             );
         },
     })),
@@ -8723,7 +8671,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                             "images/Plants/Blover/BloverBlow.gif"),
                         $P[id].Dispel();
                 },
-                [o.id],
+                [o.id]
             );
         },
         Dispel: function () {
@@ -8749,7 +8697,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     var p = $P[id];
                     p && p.Die();
                 },
-                [id],
+                [id]
             );
         },
     })),
@@ -8780,7 +8728,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                             "images/Plants/Blover/BloverBlow.gif"),
                         $P[id].Dispel();
                 },
-                [o.id],
+                [o.id]
             );
         },
         Dispel: function () {
@@ -8806,7 +8754,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     var p = $P[id];
                     p && p.Die();
                 },
-                [id],
+                [id]
             );
         },
     })),
@@ -8900,15 +8848,15 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 ? (c.HP -= a) < 1
                     ? c.Die()
                     : c.HP < 2667
-                      ? c.HurtStatus < 2 &&
-                        ((c.HurtStatus = 2),
-                        (d.src =
-                            "images/Plants/FlamesMushroom/FlamesMushroom2.gif"))
-                      : c.HP < 5333 &&
-                        c.HurtStatus < 1 &&
-                        ((c.HurtStatus = 1),
-                        (d.src =
-                            "images/Plants/FlamesMushroom/FlamesMushroom1.gif"))
+                    ? c.HurtStatus < 2 &&
+                      ((c.HurtStatus = 2),
+                      (d.src =
+                          "images/Plants/FlamesMushroom/FlamesMushroom2.gif"))
+                    : c.HP < 5333 &&
+                      c.HurtStatus < 1 &&
+                      ((c.HurtStatus = 1),
+                      (d.src =
+                          "images/Plants/FlamesMushroom/FlamesMushroom1.gif"))
                 : c.Die(1);
         },
         NormalAttack: function () {},
@@ -9014,7 +8962,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 "images/Plants/Plantern/light.gif",
                 "filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" +
                     c.zIndex,
-                $(c.id),
+                $(c.id)
             );
             oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 0),
                 oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
@@ -9068,7 +9016,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 "images/Plants/Plantern/light.gif",
                 "filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" +
                     c.zIndex,
-                $(c.id),
+                $(c.id)
             );
             oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 0),
                 oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
@@ -9169,7 +9117,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                                       A.PicArr,
                                       0,
                                       0,
-                                      0,
+                                      0
                                   );
                     }
                     z.CanAttack = 0;
@@ -9255,7 +9203,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 d,
                 0,
                 GetY1Y2(1)[0],
-                600,
+                600
             );
         },
     })),
@@ -9356,7 +9304,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     "px;top:" +
                     (a.pixelTop + 40) +
                     "px;visibility:hidden;z-index:" +
-                    (a.zIndex + 2),
+                    (a.zIndex + 2)
             );
         },
         BirthStyle: function (c, d, b, a) {
@@ -9366,7 +9314,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         PrivateDie: function (a) {
@@ -9386,7 +9334,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                         id: c,
                     },
                     0,
-                    EDPZ,
+                    EDPZ
                 );
             oSym.addTask(
                 15,
@@ -9394,7 +9342,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     var d = $(e);
                     d && SetVisible(d);
                 },
-                [c],
+                [c]
             );
             oSym.addTask(
                 1,
@@ -9408,11 +9356,11 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                           }).src = "images/Plants/gun/ShroomBulletHit.gif"),
                           oSym.addTask(10, ClearChild, [d]))
                         : (e += 5) < oS.W
-                          ? ((d.style.left = (g += 5) + "px"),
-                            oSym.addTask(1, arguments.callee, [j, d, e, f, g]))
-                          : ClearChild(d);
+                        ? ((d.style.left = (g += 5) + "px"),
+                          oSym.addTask(1, arguments.callee, [j, d, e, f, g]))
+                        : ClearChild(d);
                 },
-                [c, $(c), a, b.R, a - 46],
+                [c, $(c), a, b.R, a - 46]
             );
             d.childNodes[1].src = "images/Plants/gun/SeaShroomShoot.gif";
             setTimeout(() => {
@@ -9449,7 +9397,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         CanGrow: function (e, d, f) {
@@ -9481,7 +9429,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     "px;background:url(images/Plants/SeaAnemone/GloomShroomBullet.gif);z-index:" +
                     (b.zIndex + 1),
                 0,
-                EDPZ,
+                EDPZ
             );
         },
         NormalAttack: function () {
@@ -9511,11 +9459,11 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     PlayAudio(
                         ["kernelpult", "kernelpult2"][
                             Math.floor(Math.random() * 2)
-                        ],
+                        ]
                     );
                     --i && oSym.addTask(100, arguments.callee, [i]);
                 },
-                [4],
+                [4]
             );
             d.childNodes[1].src =
                 "images/Plants/SeaAnemone/GloomShroomAttack.gif";
@@ -9544,7 +9492,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                         (i.childNodes[1].src =
                             "images/Plants/SeaAnemone/GloomShroom.gif");
                     SetHidden($(m));
-                },
+                }
             );
         },
     })),
@@ -9600,7 +9548,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     id: d,
                 },
                 a,
-                EDPZ,
+                EDPZ
             );
         },
         getHurt: function (d, b, a) {
@@ -9628,7 +9576,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     "px;top:" +
                     (b.height - 67) +
                     "px",
-                b.Ele,
+                b.Ele
             );
             oSym.addTask(
                 50,
@@ -9646,7 +9594,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                             (h.pixelTop + h.height - 88) +
                             "px;width:97px;height:88px;over-flow:hidden",
                         0,
-                        EDPZ,
+                        EDPZ
                     );
                     ImgSpriter(
                         d,
@@ -9664,7 +9612,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                         0,
                         function (i, j) {
                             ClearChild($(i));
-                        },
+                        }
                     );
                     ImgSpriter(
                         c,
@@ -9682,12 +9630,12 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                         0,
                         function (i, j) {
                             ClearChild($(i));
-                        },
+                        }
                     );
                     h.DisappearDie();
                     g.Die();
                 },
-                [a, b],
+                [a, b]
             );
         },
     })),
@@ -9760,12 +9708,12 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                                 height: "148px",
                                 left: "-1px",
                                 top: "-1px",
-                            },
+                            }
                         );
                         oSym.addTask(220, ClearChild, [b]);
                     }
                 },
-                [a.id],
+                [a.id]
             );
         },
     })),
@@ -9800,7 +9748,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     var g;
                     (g = $P[e]) && g.AttackCheck1(f, h);
                 },
-                [a, b, c],
+                [a, b, c]
             );
         },
         getShadow: function (a) {
@@ -9830,7 +9778,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                     "px;background:url(images/Plants/LaserPea/LaserPeaBullet.gif);z-index:" +
                     (b.zIndex + 1),
                 0,
-                EDPZ,
+                EDPZ
             );
         },
         PrivateDie: function (a) {
@@ -9845,7 +9793,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                 d = oZ.getArZ(
                     f.AttackedLX,
                     Math.min(f.AttackedRX + 686, oS.W),
-                    f.R,
+                    f.R
                 ),
                 e = d.length,
                 g,
@@ -9877,7 +9825,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
                         ((h.childNodes[1].src =
                             "images/Plants/LaserPea/LaserPea.gif"),
                         SetHidden($(i)));
-                },
+                }
             );
         },
     })),
@@ -9999,8 +9947,8 @@ oFlowerVase = InheritO(CPlants, {
                 (VType == "SunNum"
                     ? 50
                     : VType == "Plants"
-                      ? oPeashooter
-                      : oZombie); // 获取该花瓶的内部玩意
+                    ? oPeashooter
+                    : oZombie); // 获取该花瓶的内部玩意
         switch (VType) {
             case "Plants": // 植物类型
                 EleCard.style =
@@ -10028,7 +9976,9 @@ oFlowerVase = InheritO(CPlants, {
                         LPoint = PT.beAttackedPointL; // 最终的相对位置
 
                     if (ZWidth > ZHeight)
-                        (EK = ZWidth / MaxW), (ZHeight /= EK), (ZWidth = MaxW); // 等比缩放
+                        (EK = ZWidth / MaxW),
+                            (ZHeight /= EK),
+                            (ZWidth = MaxW); // 等比缩放
                     else if (ZHeight > ZWidth)
                         (EK = ZHeight / MaxH), (ZWidth /= EK), (ZHeight = MaxH); // 等比缩放
 
@@ -10091,7 +10041,7 @@ oFlowerVase = InheritO(CPlants, {
                     SetAlpha(Ele, 100, 1);
                 },
             },
-            EDAll,
+            EDAll
         ));
 
         self.ControlBase("Summon", "Auto"); // 生成底座
@@ -10117,7 +10067,7 @@ oFlowerVase = InheritO(CPlants, {
 
         if (OnAudio != false)
             PlayAudio(
-                self.AudioArr[Math.floor(Math.random() * self.AudioArr.length)],
+                self.AudioArr[Math.floor(Math.random() * self.AudioArr.length)]
             ); // 随机播放音效
 
         self.ControlBase("Delete", "Auto"); // 删除底座
@@ -10139,7 +10089,7 @@ oFlowerVase = InheritO(CPlants, {
                     GetY(self.R) - 30,
                     Value,
                     0,
-                    self.CardTime,
+                    self.CardTime
                 );
                 break;
 
@@ -10154,7 +10104,7 @@ oFlowerVase = InheritO(CPlants, {
                         if (m.EName == "oJackinTheBoxZombie" && self.AutoJoker)
                             m.OpenBox(m.id); // 如果是小丑僵尸，直接引爆爆炸
                     },
-                    Value,
+                    Value
                 );
                 break;
 
@@ -10164,7 +10114,7 @@ oFlowerVase = InheritO(CPlants, {
                         GetX(self.C) - self.width / 2,
                         GetY(self.R) - 30,
                         Value - 500,
-                        0,
+                        0
                     ),
                         (Value = 500); // 大于五百的阳光直接生成一个大的
                 while (Value > 25)
@@ -10172,14 +10122,14 @@ oFlowerVase = InheritO(CPlants, {
                         GetX(self.C) - self.width / 2,
                         GetY(self.R) - 30,
                         25,
-                        0,
+                        0
                     ),
                         (Value -= 25); // 500 以内的，一个一个生成
                 AppearSun(
                     GetX(self.C) - self.width / 2,
                     GetY(self.R) - 30,
                     Value,
-                    0,
+                    0
                 ),
                     (Value = 0); // 余下的单独生成
                 break;

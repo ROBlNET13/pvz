@@ -90,7 +90,7 @@
                         : SetVisible(
                               $("dMenu"),
                               $("dSelectCard"),
-                              $("dCardList"),
+                              $("dCardList")
                           );
                 })();
             };
@@ -105,7 +105,7 @@
                         "div",
                         "line-height:40px;font-size:14px;top:380px",
                         0,
-                        EDAll,
+                        EDAll
                     ); // 选择阵型列数
                     var b = function (c) {
                         ClearChild($("DivTeach")), ImmediatelyCool(); // 取消冻结全部植物
@@ -114,7 +114,7 @@
                             "iStripe",
                             "images/interface/Stripe.png",
                             "left:" + (GetX1X2(c)[0] - 11) + "px;top:65px",
-                            EDAll,
+                            EDAll
                         ); // 生成线
                         NewEle(
                             "btnClickSave",
@@ -194,23 +194,23 @@
 
                                     if ($User.Visitor.UserName == "游客")
                                         return alert(
-                                            "Only logged in users can save progress！\nPlease log in before saving your progress!",
+                                            "Only logged in users can save progress！\nPlease log in before saving your progress!"
                                         ); // 未登录用户
 
                                     if ($P.length < h * d * (4 / 5))
                                         return alert(
-                                            "The amount of plants must reach 80% of the set range!\n\nPlease save again after completing the layout！",
+                                            "The amount of plants must reach 80% of the set range!\n\nPlease save again after completing the layout！"
                                         ); // 植物没满
 
                                     if (r <= 0 || r >= c || r != c - 1)
                                         return alert(
-                                            "The plants exceed the planting range limit or the formation does not meet the specifications.！\n\nPlease adjust the formation and save again！",
+                                            "The plants exceed the planting range limit or the formation does not meet the specifications.！\n\nPlease adjust the formation and save again！"
                                         ); // 植物种植在了线外 / 没到指定列
 
                                     if (
                                         (f = prompt(
                                             "Please enter the amount of sunlight, range 50-1000 and must be multiples of 25 \nFor example：150,175,200,225,250,275,300,325,350",
-                                            "150",
+                                            "150"
                                         )) == null
                                     )
                                         return; // 用户未输入, 返回
@@ -221,13 +221,13 @@
                                         f > 1000
                                     )
                                         return alert(
-                                            "Please enter a number in the range 50-750 that is a multiple of 25！",
+                                            "Please enter a number in the range 50-750 that is a multiple of 25！"
                                         ); // 输入阳光
 
                                     if (
                                         (l = prompt(
                                             "Please enter a title for your custom game(within 50 characters)\nIf not entered, the default title will be used.",
-                                            "",
+                                            ""
                                         )) != null
                                     ) {
                                         ($("btnClickSave").innerHTML =
@@ -242,7 +242,7 @@
                                     }
                                 },
                             },
-                            EDAll,
+                            EDAll
                         );
                         oS.ArP.ArC = [1, c]; // 规定种植范围
                         oS.ArP.ArR = [1, oS.R]; // 行
@@ -253,9 +253,9 @@
                             "span",
                             "position:absolute;left:65px;width:620px;text-align:left; font-family: 幼圆; font-size: 14px;line-height:50px",
                             0,
-                            a,
+                            a
                         ),
-                        "How many columns to place your plants in: ",
+                        "How many columns to place your plants in: "
                     ); // 选列
 
                     // 选择按钮
@@ -269,9 +269,9 @@
                                     b(3);
                                 },
                             },
-                            a,
+                            a
                         ),
-                        "2",
+                        "2"
                     );
                     innerText(
                         NewEle(
@@ -283,9 +283,9 @@
                                     b(4);
                                 },
                             },
-                            a,
+                            a
                         ),
-                        "3",
+                        "3"
                     );
                     innerText(
                         NewEle(
@@ -297,9 +297,9 @@
                                     b(5);
                                 },
                             },
-                            a,
+                            a
                         ),
-                        "4",
+                        "4"
                     );
                     innerText(
                         NewEle(
@@ -311,9 +311,9 @@
                                     b(6);
                                 },
                             },
-                            a,
+                            a
                         ),
-                        "5",
+                        "5"
                     );
                     innerText(
                         NewEle(
@@ -325,9 +325,9 @@
                                     b(7);
                                 },
                             },
-                            a,
+                            a
                         ),
-                        "6",
+                        "6"
                     );
                     innerText(
                         NewEle(
@@ -339,9 +339,9 @@
                                     b(8);
                                 },
                             },
-                            a,
+                            a
                         ),
-                        "7",
+                        "7"
                     );
                     innerText(
                         NewEle(
@@ -353,9 +353,9 @@
                                     b(9);
                                 },
                             },
-                            a,
+                            a
                         ),
-                        "8",
+                        "8"
                     );
                 },
             });
@@ -376,13 +376,13 @@
                     onclick: function () {
                         SelectModal(0);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:198px;left:269px",
-                EDAll,
+                EDAll
             );
         },
     };
@@ -438,7 +438,7 @@
                             "display:block;position:absolute;left:0px;top:0px",
                             0,
                             EDAll,
-                            { class: "Almanac_ZombieBack" },
+                            { class: "Almanac_ZombieBack" }
                         );
                         NewEle(
                             "dChoseTitle",
@@ -446,7 +446,7 @@
                             "position:relative;text-align:center;line-height:88px;height:88px;width:100%;font-size:30px;font-weight:bold;font-family:黑体;color:#fff",
                             { innerHTML: "Select mode" },
                             $("dChosePanel"),
-                            { class: "dRiddleTitle" },
+                            { class: "dRiddleTitle" }
                         );
 
                         NewEle(
@@ -466,7 +466,7 @@
                                 innerText: "返 回",
                             },
                             EDAll,
-                            { class: "button" },
+                            { class: "button" }
                         );
 
                         NewEle(
@@ -478,7 +478,7 @@
                                     Change_Level("NGrass");
                                 },
                             },
-                            EDAll,
+                            EDAll
                         );
                         NewEle(
                             "dGrassTXT",
@@ -488,7 +488,7 @@
                                 innerHTML:
                                     'Night<br><font style="font-size:20px">Click here to select this mode</font>',
                             },
-                            $("dGrassDiv"),
+                            $("dGrassDiv")
                         );
 
                         NewEle(
@@ -500,7 +500,7 @@
                                     Change_Level("NPool");
                                 },
                             },
-                            EDAll,
+                            EDAll
                         );
                         NewEle(
                             "dPoolTXT",
@@ -510,7 +510,7 @@
                                 innerHTML:
                                     'Night Pool<br><font style="font-size:20px">Click here to select this mode</font>',
                             },
-                            $("dPoolDiv"),
+                            $("dPoolDiv")
                         );
 
                         SetVisible($("dMenu")); // 显示菜单按钮
@@ -527,7 +527,7 @@
                         SetBlock($("dSurface"), $("iSurfaceBackground"));
                         ShowRiddleGame();
                     },
-                }),
+                })
             );
         },
         NGrass: function () {
@@ -582,7 +582,7 @@
                     ArP: { ArC: [1, 4], ArR: [1, 6] },
                 }),
                 $FJ(oPlt, {}),
-                $FJ(oWin, {}),
+                $FJ(oWin, {})
             );
         },
         default: function () {

@@ -104,7 +104,7 @@ oS.Init(
                             oP.AddZombiesFlag(),
                                 SetVisible($("dFlagMeterContent"));
                         },
-                        [],
+                        []
                     );
                     (function () {
                         var a = dRand(GetX(0), GetX(oS.C)),
@@ -153,13 +153,13 @@ oS.Init(
                     onclick: function () {
                         SelectModal(0), PlayAudio("winmusic");
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:185px;left:51%",
-                EDAll,
+                EDAll
             );
         },
     },
@@ -179,7 +179,12 @@ oS.Init(
                 t = t || 1500;
 
             if (a)
-                (d = 0), oSym.addTask(1, MoveDropCard, [g, f, t]); // 从天而降，反之抛物线掉落
+                (d = 0),
+                    oSym.addTask(1, MoveDropCard, [
+                        g,
+                        f,
+                        t,
+                    ]); // 从天而降，反之抛物线掉落
             else
                 (d = f - 15 - 20),
                     (c += ";top:" + d + "px"),
@@ -217,7 +222,7 @@ oS.Init(
                             [-1, 1][Math.floor(Math.random() * 2)],
                             8,
                             2,
-                        ],
+                        ]
                     ); // 开始记时，确定抛物线，与阳光部分相似故压缩
 
             ArCard[g] = {
@@ -247,7 +252,7 @@ oS.Init(
                             ChosePlant(g, id),
                             ArCard[id] && (ArCard[id].HasChosen = true);
                     },
-                },
+                }
             );
         },
         MoveDropCard: function (c, b, t) {
@@ -298,7 +303,7 @@ oS.Init(
                 (PlayAudio(
                     g != 2
                         ? "plant" + Math.floor(1 + Math.random() * 2)
-                        : "plant_water",
+                        : "plant_water"
                 ),
                 s
                     ? new h().Birth(d, c, e, b, l)
@@ -307,7 +312,7 @@ oS.Init(
                           function (n, m) {
                               EDPZ.appendChild(n), m.Birth();
                           },
-                          a,
+                          a
                       ),
                 o
                     ? (delete ArCard[j], ClearChild($(j)))
@@ -323,5 +328,5 @@ oS.Init(
                 ]));
             CancelPlant();
         },
-    },
+    }
 );

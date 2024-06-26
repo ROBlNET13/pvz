@@ -68,7 +68,7 @@ oS.Init({
                 oS.PName[Arr[Arr.length - 1]],
                 Point[Point.length - 1][1],
                 Point[Point.length - 1][0],
-                1,
+                1
             ),
                 Point.length--,
                 Arr.length--;
@@ -97,7 +97,7 @@ oS.Init({
             "iStripe",
             "images/interface/Stripe.png",
             "left:" + (GetX1X2(6)[0] - 11) + "px;top:65px",
-            EDAll,
+            EDAll
         );
     },
     StartGame: function () {

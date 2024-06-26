@@ -93,7 +93,7 @@ oS.Init(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -102,7 +102,7 @@ oS.Init(
                 switch (d) {
                     case 0:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -114,14 +114,14 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Welcome to the second stop of our trip to China, neighbors.</span>';
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -133,14 +133,14 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">请你放心</span>';
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -152,7 +152,7 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">This is definitely not the yard of a Chinese family, let alone the roof!</span>';
@@ -169,14 +169,14 @@ oS.Init(
                                     oSym.addTask(10, b, [4]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Listen up, here, fight the zombies.</span>';
                         break;
                     case 4:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -188,7 +188,7 @@ oS.Init(
                                     oSym.addTask(10, b, [5]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Remember to bring lotus leaves and flower pots at the same time. Good luck!</span>';
@@ -203,10 +203,10 @@ oS.Init(
                                 a(0);
                                 StopMusic();
                                 PlayMusic(
-                                    (oS.LoadMusic = "Look up at the Sky"),
+                                    (oS.LoadMusic = "Look up at the Sky")
                                 );
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -242,14 +242,14 @@ oS.Init(
                     onclick: function () {
                         SelectModal(105);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:185px;left:676px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

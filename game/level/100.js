@@ -87,7 +87,7 @@ oS.Init(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -96,7 +96,7 @@ oS.Init(
                 switch (d) {
                     case 0:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -108,14 +108,14 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Haha, finally in Z, man.</span>';
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -127,14 +127,14 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Look at that imposing Great Wall, and those damn zombies!</span>';
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -146,14 +146,14 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">This time the battle site is on the Great Wall, so its a tile floor</span>';
                         break;
                     case 3:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -165,14 +165,14 @@ oS.Init(
                                     oSym.addTask(10, b, [4]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">You can use flower pots to deal with this difficult terrain.</span>';
                         break;
                     case 4:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -184,7 +184,7 @@ oS.Init(
                                     oSym.addTask(10, b, [5]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Remember what I said and youll get through it.</span>';
@@ -199,10 +199,10 @@ oS.Init(
                                 a(0);
                                 StopMusic();
                                 PlayMusic(
-                                    (oS.LoadMusic = "Look up at the Sky"),
+                                    (oS.LoadMusic = "Look up at the Sky")
                                 );
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -233,14 +233,14 @@ oS.Init(
                     onclick: function () {
                         SelectModal(101);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:185px;left:676px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

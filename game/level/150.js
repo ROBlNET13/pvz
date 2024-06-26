@@ -38,7 +38,7 @@ oS.Init({
                     SelectModal(0);
                     SetBlock($("dSurface"), $("iSurfaceBackground"));
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -49,7 +49,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(151);
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -60,7 +60,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(160);
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -71,7 +71,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(170);
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -82,7 +82,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(180);
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -93,7 +93,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(190);
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -104,7 +104,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(200);
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -115,7 +115,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(210);
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -126,7 +126,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(220);
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -137,7 +137,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(230);
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -148,7 +148,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(240);
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -159,7 +159,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(250);
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -170,7 +170,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(252);
                 },
-            },
+            }
         );
     },
 });

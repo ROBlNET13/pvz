@@ -57,19 +57,19 @@ oS.Init(
                                     b =
                                         oP.FlagZombies < 6
                                             ? Math.floor(
-                                                  1 + Math.random() * 10,
+                                                  1 + Math.random() * 10
                                               ) < 4
                                                 ? 1
                                                 : Math.floor(
-                                                      Math.random() * c.length,
+                                                      Math.random() * c.length
                                                   )
                                             : Math.floor(
-                                                    1 + Math.random() * 10,
-                                                ) < 3
-                                              ? 0
-                                              : Math.floor(
-                                                    Math.random() * c.length,
-                                                ),
+                                                  1 + Math.random() * 10
+                                              ) < 3
+                                            ? 0
+                                            : Math.floor(
+                                                  Math.random() * c.length
+                                              ),
                                     e = c[b],
                                     d = e.prototype,
                                     f = "dCard" + Math.random();
@@ -89,7 +89,7 @@ oS.Init(
                                         onclick: function (g) {
                                             ChosePlant(g, oS.ChoseCard, f);
                                         },
-                                    },
+                                    }
                                 );
                             }
                             oSym.addTask(600, arguments.callee, []);
@@ -145,7 +145,7 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oGoldenPrize, 0);
                     },
-                },
+                }
             );
         },
     },
@@ -179,7 +179,7 @@ oS.Init(
                         20 -
                         c.height +
                         "px;z-index:254",
-                    EDAll,
+                    EDAll
                 ).cloneNode(false),
                 "MovePlantAlpha",
                 "",
@@ -189,7 +189,7 @@ oS.Init(
                     opacity: 0.4,
                     zIndex: 30,
                 },
-                EDAll,
+                EDAll
             );
             SetAlpha($(f.DID), 50, 0.5);
             SetHidden($("dTitle"));
@@ -215,7 +215,7 @@ oS.Init(
                     PlayAudio(
                         h != 2
                             ? "plant" + Math.floor(1 + Math.random() * 2)
-                            : "plant_water",
+                            : "plant_water"
                     );
                     new i().Birth(c, b, f, a, l);
                     oSym.addTask(20, SetNone, [
@@ -236,5 +236,5 @@ oS.Init(
                 })();
         },
         ViewPlantTitle: function (a) {},
-    },
+    }
 );

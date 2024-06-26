@@ -101,7 +101,7 @@ oS.Init(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -110,7 +110,7 @@ oS.Init(
                 switch (d) {
                     case 0:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -122,14 +122,14 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Ah! The night view of the Great Wall of China is also good.</span>';
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -141,14 +141,14 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">However, the zombies dont have time to appreciate the beauty</span>';
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -160,7 +160,7 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Here...And Sadako!</span>';
@@ -177,7 +177,7 @@ oS.Init(
                                     oSym.addTask(10, b, [4]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Good luck.</span>';
@@ -192,10 +192,10 @@ oS.Init(
                                 a(0);
                                 StopMusic();
                                 PlayMusic(
-                                    (oS.LoadMusic = "Look up at the Sky"),
+                                    (oS.LoadMusic = "Look up at the Sky")
                                 );
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -228,14 +228,14 @@ oS.Init(
                     onclick: function () {
                         SelectModal(103);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:185px;left:676px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

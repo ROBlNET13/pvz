@@ -33,7 +33,7 @@ oS.Init(
                 "div",
                 0,
                 { innerHTML: "通关要求：不得损失任何向日葵" },
-                EDAll,
+                EDAll
             );
             var a;
             for (a = 1; a < 7; a++) {
@@ -69,7 +69,7 @@ oS.Init(
                     function () {
                         ClearChild($("DivTeach"));
                     },
-                    [],
+                    []
                 );
             });
         },
@@ -101,14 +101,14 @@ oS.Init(
                                   HiddenOptions();
                                   SetBlock(
                                       $("dSurface"),
-                                      $("iSurfaceBackground"),
+                                      $("iSurfaceBackground")
                                   );
                                   ShowNameDiv();
                               },
-                          },
+                          }
                       )
                     : GameOver("条件失败<br>请再接再厉！");
             })();
         },
-    },
+    }
 );

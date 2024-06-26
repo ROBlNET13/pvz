@@ -17,31 +17,31 @@ oS.Init(
                 "div",
                 "position:absolute;left:-115px;top:0;height:600px;width:264px;z-index:0;background:url(images/interface/background1.jpg);over-flow:hidden",
                 0,
-                EDPZ,
+                EDPZ
             );
             NewImg(
                 "SodRoll_1",
                 "images/interface/SodRoll.png",
                 "left:122px;top:48px;z-index:1",
-                EDPZ,
+                EDPZ
             );
             NewImg(
                 "SodRollCap_1",
                 "images/interface/SodRollCap.png",
                 "left:117px;top:131px;z-index:1",
-                EDPZ,
+                EDPZ
             );
             NewImg(
                 "SodRoll_2",
                 "images/interface/SodRoll.png",
                 "left:122px;top:428px;z-index:1",
-                EDPZ,
+                EDPZ
             );
             NewImg(
                 "SodRollCap_2",
                 "images/interface/SodRollCap.png",
                 "left:117px;top:511px;z-index:1",
-                EDPZ,
+                EDPZ
             );
             PlayAudio("dirt_rise");
             (function (e, h, b, d, c, g, a, f) {
@@ -86,7 +86,7 @@ oS.Init(
                           $("SodRoll_1"),
                           $("SodRoll_2"),
                           $("SodRollCap_1"),
-                          $("SodRollCap_2"),
+                          $("SodRollCap_2")
                       ),
                       (function () {
                           StopMusic();
@@ -103,7 +103,7 @@ oS.Init(
                                       oP.AddZombiesFlag();
                                       SetVisible($("dFlagMeterContent"));
                                   },
-                                  [],
+                                  []
                               );
                           });
                       })());
@@ -130,14 +130,14 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oShovel, 5);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:295px;left:836px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

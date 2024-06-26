@@ -97,8 +97,8 @@ oS.Init(
                     onclick: function () {
                         SelectModal(25);
                     },
-                },
+                }
             );
         },
-    },
+    }
 );

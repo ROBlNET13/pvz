@@ -37,19 +37,19 @@ oS.Init(
                                     b =
                                         oP.FlagZombies < 6
                                             ? Math.floor(
-                                                  1 + Math.random() * 10,
+                                                  1 + Math.random() * 10
                                               ) < 4
                                                 ? 1
                                                 : Math.floor(
-                                                      Math.random() * c.length,
+                                                      Math.random() * c.length
                                                   )
                                             : Math.floor(
-                                                    1 + Math.random() * 10,
-                                                ) < 3
-                                              ? 0
-                                              : Math.floor(
-                                                    Math.random() * c.length,
-                                                ),
+                                                  1 + Math.random() * 10
+                                              ) < 3
+                                            ? 0
+                                            : Math.floor(
+                                                  Math.random() * c.length
+                                              ),
                                     e = c[b],
                                     d = e.prototype,
                                     f = "dCard" + Math.random();
@@ -69,7 +69,7 @@ oS.Init(
                                         onclick: function (g) {
                                             ChosePlant(g, oS.ChoseCard, f);
                                         },
-                                    },
+                                    }
                                 );
                             }
                             oSym.addTask(600, arguments.callee, []);
@@ -97,7 +97,7 @@ oS.Init(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -106,7 +106,7 @@ oS.Init(
                 switch (d) {
                     case 0:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -118,14 +118,14 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Listen - whats that sound?</span>';
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -137,14 +137,14 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">What seems to be a rumbling mechanical sound</span>';
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -156,7 +156,7 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">What might happen, you gotta hold on</span>';
@@ -171,10 +171,10 @@ oS.Init(
                                 a(0);
                                 StopMusic();
                                 PlayMusic(
-                                    (oS.LoadMusic = "Look up at the Sky"),
+                                    (oS.LoadMusic = "Look up at the Sky")
                                 );
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -206,7 +206,7 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oGoldenPrize, 41);
                     },
-                },
+                }
             );
         },
     },
@@ -240,7 +240,7 @@ oS.Init(
                         20 -
                         c.height +
                         "px;z-index:254",
-                    EDAll,
+                    EDAll
                 ).cloneNode(false),
                 "MovePlantAlpha",
                 "",
@@ -250,7 +250,7 @@ oS.Init(
                     opacity: 0.4,
                     zIndex: 30,
                 },
-                EDAll,
+                EDAll
             );
             SetAlpha($(f.DID), 50, 0.5);
             SetHidden($("dTitle"));
@@ -276,7 +276,7 @@ oS.Init(
                     PlayAudio(
                         h != 2
                             ? "plant" + Math.floor(1 + Math.random() * 2)
-                            : "plant_water",
+                            : "plant_water"
                     );
                     new i().Birth(c, b, f, a, l);
                     oSym.addTask(20, SetNone, [
@@ -297,5 +297,5 @@ oS.Init(
                 })();
         },
         ViewPlantTitle: function (a) {},
-    },
+    }
 );

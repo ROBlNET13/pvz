@@ -91,7 +91,7 @@ oS.Init(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -100,7 +100,7 @@ oS.Init(
                 switch (d) {
                     case 0:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -112,14 +112,14 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Good evening, neighbors.</span>';
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -131,14 +131,14 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Looks like we were lucky and found this little village when it got dark</span>';
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -150,7 +150,7 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">But it seems, there is a cemetery full of zombies behind the village</span>';
@@ -167,14 +167,14 @@ oS.Init(
                                     oSym.addTask(10, b, [4]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Unfortunately, the road in front of the village is a stone road.</span>';
                         break;
                     case 4:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -186,14 +186,14 @@ oS.Init(
                                     oSym.addTask(10, b, [5]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">Worse yet, its already late at night.</span>';
                         break;
                     case 4:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -205,7 +205,7 @@ oS.Init(
                                     oSym.addTask(10, b, [5]);
                                 };
                             },
-                            [],
+                            []
                         );
                         c.innerHTML =
                             '<span style="font-size:22px">This fucking place is crazier than me!</span>';
@@ -220,10 +220,10 @@ oS.Init(
                                 a(0);
                                 StopMusic();
                                 PlayMusic(
-                                    (oS.LoadMusic = "Look up at the Sky"),
+                                    (oS.LoadMusic = "Look up at the Sky")
                                 );
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -267,14 +267,14 @@ oS.Init(
                             SelectModal(107);
                         };
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:185px;left:676px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

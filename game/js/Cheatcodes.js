@@ -24,7 +24,7 @@ document.addEventListener("keydown", (event) => {
             GetX(Math.floor(1 + Math.random() * oS.C)),
             GetY(Math.floor(1 + Math.random() * oS.R)),
             25,
-            1,
+            1
         );
     }
 });

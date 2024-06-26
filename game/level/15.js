@@ -37,7 +37,7 @@ oS.Init(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -55,16 +55,16 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Dude, have you ever imagined you being alone in a cemetery one night?",
+                            "Dude, have you ever imagined you being alone in a cemetery one night?"
                         );
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -76,16 +76,16 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Of course, there have to be zombies in the cemetery.",
+                            "Of course, there have to be zombies in the cemetery."
                         );
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -97,16 +97,16 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Don't relax too much, zombies will pop out of tombstones at any time! .",
+                            "Don't relax too much, zombies will pop out of tombstones at any time! ."
                         );
                         break;
                     case 3:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -118,7 +118,7 @@ oS.Init(
                                     oSym.addTask(10, b, [4]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "Hmm, we might need some quick plants!");
                         break;
@@ -131,7 +131,7 @@ oS.Init(
                                 ClearChild($("dDave"));
                                 a(0);
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -169,14 +169,14 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oHypnoShroom, 16);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:490px;left:836px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

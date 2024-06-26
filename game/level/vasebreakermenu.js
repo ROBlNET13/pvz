@@ -38,7 +38,7 @@ oS.Init({
                     SelectModal(0);
                     SetBlock($("dSurface"), $("iSurfaceBackground"));
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -49,7 +49,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "vasebreaker1" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -60,7 +60,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "vasebreaker2" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -71,7 +71,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "vasebreaker3" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -82,7 +82,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "vasebreaker4" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -93,7 +93,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "vasebreaker5" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -104,7 +104,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "vasebreaker6" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -115,7 +115,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "vasebreaker7" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -126,7 +126,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "vasebreaker8" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -137,7 +137,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "vasebreaker9" + "");
                 },
-            },
+            }
         );
         /*
     NewImg(

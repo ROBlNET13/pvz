@@ -20,7 +20,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal(150);
                 },
-            },
+            }
         );
     },
 });

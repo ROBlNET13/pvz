@@ -77,7 +77,7 @@ let checkInterval = setInterval(() => {
                     oS.Lvl = previousValue;
                 } else {
                     console.log(
-                        `oS.Lvl changed from ${previousValue} to ${oS.Lvl}`,
+                        `oS.Lvl changed from ${previousValue} to ${oS.Lvl}`
                     );
                     previousValue = oS.Lvl;
                     // now the home bugfix

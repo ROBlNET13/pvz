@@ -98,8 +98,8 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oGoldenPrize, 0);
                     },
-                },
+                }
             );
         },
-    },
+    }
 );

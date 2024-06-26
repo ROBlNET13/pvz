@@ -148,7 +148,7 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oFlamesMushroom, 216);
                     },
-                },
+                }
             );
             EditImg($("PointerUD"), 0, "images/interface/PointerDown.gif", {
                 left: "676px",
@@ -156,5 +156,5 @@ oS.Init(
                 visibility: "visible",
             });
         },
-    },
+    }
 );

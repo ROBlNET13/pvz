@@ -84,7 +84,7 @@ oS.Init(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -93,7 +93,7 @@ oS.Init(
                 switch (d) {
                     case 0:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -105,16 +105,16 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "We finally escaped from the Dragon Palace, the famous land of fish and rice: Jiaxing",
+                            "We finally escaped from the Dragon Palace, the famous land of fish and rice: Jiaxing"
                         );
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -126,13 +126,13 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "A small town in Xincheng.");
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -144,11 +144,11 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Look at the beautiful bridges and the food there",
+                            "Look at the beautiful bridges and the food there"
                         );
                         break;
                     case 3:
@@ -163,16 +163,16 @@ oS.Init(
                                     oSym.addTask(10, b, [4]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "However, the author zombie also seems to be stationed here with troops",
+                            "However, the author zombie also seems to be stationed here with troops"
                         );
                         break;
                     case 4:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -184,11 +184,11 @@ oS.Init(
                                     oSym.addTask(10, b, [5]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Good luck~ I went to eat Li Minsheng fried buns",
+                            "Good luck~ I went to eat Li Minsheng fried buns"
                         );
                         break;
                     case 5:
@@ -200,7 +200,7 @@ oS.Init(
                                 ClearChild($("dDave"));
                                 a(0);
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -229,14 +229,14 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oSeaShroom, 42);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:490px;left:836px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

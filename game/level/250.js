@@ -131,7 +131,7 @@ oS.Init(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -149,13 +149,13 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "咳咳，我们已经到达这座塔的顶峰了");
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -167,13 +167,13 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "你最好边打边默念：我不会输");
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -185,13 +185,13 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "尽管这是徒劳的祈祷");
                         break;
                     case 3:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -203,7 +203,7 @@ oS.Init(
                                     oSym.addTask(10, b, [4]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "当然，我还是祝你好运");
                         break;
@@ -216,7 +216,7 @@ oS.Init(
                                 ClearChild($("dDave"));
                                 a(0);
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -290,8 +290,8 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oGoldenPrize, 251);
                     },
-                },
+                }
             );
         },
-    },
+    }
 );

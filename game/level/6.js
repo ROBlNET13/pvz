@@ -45,14 +45,14 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oSnowPea, 7);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:490px;left:836px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

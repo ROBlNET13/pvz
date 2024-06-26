@@ -37,38 +37,38 @@ oS.Init(
                     onclick: function () {
                         SelectModal(3);
                     },
-                },
+                }
             );
             NewEle(
                 "sod3row",
                 "div",
                 "position:absolute;left:-115px;top:0;height:600px;width:264px;z-index:0;background:url(images/interface/background1unsodded2.jpg);over-flow:hidden",
                 0,
-                EDPZ,
+                EDPZ
             );
             NewImg(
                 "SodRoll_1",
                 "images/interface/SodRoll.png",
                 "left:136px;top:128px;z-index:1",
-                EDPZ,
+                EDPZ
             );
             NewImg(
                 "SodRollCap_1",
                 "images/interface/SodRollCap.png",
                 "left:131px;top:211px;z-index:1",
-                EDPZ,
+                EDPZ
             );
             NewImg(
                 "SodRoll_2",
                 "images/interface/SodRoll.png",
                 "left:136px;top:348px;z-index:1",
-                EDPZ,
+                EDPZ
             );
             NewImg(
                 "SodRollCap_2",
                 "images/interface/SodRollCap.png",
                 "left:131px;top:431px;z-index:1",
-                EDPZ,
+                EDPZ
             );
             PlayAudio("dirt_rise");
             (function (e, h, b, d, c, g, a, f) {
@@ -113,7 +113,7 @@ oS.Init(
                           $("SodRoll_1"),
                           $("SodRoll_2"),
                           $("SodRollCap_1"),
-                          $("SodRollCap_2"),
+                          $("SodRollCap_2")
                       ),
                       (function () {
                           StopMusic();
@@ -130,18 +130,18 @@ oS.Init(
                                           case 0:
                                               innerText(
                                                   $("DivTeach"),
-                                                  "Sunflowers are very important plants!",
+                                                  "Sunflowers are very important plants!"
                                               );
                                               NewImg(
                                                   "PointerUD",
                                                   "images/interface/PointerUP.gif",
                                                   "top:120px;left:50px",
-                                                  EDAll,
+                                                  EDAll
                                               );
                                               oSym.addTask(
                                                   10,
                                                   arguments.callee,
-                                                  [++l],
+                                                  [++l]
                                               );
                                               break;
                                           case 1:
@@ -153,23 +153,23 @@ oS.Init(
                                                   ) {
                                                       innerText(
                                                           $("DivTeach"),
-                                                          "Plant at least three sunflowers!",
+                                                          "Plant at least three sunflowers!"
                                                       );
                                                       oSym.addTask(
                                                           10,
                                                           arguments.callee,
-                                                          [++l],
+                                                          [++l]
                                                       ).addTask(
                                                           2500,
                                                           function () {
                                                               oP.AddZombiesFlag();
                                                               SetVisible(
                                                                   $(
-                                                                      "dFlagMeterContent",
-                                                                  ),
+                                                                      "dFlagMeterContent"
+                                                                  )
                                                               );
                                                           },
-                                                          [],
+                                                          []
                                                       );
                                                       return;
                                                   }
@@ -177,7 +177,7 @@ oS.Init(
                                               oSym.addTask(
                                                   10,
                                                   arguments.callee,
-                                                  [l],
+                                                  [l]
                                               );
                                               break;
                                           case 2:
@@ -191,13 +191,13 @@ oS.Init(
                                               k > 1 &&
                                                   (innerText(
                                                       $("DivTeach"),
-                                                      "You need more sunflowers so you can plant faster!",
+                                                      "You need more sunflowers so you can plant faster!"
                                                   ),
                                                   ++l);
                                               oSym.addTask(
                                                   10,
                                                   arguments.callee,
-                                                  [l],
+                                                  [l]
                                               );
                                               break;
                                           default:
@@ -211,7 +211,7 @@ oS.Init(
                                               k > 2
                                                   ? (innerText(
                                                         $("DivTeach"),
-                                                        "Now use the sunlight you get to grow other plants!",
+                                                        "Now use the sunlight you get to grow other plants!"
                                                     ),
                                                     SetStyle($("PointerUD"), {
                                                         left: "50px",
@@ -224,7 +224,7 @@ oS.Init(
                                                   : oSym.addTask(
                                                         10,
                                                         arguments.callee,
-                                                        [3],
+                                                        [3]
                                                     );
                                       }
                                       return l;
@@ -256,7 +256,7 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oCherryBomb, 3);
                     },
-                },
+                }
             );
             EditImg($("PointerUD"), 0, "images/interface/PointerDown.gif", {
                 left: "836px",
@@ -264,5 +264,5 @@ oS.Init(
                 display: "block",
             });
         },
-    },
+    }
 );

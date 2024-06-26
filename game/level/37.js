@@ -91,14 +91,14 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oGatlingPea, 38);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:290px;left:636px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

@@ -101,14 +101,14 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oGloomShroom, 49);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:490px;left:836px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

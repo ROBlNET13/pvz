@@ -38,7 +38,7 @@ oS.Init(
                         oP.AddZombiesFlag();
                         SetVisible($("dFlagMeterContent"));
                     },
-                    [],
+                    []
                 );
             });
         },
@@ -63,14 +63,14 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oWallNut, 4);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:295px;left:836px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

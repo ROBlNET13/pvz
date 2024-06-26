@@ -4,16 +4,16 @@
     overflow-y: hidden;
     background: #000;
     font-family: Tahoma, Verdana, fixedsys;
-    overflow-x: hidden
+    overflow-x: hidden;
 }
 
 td {
     font-family: Verdana;
-    font-size: 12px
+    font-size: 12px;
 }
 
 div {
-    left: 0
+    left: 0;
 }
 
 #preloader {
@@ -22,18 +22,18 @@ div {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 999
+    z-index: 999;
 }
 
 #status {
     background-image: url(images/gamethumbnail3.png);
     background-repeat: no-repeat;
     background-position: center;
-    z-index: 999
+    z-index: 999;
 }
 
 span {
-    cursor: default
+    cursor: default;
 }
 
 span,
@@ -41,21 +41,21 @@ div,
 h2,
 h3 {
     padding: 0;
-    margin: 0
+    margin: 0;
 }
 
 td.HandBookZombie {
     background: url(images/interface/Almanac_ZombieWindow2.png) no-repeat;
     width: 20%;
     height: 16%;
-    text-align: center
+    text-align: center;
 }
 
 #DivTeach {
     filter: "alpha(opacity=90)";
     filter: alpha(opacity=90);
-    opacity: .9;
-    -moz-opacity: .9;
+    opacity: 0.9;
+    -moz-opacity: 0.9;
     position: absolute;
     width: 900px;
     height: 50px;
@@ -68,7 +68,7 @@ td.HandBookZombie {
     font-weight: bold;
     color: #000;
     background-color: rgba(91, 67, 46, 0);
-    font-family: Tahoma
+    font-family: Tahoma;
 }
 
 /* .WindowFrame {
@@ -84,8 +84,8 @@ td.HandBookZombie {
 #DivParty {
     filter: "alpha(opacity=90)";
     filter: alpha(opacity=90);
-    opacity: .9;
-    -moz-opacity: .9;
+    opacity: 0.9;
+    -moz-opacity: 0.9;
     position: absolute;
     width: 900px;
     height: 0;
@@ -96,12 +96,12 @@ td.HandBookZombie {
     font-family: Tahoma;
     font-size: 18px;
     font-weight: bold;
-    color: #FFF;
-    background-color: #5b432e
+    color: #fff;
+    background-color: #5b432e;
 }
 
 .WindowFrame {
-    transform: scale(.9);
+    transform: scale(0.9);
     /* Điều chỉnh tỷ lệ theo nhu cầu */
     transform-origin: left;
     /* Đặt điểm gốc cho hiệu ứng scale */
@@ -111,7 +111,7 @@ td.HandBookZombie {
     left: 50%;
     margin-left: -400px;
     height: 600px;
-    overflow: hidden
+    overflow: hidden;
 }
 
 #dLvlLink {
@@ -126,27 +126,27 @@ td.HandBookZombie {
     height: 15px;
     font-family: arial, sans-serif;
     z-index: 1;
-    text-align: left
+    text-align: left;
 }
 
 #dLvlLink span {
     font-weight: bold;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 #dLvlLink a {
-    color: #fff
+    color: #fff;
 }
 
 #dAD2,
 #dTitleSmallContainer,
 #dMiniSmallContainer,
 #dxiyouji {
-    display: none
+    display: none;
 }
 
 #dAdFlash {
-    display: block
+    display: block;
 }
 
 #dAdFlash div {
@@ -157,7 +157,7 @@ td.HandBookZombie {
     left: 60px;
     top: 380px;
     text-align: right;
-    padding-right: 50px
+    padding-right: 50px;
 }
 
 #dFlagMeter {
@@ -167,23 +167,23 @@ td.HandBookZombie {
     left: 50%;
     margin-left: -340px;
     top: 0;
-    height: 45px
+    height: 45px;
 }
 
 #dFlagMeterTitle {
     position: absolute;
-    text-align: right
+    text-align: right;
 }
 
 #sFlagMeterTitleF {
     position: absolute;
-    color: #F93;
+    color: #f93;
     font-size: 25px;
     font-weight: bold;
     width: 440px;
     top: 19px;
     left: -6px;
-    font-family: Tahoma
+    font-family: Tahoma;
 }
 
 #dFlagMeterTitleB {
@@ -195,55 +195,55 @@ td.HandBookZombie {
     height: 21px;
     top: 20px;
     left: -5px;
-    font-family: Tahoma
+    font-family: Tahoma;
 }
 
 #dFlagMeterContent {
     position: absolute;
     left: 444px;
     width: 157px;
-    height: 40px
+    height: 40px;
 }
 
 #dFlagMeterContent .flag {
     top: 14px;
-    visibility: hidden
+    visibility: hidden;
 }
 
 #imgFlagMeterFull {
     top: 17px;
-    clip: rect(0, auto, auto, 157px)
+    clip: rect(0, auto, auto, 157px);
 }
 
 #imgFlagMeterEmpty {
-    top: 17px
+    top: 17px;
 }
 
 #imgFlag1 {
-    left: 10px
+    left: 10px;
 }
 
 #imgFlag2 {
-    left: 40px
+    left: 40px;
 }
 
 #imgFlag3 {
-    left: 70px
+    left: 70px;
 }
 
 #imgFlag4 {
-    left: 100px
+    left: 100px;
 }
 
 #imgGQJC {
     left: 35px;
     top: 29px;
-    visibility: hidden
+    visibility: hidden;
 }
 
 #imgFlagHead {
     left: 139px;
-    top: 13px
+    top: 13px;
 }
 
 #dFlagMeter1 {
@@ -253,23 +253,23 @@ td.HandBookZombie {
     left: 50%;
     margin-left: -340px;
     top: 0;
-    height: 45px
+    height: 45px;
 }
 
 #dFlagMeterTitle1 {
     position: absolute;
-    text-align: right
+    text-align: right;
 }
 
 #sFlagMeterTitleF1 {
     position: absolute;
-    color: #F93;
+    color: #f93;
     font-size: 18px;
     font-weight: bold;
     width: 440px;
     top: 19px;
     left: -6px;
-    font-family: Tahoma
+    font-family: Tahoma;
 }
 
 #dFlagMeterTitleB1 {
@@ -281,60 +281,60 @@ td.HandBookZombie {
     height: 21px;
     top: 20px;
     left: -5px;
-    font-family: Tahoma
+    font-family: Tahoma;
 }
 
 #dFlagMeterContent1 {
     position: absolute;
     left: 444px;
     width: 157px;
-    height: 40px
+    height: 40px;
 }
 
 #dFlagMeterContent1 .flag {
     top: 14px;
-    visibility: hidden
+    visibility: hidden;
 }
 
 #imgFlagMeterFull1 {
     top: 17px;
-    clip: rect(0, auto, auto, 157px)
+    clip: rect(0, auto, auto, 157px);
 }
 
 #imgFlagMeterEmpty1 {
-    top: 17px
+    top: 17px;
 }
 
 #imgFlag11 {
-    left: 10px
+    left: 10px;
 }
 
 #imgFlag21 {
-    left: 40px
+    left: 40px;
 }
 
 #imgFlag31 {
-    left: 70px
+    left: 70px;
 }
 
 #imgFlag41 {
-    left: 100px
+    left: 100px;
 }
 
 #imgGQJC1 {
     left: 35px;
     top: 29px;
-    visibility: hidden
+    visibility: hidden;
 }
 
 #imgFlagHead1 {
     left: 139px;
-    top: 13px
+    top: 13px;
 }
 
 #dSurface {
     display: none;
-    z-index: 255
+    z-index: 255;
 }
 
 #dAdventure {
@@ -343,17 +343,17 @@ td.HandBookZombie {
     top: 80px;
     width: 331px;
     height: 146px;
-    cursor: pointer
+    cursor: pointer;
 }
 
 #iSurfaceBackground .adventure0 {
     background: url() no-repeat;
-    _background: url() no-repeat
+    _background: url() no-repeat;
 }
 
 #iSurfaceBackground .adventure1 {
     background: url() no-repeat;
-    _background: url() no-repeat
+    _background: url() no-repeat;
 }
 
 #iSurfaceBackground .mini {
@@ -364,7 +364,7 @@ td.HandBookZombie {
     top: 203px;
     width: 313px;
     height: 133px;
-    cursor: pointer
+    cursor: pointer;
 }
 
 #iSurfaceBackground .riddle {
@@ -375,7 +375,7 @@ td.HandBookZombie {
     top: 303px;
     width: 286px;
     height: 122px;
-    cursor: pointer
+    cursor: pointer;
 }
 
 #iSurfaceBackground .handbook {
@@ -386,7 +386,7 @@ td.HandBookZombie {
     top: 428px;
     width: 99px;
     height: 99px;
-    cursor: pointer
+    cursor: pointer;
 }
 
 #ZombieHand {
@@ -396,7 +396,7 @@ td.HandBookZombie {
     left: 262px;
     top: 264px;
     display: none;
-    overflow: hidden
+    overflow: hidden;
 }
 
 #dName {
@@ -406,10 +406,10 @@ td.HandBookZombie {
     top: 93px;
     height: 25px;
     text-align: center;
-    color: #FC6;
+    color: #fc6;
     font-weight: bold;
     font-size: 18px;
-    font-family: Tahoma, Verdana, Tahoma
+    font-family: Tahoma, Verdana, Tahoma;
 }
 
 #dNameDiv0 {
@@ -419,7 +419,7 @@ td.HandBookZombie {
     width: 293px;
     height: 260px;
     background: url(images/interface/SelectorScreen_WoodSign1_32.png) no-repeat;
-    _background: url(images/interface/SelectorScreen_WoodSign1_32.png) no-repeat
+    _background: url(images/interface/SelectorScreen_WoodSign1_32.png) no-repeat;
 }
 
 #dNameDiv1 {
@@ -430,7 +430,7 @@ td.HandBookZombie {
     width: 291px;
     height: 71px;
     background: url(images/interface/SelectorScreen_WoodSign2_32.png) no-repeat;
-    _background: url(images/interface/SelectorScreen_WoodSign2_8.png) no-repeat
+    _background: url(images/interface/SelectorScreen_WoodSign2_8.png) no-repeat;
 }
 
 #dNameDiv2 {
@@ -441,7 +441,7 @@ td.HandBookZombie {
     height: 150px;
     background: url(images/interface/SelectorScreen_WoodSign3_32.png) no-repeat;
     _background: url(images/interface/SelectorScreen_WoodSign3_8.png) no-repeat;
-    overflow: hidden
+    overflow: hidden;
 }
 
 #dSurfaceBack {
@@ -449,7 +449,7 @@ td.HandBookZombie {
     top: 0;
     width: 0;
     height: 0;
-    z-index: 255
+    z-index: 255;
 }
 
 #dHelp {
@@ -459,7 +459,7 @@ td.HandBookZombie {
     position: absolute;
     display: none;
     left: 133px;
-    top: 70px
+    top: 70px;
 }
 
 #dSelectLevel {
@@ -467,7 +467,7 @@ td.HandBookZombie {
     width: 100%;
     height: 100%;
     font-weight: bold;
-    display: none
+    display: none;
 }
 
 #dOptionsMenuBack {
@@ -479,7 +479,7 @@ td.HandBookZombie {
     height: 483px;
     display: none;
     background: url(images/interface/OptionsMenuback32.png) no-repeat;
-    _background: url(images/interface/OptionsMenuback32.png) no-repeat
+    _background: url(images/interface/OptionsMenuback32.png) no-repeat;
 }
 
 .TitleBigContainer {
@@ -487,34 +487,34 @@ td.HandBookZombie {
     width: 220px;
     margin: 120px auto 0 auto;
     height: 240px;
-    overflow: hidden
+    overflow: hidden;
 }
 
 #dTitleSmallContainer span {
-    cursor: pointer
+    cursor: pointer;
 }
 
 #dMiniSmallContainer .SmallLevel {
-    width: 100%
+    width: 100%;
 }
 
 #dMiniSmallContainer .BigLevel span {
-    cursor: pointer
+    cursor: pointer;
 }
 
 #dxiyouji .SmallLevel {
-    width: 100%
+    width: 100%;
 }
 
 #dxiyouji .BigLevel span {
-    cursor: pointer
+    cursor: pointer;
 }
 
 #dMiniLvl2 {
     position: absolute;
     left: 0;
     top: 0;
-    display: none
+    display: none;
 }
 
 #dBigLvl2,
@@ -522,22 +522,22 @@ td.HandBookZombie {
     position: absolute;
     left: 0;
     top: 0;
-    display: none
+    display: none;
 }
 
 .SmallLevel {
     float: left;
     cursor: pointer;
     width: 50%;
-    font-size: 12px
+    font-size: 12px;
 }
 
 .BigLevel {
     float: left;
-    color: #FC6;
+    color: #fc6;
     font-size: 12px;
     width: 100%;
-    height: 35px
+    height: 35px;
 }
 
 .OptionsMenuButton,
@@ -552,31 +552,31 @@ td.HandBookZombie {
     height: 100px;
     margin-left: 26px;
     display: inline;
-    color: #0F0
+    color: #0f0;
 }
 
 .OptionsMenuButton {
-    background-position: 0 0
+    background-position: 0 0;
 }
 
 .OptionsMenuButtonDown {
-    background-position: 0 -100px
+    background-position: 0 -100px;
 }
 
 .OptionsMenuButtonSpan {
     height: 100px;
     line-height: 100px;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .SelectModal {
-    color: #FC6;
+    color: #fc6;
     font-weight: bold;
     cursor: pointer;
     background: url(images/interface/Button.png) no-repeat center;
     text-align: center;
     height: 43px;
-    width: 115px
+    width: 115px;
 }
 
 .Menu {
@@ -588,46 +588,46 @@ td.HandBookZombie {
     color: #00cb08;
     height: 41px;
     width: 113px;
-    background: url(images/interface/Button.png) no-repeat
+    background: url(images/interface/Button.png) no-repeat;
 }
 
 #imgSF {
     position: absolute;
     cursor: pointer;
-    z-index: 256
+    z-index: 256;
 }
 
 #PointerUD {
     position: absolute;
-    z-index: 50
+    z-index: 50;
 }
 
 #dTitle {
     visibility: hidden;
     position: absolute;
-    background-color: #FFD;
+    background-color: #ffd;
     width: 180px;
     font-size: 12px;
     text-align: center;
     line-height: 1.5;
     border: 1px solid #000;
     padding: 3px;
-    z-index: 254
+    z-index: 254;
 }
 
 #dAll {
-    background: url('images/interface/ing.png')
+    background: url("images/interface/ing.png");
 }
 
 #dAll img,
 #dFlagMeter img,
 #dHandBookPCard img {
     position: absolute;
-    border-style: none
+    border-style: none;
 }
 
 #dPZ {
-    position: absolute
+    position: absolute;
 }
 
 #dFog {
@@ -636,12 +636,12 @@ td.HandBookZombie {
     top: 10px;
     height: 600px;
     width: 800px;
-    z-index: 24
+    z-index: 24;
 }
 
 #dFog img {
-    opacity: .7;
-    filter: alpha(opacity=70)
+    opacity: 0.7;
+    filter: alpha(opacity=70);
 }
 
 #tGround {
@@ -649,7 +649,7 @@ td.HandBookZombie {
     width: 1400px;
     height: 600px;
     visibility: hidden;
-    z-index: 0
+    z-index: 0;
 }
 
 #dCardList {
@@ -659,7 +659,7 @@ td.HandBookZombie {
     top: 0;
     width: 100px;
     overflow: visible;
-    z-index: 254
+    z-index: 254;
 }
 
 #dCardList div {
@@ -667,7 +667,7 @@ td.HandBookZombie {
     cursor: pointer;
     padding: 0;
     height: 60px;
-    overflow: hidden
+    overflow: hidden;
 }
 
 #dCardList span {
@@ -678,11 +678,11 @@ td.HandBookZombie {
     width: 18px;
     top: 30px;
     font-family: Cafeteria Black;
-    font-size: 30px
+    font-size: 30px;
 }
 
 #dCardList img {
-    position: absolute
+    position: absolute;
 }
 
 #dZombie {
@@ -691,7 +691,7 @@ td.HandBookZombie {
     height: 600px;
     left: 1065px;
     top: 0;
-    z-index: 1
+    z-index: 1;
 }
 
 #bShowHandBook {
@@ -707,7 +707,7 @@ td.HandBookZombie {
     line-height: 26px;
     background: url(images/interface/Almanac_CloseButton.png);
     color: #000080;
-    font-size: 14px
+    font-size: 14px;
 }
 
 #dSelectCard {
@@ -718,19 +718,19 @@ td.HandBookZombie {
     width: 465px;
     height: 600px;
     z-index: 20;
-    background: url('images/interface/SeedChooser_Background.png') no-repeat
+    background: url("images/interface/SeedChooser_Background.png") no-repeat;
 }
 
 #dSelectCard .title {
     text-align: center;
     line-height: 35px;
     font-size: 12px;
-    color: #FC6;
+    color: #fc6;
     height: 35px;
     width: 100%;
     top: 0;
     font-family: Tahoma;
-    font-weight: bold
+    font-weight: bold;
 }
 
 #dSelectCard .bTitle {
@@ -738,7 +738,7 @@ td.HandBookZombie {
     height: 40px;
     line-height: 40px;
     text-align: center;
-    margin-top: 10px
+    margin-top: 10px;
 }
 
 #dSelectCard .button {
@@ -751,7 +751,7 @@ td.HandBookZombie {
     background-color: #602d11;
     font-weight: bold;
     font-size: 12px;
-    cursor: pointer
+    cursor: pointer;
 }
 
 #dPCard {
@@ -759,7 +759,7 @@ td.HandBookZombie {
     width: 96%;
     height: 455px;
     padding-left: 13px;
-    _padding-left: 10px
+    _padding-left: 10px;
 }
 
 #dPCard .span1,
@@ -770,7 +770,7 @@ td.HandBookZombie {
     overflow: hidden;
     float: left;
     margin: 8px 0 0 2px;
-    position: relative
+    position: relative;
 }
 
 #dPCard .span2,
@@ -782,14 +782,14 @@ td.HandBookZombie {
     width: 18px;
     top: 20px;
     font-family: Cafeteria Black;
-    font-size: 20px
+    font-size: 20px;
 }
 
 #dPCard img,
 #dHandBookPCard img {
     left: 0;
     width: 70px;
-    height: 84px
+    height: 84px;
 }
 
 #dTop {
@@ -799,14 +799,14 @@ td.HandBookZombie {
     height: 35px;
     width: 123px;
     visibility: hidden;
-    z-index: 1
+    z-index: 1;
 }
 
 #dSunNum {
-    background: url('images/interface/SunBack.png') no-repeat;
+    background: url("images/interface/SunBack.png") no-repeat;
     position: absolute;
     width: 123px;
-    height: 35px
+    height: 35px;
 }
 
 #sSunNum {
@@ -817,7 +817,7 @@ td.HandBookZombie {
     width: 68px;
     font-family: Verdana;
     font-weight: bold;
-    font-size: 18pt
+    font-size: 18pt;
 }
 
 #tdShovel {
@@ -825,8 +825,8 @@ td.HandBookZombie {
     width: 71px;
     height: 35px;
     left: 130px;
-    background: url('images/interface/ShovelBack.png') no-repeat;
-    visibility: hidden
+    background: url("images/interface/ShovelBack.png") no-repeat;
+    visibility: hidden;
 }
 
 #dPlants,
@@ -834,7 +834,7 @@ td.HandBookZombie {
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 2
+    z-index: 2;
 }
 
 #dMenu {
@@ -846,7 +846,7 @@ td.HandBookZombie {
     cursor: pointer;
     width: 226px;
     height: 41px;
-    z-index: 254
+    z-index: 254;
 }
 
 #dHandBook {
@@ -854,7 +854,7 @@ td.HandBookZombie {
     position: absolute;
     z-index: 255;
     width: 900px;
-    background: url(images/interface/Almanac_IndexBack.jpg) no-repeat
+    background: url(images/interface/Almanac_IndexBack.jpg) no-repeat;
 }
 
 #dHandBook .title {
@@ -865,20 +865,20 @@ td.HandBookZombie {
     width: 100%;
     font-size: 32px;
     font-weight: bold;
-    font-family: Tahoma
+    font-family: Tahoma;
 }
 
 #dHandBook .content {
     position: relative;
     height: 423px;
-    width: 100%
+    width: 100%;
 }
 
 #dHandBook .content div {
     position: absolute;
     width: 50%;
     text-align: center;
-    padding-top: 135px
+    padding-top: 135px;
 }
 
 #dHandBook .content div .button {
@@ -887,7 +887,7 @@ td.HandBookZombie {
     height: 41px;
     font-size: 14pt;
     font-weight: bold;
-    font-family: Tahoma
+    font-family: Tahoma;
 }
 
 #dHandBook .close {
@@ -900,7 +900,7 @@ td.HandBookZombie {
     line-height: 26px;
     background: url(images/interface/Almanac_CloseButton.png);
     color: #000080;
-    font-size: 14px
+    font-size: 14px;
 }
 
 #btnViewPlant {
@@ -916,7 +916,7 @@ td.HandBookZombie {
     font-weight: bold;
     font-size: 14pt;
     font-family: Tahoma;
-    margin-top: 43px
+    margin-top: 43px;
 }
 
 #btnViewZombie {
@@ -932,21 +932,21 @@ td.HandBookZombie {
     border-left: 3px solid #6c6c85;
     border-right: 3px solid #686788;
     border-top: 3px solid #6c6c85;
-    border-bottom: 3px solid #727390
+    border-bottom: 3px solid #727390;
 }
 
 #dHandBookPZ {
     visibility: hidden;
     position: absolute;
     z-index: 255;
-    width: 900px
+    width: 900px;
 }
 
 #dHandBookPZ .dButton {
     position: absolute;
     left: 0;
     top: 568px;
-    width: 100%
+    width: 100%;
 }
 
 #dHandBookPZ .dButton div {
@@ -956,26 +956,26 @@ td.HandBookZombie {
     height: 26px;
     line-height: 26px;
     color: #000080;
-    font-size: 14px
+    font-size: 14px;
 }
 
 #dHandBookPZ .dButton .button1 {
     left: 30px;
     width: 164px;
-    background: url(images/interface/Almanac_IndexButton.png)
+    background: url(images/interface/Almanac_IndexButton.png);
 }
 
 #dHandBookPZ .dButton .button2 {
     left: 670px;
     width: 89px;
-    background: url(images/interface/Almanac_CloseButton.png)
+    background: url(images/interface/Almanac_CloseButton.png);
 }
 
 #dHandBookP {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 567px
+    height: 567px;
 }
 
 #dHandBookP .title,
@@ -987,12 +987,12 @@ td.HandBookZombie {
     text-align: center;
     font-size: 20px;
     font-family: Tahoma;
-    font-weight: bold
+    font-weight: bold;
 }
 
 #dHandBookP .title {
     line-height: 90px;
-    color: #ceaa31
+    color: #ceaa31;
 }
 
 #dHandBookP .list,
@@ -1001,12 +1001,12 @@ td.HandBookZombie {
     text-align: center;
     left: 55%;
     height: 497px;
-    top: 71px
+    top: 71px;
 }
 
 #dHandBookP .list {
     width: 45%;
-    background: url(images/interface/Almanac_PlantCard.png) no-repeat 20px 10px
+    background: url(images/interface/Almanac_PlantCard.png) no-repeat 20px 10px;
 }
 
 #dHandBookP .list .cost_cool {
@@ -1014,17 +1014,17 @@ td.HandBookZombie {
     font-size: 14px;
     margin-left: auto;
     margin-right: auto;
-    text-align: left
+    text-align: left;
 }
 
 #dHandBookP .list .cost_cool .cost {
     float: left;
-    width: 20%
+    width: 20%;
 }
 
 #dHandBookP .list .cost_cool .cool {
     float: left;
-    width: 30%
+    width: 30%;
 }
 
 #dHandBookPCard {
@@ -1032,7 +1032,7 @@ td.HandBookZombie {
     top: 71px;
     width: 55%;
     height: 497px;
-    margin: 25px 0 0 15px
+    margin: 25px 0 0 15px;
 }
 
 #pPlantBack,
@@ -1040,19 +1040,19 @@ td.HandBookZombie {
     position: absolute;
     width: 250px;
     height: 250px;
-    background: url('images/interface/Almanac_Ground.jpg') no-repeat
+    background: url("images/interface/Almanac_Ground.jpg") no-repeat;
 }
 
 #pPlantBack {
     left: 518px;
-    top: 84px
+    top: 84px;
 }
 
 #pHandBookPlant {
     width: 100%;
     height: 180px;
     background-repeat: no-repeat;
-    background-position: 50% 70%
+    background-position: 50% 70%;
 }
 
 #dHandBookPlantName {
@@ -1062,7 +1062,7 @@ td.HandBookZombie {
     line-height: 60px;
     font-size: 40px;
     color: #deb887;
-    font-family: Tahoma
+    font-family: Tahoma;
 }
 
 #dProducePlant {
@@ -1073,13 +1073,13 @@ td.HandBookZombie {
     text-align: left;
     font-size: 13px;
     line-height: 16px;
-    font-family: Tahoma
+    font-family: Tahoma;
 }
 
 #spSunNum,
 #spCoolTime {
     float: left;
-    width: 24%
+    width: 24%;
 }
 
 #dHandBookZ {
@@ -1087,17 +1087,17 @@ td.HandBookZombie {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 567px
+    height: 567px;
 }
 
 #dHandBookZ .title {
     line-height: 90px;
-    color: #0F0
+    color: #0f0;
 }
 
 #dHandBookZ .list {
     width: 42%;
-    background: url(images/interface/Almanac_ZombieCard.png) no-repeat 10px 8px
+    background: url(images/interface/Almanac_ZombieCard.png) no-repeat 10px 8px;
 }
 
 #dHandBookZCard {
@@ -1105,11 +1105,11 @@ td.HandBookZombie {
     top: 71px;
     width: 55%;
     height: 497px;
-    margin: 25px 0 0 20px
+    margin: 25px 0 0 20px;
 }
 
 #dHandBookZCard img {
-    position: absolute
+    position: absolute;
 }
 
 #dHandBookZCard .span1 {
@@ -1119,7 +1119,7 @@ td.HandBookZombie {
     height: 70px;
     float: left;
     margin: 8px 0 0 2px;
-    position: relative
+    position: relative;
 }
 
 #dHandBookZCard .span2 {
@@ -1132,19 +1132,19 @@ td.HandBookZombie {
     top: 30px;
     font-family: Cafeteria Black;
     font-size: 25px;
-    color: #fff
+    color: #fff;
 }
 
 #pZombieBack {
     left: 512px;
-    top: 111px
+    top: 111px;
 }
 
 #pHandBookZombie {
     width: 90%;
     height: 250px;
     background-repeat: no-repeat;
-    background-position: 50% 70%
+    background-position: 50% 70%;
 }
 
 #dHandBookZombieName {
@@ -1155,7 +1155,7 @@ td.HandBookZombie {
     font-size: 30px;
     color: #000;
     font-family: Tahoma;
-    font-weight: bold
+    font-weight: bold;
 }
 
 #dProduceZombie {
@@ -1166,7 +1166,7 @@ td.HandBookZombie {
     text-align: left;
     font-size: 14px;
     line-height: 16px;
-    font-family: Tahoma
+    font-family: Tahoma;
 }
 
 #dNewPlant {
@@ -1177,7 +1177,7 @@ td.HandBookZombie {
     margin-left: -450px;
     width: 900px;
     height: 600px;
-    background: url(images/interface/AwardScreen_Back.jpg) no-repeat
+    background: url(images/interface/AwardScreen_Back.jpg) no-repeat;
 }
 
 #dNewPlant .card {
@@ -1186,7 +1186,7 @@ td.HandBookZombie {
     width: 900px;
     height: 191px;
     line-height: 191px;
-    text-align: center
+    text-align: center;
 }
 
 #dNewPlantTitle {
@@ -1194,12 +1194,12 @@ td.HandBookZombie {
     left: 50%;
     text-align: center;
     margin-left: -250px;
-    color: #FC6;
+    color: #fc6;
     font-size: 20px;
     height: 90px;
     line-height: 90px;
     font-weight: bold;
-    width: 500px
+    width: 500px;
 }
 
 #dNewPlantName {
@@ -1215,7 +1215,7 @@ td.HandBookZombie {
     font-size: 30px;
     color: #000;
     font-weight: bold;
-    line-height: 55px
+    line-height: 55px;
 }
 
 #dNewPlantTooltip {
@@ -1228,7 +1228,7 @@ td.HandBookZombie {
     font-weight: bold;
     font-family: Tahoma;
     font-size: 15px;
-    color: #232323
+    color: #232323;
 }
 
 #btnNextLevel {
@@ -1241,19 +1241,19 @@ td.HandBookZombie {
     border-top: 3px solid #85411c;
     border-bottom: 3px solid #4e250c;
     background-color: #8f431b;
-    color: #FC6;
+    color: #fc6;
     font-weight: bold;
     font-size: 12px;
     font-family: Tahoma;
     left: 400px;
-    top: 507px
+    top: 507px;
 }
 
 #dProcess {
     text-align: center;
-    border: 1px solid #FFF;
+    border: 1px solid #fff;
     background: #000;
-    color: #FFF;
+    color: #fff;
     position: absolute;
     left: 50%;
     margin-left: -442px;
@@ -1267,7 +1267,7 @@ td.HandBookZombie {
 }
 
 #dProcess img {
-    margin: 5px 0
+    margin: 5px 0;
 }
 
 #dProcess .button {
@@ -1279,17 +1279,17 @@ td.HandBookZombie {
     border-top: 3px solid #85411c;
     border-bottom: 3px solid #4e250c;
     background-color: #8f431b;
-    color: #FC6;
+    color: #fc6;
     font-weight: bold;
     font-size: 14px;
-    font-family: Tahoma
+    font-family: Tahoma;
 }
 
 #sFailed {
     line-height: 30px;
     font-size: 16px;
-    color: #FF0;
-    font-weight: bold
+    color: #ff0;
+    font-weight: bold;
 }
 
 #dProcess2 {
@@ -1298,26 +1298,26 @@ td.HandBookZombie {
     font-size: 12px;
     text-align: left;
     width: 100%;
-    height: 500px
+    height: 500px;
 }
 
 dt {
     line-height: 20px;
     font-size: 15px;
     margin: 8px 0 0 15px;
-    color: #E80;
+    color: #e80;
     font-family: Verdana, Tahoma;
-    font-weight: bold
+    font-weight: bold;
 }
 
 dd {
     line-height: 22px;
     font-size: 14px;
-    margin: 0
+    margin: 0;
 }
 
 dd.yellow {
-    color: #FF0
+    color: #ff0;
 }
 
 .Tom1 {
@@ -1325,7 +1325,7 @@ dd.yellow {
     top: 0;
     width: 86px;
     height: 91px;
-    background: url(images/interface/Tombstones.png) no-repeat
+    background: url(images/interface/Tombstones.png) no-repeat;
 }
 
 .Tom2 {
@@ -1334,30 +1334,30 @@ dd.yellow {
     top: 0;
     width: 86px;
     height: 91px;
-    background: url(images/interface/Tombstone_mounds.png) no-repeat
+    background: url(images/interface/Tombstone_mounds.png) no-repeat;
 }
 
 .flipH {
     -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
     -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
-    -o-transform: matrix(-1, 0, 0, 1, 0, 0)
+    -o-transform: matrix(-1, 0, 0, 1, 0, 0);
 }
 
 #dText1,
 #dText2 {
     position: relative;
-    width: 100%
+    width: 100%;
 }
 
 #dText1 {
     height: 90px;
-    _margin-bottom: 10px
+    _margin-bottom: 10px;
 }
 
 #dLink {
     position: absolute;
     top: 602px;
-    left: 0
+    left: 0;
 }
 
 #dLinkTop,
@@ -1365,14 +1365,14 @@ dd.yellow {
     position: relative;
     float: left;
     width: 393px;
-    _width: 384px
+    _width: 384px;
 }
 
 #dLink,
 #dLinkTop {
-    color: #FFF;
+    color: #fff;
     padding: 0;
-    height: 59px
+    height: 59px;
 }
 
 #dLink div,
@@ -1381,7 +1381,7 @@ dd.yellow {
     float: left;
     margin-right: 2px;
     height: 59px;
-    _margin-right: 1px
+    _margin-right: 1px;
 }
 
 #dAdFlash {
@@ -1393,11 +1393,11 @@ dd.yellow {
     padding: 45px 107px 45px 107px;
     margin-left: -275px;
     z-index: 254;
-    display: none
+    display: none;
 }
 
 #dAdFlash div {
-    position: absolute
+    position: absolute;
 }
 
 #dAD2 {
@@ -1407,7 +1407,7 @@ dd.yellow {
     top: 500px;
     height: 15px;
     width: 468px;
-    z-index: 250
+    z-index: 250;
 }
 
 .a5gg {
@@ -1416,18 +1416,18 @@ dd.yellow {
     text-align: center;
     background: #f0f0f0;
     font-size: 14px;
-    border: 0 solid #ccd3df
+    border: 0 solid #ccd3df;
 }
 
 .a5gg dt {
     margin-top: 0;
-    line-height: 17px
+    line-height: 17px;
 }
 
 .a5gg a {
     text-decoration: none;
     color: #336cd8;
-    font-size: 14px
+    font-size: 14px;
 }
 
 .a5gg dd {
@@ -1436,7 +1436,7 @@ dd.yellow {
     height: 14px;
     line-height: 14px;
     float: left;
-    _margin-left: 1px
+    _margin-left: 1px;
 }
 
 #dChat {
@@ -1444,18 +1444,18 @@ dd.yellow {
     left: 50%;
     margin-left: -421px;
     top: 5px;
-    z-index: 255
+    z-index: 255;
 }
 
 #dChat div {
-    position: absolute
+    position: absolute;
 }
 
 #dChatView {
     display: none;
     width: 842px;
     height: 585px;
-    background: url()
+    background: url();
 }
 
 #dChatView .bg {
@@ -1466,11 +1466,11 @@ dd.yellow {
     height: 395px;
     background: #ffcf94;
     filter: alpha(opacity=90);
-    opacity: .9
+    opacity: 0.9;
 }
 
 #dChatView iframe {
-    background-color: transparent
+    background-color: transparent;
 }
 
 #dChatView .IF2 {
@@ -1478,55 +1478,55 @@ dd.yellow {
     left: 60px;
     top: 530px;
     width: 710px;
-    height: 35px
+    height: 35px;
 }
 
 .Almanac_IndexBack {
     background: url(images/interface/Almanac_ZombieBack.jpg) no-repeat;
     width: 900px;
-    height: 600px
+    height: 600px;
 }
 
 .Almanac_PlantBack {
     background: url(images/interface/Almanac_PlantBack.jpg) no-repeat;
     width: 900px;
-    height: 600px
+    height: 600px;
 }
 
 .Almanac_ZombieBack {
     background: url(images/interface/Almanac_ZombieBack.jpg) no-repeat;
     width: 900px;
-    height: 600px
+    height: 600px;
 }
 
 .Almanac_ZombieBack1 {
     background: url(images/interface/Almanac_ZombieBack1.jpg) no-repeat;
     width: 900px;
-    height: 600px
+    height: 600px;
 }
 
 .Almanac_ZombieBack2 {
     background: url(images/interface/Challenge_Background_Xiyouji.jpg) no-repeat;
     width: 900px;
-    height: 600px
+    height: 600px;
 }
 
 .Challenge_Background {
     background: url(images/interface/Challenge_Background.jpg) no-repeat;
     width: 900px;
-    height: 600px
+    height: 600px;
 }
 
 .Challenge_Background_Level {
     background: url(images/interface/Challenge_Background_Level.jpg) no-repeat;
     width: 900px;
-    height: 600px
+    height: 600px;
 }
 
 .Xiyouji_Background {
     background: url(images/interface/xiyouji_guanqia.jpg) no-repeat;
     width: 900px;
-    height: 600px
+    height: 600px;
 }
 
 .Sunflower_trophy {
@@ -1536,7 +1536,7 @@ dd.yellow {
     width: 157px;
     height: 269px;
     overflow: hidden;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .Sunflower_trophy img {
@@ -1553,7 +1553,7 @@ dd.yellow {
     height: 600px;
     z-index: 255;
     display: none;
-    font-weight: bold
+    font-weight: bold;
 }
 
 #dLogin table {
@@ -1561,7 +1561,7 @@ dd.yellow {
     left: 233px;
     top: 90px;
     height: 400px;
-    width: 434px
+    width: 434px;
 }
 
 #dLogin .list {
@@ -1573,13 +1573,13 @@ dd.yellow {
     width: 100%;
     font-size: 13px;
     text-align: center;
-    color: #FFF
+    color: #fff;
 }
 
 #dLogin .list div,
 #dPause .list div {
     position: relative;
-    width: 100%
+    width: 100%;
 }
 
 #dLogin .button,
@@ -1588,26 +1588,26 @@ dd.yellow {
     cursor: pointer;
     top: 410px;
     font-family: 宋体;
-    color: #F93;
+    color: #f93;
     font-size: 24px;
-    font-weight: 700
+    font-weight: 700;
 }
 
 #dPause .button {
     left: 150px;
-    top: 404px
+    top: 404px;
 }
 
 #dPauseAD {
     left: 0;
-    height: 100%
+    height: 100%;
 }
 
 #dLoadUserName {
     visibility: hidden;
     top: 170px;
     height: 100%;
-    text-align: center
+    text-align: center;
 }
 
 #dPause {
@@ -1616,7 +1616,7 @@ dd.yellow {
     top: 20px;
     width: 434px;
     display: none;
-    font-weight: bold
+    font-weight: bold;
 }
 
 #dPause .list {
@@ -1625,21 +1625,21 @@ dd.yellow {
     top: 90px;
     z-index: 200;
     width: 100%;
-    text-align: center
+    text-align: center;
 }
 
 #dPause .list .hidden {
     cursor: pointer;
     height: 20px;
-    color: #F93;
+    color: #f93;
     font-size: 16px;
-    line-height: 20px
+    line-height: 20px;
 }
 
 #dPause .list .pause {
     color: #000;
     font-size: 18px;
-    line-height: 30px
+    line-height: 30px;
 }
 
 #dOptionsMenu {
@@ -1648,7 +1648,7 @@ dd.yellow {
     width: 100%;
     height: 100%;
     display: none;
-    font-weight: bold
+    font-weight: bold;
 }
 
 #dOptionsMenu .button {
@@ -1656,27 +1656,27 @@ dd.yellow {
     color: #fff;
     text-decoration: none;
     font-family: Tahoma;
-    font-size: 20
+    font-size: 20;
 }
 
 #dOptionsMenu .OMd0 {
     margin-top: 120px;
     height: 65px;
-    position: relative
+    position: relative;
 }
 
 #dOptionsMenu .OMd0 .OMd1 {
     position: absolute;
     left: 150px;
-    text-align: left
+    text-align: left;
 }
 
 #dOptionsMenu .OMd0 .OMd1 div {
-    height: 30px
+    height: 30px;
 }
 
 #dOptionsMenu .OMd0 .OMd1 div label {
-    color: #000
+    color: #000;
 }
 
 #dMiniSmallContainer,
@@ -1687,17 +1687,17 @@ dd.yellow {
     display: none;
     position: absolute;
     left: 0;
-    top: 0
+    top: 0;
 }
 
 #dMiniSmallContainer table {
     position: absolute;
-    left: 0
+    left: 0;
 }
 
 #dxiyouji table {
     position: absolute;
-    left: 0
+    left: 0;
 }
 
 #dRiddleTitle,
@@ -1712,28 +1712,28 @@ dd.yellow {
     font-size: 30px;
     font-weight: bold;
     font-family: Tahoma;
-    color: #fff
+    color: #fff;
 }
 
 #dRiddleTitle {
-    color: #fff
+    color: #fff;
 }
 
 #dRiddleTitle1 {
-    color: #fff
+    color: #fff;
 }
 
 #dRiddleInx {
     position: relative;
     height: 473px;
-    width: 100%
+    width: 100%;
 }
 
 #dRiddleInx div {
     position: absolute;
     width: 50%;
     height: 442px;
-    text-align: center
+    text-align: center;
 }
 
 #dRiddleInx .button {
@@ -1745,11 +1745,11 @@ dd.yellow {
     border-top: 3px solid #85411c;
     border-bottom: 3px solid #4e250c;
     background-color: #8f431b;
-    color: #FC6;
+    color: #fc6;
     font-weight: bold;
     font-size: 14pt;
     font-family: Tahoma;
-    margin-top: 26px
+    margin-top: 26px;
 }
 
 #dRiddleInx .inx0 {
@@ -1759,7 +1759,7 @@ dd.yellow {
     margin-left: 0;
     width: 450px;
     height: 600px;
-    background: url(images/interface/Almanac_IndexBack.png) no-repeat left top
+    background: url(images/interface/Almanac_IndexBack.png) no-repeat left top;
 }
 
 #dRiddleInx .inx1 {
@@ -1769,20 +1769,20 @@ dd.yellow {
     margin-left: 0;
     width: 450px;
     height: 600px;
-    background: url(images/interface/Almanac_IndexBack.png) no-repeat right top
+    background: url(images/interface/Almanac_IndexBack.png) no-repeat right top;
 }
 
 #dRiddleInx1 {
     position: relative;
     height: 473px;
-    width: 100%
+    width: 100%;
 }
 
 #dRiddleInx1 div {
     position: absolute;
     width: 50%;
     height: 442px;
-    text-align: center
+    text-align: center;
 }
 
 #dRiddleInx1 .button {
@@ -1794,11 +1794,11 @@ dd.yellow {
     border-top: 3px solid #85411c;
     border-bottom: 3px solid #4e250c;
     background-color: #8f431b;
-    color: #FC6;
+    color: #fc6;
     font-weight: bold;
     font-size: 14pt;
     font-family: Tahoma;
-    margin-top: 26px
+    margin-top: 26px;
 }
 
 #dRiddleInx1 .inx01 {
@@ -1808,7 +1808,7 @@ dd.yellow {
     margin-left: -110px;
     width: 221px;
     height: 310px;
-    background: url(images/interface/Almanac_IndexBack.png) no-repeat left top
+    background: url(images/interface/Almanac_IndexBack.png) no-repeat left top;
 }
 
 #dRiddleInx1 .inx11 {
@@ -1818,7 +1818,7 @@ dd.yellow {
     margin-left: -110px;
     width: 221px;
     height: 310px;
-    background: url(images/interface/Almanac_IndexBack.png) no-repeat right top
+    background: url(images/interface/Almanac_IndexBack.png) no-repeat right top;
 }
 
 #dRiddle0 td,
@@ -1828,21 +1828,21 @@ dd.yellow {
     width: 20%;
     text-align: center;
     background: url(images/interface/Challenge.png) no-repeat 50%;
-    padding-top: 18px
+    padding-top: 18px;
 }
 
 #dRiddle0 {
     position: relative;
     height: 473px;
     width: 94%;
-    display: none
+    display: none;
 }
 
 #dRiddle0 .list,
 #dMini0 .list,
 #dMini1 .list {
     margin-top: 15px;
-    height: 45px
+    height: 45px;
 }
 
 #dRiddle0 .button,
@@ -1857,7 +1857,7 @@ dd.yellow {
     line-height: 26px;
     background: url(images/interface/Almanac_IndexButton.png);
     color: #000080;
-    font-size: 16px
+    font-size: 16px;
 }
 
 #dRiddle1 {
@@ -1866,7 +1866,7 @@ dd.yellow {
     height: 473px;
     width: 100%;
     display: none;
-    top: -10px
+    top: -10px;
 }
 
 #dRiddleClose,
@@ -1883,19 +1883,19 @@ dd.yellow {
     line-height: 26px;
     background: url(images/interface/Almanac_CloseButton.png);
     color: #000080;
-    font-size: 16px
+    font-size: 16px;
 }
 
 #dRiddle1 .list {
-    width: 48%
+    width: 48%;
 }
 
 #dAdvSmallContainer {
-    padding-left: 50px
+    padding-left: 50px;
 }
 
 #dAdvSmallContainer img {
-    position: absolute
+    position: absolute;
 }
 
 #dAdvSmallContainer .lvl {
@@ -1904,7 +1904,7 @@ dd.yellow {
     font-family: Tahoma;
     float: left;
     cursor: pointer;
-    margin-left: 40px
+    margin-left: 40px;
 }
 
 #dAdvSmallContainer .lvl2 {
@@ -1912,14 +1912,14 @@ dd.yellow {
     float: left;
     width: 500px;
     line-height: 35px;
-    padding-top: 15px
+    padding-top: 15px;
 }
 
 #dAdvSmallContainer .list {
     position: relative;
     width: 700px;
     height: 80px;
-    float: left
+    float: left;
 }
 
 #dAdvSmallContainer .list .title {
@@ -1932,7 +1932,7 @@ dd.yellow {
     height: 90px;
     width: 60px;
     float: left;
-    padding-top: 25px
+    padding-top: 25px;
 }
 
 #dAdvSmallContainer .list .icon {
@@ -1940,16 +1940,16 @@ dd.yellow {
     height: 100px;
     width: 100px;
     float: left;
-    margin-left: 20px
+    margin-left: 20px;
 }
 
 #dAdvSmallContainer .img1 {
-    top: 17px
+    top: 17px;
 }
 
 #dAdvSmallContainer .img2 {
     left: 8px;
-    top: 11px
+    top: 11px;
 }
 
 .Announcement {
@@ -1962,15 +1962,15 @@ dd.yellow {
     overflow: hidden;
     top: 600px;
     width: 900px;
-    background: url('new_skin/pvz/game_bg.png') no-repeat 0 0;
-    z-index: 65535
+    background: url("new_skin/pvz/game_bg.png") no-repeat 0 0;
+    z-index: 65535;
 }
 
 .Announcement .d1 {
     float: left;
     position: relative;
     height: 40px;
-    width: 75%
+    width: 75%;
 }
 
 .Announcement .d1 .share {
@@ -1978,19 +1978,19 @@ dd.yellow {
     float: left;
     line-height: 40px;
     margin-left: 0;
-    font-size: 14px
+    font-size: 14px;
 }
 
 .dLittleChat {
     float: left;
     width: 25%;
-    margin-top: 5px
+    margin-top: 5px;
 }
 
 .dLittleChat a {
     color: #060;
     font-size: 14px;
-    font-family: Tahoma, Tahoma
+    font-family: Tahoma, Tahoma;
 }
 
 .game_ipt_01 {
@@ -2001,10 +2001,10 @@ dd.yellow {
     background: url(new_skin/pvz/game_ipt.png) no-repeat;
     border: 0;
     font-weight: 600;
-    color: #FFF;
+    color: #fff;
     font-size: 14px;
     vertical-align: top;
-    cursor: pointer
+    cursor: pointer;
 }
 
 #dSpeedContainer {
@@ -2018,10 +2018,10 @@ dd.yellow {
     height: 430px;
     border: 1px solid #000;
     background: #666;
-    color: #FFF;
+    color: #fff;
     text-align: center;
     display: none;
-    z-index: 255
+    z-index: 255;
 }
 
 #dSpeedContainer .title {
@@ -2030,50 +2030,56 @@ dd.yellow {
     width: 538px;
     line-height: 25px;
     font-weight: bold;
-    color: #FF0
+    color: #ff0;
 }
 
 #dSpeedContainer .nowspeed {
     height: 50px;
     line-height: 50px;
     font-weight: bold;
-    color: #FF0
+    color: #ff0;
 }
 
 #dSpeedContainer .content {
     text-align: left;
-    line-height: 30px
+    line-height: 30px;
 }
 
 #dSpeedContainer .content span {
     font-weight: 700;
-    color: #FF0
+    color: #ff0;
 }
 
 .dSpeed {
     position: relative;
     margin-top: 20px;
     height: 50px;
-    width: 100%
+    width: 100%;
 }
 
 .dSpeed div {
-    cursor: pointer
+    cursor: pointer;
 }
 
 .dSpeed .dS1 {
     float: left;
     width: 40%;
     line-height: 50px;
-    font-weight: bold
+    font-weight: bold;
 }
 
 .dSpeed .dS2 div {
-    float: left
+    float: left;
 }
 
 button.jhp {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(#f5f5f5),
+        to(#f1f1f1)
+    );
     background-image: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
     -webkit-border-radius: 2px;
     -webkit-user-select: none;
@@ -2088,11 +2094,17 @@ button.jhp {
     font-family: arial, sans-serif;
     font-size: 11px;
     font-weight: bold;
-    text-align: center
+    text-align: center;
 }
 
 button.jhp:hover {
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f1f1f1));
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(#f8f8f8),
+        to(#f1f1f1)
+    );
     background-image: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     background-color: #f8f8f8;
@@ -2100,10 +2112,10 @@ button.jhp:hover {
     background-image: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
     border: 1px solid #c6c6c6;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-    color: #333
+    color: #333;
 }
 
 button.jhp:focus {
     border: 1px solid #4d90fe;
-    outline: 0
+    outline: 0;
 }

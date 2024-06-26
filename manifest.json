@@ -24,8 +24,6 @@
         "sandbox": "sandbox allow-scripts allow-pointer-lock; script-src 'self' 'unsafe-eval' blob: 'unsafe-inline'; object-src 'self' 'unsafe-eval' blob: 'unsafe-inline';child-src 'self' 'unsafe-eval' blob: 'unsafe-inline' ; worker-src 'self' 'unsafe-eval' blob: 'unsafe-inline'; script-src-elem 'self' 'unsafe-eval' blob: 'unsafe-inline'"
     },
     "sandbox": {
-        "pages": [
-            "game/iframe.html"
-        ]
+        "pages": ["game/iframe.html"]
     }
 }

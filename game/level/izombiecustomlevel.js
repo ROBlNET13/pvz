@@ -46,7 +46,7 @@ oS.Init({
                 CustomSpecial(
                     d[e[(c = Math.floor(Math.random() * e.length))]],
                     i,
-                    a,
+                    a
                 );
                 e.splice(c, 1);
             }
@@ -57,7 +57,7 @@ oS.Init({
             "iStripe",
             "images/interface/Stripe.png",
             "left:" + (GetX1X2(customcolumns + 1)[0] - 11) + "px;top:65px",
-            EDAll,
+            EDAll
         );
     },
     StartGame: function () {
@@ -79,7 +79,7 @@ oS.Init({
                             function () {
                                 SetNone(c);
                             },
-                            [],
+                            []
                         );
                         (function () {
                             SetVisible($("dFlagMeter"), $("dFlagMeterContent"));

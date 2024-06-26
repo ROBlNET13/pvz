@@ -135,7 +135,7 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oBigChomper, 191);
                     },
-                },
+                }
             );
             EditImg($("PointerUD"), 0, "images/interface/PointerDown.gif", {
                 left: "676px",
@@ -143,5 +143,5 @@ oS.Init(
                 visibility: "visible",
             });
         },
-    },
+    }
 );

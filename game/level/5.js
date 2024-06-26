@@ -26,7 +26,7 @@ oS.Init(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -44,16 +44,16 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Neighbors, we managed to fight off some zombies after all the hard work! congratulations",
+                            "Neighbors, we managed to fight off some zombies after all the hard work! congratulations"
                         );
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -65,13 +65,13 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "Now, I have a surprise for you.");
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -83,13 +83,13 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "But first, you must clean your lawn.");
                         break;
                     case 3:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -101,13 +101,13 @@ oS.Init(
                                     oSym.addTask(10, b, [4]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "Dig out those plants with your shovel!");
                         break;
                     case 4:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -119,7 +119,7 @@ oS.Init(
                                     oSym.addTask(10, b, [5]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "Start digging!");
                         break;
@@ -132,7 +132,7 @@ oS.Init(
                                 ClearChild($("dDave"));
                                 a(0);
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -152,13 +152,13 @@ oS.Init(
                             case 0:
                                 innerText(
                                     $("DivTeach"),
-                                    "Tap to pick up the shovel!",
+                                    "Tap to pick up the shovel!"
                                 );
                                 NewImg(
                                     "PointerUD",
                                     "images/interface/PointerUP.gif",
                                     "top:36px;left:250px",
-                                    EDAll,
+                                    EDAll
                                 );
                                 oSym.addTask(10, arguments.callee, [++c]);
                                 break;
@@ -166,7 +166,7 @@ oS.Init(
                                 b < 0 &&
                                     (innerText(
                                         $("DivTeach"),
-                                        "Click to remove a plant!",
+                                        "Click to remove a plant!"
                                     ),
                                     ++c);
                                 oSym.addTask(10, arguments.callee, [c]);
@@ -175,13 +175,13 @@ oS.Init(
                                 !(a["2_6_1"] && a["3_8_1"] && a["4_7_1"])
                                     ? (innerText(
                                           $("DivTeach"),
-                                          "Just keep digging until you have no plants on your lawn!",
+                                          "Just keep digging until you have no plants on your lawn!"
                                       ),
                                       ++c)
                                     : b > -1 &&
                                       (innerText(
                                           $("DivTeach"),
-                                          "Tap the shovel to dig out those plants!",
+                                          "Tap the shovel to dig out those plants!"
                                       ),
                                       (c = 1));
                                 oSym.addTask(10, arguments.callee, [c]);
@@ -191,17 +191,16 @@ oS.Init(
                                     ? (function () {
                                           SetHidden(
                                               $("DivTeach"),
-                                              $("PointerUD"),
+                                              $("PointerUD")
                                           );
                                           SetVisible(
                                               $("dSunNum"),
                                               $("dFlagMeter"),
-                                              $("dTop"),
+                                              $("dTop")
                                           );
                                           StopMusic();
                                           PlayMusic(
-                                              (oS.LoadMusic =
-                                                  oS.StartGameMusic),
+                                              (oS.LoadMusic = oS.StartGameMusic)
                                           );
                                           oS.InitLawnMower();
                                           PrepareGrowPlants(function () {
@@ -212,12 +211,10 @@ oS.Init(
                                                   function () {
                                                       oP.AddZombiesFlag();
                                                       SetVisible(
-                                                          $(
-                                                              "dFlagMeterContent",
-                                                          ),
+                                                          $("dFlagMeterContent")
                                                       );
                                                   },
-                                                  [],
+                                                  []
                                               );
                                           });
                                       })()
@@ -255,12 +252,12 @@ oS.Init(
                                     e +
                                     "px;z-index:" +
                                     3 * c,
-                                EDAll,
+                                EDAll
                             ).setAttribute("S", b);
                             (d = oGd.$[b + "_1"]) && d.Die();
                             oGd.$Crater[b] = 2;
                     }
-                },
+                }
             );
             SetVisible($("dFlagMeter"));
             CustomPlants(0, 2, 6);
@@ -288,14 +285,14 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oPotatoMine, 6);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:235px;left:596px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

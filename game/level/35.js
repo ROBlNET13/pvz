@@ -30,7 +30,7 @@ oS.Init(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -48,16 +48,16 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "I still remember the fun of playing petanque with Peter as a kid",
+                            "I still remember the fun of playing petanque with Peter as a kid"
                         );
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -69,16 +69,16 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Now Peter's not in this damn place, come and play with me~",
+                            "Now Peter's not in this damn place, come and play with me~"
                         );
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -90,16 +90,16 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "However, this time we are not rolling balls, but starfish! .",
+                            "However, this time we are not rolling balls, but starfish! ."
                         );
                         break;
                     case 3:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -111,11 +111,11 @@ oS.Init(
                                     oSym.addTask(10, b, [4]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "I believe this is a very fun thing to do!",
+                            "I believe this is a very fun thing to do!"
                         );
                         break;
                     case 4:
@@ -127,7 +127,7 @@ oS.Init(
                                 ClearChild($("dDave"));
                                 a(0);
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -138,7 +138,7 @@ oS.Init(
                 "div",
                 "width:22px;height:502px;margin:75px 0 0 485px;position:absolute;z-index:1;background:url(images/interface/Stripe.png)",
                 0,
-                $("tGround"),
+                $("tGround")
             );
             StopMusic();
             PlayMusic((oS.LoadMusic = oS.StartGameMusic));
@@ -171,7 +171,7 @@ oS.Init(
                                         onclick: function (g) {
                                             ChosePlant(g, oS.ChoseCard, f);
                                         },
-                                    },
+                                    }
                                 );
                             }
                             oSym.addTask(500, arguments.callee, []);
@@ -223,13 +223,13 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oSeaAnemone, 36);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:290px;left:636px",
-                EDAll,
+                EDAll
             );
         },
     },
@@ -261,7 +261,7 @@ oS.Init(
                         20 -
                         c.height +
                         "px;z-index:254",
-                    EDAll,
+                    EDAll
                 ).cloneNode(false),
                 "MovePlantAlpha",
                 "",
@@ -271,7 +271,7 @@ oS.Init(
                     opacity: 0.4,
                     zIndex: 30,
                 },
-                EDAll,
+                EDAll
             );
             SetAlpha($(f.DID), 50, 0.5);
             SetHidden($("dTitle"));
@@ -294,9 +294,9 @@ oS.Init(
                         "div",
                         "line-height:40px;font-size: 14px",
                         0,
-                        EDAll,
+                        EDAll
                     ),
-                    "The starfish fruit can only be placed on the left side of the red line!",
+                    "The starfish fruit can only be placed on the left side of the red line!"
                 );
                 return false;
             }
@@ -316,5 +316,5 @@ oS.Init(
             GroundOnmousemove = function () {};
         },
         ViewPlantTitle: function (a) {},
-    },
+    }
 );

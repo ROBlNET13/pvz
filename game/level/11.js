@@ -48,7 +48,7 @@ oS.Init(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -66,16 +66,16 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Good evening," + $User.Visitor.UserName + "。",
+                            "Good evening," + $User.Visitor.UserName + "。"
                         );
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -87,16 +87,16 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Clicking on those zombies won't weaken the offensive, will it?",
+                            "Clicking on those zombies won't weaken the offensive, will it?"
                         );
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -108,16 +108,16 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "You'll notice that fighting zombies at night is different from daytime.",
+                            "You'll notice that fighting zombies at night is different from daytime."
                         );
                         break;
                     case 3:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -129,16 +129,16 @@ oS.Init(
                                     oSym.addTask(10, b, [4]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "First, you can't get sunlight from the sky.",
+                            "First, you can't get sunlight from the sky."
                         );
                         break;
                     case 4:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -150,16 +150,16 @@ oS.Init(
                                     oSym.addTask(10, b, [5]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "But you can still get sunlight through sunflowers.",
+                            "But you can still get sunlight through sunflowers."
                         );
                         break;
                     case 5:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -171,16 +171,16 @@ oS.Init(
                                     oSym.addTask(10, b, [6]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "And you're lucky, you got little squirt mushrooms.",
+                            "And you're lucky, you got little squirt mushrooms."
                         );
                         break;
                     case 6:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -192,11 +192,11 @@ oS.Init(
                                     oSym.addTask(10, b, [7]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Plant as many of these mushrooms as you can and you'll get through.",
+                            "Plant as many of these mushrooms as you can and you'll get through."
                         );
                         break;
                     case 7:
@@ -208,7 +208,7 @@ oS.Init(
                                 ClearChild($("dDave"));
                                 a(0);
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -234,14 +234,14 @@ oS.Init(
                     onclick: function () {
                         SelectModal(12);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:185px;left:676px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

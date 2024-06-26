@@ -35,13 +35,13 @@ oS.Init(
                     onclick: function () {
                         SelectModal(3);
                     },
-                },
+                }
             );
             NewImg(
                 "dDave",
                 "images/interface/Dave.gif",
                 "left:0;top:81px",
-                EDAll,
+                EDAll
             );
             NewEle("DivTeach", "div", 0, 0, EDAll);
             (function (d) {
@@ -59,13 +59,13 @@ oS.Init(
                                     oSym.addTask(10, b, [1]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(c, "Hello my neighbor");
                         break;
                     case 1:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -77,16 +77,16 @@ oS.Init(
                                     oSym.addTask(10, b, [2]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "My name is Crazy and my name is Dave. But everyone likes to call me Crazy Dave",
+                            "My name is Crazy and my name is Dave. But everyone likes to call me Crazy Dave"
                         );
                         break;
                     case 2:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -98,16 +98,16 @@ oS.Init(
                                     oSym.addTask(10, b, [3]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Listen, there's a bunch of zombies coming to town right now and they're surrounding us!",
+                            "Listen, there's a bunch of zombies coming to town right now and they're surrounding us!"
                         );
                         break;
                     case 3:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -119,16 +119,16 @@ oS.Init(
                                     oSym.addTask(10, b, [4]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "You have to destroy them with \nthose humble plants in your garden.",
+                            "You have to destroy them with \nthose humble plants in your garden."
                         );
                         break;
                     case 4:
                         PlayAudio(
-                            "crazydavelong" + Math.floor(1 + Math.random() * 3),
+                            "crazydavelong" + Math.floor(1 + Math.random() * 3)
                         );
                         c.onclick = null;
                         $("dDave").src = "images/interface/Dave3.gif";
@@ -140,11 +140,11 @@ oS.Init(
                                     oSym.addTask(10, b, [5]);
                                 };
                             },
-                            [],
+                            []
                         );
                         innerText(
                             c,
-                            "Next, there will be tutorials to guide you on how to kill zombies, good luck!",
+                            "Next, there will be tutorials to guide you on how to kill zombies, good luck!"
                         );
                         break;
                     case 5:
@@ -156,7 +156,7 @@ oS.Init(
                                 ClearChild($("dDave"));
                                 a(0);
                             },
-                            [],
+                            []
                         );
                 }
             })(0);
@@ -171,7 +171,7 @@ oS.Init(
                     onclick: function () {
                         SelectModal(3);
                     },
-                },
+                }
             );
             StopMusic();
             PlayMusic((oS.LoadMusic = oS.StartGameMusic));
@@ -180,19 +180,19 @@ oS.Init(
                 "div",
                 "position:absolute;left:-115px;top:0;height:600px;width:264px;z-index:0;background:url(images/interface/background1unsodded_1.jpg);over-flow:hidden",
                 0,
-                EDPZ,
+                EDPZ
             );
             NewImg(
                 "SodRoll_1",
                 "images/interface/SodRoll.png",
                 "left:112px;top:244px;z-index:1",
-                EDPZ,
+                EDPZ
             );
             NewImg(
                 "SodRollCap_1",
                 "images/interface/SodRollCap.png",
                 "left:17px;top:322px;z-index:1",
-                EDPZ,
+                EDPZ
             );
             PlayAudio("dirt_rise");
             (function (e, h, b, d, c, g, a, f) {
@@ -235,13 +235,13 @@ oS.Init(
                                       case 0:
                                           innerText(
                                               $("DivTeach"),
-                                              "Please click to select a card!",
+                                              "Please click to select a card!"
                                           );
                                           NewImg(
                                               "PointerUD",
                                               "images/interface/PointerUP.gif",
                                               "top:60px;left:50px",
-                                              EDAll,
+                                              EDAll
                                           );
                                           oSym.addTask(10, arguments.callee, [
                                               ++k,
@@ -251,7 +251,7 @@ oS.Init(
                                           i > 0 &&
                                               (innerText(
                                                   $("DivTeach"),
-                                                  "Click on the grass to plant your seeds!",
+                                                  "Click on the grass to plant your seeds!"
                                               ),
                                               EditImg(
                                                   $("PointerUD"),
@@ -260,7 +260,7 @@ oS.Init(
                                                   {
                                                       left: "170px",
                                                       top: "270px",
-                                                  },
+                                                  }
                                               ),
                                               ++k);
                                           oSym.addTask(10, arguments.callee, [
@@ -274,13 +274,13 @@ oS.Init(
                                                   SetHidden($("PointerUD"));
                                                   innerText(
                                                       $("DivTeach"),
-                                                      "Tap to collect falling sunlight!",
+                                                      "Tap to collect falling sunlight!"
                                                   );
                                                   AutoProduceSun(25);
                                                   oSym.addTask(
                                                       10,
                                                       arguments.callee,
-                                                      [++k],
+                                                      [++k]
                                                   );
                                                   return;
                                               }
@@ -296,7 +296,7 @@ oS.Init(
                                           oS.SunNum > 99 &&
                                               (innerText(
                                                   $("DivTeach"),
-                                                  "Click on the pea shooter to plant another!",
+                                                  "Click on the pea shooter to plant another!"
                                               ),
                                               EditImg(
                                                   $("PointerUD"),
@@ -306,7 +306,7 @@ oS.Init(
                                                       left: "50px",
                                                       top: "60px",
                                                       visibility: "visible",
-                                                  },
+                                                  }
                                               ),
                                               ++k);
                                           oSym.addTask(10, arguments.callee, [
@@ -323,7 +323,7 @@ oS.Init(
                                               ? (SetHidden($("PointerUD")),
                                                 innerText(
                                                     $("DivTeach"),
-                                                    "Don't let zombies near your house!",
+                                                    "Don't let zombies near your house!"
                                                 ),
                                                 oP.AddZombiesFlag(),
                                                 oSym.addTask(500, SetNone, [
@@ -332,7 +332,7 @@ oS.Init(
                                               : oSym.addTask(
                                                     10,
                                                     arguments.callee,
-                                                    [4],
+                                                    [4]
                                                 );
                                   }
                               },
@@ -358,7 +358,7 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oSunFlower, 2);
                     },
-                },
+                }
             );
             EditImg($("PointerUD"), 0, "images/interface/PointerDown.gif", {
                 left: "676px",
@@ -366,5 +366,5 @@ oS.Init(
                 visibility: "visible",
             });
         },
-    },
+    }
 );

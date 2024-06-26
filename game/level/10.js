@@ -61,7 +61,7 @@ oS.Init(
                                         onclick: function (g) {
                                             ChosePlant(g, oS.ChoseCard, f);
                                         },
-                                    },
+                                    }
                                 );
                             }
                             oSym.addTask(600, arguments.callee, []);
@@ -110,7 +110,7 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oPuffShroom, 11);
                     },
-                },
+                }
             );
         },
     },
@@ -147,7 +147,7 @@ oS.Init(
                         20 -
                         c.height +
                         "px;z-index:254",
-                    EDAll,
+                    EDAll
                 ).cloneNode(false),
                 "MovePlantAlpha",
                 "",
@@ -157,7 +157,7 @@ oS.Init(
                     opacity: 0.4,
                     zIndex: 30,
                 },
-                EDAll,
+                EDAll
             );
             SetAlpha($(f.DID), 50, 0.5);
             SetHidden($("dTitle"));
@@ -183,7 +183,7 @@ oS.Init(
                     PlayAudio(
                         h != 2
                             ? "plant" + Math.floor(1 + Math.random() * 2)
-                            : "plant_water",
+                            : "plant_water"
                     );
                     new i().Birth(c, b, f, a, l);
                     oSym.addTask(20, SetNone, [
@@ -209,5 +209,5 @@ oS.Init(
             c.innerHTML = b.CName + "<br>" + b.Tooltip;
             SetStyle(c, { top: 60 * a + "px", left: "100px" });
         },
-    },
+    }
 );

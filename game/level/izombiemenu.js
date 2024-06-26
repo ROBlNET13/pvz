@@ -38,7 +38,7 @@ oS.Init({
                     SelectModal(0);
                     SetBlock($("dSurface"), $("iSurfaceBackground"));
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -49,7 +49,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "izombie1" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -60,7 +60,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "izombie2" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -71,7 +71,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "izombie3" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -82,7 +82,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "izombie4" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -93,7 +93,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "izombie5" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -104,7 +104,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "izombie6" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -115,7 +115,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "izombie7" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -126,7 +126,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "izombie8" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -137,7 +137,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "izombie9" + "");
                 },
-            },
+            }
         );
         NewImg(
             "imgSF",
@@ -148,7 +148,7 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "izombie10" + "");
                 },
-            },
+            }
         );
     },
 });

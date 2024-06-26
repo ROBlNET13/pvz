@@ -100,14 +100,14 @@ oS.Init(
                     onclick: function () {
                         GetNewCard(this, oCattail, 43);
                     },
-                },
+                }
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:490px;left:836px",
-                EDAll,
+                EDAll
             );
         },
-    },
+    }
 );

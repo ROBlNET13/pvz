@@ -70,7 +70,7 @@ var CZombies = (function (b, a) {
                     time = 400,
                     img = null,
                     wh = [1, 1],
-                    delta = [0, 0],
+                    delta = [0, 0]
                 ) {
                     if (!$Z[self.id] || self.HP < self.BreakPoint) {
                         return;
@@ -93,7 +93,7 @@ var CZombies = (function (b, a) {
                                 height: body.offsetHeight,
                                 width: body.offsetWidth,
                             },
-                            self.Ele,
+                            self.Ele
                         );
                         ctx = canvas.getContext("2d");
                         ctx.drawImage(
@@ -101,7 +101,7 @@ var CZombies = (function (b, a) {
                             0,
                             0,
                             body.offsetWidth,
-                            body.offsetHeight,
+                            body.offsetHeight
                         );
                         self._TMP_ELEBODY = self.EleBody;
                         self.EleBody.style.opacity = 0;
@@ -116,7 +116,7 @@ var CZombies = (function (b, a) {
                             if (!/id|width|height|style/.test(name)) {
                                 self.EleBody.setAttribute(
                                     name,
-                                    self._TMP_ELEBODY.attributes[i].nodeValue,
+                                    self._TMP_ELEBODY.attributes[i].nodeValue
                                 );
                             }
                         }
@@ -135,14 +135,14 @@ var CZombies = (function (b, a) {
                                         0,
                                         0,
                                         body.offsetWidth * 2,
-                                        body.offsetHeight * 2,
+                                        body.offsetHeight * 2
                                     );
                                     ctx.drawImage(
                                         self._TMP_ELEBODY,
                                         0,
                                         0,
                                         body.offsetWidth,
-                                        body.offsetHeight,
+                                        body.offsetHeight
                                     );
                                     last = self._TMP_ELEBODY.src;
                                 }
@@ -180,7 +180,7 @@ var CZombies = (function (b, a) {
                                     if (!/id|width|height/.test(name)) {
                                         self.EleBody.setAttribute(
                                             name,
-                                            canvas.attributes[i].nodeValue,
+                                            canvas.attributes[i].nodeValue
                                         );
                                     }
                                 }
@@ -221,9 +221,13 @@ var CZombies = (function (b, a) {
                                 (self.FangXiang == "GoRight"
                                     ? "transform:rotateY(180deg);"
                                     : "") +
-                                    `position:absolute;left:${position.x + delta[0]}px;top:${position.y + delta[1]}px;width:${position.width * wh[0]}px;height:${position.height * wh[1]}px;`,
-                                self.Ele,
-                            ),
+                                    `position:absolute;left:${
+                                        position.x + delta[0]
+                                    }px;top:${position.y + delta[1]}px;width:${
+                                        position.width * wh[0]
+                                    }px;height:${position.height * wh[1]}px;`,
+                                self.Ele
+                            )
                         );
                     }
                     oSym.addTask(
@@ -237,7 +241,7 @@ var CZombies = (function (b, a) {
                                 self._FREESetBody_();
                             }
                         },
-                        [(self.FreeSetbodyTime = oSym.Now + time)],
+                        [(self.FreeSetbodyTime = oSym.Now + time)]
                     );
                 },
                 CanPass: function (d, c) {
@@ -410,7 +414,7 @@ var CZombies = (function (b, a) {
                         "none",
                         "auto",
                         h.GetDTop,
-                        h.PicArr[h.NormalGif],
+                        h.PicArr[h.NormalGif]
                     );
                 },
                 CustomBirth: function (i, c, d, m) {
@@ -437,7 +441,7 @@ var CZombies = (function (b, a) {
                         "none",
                         m || 0,
                         g.GetDTop,
-                        g.PicArr[g.NormalGif],
+                        g.PicArr[g.NormalGif]
                     );
                 },
                 BirthCallBack: function (f) {
@@ -453,7 +457,7 @@ var CZombies = (function (b, a) {
                                   var i = $Z[h];
                                   i && ((i.FreeSetbodyTime = 0), SetBlock(g));
                               },
-                              [d, c],
+                              [d, c]
                           )
                         : SetBlock(c);
                 },
@@ -480,7 +484,7 @@ var CZombies = (function (b, a) {
                 },
                 PlayFireballAudio: function () {
                     PlayAudio(
-                        ["ignite", "ignite2"][Math.floor(Math.random() * 2)],
+                        ["ignite", "ignite2"][Math.floor(Math.random() * 2)]
                     );
                 },
                 PlaySlowballAudio: function () {
@@ -534,7 +538,7 @@ var CZombies = (function (b, a) {
                                     (k.Attack = 100),
                                     k.Speed && (k.Speed = k.OSpeed));
                             },
-                            [f, d],
+                            [f, d]
                         );
                 },
                 getFreeze: function (d, c) {
@@ -563,7 +567,7 @@ var CZombies = (function (b, a) {
                                             !k.FreeSetbodyTime &&
                                                 (k.Speed = k.OSpeed));
                                     },
-                                    [g, (h.FreeSlowTime = oSym.Now + 1500)],
+                                    [g, (h.FreeSlowTime = oSym.Now + 1500)]
                                 ));
                         },
                         [
@@ -573,9 +577,9 @@ var CZombies = (function (b, a) {
                                 "icetrap_" + Math.random(),
                                 "images/Plants/IceShroom/icetrap.gif",
                                 d.getShadow(d),
-                                d.Ele,
+                                d.Ele
                             ),
-                        ],
+                        ]
                     );
                 },
                 NormalDie: function () {
@@ -620,7 +624,7 @@ var CZombies = (function (b, a) {
                                 (d.pixelTop - 20) +
                                 "px;z-index:" +
                                 d.zIndex,
-                            EDPZ,
+                            EDPZ
                         ),
                     ]);
                 },
@@ -643,7 +647,7 @@ var CZombies = (function (b, a) {
                                     ? d.NormalDie()
                                     : d.AutoReduceHP(e));
                         },
-                        [c],
+                        [c]
                     );
                 },
                 JudgeAttack: function () {
@@ -736,7 +740,7 @@ var CZombies = (function (b, a) {
                                 ((g = $Z[e]) && g.getHit0(g, 10, 0),
                                 h.JudgeAttackH());
                         },
-                        [d, c],
+                        [d, c]
                     );
                 },
                 AttackZombie2: function (e, d, c) {
@@ -760,12 +764,12 @@ var CZombies = (function (b, a) {
                                     : ((i.isAttacking = 0),
                                       (i.EleBody.src = i.PicArr[i.NormalGif])));
                         },
-                        [d, c],
+                        [d, c]
                     );
                 },
                 NormalAttack: function (d, c) {
                     PlayAudio(
-                        ["chomp", "chompsoft"][Math.floor(Math.random() * 2)],
+                        ["chomp", "chompsoft"][Math.floor(Math.random() * 2)]
                     );
                     oSym.addTask(
                         50,
@@ -774,10 +778,10 @@ var CZombies = (function (b, a) {
                                 PlayAudio(
                                     ["chomp", "chompsoft"][
                                         Math.floor(Math.random() * 2)
-                                    ],
+                                    ]
                                 );
                         },
-                        [d],
+                        [d]
                     );
                     oSym.addTask(
                         100,
@@ -791,7 +795,7 @@ var CZombies = (function (b, a) {
                                 ((g = $P[e]) && g.getHurt(h, h.AKind, h.Attack),
                                 h.JudgeAttack());
                         },
-                        [d, c],
+                        [d, c]
                     );
                 },
                 PZ: 1,
@@ -843,7 +847,7 @@ var CZombies = (function (b, a) {
                 c.GoingDie(
                     c.PicArr[
                         [c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]
-                    ],
+                    ]
                 );
                 c.getHit0 = c.getHit1 = c.getHit2 = c.getHit3 = function () {};
                 return;
@@ -854,7 +858,7 @@ var CZombies = (function (b, a) {
                 function (e, d) {
                     (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1);
                 },
-                [c.id],
+                [c.id]
             );
         };
 
@@ -907,7 +911,7 @@ var CZombies = (function (b, a) {
                                 (i.Attack = 100),
                                 i.Speed && (i.Speed = i.OSpeed));
                         },
-                        [f.id, b],
+                        [f.id, b]
                     ));
                 f.getHit0(f, c, g);
             },
@@ -980,7 +984,7 @@ var CZombies = (function (b, a) {
                             i.FreeSlowTime == g &&
                             ((i.FreeSlowTime = 0), (i.Attack = 100));
                     },
-                    [d, b],
+                    [d, b]
                 );
         },
         getFreeze: function (b, a) {
@@ -1003,7 +1007,7 @@ var CZombies = (function (b, a) {
                                     i.FreeSlowTime == g &&
                                     ((i.FreeSlowTime = 0), (i.Attack = 100));
                             },
-                            [e, (f.FreeSlowTime = oSym.Now + 1500)],
+                            [e, (f.FreeSlowTime = oSym.Now + 1500)]
                         ));
                 },
                 [
@@ -1013,9 +1017,9 @@ var CZombies = (function (b, a) {
                         "icetrap_" + Math.random(),
                         "images/Plants/IceShroom/icetrap.gif",
                         b.getShadow(b),
-                        b.Ele,
+                        b.Ele
                     ),
-                ],
+                ]
             );
         },
         CustomBirth: function (g, d, a, b, j) {
@@ -1036,7 +1040,7 @@ var CZombies = (function (b, a) {
                 "none",
                 j || 0,
                 e.height + "px",
-                e.PicArr[e.StandGif],
+                e.PicArr[e.StandGif]
             );
         },
         Produce:
@@ -1053,7 +1057,7 @@ var CZombies = (function (b, a) {
                     var h = $Z[g];
                     h && ((h.FreeSetbodyTime = 0), SetBlock(f));
                 },
-                [c, b],
+                [c, b]
             );
         },
         ChangeChkActsTo0: function (c, b, a) {
@@ -1071,7 +1075,7 @@ var CZombies = (function (b, a) {
                     var f = $Z[e];
                     f && f.beAttacked && f.ChangeChkActsTo1(f, e, d);
                 },
-                [b, a],
+                [b, a]
             );
         },
         ChangeChkActsTo1: function (c, b, a) {
@@ -1086,7 +1090,7 @@ var CZombies = (function (b, a) {
                         var f = $Z[e];
                         f && f.beAttacked && f.ChangeChkActsTo0(f, e, d);
                     },
-                    [b, a],
+                    [b, a]
                 );
         },
         ChkActs: function (g, d, h, c) {
@@ -1174,27 +1178,27 @@ var CZombies = (function (b, a) {
                     "div",
                     "position:absolute;left:-30px;top:-400px;width:184px;height:600px;overflow:hidden",
                     0,
-                    c,
+                    c
                 ).appendChild(
                     (g.spotlight = NewImg(
                         d + "_spotlight",
                         "images/Zombies/DancingZombie/spotlight" + a + ".png",
-                        "left:0;top:0;width:920px;height:600px;" + b,
-                    )),
+                        "left:0;top:0;width:920px;height:600px;" + b
+                    ))
                 );
                 e = NewEle(
                     d + "_spotlight2Con",
                     "div",
                     "position:absolute;left:-25px;top:135px;width:184px;height:60px;overflow:hidden",
-                    0,
+                    0
                 );
                 c.insertBefore(e, f.EleShadow);
                 e.appendChild(
                     (g.spotlight2 = NewImg(
                         d + "_spotlight2",
                         "images/Zombies/DancingZombie/spotlight2" + a + ".png",
-                        "left:0;top:0;width:920px;height:60px;" + b,
-                    )),
+                        "left:0;top:0;width:920px;height:60px;" + b
+                    ))
                 );
             };
         })(),
@@ -1318,7 +1322,7 @@ var CZombies = (function (b, a) {
                                 ((n.DZStep = j), n[h](n, k, n.EleBody));
                         }
                     },
-                    [g, [1, 0][a]],
+                    [g, [1, 0][a]]
                 );
         },
         BirthCallBack: function (d) {
@@ -1413,7 +1417,7 @@ var CZombies = (function (b, a) {
                     var t = $Z[o];
                     t && t.beAttacked && !t.isAttacking && t.NormalAttack(o);
                 },
-                [d.id],
+                [d.id]
             );
         },
         ChkActs1: function (e, b, f, a) {
@@ -1525,7 +1529,7 @@ var CZombies = (function (b, a) {
                               (f.EleBody.src = f.PicArr[f.NormalGif]),
                               f.TurnLeft(f)));
                 },
-                [b, a],
+                [b, a]
             );
         },
         ChkBackupDancer: function (h, g, f) {
@@ -1579,7 +1583,7 @@ var CZombies = (function (b, a) {
                     var k = $Z[j];
                     k && k.beAttacked && k.ChangeChkActsTo1(k, j, i);
                 },
-                [e, a],
+                [e, a]
             );
         },
         ChangeChkActsTo1: function (g, e, a) {
@@ -1609,7 +1613,7 @@ var CZombies = (function (b, a) {
                         var k = $Z[j];
                         k && k.beAttacked && k.ChkBackupDancer(k, j, i);
                     },
-                    [e, a],
+                    [e, a]
                 );
         },
         TurnLeft: function (c) {
@@ -1645,7 +1649,7 @@ var CZombies = (function (b, a) {
                                         k,
                                     ]));
                             },
-                            [d, e.spotlight, e.spotlight2, 0, 0],
+                            [d, e.spotlight, e.spotlight2, 0, 0]
                         ),
                         oSym.addTask(
                             200,
@@ -1659,10 +1663,10 @@ var CZombies = (function (b, a) {
                                         : (h.isAttacking = 0),
                                     h.ChangeChkActsTo0(h, g, f));
                             },
-                            [e, d],
+                            [e, d]
                         ));
                 },
-                [b, c],
+                [b, c]
             );
             c.Summon(c, b);
         },
@@ -1714,7 +1718,7 @@ var CZombies = (function (b, a) {
                                                 q[1],
                                                 q[2](v),
                                                 100,
-                                                (q[0] = "Z_" + Math.random()),
+                                                (q[0] = "Z_" + Math.random())
                                             )),
                                             n.push(
                                                 NewImg(
@@ -1727,8 +1731,8 @@ var CZombies = (function (b, a) {
                                                         "px;top:" +
                                                         q[5] +
                                                         "px",
-                                                    EDPZ,
-                                                ),
+                                                    EDPZ
+                                                )
                                             ),
                                             ++o);
                                     }
@@ -1740,7 +1744,7 @@ var CZombies = (function (b, a) {
                                                 ClearChild(arguments[i]);
                                             }
                                         },
-                                        n,
+                                        n
                                     );
                                     oSym.addTask(
                                         110,
@@ -1765,14 +1769,14 @@ var CZombies = (function (b, a) {
                                                                 ]).ChangeChkActsTo0(
                                                                 E,
                                                                 E.id,
-                                                                E.EleBody,
+                                                                E.EleBody
                                                             );
                                                         }
                                                     },
-                                                    [A, z],
+                                                    [A, z]
                                                 ));
                                         },
-                                        [t, u, w, o],
+                                        [t, u, w, o]
                                     );
                                     oSym.addTask(
                                         200,
@@ -1785,14 +1789,14 @@ var CZombies = (function (b, a) {
                                                 (z.ChkActs = z.ChkTmp),
                                                 (z.ChkTmp = j));
                                         },
-                                        [t, s],
+                                        [t, s]
                                     );
                                 }
                             },
-                            [f, e],
+                            [f, e]
                         ));
                 },
-                [c, a],
+                [c, a]
             );
         },
     }),
@@ -1837,27 +1841,27 @@ var CZombies = (function (b, a) {
                     "div",
                     "position:absolute;left:-30px;top:-400px;width:184px;height:600px;overflow:hidden",
                     0,
-                    c,
+                    c
                 ).appendChild(
                     (g.spotlight = NewImg(
                         d + "_spotlight",
                         "images/Zombies/DancingZombie/spotlight" + a + ".png",
-                        "left:0;top:0;width:920px;height:600px;" + b,
-                    )),
+                        "left:0;top:0;width:920px;height:600px;" + b
+                    ))
                 );
                 e = NewEle(
                     d + "_spotlight2Con",
                     "div",
                     "position:absolute;left:-25px;top:135px;width:184px;height:60px;overflow:hidden",
-                    0,
+                    0
                 );
                 c.insertBefore(e, f.EleShadow);
                 e.appendChild(
                     (g.spotlight2 = NewImg(
                         d + "_spotlight2",
                         "images/Zombies/DancingZombie/spotlight2" + a + ".png",
-                        "left:0;top:0;width:920px;height:60px;" + b,
-                    )),
+                        "left:0;top:0;width:920px;height:60px;" + b
+                    ))
                 );
             };
         })(),
@@ -1981,7 +1985,7 @@ var CZombies = (function (b, a) {
                                 ((n.DZStep = j), n[h](n, k, n.EleBody));
                         }
                     },
-                    [g, [1, 0][a]],
+                    [g, [1, 0][a]]
                 );
         },
         BirthCallBack: function (d) {
@@ -2076,7 +2080,7 @@ var CZombies = (function (b, a) {
                     var t = $Z[o];
                     t && t.beAttacked && !t.isAttacking && t.NormalAttack(o);
                 },
-                [d.id],
+                [d.id]
             );
         },
         ChkActs1: function (e, b, f, a) {
@@ -2188,7 +2192,7 @@ var CZombies = (function (b, a) {
                               (f.EleBody.src = f.PicArr[f.NormalGif]),
                               f.TurnLeft(f)));
                 },
-                [b, a],
+                [b, a]
             );
         },
         ChkBackupDancer: function (h, g, f) {
@@ -2242,7 +2246,7 @@ var CZombies = (function (b, a) {
                     var k = $Z[j];
                     k && k.beAttacked && k.ChangeChkActsTo1(k, j, i);
                 },
-                [e, a],
+                [e, a]
             );
         },
         ChangeChkActsTo1: function (g, e, a) {
@@ -2272,7 +2276,7 @@ var CZombies = (function (b, a) {
                         var k = $Z[j];
                         k && k.beAttacked && k.ChkBackupDancer(k, j, i);
                     },
-                    [e, a],
+                    [e, a]
                 );
         },
         TurnLeft: function (c) {
@@ -2308,7 +2312,7 @@ var CZombies = (function (b, a) {
                                         k,
                                     ]));
                             },
-                            [d, e.spotlight, e.spotlight2, 0, 0],
+                            [d, e.spotlight, e.spotlight2, 0, 0]
                         ),
                         oSym.addTask(
                             200,
@@ -2322,10 +2326,10 @@ var CZombies = (function (b, a) {
                                         : (h.isAttacking = 0),
                                     h.ChangeChkActsTo0(h, g, f));
                             },
-                            [e, d],
+                            [e, d]
                         ));
                 },
-                [b, c],
+                [b, c]
             );
             c.Summon(c, b);
         },
@@ -2377,7 +2381,7 @@ var CZombies = (function (b, a) {
                                                 q[1],
                                                 q[2](v),
                                                 100,
-                                                (q[0] = "Z_" + Math.random()),
+                                                (q[0] = "Z_" + Math.random())
                                             )),
                                             n.push(
                                                 NewImg(
@@ -2390,8 +2394,8 @@ var CZombies = (function (b, a) {
                                                         "px;top:" +
                                                         q[5] +
                                                         "px",
-                                                    EDPZ,
-                                                ),
+                                                    EDPZ
+                                                )
                                             ),
                                             ++o);
                                     }
@@ -2403,7 +2407,7 @@ var CZombies = (function (b, a) {
                                                 ClearChild(arguments[i]);
                                             }
                                         },
-                                        n,
+                                        n
                                     );
                                     oSym.addTask(
                                         110,
@@ -2428,14 +2432,14 @@ var CZombies = (function (b, a) {
                                                                 ]).ChangeChkActsTo0(
                                                                 E,
                                                                 E.id,
-                                                                E.EleBody,
+                                                                E.EleBody
                                                             );
                                                         }
                                                     },
-                                                    [A, z],
+                                                    [A, z]
                                                 ));
                                         },
-                                        [t, u, w, o],
+                                        [t, u, w, o]
                                     );
                                     oSym.addTask(
                                         200,
@@ -2448,14 +2452,14 @@ var CZombies = (function (b, a) {
                                                 (z.ChkActs = z.ChkTmp),
                                                 (z.ChkTmp = j));
                                         },
-                                        [t, s],
+                                        [t, s]
                                     );
                                 }
                             },
-                            [f, e],
+                            [f, e]
                         ));
                 },
-                [c, a],
+                [c, a]
             );
         },
     }),
@@ -2596,7 +2600,7 @@ var CZombies = (function (b, a) {
                 function (h, g) {
                     (g = $Z[h]) && g.SetAlpha(g, g.EleBody, 100, 1);
                 },
-                [f.id],
+                [f.id]
             );
         };
         return InheritO(OrnNoneZombies, {
@@ -2772,7 +2776,7 @@ var CZombies = (function (b, a) {
             ],
             PlayNormalballAudio: function () {
                 PlayAudio(
-                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
                 );
             },
             Produce:
@@ -2787,7 +2791,7 @@ var CZombies = (function (b, a) {
                 9: "images/Zombies/Zombie/Zombie.gif",
                 11: "images/Zombies/BucketheadZombie/1.gif",
             },
-        },
+        }
     ),
     oIBucketheadZombie = InheritO(
         oConeheadZombie,
@@ -2799,7 +2803,7 @@ var CZombies = (function (b, a) {
             SunNum: 125,
             PlayNormalballAudio: function () {
                 PlayAudio(
-                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
                 );
             },
             Produce:
@@ -2814,7 +2818,7 @@ var CZombies = (function (b, a) {
                 9: "images/Zombies/Zombie/Zombie.gif",
                 11: "images/Zombies/BucketheadZombie/1.gif",
             },
-        },
+        }
     ),
     oFootballZombie = InheritO(oConeheadZombie, {
         EName: "oFootballZombie",
@@ -3021,7 +3025,7 @@ var CZombies = (function (b, a) {
                         (b.pixelTop - 20) +
                         "px;z-index:" +
                         b.zIndex,
-                    EDPZ,
+                    EDPZ
                 ),
             ]);
         },
@@ -3055,7 +3059,7 @@ var CZombies = (function (b, a) {
                           (g.JudgeAttack = CZombies.prototype.JudgeAttack),
                           (g.NormalAttack = CZombies.prototype.NormalAttack)(
                               g.id,
-                              p.id,
+                              p.id
                           )))
                 ) {}
             }
@@ -3072,7 +3076,7 @@ var CZombies = (function (b, a) {
                         var b = $Z[c];
                         b && b.CrushDie();
                     },
-                    [this.id],
+                    [this.id]
                 );
             return false;
         },
@@ -3104,7 +3108,7 @@ var CZombies = (function (b, a) {
                 function (h) {
                     $Z[h] && PlayAudio("polevault");
                 },
-                [d],
+                [d]
             );
             oSym.addTask(
                 100,
@@ -3162,10 +3166,10 @@ var CZombies = (function (b, a) {
                                           (u.getFreeze = t.getFreeze),
                                           (u.getRaven = t.getRaven));
                                   },
-                                  [m, n],
+                                  [m, n]
                               )));
                 },
-                [d, b, a, c, e],
+                [d, b, a, c, e]
             );
         },
     }),
@@ -3230,7 +3234,7 @@ var CZombies = (function (b, a) {
                         (b.pixelTop - 20) +
                         "px;z-index:" +
                         b.zIndex,
-                    EDPZ,
+                    EDPZ
                 ),
             ]);
         },
@@ -3264,7 +3268,7 @@ var CZombies = (function (b, a) {
                           (g.JudgeAttack = CZombies.prototype.JudgeAttack),
                           (g.NormalAttack = CZombies.prototype.NormalAttack)(
                               g.id,
-                              p.id,
+                              p.id
                           )))
                 ) {}
             }
@@ -3281,7 +3285,7 @@ var CZombies = (function (b, a) {
                         var b = $Z[c];
                         b && b.CrushDie();
                     },
-                    [this.id],
+                    [this.id]
                 );
             return false;
         },
@@ -3313,7 +3317,7 @@ var CZombies = (function (b, a) {
                 function (h) {
                     $Z[h] && PlayAudio("polevault");
                 },
-                [d],
+                [d]
             );
             oSym.addTask(
                 100,
@@ -3371,10 +3375,10 @@ var CZombies = (function (b, a) {
                                           (u.getFreeze = t.getFreeze),
                                           (u.getRaven = t.getRaven));
                                   },
-                                  [m, n],
+                                  [m, n]
                               )));
                 },
-                [d, b, a, c, e],
+                [d, b, a, c, e]
             );
         },
     }),
@@ -3422,7 +3426,7 @@ var CZombies = (function (b, a) {
                 function (h) {
                     $Z[h] && PlayAudio("polevault");
                 },
-                [d],
+                [d]
             );
             oSym.addTask(
                 100,
@@ -3480,10 +3484,10 @@ var CZombies = (function (b, a) {
                                           (u.getFreeze = t.getFreeze),
                                           (u.getRaven = t.getRaven));
                                   },
-                                  [m, n],
+                                  [m, n]
                               )));
                 },
-                [d, b, a, c, e],
+                [d, b, a, c, e]
             );
         },
     }),
@@ -3554,7 +3558,7 @@ var CZombies = (function (b, a) {
                         (a.pixelTop - 20) +
                         "px;z-index:" +
                         a.zIndex,
-                    EDPZ,
+                    EDPZ
                 ),
             ]);
             a.beAttacked = 0;
@@ -3579,7 +3583,7 @@ var CZombies = (function (b, a) {
                 case h < 91:
                     e.HP = h;
                     e.GoingDie(
-                        d[[e.OrnLostHeadNormalGif, e.OrnLostHeadAttackGif][f]],
+                        d[[e.OrnLostHeadNormalGif, e.OrnLostHeadAttackGif][f]]
                     );
                     return;
             }
@@ -3601,7 +3605,7 @@ var CZombies = (function (b, a) {
                     var n = $Z[q];
                     n && SetAlpha(n.EleBody, 100, 1);
                 },
-                [b],
+                [b]
             );
         },
         getSnowPea: function (c, a, b) {
@@ -3628,7 +3632,7 @@ var CZombies = (function (b, a) {
                   f.GoingDie(
                       f.PicArr[
                           [f.LostHeadGif, f.LostHeadAttackGif][f.isAttacking]
-                      ],
+                      ]
                   ),
                   (f.getHit =
                       f.getHit0 =
@@ -3643,7 +3647,7 @@ var CZombies = (function (b, a) {
                       b,
                       f.PicArr,
                       f.isAttacking,
-                      0,
+                      0
                   ),
                   f.SetAlpha(f, f.EleBody, 50, 0.5),
                   oSym.addTask(
@@ -3651,7 +3655,7 @@ var CZombies = (function (b, a) {
                       function (j, i) {
                           (i = $Z[j]) && i.SetAlpha(i, i.EleBody, 100, 1);
                       },
-                      [f.id],
+                      [f.id]
                   ));
         },
         getHit0: function (c, a, b) {
@@ -3663,7 +3667,7 @@ var CZombies = (function (b, a) {
                       a,
                       c.PicArr,
                       c.isAttacking,
-                      1,
+                      1
                   ),
                   c.SetAlpha(c, c.EleBody, 50, 0.5),
                   oSym.addTask(
@@ -3671,13 +3675,13 @@ var CZombies = (function (b, a) {
                       function (e, d) {
                           (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1);
                       },
-                      [c.id],
+                      [c.id]
                   ))
                 : (c.HP -= a) < c.BreakPoint &&
                   (c.GoingDie(
                       c.PicArr[
                           [c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]
-                      ],
+                      ]
                   ),
                   (c.getFirePea = OrnNoneZombies.prototype.getFirePea),
                   (c.getSnowPea = OrnNoneZombies.prototype.getSnowPea),
@@ -3693,7 +3697,7 @@ var CZombies = (function (b, a) {
                 ? (b.GoingDie(
                       b.PicArr[
                           [b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]
-                      ],
+                      ]
                   ),
                   (b.getFirePea = OrnNoneZombies.prototype.getFirePea),
                   (b.getSnowPea = OrnNoneZombies.prototype.getSnowPea),
@@ -3710,7 +3714,7 @@ var CZombies = (function (b, a) {
                       a,
                       b.PicArr,
                       b.isAttacking,
-                      0,
+                      0
                   ),
                   b.SetAlpha(b, b.EleBody, 50, 0.5),
                   oSym.addTask(
@@ -3718,7 +3722,7 @@ var CZombies = (function (b, a) {
                       function (d, c) {
                           (c = $Z[d]) && c.SetAlpha(c, c.EleBody, 100, 1);
                       },
-                      [b.id],
+                      [b.id]
                   ));
         },
         getHit2: function (b, a) {
@@ -3726,7 +3730,7 @@ var CZombies = (function (b, a) {
                 ? (b.GoingDie(
                       b.PicArr[
                           [b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]
-                      ],
+                      ]
                   ),
                   (b.getFirePea = OrnNoneZombies.prototype.getFirePea),
                   (b.getSnowPea = OrnNoneZombies.prototype.getSnowPea),
@@ -3742,7 +3746,7 @@ var CZombies = (function (b, a) {
                       function (d, c) {
                           (c = $Z[d]) && c.SetAlpha(c, c.EleBody, 100, 1);
                       },
-                      [b.id],
+                      [b.id]
                   ));
         },
         getHit3: function (b, a) {
@@ -3750,7 +3754,7 @@ var CZombies = (function (b, a) {
                 ? (b.GoingDie(
                       b.PicArr[
                           [b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]
-                      ],
+                      ]
                   ),
                   (b.getFirePea = OrnNoneZombies.prototype.getFirePea),
                   (b.getSnowPea = OrnNoneZombies.prototype.getSnowPea),
@@ -3767,7 +3771,7 @@ var CZombies = (function (b, a) {
                       a,
                       b.PicArr,
                       b.isAttacking,
-                      0,
+                      0
                   ),
                   b.SetAlpha(b, b.EleBody, 50, 0.5),
                   oSym.addTask(
@@ -3775,7 +3779,7 @@ var CZombies = (function (b, a) {
                       function (d, c) {
                           (c = $Z[d]) && c.SetAlpha(c, c.EleBody, 100, 1);
                       },
-                      [b.id],
+                      [b.id]
                   ));
         },
         CheckOrnHP: function (g, h, d, c, f, b, a) {
@@ -3827,7 +3831,7 @@ var CZombies = (function (b, a) {
                                 (g.AttackGif = g.OrnLostAttackGif),
                             ][b]
                         ],
-                    ],
+                    ]
                 ));
         },
     }),
@@ -3875,14 +3879,14 @@ var CZombies = (function (b, a) {
             PlayAudio(
                 b == c.WalkDirection
                     ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
-                    : "splat" + Math.floor(1 + Math.random() * 3),
+                    : "splat" + Math.floor(1 + Math.random() * 3)
             );
             c.getHit0(c, a, b);
         },
         getFirePeaSputtering: function () {},
         getSnowPea: function (c, a, b) {
             PlayAudio(
-                ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
             );
             c.getHit0(c, a, b);
         },
@@ -3890,7 +3894,7 @@ var CZombies = (function (b, a) {
             PlayAudio(
                 b == c.WalkDirection
                     ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
-                    : "splat" + Math.floor(1 + Math.random() * 3),
+                    : "splat" + Math.floor(1 + Math.random() * 3)
             );
             c.getHit0(c, a, b);
         },
@@ -3903,7 +3907,7 @@ var CZombies = (function (b, a) {
                       a,
                       c.PicArr,
                       c.isAttacking,
-                      1,
+                      1
                   ),
                   c.SetAlpha(c, c.EleBody, 50, 0.5),
                   oSym.addTask(
@@ -3911,13 +3915,13 @@ var CZombies = (function (b, a) {
                       function (e, d) {
                           (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1);
                       },
-                      [c.id],
+                      [c.id]
                   ))
                 : (c.HP -= a) < c.BreakPoint &&
                   (c.GoingDie(
                       c.PicArr[
                           [c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]
-                      ],
+                      ]
                   ),
                   (c.getHit =
                       c.getHit0 =
@@ -4011,14 +4015,14 @@ var CZombies = (function (b, a) {
             PlayAudio(
                 b == c.WalkDirection
                     ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
-                    : "splat" + Math.floor(1 + Math.random() * 3),
+                    : "splat" + Math.floor(1 + Math.random() * 3)
             );
             c.getHit0(c, a, b);
         },
         getFirePeaSputtering: function () {},
         getSnowPea: function (c, a, b) {
             PlayAudio(
-                ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
             );
             c.getHit0(c, a, b);
         },
@@ -4026,7 +4030,7 @@ var CZombies = (function (b, a) {
             PlayAudio(
                 b == c.WalkDirection
                     ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
-                    : "splat" + Math.floor(1 + Math.random() * 3),
+                    : "splat" + Math.floor(1 + Math.random() * 3)
             );
             c.getHit0(c, a, b);
         },
@@ -4039,7 +4043,7 @@ var CZombies = (function (b, a) {
                       a,
                       c.PicArr,
                       c.isAttacking,
-                      1,
+                      1
                   ),
                   c.SetAlpha(c, c.EleBody, 50, 0.5),
                   oSym.addTask(
@@ -4047,13 +4051,13 @@ var CZombies = (function (b, a) {
                       function (e, d) {
                           (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1);
                       },
-                      [c.id],
+                      [c.id]
                   ))
                 : (c.HP -= a) < c.BreakPoint &&
                   (c.GoingDie(
                       c.PicArr[
                           [c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]
-                      ],
+                      ]
                   ),
                   (c.getHit =
                       c.getHit0 =
@@ -4173,7 +4177,7 @@ var CZombies = (function (b, a) {
                             (g.height - 88) +
                             "px;width:97px;height:88px;over-flow:hidden",
                         0,
-                        b,
+                        b
                     );
                     ImgSpriter(
                         a,
@@ -4191,7 +4195,7 @@ var CZombies = (function (b, a) {
                         0,
                         function (i, j) {
                             ClearChild($(i));
-                        },
+                        }
                     );
             }
             e
@@ -4201,7 +4205,7 @@ var CZombies = (function (b, a) {
                           var k = $Z[j];
                           k && ((k.FreeSetbodyTime = 0), SetBlock(i));
                       },
-                      [c, b],
+                      [c, b]
                   )
                 : SetBlock(b);
         },
@@ -4225,7 +4229,7 @@ var CZombies = (function (b, a) {
                         (f.height - 88) +
                         "px;width:97px;height:88px;over-flow:hidden",
                     0,
-                    f.Ele,
+                    f.Ele
                 ),
                 (f.ChkActs = f.ChkActsL2),
                 ImgSpriter(
@@ -4244,7 +4248,7 @@ var CZombies = (function (b, a) {
                     0,
                     function (h, i) {
                         ClearChild($(h));
-                    },
+                    }
                 ));
             return 1;
         },
@@ -4330,7 +4334,7 @@ var CZombies = (function (b, a) {
                               oSym.addTask(50, ClearChild, [b.Ele]))
                             : oSym.addTask(100, arguments.callee, [c]));
                 },
-                [a],
+                [a]
             );
         },
         ExplosionDie: function () {
@@ -4516,7 +4520,7 @@ var CZombies = (function (b, a) {
         SunNum: 125,
         PlayNormalballAudio: function () {
             PlayAudio(
-                ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
             );
         },
         AudioArr: ["shieldhit", "shieldhit2", "zombie_entering_water"],
@@ -4546,7 +4550,7 @@ var CZombies = (function (b, a) {
         SunNum: 125,
         PlayNormalballAudio: function () {
             PlayAudio(
-                ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
             );
         },
         AudioArr: ["shieldhit", "shieldhit2", "zombie_entering_water"],
@@ -4637,7 +4641,7 @@ var CZombies = (function (b, a) {
                             (g.height - 88) +
                             "px;width:97px;height:88px;over-flow:hidden",
                         0,
-                        b,
+                        b
                     );
                     ImgSpriter(
                         a,
@@ -4655,7 +4659,7 @@ var CZombies = (function (b, a) {
                         0,
                         function (i, j) {
                             ClearChild($(i));
-                        },
+                        }
                     );
             }
             e
@@ -4665,7 +4669,7 @@ var CZombies = (function (b, a) {
                           var k = $Z[j];
                           k && ((k.FreeSetbodyTime = 0), SetBlock(i));
                       },
-                      [c, b],
+                      [c, b]
                   )
                 : SetBlock(b);
         },
@@ -4689,7 +4693,7 @@ var CZombies = (function (b, a) {
                         (f.height - 88) +
                         "px;width:97px;height:88px;over-flow:hidden",
                     0,
-                    f.Ele,
+                    f.Ele
                 ),
                 (f.ChkActs = f.ChkActsL2),
                 ImgSpriter(
@@ -4708,7 +4712,7 @@ var CZombies = (function (b, a) {
                     0,
                     function (h, i) {
                         ClearChild($(h));
-                    },
+                    }
                 ));
             return 1;
         },
@@ -4794,7 +4798,7 @@ var CZombies = (function (b, a) {
                               oSym.addTask(50, ClearChild, [b.Ele]))
                             : oSym.addTask(100, arguments.callee, [c]));
                 },
-                [a],
+                [a]
             );
         },
         ExplosionDie: function () {
@@ -4864,7 +4868,7 @@ var CZombies = (function (b, a) {
                             (g.height - 88) +
                             "px;width:97px;height:88px;over-flow:hidden",
                         0,
-                        b,
+                        b
                     );
                     ImgSpriter(
                         a,
@@ -4882,7 +4886,7 @@ var CZombies = (function (b, a) {
                         0,
                         function (i, j) {
                             ClearChild($(i));
-                        },
+                        }
                     );
             }
             e
@@ -4892,7 +4896,7 @@ var CZombies = (function (b, a) {
                           var k = $Z[j];
                           k && ((k.FreeSetbodyTime = 0), SetBlock(i));
                       },
-                      [c, b],
+                      [c, b]
                   )
                 : SetBlock(b);
         },
@@ -4943,7 +4947,7 @@ var CZombies = (function (b, a) {
                                 b.PicArr[(b.NormalGif = b.WalkGif1)]),
                             (b.ChkActs = b.ChkActsL2));
                     },
-                    [a.id, a],
+                    [a.id, a]
                 ),
                 (a.ChkActs = function () {
                     return 1;
@@ -5000,7 +5004,7 @@ var CZombies = (function (b, a) {
                                   (h.Altitude = 1),
                                   h.NormalAttack(a[0], a[1]));
                           },
-                          [f, e],
+                          [f, e]
                       ))
                     : e.NormalAttack(a[0], a[1])
                 : e.isAttacking &&
@@ -5014,7 +5018,7 @@ var CZombies = (function (b, a) {
                               ((h.isAttacking = 0),
                               (h.EleBody.src = h.PicArr[h.NormalGif]));
                       },
-                      [f, e],
+                      [f, e]
                   ));
         },
         NormalAttack: function (b, a) {
@@ -5029,7 +5033,7 @@ var CZombies = (function (b, a) {
                         !f.FreeSetbodyTime &&
                         ((e = $P[c]) && e.getHurt(f, 0, 100), f.JudgeAttack());
                 },
-                [b, a],
+                [b, a]
             );
         },
         JudgeAttackH: function () {
@@ -5055,7 +5059,7 @@ var CZombies = (function (b, a) {
                                         g.AttackZombie(h, e))
                                       : g.JudgeAttackH());
                           },
-                          [c, d, b, a],
+                          [c, d, b, a]
                       ))
                     : c.AttackZombie(d, a)
                 : c.isAttacking &&
@@ -5069,7 +5073,7 @@ var CZombies = (function (b, a) {
                               ((e.isAttacking = 0),
                               (e.EleBody.src = e.PicArr[e.NormalGif]));
                       },
-                      [d, c],
+                      [d, c]
                   ));
         },
         AttackZombie2: function (c, b, a) {
@@ -5095,7 +5099,7 @@ var CZombies = (function (b, a) {
                                                 oSym.addTask(
                                                     10,
                                                     arguments.callee,
-                                                    [k, i, j, h],
+                                                    [k, i, j, h]
                                                 ))
                                               : ((k.EleBody.src =
                                                     k.PicArr[10] +
@@ -5112,10 +5116,10 @@ var CZombies = (function (b, a) {
                                                                     m.NormalGif
                                                                 ]));
                                                     },
-                                                    [i, k],
+                                                    [i, k]
                                                 )));
                                   },
-                                  [g, e, f, d],
+                                  [g, e, f, d]
                               ))
                             : ((g.EleBody.src = g.PicArr[10] + Math.random()),
                               (g.Altitude = 0),
@@ -5128,10 +5132,10 @@ var CZombies = (function (b, a) {
                                           (i.EleBody.src =
                                               i.PicArr[i.NormalGif]));
                                   },
-                                  [e, g],
+                                  [e, g]
                               )));
                 },
-                [c, b, a],
+                [c, b, a]
             );
         },
         AutoReduceHP: function (a) {
@@ -5145,7 +5149,7 @@ var CZombies = (function (b, a) {
                               oSym.addTask(200, ClearChild, [b.Ele]))
                             : oSym.addTask(100, arguments.callee, [c]));
                 },
-                [a],
+                [a]
             );
         },
     }),
@@ -5227,7 +5231,7 @@ var CZombies = (function (b, a) {
                         (b.pixelTop - 20) +
                         "px;z-index:" +
                         b.zIndex,
-                    EDPZ,
+                    EDPZ
                 ),
             ]);
         },
@@ -5288,7 +5292,7 @@ var CZombies = (function (b, a) {
                         (b.pixelTop - 20) +
                         "px;z-index:" +
                         b.zIndex,
-                    EDPZ,
+                    EDPZ
                 ),
             ]);
         },
@@ -5349,7 +5353,7 @@ var CZombies = (function (b, a) {
                         (b.pixelTop - 20) +
                         "px;z-index:" +
                         b.zIndex,
-                    EDPZ,
+                    EDPZ
                 ),
             ]);
         },
@@ -5411,7 +5415,7 @@ var CZombies = (function (b, a) {
                         (b.pixelTop - 20) +
                         "px;z-index:" +
                         b.zIndex,
-                    EDPZ,
+                    EDPZ
                 ),
             ]);
         },
@@ -5473,7 +5477,7 @@ var CZombies = (function (b, a) {
                         (b.pixelTop - 20) +
                         "px;z-index:" +
                         b.zIndex,
-                    EDPZ,
+                    EDPZ
                 ),
             ]);
         },
@@ -5534,7 +5538,7 @@ var CZombies = (function (b, a) {
                         (b.pixelTop - 20) +
                         "px;z-index:" +
                         b.zIndex,
-                    EDPZ,
+                    EDPZ
                 ),
             ]);
         },
@@ -5572,7 +5576,7 @@ var CZombies = (function (b, a) {
                 function (f, e) {
                     (e = $Z[f]) && e.SetAlpha(e, e.EleBody, 100, 1);
                 },
-                [d.id],
+                [d.id]
             );
         };
         return InheritO(OrnNoneZombies, {
@@ -5633,19 +5637,19 @@ var CZombies = (function (b, a) {
                               (GetY(d) - 65) +
                               "px;width:800px;height:72px",
                           0,
-                          EDPZ,
+                          EDPZ
                       )),
                       NewImg(
                           "",
                           "images/interface/blank.png",
                           "position:absolute;clip:rect(0,auto,auto,800px);width:800px;height:72px;left:5px;background:url(images/Zombies/Zomboni/ice.png) repeat-x",
-                          f,
+                          f
                       ),
                       NewImg(
                           "",
                           "images/Zombies/Zomboni/ice_cap.png",
                           "position:absolute;display:none;left:0",
-                          f,
+                          f
                       ),
                       (b[d] = [1, 11, h.AttackedLX]))
                     : ++b[d][0];
@@ -5659,7 +5663,7 @@ var CZombies = (function (b, a) {
                                   SetBlock(i),
                                   PlayAudio("zamboni"));
                           },
-                          [e, c],
+                          [e, c]
                       )
                     : (SetBlock(c), PlayAudio("zamboni"));
             },
@@ -5717,19 +5721,19 @@ var CZombies = (function (b, a) {
             },
             getPea: function (c, b) {
                 PlayAudio(
-                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
                 );
                 c.getHit0(c, b);
             },
             getFirePea: function (c, b) {
                 PlayAudio(
-                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
                 );
                 c.getHit0(c, b);
             },
             getSnowPea: function (c, b) {
                 PlayAudio(
-                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
                 );
                 c.getHit0(c, b);
             },
@@ -5808,7 +5812,7 @@ var CZombies = (function (b, a) {
                                 }
                             }
                         },
-                        [e, b],
+                        [e, b]
                     );
             },
             flatTire: function () {
@@ -5824,7 +5828,7 @@ var CZombies = (function (b, a) {
                         var d = $Z[e];
                         d && d.NormalDie();
                     },
-                    [b.id, b.EleBody],
+                    [b.id, b.EleBody]
                 );
             },
             JudgeAttack: function () {
@@ -5902,7 +5906,7 @@ var CZombies = (function (b, a) {
                 function (f, e) {
                     (e = $Z[f]) && e.SetAlpha(e, e.EleBody, 100, 1);
                 },
-                [d.id],
+                [d.id]
             );
         };
         return InheritO(oZomboni, {
@@ -5961,19 +5965,19 @@ var CZombies = (function (b, a) {
                               (GetY(d) - 65) +
                               "px;width:800px;height:72px",
                           0,
-                          EDPZ,
+                          EDPZ
                       )),
                       NewImg(
                           "",
                           "images/interface/blank.png",
                           "position:absolute;clip:rect(0,auto,auto,800px);width:800px;height:72px;left:5px;background:url(images/Zombies/wall/Zomboni/ice.png) repeat-x",
-                          f,
+                          f
                       ),
                       NewImg(
                           "",
                           "images/Zombies/wall/Zomboni/ice_cap.png",
                           "position:absolute;display:none;left:0",
-                          f,
+                          f
                       ),
                       (b[d] = [1, 11, h.AttackedLX]))
                     : ++b[d][0];
@@ -5987,7 +5991,7 @@ var CZombies = (function (b, a) {
                                   SetBlock(i),
                                   PlayAudio("zamboni"));
                           },
-                          [e, c],
+                          [e, c]
                       )
                     : (SetBlock(c), PlayAudio("zamboni"));
             },
@@ -6045,19 +6049,19 @@ var CZombies = (function (b, a) {
             },
             getPea: function (c, b) {
                 PlayAudio(
-                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
                 );
                 c.getHit0(c, b);
             },
             getFirePea: function (c, b) {
                 PlayAudio(
-                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
                 );
                 c.getHit0(c, b);
             },
             getSnowPea: function (c, b) {
                 PlayAudio(
-                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
                 );
                 c.getHit0(c, b);
             },
@@ -6136,7 +6140,7 @@ var CZombies = (function (b, a) {
                                 }
                             }
                         },
-                        [e, b],
+                        [e, b]
                     );
             },
             flatTire: function () {
@@ -6152,7 +6156,7 @@ var CZombies = (function (b, a) {
                         var d = $Z[e];
                         d && d.NormalDie();
                     },
-                    [b.id, b.EleBody],
+                    [b.id, b.EleBody]
                 );
             },
             JudgeAttack: function () {
@@ -6285,7 +6289,7 @@ var CZombies = (function (b, a) {
                                 b.PicArr[(b.NormalGif = b.WalkGif1)]),
                             (b.ChkActs = b.ChkActsL2));
                     },
-                    [a.id, a],
+                    [a.id, a]
                 ),
                 (a.ChkActs = function () {
                     return 1;
@@ -6316,7 +6320,7 @@ var CZombies = (function (b, a) {
                         var b = $Z[c];
                         b && b.CrushDie();
                     },
-                    [this.id],
+                    [this.id]
                 );
             return false;
         },
@@ -6355,7 +6359,7 @@ var CZombies = (function (b, a) {
                           (f.JudgeAttack = CZombies.prototype.JudgeAttack),
                           (f.NormalAttack = CZombies.prototype.NormalAttack)(
                               f.id,
-                              p.id,
+                              p.id
                           )))
                 ) {}
             }
@@ -6424,10 +6428,10 @@ var CZombies = (function (b, a) {
                                           u;
                                       v && n();
                                   },
-                                  [m, q],
+                                  [m, q]
                               )));
                 },
-                [d, b, a, c, e],
+                [d, b, a, c, e]
             );
         },
         GoingDie: function () {
@@ -6573,7 +6577,7 @@ var CZombies = (function (b, a) {
                     var b = $Z[c];
                     b && b.beAttacked && b.OpenBox(c);
                 },
-                [a],
+                [a]
             );
         },
         OpenBox: function (b) {
@@ -6642,7 +6646,7 @@ var CZombies = (function (b, a) {
                                             (e.X - 16) +
                                             "px;top:" +
                                             (e.pixelTop - 90) +
-                                            "px;z-index:20",
+                                            "px;z-index:20"
                                     )),
                                     PlayAudio("explosion"),
                                     (d.src = e.PicArr[8] + Math.random()),
@@ -6686,10 +6690,10 @@ var CZombies = (function (b, a) {
                                           })(e.ZX, e.R),
                                     e.DisappearDie());
                             },
-                            [c],
+                            [c]
                         ));
                 },
-                [b],
+                [b]
             );
         },
         getShadow: function (a) {
@@ -6719,7 +6723,7 @@ var CZombies = (function (b, a) {
                               SetBlock(e),
                               g.RandomOpenBox(f));
                       },
-                      [b, a],
+                      [b, a]
                   )
                 : (PlayAudio("jackinthebox", true),
                   ++oGd.$JackinTheBox,
@@ -6813,7 +6817,7 @@ var CZombies = (function (b, a) {
                     var b = $Z[c];
                     b && b.beAttacked && b.OpenBox(c);
                 },
-                [a],
+                [a]
             );
         },
         OpenBox: function (b) {
@@ -6882,7 +6886,7 @@ var CZombies = (function (b, a) {
                                             (e.X - 16) +
                                             "px;top:" +
                                             (e.pixelTop - 90) +
-                                            "px;z-index:20",
+                                            "px;z-index:20"
                                     )),
                                     PlayAudio("explosion"),
                                     (d.src = e.PicArr[8] + Math.random()),
@@ -6926,10 +6930,10 @@ var CZombies = (function (b, a) {
                                           })(e.ZX, e.R),
                                     e.DisappearDie());
                             },
-                            [c],
+                            [c]
                         ));
                 },
-                [b],
+                [b]
             );
         },
         getShadow: function (a) {
@@ -6959,7 +6963,7 @@ var CZombies = (function (b, a) {
                               SetBlock(e),
                               g.RandomOpenBox(f));
                       },
-                      [b, a],
+                      [b, a]
                   )
                 : (PlayAudio("jackinthebox", true),
                   ++oGd.$JackinTheBox,
@@ -7073,7 +7077,7 @@ var CZombies = (function (b, a) {
                       k[h] == undefined ? (k[h] = 1) : ++k[h];
                       PlayAudio("ballooninflate");
                   },
-                  [c, a],
+                  [c, a]
               )
             : (SetBlock(a),
               f[b] == undefined ? (f[b] = 1) : ++f[b],
@@ -7145,7 +7149,7 @@ var CZombies = (function (b, a) {
                     };
                 }
             },
-            [a.id],
+            [a.id]
         );
     },
     getFreeze: function (b, a) {
@@ -7161,7 +7165,7 @@ var CZombies = (function (b, a) {
                     (e.Attack = 100),
                     (e.Speed = e.OSpeed));
             },
-            [a, (b.FreeSlowTime = oSym.Now + 1500)],
+            [a, (b.FreeSlowTime = oSym.Now + 1500)]
         );
     },
     NormalDie: function () {
@@ -7266,7 +7270,7 @@ var CZombies = (function (b, a) {
                           (k[c] |= 0), ++k[c]; // 增加数量
                           PlayAudio("ballooninflate");
                       },
-                      [c, a, b],
+                      [c, a, b]
                   )
                 : (SetBlock(a),
                   f[b] == undefined ? (f[b] = 1) : ++f[b],
@@ -7348,7 +7352,7 @@ var CZombies = (function (b, a) {
                         };
                     }
                 },
-                [a.id],
+                [a.id]
             );
         },
         getFreeze: function (b, a) {
@@ -7364,7 +7368,7 @@ var CZombies = (function (b, a) {
                         (e.Attack = 100),
                         (e.Speed = e.OSpeed));
                 },
-                [a, (b.FreeSlowTime = oSym.Now + 1500)],
+                [a, (b.FreeSlowTime = oSym.Now + 1500)]
             );
         },
         NormalDie: function () {
@@ -7472,7 +7476,7 @@ var CZombies = (function (b, a) {
                       k[h] == undefined ? (k[h] = 1) : ++k[h];
                       PlayAudio("ballooninflate");
                   },
-                  [c, a],
+                  [c, a]
               )
             : (SetBlock(a),
               f[b] == undefined ? (f[b] = 1) : ++f[b],
@@ -7543,7 +7547,7 @@ var CZombies = (function (b, a) {
                     };
                 }
             },
-            [a.id],
+            [a.id]
         );
     },
     getFreeze: function (b, a) {
@@ -7559,7 +7563,7 @@ var CZombies = (function (b, a) {
                     (e.Attack = 100),
                     (e.Speed = e.OSpeed));
             },
-            [a, (b.FreeSlowTime = oSym.Now + 1500)],
+            [a, (b.FreeSlowTime = oSym.Now + 1500)]
         );
     },
     NormalDie: function () {
@@ -7620,7 +7624,7 @@ var CZombies = (function (b, a) {
                 2: "images/Zombies/wall/Zombie/Zombie.gif",
                 9: "images/Zombies/wall/Zombie/1.gif",
             },
-        },
+        }
     )),
     (oCZombie3 = InheritO(
         oCZombie,
@@ -7630,7 +7634,7 @@ var CZombies = (function (b, a) {
                 2: "images/Zombies/wall/Zombie/Zombie.gif",
                 9: "images/Zombies/wall/Zombie/1.gif",
             },
-        },
+        }
     ));
 oCConeheadZombie = InheritO(OrnIZombies, {
     EName: "oCConeheadZombie",
@@ -7676,7 +7680,7 @@ oCBucketheadZombie = InheritO(
 
         PlayNormalballAudio: function () {
             PlayAudio(
-                ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
             );
         },
         Produce:
@@ -7691,7 +7695,7 @@ oCBucketheadZombie = InheritO(
             9: "images/Zombies/wall/Zombie/Zombie.gif",
             11: "images/Zombies/wall/BucketheadZombie/1.gif",
         },
-    },
+    }
 );
 (othugZombie = InheritO(OrnNoneZombies, {
     EName: "othugZombie",
@@ -7754,7 +7758,7 @@ oCBucketheadZombie = InheritO(
                     (b.pixelTop - 20) +
                     "px;z-index:" +
                     b.zIndex,
-                EDPZ,
+                EDPZ
             ),
         ]);
     },
@@ -7788,7 +7792,7 @@ oCBucketheadZombie = InheritO(
                       (g.JudgeAttack = CZombies.prototype.JudgeAttack),
                       (g.NormalAttack = CZombies.prototype.NormalAttack)(
                           g.id,
-                          p.id,
+                          p.id
                       )))
             ) {}
         }
@@ -7805,7 +7809,7 @@ oCBucketheadZombie = InheritO(
                     var b = $Z[c];
                     b && b.CrushDie();
                 },
-                [this.id],
+                [this.id]
             );
         return false;
     },
@@ -7836,7 +7840,7 @@ oCBucketheadZombie = InheritO(
             function (h) {
                 $Z[h] && PlayAudio("polevault");
             },
-            [d],
+            [d]
         );
         oSym.addTask(
             100,
@@ -7893,10 +7897,10 @@ oCBucketheadZombie = InheritO(
                                       (u.getFreeze = t.getFreeze),
                                       (u.getRaven = t.getRaven));
                               },
-                              [m, n],
+                              [m, n]
                           )));
             },
-            [d, b, a, c, e],
+            [d, b, a, c, e]
         );
     },
 })),
@@ -7953,7 +7957,7 @@ oCBucketheadZombie = InheritO(
                         (a.pixelTop - 20) +
                         "px;z-index:" +
                         a.zIndex,
-                    EDPZ,
+                    EDPZ
                 ),
             ]);
             a.beAttacked = 0;
@@ -7978,7 +7982,7 @@ oCBucketheadZombie = InheritO(
                 case h < 91:
                     e.HP = h;
                     e.GoingDie(
-                        d[[e.OrnLostHeadNormalGif, e.OrnLostHeadAttackGif][f]],
+                        d[[e.OrnLostHeadNormalGif, e.OrnLostHeadAttackGif][f]]
                     );
                     return;
             }
@@ -8000,7 +8004,7 @@ oCBucketheadZombie = InheritO(
                     var n = $Z[q];
                     n && SetAlpha(n.EleBody, 100, 1);
                 },
-                [b],
+                [b]
             );
         },
         getSnowPea: function (c, a, b) {
@@ -8027,7 +8031,7 @@ oCBucketheadZombie = InheritO(
                   f.GoingDie(
                       f.PicArr[
                           [f.LostHeadGif, f.LostHeadAttackGif][f.isAttacking]
-                      ],
+                      ]
                   ),
                   (f.getHit =
                       f.getHit0 =
@@ -8042,7 +8046,7 @@ oCBucketheadZombie = InheritO(
                       b,
                       f.PicArr,
                       f.isAttacking,
-                      0,
+                      0
                   ),
                   f.SetAlpha(f, f.EleBody, 50, 0.5),
                   oSym.addTask(
@@ -8050,7 +8054,7 @@ oCBucketheadZombie = InheritO(
                       function (j, i) {
                           (i = $Z[j]) && i.SetAlpha(i, i.EleBody, 100, 1);
                       },
-                      [f.id],
+                      [f.id]
                   ));
         },
         getHit0: function (c, a, b) {
@@ -8062,7 +8066,7 @@ oCBucketheadZombie = InheritO(
                       a,
                       c.PicArr,
                       c.isAttacking,
-                      1,
+                      1
                   ),
                   c.SetAlpha(c, c.EleBody, 50, 0.5),
                   oSym.addTask(
@@ -8070,13 +8074,13 @@ oCBucketheadZombie = InheritO(
                       function (e, d) {
                           (d = $Z[e]) && d.SetAlpha(d, d.EleBody, 100, 1);
                       },
-                      [c.id],
+                      [c.id]
                   ))
                 : (c.HP -= a) < c.BreakPoint &&
                   (c.GoingDie(
                       c.PicArr[
                           [c.LostHeadGif, c.LostHeadAttackGif][c.isAttacking]
-                      ],
+                      ]
                   ),
                   (c.getFirePea = OrnNoneZombies.prototype.getFirePea),
                   (c.getSnowPea = OrnNoneZombies.prototype.getSnowPea),
@@ -8092,7 +8096,7 @@ oCBucketheadZombie = InheritO(
                 ? (b.GoingDie(
                       b.PicArr[
                           [b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]
-                      ],
+                      ]
                   ),
                   (b.getFirePea = OrnNoneZombies.prototype.getFirePea),
                   (b.getSnowPea = OrnNoneZombies.prototype.getSnowPea),
@@ -8109,7 +8113,7 @@ oCBucketheadZombie = InheritO(
                       a,
                       b.PicArr,
                       b.isAttacking,
-                      0,
+                      0
                   ),
                   b.SetAlpha(b, b.EleBody, 50, 0.5),
                   oSym.addTask(
@@ -8117,7 +8121,7 @@ oCBucketheadZombie = InheritO(
                       function (d, c) {
                           (c = $Z[d]) && c.SetAlpha(c, c.EleBody, 100, 1);
                       },
-                      [b.id],
+                      [b.id]
                   ));
         },
         getHit2: function (b, a) {
@@ -8125,7 +8129,7 @@ oCBucketheadZombie = InheritO(
                 ? (b.GoingDie(
                       b.PicArr[
                           [b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]
-                      ],
+                      ]
                   ),
                   (b.getFirePea = OrnNoneZombies.prototype.getFirePea),
                   (b.getSnowPea = OrnNoneZombies.prototype.getSnowPea),
@@ -8141,7 +8145,7 @@ oCBucketheadZombie = InheritO(
                       function (d, c) {
                           (c = $Z[d]) && c.SetAlpha(c, c.EleBody, 100, 1);
                       },
-                      [b.id],
+                      [b.id]
                   ));
         },
         getHit3: function (b, a) {
@@ -8149,7 +8153,7 @@ oCBucketheadZombie = InheritO(
                 ? (b.GoingDie(
                       b.PicArr[
                           [b.LostHeadGif, b.LostHeadAttackGif][b.isAttacking]
-                      ],
+                      ]
                   ),
                   (b.getFirePea = OrnNoneZombies.prototype.getFirePea),
                   (b.getSnowPea = OrnNoneZombies.prototype.getSnowPea),
@@ -8166,7 +8170,7 @@ oCBucketheadZombie = InheritO(
                       a,
                       b.PicArr,
                       b.isAttacking,
-                      0,
+                      0
                   ),
                   b.SetAlpha(b, b.EleBody, 50, 0.5),
                   oSym.addTask(
@@ -8174,7 +8178,7 @@ oCBucketheadZombie = InheritO(
                       function (d, c) {
                           (c = $Z[d]) && c.SetAlpha(c, c.EleBody, 100, 1);
                       },
-                      [b.id],
+                      [b.id]
                   ));
         },
         CheckOrnHP: function (g, h, d, c, f, b, a) {
@@ -8226,7 +8230,7 @@ oCBucketheadZombie = InheritO(
                                 (g.AttackGif = g.OrnLostAttackGif),
                             ][b]
                         ],
-                    ],
+                    ]
                 ));
         },
     }));
@@ -8276,7 +8280,7 @@ oCBucketheadZombie = InheritO(
         Attack: 3600,
         PlayNormalballAudio: function () {
             PlayAudio(
-                ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
             );
         },
         PicArr: (function () {
@@ -8466,7 +8470,7 @@ oCBucketheadZombie = InheritO(
                 function (f, e) {
                     (e = $Z[f]) && e.SetAlpha(e, e.EleBody, 100, 1);
                 },
-                [d.id],
+                [d.id]
             );
         };
         return InheritO(oZomboni, {
@@ -8511,19 +8515,19 @@ oCBucketheadZombie = InheritO(
                               (GetY(d) - 65) +
                               "px;width:800px;height:205px",
                           0,
-                          EDPZ,
+                          EDPZ
                       )),
                       NewImg(
                           "",
                           "images/interface/blank.png",
                           "position:absolute;clip:rect(0,auto,auto,800px);width:800px;height:205px;left:0px;background:url(images/Zombies/LGBOSS/ice.png) repeat-x",
-                          f,
+                          f
                       ),
                       NewImg(
                           "",
                           "images/Zombies/LGBOSS/ice_cap.png",
                           "position:absolute;display:none;left:0",
-                          f,
+                          f
                       ),
                       (b[d] = [1, 11, h.AttackedLX]))
                     : ++b[d][0];
@@ -8537,7 +8541,7 @@ oCBucketheadZombie = InheritO(
                                   SetBlock(i),
                                   PlayAudio("zamboni"));
                           },
-                          [e, c],
+                          [e, c]
                       )
                     : (SetBlock(c), PlayAudio("zamboni"));
             },
@@ -8595,19 +8599,19 @@ oCBucketheadZombie = InheritO(
             },
             getPea: function (c, b) {
                 PlayAudio(
-                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
                 );
                 c.getHit0(c, b);
             },
             getFirePea: function (c, b) {
                 PlayAudio(
-                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
                 );
                 c.getHit0(c, b);
             },
             getSnowPea: function (c, b) {
                 PlayAudio(
-                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)],
+                    ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
                 );
                 c.getHit0(c, b);
             },
@@ -8686,7 +8690,7 @@ oCBucketheadZombie = InheritO(
                                 }
                             }
                         },
-                        [e, b],
+                        [e, b]
                     );
             },
             flatTire: function () {
@@ -8702,7 +8706,7 @@ oCBucketheadZombie = InheritO(
                         var d = $Z[e];
                         d && d.NormalDie();
                     },
-                    [b.id, b.EleBody],
+                    [b.id, b.EleBody]
                 );
             },
             JudgeAttack: function () {
@@ -8827,7 +8831,7 @@ oCBucketheadZombie = InheritO(
                                                             (StopMusic(),
                                                             PlayAudio(
                                                                 "losemusic",
-                                                                false,
+                                                                false
                                                             )),
                                                         h.ChangeR({
                                                             R: f,
@@ -8900,7 +8904,7 @@ oCBucketheadZombie = InheritO(
                                           (q =
                                               g[
                                                   Math.floor(
-                                                      Math.random() * g.length,
+                                                      Math.random() * g.length
                                                   )
                                               ]),
                                           SetStyle(f, {
@@ -8986,7 +8990,7 @@ oCBucketheadZombie = InheritO(
                                         d =
                                             e[
                                                 Math.floor(
-                                                    Math.random() * e.length,
+                                                    Math.random() * e.length
                                                 )
                                             ],
                                         g = GetY(d) + h.GetDY(),
@@ -9006,7 +9010,7 @@ oCBucketheadZombie = InheritO(
                                         "none",
                                         "auto",
                                         h.GetDTop,
-                                        h.PicArr[h.NormalGif],
+                                        h.PicArr[h.NormalGif]
                                     );
                                 },
                                 CustomBirth: function (i, c, d, m) {
@@ -9035,7 +9039,7 @@ oCBucketheadZombie = InheritO(
                                         "none",
                                         m || 0,
                                         g.GetDTop,
-                                        g.PicArr[g.NormalGif],
+                                        g.PicArr[g.NormalGif]
                                     );
                                 },
                                 BirthCallBack: function (f) {
@@ -9053,7 +9057,7 @@ oCBucketheadZombie = InheritO(
                                                       ((i.FreeSetbodyTime = 0),
                                                       SetBlock(g));
                                               },
-                                              [d, c],
+                                              [d, c]
                                           )
                                         : SetBlock(c);
                                 },
@@ -9078,14 +9082,14 @@ oCBucketheadZombie = InheritO(
                                 PlayNormalballAudio: function () {
                                     PlayAudio(
                                         "splat" +
-                                            Math.floor(1 + Math.random() * 3),
+                                            Math.floor(1 + Math.random() * 3)
                                     );
                                 },
                                 PlayFireballAudio: function () {
                                     PlayAudio(
                                         ["ignite", "ignite2"][
                                             Math.floor(Math.random() * 2)
-                                        ],
+                                        ]
                                     );
                                 },
                                 PlaySlowballAudio: function () {
@@ -9143,7 +9147,7 @@ oCBucketheadZombie = InheritO(
                                                     k.Speed &&
                                                         (k.Speed = k.OSpeed));
                                             },
-                                            [f, d],
+                                            [f, d]
                                         );
                                 },
                                 getFreeze: function (d, c) {
@@ -9179,7 +9183,7 @@ oCBucketheadZombie = InheritO(
                                                         g,
                                                         (h.FreeSlowTime =
                                                             oSym.Now + 1500),
-                                                    ],
+                                                    ]
                                                 ));
                                         },
                                         [
@@ -9189,9 +9193,9 @@ oCBucketheadZombie = InheritO(
                                                 "icetrap_" + Math.random(),
                                                 "images/Plants/IceShroom/icetrap.gif",
                                                 d.getShadow(d),
-                                                d.Ele,
+                                                d.Ele
                                             ),
-                                        ],
+                                        ]
                                     );
                                 },
                                 NormalDie: function () {
@@ -9237,7 +9241,7 @@ oCBucketheadZombie = InheritO(
                                                 (d.pixelTop - 20) +
                                                 "px;z-index:" +
                                                 d.zIndex,
-                                            EDPZ,
+                                            EDPZ
                                         ),
                                     ]);
                                 },
@@ -9263,7 +9267,7 @@ oCBucketheadZombie = InheritO(
                                                     ? d.NormalDie()
                                                     : d.AutoReduceHP(e));
                                         },
-                                        [c],
+                                        [c]
                                     );
                                 },
                                 JudgeAttack: function () {
@@ -9373,7 +9377,7 @@ oCBucketheadZombie = InheritO(
                                                     g.getHit0(g, 10, 0),
                                                 h.JudgeAttackH());
                                         },
-                                        [d, c],
+                                        [d, c]
                                     );
                                 },
                                 AttackZombie2: function (e, d, c) {
@@ -9393,7 +9397,7 @@ oCBucketheadZombie = InheritO(
                                                       oSym.addTask(
                                                           10,
                                                           arguments.callee,
-                                                          [g, f],
+                                                          [g, f]
                                                       ))
                                                     : ((i.isAttacking = 0),
                                                       (i.EleBody.src =
@@ -9401,14 +9405,14 @@ oCBucketheadZombie = InheritO(
                                                               i.NormalGif
                                                           ])));
                                         },
-                                        [d, c],
+                                        [d, c]
                                     );
                                 },
                                 NormalAttack: function (d, c) {
                                     PlayAudio(
                                         ["chomp", "chompsoft"][
                                             Math.floor(Math.random() * 2)
-                                        ],
+                                        ]
                                     );
                                     oSym.addTask(
                                         50,
@@ -9417,12 +9421,12 @@ oCBucketheadZombie = InheritO(
                                                 PlayAudio(
                                                     ["chomp", "chompsoft"][
                                                         Math.floor(
-                                                            Math.random() * 2,
+                                                            Math.random() * 2
                                                         )
-                                                    ],
+                                                    ]
                                                 );
                                         },
-                                        [d],
+                                        [d]
                                     );
                                     oSym.addTask(
                                         100,
@@ -9437,11 +9441,11 @@ oCBucketheadZombie = InheritO(
                                                     g.getHurt(
                                                         h,
                                                         h.AKind,
-                                                        h.Attack,
+                                                        h.Attack
                                                     ),
                                                 h.JudgeAttack());
                                         },
-                                        [d, c],
+                                        [d, c]
                                     );
                                 },
                                 PZ: 1,
@@ -9499,7 +9503,7 @@ oCBucketheadZombie = InheritO(
                                         [c.LostHeadGif, c.LostHeadAttackGif][
                                             c.isAttacking
                                         ]
-                                    ],
+                                    ]
                                 );
                                 c.getHit0 =
                                     c.getHit1 =
@@ -9515,7 +9519,7 @@ oCBucketheadZombie = InheritO(
                                     (d = $Z[e]) &&
                                         d.SetAlpha(d, d.EleBody, 100, 1);
                                 },
-                                [c.id],
+                                [c.id]
                             );
                         };
                         return InheritO(CZombies, {
@@ -9568,7 +9572,7 @@ oCBucketheadZombie = InheritO(
                                                 i.Speed &&
                                                     (i.Speed = i.OSpeed));
                                         },
-                                        [f.id, b],
+                                        [f.id, b]
                                     ));
                                 f.getHit0(f, c, g);
                             },
@@ -9642,7 +9646,7 @@ oCBucketheadZombie = InheritO(
                                             ((i.FreeSlowTime = 0),
                                             (i.Attack = 100));
                                     },
-                                    [d, b],
+                                    [d, b]
                                 );
                         },
                         getFreeze: function (b, a) {
@@ -9672,7 +9676,7 @@ oCBucketheadZombie = InheritO(
                                                 e,
                                                 (f.FreeSlowTime =
                                                     oSym.Now + 1500),
-                                            ],
+                                            ]
                                         ));
                                 },
                                 [
@@ -9682,9 +9686,9 @@ oCBucketheadZombie = InheritO(
                                         "icetrap_" + Math.random(),
                                         "images/Plants/IceShroom/icetrap.gif",
                                         b.getShadow(b),
-                                        b.Ele,
+                                        b.Ele
                                     ),
-                                ],
+                                ]
                             );
                         },
                         CustomBirth: function (g, d, a, b, j) {
@@ -9707,7 +9711,7 @@ oCBucketheadZombie = InheritO(
                                 "none",
                                 j || 0,
                                 e.height + "px",
-                                e.PicArr[e.StandGif],
+                                e.PicArr[e.StandGif]
                             );
                         },
                         Produce:
@@ -9724,7 +9728,7 @@ oCBucketheadZombie = InheritO(
                                     var h = $Z[g];
                                     h && ((h.FreeSetbodyTime = 0), SetBlock(f));
                                 },
-                                [c, b],
+                                [c, b]
                             );
                         },
                         ChangeChkActsTo0: function (c, b, a) {
@@ -9744,7 +9748,7 @@ oCBucketheadZombie = InheritO(
                                         f.beAttacked &&
                                         f.ChangeChkActsTo1(f, e, d);
                                 },
-                                [b, a],
+                                [b, a]
                             );
                         },
                         ChangeChkActsTo1: function (c, b, a) {
@@ -9761,7 +9765,7 @@ oCBucketheadZombie = InheritO(
                                             f.beAttacked &&
                                             f.ChangeChkActsTo0(f, e, d);
                                     },
-                                    [b, a],
+                                    [b, a]
                                 );
                         },
                         ChkActs: function (g, d, h, c) {
@@ -9783,7 +9787,7 @@ oCBucketheadZombie = InheritO(
                                                     (StopMusic(),
                                                     PlayAudio(
                                                         "losemusic",
-                                                        false,
+                                                        false
                                                     )),
                                                 g.ChangeR({
                                                     R: d,
@@ -9861,7 +9865,7 @@ oCBucketheadZombie = InheritO(
                                     "div",
                                     "position:absolute;left:-30px;top:-400px;width:184px;height:600px;overflow:hidden",
                                     0,
-                                    c,
+                                    c
                                 ).appendChild(
                                     (g.spotlight = NewImg(
                                         d + "_spotlight",
@@ -9869,14 +9873,14 @@ oCBucketheadZombie = InheritO(
                                             a +
                                             ".png",
                                         "left:0;top:0;width:920px;height:600px;" +
-                                            b,
-                                    )),
+                                            b
+                                    ))
                                 );
                                 e = NewEle(
                                     d + "_spotlight2Con",
                                     "div",
                                     "position:absolute;left:-25px;top:135px;width:184px;height:60px;overflow:hidden",
-                                    0,
+                                    0
                                 );
                                 c.insertBefore(e, f.EleShadow);
                                 e.appendChild(
@@ -9886,8 +9890,8 @@ oCBucketheadZombie = InheritO(
                                             a +
                                             ".png",
                                         "left:0;top:0;width:920px;height:60px;" +
-                                            b,
-                                    )),
+                                            b
+                                    ))
                                 );
                             };
                         })(),
@@ -10019,7 +10023,7 @@ oCBucketheadZombie = InheritO(
                                                 n[h](n, k, n.EleBody));
                                         }
                                     },
-                                    [g, [1, 0][a]],
+                                    [g, [1, 0][a]]
                                 );
                         },
                         BirthCallBack: function (d) {
@@ -10119,7 +10123,7 @@ oCBucketheadZombie = InheritO(
                                         !t.isAttacking &&
                                         t.NormalAttack(o);
                                 },
-                                [d.id],
+                                [d.id]
                             );
                         },
                         ChkActs1: function (e, b, f, a) {
@@ -10165,7 +10169,7 @@ oCBucketheadZombie = InheritO(
                                                     (StopMusic(),
                                                     PlayAudio(
                                                         "losemusic",
-                                                        false,
+                                                        false
                                                     )),
                                                 g.ChangeR({
                                                     R: d,
@@ -10251,14 +10255,14 @@ oCBucketheadZombie = InheritO(
                                               oSym.addTask(
                                                   10,
                                                   arguments.callee,
-                                                  [d, c],
+                                                  [d, c]
                                               ))
                                             : ((f.isAttacking = 0),
                                               (f.EleBody.src =
                                                   f.PicArr[f.NormalGif]),
                                               f.TurnLeft(f)));
                                 },
-                                [b, a],
+                                [b, a]
                             );
                         },
                         ChkBackupDancer: function (h, g, f) {
@@ -10317,7 +10321,7 @@ oCBucketheadZombie = InheritO(
                                         k.beAttacked &&
                                         k.ChangeChkActsTo1(k, j, i);
                                 },
-                                [e, a],
+                                [e, a]
                             );
                         },
                         ChangeChkActsTo1: function (g, e, a) {
@@ -10350,7 +10354,7 @@ oCBucketheadZombie = InheritO(
                                             k.beAttacked &&
                                             k.ChkBackupDancer(k, j, i);
                                     },
-                                    [e, a],
+                                    [e, a]
                                 );
                         },
                         TurnLeft: function (c) {
@@ -10388,16 +10392,10 @@ oCBucketheadZombie = InheritO(
                                                     oSym.addTask(
                                                         100,
                                                         arguments.callee,
-                                                        [g, f, i, h, k],
+                                                        [g, f, i, h, k]
                                                     ));
                                             },
-                                            [
-                                                d,
-                                                e.spotlight,
-                                                e.spotlight2,
-                                                0,
-                                                0,
-                                            ],
+                                            [d, e.spotlight, e.spotlight2, 0, 0]
                                         ),
                                         oSym.addTask(
                                             200,
@@ -10412,13 +10410,13 @@ oCBucketheadZombie = InheritO(
                                                     h.ChangeChkActsTo0(
                                                         h,
                                                         g,
-                                                        f,
+                                                        f
                                                     ));
                                             },
-                                            [e, d],
+                                            [e, d]
                                         ));
                                 },
-                                [b, c],
+                                [b, c]
                             );
                             c.Summon(c, b);
                         },
@@ -10474,7 +10472,7 @@ oCBucketheadZombie = InheritO(
                                                                 100,
                                                                 (q[0] =
                                                                     "Z_" +
-                                                                    Math.random()),
+                                                                    Math.random())
                                                             )),
                                                             n.push(
                                                                 NewImg(
@@ -10484,13 +10482,13 @@ oCBucketheadZombie = InheritO(
                                                                         q[3] +
                                                                         ";left:" +
                                                                         q[4](
-                                                                            v,
+                                                                            v
                                                                         ) +
                                                                         "px;top:" +
                                                                         q[5] +
                                                                         "px",
-                                                                    EDPZ,
-                                                                ),
+                                                                    EDPZ
+                                                                )
                                                             ),
                                                             ++o);
                                                     }
@@ -10501,13 +10499,11 @@ oCBucketheadZombie = InheritO(
                                                                 arguments.length;
                                                             while (i--) {
                                                                 ClearChild(
-                                                                    arguments[
-                                                                        i
-                                                                    ],
+                                                                    arguments[i]
                                                                 );
                                                             }
                                                         },
-                                                        n,
+                                                        n
                                                     );
                                                     oSym.addTask(
                                                         110,
@@ -10518,13 +10514,13 @@ oCBucketheadZombie = InheritO(
                                                                 (oP.AppearUP(
                                                                     y,
                                                                     z,
-                                                                    i,
+                                                                    i
                                                                 ),
                                                                 oSym.addTask(
                                                                     100,
                                                                     function (
                                                                         D,
-                                                                        C,
+                                                                        C
                                                                     ) {
                                                                         var E =
                                                                             $Z[
@@ -10548,14 +10544,14 @@ oCBucketheadZombie = InheritO(
                                                                                 ]).ChangeChkActsTo0(
                                                                                 E,
                                                                                 E.id,
-                                                                                E.EleBody,
+                                                                                E.EleBody
                                                                             );
                                                                         }
                                                                     },
-                                                                    [A, z],
+                                                                    [A, z]
                                                                 ));
                                                         },
-                                                        [t, u, w, o],
+                                                        [t, u, w, o]
                                                     );
                                                     oSym.addTask(
                                                         200,
@@ -10570,14 +10566,14 @@ oCBucketheadZombie = InheritO(
                                                                     z.ChkTmp),
                                                                 (z.ChkTmp = j));
                                                         },
-                                                        [t, s],
+                                                        [t, s]
                                                     );
                                                 }
                                             },
-                                            [f, e],
+                                            [f, e]
                                         ));
                                 },
-                                [c, a],
+                                [c, a]
                             );
                         },
                     }),
@@ -10613,7 +10609,7 @@ oCBucketheadZombie = InheritO(
                                 2: "images/Zombies/Zombie/Zombie2.gif",
                                 9: "images/Zombies/Zombie/2.gif",
                             },
-                        },
+                        }
                     ),
                     oZombie3 = InheritO(
                         oZombie,
@@ -10625,7 +10621,7 @@ oCBucketheadZombie = InheritO(
                                 2: "images/Zombies/Zombie/Zombie3.gif",
                                 9: "images/Zombies/Zombie/3.gif",
                             },
-                        },
+                        }
                     ),
                     oFlagZombie = InheritO(oZombie, {
                         PicArr: (function () {
@@ -10683,7 +10679,7 @@ oCBucketheadZombie = InheritO(
                                     (g = $Z[h]) &&
                                         g.SetAlpha(g, g.EleBody, 100, 1);
                                 },
-                                [f.id],
+                                [f.id]
                             );
                         };
                         return InheritO(OrnNoneZombies, {
@@ -10741,7 +10737,7 @@ oCBucketheadZombie = InheritO(
                                 PlayAudio(
                                     ["shieldhit", "shieldhit2"][
                                         Math.floor(Math.random() * 2)
-                                    ],
+                                    ]
                                 );
                             },
                             Produce:
@@ -10756,7 +10752,7 @@ oCBucketheadZombie = InheritO(
                                 9: "images/Zombies/Zombie/Zombie2.gif",
                                 11: "images/Zombies/BucketheadZombie/1.gif",
                             },
-                        },
+                        }
                     ),
                     oFootballZombie = InheritO(oConeheadZombie, {
                         EName: "oFootballZombie",
@@ -10866,7 +10862,7 @@ oCBucketheadZombie = InheritO(
                                         (b.pixelTop - 20) +
                                         "px;z-index:" +
                                         b.zIndex,
-                                    EDPZ,
+                                    EDPZ
                                 ),
                             ]);
                         },
@@ -10897,7 +10893,7 @@ oCBucketheadZombie = InheritO(
                                           g.NormalAttack(
                                               g.id,
                                               p.id,
-                                              p.AttackedLX,
+                                              p.AttackedLX
                                           ))
                                         : p.AttackedRX >= b &&
                                           p.AttackedLX < b &&
@@ -10907,7 +10903,7 @@ oCBucketheadZombie = InheritO(
                                           (g.NormalAttack =
                                               CZombies.prototype.NormalAttack)(
                                               g.id,
-                                              p.id,
+                                              p.id
                                           )))
                                 ) {}
                             }
@@ -10924,7 +10920,7 @@ oCBucketheadZombie = InheritO(
                                         var b = $Z[c];
                                         b && b.CrushDie();
                                     },
-                                    [this.id],
+                                    [this.id]
                                 );
                             return false;
                         },
@@ -10934,7 +10930,7 @@ oCBucketheadZombie = InheritO(
                                     this.NormalAttack(
                                         this.id,
                                         a,
-                                        $P[a].AttackedLX,
+                                        $P[a].AttackedLX
                                     ),
                                 0
                             );
@@ -10960,7 +10956,7 @@ oCBucketheadZombie = InheritO(
                                 function (h) {
                                     $Z[h] && PlayAudio("polevault");
                                 },
-                                [d],
+                                [d]
                             );
                             oSym.addTask(
                                 100,
@@ -11031,10 +11027,10 @@ oCBucketheadZombie = InheritO(
                                                           (u.getRaven =
                                                               t.getRaven));
                                                   },
-                                                  [m, n],
+                                                  [m, n]
                                               )));
                                 },
-                                [d, b, a, c, e],
+                                [d, b, a, c, e]
                             );
                         },
                     }),
@@ -11105,7 +11101,7 @@ oCBucketheadZombie = InheritO(
                                         (a.pixelTop - 20) +
                                         "px;z-index:" +
                                         a.zIndex,
-                                    EDPZ,
+                                    EDPZ
                                 ),
                             ]);
                             a.beAttacked = 0;
@@ -11138,7 +11134,7 @@ oCBucketheadZombie = InheritO(
                                                 e.OrnLostHeadNormalGif,
                                                 e.OrnLostHeadAttackGif,
                                             ][f]
-                                        ],
+                                        ]
                                     );
                                     return;
                             }
@@ -11160,12 +11156,12 @@ oCBucketheadZombie = InheritO(
                                     var n = $Z[q];
                                     n && SetAlpha(n.EleBody, 100, 1);
                                 },
-                                [b],
+                                [b]
                             );
                         },
                         getSnowPea: function (c, a, b) {
                             PlayAudio(
-                                "splat" + Math.floor(1 + Math.random() * 3),
+                                "splat" + Math.floor(1 + Math.random() * 3)
                             );
                             c.getHit0(c, a, b);
                         },
@@ -11192,7 +11188,7 @@ oCBucketheadZombie = InheritO(
                                           [f.LostHeadGif, f.LostHeadAttackGif][
                                               f.isAttacking
                                           ]
-                                      ],
+                                      ]
                                   ),
                                   (f.getHit =
                                       f.getHit0 =
@@ -11207,7 +11203,7 @@ oCBucketheadZombie = InheritO(
                                       b,
                                       f.PicArr,
                                       f.isAttacking,
-                                      0,
+                                      0
                                   ),
                                   f.SetAlpha(f, f.EleBody, 50, 0.5),
                                   oSym.addTask(
@@ -11216,7 +11212,7 @@ oCBucketheadZombie = InheritO(
                                           (i = $Z[j]) &&
                                               i.SetAlpha(i, i.EleBody, 100, 1);
                                       },
-                                      [f.id],
+                                      [f.id]
                                   ));
                         },
                         getHit0: function (c, a, b) {
@@ -11228,7 +11224,7 @@ oCBucketheadZombie = InheritO(
                                       a,
                                       c.PicArr,
                                       c.isAttacking,
-                                      1,
+                                      1
                                   ),
                                   c.SetAlpha(c, c.EleBody, 50, 0.5),
                                   oSym.addTask(
@@ -11237,7 +11233,7 @@ oCBucketheadZombie = InheritO(
                                           (d = $Z[e]) &&
                                               d.SetAlpha(d, d.EleBody, 100, 1);
                                       },
-                                      [c.id],
+                                      [c.id]
                                   ))
                                 : (c.HP -= a) < c.BreakPoint &&
                                   (c.GoingDie(
@@ -11245,7 +11241,7 @@ oCBucketheadZombie = InheritO(
                                           [c.LostHeadGif, c.LostHeadAttackGif][
                                               c.isAttacking
                                           ]
-                                      ],
+                                      ]
                                   ),
                                   (c.getFirePea =
                                       OrnNoneZombies.prototype.getFirePea),
@@ -11265,7 +11261,7 @@ oCBucketheadZombie = InheritO(
                                           [b.LostHeadGif, b.LostHeadAttackGif][
                                               b.isAttacking
                                           ]
-                                      ],
+                                      ]
                                   ),
                                   (b.getFirePea =
                                       OrnNoneZombies.prototype.getFirePea),
@@ -11284,7 +11280,7 @@ oCBucketheadZombie = InheritO(
                                       a,
                                       b.PicArr,
                                       b.isAttacking,
-                                      0,
+                                      0
                                   ),
                                   b.SetAlpha(b, b.EleBody, 50, 0.5),
                                   oSym.addTask(
@@ -11293,7 +11289,7 @@ oCBucketheadZombie = InheritO(
                                           (c = $Z[d]) &&
                                               c.SetAlpha(c, c.EleBody, 100, 1);
                                       },
-                                      [b.id],
+                                      [b.id]
                                   ));
                         },
                         getHit2: function (b, a) {
@@ -11303,7 +11299,7 @@ oCBucketheadZombie = InheritO(
                                           [b.LostHeadGif, b.LostHeadAttackGif][
                                               b.isAttacking
                                           ]
-                                      ],
+                                      ]
                                   ),
                                   (b.getFirePea =
                                       OrnNoneZombies.prototype.getFirePea),
@@ -11322,7 +11318,7 @@ oCBucketheadZombie = InheritO(
                                           (c = $Z[d]) &&
                                               c.SetAlpha(c, c.EleBody, 100, 1);
                                       },
-                                      [b.id],
+                                      [b.id]
                                   ));
                         },
                         getHit3: function (b, a) {
@@ -11332,7 +11328,7 @@ oCBucketheadZombie = InheritO(
                                           [b.LostHeadGif, b.LostHeadAttackGif][
                                               b.isAttacking
                                           ]
-                                      ],
+                                      ]
                                   ),
                                   (b.getFirePea =
                                       OrnNoneZombies.prototype.getFirePea),
@@ -11351,7 +11347,7 @@ oCBucketheadZombie = InheritO(
                                       a,
                                       b.PicArr,
                                       b.isAttacking,
-                                      0,
+                                      0
                                   ),
                                   b.SetAlpha(b, b.EleBody, 50, 0.5),
                                   oSym.addTask(
@@ -11360,7 +11356,7 @@ oCBucketheadZombie = InheritO(
                                           (c = $Z[d]) &&
                                               c.SetAlpha(c, c.EleBody, 100, 1);
                                       },
-                                      [b.id],
+                                      [b.id]
                                   ));
                         },
                         CheckOrnHP: function (g, h, d, c, f, b, a) {
@@ -11420,7 +11416,7 @@ oCBucketheadZombie = InheritO(
                                                     g.OrnLostAttackGif),
                                             ][b]
                                         ],
-                                    ],
+                                    ]
                                 ));
                         },
                     }),
@@ -11457,7 +11453,7 @@ oCBucketheadZombie = InheritO(
                         })(),
                         PlayNormalballAudio: function () {
                             PlayAudio(
-                                "splat" + Math.floor(1 + Math.random() * 3),
+                                "splat" + Math.floor(1 + Math.random() * 3)
                             );
                         },
                         Produce:
@@ -11470,7 +11466,7 @@ oCBucketheadZombie = InheritO(
                                           Math.floor(Math.random() * 2)
                                       ]
                                     : "splat" +
-                                          Math.floor(1 + Math.random() * 3),
+                                          Math.floor(1 + Math.random() * 3)
                             );
                             c.getHit0(c, a, b);
                         },
@@ -11479,7 +11475,7 @@ oCBucketheadZombie = InheritO(
                             PlayAudio(
                                 ["shieldhit", "shieldhit2"][
                                     Math.floor(Math.random() * 2)
-                                ],
+                                ]
                             );
                             c.getHit0(c, a, b);
                         },
@@ -11490,7 +11486,7 @@ oCBucketheadZombie = InheritO(
                                           Math.floor(Math.random() * 2)
                                       ]
                                     : "splat" +
-                                          Math.floor(1 + Math.random() * 3),
+                                          Math.floor(1 + Math.random() * 3)
                             );
                             c.getHit0(c, a, b);
                         },
@@ -11503,7 +11499,7 @@ oCBucketheadZombie = InheritO(
                                       a,
                                       c.PicArr,
                                       c.isAttacking,
-                                      1,
+                                      1
                                   ),
                                   c.SetAlpha(c, c.EleBody, 50, 0.5),
                                   oSym.addTask(
@@ -11512,7 +11508,7 @@ oCBucketheadZombie = InheritO(
                                           (d = $Z[e]) &&
                                               d.SetAlpha(d, d.EleBody, 100, 1);
                                       },
-                                      [c.id],
+                                      [c.id]
                                   ))
                                 : (c.HP -= a) < c.BreakPoint &&
                                   (c.GoingDie(
@@ -11520,7 +11516,7 @@ oCBucketheadZombie = InheritO(
                                           [c.LostHeadGif, c.LostHeadAttackGif][
                                               c.isAttacking
                                           ]
-                                      ],
+                                      ]
                                   ),
                                   (c.getHit =
                                       c.getHit0 =
@@ -11617,7 +11613,7 @@ oCBucketheadZombie = InheritO(
                                             (g.height - 88) +
                                             "px;width:97px;height:88px;over-flow:hidden",
                                         0,
-                                        b,
+                                        b
                                     );
                                     ImgSpriter(
                                         a,
@@ -11635,7 +11631,7 @@ oCBucketheadZombie = InheritO(
                                         0,
                                         function (i, j) {
                                             ClearChild($(i));
-                                        },
+                                        }
                                     );
                             }
                             e
@@ -11647,7 +11643,7 @@ oCBucketheadZombie = InheritO(
                                               ((k.FreeSetbodyTime = 0),
                                               SetBlock(i));
                                       },
-                                      [c, b],
+                                      [c, b]
                                   )
                                 : SetBlock(b);
                         },
@@ -11673,7 +11669,7 @@ oCBucketheadZombie = InheritO(
                                         (f.height - 88) +
                                         "px;width:97px;height:88px;over-flow:hidden",
                                     0,
-                                    f.Ele,
+                                    f.Ele
                                 ),
                                 (f.ChkActs = f.ChkActsL2),
                                 ImgSpriter(
@@ -11692,7 +11688,7 @@ oCBucketheadZombie = InheritO(
                                     0,
                                     function (h, i) {
                                         ClearChild($(h));
-                                    },
+                                    }
                                 ));
                             return 1;
                         },
@@ -11799,10 +11795,10 @@ oCBucketheadZombie = InheritO(
                                             : oSym.addTask(
                                                   100,
                                                   arguments.callee,
-                                                  [c],
+                                                  [c]
                                               ));
                                 },
-                                [a],
+                                [a]
                             );
                         },
                         ExplosionDie: function () {
@@ -11901,7 +11897,7 @@ oCBucketheadZombie = InheritO(
                             PlayAudio(
                                 ["shieldhit", "shieldhit2"][
                                     Math.floor(Math.random() * 2)
-                                ],
+                                ]
                             );
                         },
                         AudioArr: [
@@ -11993,7 +11989,7 @@ oCBucketheadZombie = InheritO(
                                                 ]),
                                             (b.ChkActs = b.ChkActsL2));
                                     },
-                                    [a.id, a],
+                                    [a.id, a]
                                 ),
                                 (a.ChkActs = function () {
                                     return 1;
@@ -12059,7 +12055,7 @@ oCBucketheadZombie = InheritO(
                                                   (h.Altitude = 1),
                                                   h.NormalAttack(a[0], a[1]));
                                           },
-                                          [f, e],
+                                          [f, e]
                                       ))
                                     : e.NormalAttack(a[0], a[1])
                                 : e.isAttacking &&
@@ -12075,7 +12071,7 @@ oCBucketheadZombie = InheritO(
                                               (h.EleBody.src =
                                                   h.PicArr[h.NormalGif]));
                                       },
-                                      [f, e],
+                                      [f, e]
                                   ));
                         },
                         NormalAttack: function (b, a) {
@@ -12091,7 +12087,7 @@ oCBucketheadZombie = InheritO(
                                         ((e = $P[c]) && e.getHurt(f, 0, 100),
                                         f.JudgeAttack());
                                 },
-                                [b, a],
+                                [b, a]
                             );
                         },
                         JudgeAttackH: function () {
@@ -12124,7 +12120,7 @@ oCBucketheadZombie = InheritO(
                                                         g.AttackZombie(h, e))
                                                       : g.JudgeAttackH());
                                           },
-                                          [c, d, b, a],
+                                          [c, d, b, a]
                                       ))
                                     : c.AttackZombie(d, a)
                                 : c.isAttacking &&
@@ -12140,7 +12136,7 @@ oCBucketheadZombie = InheritO(
                                               (e.EleBody.src =
                                                   e.PicArr[e.NormalGif]));
                                       },
-                                      [d, c],
+                                      [d, c]
                                   ));
                         },
                         AttackZombie2: function (c, b, a) {
@@ -12166,17 +12162,12 @@ oCBucketheadZombie = InheritO(
                                                               ? (j.getHit0(
                                                                     j,
                                                                     10,
-                                                                    0,
+                                                                    0
                                                                 ),
                                                                 oSym.addTask(
                                                                     10,
                                                                     arguments.callee,
-                                                                    [
-                                                                        k,
-                                                                        i,
-                                                                        j,
-                                                                        h,
-                                                                    ],
+                                                                    [k, i, j, h]
                                                                 ))
                                                               : ((k.EleBody.src =
                                                                     k
@@ -12187,7 +12178,7 @@ oCBucketheadZombie = InheritO(
                                                                     70,
                                                                     function (
                                                                         l,
-                                                                        m,
+                                                                        m
                                                                     ) {
                                                                         $Z[l] &&
                                                                             m.beAttacked &&
@@ -12197,10 +12188,10 @@ oCBucketheadZombie = InheritO(
                                                                                     m.NormalGif
                                                                                 ]));
                                                                     },
-                                                                    [i, k],
+                                                                    [i, k]
                                                                 )));
                                                   },
-                                                  [g, e, f, d],
+                                                  [g, e, f, d]
                                               ))
                                             : ((g.EleBody.src =
                                                   g.PicArr[10] + Math.random()),
@@ -12216,10 +12207,10 @@ oCBucketheadZombie = InheritO(
                                                                   i.NormalGif
                                                               ]));
                                                   },
-                                                  [e, g],
+                                                  [e, g]
                                               )));
                                 },
-                                [c, b, a],
+                                [c, b, a]
                             );
                         },
                         AutoReduceHP: function (a) {
@@ -12236,10 +12227,10 @@ oCBucketheadZombie = InheritO(
                                             : oSym.addTask(
                                                   100,
                                                   arguments.callee,
-                                                  [c],
+                                                  [c]
                                               ));
                                 },
-                                [a],
+                                [a]
                             );
                         },
                     }),
@@ -12291,7 +12282,7 @@ oCBucketheadZombie = InheritO(
                                         (b.pixelTop - 20) +
                                         "px;z-index:" +
                                         b.zIndex,
-                                    EDPZ,
+                                    EDPZ
                                 ),
                             ]);
                         },
@@ -12353,7 +12344,7 @@ oCBucketheadZombie = InheritO(
                                         (b.pixelTop - 20) +
                                         "px;z-index:" +
                                         b.zIndex,
-                                    EDPZ,
+                                    EDPZ
                                 ),
                             ]);
                         },
@@ -12415,7 +12406,7 @@ oCBucketheadZombie = InheritO(
                                         (b.pixelTop - 20) +
                                         "px;z-index:" +
                                         b.zIndex,
-                                    EDPZ,
+                                    EDPZ
                                 ),
                             ]);
                         },
@@ -12478,7 +12469,7 @@ oCBucketheadZombie = InheritO(
                                         (b.pixelTop - 20) +
                                         "px;z-index:" +
                                         b.zIndex,
-                                    EDPZ,
+                                    EDPZ
                                 ),
                             ]);
                         },
@@ -12541,7 +12532,7 @@ oCBucketheadZombie = InheritO(
                                         (b.pixelTop - 20) +
                                         "px;z-index:" +
                                         b.zIndex,
-                                    EDPZ,
+                                    EDPZ
                                 ),
                             ]);
                         },
@@ -12603,7 +12594,7 @@ oCBucketheadZombie = InheritO(
                                         (b.pixelTop - 20) +
                                         "px;z-index:" +
                                         b.zIndex,
-                                    EDPZ,
+                                    EDPZ
                                 ),
                             ]);
                         },
@@ -12644,7 +12635,7 @@ oCBucketheadZombie = InheritO(
                                     (e = $Z[f]) &&
                                         e.SetAlpha(e, e.EleBody, 100, 1);
                                 },
-                                [d.id],
+                                [d.id]
                             );
                         };
                         return InheritO(OrnNoneZombies, {
@@ -12705,19 +12696,19 @@ oCBucketheadZombie = InheritO(
                                               (GetY(d) - 65) +
                                               "px;width:800px;height:72px",
                                           0,
-                                          EDPZ,
+                                          EDPZ
                                       )),
                                       NewImg(
                                           "",
                                           "images/interface/blank.png",
                                           "position:absolute;clip:rect(0,auto,auto,800px);width:800px;height:72px;left:5px;background:url(images/Zombies/Zomboni/ice.png) repeat-x",
-                                          f,
+                                          f
                                       ),
                                       NewImg(
                                           "",
                                           "images/Zombies/Zomboni/ice_cap.png",
                                           "position:absolute;display:none;left:0",
-                                          f,
+                                          f
                                       ),
                                       (b[d] = [1, 11, h.AttackedLX]))
                                     : ++b[d][0];
@@ -12731,7 +12722,7 @@ oCBucketheadZombie = InheritO(
                                                   SetBlock(i),
                                                   PlayAudio("zamboni"));
                                           },
-                                          [e, c],
+                                          [e, c]
                                       )
                                     : (SetBlock(c), PlayAudio("zamboni"));
                             },
@@ -12756,19 +12747,19 @@ oCBucketheadZombie = InheritO(
                                             (GetY(e.R) - 65) +
                                             "px;width:800px;height:72px",
                                         0,
-                                        EDPZ,
+                                        EDPZ
                                     ); // 生成新的冰道
                                     NewImg(
                                         "",
                                         "images/interface/blank.png",
                                         "position:absolute;clip:rect(0,auto,auto,800px);width:800px;height:72px;left:5px;background:url(images/Zombies/Zomboni/ice.png) repeat-x",
-                                        l,
+                                        l
                                     );
                                     NewImg(
                                         "",
                                         "images/Zombies/Zomboni/ice_cap.png",
                                         "position:absolute;display:none;left:0",
-                                        l,
+                                        l
                                     );
                                     n = oGd.$Ice[j] = [1, 11, e.AttackedLX];
                                 }
@@ -12830,7 +12821,7 @@ oCBucketheadZombie = InheritO(
                                 PlayAudio(
                                     ["shieldhit", "shieldhit2"][
                                         Math.floor(Math.random() * 2)
-                                    ],
+                                    ]
                                 );
                                 c.getHit0(c, b);
                             },
@@ -12838,7 +12829,7 @@ oCBucketheadZombie = InheritO(
                                 PlayAudio(
                                     ["shieldhit", "shieldhit2"][
                                         Math.floor(Math.random() * 2)
-                                    ],
+                                    ]
                                 );
                                 c.getHit0(c, b);
                             },
@@ -12846,7 +12837,7 @@ oCBucketheadZombie = InheritO(
                                 PlayAudio(
                                     ["shieldhit", "shieldhit2"][
                                         Math.floor(Math.random() * 2)
-                                    ],
+                                    ]
                                 );
                                 c.getHit0(c, b);
                             },
@@ -12932,7 +12923,7 @@ oCBucketheadZombie = InheritO(
                                                 }
                                             }
                                         },
-                                        [e, b],
+                                        [e, b]
                                     );
                             },
                             flatTire: function () {
@@ -12952,7 +12943,7 @@ oCBucketheadZombie = InheritO(
                                         var d = $Z[e];
                                         d && d.NormalDie();
                                     },
-                                    [b.id, b.EleBody],
+                                    [b.id, b.EleBody]
                                 );
                             },
                             JudgeAttack: function () {
@@ -13032,7 +13023,7 @@ oCBucketheadZombie = InheritO(
                                     "none",
                                     "auto",
                                     h.GetDTop,
-                                    h.PicArr[h.NormalGif],
+                                    h.PicArr[h.NormalGif]
                                 );
                             },
                         });
@@ -13123,7 +13114,7 @@ oCBucketheadZombie = InheritO(
                                                 ]),
                                             (b.ChkActs = b.ChkActsL2));
                                     },
-                                    [a.id, a],
+                                    [a.id, a]
                                 ),
                                 (a.ChkActs = function () {
                                     return 1;
@@ -13155,7 +13146,7 @@ oCBucketheadZombie = InheritO(
                                         var b = $Z[c];
                                         b && b.CrushDie();
                                     },
-                                    [this.id],
+                                    [this.id]
                                 );
                             return false;
                         },
@@ -13165,7 +13156,7 @@ oCBucketheadZombie = InheritO(
                                     this.NormalAttack(
                                         this.id,
                                         a,
-                                        $P[a].AttackedLX,
+                                        $P[a].AttackedLX
                                     ),
                                 0
                             );
@@ -13195,7 +13186,7 @@ oCBucketheadZombie = InheritO(
                                           f.NormalAttack(
                                               f.id,
                                               p.id,
-                                              p.AttackedLX,
+                                              p.AttackedLX
                                           ))
                                         : p.AttackedRX >= b &&
                                           p.AttackedLX < b &&
@@ -13205,7 +13196,7 @@ oCBucketheadZombie = InheritO(
                                           (f.NormalAttack =
                                               CZombies.prototype.NormalAttack)(
                                               f.id,
-                                              p.id,
+                                              p.id
                                           )))
                                 ) {}
                             }
@@ -13282,10 +13273,10 @@ oCBucketheadZombie = InheritO(
                                                           u;
                                                       v && n();
                                                   },
-                                                  [m, q],
+                                                  [m, q]
                                               )));
                                 },
-                                [d, b, a, c, e],
+                                [d, b, a, c, e]
                             );
                         },
                         GoingDie: function () {
@@ -13431,7 +13422,7 @@ oCBucketheadZombie = InheritO(
                                     var b = $Z[c];
                                     b && b.beAttacked && b.OpenBox(c);
                                 },
-                                [a],
+                                [a]
                             );
                         },
                         OpenBox: function (b) {
@@ -13509,7 +13500,7 @@ oCBucketheadZombie = InheritO(
                                                             (e.X - 16) +
                                                             "px;top:" +
                                                             (e.pixelTop - 90) +
-                                                            "px;z-index:20",
+                                                            "px;z-index:20"
                                                     )),
                                                     PlayAudio("explosion"),
                                                     (d.src =
@@ -13519,25 +13510,25 @@ oCBucketheadZombie = InheritO(
                                                     oSym.addTask(
                                                         70,
                                                         ClearChild,
-                                                        [d],
+                                                        [d]
                                                     ),
                                                     e.PZ
                                                         ? (function (k, g) {
                                                               var q = Math.max(
                                                                       1,
-                                                                      k - 1,
+                                                                      k - 1
                                                                   ),
                                                                   o = Math.min(
                                                                       oS.R,
-                                                                      k + 1,
+                                                                      k + 1
                                                                   ),
                                                                   n = Math.max(
                                                                       1,
-                                                                      g - 1,
+                                                                      g - 1
                                                                   ),
                                                                   h = Math.min(
                                                                       oS.C,
-                                                                      g + 1,
+                                                                      g + 1
                                                                   ),
                                                                   r = oGd.$,
                                                                   l,
@@ -13573,11 +13564,11 @@ oCBucketheadZombie = InheritO(
                                                                   o = j + 120,
                                                                   h = Math.max(
                                                                       1,
-                                                                      l - 1,
+                                                                      l - 1
                                                                   ),
                                                                   g = Math.min(
                                                                       oS.R,
-                                                                      l + 1,
+                                                                      l + 1
                                                                   ),
                                                                   n,
                                                                   k;
@@ -13586,7 +13577,7 @@ oCBucketheadZombie = InheritO(
                                                                       oZ.getArZ(
                                                                           m,
                                                                           o,
-                                                                          h,
+                                                                          h
                                                                       )).length;
                                                                   while (k--) {
                                                                       n[
@@ -13597,10 +13588,10 @@ oCBucketheadZombie = InheritO(
                                                           })(e.ZX, e.R),
                                                     e.DisappearDie());
                                             },
-                                            [c],
+                                            [c]
                                         ));
                                 },
-                                [b],
+                                [b]
                             );
                         },
                         getShadow: function (a) {
@@ -13630,7 +13621,7 @@ oCBucketheadZombie = InheritO(
                                               SetBlock(e),
                                               g.RandomOpenBox(f));
                                       },
-                                      [b, a],
+                                      [b, a]
                                   )
                                 : (PlayAudio("jackinthebox", true),
                                   ++oGd.$JackinTheBox,
@@ -13756,7 +13747,7 @@ oCBucketheadZombie = InheritO(
                                           (k[c] |= 0), ++k[c]; // 增加数量
                                           PlayAudio("ballooninflate");
                                       },
-                                      [c, a, b],
+                                      [c, a, b]
                                   )
                                 : (SetBlock(a),
                                   f[b] == undefined ? (f[b] = 1) : ++f[b],
@@ -13849,7 +13840,7 @@ oCBucketheadZombie = InheritO(
                                         };
                                     }
                                 },
-                                [a.id],
+                                [a.id]
                             );
                         },
                         getFreeze: function (b, a) {
@@ -13865,7 +13856,7 @@ oCBucketheadZombie = InheritO(
                                         (e.Attack = 100),
                                         (e.Speed = e.OSpeed));
                                 },
-                                [a, (b.FreeSlowTime = oSym.Now + 1500)],
+                                [a, (b.FreeSlowTime = oSym.Now + 1500)]
                             );
                         },
                         NormalDie: function () {
