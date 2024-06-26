@@ -12,7 +12,7 @@ document.addEventListener('keydown', event => {
   }
   // restart
   if (keysPressed['r']) {
-    document.querySelector('#btnNextLevel').click();
+    SelectModal(oS.Lvl);
   }
   // almanac (handbook)
   if (keysPressed['k']) {
