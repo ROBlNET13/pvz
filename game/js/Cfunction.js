@@ -850,7 +850,7 @@ var $User = (function () {
                 "",
                 "images/Zombies/Balloon/balloonidle.png",
                 "position: absolute; display: block; left: 875px; z-index: 0;",
-                document.querySelector("#dPZ")
+                $("dPZ")
             );
             let styleSheet = document.styleSheets[0];
             function getRandomY() {
@@ -889,10 +889,7 @@ var $User = (function () {
                 PlayAudio("balloon_pop");
                 setTimeout(function () {
                     image.parentNode.removeChild(image);
-                    if (
-                        document.querySelector("#dSunNum").style.visibility ==
-                        ""
-                    ) {
+                    if ($("dSunNum").style.visibility == "") {
                         AppearSun(
                             GetX(Math.floor(1 + Math.random() * oS.C)),
                             GetY(Math.floor(1 + Math.random() * oS.R)),
