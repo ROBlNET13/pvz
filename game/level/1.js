@@ -56,7 +56,7 @@ oS.Init(
               },
               []
             );
-            innerText(c, "Hello my neighbor(Click to continue)");
+            innerText(c, "Hello my neighbor");
             break;
           case 1:
             PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
@@ -74,7 +74,7 @@ oS.Init(
             );
             innerText(
               c,
-              "My name is Crazy and my name is Dave. But everyone likes to call me Crazy Dave(Click to continue)"
+              "My name is Crazy and my name is Dave. But everyone likes to call me Crazy Dave"
             );
             break;
           case 2:
@@ -93,7 +93,7 @@ oS.Init(
             );
             innerText(
               c,
-              "Listen, there's a bunch of zombies coming to town right now and they're surrounding us!(Click to continue)"
+              "Listen, there's a bunch of zombies coming to town right now and they're surrounding us!"
             );
             break;
           case 3:
@@ -112,7 +112,7 @@ oS.Init(
             );
             innerText(
               c,
-              "You have to destroy them with \nthose humble plants in your garden.(Click to continue)"
+              "You have to destroy them with \nthose humble plants in your garden."
             );
             break;
           case 4:
@@ -131,7 +131,7 @@ oS.Init(
             );
             innerText(
               c,
-              "Next, there will be tutorials to guide you on how to kill zombies, good luck!(Click to continue)"
+              "Next, there will be tutorials to guide you on how to kill zombies, good luck!"
             );
             break;
           case 5:

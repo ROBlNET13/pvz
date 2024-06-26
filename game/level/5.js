@@ -48,7 +48,7 @@ oS.Init(
                         );
                         innerText(
                             c,
-                            "Neighbors, we managed to fight off some zombies after all the hard work! congratulations(Click to continue)"
+                            "Neighbors, we managed to fight off some zombies after all the hard work! congratulations"
                         );
                         break;
                     case 1:
@@ -69,7 +69,7 @@ oS.Init(
                         );
                         innerText(
                             c,
-                            "Now, I have a surprise for you.(Click to continue)"
+                            "Now, I have a surprise for you."
                         );
                         break;
                     case 2:
@@ -90,7 +90,7 @@ oS.Init(
                         );
                         innerText(
                             c,
-                            "But first, you must clean your lawn.(Click to continue)"
+                            "But first, you must clean your lawn."
                         );
                         break;
                     case 3:
@@ -111,7 +111,7 @@ oS.Init(
                         );
                         innerText(
                             c,
-                            "Dig out those plants with your shovel!(Click to continue)"
+                            "Dig out those plants with your shovel!"
                         );
                         break;
                     case 4:
@@ -130,7 +130,7 @@ oS.Init(
                             },
                             []
                         );
-                        innerText(c, "Start digging!(Click to continue)");
+                        innerText(c, "Start digging!");
                         break;
                     case 5:
                         $("dDave").src = "images/interface/Dave2.gif";
