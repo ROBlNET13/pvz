@@ -3063,6 +3063,7 @@ var $User = (function () {
         b.Stop();
         innerText(c, "Speed");
         $("dMenu1").onclick = null;
+            $("dMenu0").onclick = null;
         !a && SetBlock($("dSurface"), $("dPause"));
     }),
     (ClickMenu = function () {
