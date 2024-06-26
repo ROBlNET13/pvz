@@ -115,6 +115,7 @@ var $User = (function () {
         },
     },
     oS = {
+        Version: 3,
         W: 880,
         H: 600,
         C: 9,
