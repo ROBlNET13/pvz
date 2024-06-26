@@ -778,6 +778,331 @@ oStarfruit = InheritO(CPlants, {
         })("StarB" + Math.random());
     },
 }),
+oSeedStarfruit = InheritO(CPlants, {
+    EName: "oSeedStarfruit",
+    CName: "Starfruit",
+    width: 77,
+    height: 70,
+    beAttackedPointR: 57,
+    SunNum: 0,
+    GetDY: function (b, c, a) {
+        return a[0] ? -17 : -10;
+    },
+    PicArr: [
+        "images/Card/Plants/Starfruit.png",
+        "images/Plants/Starfruit/0.gif",
+        "images/Plants/Starfruit/Starfruit.gif",
+        "images/Plants/Starfruit/Star.gif",
+    ],
+    Tooltip: "Shoots stars in 5 directions",
+    Produce:
+        'Starfruit can fire small starfruits in five directions.<p>Harm:<font color="#FF0000">medium</font><br>Scope:<font color="#FF0000">five directions</font></p>Starfruit: "Hey man, I went to the dentist one day and he said</font><br>I have four cavities. When I count, I only have one tooth! one</font><br>Carambola: "Hey man, theres a tooth with four cavities? Why is that?" I went to the dentist and he said',
+    getTriggerRange: function (e, g, f) {
+        var a = this.R,
+            b = GetY(a),
+            c = oS.W,
+            j = this.ArFlyTime,
+            h = this.ArHitX,
+            i,
+            d = 0.5 * (g + f);
+        !j && ((j = this.ArFlyTime = {}), (h = this.ArHitX = {}));
+        switch (true) {
+            case e < a:
+                j[e] = [(i = b - GetY(e)) / 5, i / 3];
+                h[e] = [d, d + (i / 3) * 4];
+                return [[100, c, 0]];
+            case e == a:
+                return [[100, g + 25, 4]];
+            default:
+                j[e] = [(i = GetY(e) - b) / 5, i / 3];
+                h[e] = [d, d + (i / 3) * 4];
+                return [[100, c, 0]];
+        }
+    },
+    AttackCheck2: function (l) {
+        var j = l.R;
+        if (j == this.R) {
+            return l.Altitude > 0;
+        }
+        var q = 0,
+            t = l.AttackedLX,
+            b = l.AttackedRX,
+            e,
+            g,
+            d = this.ArFlyTime,
+            c = this.ArHitX,
+            s = d[j],
+            r = c[j],
+            f = l.WalkDirection ? -1 : 1,
+            k = false,
+            m,
+            p,
+            n,
+            h,
+            a = l.Speed;
+        while (q < s.length) {
+            h = a * s[q] * f * 0.1;
+            e = Math.floor(t - h);
+            g = Math.floor(b - h);
+            p = r[0];
+            n = r[1];
+            if ((e + 20 < p && g - 20 > p) || (e < n && g > n)) {
+                k = true;
+                break;
+            }
+            ++q;
+        }
+        return k && l.Altitude > 0;
+    },
+    getTriggerR: function (a) {
+        return [1, oS.R];
+    },
+    PrivateBirth: function (d) {
+        var c = d.pixelLeft + 38,
+            b = c - 15,
+            a = d.pixelTop + 20;
+        d.BulletEle = NewImg(
+            0,
+            "images/Plants/Starfruit/Star.gif",
+            "left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2)
+        );
+    },
+    PrivateDie: function (a) {
+        a.BulletEle = null;
+    },
+    getHurt: function (d, b, a) {
+        var c = this;
+        b != 3 && c.NormalAttack();
+        (c.HP -= a) < 1 && c.Die();
+    },
+    NormalAttack: function () {
+        var g = this,
+            f = g.pixelLeft + 38,
+            d = f - 15,
+            b = g.pixelTop + 20,
+            c = g.R,
+            e = f + 15,
+            a = function (j, i, h) {
+                return j && j.Altitude == 1
+                    ? (j.getPea(j, 20, i), ClearChild(h), false)
+                    : true;
+            };
+        (function (h) {
+            oSym.addTask(
+                15,
+                function (j) {
+                    var i = $(j);
+                    i && SetVisible(i);
+                },
+                [h]
+            );
+            oSym.addTask(
+                1,
+                function (m, k, l, i, j) {
+                    j(oZ.getZ1(m, k), 4, i) &&
+                        ((m -= 5) < 100
+                            ? ClearChild(i)
+                            : ((i.style.left = (l -= 5) + "px"),
+                              oSym.addTask(1, arguments.callee, [
+                                  m,
+                                  k,
+                                  l,
+                                  i,
+                                  j,
+                              ])));
+                },
+                [
+                    f,
+                    c,
+                    d,
+                    EditEle(
+                        g.BulletEle.cloneNode(false),
+                        {
+                            id: h,
+                        },
+                        0,
+                        EDPZ
+                    ),
+                    a,
+                ]
+            );
+        })("StarB" + Math.random());
+        (function (h) {
+            oSym.addTask(
+                15,
+                function (j) {
+                    var i = $(j);
+                    i && SetVisible(i);
+                },
+                [h]
+            );
+            oSym.addTask(
+                1,
+                function (m, n, l, k, i, j) {
+                    j(oZ.getRangeLeftZ(m, n, l), 6, i) &&
+                        ((k -= 5) < -15
+                            ? ClearChild(i)
+                            : ((i.style.top = k + "px"),
+                              oSym.addTask(1, arguments.callee, [
+                                  m,
+                                  n,
+                                  GetR(k + 15),
+                                  k,
+                                  i,
+                                  j,
+                              ])));
+                },
+                [
+                    d,
+                    e,
+                    c,
+                    b,
+                    EditEle(
+                        g.BulletEle.cloneNode(false),
+                        {
+                            id: h,
+                        },
+                        0,
+                        EDPZ
+                    ),
+                    a,
+                ]
+            );
+        })("StarB" + Math.random());
+        (function (h) {
+            oSym.addTask(
+                15,
+                function (j) {
+                    var i = $(j);
+                    i && SetVisible(i);
+                },
+                [h]
+            );
+            oSym.addTask(
+                1,
+                function (m, n, l, k, i, j) {
+                    j(oZ.getRangeLeftZ(m, n, l), 2, i) &&
+                        ((k += 5) > 600
+                            ? ClearChild(i)
+                            : ((i.style.top = k + "px"),
+                              oSym.addTask(1, arguments.callee, [
+                                  m,
+                                  n,
+                                  GetR(k + 15),
+                                  k,
+                                  i,
+                                  j,
+                              ])));
+                },
+                [
+                    d,
+                    e,
+                    c,
+                    b,
+                    EditEle(
+                        g.BulletEle.cloneNode(false),
+                        {
+                            id: h,
+                        },
+                        0,
+                        EDPZ
+                    ),
+                    a,
+                ]
+            );
+        })("StarB" + Math.random());
+        (function (h) {
+            oSym.addTask(
+                15,
+                function (j) {
+                    var i = $(j);
+                    i && SetVisible(i);
+                },
+                [h]
+            );
+            oSym.addTask(
+                1,
+                function (n, l, m, k, i, j) {
+                    j(oZ.getZ0(n, l), 7, i) &&
+                        ((n += 4) > 900 || (k -= 3) < -15
+                            ? ClearChild(i)
+                            : (SetStyle(i, {
+                                  left: (m += 4) + "px",
+                                  top: k + "px",
+                              }),
+                              oSym.addTask(1, arguments.callee, [
+                                  n,
+                                  GetR(k + 15),
+                                  m,
+                                  k,
+                                  i,
+                                  j,
+                              ])));
+                },
+                [
+                    f,
+                    c,
+                    d,
+                    b,
+                    EditEle(
+                        g.BulletEle.cloneNode(false),
+                        {
+                            id: h,
+                        },
+                        0,
+                        EDPZ
+                    ),
+                    a,
+                ]
+            );
+        })("StarB" + Math.random());
+        (function (h) {
+            oSym.addTask(
+                15,
+                function (j) {
+                    var i = $(j);
+                    i && SetVisible(i);
+                },
+                [h]
+            );
+            oSym.addTask(
+                1,
+                function (n, l, m, k, i, j) {
+                    j(oZ.getZ0(n, l), 1, i) &&
+                        ((n += 4) > 900 || (k += 3) > 600
+                            ? ClearChild(i)
+                            : (SetStyle(i, {
+                                  left: (m += 4) + "px",
+                                  top: k + "px",
+                              }),
+                              oSym.addTask(1, arguments.callee, [
+                                  n,
+                                  GetR(k + 15),
+                                  m,
+                                  k,
+                                  i,
+                                  j,
+                              ])));
+                },
+                [
+                    f,
+                    c,
+                    d,
+                    b,
+                    EditEle(
+                        g.BulletEle.cloneNode(false),
+                        {
+                            id: h,
+                        },
+                        0,
+                        EDPZ
+                    ),
+                    a,
+                ]
+            );
+        })("StarB" + Math.random());
+    },
+}),
 oPeashooter = InheritO(CPlants, {
     EName: "oPeashooter",
     CName: "Peashooter",
@@ -1366,6 +1691,44 @@ oSnowRepeater = InheritO(oSnowPea, {
     Produce:
         'Fires two frozen peas that damage and slow the enemy at a time.<p>Harm:<font color="#FF0000">medium (each)</font><br>Launch speed:<font color="#FF0000">double</font></p>The dual-shot ice shooter is a shooting enthusiast, he often</font><br>People mention how accurate their shots are. Well, although things</font><br>Not so.',
     NormalAttack1: oSnowPea.prototype.NormalAttack,
+    NormalAttack: function (a) {
+        this.NormalAttack1();
+        oSym.addTask(
+            15,
+            function (c) {
+                var b = $P[c];
+                b && b.NormalAttack1();
+            },
+            [this.id]
+        );
+    },
+}),
+oSeedRepeater = InheritO(oPeashooter, {
+    EName: "oSeedRepeater",
+    CName: "Repeater",
+    width: 73,
+    height: 71,
+    beAttackedPointR: 53,
+    SunNum: 0,
+    PicArr: [
+        "images/Card/Plants/Repeater.png",
+        "images/Plants/Repeater/0.gif",
+        "images/Plants/Repeater/Repeater.gif",
+        "images/Plants/PB00.gif",
+        "images/Plants/PeaBulletHit.gif",
+    ],
+    AudioArr: [
+        "splat1",
+        "splat2",
+        "splat3",
+        "plastichit",
+        "shieldhit",
+        "shieldhit2",
+    ],
+    Tooltip: "Fires two peas at a time",
+    Produce:
+        'Dual shooters can shoot two peas at once<p>Harm:<font color="#FF0000">Medium (per piece)</font><br>Launch speed:<font color="#FF0000">double</font></p>The dual shooter is fierce, and he grew up on the street. Hes not in now</font><br>Regardless of anyones opinion, whether its a plant or a zombie, he fights</font><br>Out of peas, is to keep others away from him. Actually, double</font><br>The launcher has been secretly longing for love.',
+    NormalAttack1: oPeashooter.prototype.NormalAttack,
     NormalAttack: function (a) {
         this.NormalAttack1();
         oSym.addTask(
@@ -2492,6 +2855,39 @@ oLilyPad = InheritO(oFlowerPot, {
     BookHandBack: 4.9,
     Stature: -1,
     EName: "oLilyPad",
+    CName: "LilyPad",
+    width: 79,
+    height: 58,
+    beAttackedPointR: 59,
+//     HP: 1e3,
+    PicArr: [
+        "images/Card/Plants/LilyPad.png",
+        "images/Plants/LilyPad/0.gif",
+        "images/Plants/LilyPad/LilyPad.gif",
+    ],
+    getShadow: function (a) {
+        return "left:-8px;top:25px";
+    },
+    CanGrow: function (c, b, d) {
+        var a = b + "_" + d;
+        return !(
+            d < 1 ||
+            d > 9 ||
+            oGd.$LF[b] - 2 ||
+            c[0] ||
+            c[1] ||
+            oGd.$Crater[a] ||
+            oGd.$Tombstones[a]
+        );
+    },
+    Tooltip: "Lilypads allow you to grow non-aquatic plants on them。",
+    Produce:
+        'Lilypads allow you to grow non-aquatic plants on top of them。<p>Features:<font color="#FF0000">Non-aquatic plants can be planted on it<br>Must be planted on water</font></p>Lilypad never complains, it never wants to know what happened</font><br> Plant a plant on it and it wont say anything.</font><br>，Does it have any surprising ideas or terrible secrets?？</font><br>Lotus Ye buries all these inside of her heart。',
+}),
+oSeedLilyPad = InheritO(oFlowerPot, {
+    BookHandBack: 4.9,
+    Stature: -1,
+    EName: "oSeedLilyPad",
     CName: "LilyPad",
     width: 79,
     height: 58,
@@ -4094,7 +4490,68 @@ oCherryBomb = InheritO(CPlants, {
     width: 112,
     height: 81,
     beAttackedPointR: 92,
-    SunNum: 150,
+    SunNum: 0,
+    coolTime: 20,
+    PicArr: [
+        "images/Card/Plants/CherryBomb.png",
+        "images/Plants/CherryBomb/0.gif",
+        "images/Plants/CherryBomb/CherryBomb.gif",
+        "images/Plants/CherryBomb/Boom.gif" + $Random,
+    ],
+    AudioArr: ["cherrybomb"],
+    Tooltip: "Blows up all zombies in an area",
+    Produce:
+        'Cherry bomb can blow up all zombies in a certain area.</font><br>One will detonate immediately. So please plant them on zombies</font><br>around them.<p>Harm:<font color="#FF0000">huge</font><br>Scope:<font color="#FF0000">All zombies in a medium area</font><br>Instructions:<font color="#FF0000">Instant use, it explodes immediately</font></p>“I am going to explode. "Cherry No. 1 said. "No, we are</font><br>‘炸’开了！”Said its brother Cherry No. 2. After intense discussion</font><br>After discussion, they finally agreed on the term "explosion."”',
+    InitTrigger: function () {},
+    getHurt: function () {},
+    PrivateBirth: function (a) {
+        oSym.addTask(
+            40,
+            function (b) {
+                var c = $P[b];
+                if (c) {
+                    PlayAudio("cherrybomb");
+                    var f = $(b),
+                        j = c.R,
+                        g = j > 2 ? j - 1 : 1,
+                        e = j < oS.R ? j + 1 : oS.R,
+                        l = c.pixelLeft - 80,
+                        k = c.pixelLeft + 160,
+                        d,
+                        h;
+                    do {
+                        h = (d = oZ.getArZ(l, k, g)).length;
+                        while (h--) {
+                            d[h].getExplosion();
+                        }
+                    } while (g++ < e);
+                    c.Die(1);
+                    EditEle(
+                        f.childNodes[1],
+                        {
+                            src: c.PicArr[3] + Math.random(),
+                        },
+                        {
+                            width: "213px",
+                            height: "196px",
+                            left: "-50px",
+                            top: "-37px",
+                        }
+                    );
+                    oSym.addTask(120, ClearChild, [f]);
+                }
+            },
+            [a.id]
+        );
+    },
+}),
+oSeedCherryBomb = InheritO(CPlants, {
+    EName: "oSeedCherryBomb",
+    CName: "Cherry Bomb",
+    width: 112,
+    height: 81,
+    beAttackedPointR: 92,
+    SunNum: 0,
     coolTime: 20,
     PicArr: [
         "images/Card/Plants/CherryBomb.png",
@@ -4155,6 +4612,65 @@ oJalapeno = InheritO(oCherryBomb, {
     width: 68,
     height: 89,
     SunNum: 125,
+    beAttackedPointR: 48,
+    PicArr: [
+        "images/Card/Plants/Jalapeno.png",
+        "images/Plants/Jalapeno/0.gif",
+        "images/Plants/Jalapeno/Jalapeno.gif",
+        "images/Plants/Jalapeno/JalapenoAttack.gif",
+    ],
+    AudioArr: ["jalapeno"],
+    Tooltip: "Destroys an entire lane of zombies",
+    Produce:
+        '火爆辣椒可以摧毁一整条线上的敌人。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">整条线上的僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎！！！”火爆辣椒说。他现在</font><br>不会爆炸，还不到时候，不过快了，喔~，快了快</font><br>了，快来了。他知道，他感受到了，他一生都是</font><br>在等待这个时刻！',
+    PrivateBirth: function (a) {
+        oSym.addTask(
+            40,
+            function (j) {
+                var h = $P[j];
+                if (h) {
+                    PlayAudio("jalapeno");
+                    var b = $(j),
+                        f = h.R,
+                        c = oZ.getArZ(100, oS.W, f),
+                        e = c.length,
+                        g = oGd.$Ice[f],
+                        d = oGd.$Crater;
+                    while (e--) {
+                        c[e].getExplosion();
+                    }
+                    h.Die(1);
+                    EditEle(
+                        b.childNodes[1],
+                        {
+                            src: "images/Plants/Jalapeno/JalapenoAttack.gif",
+                        },
+                        {
+                            width: "755px",
+                            height: "131px",
+                            left: 120 - h.pixelLeft + "px",
+                            top: "-42px",
+                        }
+                    );
+                    oSym.addTask(135, ClearChild, [b]);
+                    ClearChild($("dIceCar" + f));
+                    if (g) {
+                        for (e = g[1]; e < 11; e++) {
+                            delete d[f + "_" + e];
+                        }
+                    }
+                }
+            },
+            [a.id]
+        );
+    },
+}),
+oSeedJalapeno = InheritO(oCherryBomb, {
+    EName: "oSeedJalapeno",
+    CName: "Jalapeno",
+    width: 68,
+    height: 89,
+    SunNum: 0,
     beAttackedPointR: 48,
     PicArr: [
         "images/Card/Plants/Jalapeno.png",
@@ -4503,6 +5019,68 @@ PlayAudio("yuck2")
             : c.Die(1);
     },
 }),
+oSeedGarlic = InheritO(CPlants, {
+    EName: "oSeedGarlic",
+    CName: "Garlic",
+    width: 60,
+    height: 59,
+    beAttackedPointR: 40,
+    SunNum: 0,
+    HP: 400,
+    PicArr: [
+        "images/Card/Plants/Garlic.png",
+        "images/Plants/Garlic/0.gif",
+        "images/Plants/Garlic/Garlic.gif",
+        "images/Plants/Garlic/Garlic_body2.gif",
+        "images/Plants/Garlic/Garlic_body3.gif",
+    ],
+    Tooltip: "Diverts zombies into other lanes",
+    Produce:
+        '大蒜可以让僵尸改变前进的路线。<p>Scope:<font color="#FF0000">近距离接触</font><br>Features:<font color="#FF0000">改变僵尸的前进路线</font></p>路线转向，这不仅仅是大蒜的专业，更是他</font><br>的热情所在。他在布鲁塞尔大学里，获得了转向</font><br>学的博士学位。他能把路线向量和反击阵列，讲</font><br>上一整天。他甚至会把家里的东西，推到街上去</font><br>。不知道为啥，他老婆还可以忍受这些。',
+    CanGrow: function (c, b, f) {
+        var a = b + "_" + f,
+            d = c[1],
+            e = oS.ArP;
+        return e
+            ? oGd.$LF[b] == 1
+                ? f > 0 &&
+                  f < e.ArC[1] &&
+                  !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
+                : c[0] && !d
+            : d && d.EName == "oGarlic"
+            ? 1
+            : oGd.$LF[b] == 1
+            ? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
+            : c[0] && !d;
+    },
+    InitTrigger: function () {},
+    HurtStatus: 0,
+    getHurt: function (e, b, a) {
+            let yuckrng = Math.floor(Math.random() * 2) + 1 // note the uppercase M in Math
+if (yuckrng == 1) {
+PlayAudio("yuck")
+} else if (yuckrng == 2) {
+PlayAudio("yuck2")
+}
+        var c = this,
+            d = $(c.id).childNodes[1];
+        !(b % 3)
+            ? (c.HP -= 20) < 1
+                ? c.Die()
+                : (e.ChangeR({
+                      R: c.R,
+                  }),
+                  c.HP < 134
+                      ? c.HurtStatus < 2 &&
+                        ((c.HurtStatus = 2),
+                        (d.src = "images/Plants/Garlic/Garlic_body3.gif"))
+                      : c.HP < 267 &&
+                        c.HurtStatus < 1 &&
+                        ((c.HurtStatus = 1),
+                        (d.src = "images/Plants/Garlic/Garlic_body2.gif")))
+            : c.Die(1);
+    },
+}),
 oSquash = InheritO(CPlants, {
     EName: "oSquash",
     CName: "Squash",
@@ -4780,6 +5358,95 @@ oChomper = InheritO(CPlants, {
         );
     },
 }),
+oSeedChomper = InheritO(CPlants, {
+    EName: "oSeedChomper",
+    CName: "Chomper",
+    width: 130,
+    height: 114,
+    beAttackedPointR: 70,
+    SunNum: 0,
+    AudioArr: ["bigchomp"],
+    PicArr: [
+        "images/Card/Plants/Chomper.png",
+        "images/Plants/Chomper/0.gif",
+        "images/Plants/Chomper/Chomper.gif",
+        "images/Plants/Chomper/ChomperAttack.gif",
+        "images/Plants/Chomper/ChomperDigest.gif",
+    ],
+    Tooltip: "Devours a zombie whole, but is vulnerable while chewing",
+    Produce:
+        'Big-mouthed flowers can swallow a whole zombie in one bite, but they are very fragile when digesting zombies.<p>Harm:<font color="#FF0000">huge</font><br>Scope:<font color="#FF0000">very close</font><br>Features:<font color="#FF0000">Digestion takes a long time</font></p>Big Mouth Flower can almost go to "Little Shop of Horrors"”，to perform its absolute best</font><br>Skilled, but his agent squeezed him too much money.</font><br>Because he didnt go. Despite this, Dazuihua has no complaints, only</font><br>Said it was just part of the deal.',
+    GetDX: function () {
+        return -40;
+    },
+    getShadow: function (a) {
+        return "top:" + (a.height - 22) + "px";
+    },
+    getTriggerRange: function (a, b, c) {
+        return [[this.pixelLeft, c + 80, 0]];
+    },
+    TriggerCheck: function (a) {
+        this.AttackCheck2(a) &&
+            ((this.canTrigger = 0), this.NormalAttack(this.id, a.id));
+    },
+    AttackCheck2: function (a) {
+        return a.Altitude == 1 && a.beAttacked;
+    },
+    NormalAttack: function (a, b) {
+        $(a).childNodes[1].src =
+            "images/Plants/Chomper/ChomperAttack.gif" +
+            $Random +
+            Math.random();
+        oSym.addTask(
+            70,
+            function (c, d) {
+                PlayAudio("bigchomp");
+                $P[c] &&
+                    oSym.addTask(
+                        18,
+                        function (e, f) {
+                            var g = $P[e],
+                                h;
+                            g &&
+                                ((h = $Z[f]) && h.beAttacked && h.PZ
+                                    ? ($(e).childNodes[1].src = h.getRaven(
+                                          e
+                                      )
+                                          ? (oSym.addTask(
+                                                4200,
+                                                function (i) {
+                                                    var j = $P[i];
+                                                    j &&
+                                                        ((j.canTrigger = 1),
+                                                        ($(
+                                                            i
+                                                        ).childNodes[1].src =
+                                                            "images/Plants/Chomper/Chomper.gif"));
+                                                },
+                                                [e]
+                                            ),
+                                            "images/Plants/Chomper/ChomperDigest.gif")
+                                          : ((g.canTrigger = 1),
+                                            "images/Plants/Chomper/Chomper.gif"))
+                                    : oSym.addTask(
+                                          18,
+                                          function (i) {
+                                              var j = $P[i];
+                                              j &&
+                                                  ((j.canTrigger = 1),
+                                                  ($(i).childNodes[1].src =
+                                                      "images/Plants/Chomper/Chomper.gif"));
+                                          },
+                                          [e]
+                                      ));
+                        },
+                        [c, d]
+                    );
+            },
+            [a, b]
+        );
+    },
+}),
 oBigChomper = InheritO(oChomper, {
     EName: "oBigChomper",
     CName: "Super Chomper",
@@ -4863,6 +5530,112 @@ oFumeShroom = InheritO(CPlants, {
     height: 88,
     beAttackedPointR: 80,
     SunNum: 75,
+    BookHandBack: 2.5,
+    SleepGif: 3,
+    night: true,
+    PicArr: [
+        "images/Card/Plants/FumeShroom.png",
+        "images/Plants/FumeShroom/0.gif",
+        "images/Plants/FumeShroom/FumeShroom.gif",
+        "images/Plants/FumeShroom/FumeShroomSleep.gif",
+        "images/Plants/FumeShroom/FumeShroomAttack.gif",
+        "images/Plants/FumeShroom/FumeShroomBullet.gif",
+    ],
+    AudioArr: ["fume"],
+    Tooltip: "Shoots fumes that can pass through screen doors",
+    Produce:
+        '大喷菇喷出的臭气可以穿透铁丝网门。<p>Harm:<font color="#FF0000">普通，可穿透铁丝网门</font><br>Scope:<font color="#FF0000">臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房</font><br>生产酵母孢，”大喷菇说。“然后小喷菇，上帝</font><br>保佑它，告诉了我这个喷杀僵尸的机会。现在</font><br>我真觉得自己完全不同了。”',
+    GetDY: function (b, c, a) {
+        return a[0] ? -18 : -10;
+    },
+    GetDX: function () {
+        return -45;
+    },
+    BirthStyle: function (c, d, b, a) {
+        oS.DKind &&
+            ((c.canTrigger = 0),
+            (c.Sleep = 1),
+            (b.childNodes[1].src = c.PicArr[c.SleepGif]));
+        EditEle(
+            b,
+            {
+                id: d,
+            },
+            a,
+            EDPZ
+        );
+    },
+    PrivateBirth: function (b) {
+        var a = b.id;
+        NewEle(
+            a + "_Bullet",
+            "div",
+            "position:absolute;visibility:hidden;width:343px;height:62px;left:" +
+                b.AttackedRX +
+                "px;top:" +
+                (b.pixelTop + 5) +
+                "px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" +
+                (b.zIndex + 1),
+            0,
+            EDPZ
+        );
+    },
+    PrivateDie: function (a) {
+        ClearChild($(a.id + "_Bullet"));
+    },
+    getTriggerRange: function (a, b, c) {
+        return [[b, Math.min(c + 330, oS.W), 0]];
+    },
+    NormalAttack: function () {
+        PlayAudio("fume");
+        var f = this,
+            d = oZ.getArZ(
+                f.AttackedLX,
+                Math.min(f.AttackedRX + 330, oS.W),
+                f.R
+            ),
+            e = d.length,
+            g,
+            c = f.id,
+            b = $(c),
+            a = c + "_Bullet";
+        while (e--) {
+            (g = d[e]).Altitude < 2 && g.getHit1(g, 20);
+        }
+        b.childNodes[1].src =
+            "images/Plants/FumeShroom/FumeShroomAttack.gif";
+        SetVisible($(a));
+        ImgSpriter(
+            a,
+            c,
+            [
+                ["0 0", 9, 1],
+                ["0 -62px", 9, 2],
+                ["0 -124px", 9, 3],
+                ["0 -186px", 9, 4],
+                ["0 -248px", 9, 5],
+                ["0 -310px", 9, 6],
+                ["0 -372px", 9, 7],
+                ["0 -434px", 9, -1],
+            ],
+            0,
+            function (i, j) {
+                var h = $(j);
+                $P[j] &&
+                    ((h.childNodes[1].src =
+                        "images/Plants/FumeShroom/FumeShroom.gif"),
+                    SetHidden($(i)));
+            }
+        );
+    },
+}),
+oSeedFumeShroom = InheritO(CPlants, {
+    EName: "oSeedFumeShroom",
+    CName: "Fume-shroom",
+    width: 100,
+    height: 88,
+    beAttackedPointR: 80,
+    SunNum: 0,
     BookHandBack: 2.5,
     SleepGif: 3,
     night: true,
@@ -5636,6 +6409,152 @@ oScaredyShroom = InheritO(oFumeShroom, {
         );
     },
 }),
+oSeedScaredyShroom = InheritO(oFumeShroom, {
+    EName: "oSeedScaredyShroom",
+    CName: "Scaredy-shroom",
+    width: 57,
+    height: 81,
+    beAttackedPointR: 37,
+    SunNum: 0,
+    Cry: 0,
+    ArZ: [],
+    Attacking: 0,
+    PicArr: [
+        "images/Card/Plants/ScaredyShroom.png",
+        "images/Plants/ScaredyShroom/0.gif",
+        "images/Plants/ScaredyShroom/ScaredyShroom.gif",
+        "images/Plants/ScaredyShroom/ScaredyShroomSleep.gif",
+        "images/Plants/ScaredyShroom/ScaredyShroomCry.gif",
+        "images/Plants/ShroomBullet.gif",
+        "images/Plants/ShroomBulletHit.gif",
+    ],
+    Tooltip: "Long-ranged shooter that hides when enemies get near it",
+    Produce:
+        '胆小菇是一种远程射手，敌人接近后会躲起来。<p>Harm:<font color="#FF0000">普通</font><br>Features:<font color="#FF0000">敌人接近后就停止攻击<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“</font><br>走开！我不想见任何人。除非……除非你是马</font><br>戏团的人。”',
+    GetDX: CPlants.prototype.GetDX,
+    getTriggerRange: CPlants.prototype.getTriggerRange,
+    getTriggerR: function (c) {
+        var b = (this.MinR = c > 2 ? c - 1 : 1),
+            a = (this.MaxR = c < oS.R ? Number(c) + 1 : c);
+        return [b, a];
+    },
+    TriggerCheck: function (e, c) {
+        var b = this,
+            a = b.id;
+        e.PZ && Math.abs(e.ZX - b.MX) < 121 && e.beAttacked
+            ? (b.ArZ.push(e.id),
+              !b.Cry &&
+                  ((b.Cry = 1),
+                  ($(a).childNodes[1].src =
+                      "images/Plants/ScaredyShroom/ScaredyShroomCry.gif"),
+                  b.CryCheck(a)))
+            : e.R == b.R &&
+              !b.Cry &&
+              !b.Attacking &&
+              e.Altitude > 0 &&
+              e.Altitude < 3 &&
+              b.NormalAttack();
+    },
+    PrivateBirth: function (c) {
+        var b = c.AttackedLX,
+            a = b - 46;
+        c.BulletClass = NewO({
+            X: b,
+            R: c.R,
+            pixelLeft: a,
+            F: oGd.MB2,
+        });
+        c.BulletEle = NewImg(
+            0,
+            "images/Plants/ShroomBullet.gif",
+            "left:" +
+                a +
+                "px;top:" +
+                (c.pixelTop + 35) +
+                "px;visibility:hidden;z-index:" +
+                (c.zIndex + 2)
+        );
+        c.MX = b + 9;
+    },
+    PrivateDie: function (a) {
+        a.BulletEle = null;
+    },
+    NormalAttack: function () {
+        var c = this,
+            a = c.id,
+            d = "SSB" + Math.random(),
+            b = c.AttackedLX;
+        EditEle(
+            c.BulletEle.cloneNode(false),
+            {
+                id: d,
+            },
+            0,
+            EDPZ
+        );
+        oSym.addTask(
+            1,
+            function (k, e, f, g, h) {
+                var j = GetC(f),
+                    i = oZ.getZ0(f, g);
+                i && i.Altitude == 1
+                    ? (i.getPea(i, 20, 0),
+                      (SetStyle(e, {
+                          left: h + 38 + "px",
+                      }).src = "images/Plants/ShroomBulletHit.gif"),
+                      oSym.addTask(10, ClearChild, [e]))
+                    : (f += 5) < oS.W
+                    ? ((e.style.left = (h += 5) + "px"),
+                      oSym.addTask(1, arguments.callee, [k, e, f, g, h]))
+                    : ClearChild(e);
+            },
+            [d, $(d), b, c.R, b - 46]
+        );
+        c.Attacking = 1;
+        oSym.addTask(
+            10,
+            function (g, e) {
+                var f = $(g);
+                f && SetVisible(f);
+                oSym.addTask(
+                    130,
+                    function (h) {
+                        var i = $P[h];
+                        i && (i.Attacking = 0);
+                    },
+                    [e]
+                );
+            },
+            [d, a]
+        );
+    },
+    CryCheck: function (a) {
+        oSym.addTask(
+            140,
+            function (b) {
+                var d = $P[b],
+                    c,
+                    f,
+                    e;
+                if (d) {
+                    c = (f = d.ArZ).length;
+                    while (c--) {
+                        (!(e = $Z[f[c]]) ||
+                            !e.PZ ||
+                            Math.abs(e.ZX - d.MX) > 120) &&
+                            f.splice(c, 1);
+                    }
+                    f.length
+                        ? d.CryCheck(b)
+                        : ((d.Cry = 0),
+                          ($(b).childNodes[1].src =
+                              "images/Plants/ScaredyShroom/ScaredyShroom.gif"));
+                }
+            },
+            [a]
+        );
+    },
+}),
 oIScaredyShroom = InheritO(oIFumeShroom, {
     EName: "oIScaredyShroom",
     CName: "Scaredy-shroom",
@@ -5820,7 +6739,7 @@ oHypnoShroom = InheritO(oFumeShroom, {
     },
 }),
 oSeedHypnoShroom = InheritO(oFumeShroom, {
-    EName: "oVaseHypnoShroom",
+    EName: "oSeedHypnoShroom",
     CName: "Hypno-shroom",
     width: 71,
     height: 78,
@@ -5898,6 +6817,80 @@ oIceShroom = InheritO(oFumeShroom, {
     height: 75,
     beAttackedPointR: 63,
     SunNum: 75,
+    coolTime: 50,
+    PicArr: [
+        "images/Card/Plants/IceShroom.png",
+        "images/Plants/IceShroom/0.gif",
+        "images/Plants/IceShroom/IceShroom.gif",
+        "images/Plants/IceShroom/IceShroomSleep.gif",
+        "images/Plants/IceShroom/Snow.gif",
+        "images/Plants/IceShroom/icetrap.gif",
+    ],
+    AudioArr: ["frozen", "wakeup"],
+    Tooltip: "Temporarily immobilizes all zombies on the screen",
+    Produce:
+        '寒冰菇，能短暂的冻结屏幕上所有僵尸。<p>Harm:<font color="#FF0000">非常低，冻结僵尸</font><br>Scope:<font color="#FF0000">屏幕上的所有僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效<br>白天睡觉</font></p>寒冰菇皱着眉头，倒不是因为它不高兴或不满</font><br>意，只是因为，它儿时因受创伤而</font><br>遗留下了面瘫。',
+    GetDX: CPlants.prototype.GetDX,
+    GetDY: CPlants.prototype.GetDY,
+    InitTrigger: function () {},
+    PrivateDie: function (a) {},
+    PrivateBirth: function (a) {
+        !oS.DKind
+            ? (a.NormalAttack(a.id), (a.getHurt = function (d, c, b) {}))
+            : (a.getHurt = CPlants.prototype.getHurt);
+    },
+    WakeUP: function (a) {
+        var b = a.id;
+        a.Sleep = 0;
+        $(b).childNodes[1].src = "images/Plants/IceShroom/IceShroom.gif";
+        a.NormalAttack(b);
+    },
+    NormalAttack: function (a) {
+        oSym.addTask(
+            100,
+            function (c) {
+                var f = $P[c];
+                if (f) {
+                    PlayAudio("frozen");
+                    var e,
+                        d,
+                        b = "Snow_" + Math.random();
+                    for (d in $Z) {
+                        (e = $Z[d]).ZX < 901 && e.getFreeze(e, d);
+                    }
+                    oSym.addTask(
+                        40,
+                        function (g) {
+                            ClearChild(g);
+                        },
+                        [
+                            NewEle(
+                                b,
+                                "div",
+                                "position:absolute;left:0;top:0;width:900px;height:600px;z-index:10;filter:alpha(opacity=50);opacity:.5;background:#9CF url(images/Plants/IceShroom/Snow.gif) no-repeat scroll " +
+                                    (f.pixelLeft - 197) +
+                                    "px " +
+                                    (f.pixelTop - 80) +
+                                    "px",
+                                0,
+                                EDPZ
+                            ),
+                        ]
+                    );
+                    f.Die();
+                }
+            },
+            [a]
+        );
+    },
+}),
+oSeedIceShroom = InheritO(oSeedFumeShroom, {
+    EName: "oSeedIceShroom",
+    CName: "Ice-shroom",
+    width: 83,
+    height: 75,
+    beAttackedPointR: 63,
+    SunNum: 0,
     coolTime: 50,
     PicArr: [
         "images/Card/Plants/IceShroom.png",
@@ -6273,6 +7266,220 @@ oDoomShroom = InheritO(oFumeShroom, {
         );
     },
 }),
+oSeedDoomShroom = InheritO(oFumeShroom, {
+    EName: "oSeedDoomShroom",
+    CName: "Doom-shroom",
+    width: 102,
+    height: 91,
+    beAttackedPointR: 80,
+    coolTime: 50,
+    SunNum: 0,
+    AudioArr: ["doomshroom"],
+    PicArr: [
+        "images/Card/Plants/DoomShroom.png",
+        "images/Plants/DoomShroom/0.gif",
+        "images/Plants/DoomShroom/DoomShroom.gif",
+        "images/Plants/DoomShroom/Sleep.gif",
+        "images/Plants/DoomShroom/BeginBoom.gif",
+        "images/Plants/DoomShroom/crater10.png",
+        "images/Plants/DoomShroom/crater11.png",
+        "images/Plants/DoomShroom/crater20.png",
+        "images/Plants/DoomShroom/crater21.png",
+        "images/Plants/DoomShroom/crater30.png",
+        "images/Plants/DoomShroom/crater31.png",
+        "images/Plants/DoomShroom/Boom.png",
+    ],
+    Tooltip: "Destroys a large area, leaving a crater in its wake",
+    Produce:
+        '毁灭菇可以摧毁大范围的僵尸，并留下一个不</font><br>能种植物的大弹坑。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">大范围内的所有僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font><br>Features:<font color="#FF0000">留下一个弹坑<br>白天睡觉</font></p>“你很幸运，我是和你一伙的，”毁灭菇说，“</font><br>我能摧毁任何你所珍视的东西，小菜一碟。”',
+    InitTrigger: function () {},
+    BirthStyle: function (c, d, b, a) {
+        oS.DKind
+            ? ((c.Sleep = 1), (b.childNodes[1].src = c.PicArr[c.SleepGif]))
+            : ((c.Sleep = 0),
+              (c.getHurt = function () {}),
+              (b.childNodes[1].src =
+                  "images/Plants/DoomShroom/BeginBoom.gif"),
+              c.NormalAttack(d));
+        EditEle(
+            b,
+            {
+                id: d,
+            },
+            a,
+            EDPZ
+        );
+    },
+    WakeUP: function (a) {
+        var b = a.id;
+        a.Sleep = 0;
+        a.getHurt = function () {};
+        $(b).childNodes[1].src = "images/Plants/DoomShroom/BeginBoom.gif";
+        a.NormalAttack(b);
+    },
+    NormalAttack: function (a) {
+        oSym.addTask(
+            50,
+            function (c) {
+                PlayAudio("doomshroom");
+                var d = $P[c],
+                    q = c + "_Boom";
+                if (d) {
+                    var g = $(c),
+                        l = d.R,
+                        h = l > 3 ? l - 2 : 1,
+                        f = Math.min(oS.R, l + 2),
+                        n = d.pixelLeft - 240,
+                        m = d.pixelRight + 240,
+                        e,
+                        k,
+                        b = GetC(d.AttackedLX),
+                        o,
+                        r = l + "_" + b,
+                        j = oGd.$;
+                    do {
+                        k = (e = oZ.getArZ(n, m, h)).length;
+                        while (k--) {
+                            e[k].getExplosion();
+                        }
+                    } while (h++ < f);
+                    d.Die();
+                    (o = j[r + "_" + 0]) && o.Die();
+                    (o = j[r + "_" + 2]) && o.Die();
+                    oGd.$Crater[r] = 2;
+                    NewEle(
+                        q,
+                        "div",
+                        "position:absolute;overflow:hidden;z-index:" +
+                            (d.zIndex + 2) +
+                            ";width:283px;height:324px;left:" +
+                            (d.pixelLeft - 80) +
+                            "px;top:" +
+                            (d.pixelTop - 220) +
+                            "px;background:url(images/Plants/DoomShroom/Boom.png) no-repeat",
+                        0,
+                        EDPZ
+                    );
+                    oSym.addTask(
+                        20,
+                        function (i) {
+                            ClearChild(i);
+                        },
+                        [
+                            NewEle(
+                                q,
+                                "div",
+                                "position:absolute;z-index:20;width:900px;height:600px;left:0;top:0;background:#FFF;*filter:alpha(opacity=50);opacity:.5",
+                                0,
+                                EDPZ
+                            ),
+                        ]
+                    );
+                    ImgSpriter(
+                        q,
+                        c,
+                        [
+                            ["0 0", 10, 1],
+                            ["-283px 0", 10, 2],
+                            ["-566px 0", 10, 3],
+                            ["-849px 0", 10, 4],
+                            ["-1132px 0", 10, 5],
+                            ["-1415px 0", 10, 6],
+                            ["-1698px 0", 10, 7],
+                            ["-1981px 0", 10, 8],
+                            ["-2264px 0", 10, 9],
+                            ["-2547px 0", 10, -1],
+                        ],
+                        0,
+                        function (i, p) {
+                            ClearChild($(i));
+                            d.setCrater(
+                                c + "_crater",
+                                l,
+                                b,
+                                d.pixelLeft + 3,
+                                d.pixelTop + 50
+                            );
+                        }
+                    );
+                }
+            },
+            [a]
+        );
+    },
+    setCrater: function (f, b, d, e, c) {
+        var a;
+        switch (oGd.$LF[b]) {
+            case 1:
+                a = NewEle(
+                    f,
+                    "div",
+                    "position:absolute;z-index:" +
+                        (3 * b - 1) +
+                        ";overflow:hidden;background:url(images/Plants/DoomShroom/crater1" +
+                        oS.DKind +
+                        ".png) no-repeat;width:90px;height:61px;left:" +
+                        (e || GetX(d) - 45) +
+                        "px;top:" +
+                        (c || GetY(b) - 30) +
+                        "px",
+                    0,
+                    EDPZ
+                );
+                break;
+            case 2:
+                a = NewEle(
+                    f,
+                    "div",
+                    "position:absolute;z-index:" +
+                        (3 * b - 1) +
+                        ";overflow:hidden;background:url(images/Plants/DoomShroom/crater2" +
+                        oS.DKind +
+                        ".png) no-repeat;width:85px;height:53px;left:" +
+                        (e || GetX(d) - 42) +
+                        "px;top:" +
+                        (c || GetY(b) - 26) +
+                        "px",
+                    0,
+                    EDPZ
+                );
+                break;
+            case 3:
+                a = NewEle(
+                    f,
+                    "div",
+                    "position:absolute;z-index:" +
+                        (3 * b - 1) +
+                        ";overflow:hidden;background:url(images/Plants/DoomShroom/crater31.png) no-repeat;width:75px;height:77px;left:" +
+                        (e || GetX(d) - 37) +
+                        "px;top:" +
+                        (c || GetY(b) - 19) +
+                        "px",
+                    0,
+                    EDPZ
+                );
+                break;
+            default:
+        }
+        oSym.addTask(
+            9e3,
+            function (g) {
+                var h = b + "_" + d;
+                g.style.backgroundPosition = "100% 0";
+                oGd.$Crater[h] = 1;
+                oSym.addTask(
+                    9e3,
+                    function (i, j) {
+                        ClearChild(i);
+                        delete oGd.$Crater[j];
+                    },
+                    [g, h]
+                );
+            },
+            [a]
+        );
+    },
+}),
 oTangleKlep = InheritO(CPlants, {
     EName: "oTangleKlep",
     CName: "Tangle Kelp",
@@ -6426,8 +7633,208 @@ oTangleKlep = InheritO(CPlants, {
         );
     },
 }),
+oSeedTangleKelp = InheritO(CPlants, {
+    EName: "oSeedTangleKelp",
+    CName: "Tangle Kelp",
+    width: 90,
+    height: 72,
+    beAttackedPointL: 15,
+    beAttackedPointR: 80,
+    coolTime: 30,
+    SunNum: 0,
+    BookHandBack: 4.9,
+    GetDY: function (b, c, a) {
+        return 5;
+    },
+    NormalGif: 1,
+    AudioArr: ["TangleKlep"],
+    PicArr: [
+        "images/Card/Plants/TangleKlep.png",
+        "images/Plants/TangleKlep/0.gif",
+        "images/Plants/TangleKlep/Float.gif",
+        "images/Plants/TangleKlep/Grab.png",
+        "images/interface/splash.png",
+    ],
+    Tooltip: "Aquatic plant that pulls a zombie underwater",
+    Produce:
+        '缠绕水草是一种可以把接近他的僵尸拉进水中</font><br>的水生植物。<p>Harm:<font color="#FF0000">极高</font><br>用法：<font color="#FF0000">单独使用，接触后生效</font><br>Features:<font color="#FF0000">必须种在水中</font></p>“我是完全隐形的，”缠绕水草自己想，“我就</font><br>藏在水面下，没人会看到我。”他的朋友告诉他</font><br>，他们可以清楚地看到他。不过，缠绕水草似</font><br>乎不想改变自己的看法。',
+    CanGrow: function (c, b, d) {
+        var a = b + "_" + d;
+        return !(
+            oGd.$LF[b] != 2 ||
+            d < 1 ||
+            d > 9 ||
+            oGd.$Crater[a] ||
+            c[0] ||
+            c[1] ||
+            oGd.$Tombstones[a]
+        );
+    },
+    getShadow: function (a) {
+        return "display:none";
+    },
+    getTriggerRange: function (a, b, c) {
+        return [[b, c, 0]];
+    },
+    BirthStyle: function (c, d, b, a) {
+        b.childNodes[1].src = "images/Plants/TangleKlep/Float.gif";
+        EditEle(
+            b,
+            {
+                id: d,
+            },
+            a,
+            EDPZ
+        );
+    },
+    getHurt: function (d, b, a) {
+        var c = this;
+        b == 3
+            ? (c.HP -= a) < 1 && c.Die()
+            : ((c.canTrigger = 0), c.NormalAttack(c, d));
+    },
+    TriggerCheck: function (b, a) {
+        b.AttackedLX < GetX(9) &&
+            b.beAttacked &&
+            ((this.canTrigger = 0), this.NormalAttack(this, b));
+    },
+    NormalAttack: function (a, b) {
+        a.getHurt = function () {};
+        b.getHurt = function () {};
+        b.beAttacked = 0;
+        b.isAttacking = 1;
+        NewImg(
+            0,
+            "images/Plants/TangleKlep/Grab.png",
+            "left:" +
+                b.beAttackedPointL +
+                "px;top:" +
+                (b.height - 67) +
+                "px",
+            b.Ele
+        );
+        oSym.addTask(
+            50,
+            function (g, h) {
+                PlayAudio("TangleKlep");
+                var e = g.id,
+                    f = h.id,
+                    d = e + "_splash",
+                    c = f + "_splash";
+                NewEle(
+                    d,
+                    "div",
+                    "position:absolute;background:url(images/interface/splash.png);left:" +
+                        (g.pixelLeft - 4) +
+                        "px;top:" +
+                        (g.pixelTop - 16) +
+                        "px;width:97px;height:88px;over-flow:hidden",
+                    0,
+                    EDPZ
+                );
+                NewEle(
+                    c,
+                    "div",
+                    "position:absolute;background:url(images/interface/splash.png);left:" +
+                        (h.AttackedLX - 10) +
+                        "px;top:" +
+                        (h.pixelTop + h.height - 88) +
+                        "px;width:97px;height:88px;over-flow:hidden",
+                    0,
+                    EDPZ
+                );
+                ImgSpriter(
+                    d,
+                    e,
+                    [
+                        ["0 0", 9, 1],
+                        ["-97px 0", 9, 2],
+                        ["-194px 0", 9, 3],
+                        ["-291px 0", 9, 4],
+                        ["-388px 0", 9, 5],
+                        ["-485px 0", 9, 6],
+                        ["-582px 0", 9, 7],
+                        ["-679px 0", 9, -1],
+                    ],
+                    0,
+                    function (i, j) {
+                        ClearChild($(i));
+                    }
+                );
+                ImgSpriter(
+                    c,
+                    f,
+                    [
+                        ["0 0", 9, 1],
+                        ["-97px 0", 9, 2],
+                        ["-194px 0", 9, 3],
+                        ["-291px 0", 9, 4],
+                        ["-388px 0", 9, 5],
+                        ["-485px 0", 9, 6],
+                        ["-582px 0", 9, 7],
+                        ["-679px 0", 9, -1],
+                    ],
+                    0,
+                    function (i, j) {
+                        ClearChild($(i));
+                    }
+                );
+                h.DisappearDie();
+                g.Die();
+            },
+            [a, b]
+        );
+    },
+}),
 oSeaShroom = InheritO(oPuffShroom, {
     EName: "oSeaShroom",
+    CName: "Sea-shroom",
+    width: 48,
+    height: 99,
+    beAttackedPointL: 10,
+    beAttackedPointR: 40,
+    coolTime: 30,
+    BookHandBack: 4.9,
+    Sleep: 0,
+    getShadow: function (a) {
+        return "display:none";
+    },
+    PicArr: [
+        "images/Card/Plants/SeaShroom.png",
+        "images/Plants/SeaShroom/0.gif",
+        "images/Plants/SeaShroom/SeaShroom.gif",
+        "images/Plants/SeaShroom/SeaShroomSleep.gif",
+        "images/Plants/ShroomBullet.gif",
+        "images/Plants/ShroomBulletHit.gif",
+    ],
+    CanGrow: function (c, b, d) {
+        var a = b + "_" + d;
+        return !(
+            d < 1 ||
+            d > 9 ||
+            oGd.$LF[b] - 2 ||
+            c[0] ||
+            c[1] ||
+            oGd.$Crater[a] ||
+            oGd.$Tombstones[a]
+        );
+    },
+    BirthStyle: function (c, d, b, a) {
+        EditEle(
+            b,
+            {
+                id: d,
+            },
+            a,
+            EDPZ
+        );
+    },
+    Tooltip: "Aquatic plant that shoots short-ranged spores",
+    Produce:
+        '海蘑菇，能够发射短程孢子的水生植物。<p>Harm:<font color="#FF0000">普通</font><br>射程：<font color="#FF0000">短<br>必须种在水上</font></p>海蘑菇从来没看到过大海，大海就在他的名字</font><br>里，他总听到关于大海的事。他只是没找到合适的</font><br>时间，总有一天……是的，他会见到海的。',
+});
+oSeedSeaShroom = InheritO(oPuffShroom, {
+    EName: "oSeedSeaShroom",
     CName: "Sea-shroom",
     width: 48,
     height: 99,
@@ -6725,6 +8132,320 @@ NormalAttack2: function () {
     );
 },
 })),
+(oSeedCactus = InheritO(CPlants, {
+    EName: "oSeedCactus",
+    CName: "Cactus",
+    width: 122,
+    height: 157,
+    SunNum: 0,
+    beAttackedPointL: 10,
+    beAttackedPointR: 80,
+    AudioArr: ["plantgrow"],
+    Status: 0,
+    PicArr: (function () {
+        return [
+            "images/Card/Plants/Cactus.png",
+            "images/Plants/Cactus/0.gif",
+            "images/Plants/Cactus/Cactus.gif",
+            "images/Plants/Cactus/Cactus2.gif",
+            "images/Plants/Cactus/Attack.gif",
+            "images/Plants/Cactus/Attack2.gif",
+            "images/Plants/Cactus/Elongation.gif",
+            "images/Plants/Cactus/Shorten.gif",
+            "images/Plants/Cactus/Projectile32.png",
+        ];
+    })(),
+    Tooltip: "Shoots spikes that can pop balloons",
+    Produce:
+        '仙人掌发射的穿刺弹可以用来打击地面和空中</font><br>目标<p>Harm:<font color="#FF0000">中等</font><br>Scope:<font color="#FF0000">地面和空中</font></p>确实，仙人掌非常“刺儿”，但是她的刺下，隐</font><br>藏着颗温柔的心，充满着爱和善良。她只是想拥</font><br>抱别人，和被别人拥抱。大多数人都做不到这点</font><br>，但是仙人掌她并不介意。她盯着一只铠甲鼠好</font><br>一阵子了，这次好像真的可以抱抱了。',
+    getShadow: function (a) {
+        return "left:3px;top:132px";
+    },
+    PrivateBirth: function (a) {
+        a.ES = a.Elongation;
+    },
+    TriggerCheck: function (b, a) {
+        this.ES() && ((this.canTrigger = 0), this.CheckLoop(b.id, a));
+    },
+    CheckLoop: function (b, c) {
+        var a = this.id;
+        this.NormalAttack(b);
+        this.ES();
+        this.Status == 0 &&
+            oSym.addTask(
+                140,
+                function (e, f, h) {
+                    var g;
+                    (g = $P[e]) && g.ES() && g.AttackCheck1(f, h);
+                },
+                [a, b, c]
+            );
+    },
+    CheckLoop2: function (b, c) {
+        var a = this.id;
+        this.NormalAttack(b);
+        this.ES();
+        this.Status &&
+            oSym.addTask(
+                150,
+                function (e, f, h) {
+                    var g;
+                    (g = $P[e]) && g.ES() && g.AttackCheck12(f, h);
+                },
+                [a, b, c]
+            );
+    },
+    AttackCheck1: function (g, f) {
+        var b = this,
+            c = b.oTrigger,
+            a = $Z[g],
+            h,
+            e,
+            k,
+            j;
+        if (a && a.PZ && (h = c[a.R])) {
+            k = a.ZX;
+            e = h.length;
+            while (e--) {
+                j = h[e];
+                if (j[0] <= k && j[1] >= k && a.Altitude > 0) {
+                    b.CheckLoop(g, j[2]);
+                    return;
+                }
+            }
+        }
+        b.canTrigger = 1;
+    },
+    AttackCheck12: function (a, c) {
+        var b = this;
+        b.CheckLoop(a, c);
+    },
+    Elongation: function () {
+        var a = this,
+            b = a.id;
+        if (!oGd.$Balloon[a.R] > 0) {
+            return true;
+        } else {
+            PlayAudio("plantgrow");
+            a.canTrigger = 0;
+            a.Status = 1;
+            $(b).childNodes[1].src = "images/Plants/Cactus/Elongation.gif";
+            oSym.addTask(
+                1,
+                function (e) {
+                    var d = $P[e],
+                        c;
+                    if (d) {
+                        d.NormalGif = 3;
+                        $(e).childNodes[1].src =
+                            "images/Plants/Cactus/Cactus2.gif";
+                        c = d.CheckLoop;
+                        d.CheckLoop = d.CheckLoop2;
+                        d.CheckLoop2 = c;
+                        c = d.NormalAttack;
+                        d.NormalAttack = d.NormalAttack2;
+                        d.NormalAttack2 = c;
+                        d.ES = d.Shorten;
+                        d.canTrigger = 1;
+                    }
+                },
+                [b]
+            );
+            return false;
+        }
+    },
+    Shorten: function () {
+        var a = this,
+            b = a.id;
+        if (oGd.$Balloon[a.R] > 0) {
+            return true;
+        } else {
+            a.canTrigger = 0;
+            a.Status = 0;
+            $(b).childNodes[1].src = "images/Plants/Cactus/Shorten.gif";
+            oSym.addTask(
+                1,
+                function (e) {
+                    var d = $P[e],
+                        c;
+                    if (d) {
+                        d.NormalGif = 2;
+                        $(e).childNodes[1].src =
+                            "images/Plants/Cactus/Cactus.gif";
+                        c = d.CheckLoop;
+                        d.CheckLoop = d.CheckLoop2;
+                        d.CheckLoop2 = c;
+                        c = d.NormalAttack;
+                        d.NormalAttack = d.NormalAttack2;
+                        d.NormalAttack2 = c;
+                        d.ES = d.Elongation;
+                        d.canTrigger = 1;
+                    }
+                },
+                [b]
+            );
+            return false;
+        }
+    },
+    NormalAttack: function () {
+        var b = this,
+            c = "CB" + Math.random(),
+            a = b.id;
+        $(a).childNodes[1].src = "images/Plants/Cactus/Attack.gif";
+        oSym.addTask(
+            40,
+            function (e) {
+                var d = $(e);
+                d && (d.childNodes[1].src = "images/Plants/Cactus/Cactus.gif");
+            },
+            [a]
+        );
+        NewImg(
+            c,
+            b.PicArr[8],
+            "left:" +
+                (b.AttackedRX + 25) +
+                "px;top:" +
+                (b.pixelTop + 103) +
+                "px;visibility:hidden;z-index:" +
+                (b.zIndex + 2),
+            EDPZ
+        );
+        oSym.addTask(
+            30,
+            function (e) {
+                var d = $(e);
+                d && SetVisible(d);
+            },
+            [c]
+        );
+        oSym.addTask(
+            1,
+            function (g, i, d, k, h, l) {
+                var j,
+                    f = GetC(k),
+                    e = oZ["getZ" + d](k, h);
+                e && e.Altitude == 1
+                    ? (e.getPea(e, 30, d), ClearChild(i))
+                    : (k += j = !d ? 5 : -5) < oS.W && k > 100
+                    ? ((i.style.left = (l += j) + "px"),
+                      oSym.addTask(1, arguments.callee, [g, i, d, k, h, l]))
+                    : ClearChild(i);
+            },
+            [c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40]
+        );
+    },
+    NormalAttack2: function () {
+        var b = this,
+            c = "CB" + Math.random(),
+            a = b.id;
+        $(a).childNodes[1].src = "images/Plants/Cactus/Attack2.gif";
+        oSym.addTask(
+            50,
+            function (e) {
+                var d = $(e);
+                d && (d.childNodes[1].src = "images/Plants/Cactus/Cactus2.gif");
+            },
+            [a]
+        );
+        NewImg(
+            c,
+            b.PicArr[8],
+            "left:" +
+                (b.AttackedRX + 125) +
+                "px;top:" +
+                (b.pixelTop + 33) +
+                "px;visibility:hidden;z-index:" +
+                (b.zIndex + 2),
+            EDPZ
+        );
+        oSym.addTask(
+            20,
+            function (e) {
+                var d = $(e);
+                d && SetVisible(d);
+            },
+            [c]
+        );
+        oSym.addTask(
+            1,
+            function (g, i, d, k, h, l) {
+                var j,
+                    f = GetC(k),
+                    e = oZ["getZ" + d](k, h);
+                e && e.Altitude == 3
+                    ? (e.getHit0(e, 20, d), e.Drop(), ClearChild(i))
+                    : (k += j = !d ? 5 : -5) < oS.W && k > 100
+                    ? ((i.style.left = (l += j) + "px"),
+                      oSym.addTask(1, arguments.callee, [g, i, d, k, h, l]))
+                    : ClearChild(i);
+            },
+            [c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40]
+        );
+    },
+    })),
+oBlover = InheritO(CPlants, {
+	EName: "oBlover",
+	CName: "Blover",
+	width: 132,beAttackedPointR: 98,
+	height: 110,
+	SunNum: 100,
+	PicArr: ["images/Card/Plants/Blover.png", "images/Plants/Blover/0.gif", "images/Plants/Blover/Blover.gif"],
+	Tooltip: "Blows away all balloon zombies and fog",
+	Produce: '三叶草，能吹走所有的气球僵尸，也可以把雾吹散。<p>使用方法：<font color="#FF0000">单独使用，立即生效</font><br>特点：<font color="#FF0000">吹走屏幕上所有的气球僵尸</font></p>当三叶草五岁生日的时候，他得到了一个闪亮的生日蛋糕。他许好愿，然后深吸一口气却只吹灭了60%的蜡烛。然而他没有放弃，小时候的那次失败促使他更加努力直到现在。',
+	AudioArr:['blover'],
+	InitTrigger: function() {},
+	PrivateBirth: function(o) { // 种植后0.5秒开始吹风
+		oSym.addTask(50, function(id) {
+			PlayAudio('blover'), $(id).childNodes[1].src = 'images/Plants/Blover/BloverBlow.gif', $P[id].Dispel();
+		},[o.id]);
+	},
+	Dispel: function(){ // 吹风
+		var id = this.id, z, oBalloon;
+
+		for(z in $Z) oBalloon = $Z[z], (oBalloon.EName == 'oBalloonZombie') && oBalloon.getDispelled(); //把气球吹跑
+
+		if (oS.HaveFog) { // 如果场地上有雾，驱散
+			oGd.MoveFogRight(); // 驱散雾
+			oSym.addTask(2400 + 150, oGd.MoveFogLeft, []); // 24s后恢复
+		}
+		
+		oSym.addTask(150, function(id) {
+			var p = $P[id]; p && p.Die();
+		},[id]);
+	}
+}), 
+oSeedBlover = InheritO(CPlants, {
+	EName: "oSeedBlover",
+	CName: "Blover",
+	width: 146,beAttackedPointR: 98,
+	height: 110,
+	SunNum: 0,
+	PicArr: ["images/Card/Plants/Blover.png", "images/Plants/Blover/0.gif", "images/Plants/Blover/Blover.gif"],
+	Tooltip: "Blows away all balloon zombies and fog",
+	Produce: '三叶草，能吹走所有的气球僵尸，也可以把雾吹散。<p>使用方法：<font color="#FF0000">单独使用，立即生效</font><br>特点：<font color="#FF0000">吹走屏幕上所有的气球僵尸</font></p>当三叶草五岁生日的时候，他得到了一个闪亮的生日蛋糕。他许好愿，然后深吸一口气却只吹灭了60%的蜡烛。然而他没有放弃，小时候的那次失败促使他更加努力直到现在。',
+	AudioArr:['blover'],
+	InitTrigger: function() {},
+	PrivateBirth: function(o) { // 种植后0.5秒开始吹风
+		oSym.addTask(50, function(id) {
+			PlayAudio('blover'), $(id).childNodes[1].src = 'images/Plants/Blover/BloverBlow.gif', $P[id].Dispel();
+		},[o.id]);
+	},
+	Dispel: function(){ // 吹风
+		var id = this.id, z, oBalloon;
+
+		for(z in $Z) oBalloon = $Z[z], (oBalloon.EName == 'oBalloonZombie') && oBalloon.getDispelled(); //把气球吹跑
+
+		if (oS.HaveFog) { // 如果场地上有雾，驱散
+			oGd.MoveFogRight(); // 驱散雾
+			oSym.addTask(2400 + 150, oGd.MoveFogLeft, []); // 24s后恢复
+		}
+		
+		oSym.addTask(150, function(id) {
+			var p = $P[id]; p && p.Die();
+		},[id]);
+	}
+}), 
 (oOxygen = InheritO(CPlants, {
     EName: "oOxygen",
     CName: "Oxygen",
