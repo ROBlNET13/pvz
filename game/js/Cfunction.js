@@ -3054,6 +3054,7 @@ var $User = (function () {
         a.Start();
         innerText(b, "Speed");
         $("dMenu1").onclick = ClickMenu;
+             $("dMenu0").onclick = ClickMenu;
         SetNone($("dSurface"), $("dPause"));
         $("dPauseAD").innerHTML = "";
     }),
