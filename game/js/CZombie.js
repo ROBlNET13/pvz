@@ -777,7 +777,7 @@ var CZombies = (function (b, a) {
   })(),
   oBackupDancer = InheritO(OrnNoneZombies, {
     EName: "oBackupDancer",
-    CName: "伴舞僵尸",
+    CName: "Backup Dancer",
     OSpeed: 3.5,
     Speed: 3.5,
     Lvl: 1,
@@ -8062,7 +8062,7 @@ oCBucketheadZombie = InheritO(
         } (),
         oBackupDancer = InheritO(OrnNoneZombies, {
           EName: "oBackupDancer",
-          CName: "伴舞僵尸",
+          CName: "Backup Dancer",
           OSpeed: 3.5,
           Speed: 3.5,
           Lvl: 1,
