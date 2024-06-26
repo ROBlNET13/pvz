@@ -178,13 +178,8 @@ oS.Init(
                     "px;top:-1000",
                 t = t || 1500;
 
-            if (a)
-                (d = 0),
-                    oSym.addTask(1, MoveDropCard, [
-                        g,
-                        f,
-                        t,
-                    ]); // 从天而降，反之抛物线掉落
+            if (a) (d = 0), oSym.addTask(1, MoveDropCard, [g, f, t]);
+            // 从天而降，反之抛物线掉落
             else
                 (d = f - 15 - 20),
                     (c += ";top:" + d + "px"),

@@ -9976,9 +9976,8 @@ oFlowerVase = InheritO(CPlants, {
                         LPoint = PT.beAttackedPointL; // 最终的相对位置
 
                     if (ZWidth > ZHeight)
-                        (EK = ZWidth / MaxW),
-                            (ZHeight /= EK),
-                            (ZWidth = MaxW); // 等比缩放
+                        (EK = ZWidth / MaxW), (ZHeight /= EK), (ZWidth = MaxW);
+                    // 等比缩放
                     else if (ZHeight > ZWidth)
                         (EK = ZHeight / MaxH), (ZWidth /= EK), (ZHeight = MaxH); // 等比缩放
 
