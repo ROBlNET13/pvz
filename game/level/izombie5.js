@@ -1,6 +1,11 @@
 oS.Init({
     PName: [oPeashooter, oSunFlower, oSnowPea, oCactus],
-    ZName: [oIZombie, oIBucketheadZombie, oIJackinTheBoxZombie, oIBalloonZombie],
+    ZName: [
+        oIZombie,
+        oIBucketheadZombie,
+        oIJackinTheBoxZombie,
+        oIBalloonZombie,
+    ],
     PicArr: [
         "images/interface/background2.jpg",
         "images/interface/trophy.png",
@@ -45,7 +50,7 @@ oS.Init({
                     CustomSpecial(
                         d[e[(c = Math.floor(Math.random() * e.length))]],
                         i,
-                        a
+                        a,
                     );
                     e.splice(c, 1);
                 }
@@ -56,7 +61,7 @@ oS.Init({
             "iStripe",
             "images/interface/Stripe.png",
             "left:" + (GetX1X2(5)[0] - 11) + "px;top:65px",
-            EDAll
+            EDAll,
         );
     },
     StartGame: function () {
@@ -78,15 +83,15 @@ oS.Init({
                             function () {
                                 SetNone(c);
                             },
-                            []
+                            [],
                         );
                         (function () {
                             SetVisible($("dFlagMeter"), $("dFlagMeterContent"));
                             ClearChild($("oEmbed"));
                             StopMusic();
-                PlayMusic((oS.LoadMusic = "Cerebrawl"));
-                BeginCool();
-                oP.Monitor();
+                            PlayMusic((oS.LoadMusic = "Cerebrawl"));
+                            BeginCool();
+                            oP.Monitor();
                         })();
                 }
             },

@@ -1,6 +1,13 @@
 oS.Init({
     PName: [oPeashooter, oSunFlower, oWallNut, oIPotatoMine, oSquash],
-    ZName: [oIImp, oIConeheadZombie, oIBucketheadZombie, oIJackinTheBoxZombie, oIPoleVaultingZombie, oIScreenDoorZombie],
+    ZName: [
+        oIImp,
+        oIConeheadZombie,
+        oIBucketheadZombie,
+        oIJackinTheBoxZombie,
+        oIPoleVaultingZombie,
+        oIScreenDoorZombie,
+    ],
     PicArr: [
         "images/interface/background2.jpg",
         "images/interface/trophy.png",
@@ -24,7 +31,10 @@ oS.Init({
         ArC: [1, 5],
         ArR: [1, 5],
         Auto: 1,
-        P: [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 4, 4],
+        P: [
+            0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3,
+            4, 4,
+        ],
     },
     RiddleAutoGrow: function () {
         var k = oS.ArP,
@@ -45,7 +55,7 @@ oS.Init({
                     CustomSpecial(
                         d[e[(c = Math.floor(Math.random() * e.length))]],
                         i,
-                        a
+                        a,
                     );
                     e.splice(c, 1);
                 }
@@ -56,7 +66,7 @@ oS.Init({
             "iStripe",
             "images/interface/Stripe.png",
             "left:" + (GetX1X2(6)[0] - 11) + "px;top:65px",
-            EDAll
+            EDAll,
         );
     },
     StartGame: function () {
@@ -78,15 +88,15 @@ oS.Init({
                             function () {
                                 SetNone(c);
                             },
-                            []
+                            [],
                         );
                         (function () {
                             SetVisible($("dFlagMeter"), $("dFlagMeterContent"));
                             ClearChild($("oEmbed"));
                             StopMusic();
-                PlayMusic((oS.LoadMusic = "Cerebrawl"));
-                BeginCool();
-                oP.Monitor();
+                            PlayMusic((oS.LoadMusic = "Cerebrawl"));
+                            BeginCool();
+                            oP.Monitor();
                         })();
                 }
             },

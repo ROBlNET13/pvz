@@ -1,6 +1,29 @@
 oS.Init({
-    PName: [oPeashooter, oSunFlower, oIPotatoMine, oSnowPea, oChomper, oIFumeShroom, oIScaredyShroom, oSquash, oThreepeater, oTorchwood, oTallNut, oSplitPea, oStarfruit, oIHypnoShroom],
-    ZName: [oIImp, oIConeheadZombie, oIPoleVaultingZombie, oIBucketheadZombie, oIFootballZombie, oIJackinTheBoxZombie, oIScreenDoorZombie],
+    PName: [
+        oPeashooter,
+        oSunFlower,
+        oIPotatoMine,
+        oSnowPea,
+        oChomper,
+        oIFumeShroom,
+        oIScaredyShroom,
+        oSquash,
+        oThreepeater,
+        oTorchwood,
+        oTallNut,
+        oSplitPea,
+        oStarfruit,
+        oIHypnoShroom,
+    ],
+    ZName: [
+        oIImp,
+        oIConeheadZombie,
+        oIPoleVaultingZombie,
+        oIBucketheadZombie,
+        oIFootballZombie,
+        oIJackinTheBoxZombie,
+        oIScreenDoorZombie,
+    ],
     PicArr: [
         "images/interface/background2.jpg",
         "images/interface/trophy.png",
@@ -24,7 +47,10 @@ oS.Init({
         ArC: [1, 6],
         ArR: [1, 5],
         Auto: 1,
-        P: [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13],
+        P: [
+            0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 5, 6,
+            7, 8, 9, 10, 11, 11, 12, 13,
+        ],
     },
     RiddleAutoGrow: function () {
         var k = oS.ArP,
@@ -45,7 +71,7 @@ oS.Init({
                     CustomSpecial(
                         d[e[(c = Math.floor(Math.random() * e.length))]],
                         i,
-                        a
+                        a,
                     );
                     e.splice(c, 1);
                 }
@@ -56,7 +82,7 @@ oS.Init({
             "iStripe",
             "images/interface/Stripe.png",
             "left:" + (GetX1X2(7)[0] - 11) + "px;top:65px",
-            EDAll
+            EDAll,
         );
     },
     StartGame: function () {
@@ -78,15 +104,15 @@ oS.Init({
                             function () {
                                 SetNone(c);
                             },
-                            []
+                            [],
                         );
                         (function () {
                             SetVisible($("dFlagMeter"), $("dFlagMeterContent"));
                             ClearChild($("oEmbed"));
                             StopMusic();
-                PlayMusic((oS.LoadMusic = "Cerebrawl"));
-                BeginCool();
-                oP.Monitor();
+                            PlayMusic((oS.LoadMusic = "Cerebrawl"));
+                            BeginCool();
+                            oP.Monitor();
                         })();
                 }
             },

@@ -111,7 +111,7 @@ oS.Init({
             "div",
             "width:225px;height:44px;margin:550px 0 0 694px;position:absolute;z-index:1;background:url(images/interface/version.png)",
             0,
-            $("tGround")
+            $("tGround"),
         );
         EBody = document.body;
         EElement = document.documentElement;
@@ -133,7 +133,7 @@ oS.Init({
                       ClearChild(this);
                   }),
                   (b.src = "" + Math.random()))
-                : (console.log('h')/*$("").innerHTML = 4/* oS.Version */);
+                : console.log("h") /*$("").innerHTML = 4/* oS.Version */;
         })();
         $("dServer") && SetBlock($("dServer"));
     },

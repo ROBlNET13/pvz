@@ -185,7 +185,7 @@ var $User = (function () {
                             escape(oS.LevelName),
                         type: "text/javascript",
                     },
-                    document.body
+                    document.body,
                 ));
             !this.PicArr && (this.PicArr = []);
             !this.PName && (this.PName = []);
@@ -218,7 +218,7 @@ var $User = (function () {
                     "div",
                     "position:absolute;color:#fff;top:450px;width:100%;text-align:center;font-size:16px",
                     "",
-                    EDAll
+                    EDAll,
                 ),
                 a = [""];
             b.innerHTML =
@@ -250,7 +250,7 @@ var $User = (function () {
                 0,
                 "images/interface/brain.png",
                 "",
-                ($Pn.oBrains = NewEle(0, "div", "position:absolute"))
+                ($Pn.oBrains = NewEle(0, "div", "position:absolute")),
             );
             switch (p.Coord) {
                 case 2:
@@ -261,8 +261,8 @@ var $User = (function () {
                         ($Pn.oPoolCleaner = NewEle(
                             0,
                             "div",
-                            "position:absolute"
-                        ))
+                            "position:absolute",
+                        )),
                     );
                 case 1:
                     NewImg(
@@ -272,8 +272,8 @@ var $User = (function () {
                         ($Pn.oLawnCleaner = NewEle(
                             0,
                             "div",
-                            "position:absolute"
-                        ))
+                            "position:absolute",
+                        )),
                     );
                     break;
             }
@@ -296,7 +296,7 @@ var $User = (function () {
             while (r--) {
                 Array.prototype.push.apply(
                     i,
-                    (l = (q = s[r]).prototype).PicArr.slice(0)
+                    (l = (q = s[r]).prototype).PicArr.slice(0),
                 );
                 if ($User.HTML5) {
                     t = l.AudioArr;
@@ -447,13 +447,13 @@ var $User = (function () {
                     "imgGrowSoil",
                     "images/interface/GrowSoil.gif",
                     "visibility:hidden;z-index:50",
-                    EDAll
+                    EDAll,
                 );
                 NewImg(
                     "imgGrowSpray",
                     "images/interface/GrowSpray.gif",
                     "visibility:hidden;z-index:50",
-                    EDAll
+                    EDAll,
                 );
                 NewEle("dTitle", "div", 0, 0, $("dBody"));
                 innerText(ESSunNum, i.SunNum);
@@ -471,9 +471,9 @@ var $User = (function () {
                                   "div",
                                   "line-height:50px;color:#FFFFFF;font-size:50px;font-family:Tahoma",
                                   {},
-                                  EDAll
+                                  EDAll,
                               ),
-                          ]
+                          ],
                       )
                     : (SetVisible($("dMenu")), AutoSelectCard(), LetsGO());
             };
@@ -494,7 +494,7 @@ var $User = (function () {
                 $("dZombie"),
                 $("dSelectCard"),
                 $("dTitle"),
-                $("dCardList")
+                $("dCardList"),
             );
             $("tGround").style.left = "-115px";
             $("dZombie").innerHTML = "";
@@ -524,7 +524,7 @@ var $User = (function () {
                         [380, 3],
                         [470, 4],
                         [575, 5],
-                    ]
+                    ],
                 );
             };
             GetC = function (a) {
@@ -534,7 +534,7 @@ var $User = (function () {
                         -50, 100, 140, 220, 295, 379, 460, 540, 625, 695, 775,
                         855, 935,
                     ],
-                    [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+                    [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
                 );
             };
             GetR = function (a) {
@@ -630,7 +630,7 @@ var $User = (function () {
                         [430, 4],
                         [524, 5],
                         [593, 6],
-                    ]
+                    ],
                 );
             };
             GetC = function (a) {
@@ -640,14 +640,14 @@ var $User = (function () {
                         -50, 100, 140, 220, 295, 379, 460, 540, 625, 695, 775,
                         855, 935,
                     ],
-                    [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+                    [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
                 );
             };
             GetR = function (a) {
                 return $SSml(
                     a,
                     [86, 171, 264, 368, 440, 532],
-                    [0, 1, 2, 3, 4, 5, 6]
+                    [0, 1, 2, 3, 4, 5, 6],
                 );
             };
             GetX = function (a) {
@@ -788,7 +788,7 @@ var $User = (function () {
                                             "script",
                                             0,
                                             {},
-                                            document.body
+                                            document.body,
                                         )),
                                 f.SaveLvlCallBack &&
                                     f.SaveLvlCallBack({
@@ -801,7 +801,7 @@ var $User = (function () {
                                     ((t = $("dAdventure")),
                                     ($User.Visitor.Progress = ++s),
                                     (t.firstChild.innerHTML = Math.ceil(
-                                        s / 10
+                                        s / 10,
                                     )),
                                     (t.childNodes[1].innerHTML = (s =
                                         s - Math.floor(s / 10) * 10)
@@ -812,7 +812,7 @@ var $User = (function () {
                                     "div",
                                     "position:absolute;width:900px;height:600px;background:#FFF;filter:alpha(opacity=0);opacity:0;z-index:255",
                                     0,
-                                    EDAll
+                                    EDAll,
                                 ),
                                 PauseGame($("dMenu0"), 1)));
                   }))
@@ -831,11 +831,11 @@ var $User = (function () {
                                 HiddenOptions();
                                 SetBlock(
                                     $("dSurface"),
-                                    $("iSurfaceBackground")
+                                    $("iSurfaceBackground"),
                                 );
                                 ShowNameDiv();
                             },
-                        }
+                        },
                     );
                 });
         },
@@ -850,7 +850,7 @@ var $User = (function () {
                 "",
                 "images/Zombies/Balloon/balloonidle.png",
                 "position: absolute; display: block; left: 875px; z-index: 0;",
-                $("dPZ")
+                $("dPZ"),
             );
             let styleSheet = document.styleSheets[0];
             function getRandomY() {
@@ -869,7 +869,7 @@ var $User = (function () {
                 to { left: -75px; }
               }
             `,
-                styleSheet.cssRules.length
+                styleSheet.cssRules.length,
             );
 
             styleSheet.insertRule(
@@ -879,7 +879,7 @@ var $User = (function () {
                 50% { top: ${randomY + 10}px; }
               }
             `,
-                styleSheet.cssRules.length
+                styleSheet.cssRules.length,
             );
             image.width = 75;
             image.onclick = function () {
@@ -894,7 +894,7 @@ var $User = (function () {
                             GetX(Math.floor(1 + Math.random() * oS.C)),
                             GetY(Math.floor(1 + Math.random() * oS.R)),
                             75,
-                            1
+                            1,
                         );
                     }
                 }, 100);
@@ -940,21 +940,21 @@ var $User = (function () {
                                     PlayAudio(
                                         ["groan1", "groan2"][
                                             Math.floor(Math.random() * 2)
-                                        ]
+                                        ],
                                     );
                                 },
                                 function () {
                                     PlayAudio(
                                         ["groan3", "groan4"][
                                             Math.floor(Math.random() * 2)
-                                        ]
+                                        ],
                                     );
                                 },
                                 function () {
                                     PlayAudio(
                                         ["groan5", "groan6"][
                                             Math.floor(Math.random() * 2)
-                                        ]
+                                        ],
                                     );
                                 },
                                 function () {
@@ -964,7 +964,7 @@ var $User = (function () {
                                         function () {
                                             PlayAudio("groan5");
                                         },
-                                        []
+                                        [],
                                     );
                                 },
                                 function () {
@@ -974,13 +974,13 @@ var $User = (function () {
                                         function () {
                                             PlayAudio("groan6");
                                         },
-                                        []
+                                        [],
                                     );
                                 },
                             ][Math.floor(Math.random() * 3)]();
                             oSym.addTask(2e3, arguments.callee, []);
                         },
-                        []
+                        [],
                     );
                 })();
             g.ReadyFlag = 1;
@@ -1094,7 +1094,7 @@ var $User = (function () {
                     Math.floor(Math.random() * g)
                 ]()).CustomBirth(
                     l[Math.floor(Math.random() * a)],
-                    Math.floor(j + Math.random() * d)
+                    Math.floor(j + Math.random() * d),
                 );
             }
             this.AppearUP(k, m, e);
@@ -1128,11 +1128,11 @@ var $User = (function () {
                                         j,
                                     ]);
                             },
-                            [g.EleBody, (d = g.height), 0, d * 0.1]
+                            [g.EleBody, (d = g.height), 0, d * 0.1],
                         );
                     }
                 },
-                c
+                c,
             );
         },
         SetZombie: function (j, b, e, h) {
@@ -1154,7 +1154,7 @@ var $User = (function () {
                     Math.floor(Math.random() * g)
                 ]()).CustomBirth(
                     l[Math.floor(Math.random() * a)],
-                    Math.floor(j + Math.random() * d)
+                    Math.floor(j + Math.random() * d),
                 );
             }
             this.AppearUP1(k, m, e);
@@ -1188,11 +1188,11 @@ var $User = (function () {
                                         j,
                                     ]);
                             },
-                            [g.EleBody, (d = g.height), 0, d * 0.1]
+                            [g.EleBody, (d = g.height), 0, d * 0.1],
                         );
                     }
                 },
-                c
+                c,
             );
         },
         SetTimeoutZombie: function (b, d) {
@@ -1215,7 +1215,7 @@ var $User = (function () {
                         j[h].Birth();
                     }
                 },
-                f
+                f,
             );
         },
         FlagPrgs: function () {
@@ -1235,7 +1235,7 @@ var $User = (function () {
                           function (g) {
                               !g[1] && (g[0](), (g[1] = 1));
                           },
-                          [b]
+                          [b],
                       ),
                   oSym.addTask(
                       1990,
@@ -1244,7 +1244,7 @@ var $User = (function () {
                           h.ReadyFlag == g++ &&
                               ((h.ReadyFlag = g), h.FlagPrgs());
                       },
-                      [c]
+                      [c],
                   ))
                 : (($("imgFlagHead").style.left = "-1px"),
                   ($("imgFlagMeterFull").style.clip = "rect(0,157px,21px,0)"));
@@ -1710,7 +1710,7 @@ var $User = (function () {
                 case 0:
                     ChosePlant(
                         { clientX: 450, clientY: 300 },
-                        String.fromCharCode(b)
+                        String.fromCharCode(b),
                     );
             }
         }
@@ -1797,7 +1797,7 @@ var $User = (function () {
                       "block",
                       "auto",
                       g.GetDTop,
-                      g.PicArr[g.StandGif]
+                      g.PicArr[g.StandGif],
                   )))
                 : --b;
         }
@@ -2073,7 +2073,7 @@ var $User = (function () {
                             SelectCard(c);
                         },
                     },
-                    $("dCardList")
+                    $("dCardList"),
                 )),
                 NewImg(0, f.src, "width:100px;height:120px", g),
                 innerText(NewEle("sSunNum" + c, "span", 0, 0, g), i.SunNum),
@@ -2159,7 +2159,7 @@ var $User = (function () {
                             oP.AddZombiesFlag();
                             SetVisible($("dFlagMeterContent"));
                         },
-                        []
+                        [],
                     );
                 });
             }
@@ -2248,14 +2248,14 @@ var $User = (function () {
             "span",
             "position:absolute;left:22px;top:22px;font-size:18px;font-weight:500;font-family:Verdana;color:#000",
             "",
-            a
+            a,
         );
         NewEle(
             "dCD2" + c,
             "span",
             "position:absolute;left:20px;top:20px;font-size:18px;font-weight:500;font-family:Verdana;color:#FF0",
             "",
-            a
+            a,
         );
         (function (d, e) {
             d > 0
@@ -2298,7 +2298,7 @@ var $User = (function () {
                           20 -
                           j.height +
                           "px;z-index:254",
-                      EDAll
+                      EDAll,
                   ).cloneNode(false),
                   "MovePlantAlpha",
                   "",
@@ -2308,7 +2308,7 @@ var $User = (function () {
                       opacity: 0.4,
                       zIndex: 30,
                   },
-                  EDAll
+                  EDAll,
               )
             : (NewImg(
                   "MovePlant",
@@ -2318,13 +2318,13 @@ var $User = (function () {
                       "px;top:" +
                       (a + 20 - j.height) +
                       "px;z-index:254",
-                  EDAll
+                  EDAll,
               ),
               NewImg(
                   "MovePlantAlpha",
                   j.PicArr[j.StandGif],
                   "visibility:hidden;filter:alpha(opacity=40);opacity:0.4;z-index:30",
-                  EDAll
+                  EDAll,
               ));
         while (e--) {
             $(ArCard[e].DID).childNodes[0].style.top = "-60px";
@@ -2357,7 +2357,7 @@ var $User = (function () {
                     "px;top:" +
                     (a.clientY + document.body.scrollTop - 17) +
                     "px;z-index:1",
-                EDAll
+                EDAll,
             ),
             (oS.Chose = -1),
             (GroundOnmousemove = GroundOnmousemove2),
@@ -2389,7 +2389,7 @@ var $User = (function () {
             PlayAudio(
                 g != 2
                     ? "plant" + Math.floor(1 + Math.random() * 2)
-                    : "plant_water"
+                    : "plant_water",
             );
 
             // Plant the selected plant at the specified location
@@ -2401,7 +2401,7 @@ var $User = (function () {
                           EDPZ.appendChild(n);
                           m.Birth();
                       },
-                      a
+                      a,
                   );
 
             // Deduct sun points based on plant's cost
@@ -2422,34 +2422,34 @@ var $User = (function () {
 
             // List of seed plants
             const seedPlants = [
-        oSeedPeashooter,
-        oSeedSnowPea,
-        oSeedSquash,
-        oSeedPotatoMine,
-        oSeedWallNut,
-        oSeedRepeater2,
-        oSeedHypnoShroom,
-        oSeedPuffShroom,
-        oSeedPumpkinHead,
-        oSeedPlantern,
-        oSeedThreepeater,
-        oSeedTallNut,
-        oSeedTorchwood,
-        oSeedLilyPad,
-        oSeedCherryBomb,
-        oSeedChomper,
-        oSeedRepeater,
-        oSeedGarlic,
-        oSeedScaredyShroom,
-        oSeedBlover,
-        oSeedStarfruit,
-        oSeedCactus,
-        oSeedFumeShroom,
-        oSeedDoomShroom,
-        oSeedSeaShroom,
-        oSeedJalapeno,
-        oSeedTangleKelp,
-      ];
+                oSeedPeashooter,
+                oSeedSnowPea,
+                oSeedSquash,
+                oSeedPotatoMine,
+                oSeedWallNut,
+                oSeedRepeater2,
+                oSeedHypnoShroom,
+                oSeedPuffShroom,
+                oSeedPumpkinHead,
+                oSeedPlantern,
+                oSeedThreepeater,
+                oSeedTallNut,
+                oSeedTorchwood,
+                oSeedLilyPad,
+                oSeedCherryBomb,
+                oSeedChomper,
+                oSeedRepeater,
+                oSeedGarlic,
+                oSeedScaredyShroom,
+                oSeedBlover,
+                oSeedStarfruit,
+                oSeedCactus,
+                oSeedFumeShroom,
+                oSeedDoomShroom,
+                oSeedSeaShroom,
+                oSeedJalapeno,
+                oSeedTangleKelp,
+            ];
 
             // Check if the chosen plant is a seed variant
             if (seedPlants.includes(h)) {
@@ -2468,7 +2468,7 @@ var $User = (function () {
         GetX(Math.floor(1 + Math.random() * oS.C)),
         GetY(Math.floor(1 + Math.random() * oS.R)),
         a,
-        1
+        1,
     );
     oSym.addTask(Math.floor(9 + Math.random() * 3) * 100, AutoProduceSun, [a]);
 }),
@@ -2530,7 +2530,7 @@ var $User = (function () {
                       [-1, 1][Math.floor(Math.random() * 2)],
                       8,
                       2,
-                  ]
+                  ],
               ),
               oSym.addTask(800, DisappearSun, [g], 3));
         ArSun[g] = { id: g, N: e, C: 1, left: h, top: d };
@@ -2586,11 +2586,11 @@ var $User = (function () {
                   Number(ESSunNum.innerHTML) != oS.SunNum &&
                       (oS.SunNum = Math.min(
                           Number(ESSunNum.innerHTML),
-                          oS.SunNum
+                          oS.SunNum,
                       )),
                   innerText(
                       ESSunNum,
-                      (oS.SunNum = Math.min(oS.SunNum + l.N, 9990))
+                      (oS.SunNum = Math.min(oS.SunNum + l.N, 9990)),
                   ),
                   MonitorCard(),
                   delete ArSun[k],
@@ -2609,7 +2609,7 @@ var $User = (function () {
             "LargeWave",
             "images/interface/LargeWave.gif",
             "left:71px;top:249px;width:400px;height:200px;z-index:50",
-            EDAll
+            EDAll,
         );
         oSym.addTask(
             4,
@@ -2627,11 +2627,11 @@ var $User = (function () {
                           function () {
                               ClearChild($("LargeWave"));
                           },
-                          []
+                          [],
                       ),
                       d && d());
             },
-            [858, 102, a]
+            [858, 102, a],
         );
     }),
     (ShowFinalWave = function () {
@@ -2641,7 +2641,7 @@ var $User = (function () {
                 "FinalWave",
                 "images/interface/FinalWave.gif",
                 "left:122px;top:194px;width:756px;height:213px;z-index:50",
-                EDAll
+                EDAll,
             );
             oSym.addTask(
                 4,
@@ -2659,10 +2659,10 @@ var $User = (function () {
                               function () {
                                   ClearChild($("FinalWave"));
                               },
-                              []
+                              [],
                           );
                 },
-                [756, 213, b]
+                [756, 213, b],
             );
         };
         oP.FlagNum in oS.LargeWaveFlag
@@ -2677,7 +2677,7 @@ var $User = (function () {
             "ShowBOSS",
             "images/interface/BOSSWave.gif",
             "left:71px;top:249px;width:858px;height:102px;z-index:50",
-            EDAll
+            EDAll,
         );
         oSym.addTask(
             4,
@@ -2695,11 +2695,11 @@ var $User = (function () {
                           function () {
                               ClearChild($("ShowBOSS"));
                           },
-                          []
+                          [],
                       ),
                       d && d());
             },
-            [858, 102, a]
+            [858, 102, a],
         );
     }),
     (GameOver = function () {
@@ -2713,7 +2713,7 @@ var $User = (function () {
                 onclick: function () {
                     SelectModal(oS.Lvl);
                 },
-            }
+            },
         );
         oSym.Stop();
     }),
@@ -2735,10 +2735,10 @@ var $User = (function () {
                                     ClearChild(j);
                                     i();
                                 },
-                                [g, f]
+                                [g, f],
                             );
                         },
-                        [d, e, c]
+                        [d, e, c],
                     );
                 },
                 [
@@ -2751,10 +2751,10 @@ var $User = (function () {
                             (oS.H * 0.5 - 54) +
                             "px",
                         0,
-                        EDAll
+                        EDAll,
                     ),
                     a,
-                ]
+                ],
             );
         };
         oS.HaveFog ? oGd.MoveFogLeft(b) : b();
@@ -2807,7 +2807,7 @@ var $User = (function () {
                           });
                       })();
             },
-            [0, $("DivA")]
+            [0, $("DivA")],
         );
     }),
     (getCookie1 = function (b, g) {
@@ -2844,7 +2844,7 @@ var $User = (function () {
     }),
     (getCookie = function (b) {
         var a = document.cookie.match(
-            new RegExp("(^| )" + b + "=([^;]*)(;|$)")
+            new RegExp("(^| )" + b + "=([^;]*)(;|$)"),
         );
         if (a != null) {
             return unescape(a[2]);
@@ -2930,7 +2930,7 @@ var $User = (function () {
             $("dMenu"),
             $("dHandBook"),
             $("dNewPlant"),
-            $("dProcess")
+            $("dProcess"),
         );
         SetNone($("dSurface"), $("iSurfaceBackground"));
         ClearChild($("dFlagMeterTitleB").firstChild);
@@ -2948,7 +2948,7 @@ var $User = (function () {
                 "div",
                 "position:absolute;line-height:28px;left:706px;top:245px;width:700px;height:100px;font-size:16px;color:#040;font-family:Tahoma;font-weight:bold;z-index:2;display:none",
                 0,
-                $("dAll")
+                $("dAll"),
             ),
             c = $User.Server,
             b = c.List,
@@ -2963,9 +2963,9 @@ var $User = (function () {
                         innerHTML:
                             '<span style="line-height:23px;font-size:15px;font-family:&#x9ED1;&#x4F53;;color:#F60;top:32px">Welcome to experience<span style="font-family:Tahoma;font-weight:700">The new version of Plants vs. Zombies JS</span>,The program is made by the player, not affiliated with any for-profit company.<span style="font-family:Tahoma;font-weight:700">LonelyStar and Jiangnan Game Development Company and ROBLNET13 and ClaytonTDM</span>All rights reserved to the program,The game theme, material and sound effects are owned by Popcap Games, Electronic Arts, and individual background music sources are free music websites. If you need to reprint, please keep the above copyright instructions, otherwise it will be treated as piracy. The modded version is by ROBLNET13 and ClaytonTDM on Github. Do not remove this warning.</span>',
                     },
-                    0
+                    0,
                 ),
-                a.firstChild
+                a.firstChild,
             );
         LoadLvl();
     }),
@@ -2988,10 +2988,10 @@ var $User = (function () {
                         src: "level/" + (oS.Lvl = g) + ".js",
                         type: "text/javascript",
                     },
-                    document.getElementsByTagName("head").item(0)
+                    document.getElementsByTagName("head").item(0),
                 );
             },
-            [e && b ? 0 : e]
+            [e && b ? 0 : e],
         );
         /* $("aLvlLink").href =
             "html/2-1" + (e && !isNaN(e) ? "-" + e : "") + ".htm"; */
@@ -3032,7 +3032,7 @@ var $User = (function () {
                     (GetY(h) - 91) +
                     "px",
                 0,
-                EDAll
+                EDAll,
             );
             h = Math.floor(Math.random() * 4);
             b = Math.floor(Math.random() * 2);
@@ -3043,8 +3043,8 @@ var $User = (function () {
                     "div",
                     "background-position:-" + 86 * h + "px -" + 91 * b + "px",
                     { className: "Tom1" },
-                    a
-                ).cloneNode(false))
+                    a,
+                ).cloneNode(false)),
             ).className = "Tom2";
         }
     }),
@@ -3357,7 +3357,7 @@ var $User = (function () {
                 function (j) {
                     j > -1 ? ImgSpriter(h, c, e, j, g) : g(h, c);
                 },
-                [d]
+                [d],
             ));
     }),
     (Ajax = function () {}),
@@ -3374,7 +3374,7 @@ var $User = (function () {
         if (/(y+)/.test(b)) {
             b = b.replace(
                 RegExp.$1,
-                (this.getFullYear() + "").substr(4 - RegExp.$1.length)
+                (this.getFullYear() + "").substr(4 - RegExp.$1.length),
             );
         }
         for (var a in c) {
@@ -3383,7 +3383,7 @@ var $User = (function () {
                     RegExp.$1,
                     RegExp.$1.length == 1
                         ? c[a]
-                        : ("00" + c[a]).substr(("" + c[a]).length)
+                        : ("00" + c[a]).substr(("" + c[a]).length),
                 );
             }
         }
@@ -3416,7 +3416,7 @@ var $User = (function () {
                 "",
                 "images/interface/ZombieHand.png",
                 "position:absolute;left:0",
-                c
+                c,
             );
         b.onclick = b.onmouseover = b.onmouseout = null;
         SetBlock(c);
@@ -3427,7 +3427,7 @@ var $User = (function () {
             function () {
                 PlayAudio("evillaugh");
             },
-            []
+            [],
         );
         oSym.addTask(
             7,
@@ -3435,7 +3435,7 @@ var $User = (function () {
                 e.style.left = (g -= 330) + "px";
                 --f && oSym.addTask(7, arguments.callee, [f, e, g]);
             },
-            [6, a, 0]
+            [6, a, 0],
         );
         $User.HTML5
             ? (function (g, h, e) {
@@ -3501,7 +3501,7 @@ var $User = (function () {
                       function () {
                           f.play();
                       },
-                      false
+                      false,
                   );
               while (e--) {
                   (m = document.createElement("source")).type = h[(d = j[e])];
@@ -3654,7 +3654,7 @@ var $User = (function () {
                         [-1, 1][Math.floor(Math.random() * 2)],
                         8,
                         2,
-                    ]
+                    ],
                 ); // 开始记时，确定抛物线，与阳光部分相似故压缩
 
         ArCard[g] = {

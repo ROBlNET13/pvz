@@ -37,7 +37,7 @@ oS.Init(
                 "div",
                 "width:22px;height:502px;margin:75px 0 0 485px;position:absolute;z-index:1;background:url(images/interface/Stripe.png)",
                 0,
-                $("tGround")
+                $("tGround"),
             );
             StopMusic();
             PlayMusic((oS.LoadMusic = oS.StartGameMusic));
@@ -78,7 +78,7 @@ oS.Init(
                                         onclick: function (g) {
                                             ChosePlant(g, oS.ChoseCard, f);
                                         },
-                                    }
+                                    },
                                 );
                             }
                             oSym.addTask(500, arguments.callee, []);
@@ -134,13 +134,13 @@ oS.Init(
                     onclick: function () {
                         SelectModal(0);
                     },
-                }
+                },
             );
             NewImg(
                 "PointerUD",
                 "images/interface/PointerDown.gif",
                 "top:198px;left:269px",
-                EDAll
+                EDAll,
             );
         },
     },
@@ -175,7 +175,7 @@ oS.Init(
                         20 -
                         c.height +
                         "px;z-index:254",
-                    EDAll
+                    EDAll,
                 ).cloneNode(false),
                 "MovePlantAlpha",
                 "",
@@ -185,7 +185,7 @@ oS.Init(
                     opacity: 0.4,
                     zIndex: 30,
                 },
-                EDAll
+                EDAll,
             );
             SetAlpha($(f.DID), 50, 0.5);
             SetHidden($("dTitle"));
@@ -208,9 +208,9 @@ oS.Init(
                         "div",
                         "line-height:40px;font-size: 14px",
                         0,
-                        EDAll
+                        EDAll,
                     ),
-                    ""
+                    "",
                 );
                 return false;
             }
@@ -230,5 +230,5 @@ oS.Init(
             GroundOnmousemove = function () {};
         },
         ViewPlantTitle: function (a) {},
-    }
+    },
 );

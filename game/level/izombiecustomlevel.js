@@ -28,7 +28,7 @@ oS.Init({
         P: [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 3, 3, 3],
     },
     RiddleAutoGrow: function () {
-      /*  var k = oS.ArP,
+        /*  var k = oS.ArP,
             f = k.ArC,
             j = k.ArR,
             e = k.P,
@@ -39,25 +39,25 @@ oS.Init({
             i = j[0],
             h = j[1],
             a; */
- //       if (k.Auto) {
-            while (i <= h) {
-                CustomSpecial(oBrains, i, 0);
-                for (a = g; a <= b; a++) {
-                    CustomSpecial(
-                        d[e[(c = Math.floor(Math.random() * e.length))]],
-                        i,
-                        a
-                    );
-                    e.splice(c, 1);
-                }
-                ++i;
+        //       if (k.Auto) {
+        while (i <= h) {
+            CustomSpecial(oBrains, i, 0);
+            for (a = g; a <= b; a++) {
+                CustomSpecial(
+                    d[e[(c = Math.floor(Math.random() * e.length))]],
+                    i,
+                    a,
+                );
+                e.splice(c, 1);
             }
-//        }
+            ++i;
+        }
+        //        }
         NewImg(
             "iStripe",
             "images/interface/Stripe.png",
             "left:" + (GetX1X2(customcolumns + 1)[0] - 11) + "px;top:65px",
-            EDAll
+            EDAll,
         );
     },
     StartGame: function () {
@@ -79,21 +79,21 @@ oS.Init({
                             function () {
                                 SetNone(c);
                             },
-                            []
+                            [],
                         );
                         (function () {
                             SetVisible($("dFlagMeter"), $("dFlagMeterContent"));
                             ClearChild($("oEmbed"));
                             StopMusic();
-                PlayMusic((oS.LoadMusic = "Cerebrawl"));
-                BeginCool();
-                oP.Monitor();
+                            PlayMusic((oS.LoadMusic = "Cerebrawl"));
+                            BeginCool();
+                            oP.Monitor();
                         })();
                 }
             },
         });
         SetVisible($("dFlagMeter"));
-        console.log(customcolumns)
-     //   oS.RiddleAutoGrow();
+        console.log(customcolumns);
+        //   oS.RiddleAutoGrow();
     },
 });
