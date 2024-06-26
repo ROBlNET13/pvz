@@ -42,6 +42,7 @@
                 return confirmationMessage; // For some older browsers
             });
         </script>
+        <script src="js/fixes.js"></script>
         <script src="js/cheats.js"></script>
         <meta
             property="og:title"
@@ -330,7 +331,7 @@
                         </div>
                         <div
                             class="BigLevel button"
-                            onclick="SelectModal(0);SetBlock($('dSurface'),$('iSurfaceBackground'));"
+                            onclick="let oldLv = oS.Lvl;SelectModal(0);SetBlock($('dSurface'),$('iSurfaceBackground'));oS.Lvl = oldLv;"
                         >
                             Home
                         </div>
