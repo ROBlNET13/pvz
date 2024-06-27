@@ -15,7 +15,7 @@ oS.Init(
         backgroundImage: "images/interface/background2.jpg",
         CanSelectCard: 0,
         DKind: 0,
-        LevelName: "以牙还牙",
+        LevelName: "Hypno Hysteria",
         LvlEName: "yy",
         LvlClearFunc: function () {
             oSym.TimeStep = 10;
