@@ -59,7 +59,7 @@ oS.Init(
         LF: [0, 1, 1, 2, 2, 1, 1],
         Coord: 2,
         SunNum: 1500,
-        LevelName: "小游戏：僵尸运动会",
+        LevelName: "Zombie Games",
         LvlEName: "ZombieGames",
         LargeWaveFlag: { 10: $("imgFlag2"), 20: $("imgFlag1") },
         StartGameMusic: "GAMEPK",
