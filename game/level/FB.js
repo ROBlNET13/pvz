@@ -24,7 +24,7 @@ oS.Init(
         LF: [0, 3, 3, 3, 3, 3, 3],
         CanSelectCard: 0,
         DKind: 0,
-        LevelName: "副本-关口恶战",
+        LevelName: "Battle of the Pass",
         LvlEName: "40",
         LargeWaveFlag: {
             10: $("imgFlag4"),
