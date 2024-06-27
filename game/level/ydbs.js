@@ -19,7 +19,7 @@ oS.Init(
         })(),
         backgroundImage: "images/interface/background1.jpg",
         CanSelectCard: 0,
-        LevelName: "一朵不少",
+        LevelName: "Sun Power",
         LvlClearFunc: function () {
             oSym.TimeStep = 10;
         },
@@ -32,7 +32,7 @@ oS.Init(
                 "DivTeach",
                 "div",
                 0,
-                { innerHTML: "通关要求：不得损失任何向日葵" },
+                { innerHTML: "Don't let the zombies eat your sunflowers!" },
                 EDAll
             );
             var a;
@@ -58,7 +58,7 @@ oS.Init(
                     }
                     b > 17
                         ? oSym.addTask(200, arguments.callee, [])
-                        : GameOver("条件失败<br>请再接再厉！");
+                        : GameOver("Level Failed, <br>Please try again！");
                 })();
                 BeginCool();
                 oS.DKind && AutoProduceSun(25);
