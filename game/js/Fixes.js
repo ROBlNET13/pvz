@@ -19,7 +19,6 @@ const saveBlacklist = [
     "111",
     "112",
     "NutBowling",
-    "CardRain",
     "GuanXin",
     "vasebreakermenu",
     "yy",
@@ -65,7 +64,8 @@ const saveBlacklist = [
     "160",
     "151",
     "KongXi",
-    "vasebreaker10"
+    "vasebreaker10",
+        "CardRain"
 ];
 
 let checkInterval = setInterval(() => {
