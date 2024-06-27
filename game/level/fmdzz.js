@@ -9,7 +9,7 @@ oS.Init(
         backgroundImage: "images/interface/background2.jpg",
         CanSelectCard: 0,
         DKind: 0,
-        LevelName: "三列防部",
+        LevelName: "Triple Threat Defense",
         LvlEName: "FMDZZ",
         LargeWaveFlag: { 10: $("imgFlag1") },
         StaticCard: 0,
