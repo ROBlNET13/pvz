@@ -2421,37 +2421,37 @@ var $User = (function () {
             ]);
 
             // List of seed plants
-          const seedPlants = [
-        oSeedPeashooter,
-        oSeedSnowPea,
-        oSeedSquash,
-        oSeedPotatoMine,
-        oSeedWallNut,
-        oSeedRepeater2,
-        oSeedHypnoShroom,
-        oSeedPuffShroom,
-        oSeedPumpkinHead,
-        oSeedPlantern,
-        oSeedThreepeater,
-        oSeedTallNut,
-        oSeedTorchwood,
-        oSeedLilyPad,
-        oSeedCherryBomb,
-        oSeedChomper,
-        oSeedRepeater,
-        oSeedGarlic,
-        oSeedScaredyShroom,
-        oSeedBlover,
-        oSeedStarfruit,
-        oSeedCactus,
-        oSeedFumeShroom,
-        oSeedDoomShroom,
-        oSeedSeaShroom,
-        oSeedJalapeno,
-        oSeedTangleKelp,
-        oSeedIceShroom,
-        oSeedGloomShroom,
-      ];
+            const seedPlants = [
+                oSeedPeashooter,
+                oSeedSnowPea,
+                oSeedSquash,
+                oSeedPotatoMine,
+                oSeedWallNut,
+                oSeedRepeater2,
+                oSeedHypnoShroom,
+                oSeedPuffShroom,
+                oSeedPumpkinHead,
+                oSeedPlantern,
+                oSeedThreepeater,
+                oSeedTallNut,
+                oSeedTorchwood,
+                oSeedLilyPad,
+                oSeedCherryBomb,
+                oSeedChomper,
+                oSeedRepeater,
+                oSeedGarlic,
+                oSeedScaredyShroom,
+                oSeedBlover,
+                oSeedStarfruit,
+                oSeedCactus,
+                oSeedFumeShroom,
+                oSeedDoomShroom,
+                oSeedSeaShroom,
+                oSeedJalapeno,
+                oSeedTangleKelp,
+                oSeedIceShroom,
+                oSeedGloomShroom,
+            ];
             // Check if the chosen plant is a seed variant
             if (seedPlants.includes(h)) {
                 // Hide the card instead of removing it
@@ -3055,7 +3055,7 @@ var $User = (function () {
         a.Start();
         innerText(b, "Speed");
         $("dMenu1").onclick = ClickMenu;
-             $("dMenu0").onclick = ShowSpeed;
+        $("dMenu0").onclick = ShowSpeed;
         SetNone($("dSurface"), $("dPause"));
         $("dPauseAD").innerHTML = "";
     }),
@@ -3409,10 +3409,6 @@ var $User = (function () {
               $("oEmbed").innerHTML = "";
           }),
     (StartAdventure = function (d) {
-        if (d != undefined && d != 0) {
-            SelectModal(d);
-            return;
-        }
         var c = $("ZombieHand"),
             b = $("dAdventure"),
             a = NewImg(

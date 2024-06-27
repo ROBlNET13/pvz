@@ -1,23 +1,23 @@
 const saveBlacklist = [
-    "0",
+    0,
     "izombiemenu",
-    "100",
-    "150",
+    100,
+    150,
     "WJY",
     "FB",
-    "152",
-    "101",
-    "102",
-    "103",
-    "104",
-    "105",
-    "106",
-    "107",
-    "108",
-    "109",
-    "110",
-    "111",
-    "112",
+    152,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
     "NutBowling",
     "GuanXin",
     "vasebreakermenu",
@@ -51,64 +51,106 @@ const saveBlacklist = [
     "vasebreaker9",
     "ydbs",
     "xjsdmf", // these names are getting ridiculous
-    "252",
-    "250",
-    "240",
-    "230",
-    "220",
-    "210",
-    "200",
-    "190",
-    "180",
-    "170",
-    "160",
-    "151",
+    252,
+    250,
+    240,
+    230,
+    220,
+    210,
+    200,
+    190,
+    180,
+    170,
+    160,
+    151,
     "KongXi",
     "vasebreaker10",
-        "CardRain"
+    "CardRain",
 ];
 
+console.log("Setting up intervals to monitor changes...");
+
 let checkInterval = setInterval(() => {
+    console.log("Checking if oS is defined...");
     if (typeof oS !== "undefined") {
+        console.log("oS is defined.");
         let previousValue = oS.Lvl;
+        console.log(`Initial oS.Lvl: ${previousValue}`);
 
         const checkForChange = () => {
+            // console.log("Checking for change in oS.Lvl...");
             if (oS.Lvl !== previousValue) {
+                console.log(`Change detected: ${previousValue} to ${oS.Lvl}`);
                 if (String(oS.Lvl).startsWith("[object")) {
+                    console.log("Invalid oS.Lvl format detected, reverting...");
                     oS.Lvl = previousValue;
                 } else {
-                    console.log(
-                        `oS.Lvl changed from ${previousValue} to ${oS.Lvl}`
-                    );
                     previousValue = oS.Lvl;
-                    // now the home bugfix
+                    console.log(`New previousValue set to: ${previousValue}`);
                     if ($ && $("dAdventure")) {
-                        $("dAdventure").onclick = function () {
-                            StartAdventure(oS.Lvl);
-                        };
+                        let hLvl = oS.Lvl;
+                        console.log(`Setting onclick with level: ${hLvl}`);
+                        if (!saveBlacklist.includes(hLvl)) {
+                            $("dAdventure").onclick = function () {
+                                console.log(
+                                    `Starting adventure with level: ${hLvl}`
+                                );
+                                StartAdventure(hLvl);
+                            };
+                        } else if (
+                            typeof localStorage.getItem("level") === "undefined"
+                        ) {
+                            $("dAdventure").onclick = function () {
+                                console.log(
+                                    "Starting adventure with level: " +
+                                        localStorage.getItem("level") +
+                                        " (from localStorage)"
+                                );
+                                StartAdventure(localStorage.getItem("level"));
+                            };
+                        } else {
+                            $("dAdventure").onclick = function () {
+                                console.log("Starting adventure with level: 1");
+                                StartAdventure(1);
+                            };
+                        }
                     }
-                    // now save the level in localstorage if it isnt in the blacklist
-                    // localStorage.setItem("level", oS.Lvl);
                     if (!saveBlacklist.includes(oS.Lvl)) {
+                        console.log(`Saving level ${oS.Lvl} to localStorage.`);
                         localStorage.setItem("level", oS.Lvl);
+                    } else {
+                        console.log(
+                            `Level ${oS.Lvl} is blacklisted, not saving to localStorage.`
+                        );
                     }
                 }
             }
         };
 
         const changeInterval = setInterval(checkForChange, 1);
-
         clearInterval(checkInterval);
     }
 }, 100);
 
-// wait for $("dAdventure") to be defined
-// if it is, set its onclick to StartAdventure(whatevers in localstorage)
-
 let checkInterval2 = setInterval(() => {
-    if ($("dAdventure")) {
+    console.log(
+        "Checking if dAdventure is defined and saved level exists & is not blacklisted..."
+    );
+    if (
+        $("dAdventure") &&
+        localStorage.getItem("level") &&
+        !saveBlacklist.includes(localStorage.getItem("level"))
+    ) {
+        console.log(
+            "dAdventure is defined and level is valid, setting onclick..."
+        );
         clearInterval(checkInterval2);
         $("dAdventure").onclick = function () {
+            console.log(
+                `Starting adventure with level from localStorage: ${localStorage.getItem(
+                    "level"
+                )}`
+            );
             StartAdventure(localStorage.getItem("level"));
         };
     }
