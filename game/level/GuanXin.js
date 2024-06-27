@@ -18,7 +18,7 @@ oS.Init(
         LF: [0, 1, 1, 3, 1, 1, 0],
         backgroundImage: "images/interface/backgroundX2.jpg",
         CanSelectCard: 0,
-        LevelName: "小游戏：观星",
+        LevelName: "Stargazing",
         LvlEName: "GUANXIN",
         LargeWaveFlag: { 20: $("imgFlag1") },
         StaticCard: 0,
