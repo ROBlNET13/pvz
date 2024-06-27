@@ -15,7 +15,7 @@ oS.Init(
         ],
         backgroundImage: "images/interface/background1.jpg",
         CanSelectCard: 0,
-        LevelName: "小游戏：一次性消费",
+        LevelName: "Blast Blitz",
         LvlEName: "DisposableProducts",
         LargeWaveFlag: { 20: $("imgFlag1") },
         StaticCard: 0,
