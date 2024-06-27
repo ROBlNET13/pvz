@@ -2421,7 +2421,7 @@ var $User = (function () {
             ]);
 
             // List of seed plants
-             const seedPlants = [
+          const seedPlants = [
         oSeedPeashooter,
         oSeedSnowPea,
         oSeedSquash,
@@ -2450,8 +2450,8 @@ var $User = (function () {
         oSeedJalapeno,
         oSeedTangleKelp,
         oSeedIceShroom,
+        oSeedGloomShroom,
       ];
-
             // Check if the chosen plant is a seed variant
             if (seedPlants.includes(h)) {
                 // Hide the card instead of removing it
