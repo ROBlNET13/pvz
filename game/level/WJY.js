@@ -53,7 +53,7 @@ oS.Init(
         LF: [0, 2, 3, 3, 2, 2, 0],
         backgroundImage: "images/interface/backgroundX1.jpg",
         CanSelectCard: 1,
-        LevelName: "副本-江轶同学会晤",
+        LevelName: "Meeting the Author",
         LvlEName: 9,
         SunNum: 2e3,
         coord: 2,
