@@ -65,6 +65,7 @@ const saveBlacklist = [
     "160",
     "151",
     "KongXi",
+    "vasebreaker10"
 ];
 
 let checkInterval = setInterval(() => {
