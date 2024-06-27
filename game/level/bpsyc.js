@@ -31,8 +31,8 @@ oS.Init(
         CanSelectCard: 1,
         SunNum: 1500,
         DKind: 0,
-        LevelName: "小游戏：玩偶匣市场",
-        LvlEName: "DependOnHeavenForFood",
+        LevelName: "Boxed Surprise",
+        LvlEName: "BoxedSurprise",
         StartGameMusic: "Ultimate battle",
         LargeWaveFlag: {
             10: $("imgFlag3"),
