@@ -187,6 +187,7 @@ td.HandBookZombie {
 }
 
 #dFlagMeterTitleB {
+    display: none;
     position: absolute;
     color: #000;
     font-size: 25px;
