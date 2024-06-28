@@ -86,7 +86,8 @@
     margin-top: -4px;
 }
 #dHandBookP > div.title,
-#dHandBook > div.title {
+#dHandBook > div.title,
+#dMiniSmallTitle {
     margin-top: -6px;
     font-size: 30px;
     -webkit-text-stroke: 1px #ceaa31;
@@ -98,11 +99,13 @@
         -1px 5px 0px #000, -1px -1px 0px #000, 5px -1px 0px #000,
         5px 1px 0px #000, -1px 1px 0px #000, -1px 3px 0px #000, 5px 3px 0px #000;
 }
-#dHandBook > div.title {
+#dHandBook > div.title,
+#dMiniSmallTitle {
     color: #dfdfdf;
     font-family: "houseofterrormedium" !important;
     -webkit-text-stroke: 1px #cacaca;
     margin-top: 1px;
+    font-weight: lighter;
 }
 #dHandBookZ > div.title {
     text-shadow: 0px 0px 4px #000;
