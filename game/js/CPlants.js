@@ -4739,7 +4739,7 @@ BirthStyle: function (c, e, b, a) {
         width: 112,
         height: 81,
         beAttackedPointR: 92,
-        SunNum: 0,
+        SunNum: 150,
         coolTime: 20,
         PicArr: [
             "images/Card/Plants/CherryBomb.png",
