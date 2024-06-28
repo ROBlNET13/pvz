@@ -81,7 +81,8 @@
     margin-left: -10px !important;
     margin-top: -4px;
 }
-#dHandBookP > div.title {
+#dHandBookP > div.title,
+#dHandBook > div.title {
     margin-top: -6px;
     font-size: 30px;
     -webkit-text-stroke: 1px #ceaa31;
@@ -92,6 +93,12 @@
         3px 1px 0px #000, 5px 5px 0px #000, 2px 5px 0px #000, 0px 5px 0px #000,
         -1px 5px 0px #000, -1px -1px 0px #000, 5px -1px 0px #000,
         5px 1px 0px #000, -1px 1px 0px #000, -1px 3px 0px #000, 5px 3px 0px #000;
+}
+#dHandBook > div.title {
+    color: #dfdfdf;
+    font-family: "houseofterrormedium" !important;
+    -webkit-text-stroke: 1px #cacaca;
+    margin-top: 1px;
 }
 #dHandBookZ > div.title {
     text-shadow: 0px 0px 4px #000;
