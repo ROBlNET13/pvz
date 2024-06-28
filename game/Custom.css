@@ -105,7 +105,7 @@
     font-family: "houseofterrormedium" !important;
     -webkit-text-stroke: 1px #cacaca;
     margin-top: 1px;
-    font-weight: lighter;
+    font-weight: lighter !important;
 }
 #dHandBookZ > div.title {
     text-shadow: 0px 0px 4px #000;
