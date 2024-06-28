@@ -18,6 +18,12 @@ function cloneFromPlants(music, background) {
     let levelData = [plantArray, background];
     return levelData;
 }
+function stringifyClone(levelData) {
+    return JSON.stringify(levelData);
+}
+function parseClone(stringifiedData) {
+    return JSON.parse(stringifiedData);
+}
 function restoreToPlants(levelData) {
     // we'll use a function for the plants
     // CustomSpecial(window[planeName], pos1, pos2);
