@@ -4,7 +4,7 @@
 
 An improved version of the original Plants vs. Zombies web game by LonelyStar and Jiangnan Game development company.
 
-This version contains new content such as improved music, Balloonatic and I, Zombie.
+This version contains new content such as improved music, Balloonatic, Vasebreaker and I, Zombie.
 
 ### To get started playing the newest version, head over to our [official, **ad-free** site!](https://roblnet13.github.io/pvz)
 
