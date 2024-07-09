@@ -840,6 +840,7 @@ var $User = (function () {
                 });
         },
         Balloon: function () {
+            let balloonId = Math.floor(1 + Math.random() * 1000);
             function getAnimatedPosition(element) {
                 const computedStyle = getComputedStyle(element);
                 const left = parseFloat(computedStyle.left);
@@ -864,7 +865,7 @@ var $User = (function () {
             let randomY = getRandomY();
             styleSheet.insertRule(
                 `
-              @keyframes moveLeft {
+              @keyframes moveLeft${balloonId} {
                 from { left: 910px; }
                 to { left: -75px; }
               }
@@ -874,7 +875,7 @@ var $User = (function () {
 
             styleSheet.insertRule(
                 `
-              @keyframes bobbing {
+              @keyframes bobbing${balloonId} {
                 0%, 100% { top: ${randomY}px; }
                 50% { top: ${randomY + 10}px; }
               }
@@ -900,7 +901,7 @@ var $User = (function () {
                 }, 100);
             };
             image.style.animation =
-                "moveLeft 13s linear, bobbing 2s ease-in-out infinite";
+                `moveLeft${balloonId} 13s linear, bobbing${balloonId} 2s ease-in-out infinite`;
             image.style.top = `${randomY}px`;
             image.style.cursor = "pointer";
             image.style.zIndex = "999";

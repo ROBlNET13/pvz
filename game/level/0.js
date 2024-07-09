@@ -117,6 +117,7 @@ oS.Init({
         EElement = document.documentElement;
         EDAll.scrollLeft = 0;
         EDAll.innerHTML += WordUTF8;
+        // document.getElementById("changelog").style.display="block";
         NewAudio({ source: "evillaugh" });
         (function () {
             var b = $("JSProcess"),
