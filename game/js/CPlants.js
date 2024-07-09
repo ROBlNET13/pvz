@@ -2777,13 +2777,13 @@ BirthStyle: function (c, e, b, a) {
                     d.HurtStatus < 2 &&
                         ((d.HurtStatus = 2),
                         (a.childNodes[1].src =
-                            "images/Plants/PumpkinHead/pumpkin_damage2.gif"));
+                            "images/Plants/PumpkinHead/Pumpkin_damage2.gif"));
                     break;
                 case d.HP < 2667:
                     d.HurtStatus < 1 &&
                         ((d.HurtStatus = 1),
                         (a.childNodes[1].src =
-                            "images/Plants/PumpkinHead/pumpkin_damage1.gif"),
+                            "images/Plants/PumpkinHead/Pumpkin_damage1.gif"),
                         ($(f + "_2").src =
                             "images/Plants/PumpkinHead/Pumpkin_back.gif"));
             }
@@ -2833,8 +2833,8 @@ BirthStyle: function (c, e, b, a) {
             "images/Plants/PumpkinHead/PumpkinHead.gif",
             "images/Plants/PumpkinHead/PumpkinHead1.gif",
             "images/Plants/PumpkinHead/PumpkinHead2.gif",
-            "images/Plants/PumpkinHead/pumpkin_damage1.gif",
-            "images/Plants/PumpkinHead/pumpkin_damage2.gif",
+            "images/Plants/PumpkinHead/Pumpkin_damage1.gif",
+            "images/Plants/PumpkinHead/Pumpkin_damage2.gif",
             "images/Plants/PumpkinHead/Pumpkin_back.gif",
         ],
         Tooltip: "Protects plants that are within its shell",
@@ -2867,13 +2867,13 @@ BirthStyle: function (c, e, b, a) {
                     d.HurtStatus < 2 &&
                         ((d.HurtStatus = 2),
                         (a.childNodes[1].src =
-                            "images/Plants/PumpkinHead/pumpkin_damage2.gif"));
+                            "images/Plants/PumpkinHead/Pumpkin_damage2.gif"));
                     break;
                 case d.HP < 2667:
                     d.HurtStatus < 1 &&
                         ((d.HurtStatus = 1),
                         (a.childNodes[1].src =
-                            "images/Plants/PumpkinHead/pumpkin_damage1.gif"),
+                            "images/Plants/PumpkinHead/Pumpkin_damage1.gif"),
                         ($(f + "_2").src =
                             "images/Plants/PumpkinHead/Pumpkin_back.gif"));
             }
