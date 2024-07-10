@@ -2795,8 +2795,11 @@ var $User = (function () {
                           SetHidden(EDAll, $("dTop"));
                           var f = b.prototype;
                           $("iNewPlantCard").src = f.PicArr[f.CardGif];
-                          $("iNewPlantCard").style.marginTop =
-                              180 - f.height + "px";
+                            $("iNewPlantCard").style.width = 100 + "px"
+                             $("iNewPlantCard").style.height = 120 + "px"
+                             $("iNewPlantCard").style.top = 0 + "px"
+//                          $("iNewPlantCard").style.marginTop =
+//                              180 - f.height + "px";
                           innerText($("dNewPlantName"), f.CName);
                           $("dNewPlantTooltip").innerHTML = f.Tooltip;
                           $("btnNextLevel").onclick = function () {
