@@ -2794,7 +2794,7 @@ var $User = (function () {
                           PlayAudio("plantsgarden", true);
                           SetHidden(EDAll, $("dTop"));
                           var f = b.prototype;
-                          $("iNewPlantCard").src = f.PicArr[f.StaticGif];
+                          $("iNewPlantCard").src = f.PicArr[f.StaticCard];
                           $("iNewPlantCard").style.marginTop =
                               180 - f.height + "px";
                           innerText($("dNewPlantName"), f.CName);
