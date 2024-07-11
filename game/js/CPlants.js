@@ -9014,7 +9014,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
     })),
     (oOG = InheritO(CPlants, {
         EName: "oOG",
-        CName: "氧气",
+        CName: "Oxygen",
         width: 72,
         height: 68,
         beAttackedPointR: 52,
@@ -9336,7 +9336,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
     })),
     (ostar1 = InheritO(oNutBowling, {
         EName: "ostar1",
-        CName: "海星果1",
+        CName: "Sea Starfruitt",
         width: 71,
         height: 71,
         beAttackedPointL: 10,
@@ -9958,25 +9958,25 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
     })),
     (oGoldenPrize = InheritO(CPlants, {
         EName: "oGoldenPrize",
-        CName: "金葵花奖杯",
+        CName: "Sunflower Golden Trophy",
         PicArr: ["images/interface/0.gif", "images/interface/0.gif"],
-        Tooltip: "恭喜你通过了本挑战关！",
+        Tooltip: "Ta daa！",
     })),
     (oShovel = InheritO(CPlants, {
         EName: "oShovel",
-        CName: "铲子",
+        CName: "Shovel",
         width: 130,
         height: 114,
         beAttackedPointR: 70,
         PicArr: [
-            "images/interface/Shovel/0.gif",
+            "images/interface/Shovel/ShovelCard.png",
             "images/interface/Shovel/0.gif",
         ],
-        Tooltip: "铲子可以移除植物！",
+        Tooltip: "Shovel up plants you dont want！",
     }));
 oFlowerVase = InheritO(CPlants, {
     EName: "oFlowerVase",
-    CName: "花瓶", // ID 中文名
+    CName: "Vase", // ID 中文名
     SunNum: 0,
     coolTime: 0, // 阳光 冷却时间
     canEat: 0,
@@ -10012,8 +10012,8 @@ oFlowerVase = InheritO(CPlants, {
         "images/interface/Scary_Pot.png",
         "images/interface/Scary_Pot.png",
     ],
-    Tooltip: "开出一些奇奇怪怪的东西",
-    Produce: "开出一些奇奇怪怪的东西<p>花瓶老哥或许就是",
+    Tooltip: "Break me!",
+    Produce: "Beat me, hate me, you can never break me!",
 
     SetStyle: function (Kind) {
         // 设置花瓶皮肤
