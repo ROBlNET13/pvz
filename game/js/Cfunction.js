@@ -900,8 +900,7 @@ var $User = (function () {
                     }
                 }, 100);
             };
-            image.style.animation =
-                `moveLeft${balloonId} 13s linear, bobbing${balloonId} 2s ease-in-out infinite`;
+            image.style.animation = `moveLeft${balloonId} 13s linear, bobbing${balloonId} 2s ease-in-out infinite`;
             image.style.top = `${randomY}px`;
             image.style.cursor = "pointer";
             image.style.zIndex = "999";
@@ -2795,11 +2794,11 @@ var $User = (function () {
                           SetHidden(EDAll, $("dTop"));
                           var f = b.prototype;
                           $("iNewPlantCard").src = f.PicArr[f.CardGif];
-                            $("iNewPlantCard").style.width = 100 + "px"
-                             $("iNewPlantCard").style.height = 120 + "px"
-                             $("iNewPlantCard").style.top = 0 + "px"
-//                          $("iNewPlantCard").style.marginTop =
-//                              180 - f.height + "px";
+                          $("iNewPlantCard").style.width = 100 + "px";
+                          $("iNewPlantCard").style.height = 120 + "px";
+                          $("iNewPlantCard").style.top = 0 + "px";
+                          //                          $("iNewPlantCard").style.marginTop =
+                          //                              180 - f.height + "px";
                           innerText($("dNewPlantName"), f.CName);
                           $("dNewPlantTooltip").innerHTML = f.Tooltip;
                           $("btnNextLevel").onclick = function () {
@@ -2869,31 +2868,46 @@ var $User = (function () {
         document.cookie = a + "=0;";
     }),
     (WordUTF8 =
-        '<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:pointer" onclick="PlayAudio(\'gravebutton\');SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'));ShowNameDiv()"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:pointer;z-index:300" onclick="SetVisible($(\'dProcess\'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>')
-        if (!["minijuegos.com", "minijuegos.mx", "miniplay.com", "minigiochi.com", "minijogos.com.br", "minispelletjes.com", "grymini.pl", "roblnet13.github.io", "kbhgames.com", "file://", "chrome-extension://", "localhost"].some(url => top.window.location.origin.includes(url))) {
-            top.window.location.href = "https://roblnet13.github.io/pvz/";
-        }
+        '<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:pointer" onclick="PlayAudio(\'gravebutton\');SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'));ShowNameDiv()"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:pointer;z-index:300" onclick="SetVisible($(\'dProcess\'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>');
+if (
+    ![
+        "minijuegos.com",
+        "minijuegos.mx",
+        "miniplay.com",
+        "minigiochi.com",
+        "minijogos.com.br",
+        "minispelletjes.com",
+        "grymini.pl",
+        "roblnet13.github.io",
+        "kbhgames.com",
+        "file://",
+        "chrome-extension://",
+        "localhost",
+    ].some((url) => top.window.location.origin.includes(url))
+) {
+    top.window.location.href = "https://roblnet13.github.io/pvz/";
+}
 
-    (ShowNameDiv = function () {
-        oSym.Start();
-        (function (c) {
-            var b = c[0],
-                d = 3;
-            c.shift();
-            while (d--) {
-                SetStyle(($("dNameDiv" + d).style.top = b[d] + "px"));
-            }
-            c.length && oSym.addTask(b[3], arguments.callee, [c]);
-        })([
-            [-260, 96, 136, 10],
-            [-94, 96, 136, 10],
-            [-6, 127, 176, 10],
-            [-8, 134, 188, 17],
-            [-8, 130, 179, 17],
-            [-8, 136, 189, 17],
-            [-8, 134, 187, 10],
-        ]);
-    }),
+(ShowNameDiv = function () {
+    oSym.Start();
+    (function (c) {
+        var b = c[0],
+            d = 3;
+        c.shift();
+        while (d--) {
+            SetStyle(($("dNameDiv" + d).style.top = b[d] + "px"));
+        }
+        c.length && oSym.addTask(b[3], arguments.callee, [c]);
+    })([
+        [-260, 96, 136, 10],
+        [-94, 96, 136, 10],
+        [-6, 127, 176, 10],
+        [-8, 134, 188, 17],
+        [-8, 130, 179, 17],
+        [-8, 136, 189, 17],
+        [-8, 134, 187, 10],
+    ]);
+}),
     (ShowLoginDiv = function () {
         $User.isAuthorWebsite ? PlayAudio("tap") : GotoAuthorWebsite("");
     }),
