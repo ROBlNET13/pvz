@@ -85,7 +85,7 @@
     margin-top: 4px;
 }
 #btnNextLevel {
-    text-shadow: 0px 0px 4px #000;
+    text-shadow: 0px 0px 3px #000, 0px 0px 3px #000;
     font-family: dwarvesc !important;
     color: #d0932b !important;
     font-size: 18px !important;
@@ -166,7 +166,7 @@
 }
 #dHandBookZ > div.title,
 #dNewPlantTitle {
-    text-shadow: 0px 0px 4px #000;
+    text-shadow: 0px 0px 3px #000, 0px 0px 3px #000;
     color: #00d100;
     font-size: 35px;
 }
