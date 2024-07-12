@@ -100,6 +100,12 @@
     width: 150px !important;
     margin-left: -25px !important;
 }
+
+#DivTeach {
+    width: 50% !important;
+    left: 36% !important;
+    cursor: pointer !important;
+}
 #dNewPlantName {
     color: #d0932b !important;
     font-family: dwarvesc !important;
