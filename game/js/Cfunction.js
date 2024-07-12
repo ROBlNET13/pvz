@@ -1767,6 +1767,7 @@ var $User = (function () {
     },
     DisplayZombie = function () {
         SetVisible($("bShowHandBook"));
+        /* SetVisible($("bMainMenu")); */
         var d = oP.AZ.slice(0),
             b = d.length,
             c,
@@ -2803,12 +2804,14 @@ var $User = (function () {
                           $("dNewPlantTooltip").innerHTML = f.Tooltip;
                           $("btnNextLevel").onclick = function () {
                               StopAudio("plantsgarden");
+                              SetHidden($("bMainMenu"));
                               SelectModal(c);
                           };
                           SetStyle($("dNewPlant"), {
                               visibility: "visible",
                               zIndex: 255,
                           });
+                          SetVisible($("bMainMenu"));
                       })();
             },
             [0, $("DivA")]

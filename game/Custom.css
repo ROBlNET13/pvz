@@ -44,7 +44,24 @@
 #dTitle * {
     font-family: "pico12" !important;
 }
-
+#bMainMenu {
+    text-transform: uppercase;
+    visibility: hidden;
+    position: absolute;
+    left: 770px;
+    top: 20px;
+    text-align: center;
+    cursor: pointer;
+    width: 109px;
+    height: 29px;
+    z-index: 201;
+    line-height: 26px;
+    background: url(images/interface/Almanac_BlankButton.png) no-repeat;
+    background-size: cover;
+    color: #000080;
+    font-size: 14px;
+    padding-top: 3px;
+}
 .span2 {
     font-family: "pico12" !important;
     margin-right: 7px !important;
@@ -55,11 +72,9 @@
     left: 0 !important;
     top: 21px !important;
 }
-
 #dHandBookZCard .span1 .span2 {
     display: none !important;
 }
-
 .menu,
 .OptionsMenuButtonSpan,
 #dHandBookPlantName,
@@ -92,7 +107,7 @@
     border-right: 0 !important;
     border-top: 0 !important;
     border-bottom: 0 !important;
-    background: url('images/SeedChooser_Button.png') no-repeat !important;
+    background: url("images/SeedChooser_Button.png") no-repeat !important;
     background-size: contain !important;
     font-family: dwarvesc !important;
     color: #d0932b !important;
@@ -100,7 +115,6 @@
     width: 150px !important;
     margin-left: -25px !important;
 }
-
 #DivTeach {
     width: 50% !important;
     left: 36% !important;
