@@ -86,6 +86,7 @@
   
     function init() {
       nekoEl.id = "oneko";
+      nekoEl.classList.add("hidden");
       nekoEl.ariaHidden = true;
       nekoEl.style.width = "32px";
       nekoEl.style.height = "32px";

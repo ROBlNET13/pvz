@@ -27,6 +27,11 @@ document.addEventListener("keydown", (event) => {
             1
         );
     }
+    // oneko
+    if (keysPressed["c"] && keysPressed["a"] && keysPressed["t"]) {
+        // remove .hidden from #oneko
+        document.getElementById("oneko").classList.remove("hidden");
+    }
 });
 
 document.addEventListener("keyup", (event) => {

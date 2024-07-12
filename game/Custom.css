@@ -83,6 +83,9 @@
 #dNewPlantTitle {
     font-family: "dwarvesc" !important;
 }
+.hidden {
+    display: none;
+}
 #dNewPlantTitle {
     font-size: 30px !important;
     margin-top: 6px;
