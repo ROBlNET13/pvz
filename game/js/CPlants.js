@@ -3935,7 +3935,7 @@ BirthStyle: function (c, e, b, a) {
             return Target;
         },
         Plength1: function (pid, zid) {
-            //计算僵尸和磁力菇之间的距离
+            //计算僵尸和磁力菇之间的距离 blehhhh :P
             var chang = Math.abs(zid.R - pid.R) * 100;
             var kuan = Math.abs(zid.X - GetX(pid.C));
             return (
