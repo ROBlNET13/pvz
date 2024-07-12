@@ -86,8 +86,14 @@
 }
 #btnNextLevel {
     text-shadow: 0px 0px 3px #000, 0px 0px 3px #000;
-    box-shadow: inset #ffffff24 1px 2px 2px, inset #00000021 0px -1px 4px 0px, #0000007a 1px 2px 6px -1px;
-    border-radius: 3px;
+    /* box-shadow: inset #ffffff24 1px 2px 2px, inset #00000021 0px -1px 4px 0px, #0000007a 1px 2px 6px -1px; */
+    /* border-radius: 3px; */
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    background: url('images/SeedChooser_Button.png') no-repeat !important;
+    background-size: contain !important;
     font-family: dwarvesc !important;
     color: #d0932b !important;
     font-size: 18px !important;
