@@ -208,12 +208,12 @@
       for (let i = 0; i < 10; i++) {
         const heart = document.createElement('div');
         heart.className = 'heart';
-        heart.textContent = '❤';
+        heart.textContent = ':3';
         const offsetX = (Math.random() - 0.5) * 50;
         const offsetY = (Math.random() - 0.5) * 50;
         heart.style.left = `${centerX + offsetX - 16}px`;
         heart.style.top = `${centerY + offsetY - 16}px`;
-        heart.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg)`;
+        heart.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg) scale(0.75)`;
         parent.appendChild(heart);
   
         setTimeout(() => {
@@ -226,7 +226,7 @@
     style.innerHTML = `
             @keyframes heartBurst {
                 0% { transform: scale(0); opacity: 1; }
-                100% { transform: scale(1); opacity: 0; }
+                100% { transform: scale(0.75); opacity: 0; }
             }
             .heart {
                 position: absolute;
