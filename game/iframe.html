@@ -966,7 +966,7 @@
                 id="bMainMenu"
                 onmouseover="this.style.backgroundPosition='bottom'"
                 onmouseout="this.style.backgroundPosition='top'"
-                onclick="document.querySelector('#btnNextLevel').click();oldLv=oS.Lvl;SelectModal(0);SetBlock($('dSurface'),$('iSurfaceBackground'));oS.Lvl=oldLv;"
+                onclick="oldLv=oS.Lvl;SelectModal(0);SetBlock($('dSurface'),$('iSurfaceBackground'));oS.Lvl=oldLv;document.querySelector('#btnNextLevel').click();"
                 style="visibility: none; background-position: center top"
             >
                 Main Menu&nbsp;
