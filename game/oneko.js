@@ -94,9 +94,9 @@
       nekoEl.style.imageRendering = "pixelated";
       nekoEl.style.left = `${nekoPosX - 16}px`;
       nekoEl.style.top = `${nekoPosY - 16}px`;
-      nekoEl.style.zIndex = Number.MAX_VALUE;
+      nekoEl.style.zIndex = '9999';
   
-      let nekoFile = "./oneko.gif"
+      let nekoFile = "./images/interface/oneko.gif"
       const curScript = document.currentScript
       if (curScript && curScript.dataset.cat) {
         nekoFile = curScript.dataset.cat
