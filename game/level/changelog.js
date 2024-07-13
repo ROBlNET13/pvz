@@ -1,7 +1,4 @@
-var customplants;
-var customtitle = "I, Zombie Level Editor";
-var customcolumns = 4;
-var customsun = 150;
+
 oS.Init({
     PicArr: (function () {
         a = "images/interface/";
