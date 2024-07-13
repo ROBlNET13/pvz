@@ -20,6 +20,8 @@ You are not allowed to use this fangame on your website without written permissi
 
 **We have no control over the content on the above website, except for ours. We accept no responsibility for what the website owners may choose to do with our game.**
 
+**If requested, we will promptly take down this GitHub repo and the GitHub pages site. You may contact us at [claytontdm@gmail.com](mailto:claytontdm@gmail.com) and we will promptly remove this repo and all forks owned by us.**
+
 ---
 
 ###### ©️ 2024 ROBlNET13 and ClaytonTDM. This repository is released under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International license](https://github.com/ROBlNET13/pvz/blob/main/LICENSE).
