@@ -58,7 +58,7 @@ oS.Init(
             oP.FlagNum == oP.FlagZombies &&
                 oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie2]);
         },
-        StartGameMusic: "GAMEPK",
+        StartGameMusic: "GrazeTheRoof2",
         StartGame: function () {
             StopMusic();
             PlayMusic((oS.LoadMusic = oS.StartGameMusic));

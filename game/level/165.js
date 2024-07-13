@@ -82,7 +82,7 @@ oS.Init(
         SunNum: 4500,
         Coord: 2,
         LF: [0, 1, 1, 2, 2, 1, 1],
-        StartGameMusic: "Kitanai Sekai",
+        StartGameMusic: "WateryGraves",
         LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
     },
     {

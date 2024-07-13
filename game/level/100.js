@@ -80,7 +80,7 @@ oS.Init(
             CustomSpecial(oCleaner, 4, -1);
             CustomSpecial(oCleaner, 5, -1);
         },
-        LoadMusic: "Faster",
+        LoadMusic: "MyScrapbook",
         StartGameMusic: "The Great Wall",
         LoadAccess: function (a) {
             NewImg(
@@ -199,7 +199,7 @@ oS.Init(
                                 a(0);
                                 StopMusic();
                                 PlayMusic(
-                                    (oS.LoadMusic = "Look up at the Sky")
+                                    (oS.LoadMusic = "ChooseYourSeeds")
                                 );
                             },
                             []

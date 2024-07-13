@@ -30,7 +30,7 @@ oS.Init(
             30: $("imgFlag1"),
         },
         StaticCard: 0,
-        StartGameMusic: "Watery Graves",
+        StartGameMusic: "LoonSkirmish",
         StartGame: function () {
             NewEle(
                 0,

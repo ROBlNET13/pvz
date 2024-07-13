@@ -134,8 +134,8 @@ var $User = (function () {
                 a = window;
             e.LoadMusic
                 ? (PlayMusic(e.LoadMusic),
-                  NewAudio({ source: "Look up at the Sky", loop: true }))
-                : PlayMusic((e.LoadMusic = "Look up at the Sky"));
+                  NewAudio({ source: "ChooseYourSeeds", loop: true }))
+                : PlayMusic((e.LoadMusic = "ChooseYourSeeds"));
             if (b != d) {
                 for (c in b) {
                     a[c] != d
@@ -195,7 +195,7 @@ var $User = (function () {
             !this.LF && (this.LF = [0, 1, 1, 1, 1, 1]);
             !this.ZF && (this.ZF = this.LF);
             !this.LargeWaveFlag && (this.LargeWaveFlag = {});
-            !this.StartGameMusic && (this.StartGameMusic = "UraniwaNi");
+            !this.StartGameMusic && (this.StartGameMusic = "Grasswalk");
             this.ArCard = this.CardKind == d ? e.PName : e.ZName;
             this.SunNum == d && (this.SunNum = 50);
             this.CanSelectCard == d && (this.CanSelectCard = 1);
@@ -3173,7 +3173,7 @@ if (
               innerText($("dMenu0"), "back to game"),
               ($("dMenu1").onclick = null))
             : (AllAudioPaused(), PlayAudio("tap"));
-        PlayAudio("Look up at the Sky");
+        PlayAudio("ChooseYourSeeds");
         SetVisible($("dHandBook"));
     }),
     (ReturnHandBookInx = function () {
@@ -3183,7 +3183,7 @@ if (
     }),
     (CloseHandBook = function () {
         PlayAudio("tap");
-        StopAudio("Look up at the Sky");
+        StopAudio("ChooseYourSeeds");
         oS.Lvl
             ? ResetGame($("dMenu0"))
             : oSym.addTask(100, AllAudioPauseCanceled);

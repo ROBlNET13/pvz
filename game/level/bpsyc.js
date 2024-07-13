@@ -33,7 +33,7 @@ oS.Init(
         DKind: 0,
         LevelName: "Boxed Surprise",
         LvlEName: "BoxedSurprise",
-        StartGameMusic: "Ultimate battle",
+        StartGameMusic: "Moongrains",
         LargeWaveFlag: {
             10: $("imgFlag3"),
             20: $("imgFlag2"),

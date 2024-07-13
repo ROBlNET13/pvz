@@ -19,7 +19,7 @@ oS.Init(
         LvlEName: "DisposableProducts",
         LargeWaveFlag: { 20: $("imgFlag1") },
         StaticCard: 0,
-        StartGameMusic: "GAMEPK",
+        StartGameMusic: "GrazeTheRoof2",
         StartGame: function () {
             StopMusic();
             PlayMusic((oS.LoadMusic = oS.StartGameMusic));

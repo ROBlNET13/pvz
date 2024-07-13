@@ -23,7 +23,7 @@ oS.Init(
         LevelName: "3-5 Mini Game: Starfish Rolling",
         LvlEName: "35",
         LargeWaveFlag: { 10: $("imgFlag2"), 20: $("imgFlag1") },
-        StartGameMusic: "Watery Graves",
+        StartGameMusic: "LoonSkirmish",
         StaticCard: 0,
         LoadAccess: function (a) {
             NewImg(

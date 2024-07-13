@@ -72,7 +72,7 @@ oS.Init(
         LvlEName: 158,
         SunNum: 3500,
         DKind: 0,
-        StartGameMusic: "Ultimate battle",
+        StartGameMusic: "Moongrains",
         LargeWaveFlag: { 10: $("imgFlag2") },
     },
     {

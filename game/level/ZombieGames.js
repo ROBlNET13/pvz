@@ -62,7 +62,7 @@ oS.Init(
         LevelName: "Zombie Games",
         LvlEName: "ZombieGames",
         LargeWaveFlag: { 10: $("imgFlag2"), 20: $("imgFlag1") },
-        StartGameMusic: "GAMEPK",
+        StartGameMusic: "GrazeTheRoof2",
     },
     {
         AZ: [

@@ -104,7 +104,7 @@ oS.Init(
         CanSelectCard: 1,
         Coord: 2,
         HaveFog: 5,
-        StartGameMusic: "Loonboon",
+        StartGameMusic: "RigorMormist",
         LargeWaveFlag: {
             4: $("imgFlag4"),
             8: $("imgFlag3"),

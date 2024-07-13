@@ -25,7 +25,7 @@ oS.Init(
         },
         LvlEName: "TenFlowers",
         LargeWaveFlag: { 10: $("imgFlag1") },
-        StartGameMusic: "Watery Graves",
+        StartGameMusic: "LoonSkirmish",
         StartGame: function () {
             oS.SunFlowerNum = 0;
             NewEle(

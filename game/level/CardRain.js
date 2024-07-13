@@ -68,7 +68,7 @@ oS.Init(
         LevelName: "It's Raining Seeds",
         LvlEName: "CardRain",
         HaveFog: 4,
-        StartGameMusic: "Loonboon",
+        StartGameMusic: "RigorMormist",
         LargeWaveFlag: {
             10: $("imgFlag4"),
             20: $("imgFlag3"),

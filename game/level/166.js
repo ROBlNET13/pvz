@@ -81,7 +81,7 @@ oS.Init(
         DKind: 0,
         Coord: 2,
         LF: [0, 1, 1, 2, 2, 1, 1],
-        StartGameMusic: "Loonboon",
+        StartGameMusic: "RigorMormist",
         LargeWaveFlag: { 5: $("imgFlag3"), 10: $("imgFlag1") },
     },
     {

@@ -147,7 +147,7 @@ oS.Init(
                     oP.SetTimeoutTomZombie([oZombie]);
             }
         },
-        StartGameMusic: "Ultimate battle",
+        StartGameMusic: "Moongrains",
     },
     {
         AZ: [

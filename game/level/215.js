@@ -92,7 +92,7 @@ oS.Init(
         Coord: 2,
         HaveFog: 5,
         LF: [0, 1, 1, 2, 2, 1, 1],
-        StartGameMusic: "Kitanai Sekai",
+        StartGameMusic: "WateryGraves",
         LargeWaveFlag: {
             4: $("imgFlag3"),
             8: $("imgFlag2"),

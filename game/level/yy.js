@@ -22,7 +22,7 @@ oS.Init(
         },
         LargeWaveFlag: { 10: $("imgFlag1") },
         StaticCard: 0,
-        StartGameMusic: "Watery Graves",
+        StartGameMusic: "LoonSkirmish",
         StartGame: function () {
             StopMusic();
             PlayMusic((oS.LoadMusic = oS.StartGameMusic));

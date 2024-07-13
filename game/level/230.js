@@ -85,7 +85,7 @@ oS.Init(
         LvlEName: 230,
         SunNum: 9900,
         CanSelectCard: 1,
-        StartGameMusic: "Ultimate battle",
+        StartGameMusic: "Moongrains",
         LargeWaveFlag: {
             4: $("imgFlag3"),
             8: $("imgFlag2"),

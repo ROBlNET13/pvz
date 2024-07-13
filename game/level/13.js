@@ -47,7 +47,7 @@ oS.Init(
                     oBucketheadZombie,
                 ]);
         },
-        StartGameMusic: "Ultimate battle",
+        StartGameMusic: "Moongrains",
     },
     {
         AZ: [

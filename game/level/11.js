@@ -42,7 +42,7 @@ oS.Init(
         UserDefinedFlagFunc: function (a) {
             oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie]);
         },
-        StartGameMusic: "Ultimate battle",
+        StartGameMusic: "Moongrains",
         LoadAccess: function (a) {
             NewImg(
                 "dDave",

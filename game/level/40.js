@@ -171,7 +171,7 @@ oS.Init(
                                 a(0);
                                 StopMusic();
                                 PlayMusic(
-                                    (oS.LoadMusic = "Look up at the Sky")
+                                    (oS.LoadMusic = "ChooseYourSeeds")
                                 );
                             },
                             []

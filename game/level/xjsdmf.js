@@ -29,7 +29,7 @@ oS.Init(
             oP.FlagNum == oP.FlagZombies &&
                 oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
         },
-        StartGameMusic: "Watery Graves",
+        StartGameMusic: "LoonSkirmish",
         StartGame: function () {
             StopMusic();
             PlayMusic((oS.LoadMusic = oS.StartGameMusic));

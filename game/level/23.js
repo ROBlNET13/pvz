@@ -56,7 +56,7 @@ oS.Init(
                     oDuckyTubeZombie3,
                 ]);
         },
-        StartGameMusic: "Kitanai Sekai",
+        StartGameMusic: "WateryGraves",
     },
     {
         AZ: [

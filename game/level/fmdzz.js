@@ -14,7 +14,7 @@ oS.Init(
         LargeWaveFlag: { 10: $("imgFlag1") },
         StaticCard: 0,
         InitLawnMower: function () {},
-        StartGameMusic: "Watery Graves",
+        StartGameMusic: "LoonSkirmish",
         StartGame: function () {
             NewEle(
                 0,

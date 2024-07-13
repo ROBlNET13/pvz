@@ -20,7 +20,7 @@ oS.Init(
         },
         LvlEName: 5,
         LargeWaveFlag: { 10: $("imgFlag1") },
-        StartGameMusic: "Watery Graves",
+        StartGameMusic: "LoonSkirmish",
         LoadAccess: function (a) {
             NewImg(
                 "dDave",

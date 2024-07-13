@@ -67,8 +67,8 @@ oS.Init({
     LevelName: "Game initial interface",
     LevelEName: 0,
     ShowScroll: 1,
-    LoadMusic: "Faster",
-    StartGameMusic: "Faster",
+    LoadMusic: "MyScrapbook",
+    StartGameMusic: "MyScrapbook",
     AudioArr: [
         "losemusic",
         "winmusic",

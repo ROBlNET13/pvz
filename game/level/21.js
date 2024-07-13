@@ -52,7 +52,7 @@ oS.Init(
             "crazydavelong3",
         ],
         LargeWaveFlag: { 10: $("imgFlag1") },
-        StartGameMusic: "Kitanai Sekai",
+        StartGameMusic: "WateryGraves",
         LoadAccess: function (a) {
             NewImg(
                 "dDave",

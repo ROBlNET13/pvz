@@ -85,7 +85,7 @@ oS.Init(
             "crazydavelong3",
         ],
         StartGameMusic: "The Great Wall1",
-        LoadMusic: "Faster",
+        LoadMusic: "MyScrapbook",
         LoadAccess: function (a) {
             NewImg(
                 "dDave",
@@ -220,7 +220,7 @@ oS.Init(
                                 a(0);
                                 StopMusic();
                                 PlayMusic(
-                                    (oS.LoadMusic = "Look up at the Sky")
+                                    (oS.LoadMusic = "ChooseYourSeeds")
                                 );
                             },
                             []
