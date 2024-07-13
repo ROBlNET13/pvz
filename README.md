@@ -12,11 +12,13 @@ This version contains new content such as improved music, Balloonatic, Vasebreak
 
 The developers/modders of this web game **do not** claim ownership of any assets from the official _Plants vs. Zombies_ franchise. This game has **no monetization** features (e.g. advertisements, popups)
 
-You are not allowed to use this fangame on your website without written permission by the mod developers first. Below is a list of websites explicity allowed to use our fangame:
+You are not allowed to use this fangame on your website without written permission by the mod developers first. Below is a list of websites allowed to use our fangame:
 
 -   [Our official, ad-free site **(Recommended)**](https://roblnet13.github.io/pvz)
 -   [MiniPlay and its family of websites](https://www.miniplay.com/game/plants-vs-zombies)
 -   [KBH Games](https://kbhgames.com/game/plants-vs-zombies)
+
+**We have no control over the content on the above website, except for ours. We accept no responsibility for what the website owners may choose to do with our game.**
 
 ---
 
