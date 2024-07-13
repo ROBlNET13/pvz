@@ -188,3 +188,36 @@ let checkInterval2 = setInterval(() => {
         };
     }
 }, 100);
+
+let playingSounds = [];
+function PlaySound2(path, name, volume = 1, loop = false) {
+    path = `audio/${path}`;
+    // console.log(`Playing sound: ${path}`);
+    let audio = new Audio(path);
+    audio.volume = volume;
+    audio.loop = loop;
+    audio.play();
+    playingSounds.push(audio);
+    // remove it after it's done playing
+    audio.onended = function () {
+        playingSounds.splice(playingSounds.indexOf(audio), 1);
+    };
+}
+function StopSound2(name) {
+    // console.log(`Stopping sound: ${name}`);
+    playingSounds.forEach((audio) => {
+        if (audio.src.includes(name)) {
+            audio.pause();
+        }
+    });
+
+}
+function EditSound2(name, volume = 1, loop = false) {
+    // console.log(`Editing sound: ${name}`);
+    playingSounds.forEach((audio) => {
+        if (audio.src.includes(name)) {
+            audio.volume = volume;
+            audio.loop = loop;
+        }
+    });
+}
