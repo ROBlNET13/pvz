@@ -26,6 +26,8 @@ You are not allowed to use this fangame on your website without written permissi
 
 ###### ©️ 2024 ROBlNET13 and ClaytonTDM. This repository is released under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International license](https://github.com/ROBlNET13/pvz/blob/main/LICENSE).
 
+###### Plants vs. Zombies MODDED is an unofficial modification and is not affiliated with, endorsed by, or associated with PopCap Games, Electronic Arts (EA), or the official Plants vs. Zombies game. All intellectual property, trademarks, and copyrights related to the original Plants vs. Zombies game are the property of PopCap Games and EA. This mod is created by fans for entertainment purposes only, and no commercial gain is sought or obtained from its distribution. Use of this mod is at your own risk, and the creators of the mod are not liable for any damages or issues that may arise from its use.
+
 <!-- OLD README:
 cool pvz game that works as a browser extension n stuff
 
