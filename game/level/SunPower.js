@@ -23,7 +23,7 @@ oS.Init(
         LvlClearFunc: function () {
             oSym.TimeStep = 10;
         },
-        LvlEName: "TenFlowers",
+        LvlEName: "SunPower",
         LargeWaveFlag: { 10: $("imgFlag1") },
         StartGameMusic: "LoonSkirmish",
         StartGame: function () {

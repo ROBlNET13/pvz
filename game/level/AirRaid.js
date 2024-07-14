@@ -51,7 +51,7 @@ oS.Init(
         backgroundImage: "images/interface/background1.jpg",
         CanSelectCard: 1,
         LevelName: "Air Raid",
-        LvlEName: "KongXi",
+        LvlEName: "AirRaid",
         SunNum: 500,
         LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
     },

@@ -50,7 +50,7 @@ oS.Init(
         LF: [0, 0, 1, 1, 1, 0],
         ZF: [0, 1, 1, 1, 1, 1],
         LevelName: "Unsodded",
-        LvlEName: "PovertyOfTheSoil",
+        LvlEName: "Unsodded",
         LargeWaveFlag: {
             10: $("imgFlag3"),
             20: $("imgFlag2"),

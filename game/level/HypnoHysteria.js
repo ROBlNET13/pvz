@@ -1,29 +1,28 @@
 oS.Init(
     {
-        PName: [oStarfruit],
+        PName: [oHypnoShroom],
         ZName: [
             oZombie,
-            oZombie2,
-            oZombie3,
             oConeheadZombie,
-            oBucketheadZombie,
-            oScreenDoorZombie,
-            oHeiFootballZombie,
             oDancingZombie,
+            oFootballZombie,
+            oHeiFootballZombie,
         ],
         PicArr: [
-            "images/interface/backgroundX2.jpg",
+            "images/interface/background2.jpg",
             "images/interface/trophy.png",
         ],
-        LF: [0, 1, 1, 3, 1, 1, 0],
-        backgroundImage: "images/interface/backgroundX2.jpg",
+        backgroundImage: "images/interface/background2.jpg",
         CanSelectCard: 0,
-        LevelName: "Stargazing",
-        LvlEName: "GUANXIN",
-        LargeWaveFlag: { 20: $("imgFlag1") },
-        StaticCard: 0,
         DKind: 0,
-        StartGameMusic: "journey1",
+        LevelName: "Hypno Hysteria",
+        LvlEName: "HypnoHysteria",
+        LvlClearFunc: function () {
+            oSym.TimeStep = 10;
+        },
+        LargeWaveFlag: { 10: $("imgFlag1") },
+        StaticCard: 0,
+        StartGameMusic: "LoonSkirmish",
         StartGame: function () {
             StopMusic();
             PlayMusic((oS.LoadMusic = oS.StartGameMusic));
@@ -83,21 +82,17 @@ oS.Init(
     },
     {
         AZ: [
-            [oZombie, 3, 10],
-            [oZombie2, 2, 10],
-            [oZombie3, 1, 1],
-            [oBucketheadZombie, 1, 3],
-            [oScreenDoorZombie, 1, 2],
-            [oConeheadZombie, 3, 3],
-            [oHeiFootballZombie, 2, 1],
-            [oDancingZombie, 1, 10],
+            [oZombie, 4, 1],
+            [oConeheadZombie, 3, 6],
+            [oFootballZombie, 1, 1],
+            [oHeiFootballZombie, 1, 10],
         ],
-        FlagNum: 20,
+        FlagNum: 10,
         FlagToSumNum: {
-            a1: [3, 5, 7, 10, 13, 15, 19, 20, 23, 25, 99],
-            a2: [1, 2, 3, 8, 4, 5, 6, 15, 7, 8, 9, 99],
+            a1: [3, 5, 9, 10, 13, 15, 19],
+            a2: [3, 6, 12, 20, 24, 36, 48, 60],
         },
-        FlagToMonitor: { 19: [ShowFinalWave, 0] },
+        FlagToMonitor: { 9: [ShowLargeWave, 0] },
         FlagToEnd: function () {
             NewImg(
                 "imgSF",
@@ -120,9 +115,6 @@ oS.Init(
     },
     {
         GetChoseCard: function (b) {
-            if (oS.Chose) {
-                return;
-            }
             var a = ArCard.length;
             while (a--) {
                 ArCard[a].DID == b && ((oS.ChoseCard = a), (a = 0));
@@ -130,12 +122,9 @@ oS.Init(
             return oS.ChoseCard;
         },
         ChosePlant: function (a, b) {
-            PlayAudio("seedlift");
             a = window.event || a;
             var f = ArCard[oS.ChoseCard],
-                e =
-                    a.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-                    EElement.scrollLeft,
+                e = a.clientX + EBody.scrollLeft || EElement.scrollLeft,
                 d = a.clientY + EBody.scrollTop || EElement.scrollTop,
                 c = f.PName.prototype;
             oS.Chose = 1;
@@ -174,22 +163,16 @@ oS.Init(
             oS.ChoseCard = "";
             GroundOnmousemove = function () {};
         },
-        GrowPlant: function (l, c, b, f, a) {
-            var j = oS.ChoseCard,
-                g = ArCard[j],
-                i = g.PName,
-                k = i.prototype,
+        GrowPlant: function (k, c, b, f, a) {
+            var i = oS.ChoseCard,
+                g = ArCard[i],
+                h = g.PName,
+                j = h.prototype,
                 d = g.DID,
-                e,
-                h = oGd.$LF[f];
-            k.CanGrow(l, f, a) &&
+                e;
+            j.CanGrow(k, f, a) &&
                 (function () {
-                    PlayAudio(
-                        h != 2
-                            ? "plant" + Math.floor(1 + Math.random() * 2)
-                            : "plant_water"
-                    );
-                    new i().Birth(c, b, f, a, l);
+                    new h().Birth(c, b, f, a, k);
                     oSym.addTask(20, SetNone, [
                         SetStyle($("imgGrowSoil"), {
                             left: c - 30 + "px",
@@ -201,17 +184,12 @@ oS.Init(
                     ClearChild($("MovePlant"), $("MovePlantAlpha"));
                     $("dCardList").removeChild((e = $(d)));
                     e = null;
-                    ArCard.splice(j, 1);
+                    ArCard.splice(i, 1);
                     oS.ChoseCard = "";
                     oS.Chose = 0;
                     GroundOnmousemove = function () {};
                 })();
         },
-        ViewPlantTitle: function (a) {
-            var c = $("dTitle"),
-                b = ArCard[a].PName.prototype;
-            c.innerHTML = b.CName + "<br>" + b.Tooltip;
-            SetStyle(c, { top: 60 * a + "px", left: "100px" });
-        },
+        ViewPlantTitle: function (a) {},
     }
 );

@@ -10,7 +10,7 @@ oS.Init(
         CanSelectCard: 0,
         DKind: 0,
         LevelName: "Triple Threat Defense",
-        LvlEName: "FMDZZ",
+        LvlEName: "TripleThreatDefense",
         LargeWaveFlag: { 10: $("imgFlag1") },
         StaticCard: 0,
         InitLawnMower: function () {},
