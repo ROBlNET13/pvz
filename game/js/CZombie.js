@@ -7050,7 +7050,7 @@ var CZombies = (function (b, a) {
             a + "Walk.gif",
             a + "Drop.gif",
             a + "Boom2.gif",
-            a + "BalloonZombie.gif",
+            a + "1.gif",
         ];
     })(),
     Produce:
