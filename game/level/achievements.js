@@ -64,7 +64,6 @@ oS.Init({
                 onclick: function () {
                     SelectModal("" + "izombie3" + "");
                 },
-                
             }
         );
     },

@@ -209,7 +209,6 @@ function StopSound2(name) {
             audio.pause();
         }
     });
-
 }
 function EditSound2(name, loop = false) {
     // console.log(`Editing sound: ${name}`);

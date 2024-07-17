@@ -191,9 +191,7 @@ oS.Init(
                                 ClearChild($("dDave"));
                                 a(0);
                                 StopMusic();
-                                PlayMusic(
-                                    (oS.LoadMusic = "ChooseYourSeeds")
-                                );
+                                PlayMusic((oS.LoadMusic = "ChooseYourSeeds"));
                             },
                             []
                         );
