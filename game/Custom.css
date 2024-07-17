@@ -3,10 +3,10 @@
     font-family: "briannetod";
     src: url("fonts/briannetod.ttf");
 }
-/* dwarvesc.ttf */
+/* dwarventodcraft.ttf */
 @font-face {
-    font-family: "dwarvesc";
-    src: url("fonts/dwarvesc.ttf");
+    font-family: "dwarventodcraft";
+    src: url("fonts/dwarventodcraft.ttf");
 }
 /* houseofterrormedium.ttf */
 @font-face {
@@ -81,7 +81,7 @@
 #dHandBookZ > div.title,
 #dHandBookZombieName,
 #dNewPlantTitle {
-    font-family: "dwarvesc" !important;
+    font-family: "dwarventodcraft" !important;
 }
 .hidden {
     display: none;
@@ -95,10 +95,13 @@
 }
 #dHandBookZombieName {
     color: #06bd00 !important;
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+    /* text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
         -1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
+        */
+    text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
+        #757692 2px 0px, #757692 1px 2px, #757692 2px 2px !important;
     font-size: x-large !important;
-    -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important;
+    /* -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important; */
     margin-left: -10px !important;
     margin-top: 4px;
 }
@@ -112,7 +115,7 @@
     border-bottom: 0 !important;
     background: url("images/SeedChooser_Button.png") no-repeat !important;
     background-size: contain !important;
-    font-family: dwarvesc !important;
+    font-family: dwarventodcraft !important;
     color: #d0932b !important;
     font-size: 18px !important;
     width: 150px !important;
@@ -125,10 +128,13 @@
 }
 #dNewPlantName {
     color: #d0932b !important;
-    font-family: dwarvesc !important;
+    font-family: dwarventodcraft !important;
     text-transform: uppercase;
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+    /* text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
         -1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
+        */
+    text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
+        #757692 2px 0px, #757692 1px 2px, #757692 2px 2px !important;
     -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important;
     margin-top: -23px;
 }
@@ -147,8 +153,11 @@
 }
 #dHandBookPlantName {
     color: #d0932b !important;
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+    /* text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
         -1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
+        */
+    text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
+        #757692 2px 0px, #757692 1px 2px, #757692 2px 2px !important;
     font-size: x-large !important;
     -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important;
     margin-left: -10px !important;
@@ -224,4 +233,19 @@ label {
     text-shadow: 0px 2px 0px #000000, 2px 2px 0px #000000, 2px 0px 0px #000000,
         2px -2px 0px #000000, 0px -2px 0px #000000, -2px -2px 0px #000000,
         -2px 0px 0px #000000, -2px 2px 0px #000000 !important;
+}
+
+#iSurfaceBackground .trophy {
+    position: absolute;
+    background: url(images/interface/trophy.png) no-repeat;
+    background-size: contain !important;
+    left: 469px;
+    top: 468px;
+    width: 99px;
+    height: 99px;
+    cursor: pointer;
+}
+
+#iSurfaceBackground .trophy:hover {
+    filter: brightness(1.1);
 }
