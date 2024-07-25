@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Changelog</title>
-    </head>
-    <body>
-        <ul id="commit-list"></ul>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Changelog</title>
+	</head>
+	<body>
+		<ul id="commit-list"></ul>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const commitList = document.getElementById("commit-list");
-                const apiUrl =
-                    "https://api.github.com/repos/roblnet13/pvz/commits";
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const commitList = document.getElementById("commit-list");
+				const apiUrl =
+					"https://api.github.com/repos/roblnet13/pvz/commits";
 
-                fetch(apiUrl)
-                    .then((response) => response.json())
-                    .then((commits) => {
-                        commits.forEach((commit) => {
-                            const listItem = document.createElement("li");
-                            listItem.textContent = `${commit.commit.author.name}: ${commit.commit.message}`;
-                            commitList.appendChild(listItem);
-                        });
-                    })
-                    .catch((error) => {
-                        console.error("Error fetching commits:", error);
-                    });
-            });
-        </script>
-    </body>
+				fetch(apiUrl)
+					.then((response) => response.json())
+					.then((commits) => {
+						commits.forEach((commit) => {
+							const listItem = document.createElement("li");
+							listItem.textContent = `${commit.commit.author.name}: ${commit.commit.message}`;
+							commitList.appendChild(listItem);
+						});
+					})
+					.catch((error) => {
+						console.error("Error fetching commits:", error);
+					});
+			});
+		</script>
+	</body>
 </html>
