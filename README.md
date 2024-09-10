@@ -17,10 +17,9 @@ You are not allowed to use this fangame on your website without written permissi
 -   [Our official, ad-free site **(Recommended)**](https://roblnet13.github.io/pvz)
 -   [MiniPlay and its family of websites](https://www.miniplay.com/game/plants-vs-zombies)
 -   [KBH Games](https://kbhgames.com/game/plants-vs-zombies)
+-   [Joguinhos.NET](https://joguinhos.net)
 
 **We have no control over the content nor are we affiliated with the above websites, except for ours. We accept no responsibility for what the website owners may choose to do with our game.**
-
-The above websites are only listed as our content appeared on their websites before this restriction was set in place.
 
 **If requested, we will promptly take down this GitHub repo and the GitHub pages site. You may contact us at [claytontdm@gmail.com](mailto:claytontdm@gmail.com) and we will promptly remove this repo and all forks owned by us.**
 
