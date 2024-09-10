@@ -2887,6 +2887,7 @@ if (
 		"grymini.pl",
 		"roblnet13.github.io",
 		"kbhgames.com",
+		"joguinhos.net",
 		"file://",
 		"chrome-extension://",
 		"localhost",
