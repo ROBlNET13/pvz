@@ -15,9 +15,9 @@ The developers/modders of this web game **do not** claim ownership of any assets
 You are not allowed to use this fangame on your website without written permission by the mod developers first. Below is a list of websites allowed to use our fangame:
 
 -   [Our official, ad-free site **(Recommended)**](https://roblnet13.github.io/pvz)
+-   [Joguinhos.NET](https://joguinhos.net)
 -   [MiniPlay and its family of websites](https://www.miniplay.com/game/plants-vs-zombies)
 -   [KBH Games](https://kbhgames.com/game/plants-vs-zombies)
--   [Joguinhos.NET](https://joguinhos.net)
 
 **We have no control over the content nor are we affiliated with the above websites, except for ours. We accept no responsibility for what the website owners may choose to do with our game.**
 
