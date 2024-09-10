@@ -10,7 +10,7 @@ This version contains new content such as improved music, Balloonatic, Vasebreak
 
 ## Legal Info
 
-The developers/modders of this web game **do not** claim ownership of any assets from the official _Plants vs. Zombies_ franchise. This game has **no monetization** features (e.g. advertisements, popups)
+The developers/modders of this web game **do not** claim ownership of any assets from the official _Plants vs. Zombies_ franchise. Our game has **no monetization** features (e.g. advertisements, popups)
 
 You are not allowed to use this fangame on your website without written permission by the mod developers first. Below is a list of websites allowed to use our fangame:
 
