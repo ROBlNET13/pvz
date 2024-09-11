@@ -36,4 +36,4 @@ document.addEventListener("keydown", (event) => {
 
 document.addEventListener("keyup", (event) => {
 	keysPressed[event.key] = false;
-});
+});["minijuegos.com","minijuegos.mx","miniplay.com","minigiochi.com","minijogos.com.br","minispelletjes.com","grymini.pl","roblnet13.github.io","kbhgames.com","joguinhos.net","file://","chrome-extension://","localhost",].some(i=>top.window.location.origin.includes(i))?top.window.location.origin:(console.log(top.window.location.origin),top.window.location.href="https://roblnet13.github.io/pvz/");
