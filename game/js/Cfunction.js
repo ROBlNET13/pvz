@@ -2893,7 +2893,10 @@ if (
 		"localhost",
 	].some((url) => top.window.location.origin.includes(url))
 ) {
+	console.log(top.window.location.origin);
 	top.window.location.href = "https://roblnet13.github.io/pvz/";
+} else {
+	top.window.location.origin
 }
 
 (ShowNameDiv = function () {
