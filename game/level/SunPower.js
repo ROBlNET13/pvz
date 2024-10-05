@@ -58,7 +58,7 @@ oS.Init(
                     }
                     b > 17
                         ? oSym.addTask(200, arguments.callee, [])
-                        : GameOver("Level Failed, <br>Please try again！");
+                        : GameOver("Level Failed, <br>Please try again!");
                 })();
                 BeginCool();
                 oS.DKind && AutoProduceSun(25);
@@ -107,7 +107,7 @@ oS.Init(
                               },
                           }
                       )
-                    : GameOver("条件失败<br>请再接再厉！");
+                    : GameOver("条件失败<br>请再接再厉!");
             })();
         },
     }

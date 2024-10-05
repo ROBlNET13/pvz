@@ -131,7 +131,7 @@ oS.Init(
                             },
                             []
                         );
-                        innerText(c, "难度也会随着层数上涨！");
+                        innerText(c, "难度也会随着层数上涨!");
                         break;
                     case 3:
                         PlayAudio(
@@ -149,7 +149,7 @@ oS.Init(
                             },
                             []
                         );
-                        innerText(c, "祝你挑战愉快，别丢掉脑子哈！");
+                        innerText(c, "祝你挑战愉快，别丢掉脑子哈!");
                         break;
                     case 4:
                         $("dDave").src = "images/interface/Dave2.gif";

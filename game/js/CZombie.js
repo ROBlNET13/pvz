@@ -4425,7 +4425,7 @@ var CZombies = (function (b, a) {
             return "display:none";
         },
         Produce:
-            '通常在最后一波时出现于池塘里。<p>韧性：<font color="#FF0000">极高</font><br>只在水池Level出现</font></p>你一定很好奇军舰上的三只僵尸藏在水里是什么滋味，他们眼睁睁看着一只只同伴坠入海水生出，不过这些都不重要：“脑子！”。',
+            '通常在最后一波时出现于池塘里。<p>韧性：<font color="#FF0000">极高</font><br>只在水池Level出现</font></p>你一定很好奇军舰上的三只僵尸藏在水里是什么滋味，他们眼睁睁看着一只只同伴坠入海水生出，不过这些都不重要：“脑子!”。',
         PicArr: (function () {
             var a = "images/Zombies/WarshipsZombie/";
             return [
@@ -5166,7 +5166,7 @@ var CZombies = (function (b, a) {
         beAttackedPointR: 290,
         BookHandBack: 4.9,
         Produce:
-            '强劲有力的机械潜水艇，可以在水中躲过大多数攻击。<p>韧性：<font color="#FF0000">极高</font><br>特点：<font color="#FF0000">潜入水底以避免遭到攻击<br>只在水池Level出现</font></p>这是由作者僵尸亲自打造的无敌潜水艇,不要妄想击碎他，他的猛烈进攻，只会让你的植物死得更快！。',
+            '强劲有力的机械潜水艇，可以在水中躲过大多数攻击。<p>韧性：<font color="#FF0000">极高</font><br>特点：<font color="#FF0000">潜入水底以避免遭到攻击<br>只在水池Level出现</font></p>这是由作者僵尸亲自打造的无敌潜水艇,不要妄想击碎他，他的猛烈进攻，只会让你的植物死得更快!。',
         PicArr: (function () {
             var a = "images/Zombies/SubZombie/";
             return [
@@ -7453,7 +7453,7 @@ var CZombies = (function (b, a) {
         ];
     })(),
     Produce:
-        '贱鱼僵尸利用鱼形飞行器，躲过了陆地上的攻击。<p>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">飞行</font><br>弱点：<font color="#FF0000">仙人掌</font></p>曾经站在巨人肩膀上的他也想要体验做巨人的感觉，他把鱼形飞行器系在背上，可让他万万没想到，这玩意居然让自己飞了起来！',
+        '贱鱼僵尸利用鱼形飞行器，躲过了陆地上的攻击。<p>速度：<font color="#FF0000">快</font><br>特点：<font color="#FF0000">飞行</font><br>弱点：<font color="#FF0000">仙人掌</font></p>曾经站在巨人肩膀上的他也想要体验做巨人的感觉，他把鱼形飞行器系在背上，可让他万万没想到，这玩意居然让自己飞了起来!',
     GetDX: function () {
         return -10;
     },
@@ -8299,7 +8299,7 @@ oCBucketheadZombie = InheritO(
             ];
         })(),
         Produce:
-            '秦始皇僵尸好霸气，还威风，有木有？<p>韧性：<font color="#FF0000">非常高</font><br>速度：<font color="#FF0000">慢</font></p>秦始皇做梦都想长生不老！自从变成僵尸，一日三餐吃脑子，果然长生不老！每天在无尽的长城中，追寻脑子......',
+            '秦始皇僵尸好霸气，还威风，有木有？<p>韧性：<font color="#FF0000">非常高</font><br>速度：<font color="#FF0000">慢</font></p>秦始皇做梦都想长生不老!自从变成僵尸，一日三餐吃脑子，果然长生不老!每天在无尽的长城中，追寻脑子......',
     })),
     (oWJY = InheritO(oEunZombie, {
         EName: "oWJY",
@@ -8332,7 +8332,7 @@ oCBucketheadZombie = InheritO(
             ];
         })(),
         Produce:
-            '新一代僵王博士登场。<p>体力：<font color="#FF0000">不死之身</font></p>喂！你怎么会在出现在游戏里？我总会听到有玩家这么问。嗯，这都要怪一个叫严启伦的家伙。',
+            '新一代僵王博士登场。<p>体力：<font color="#FF0000">不死之身</font></p>喂!你怎么会在出现在游戏里？我总会听到有玩家这么问。嗯，这都要怪一个叫严启伦的家伙。',
     }));
 (oWJY1 = InheritO(oDuckyTubeZombie1, {
     EName: "oWJY1",

@@ -900,7 +900,7 @@ var $User = (function () {
                     }
                 }, 100);
             };
-            image.style.animation = `moveLeft${balloonId} 13s linear, bobbing${balloonId} 2s ease-in-out infinite`;
+            image.style.animation = `moveLeft${balloonId} ${13 / $User.Visitor.TimeStep}s linear, bobbing${balloonId} ${2 / $User.Visitor.TimeStep}s ease-in-out infinite`;
             image.style.top = `${randomY}px`;
             image.style.cursor = "pointer";
             image.style.zIndex = "999";

@@ -147,7 +147,7 @@ oS.Init(
                             },
                             []
                         );
-                        innerText(c, "你获得了激光蚕豆！");
+                        innerText(c, "你获得了激光蚕豆!");
                         break;
                     case 3:
                         PlayAudio("crazydaveshort2");
@@ -183,7 +183,7 @@ oS.Init(
                         );
                         innerText(
                             c,
-                            "你觉得他太贵？面对一波一波得僵尸，你已经没有选择了！"
+                            "你觉得他太贵？面对一波一波得僵尸，你已经没有选择了!"
                         );
                         break;
                     case 5:

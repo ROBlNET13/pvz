@@ -134,7 +134,7 @@ oS.Init(
                             []
                         );
                         c.innerHTML =
-                            '<span style="font-size:22px">秦始皇僵尸！！！</span>';
+                            '<span style="font-size:22px">秦始皇僵尸!!!</span>';
                         break;
                     case 5:
                         PlayAudio(
@@ -153,7 +153,7 @@ oS.Init(
                             []
                         );
                         c.innerHTML =
-                            '<span style="font-size:22px">多种些机枪拆了他吧，我要回去！</span>';
+                            '<span style="font-size:22px">多种些机枪拆了他吧，我要回去!</span>';
                         break;
                     case 6:
                         $("dDave").src = "images/interface/Dave2.gif";

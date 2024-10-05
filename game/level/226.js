@@ -123,7 +123,7 @@ oS.Init(
                             },
                             []
                         );
-                        innerText(c, "伙计，离一百层越来越近了！");
+                        innerText(c, "伙计，离一百层越来越近了!");
                         break;
                     case 1:
                         PlayAudio(
@@ -159,7 +159,7 @@ oS.Init(
                             },
                             []
                         );
-                        innerText(c, "至少现在雾已经退去了，加油吧！");
+                        innerText(c, "至少现在雾已经退去了，加油吧!");
                         break;
                     case 3:
                         $("dDave").src = "images/interface/Dave2.gif";

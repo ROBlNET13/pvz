@@ -3887,7 +3887,7 @@ BirthStyle: function (c, e, b, a) {
         Tooltip:
             'Attacks any lane and shoots down balloon zombies <p> <font color="#FF0000">(requires lily pad)</font>',
         Produce:
-            '猫尾草能够攻击气球僵尸或任何一条路上的僵尸。<p><font color="#FF0000">必须种在睡莲上。</font></p>魔法猫咪！稳辣！稳辣！猫尾草不知道从哪里听的这句话，总之在听完之后，她破防了，她怒骂道：“一群*东西！我下次就用我对待僵尸的方式十倍来对待你们！”',
+            '猫尾草能够攻击气球僵尸或任何一条路上的僵尸。<p><font color="#FF0000">必须种在睡莲上。</font></p>魔法猫咪!稳辣!稳辣!猫尾草不知道从哪里听的这句话，总之在听完之后，她破防了，她怒骂道：“一群*东西!我下次就用我对待僵尸的方式十倍来对待你们!”',
         TriggerCheck: function (b, a) {
             this.AttackCheck2(b) &&
                 ((this.canTrigger = 0), this.CheckLoop(b.id, a));
@@ -4750,7 +4750,7 @@ BirthStyle: function (c, e, b, a) {
         AudioArr: ["cherrybomb"],
         Tooltip: "Blows up all zombies in an area",
         Produce:
-            'Cherry bomb can blow up all zombies in a certain area.</font><br>One will detonate immediately. So please plant them on zombies</font><br>around them.<p>Harm:<font color="#FF0000">huge</font><br>Scope:<font color="#FF0000">All zombies in a medium area</font><br>Instructions:<font color="#FF0000">Instant use, it explodes immediately</font></p>“I am going to explode. "Cherry No. 1 said. "No, we are</font><br>‘炸’开了！”Said its brother Cherry No. 2. After intense discussion</font><br>After discussion, they finally agreed on the term "explosion."”',
+            'Cherry bomb can blow up all zombies in a certain area.</font><br>One will detonate immediately. So please plant them on zombies</font><br>around them.<p>Harm:<font color="#FF0000">huge</font><br>Scope:<font color="#FF0000">All zombies in a medium area</font><br>Instructions:<font color="#FF0000">Instant use, it explodes immediately</font></p>“I am going to explode. "Cherry No. 1 said. "No, we are</font><br>‘炸’开了!”Said its brother Cherry No. 2. After intense discussion</font><br>After discussion, they finally agreed on the term "explosion."”',
         InitTrigger: function () {},
         getHurt: function () {},
         PrivateBirth: function (a) {
@@ -4811,7 +4811,7 @@ BirthStyle: function (c, e, b, a) {
         AudioArr: ["cherrybomb"],
         Tooltip: "Blows up all zombies in an area",
         Produce:
-            'Cherry bomb can blow up all zombies in a certain area.</font><br>One will detonate immediately. So please plant them on zombies</font><br>around them.<p>Harm:<font color="#FF0000">huge</font><br>Scope:<font color="#FF0000">All zombies in a medium area</font><br>Instructions:<font color="#FF0000">Instant use, it explodes immediately</font></p>“I am going to explode. "Cherry No. 1 said. "No, we are</font><br>‘炸’开了！”Said its brother Cherry No. 2. After intense discussion</font><br>After discussion, they finally agreed on the term "explosion."”',
+            'Cherry bomb can blow up all zombies in a certain area.</font><br>One will detonate immediately. So please plant them on zombies</font><br>around them.<p>Harm:<font color="#FF0000">huge</font><br>Scope:<font color="#FF0000">All zombies in a medium area</font><br>Instructions:<font color="#FF0000">Instant use, it explodes immediately</font></p>“I am going to explode. "Cherry No. 1 said. "No, we are</font><br>‘炸’开了!”Said its brother Cherry No. 2. After intense discussion</font><br>After discussion, they finally agreed on the term "explosion."”',
         InitTrigger: function () {},
         getHurt: function () {},
         PrivateBirth: function (a) {
@@ -4871,7 +4871,7 @@ BirthStyle: function (c, e, b, a) {
         AudioArr: ["jalapeno"],
         Tooltip: "Destroys an entire lane of zombies",
         Produce:
-            '火爆辣椒可以摧毁一整条线上的敌人。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">整条线上的僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎！！！”火爆辣椒说。他现在</font><br>不会爆炸，还不到时候，不过快了，喔~，快了快</font><br>了，快来了。他知道，他感受到了，他一生都是</font><br>在等待这个时刻！',
+            '火爆辣椒可以摧毁一整条线上的敌人。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">整条线上的僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎!!!”火爆辣椒说。他现在</font><br>不会爆炸，还不到时候，不过快了，喔~，快了快</font><br>了，快来了。他知道，他感受到了，他一生都是</font><br>在等待这个时刻!',
         PrivateBirth: function (a) {
             oSym.addTask(
                 40,
@@ -4930,7 +4930,7 @@ BirthStyle: function (c, e, b, a) {
         AudioArr: ["jalapeno"],
         Tooltip: "Destroys an entire lane of zombies",
         Produce:
-            '火爆辣椒可以摧毁一整条线上的敌人。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">整条线上的僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎！！！”火爆辣椒说。他现在</font><br>不会爆炸，还不到时候，不过快了，喔~，快了快</font><br>了，快来了。他知道，他感受到了，他一生都是</font><br>在等待这个时刻！',
+            '火爆辣椒可以摧毁一整条线上的敌人。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">整条线上的僵尸</font><br>用法：<font color="#FF0000">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎!!!”火爆辣椒说。他现在</font><br>不会爆炸，还不到时候，不过快了，喔~，快了快</font><br>了，快来了。他知道，他感受到了，他一生都是</font><br>在等待这个时刻!',
         PrivateBirth: function (a) {
             oSym.addTask(
                 40,
@@ -5349,7 +5349,7 @@ BirthStyle: function (c, e, b, a) {
         AudioArr: ["squash_hmm", "gargantuar_thump"],
         Tooltip: "Squashes zombies",
         Produce:
-            '窝瓜会压扁第一个接近它的僵尸。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">短，覆盖所有它压到的僵尸。</font><br>用法：<font color="#FF0000">单独使用</font></p>“我准备好了！”窝瓜大吼道，“干吧！！算我</font><br>一份！没人比我厉害！我就是你要的人！来啊！</font><br>等啥啊？要的就是这个！”',
+            '窝瓜会压扁第一个接近它的僵尸。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">短，覆盖所有它压到的僵尸。</font><br>用法：<font color="#FF0000">单独使用</font></p>“我准备好了!”窝瓜大吼道，“干吧!!算我</font><br>一份!没人比我厉害!我就是你要的人!来啊!</font><br>等啥啊？要的就是这个!”',
         GetDY: function (b, c, a) {
             return a[0] ? -21 : -10;
         },
@@ -5443,7 +5443,7 @@ BirthStyle: function (c, e, b, a) {
         AudioArr: ["squash_hmm", "gargantuar_thump"],
         Tooltip: "Squashes zombies",
         Produce:
-            '窝瓜会压扁第一个接近它的僵尸。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">短，覆盖所有它压到的僵尸。</font><br>用法：<font color="#FF0000">单独使用</font></p>“我准备好了！”窝瓜大吼道，“干吧！！算我</font><br>一份！没人比我厉害！我就是你要的人！来啊！</font><br>等啥啊？要的就是这个！”',
+            '窝瓜会压扁第一个接近它的僵尸。<p>Harm:<font color="#FF0000">极高</font><br>Scope:<font color="#FF0000">短，覆盖所有它压到的僵尸。</font><br>用法：<font color="#FF0000">单独使用</font></p>“我准备好了!”窝瓜大吼道，“干吧!!算我</font><br>一份!没人比我厉害!我就是你要的人!来啊!</font><br>等啥啊？要的就是这个!”',
         GetDY: function (b, c, a) {
             return a[0] ? -21 : -10;
         },
@@ -6185,7 +6185,7 @@ return c && c.EName == "oChomper"
         AudioArr: ["coffee", "wakeup"],
         Tooltip: "Plant it on a mushroom to wake it up",
         Produce:
-            '咖啡豆，可以唤醒睡眠中的蘑菇们。<p>Instructions:<font color="#FF0000">单独使用，立即生效</font><br>Features:<font color="#FF0000">可以种在其他植物上，用来唤醒蘑菇们</font></p>咖啡豆：“嘿，伙计们！嘿，怎么回事？是谁？</font><br>嘿！你瞧见那个东西没？什么东西？哇！是狮子</font><br>！”嗯，咖啡豆确定，这样可以让自己很兴奋</font><br>。',
+            '咖啡豆，可以唤醒睡眠中的蘑菇们。<p>Instructions:<font color="#FF0000">单独使用，立即生效</font><br>Features:<font color="#FF0000">可以种在其他植物上，用来唤醒蘑菇们</font></p>咖啡豆：“嘿，伙计们!嘿，怎么回事？是谁？</font><br>嘿!你瞧见那个东西没？什么东西？哇!是狮子</font><br>!”嗯，咖啡豆确定，这样可以让自己很兴奋</font><br>。',
         InitTrigger: function () {},
         GetDBottom: function () {
             return 49;
@@ -6667,7 +6667,7 @@ return c && c.EName == "oChomper"
         ],
         Tooltip: "Long-ranged shooter that hides when enemies get near it",
         Produce:
-            '胆小菇是一种远程射手，敌人接近后会躲起来。<p>Harm:<font color="#FF0000">普通</font><br>Features:<font color="#FF0000">敌人接近后就停止攻击<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“</font><br>走开！我不想见任何人。除非……除非你是马</font><br>戏团的人。”',
+            '胆小菇是一种远程射手，敌人接近后会躲起来。<p>Harm:<font color="#FF0000">普通</font><br>Features:<font color="#FF0000">敌人接近后就停止攻击<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“</font><br>走开!我不想见任何人。除非……除非你是马</font><br>戏团的人。”',
         GetDX: CPlants.prototype.GetDX,
         getTriggerRange: CPlants.prototype.getTriggerRange,
         getTriggerR: function (c) {
@@ -6813,7 +6813,7 @@ return c && c.EName == "oChomper"
         ],
         Tooltip: "Long-ranged shooter that hides when enemies get near it",
         Produce:
-            '胆小菇是一种远程射手，敌人接近后会躲起来。<p>Harm:<font color="#FF0000">普通</font><br>Features:<font color="#FF0000">敌人接近后就停止攻击<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“</font><br>走开！我不想见任何人。除非……除非你是马</font><br>戏团的人。”',
+            '胆小菇是一种远程射手，敌人接近后会躲起来。<p>Harm:<font color="#FF0000">普通</font><br>Features:<font color="#FF0000">敌人接近后就停止攻击<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“</font><br>走开!我不想见任何人。除非……除非你是马</font><br>戏团的人。”',
         GetDX: CPlants.prototype.GetDX,
         getTriggerRange: CPlants.prototype.getTriggerRange,
         getTriggerR: function (c) {
@@ -6960,7 +6960,7 @@ return c && c.EName == "oChomper"
         ],
         Tooltip: "Long-ranged shooter that hides when enemies get near it",
         Produce:
-            '胆小菇是一种远程射手，敌人接近后会躲起来。<p>Harm:<font color="#FF0000">普通</font><br>Features:<font color="#FF0000">敌人接近后就停止攻击<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“</font><br>走开！我不想见任何人。除非……除非你是马</font><br>戏团的人。”',
+            '胆小菇是一种远程射手，敌人接近后会躲起来。<p>Harm:<font color="#FF0000">普通</font><br>Features:<font color="#FF0000">敌人接近后就停止攻击<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“</font><br>走开!我不想见任何人。除非……除非你是马</font><br>戏团的人。”',
         GetDX: CPlants.prototype.GetDX,
         getTriggerRange: CPlants.prototype.getTriggerRange,
         getTriggerR: function (c) {
@@ -9646,7 +9646,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
         ],
         Tooltip: "Grabs zombies in front of it",
         Produce:
-            '荆棘海草会用力抓住靠近他的任何东西并拖入</font><br>地下。<p>Harm:<font color="FF0000">巨大</font><br>Scope:<font color="#FF0000">一格</font><br>Instructions:<font color="#FF0000">一次性使用。</font></p>荆棘海草最近一次的表白又被捷足先登了，这</font><br>使他很伤心。不过很快他就重新振作起来并吸取</font><br>教训。一定要抓住机会！但他似乎对这句话理解</font><br>有误：他无论碰到什么都会死死地抓住。',
+            '荆棘海草会用力抓住靠近他的任何东西并拖入</font><br>地下。<p>Harm:<font color="FF0000">巨大</font><br>Scope:<font color="#FF0000">一格</font><br>Instructions:<font color="#FF0000">一次性使用。</font></p>荆棘海草最近一次的表白又被捷足先登了，这</font><br>使他很伤心。不过很快他就重新振作起来并吸取</font><br>教训。一定要抓住机会!但他似乎对这句话理解</font><br>有误：他无论碰到什么都会死死地抓住。',
         CanGrow: function (e, d, f) {
             var c = d + "_" + f,
                 b = oGd.$LF[d],
@@ -9960,7 +9960,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
         EName: "oGoldenPrize",
         CName: "Sunflower Golden Trophy",
         PicArr: ["images/interface/0.gif", "images/interface/0.gif"],
-        Tooltip: "Ta daa！",
+        Tooltip: "Ta daa!",
     })),
     (oShovel = InheritO(CPlants, {
         EName: "oShovel",
@@ -9972,7 +9972,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
             "images/interface/Shovel/ShovelCard.png",
             "images/interface/Shovel/0.gif",
         ],
-        Tooltip: "Shovel up plants you dont want！",
+        Tooltip: "Shovel up plants you dont want!",
     }));
 oFlowerVase = InheritO(CPlants, {
     EName: "oFlowerVase",

@@ -123,7 +123,7 @@ oS.Init(
         FlagToEnd: function () {
             NewImg(
                 "imgSF",
-                "images/interface/Shovel/0.gif",
+                "images/interface/Shovel/ShovelCard.png",
                 "left:827px;top:330px;clip:rect(auto,auto,60px,auto)",
                 EDAll,
                 {

@@ -164,7 +164,7 @@ oS.Init(
                             },
                             []
                         );
-                        innerText(c, "祝你好运，不要被僵尸吃了！");
+                        innerText(c, "祝你好运，不要被僵尸吃了!");
                         break;
                     case 4:
                         $("dDave").src = "images/interface/Dave2.gif";

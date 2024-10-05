@@ -1,9 +1,6 @@
 let levelDataToLoad; // global variable to store the level data to load
 let pNameValue = []; // for loading plants
 let backgroundImage; // for loading the background image
-let brainsNum; // for loading the brains number
-let initLawnMowerStored; // for loading the InitLawnMower function (for brains)
-let riddleAutoGrowStored; // for loading the RiddleAutoGrow function (also for brains)
 // the compression stuff assumes that pako is loaded
 function compressString(input) {
     const inputUTF8 = new TextEncoder().encode(input);

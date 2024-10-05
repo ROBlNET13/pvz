@@ -40,6 +40,12 @@
     font-family: "continuumbold" !important;
     margin-top: -2px !important;
 }
+#DivTeach {
+    width: 50% !important;
+    left: 36% !important;
+    cursor: pointer !important;
+    color: #000 !important;
+}
 #dTitle,
 #dTitle * {
     font-family: "pico12" !important;
@@ -120,11 +126,6 @@
     font-size: 18px !important;
     width: 150px !important;
     margin-left: -25px !important;
-}
-#DivTeach {
-    width: 50% !important;
-    left: 36% !important;
-    cursor: pointer !important;
 }
 #dNewPlantName {
     color: #d0932b !important;
