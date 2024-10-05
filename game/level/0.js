@@ -144,3 +144,28 @@ oS.Init({
 });
 $("ZombieHand").style.display = "none";
 startInterval2();
+// check if the izl query parameter is set
+function izl() {
+    let izl = decodeURIComponent(new URLSearchParams(window.location.search).get("izl"));
+    if (izl) {
+        console.log("izl query parameter is set, starting izombie level", izl);
+        try {
+            levelDataToLoad = parseClone(izl);
+        } catch (e) {
+            SelectModal("izombiecustommenu");
+            console.log("Invalid level data!");
+            return;
+        }
+        // load the izombiecustomlevel level
+        if (levelDataToLoad.lfValue[3] === 2) {
+            SelectModal("izombiecustomlevelwater");
+        } else {
+            SelectModal("izombiecustomlevelnormal");
+        }
+        // remove the query parameter
+        let url = new URL(window.location.href);
+        url.searchParams.delete("izl");
+        window.history.replaceState({}, document.title, url);
+    }
+}
+setTimeout(izl, 500);
