@@ -192,10 +192,11 @@
                                                 (m = z + m),
                                                 (r = Math.max(r, i[1])); // 生成植物数据，采用倒叙生成
 
-                                    if ($P.length < h * d * (4 / 5))
-                                        return alert(
-                                            "The amount of plants must reach 80% of the set range!\n\nPlease save again after completing the layout!"
-                                        ); // 植物没满
+                                    if ($P.length < h * d * (4 / 5)) {
+                                        if (!confirm("The amount of plants is less than 80% of the set range. Do you want to continue?")) {
+                                            return;
+                                        }
+                                    }
 
                                     if (r <= 0 || r >= c || r != c - 1)
                                         return alert(
@@ -211,19 +212,18 @@
                                         return; // 用户未输入, 返回
                                     if (
                                         isNaN((f = Number(f))) ||
-                                        f % 25 != 0 ||
                                         f < 50 ||
                                         f > 1000
                                     )
                                         return alert(
-                                            "Please enter a number in the range 50-75!"
+                                            "Please enter a number in the range 50-1000!"
                                         ); // 输入阳光
 
                                     if (
                                         (l = prompt(
                                             "Please enter a title for your custom level (within 50 characters)\nIf not entered, the default title will be used.",
                                             ""
-                                        )) != null
+                                        )) != null && l.length >= 50
                                     ) {
                                         ($("btnClickSave").innerHTML =
                                             "Saving.."),
@@ -324,7 +324,7 @@
                         NewEle(
                             "spanT",
                             "span",
-                            "position:absolute;left:65px;width:620px;text-align:left; font-family: 幼圆; font-size: 14px;line-height:50px",
+                            "position:absolute;left:-30px;width:620px;text-align:left;font-family:briannetodd;font-size:large;line-height:50px;color: #fff",
                             0,
                             a
                         ),
@@ -336,7 +336,7 @@
                         NewEle(
                             "btnClick3",
                             "button",
-                            "position:absolute;left:300px;top:10px;height:30px;width:40px;font-family:幼圆;font-size:14px",
+                            "position:absolute;left:280px;top:10px;height:30px;width:40px;font-family:briannetodd;font-size:large;border-radius:10px;border-style:solid",
                             {
                                 onclick: function () {
                                     b(3);
@@ -350,7 +350,7 @@
                         NewEle(
                             "btnClick4",
                             "button",
-                            "position:absolute;left:350px;top:10px;height:30px;width:40px;font-family:幼圆;font-size:14px",
+                            "position:absolute;left:330px;top:10px;height:30px;width:40px;font-family:briannetodd;font-size:large;border-radius:10px;border-style:solid",
                             {
                                 onclick: function () {
                                     b(4);
@@ -364,7 +364,7 @@
                         NewEle(
                             "btnClick5",
                             "button",
-                            "position:absolute;left:400px;top:10px;height:30px;width:40px;font-family:幼圆;font-size:14px",
+                            "position:absolute;left:380px;top:10px;height:30px;width:40px;font-family:briannetodd;font-size:large;border-radius:10px;border-style:solid",
                             {
                                 onclick: function () {
                                     b(5);
@@ -378,7 +378,7 @@
                         NewEle(
                             "btnClick6",
                             "button",
-                            "position:absolute;left:450px;top:10px;height:30px;width:40px;font-family:幼圆;font-size:14px",
+                            "position:absolute;left:430px;top:10px;height:30px;width:40px;font-family:briannetodd;font-size:large;border-radius:10px;border-style:solid",
                             {
                                 onclick: function () {
                                     b(6);
@@ -392,7 +392,7 @@
                         NewEle(
                             "btnClick7",
                             "button",
-                            "position:absolute;left:500px;top:10px;height:30px;width:40px;font-family:幼圆;font-size:14px",
+                            "position:absolute;left:480px;top:10px;height:30px;width:40px;font-family:briannetodd;font-size:large;border-radius:10px;border-style:solid",
                             {
                                 onclick: function () {
                                     b(7);
@@ -406,7 +406,7 @@
                         NewEle(
                             "btnClick8",
                             "button",
-                            "position:absolute;left:550px;top:10px;height:30px;width:40px;font-family:幼圆;font-size:14px",
+                            "position:absolute;left:530px;top:10px;height:30px;width:40px;font-family:briannetodd;font-size:large;border-radius:10px;border-style:solid",
                             {
                                 onclick: function () {
                                     b(8);
@@ -420,7 +420,7 @@
                         NewEle(
                             "btnClick9",
                             "button",
-                            "position:absolute;left:600px;top:10px;height:30px;width:40px;font-family:幼圆;font-size:14px",
+                            "position:absolute;left:580px;top:10px;height:30px;width:40px;font-family:briannetodd;font-size:large;border-radius:10px;border-style:solid",
                             {
                                 onclick: function () {
                                     b(9);
