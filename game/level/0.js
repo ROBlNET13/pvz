@@ -144,16 +144,19 @@ oS.Init({
 });
 $("ZombieHand").style.display = "none";
 startInterval2();
-// check if the izl query parameter is set
-function izl() {
-    let izl = decodeURIComponent(new URLSearchParams(window.location.search).get("izl"));
-    if (izl) {
-        console.log("izl query parameter is set, starting izombie level", izl);
+function runIzlCheck() {
+    // check if the izl query parameter is set
+    let izl = new URLSearchParams(window.location.search).get("izl");
+    if (izl && izl != "") {
         try {
-            levelDataToLoad = parseClone(izl);
+            levelDataToLoad = parseClone(decodeURIComponent(izl));
         } catch (e) {
-            SelectModal("izombiecustommenu");
-            console.log("Invalid level data!");
+            alert("Failed to load level data from query parameter");
+            // regex away all query params and reload
+            window.location.search = "";
+            // push to history so that the user can go back
+            window.history.pushState({}, document.title, window.location.pathname);
+            document.location.reload();
             return;
         }
         // load the izombiecustomlevel level
@@ -162,10 +165,6 @@ function izl() {
         } else {
             SelectModal("izombiecustomlevelnormal");
         }
-        // remove the query parameter
-        let url = new URL(window.location.href);
-        url.searchParams.delete("izl");
-        window.history.replaceState({}, document.title, url);
     }
 }
-setTimeout(izl, 500);
+runIzlCheck();

@@ -140,3 +140,5 @@ oS.Init({
 
 
 restoreToPlants(levelDataToLoad); // load the plants
+// clear all query parameters from the url without reloadng
+window.history.pushState({}, document.title, window.location.pathname);
