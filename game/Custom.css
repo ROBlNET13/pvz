@@ -1,79 +1,79 @@
 /* briannetod.ttf */
 @font-face {
-	font-family: "briannetod";
-	src: url("fonts/briannetod.ttf");
+    font-family: "briannetod";
+    src: url("fonts/briannetod.ttf");
 }
 /* dwarventodcraft.ttf */
 @font-face {
-	font-family: "dwarventodcraft";
-	src: url("fonts/dwarventodcraft.ttf");
+    font-family: "dwarventodcraft";
+    src: url("fonts/dwarventodcraft.ttf");
 }
 /* houseofterrormedium.ttf */
 @font-face {
-	font-family: "houseofterrormedium";
-	src: url("fonts/houseofterrormedium.ttf");
+    font-family: "houseofterrormedium";
+    src: url("fonts/houseofterrormedium.ttf");
 }
 /* pico12.ttf */
 @font-face {
-	font-family: "pico12";
-	src: url("fonts/pico12.ttf");
+    font-family: "pico12";
+    src: url("fonts/pico12.ttf");
 }
 /* continuumbold.ttf */
 @font-face {
-	font-family: "continuumbold";
-	src: url("fonts/continuumbold.ttf");
+    font-family: "continuumbold";
+    src: url("fonts/continuumbold.ttf");
 }
 * {
-	font-family: "briannetod" !important;
+    font-family: "briannetod" !important;
 }
 [id^="sSunNum"]:not([id="sSunNum"]) {
-	font-family: "pico12" !important;
-	margin-right: 7px !important;
-	font-size: 20px !important;
-	position: relative !important;
-	float: right !important;
-	width: 100% !important;
-	left: 0 !important;
-	top: 36px !important;
+    font-family: "pico12" !important;
+    margin-right: 7px !important;
+    font-size: 20px !important;
+    position: relative !important;
+    float: right !important;
+    width: 100% !important;
+    left: 0 !important;
+    top: 36px !important;
 }
 #sSunNum {
-	font-family: "continuumbold" !important;
-	margin-top: -2px !important;
+    font-family: "continuumbold" !important;
+    margin-top: -2px !important;
 }
 #dTitle,
 #dTitle * {
-	font-family: "pico12" !important;
+    font-family: "pico12" !important;
 }
 #bMainMenu {
-	text-transform: uppercase;
-	visibility: hidden;
-	position: absolute;
-	left: 770px;
-	top: 20px;
-	text-align: center;
-	cursor: pointer;
-	width: 109px;
-	height: 29px;
-	z-index: 201;
-	line-height: 26px;
-	background: url(images/interface/Almanac_BlankButton.png) no-repeat;
-	background-size: cover;
-	color: #000080;
-	font-size: 14px;
-	padding-top: 3px;
+    text-transform: uppercase;
+    visibility: hidden;
+    position: absolute;
+    left: 770px;
+    top: 20px;
+    text-align: center;
+    cursor: pointer;
+    width: 109px;
+    height: 29px;
+    z-index: 201;
+    line-height: 26px;
+    background: url(images/interface/Almanac_BlankButton.png) no-repeat;
+    background-size: cover;
+    color: #000080;
+    font-size: 14px;
+    padding-top: 3px;
 }
 .span2 {
-	font-family: "pico12" !important;
-	margin-right: 7px !important;
-	font-size: 18px !important;
-	position: relative !important;
-	float: right !important;
-	width: 100% !important;
-	left: 0 !important;
-	top: 21px !important;
+    font-family: "pico12" !important;
+    margin-right: 7px !important;
+    font-size: 18px !important;
+    position: relative !important;
+    float: right !important;
+    width: 100% !important;
+    left: 0 !important;
+    top: 21px !important;
 }
 #dHandBookZCard .span1 .span2 {
-	display: none !important;
+    display: none !important;
 }
 .menu,
 .OptionsMenuButtonSpan,
@@ -81,171 +81,171 @@
 #dHandBookZ > div.title,
 #dHandBookZombieName,
 #dNewPlantTitle {
-	font-family: "dwarventodcraft" !important;
+    font-family: "dwarventodcraft" !important;
 }
 .hidden {
-	display: none;
+    display: none;
 }
 #dNewPlantTitle {
-	font-size: 30px !important;
-	margin-top: 6px;
-	/* case uppercase */
-	text-transform: uppercase;
-	color: #d0932b !important;
+    font-size: 30px !important;
+    margin-top: 6px;
+    /* case uppercase */
+    text-transform: uppercase;
+    color: #d0932b !important;
 }
 #dHandBookZombieName {
-	color: #06bd00 !important;
-	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
-		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
+    color: #06bd00 !important;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+        -1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
-	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
+    /* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
         #757692 2px 0px, #757692 1px 2px, #757692 2px 2px !important; */
-	font-size: x-large !important;
-	/* -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important; */
-	margin-left: -10px !important;
-	margin-top: 4px;
+    font-size: x-large !important;
+    /* -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important; */
+    margin-left: -10px !important;
+    margin-top: 4px;
 }
 #btnNextLevel {
-	text-shadow: 0px 0px 3px #000, 0px 0px 3px #000;
-	/* box-shadow: inset #ffffff24 1px 2px 2px, inset #00000021 0px -1px 4px 0px, #0000007a 1px 2px 6px -1px; */
-	/* border-radius: 3px; */
-	border-left: 0 !important;
-	border-right: 0 !important;
-	border-top: 0 !important;
-	border-bottom: 0 !important;
-	background: url("images/SeedChooser_Button.png") no-repeat !important;
-	background-size: contain !important;
-	font-family: dwarventodcraft !important;
-	color: #d0932b !important;
-	font-size: 18px !important;
-	width: 150px !important;
-	margin-left: -25px !important;
+    text-shadow: 0px 0px 3px #000, 0px 0px 3px #000;
+    /* box-shadow: inset #ffffff24 1px 2px 2px, inset #00000021 0px -1px 4px 0px, #0000007a 1px 2px 6px -1px; */
+    /* border-radius: 3px; */
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    background: url("images/SeedChooser_Button.png") no-repeat !important;
+    background-size: contain !important;
+    font-family: dwarventodcraft !important;
+    color: #d0932b !important;
+    font-size: 18px !important;
+    width: 150px !important;
+    margin-left: -25px !important;
 }
 #DivTeach {
-	width: 50% !important;
-	left: 36% !important;
-	cursor: pointer !important;
+    width: 50% !important;
+    left: 36% !important;
+    cursor: pointer !important;
 }
 #dNewPlantName {
-	color: #d0932b !important;
-	font-family: dwarventodcraft !important;
-	text-transform: uppercase;
-	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
-		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
+    color: #d0932b !important;
+    font-family: dwarventodcraft !important;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+        -1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
-	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
+    /* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
         #757692 2px 0px, #757692 1px 2px, #757692 2px 2px !important; */
-	-webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important;
-	margin-top: -23px;
+    -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important;
+    margin-top: -23px;
 }
 #iNewPlantCard {
-	height: calc(120px / 2) !important;
-	object-fit: cover;
-	object-position: center top;
-	margin-top: 60px;
+    height: calc(120px / 2) !important;
+    object-fit: cover;
+    object-position: center top;
+    margin-top: 60px;
 }
 #dNewPlantTooltip {
-	font-size: 19px !important;
-	margin-top: -14px;
-	color: #000080 !important;
-	/* unbold */
-	font-weight: normal !important;
+    font-size: 19px !important;
+    margin-top: -14px;
+    color: #000080 !important;
+    /* unbold */
+    font-weight: normal !important;
 }
 #dHandBookPlantName {
-	color: #d0932b !important;
-	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
-		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
+    color: #d0932b !important;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+        -1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
-	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
+    /* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
         #757692 2px 0px, #757692 1px 2px, #757692 2px 2px !important; */
-	font-size: x-large !important;
-	-webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important;
-	margin-left: -10px !important;
-	margin-top: -4px;
+    font-size: x-large !important;
+    -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important;
+    margin-left: -10px !important;
+    margin-top: -4px;
 }
 #dHandBookP > div.title,
 #dHandBook > div.title,
 #dMiniSmallTitle,
 #dAdvSmallTitle {
-	margin-top: -6px;
-	font-size: 30px;
-	-webkit-text-stroke: 1px #ceaa31;
-	font-weight: lighter;
-	text-shadow: 0px 3px 0px #000, 1px 3px 0px #000, 2px 3px 0px #000,
-		3px 3px 0px #000, 3px 2px 0px #000, 3px 1px 0px #000, 3px 0px 0px #000,
-		3px -1px 0px #000, 3px -2px 0px #000, 3px -3px 0px #000,
-		2px -1px 0px #000, 2px -2px 0px #000, 2px -3px 0px #000,
-		1px -1px 0px #000, 1px -2px 0px #000, 1px -3px 0px #000,
-		0px -1px 0px #000, 0px -2px 0px #000, 0px -3px 0px #000,
-		-1px -1px 0px #000, -1px -2px 0px #000, -1px -3px 0px #000,
-		-2px -1px 0px #000, -2px -2px 0px #000, -2px -3px 0px #000,
-		-3px -1px 0px #000, -3px -2px 0px #000, -3px -3px 0px #000,
-		-3px 0px 0px #000, -3px 1px 0px #000, -3px 2px 0px #000,
-		-3px 3px 0px #000, 2px 5px 0px #000, 3px 5px 0px #000, 4px 5px 0px #000,
-		5px 5px 0px #000, 5px 4px 0px #000, 5px 3px 0px #000, 5px 2px 0px #000,
-		5px 1px 0px #000, 5px 0px 0px #000, 5px -1px 0px #000, 4px 1px 0px #000,
-		4px 0px 0px #000, 4px -1px 0px #000, 3px 1px 0px #000, 3px 0px 0px #000,
-		3px -1px 0px #000, 2px 1px 0px #000, 2px 0px 0px #000, 2px -1px 0px #000,
-		1px 1px 0px #000, 1px 0px 0px #000, 1px -1px 0px #000, 0px 1px 0px #000,
-		0px 0px 0px #000, 0px -1px 0px #000, -1px 1px 0px #000,
-		-1px -0px 0px #000, -1px -1px 0px #000, -1px 2px 0px #000,
-		-1px 3px 0px #000, -1px 4px 0px #000, -1px 5px 0px #000;
+    margin-top: -6px;
+    font-size: 30px;
+    -webkit-text-stroke: 1px #ceaa31;
+    font-weight: lighter;
+    text-shadow: 0px 3px 0px #000, 1px 3px 0px #000, 2px 3px 0px #000,
+        3px 3px 0px #000, 3px 2px 0px #000, 3px 1px 0px #000, 3px 0px 0px #000,
+        3px -1px 0px #000, 3px -2px 0px #000, 3px -3px 0px #000,
+        2px -1px 0px #000, 2px -2px 0px #000, 2px -3px 0px #000,
+        1px -1px 0px #000, 1px -2px 0px #000, 1px -3px 0px #000,
+        0px -1px 0px #000, 0px -2px 0px #000, 0px -3px 0px #000,
+        -1px -1px 0px #000, -1px -2px 0px #000, -1px -3px 0px #000,
+        -2px -1px 0px #000, -2px -2px 0px #000, -2px -3px 0px #000,
+        -3px -1px 0px #000, -3px -2px 0px #000, -3px -3px 0px #000,
+        -3px 0px 0px #000, -3px 1px 0px #000, -3px 2px 0px #000,
+        -3px 3px 0px #000, 2px 5px 0px #000, 3px 5px 0px #000, 4px 5px 0px #000,
+        5px 5px 0px #000, 5px 4px 0px #000, 5px 3px 0px #000, 5px 2px 0px #000,
+        5px 1px 0px #000, 5px 0px 0px #000, 5px -1px 0px #000, 4px 1px 0px #000,
+        4px 0px 0px #000, 4px -1px 0px #000, 3px 1px 0px #000, 3px 0px 0px #000,
+        3px -1px 0px #000, 2px 1px 0px #000, 2px 0px 0px #000, 2px -1px 0px #000,
+        1px 1px 0px #000, 1px 0px 0px #000, 1px -1px 0px #000, 0px 1px 0px #000,
+        0px 0px 0px #000, 0px -1px 0px #000, -1px 1px 0px #000,
+        -1px -0px 0px #000, -1px -1px 0px #000, -1px 2px 0px #000,
+        -1px 3px 0px #000, -1px 4px 0px #000, -1px 5px 0px #000;
 }
 #dHandBook > div.title,
 #dMiniSmallTitle,
 #dAdvSmallTitle {
-	color: #dfdfdf;
-	font-family: "houseofterrormedium" !important;
-	-webkit-text-stroke: 1px #cacaca;
-	margin-top: 1px;
-	font-weight: lighter !important;
+    color: #dfdfdf;
+    font-family: "houseofterrormedium" !important;
+    -webkit-text-stroke: 1px #cacaca;
+    margin-top: 1px;
+    font-weight: lighter !important;
 }
 #dAdvSmallTitle {
-	margin-left: -50px;
-	margin-top: 4px;
+    margin-left: -50px;
+    margin-top: 4px;
 }
 #dHandBookZ > div.title,
 #dNewPlantTitle {
-	text-shadow: 0px 0px 3px #000, 0px 0px 3px #000;
-	color: #00d100;
-	font-size: 35px;
+    text-shadow: 0px 0px 3px #000, 0px 0px 3px #000;
+    color: #00d100;
+    font-size: 35px;
 }
 .menu {
-	font-weight: normal !important;
-	font-size: 1.35em;
+    font-weight: normal !important;
+    font-size: 1.35em;
 }
 body {
-	min-width: 780px;
-	min-height: 530px;
+    min-width: 780px;
+    min-height: 530px;
 }
 label {
-	color: white !important;
+    color: white !important;
 }
 #sFlagMeterTitleF,
 #dHandBookP > div.title {
-	font-family: "houseofterrormedium" !important;
+    font-family: "houseofterrormedium" !important;
 }
 #sFlagMeterTitleB {
-	display: none;
+    display: none;
 }
 #sFlagMeterTitleF {
-	color: #e5bf64 !important;
-	text-shadow: 0px 2px 0px #000000, 2px 2px 0px #000000, 2px 0px 0px #000000,
-		2px -2px 0px #000000, 0px -2px 0px #000000, -2px -2px 0px #000000,
-		-2px 0px 0px #000000, -2px 2px 0px #000000 !important;
+    color: #e5bf64 !important;
+    text-shadow: 0px 2px 0px #000000, 2px 2px 0px #000000, 2px 0px 0px #000000,
+        2px -2px 0px #000000, 0px -2px 0px #000000, -2px -2px 0px #000000,
+        -2px 0px 0px #000000, -2px 2px 0px #000000 !important;
 }
 
 #iSurfaceBackground .trophy {
-	position: absolute;
-	background: url(images/interface/trophy.png) no-repeat;
-	background-size: contain !important;
-	left: 469px;
-	top: 468px;
-	width: 99px;
-	height: 99px;
-	cursor: pointer;
+    position: absolute;
+    background: url(images/interface/trophy.png) no-repeat;
+    background-size: contain !important;
+    left: 469px;
+    top: 468px;
+    width: 99px;
+    height: 99px;
+    cursor: pointer;
 }
 
 #iSurfaceBackground .trophy:hover {
-	filter: brightness(1.1);
+    filter: brightness(1.1);
 }
