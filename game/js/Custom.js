@@ -172,9 +172,9 @@ let checkInterval = setInterval(() => {
 
 function startInterval2() {
     let checkInterval2 = setInterval(() => {
-        console.log(
+        /*console.log(
             "Checking if dAdventure is defined and saved level exists & is not blacklisted..."
-        );
+        );*/
         if (
             $("dAdventure") &&
             localStorage.getItem("level") &&
