@@ -197,7 +197,7 @@
                                             return;
                                         }
                                     }
-                                    
+
                                     if (
                                         (f = prompt(
                                             "Please enter the amount of sunlight, range 50-1000.",
@@ -218,7 +218,7 @@
                                         (l = prompt(
                                             "Please enter a title for your custom level (within 50 characters)\nIf not entered, the default title will be used.",
                                             ""
-                                        )) != null && l.length >= 50
+                                        )) != null && l.length <= 50
                                     ) {
                                         ($("btnClickSave").innerHTML =
                                             "Saving.."),
