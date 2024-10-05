@@ -197,12 +197,7 @@
                                             return;
                                         }
                                     }
-
-                                    if (r <= 0 || r >= c || r != c - 1)
-                                        return alert(
-                                            "The plants exceed the planting range limit or the formation does not meet the specifications.\n\nPlease adjust the formation and save again!"
-                                        ); // 植物种植在了线外 / 没到指定列
-
+                                    
                                     if (
                                         (f = prompt(
                                             "Please enter the amount of sunlight, range 50-1000.",
