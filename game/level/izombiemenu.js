@@ -1,5 +1,5 @@
 var customplants;
-var customtitle = "I, Zombie Level Editor";
+var customtitle = "I, Zombie Level Selector";
 var customcolumns = 4;
 var customsun = 150;
 oS.Init({
@@ -147,6 +147,28 @@ oS.Init({
             {
                 onclick: function () {
                     SelectModal("" + "izombie10" + "");
+                },
+            }
+        );
+        NewImg(
+            "imgSF",
+            "images/interface/izombiemake.png",
+            "left:50;top:410",
+            EDAll,
+            {
+                onclick: function () {
+                    SelectModal("" + "izombieleveleditor" + "");
+                },
+            }
+        );
+        NewImg(
+            "imgSF",
+            "images/interface/izombieload.png",
+            "left:200px;top:410px",
+            EDAll,
+            {
+                onclick: function () {
+                    SelectModal("" + "izombiecustommenu" + "");
                 },
             }
         );

@@ -536,7 +536,7 @@
                                 onclick: function () {
                                     Return_Block();
                                 },
-                                innerText: "返 回",
+                                innerText: "Back",
                             },
                             EDAll,
                             { class: "button" }
