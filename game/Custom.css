@@ -167,7 +167,8 @@
 #dHandBookP > div.title,
 #dHandBook > div.title,
 #dMiniSmallTitle,
-#dAdvSmallTitle {
+#dAdvSmallTitle,
+#dChoseTitle {
     margin-top: -6px;
     font-size: 30px;
     -webkit-text-stroke: 1px #ceaa31;
@@ -194,7 +195,8 @@
 }
 #dHandBook > div.title,
 #dMiniSmallTitle,
-#dAdvSmallTitle {
+#dAdvSmallTitle,
+#dChoseTitle {
     color: #dfdfdf;
     font-family: "houseofterrormedium" !important;
     -webkit-text-stroke: 1px #cacaca;

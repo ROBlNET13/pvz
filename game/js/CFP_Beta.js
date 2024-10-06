@@ -22,16 +22,16 @@ function cloneFromPlants(name, sun) {
     let keyedDict = Object.keys($P);
     let plantDict = {};
     // for every object in $P, save the following data:
-    // $P[keyedDict[i]].R // save as pos1
-    // $P[keyedDict[i]].C // save as pos2
+    // $P[keyedDict[i]].R // save as plantRow
+    // $P[keyedDict[i]].C // save as plantCol
     // Object.getPrototypeOf($P[keyedDict[6]]).EName // save as plantName
 
     for (let i = 0; i < keyedDict.length; i++) {
-        let pos1 = $P[keyedDict[i]].R;
-        let pos2 = $P[keyedDict[i]].C;
+        let plantRow = $P[keyedDict[i]].R;
+        let plantCol = $P[keyedDict[i]].C;
         let plantName = Object.getPrototypeOf($P[keyedDict[i]]).EName;
         let zIndex = $P[keyedDict[i]].zIndex;
-        plantDict[keyedDict[i]] = { zIndex, pos1, pos2, plantName };
+        plantDict[keyedDict[i]] = { zIndex, plantRow, plantCol, plantName };
     }
     // now turn it into an array of dictionaries
     let plantArray = Object.values(plantDict);
@@ -67,8 +67,8 @@ function restoreToPlants(levelData) {
     for (let i = 0; i < plantArray.length; i++) {
         let plant = plantArray[i];
         let plantName = plant.plantName;
-        let pos1 = plant.pos1;
-        let pos2 = plant.pos2;
-        CustomSpecial(window[plantName], pos1, pos2);
+        let plantRow = plant.plantRow;
+        let plantCol = plant.plantCol;
+        CustomSpecial(window[plantName], plantRow, plantCol);
     }
 }
