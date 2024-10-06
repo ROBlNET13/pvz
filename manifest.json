@@ -1,29 +1,27 @@
 {
-    "manifest_version": 3,
-    "name": "__MSG_AppName__",
-    "version": "2.3.12",
-    "version_name": "2.3.12",
-    "action": {
-        "default_icon": {
-            "16": "img/16x16.png",
-            "48": "img/48x48.png",
-            "256": "img/256x256.png"
-        },
-        "default_title": "Click to open the popup",
-        "default_popup": "game/iframe.html"
-    },
-    "offline_enabled": true,
-    "default_locale": "en",
-    "description": "__MSG_AppDesc__",
-    "icons": {
-        "16": "img/16x16.png",
-        "48": "img/48x48.png",
-        "256": "img/256x256.png"
-    },
-    "content_security_policy": {
-        "sandbox": "sandbox allow-scripts allow-pointer-lock; script-src 'self' 'unsafe-eval' blob: 'unsafe-inline'; object-src 'self' 'unsafe-eval' blob: 'unsafe-inline';child-src 'self' 'unsafe-eval' blob: 'unsafe-inline' ; worker-src 'self' 'unsafe-eval' blob: 'unsafe-inline'; script-src-elem 'self' 'unsafe-eval' blob: 'unsafe-inline'"
-    },
-    "sandbox": {
-        "pages": ["game/iframe.html"]
-    }
+	"manifest_version": 3,
+	"name": "Plant vs. Zombies MODDED Official",
+	"version": "4.0.0",
+	"action": {
+		"default_icon": {
+			"16": "img/16x16.png",
+			"48": "img/48x48.png",
+			"256": "img/256x256.png"
+		},
+		"default_title": "Click to open the popup",
+		"default_popup": "game/iframe.html"
+	},
+	"offline_enabled": true,
+	"description": "Play Plant vs. Zombies MODDED Official as a Chrome extension - Also can Play without Internet, try it now!",
+	"icons": {
+		"16": "img/16x16.png",
+		"48": "img/48x48.png",
+		"256": "img/256x256.png"
+	},
+	"content_security_policy": {
+		"sandbox": "sandbox allow-scripts allow-pointer-lock; script-src 'self' 'unsafe-eval' blob: 'unsafe-inline'; object-src 'self' 'unsafe-eval' blob: 'unsafe-inline';child-src 'self' 'unsafe-eval' blob: 'unsafe-inline' ; worker-src 'self' 'unsafe-eval' blob: 'unsafe-inline'; script-src-elem 'self' 'unsafe-eval' blob: 'unsafe-inline'"
+	},
+	"sandbox": {
+		"pages": ["game/iframe.html"]
+	}
 }
