@@ -455,7 +455,6 @@ var $User = (function () {
 					"visibility:hidden;z-index:50",
 					EDAll
 				);
-				NewEle("dTitle", "div", 0, 0, $("dBody"));
 				innerText(ESSunNum, i.SunNum);
 				InitPCard();
 				i.ShowScroll
@@ -3742,3 +3741,5 @@ var $User = (function () {
 			};
 		f(r);
 	});
+
+	NewEle("dTitle", "div", 0, 0, $("dBody"));

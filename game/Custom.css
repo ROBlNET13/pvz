@@ -49,6 +49,7 @@
 #dTitle,
 #dTitle * {
 	font-family: "pico12" !important;
+	z-index: 999999 !important;
 }
 #bMainMenu {
 	text-transform: uppercase;
