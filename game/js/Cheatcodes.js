@@ -11,9 +11,9 @@ document.addEventListener("keydown", (event) => {
 		oP.Balloon();
 	}
 	// restart
-	if (keysPressed["r"]) {
+	/*if (keysPressed["r"]) {
 		SelectModal(oS.Lvl);
-	}
+	}*/
 	// almanac (handbook)
 	if (keysPressed["k"]) {
 		ViewHandBook();

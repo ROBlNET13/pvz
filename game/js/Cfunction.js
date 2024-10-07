@@ -1653,9 +1653,9 @@ var $User = (function () {
 	GroundOnmousedown = function (i) {
 		i = window.event || i;
 		var a =
-				i.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-				EElement.scrollLeft,
-			k = i.clientY + EBody.scrollTop || EElement.scrollTop,
+				(i.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
+				EElement.scrollLeft) * 10 / 9,
+			k = (i.clientY + EBody.scrollTop || EElement.scrollTop) * 10 / 9,
 			g = ChosePlantX(a),
 			h = ChosePlantY(k),
 			d = g[0],
@@ -1727,9 +1727,9 @@ var $User = (function () {
 	GroundOnmousemove1 = function (j) {
 		j = window.event || j;
 		var d =
-				j.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-				EElement.scrollLeft,
-			b = j.clientY + EBody.scrollTop || EElement.scrollTop,
+				(j.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
+				EElement.scrollLeft) * 10 / 9,
+			b = (j.clientY + EBody.scrollTop || EElement.scrollTop) * 10 / 9,
 			k = oS.ChoseCard,
 			h = ChosePlantX(d),
 			i = ChosePlantY(b),
@@ -1740,8 +1740,8 @@ var $User = (function () {
 			m = GetAP(d, b, g, a);
 		var l = ArCard[k].PName.prototype;
 		SetStyle($("MovePlant"), {
-			left: (d - 0.5 * (l.beAttackedPointL + l.beAttackedPointR)) * 10 / 9 + "px",
-			top: (b + 20 - l.height) * 10 / 9 + "px",
+			left: (d - 0.5 * (l.beAttackedPointL + l.beAttackedPointR))+ "px",
+			top: (b + 20 - l.height) + "px",
 		});
 		l.CanGrow(m[0], g, a)
 			? SetStyle($("MovePlantAlpha"), {
@@ -1771,7 +1771,7 @@ var $User = (function () {
 		p != l &&
 			(p && SetAlpha($(p).childNodes[1], 100, 1),
 			(oS.MPID = l) && SetAlpha($(l).childNodes[1], 60, 0.6));
-		SetStyle($("tShovel"), { left: d - 15 + "px", top: b - 16 + "px" });
+		SetStyle($("tShovel"), { left: (d - 15) * 10 / 9 + "px", top: (b - 16) * 10 / 9 + "px" });
 	},
 	DisplayZombie = function () {
 		SetVisible($("bShowHandBook"));

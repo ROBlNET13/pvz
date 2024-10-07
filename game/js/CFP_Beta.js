@@ -19,41 +19,45 @@ function decompressString(compressedBase64) {
 }
 
 function cloneFromPlants(name, sun, screenshot) {
-	let keyedDict = Object.keys($P);
-	let plantDict = {};
-	// for every object in $P, save the following data:
-	// $P[keyedDict[i]].R // save as plantRow
-	// $P[keyedDict[i]].C // save as plantCol
-	// Object.getPrototypeOf($P[keyedDict[6]]).EName // save as plantName
+    let keyedDict = Object.keys($P);
+    let plantDict = {};
+    // for every object in $P, save the following data:
+    // $P[keyedDict[i]].R // save as plantRow
+    // $P[keyedDict[i]].C // save as plantCol
+    // Object.getPrototypeOf($P[keyedDict[6]]).EName // save as plantName
 
-	for (let i = 0; i < keyedDict.length; i++) {
-		let plantRow = $P[keyedDict[i]].R;
-		let plantCol = $P[keyedDict[i]].C;
-		let plantName = Object.getPrototypeOf($P[keyedDict[i]]).EName;
-		let zIndex = $P[keyedDict[i]].zIndex;
-		plantDict[keyedDict[i]] = { zIndex, plantRow, plantCol, plantName };
-	}
-	// now turn it into an array of dictionaries
-	let plantArray = Object.values(plantDict);
-	// now put that array into another array with the background
-	let levelData = {
-		plants: plantArray,
-		music: oS.LoadMusic,
-		sun,
-		name,
-		lfValue: oGd.$LF,
-		stripeCol: oS.ArP.ArC[1],
-		screenshot,
-		/*
-		 * not sure what lf stands for but its for where u can place plants/zombies
-		 * 0 is for nothing
-		 * 1 is for normal
-		 * 2 is for water
-		 * 3 is for oxygen/pots
-		 * the first value should always be 0
-		 */
-	};
-	return levelData;
+    for (let i = 0; i < keyedDict.length; i++) {
+        let plantRow = $P[keyedDict[i]].R;
+        let plantCol = $P[keyedDict[i]].C;
+        let plantName = Object.getPrototypeOf($P[keyedDict[i]]).EName;
+        let zIndex = $P[keyedDict[i]].zIndex;
+        plantDict[keyedDict[i]] = { zIndex, plantRow, plantCol, plantName };
+    }
+    // now turn it into an array of dictionaries
+    let plantArray = Object.values(plantDict);
+    // now put that array into another array with the background
+    let levelData = {
+        plants: plantArray,
+        music: oS.LoadMusic,
+        sun,
+        name,
+        lfValue: oGd.$LF,
+        screenshot,
+        /*
+         * not sure what lf stands for but its for where u can place plants/zombies
+         * 0 is for nothing
+         * 1 is for normal
+         * 2 is for water
+         * 3 is for oxygen/pots
+         * the first value should always be 0
+         */
+    };
+
+    if (oS.ArP && oS.ArP.ArC && oS.ArP.ArC[1] !== undefined) {
+        levelData.stripeCol = oS.ArP.ArC[1];
+    }
+
+    return levelData;
 }
 function stringifyClone(levelData) {
 	if (levelData.screenshot) {
