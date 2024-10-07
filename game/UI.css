@@ -370,8 +370,6 @@ td.HandBookZombie {
 
 #iSurfaceBackground .riddle {
 	position: absolute;
-	background: url(images/interface/SelectorScreenChallenges_32.png) no-repeat;
-	_background: url(images/interface/SelectorScreenChallenges_8.png) no-repeat;
 	left: 478px;
 	top: 303px;
 	width: 286px;
@@ -381,8 +379,6 @@ td.HandBookZombie {
 
 #iSurfaceBackground .handbook {
 	position: absolute;
-	background: url(images/interface/SelectorScreen_Almanac_32.png) no-repeat;
-	_background: url(images/interface/SelectorScreen_Almanac_8.png) no-repeat;
 	left: 374px;
 	top: 428px;
 	width: 99px;

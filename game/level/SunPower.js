@@ -46,7 +46,7 @@ oS.Init(
 				CustomSpecial(oSunFlower, 5, a);
 			}
 			StopMusic();
-			NewMusic((oS.LoadMusic = oS.StartGameMusic));
+			PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 			SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
 			oS.InitLawnMower();
 			PrepareGrowPlants(function () {
