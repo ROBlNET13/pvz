@@ -665,17 +665,31 @@
 									s = "";
 								for (n = 0; n < l; n += 3) {
 									i % 5 == 0 && (s += "<tr>");
-									s +=
-										'<td height="139" valign="top" onclick="SelectModal(\'' +
-										ar[n] +
-										'\')"><div><img src="images/interface/' +
-										ar[n + 2] +
-										'"></div><div class="list">' +
-										ar[n + 1] +
-										"</div></td>";
-									(i + 1) % 5 == 0
-										? ((s += "</tr>"), (i = 0))
-										: ++i;
+									if (ar[n] == "izombiemenu") {
+										s +=
+											'<td height="139" valign="top" onmousemove="ViewGenericMouseover(`<span style=&quot;color:red&quot;><b>NEW!</b></span> Custom I, Zombie Levels!`,event)" onmouseout="SetHidden($(\'dTitle\'))" onclick="SelectModal(\'' +
+											ar[n] +
+											'\')"><div><img src="images/interface/' +
+											ar[n + 2] +
+											'"></div><div class="list">' +
+											ar[n + 1] +
+											"</div></td>";
+										(i + 1) % 5 == 0
+											? ((s += "</tr>"), (i = 0))
+											: ++i;
+									} else {
+										s +=
+											'<td height="139" valign="top" onclick="SelectModal(\'' +
+											ar[n] +
+											'\')"><div><img src="images/interface/' +
+											ar[n + 2] +
+											'"></div><div class="list">' +
+											ar[n + 1] +
+											"</div></td>";
+										(i + 1) % 5 == 0
+											? ((s += "</tr>"), (i = 0))
+											: ++i;
+									}
 								}
 								if (i != 0) {
 									while (--i) s += "<td>　</td>";
