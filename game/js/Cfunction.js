@@ -2051,6 +2051,17 @@ var $User = (function () {
 			visibility: "visible",
 		});
 	},
+	ViewGenericMouseover = function (b, c) {
+		// b is innerhtml, c is event
+		c = c || window.event;
+		var a = $("dTitle");
+		a.innerHTML = b;
+		SetStyle(a, {
+			left: c.clientX + (EBody.scrollLeft || EElement.scrollLeft) - 3 + "px",
+			top: c.clientY + 18 + (EBody.scrollTop || EElement.scrollTop) + "px",
+			visibility: "visible",
+		});
+	},
 	SelectCard = function (c) {
 		PlayAudio("tap");
 		var h = $("Card" + c).childNodes,
