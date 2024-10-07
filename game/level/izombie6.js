@@ -16,6 +16,7 @@ oS.Init({
 	],
 	backgroundImage: "images/interface/background2.jpg",
 	ShowScroll: false,
+	DKind: 0,
 	SunNum: 150,
 	BrainsNum: 5,
 	ProduceSun: false,

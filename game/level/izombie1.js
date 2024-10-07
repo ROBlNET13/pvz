@@ -12,6 +12,7 @@ oS.Init({
 	BrainsNum: 5,
 	ProduceSun: false,
 	CardKind: 1,
+	DKind: 0,
 	LevelName: "I, Zombie",
 	StartGameMusic: "Cerebrawl",
 	InitLawnMower: function () {

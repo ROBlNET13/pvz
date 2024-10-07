@@ -143,6 +143,7 @@ oS.Init({
 	},
 });
 $("ZombieHand").style.display = "none";
+StopAudio("jackinthebox");
 startInterval2();
 function runIzlCheck() {
 	// check if the izl query parameter is set

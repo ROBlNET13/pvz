@@ -10,6 +10,7 @@ oS.Init({
 	ShowScroll: false,
 	SunNum: 150,
 	BrainsNum: 5,
+	DKind: 0,
 	ProduceSun: false,
 	CardKind: 1,
 	LevelName: "Can You Dig It?",

@@ -67,6 +67,7 @@ oS.Init({
 	ShowScroll: false,
 	SunNum: levelDataToLoad.sun,
 	BrainsNum: 5,
+	DKind: 0,
 	ProduceSun: false,
 	CardKind: 1,
 	LevelName: levelDataToLoad.name,
