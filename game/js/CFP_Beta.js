@@ -9,6 +9,12 @@ function compressString(input) {
 	return compressedBase64.replaceAll("=", "");
 }
 
+function compressStringAsBytes(input) {
+	const inputUTF8 = new TextEncoder().encode(input);
+	const compressed = pako.deflate(inputUTF8);
+	return compressed;
+}
+
 function decompressString(compressedBase64) {
 	const compressed = Uint8Array.from(atob(compressedBase64), (c) =>
 		c.charCodeAt(0)
@@ -16,6 +22,22 @@ function decompressString(compressedBase64) {
 	const decompressed = pako.inflate(compressed);
 	const decompressedString = new TextDecoder().decode(decompressed);
 	return decompressedString;
+}
+
+function decompressStringFromBytes(compressed) {
+	const decompressed = pako.inflate(compressed);
+	const decompressedString = new TextDecoder().decode(decompressed);
+	return decompressedString;
+}
+
+function downloadBytesAsFile(bytes, filename) {
+	const blob = new Blob([bytes], { type: "application/octet-stream" });
+	const url = URL.createObjectURL(blob);
+	const a = document.createElement("a");
+	a.href = url;
+	a.download = filename;
+	a.click();
+	URL.revokeObjectURL(url);
 }
 
 function cloneFromPlants(name, sun, screenshot) {
@@ -126,7 +148,7 @@ async function captureScreenshot() {
                         reader.readAsDataURL(blob);
                     },
                     "image/webp",
-                    0.75 // quality, 0-1
+                    0.5 // quality, 0-1
                 );
             })
             .catch((error) => {

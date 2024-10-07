@@ -219,8 +219,10 @@
 											"Please enter a number in the range 50-1000!"
 										); // 输入阳光
 
-									takeScreenshot = confirm("Take a screenshot? This will drastically increase the size of the level data.");
-									function finishSave() {
+									takeScreenshot = confirm(
+										"Take a screenshot? This will drastically increase the size of the level data."
+									);
+									function finishSave(doScreenshot) {
 										$("btnClickSave").innerHTML = "Saved!";
 										let levelDataElement =
 											document.createElement("input");
@@ -243,9 +245,18 @@
 										levelDataElement.style.fontSize =
 											"large";
 										levelDataElement.style.zIndex = "1000";
-										levelDataElement.value = stringifyClone(
-											cloneFromPlants(l, f)
-										);
+										if (doScreenshot) {
+											levelDataElement.value =
+												stringifyClone(
+													cloneFromPlants(
+														l,
+														f,
+														doScreenshot
+													)
+												);
+										} else {
+											levelDataElement.value = cloneFromPlants(l, f);
+										}
 										$("dAll").appendChild(levelDataElement);
 										let buttonElement =
 											document.createElement("input");
@@ -317,13 +328,17 @@
 												"disabled"); // 按钮样式
 										// Ajax("asp/ImZombieCreateGame.asp", "post", "mapkind=" + oS.MapKind + "&SNum=" + f + "&T=" + escape(l) + "&C=" + escape(m), function(c){eval(c)}); // 发送请求
 										if (takeScreenshot) {
-											captureScreenshot().then((data) => {
-												finishSave();
-											}
-											).catch((error) => {
-												console.error("Screenshot capture failed:", error);
-												finishSave();
-											});
+											captureScreenshot()
+												.then((data) => {
+													finishSave(data);
+												})
+												.catch((error) => {
+													console.error(
+														"Screenshot capture failed:",
+														error
+													);
+													finishSave();
+												});
 										} else {
 											finishSave();
 										}
