@@ -19,7 +19,7 @@
 						commits.forEach((commit) => {
 							const listItem = document.createElement("li");
 							const itemText = document.createElement("pre");
-							itemText.textContent = `${commit.commit.author.name}: ${commit.commit.message}`;
+							itemText.textContent = `<b>${commit.commit.author.name}</b>: ${commit.commit.message}`;
 							commitList.appendChild(listItem);
 							listItem.appendChild(itemText);
 						});
