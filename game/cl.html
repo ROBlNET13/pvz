@@ -6,11 +6,10 @@
 		<title>Changelog</title>
 	</head>
 	<body>
-		<ul id="commit-list"></ul>
-
 		<script>
 			document.addEventListener("DOMContentLoaded", () => {
-				const commitList = document.getElementById("commit-list");
+				const commitList = document.createElement("ul");
+				document.body.appendChild(commitList);
 				const apiUrl =
 					"https://api.github.com/repos/roblnet13/pvz/commits";
 
@@ -19,8 +18,10 @@
 					.then((commits) => {
 						commits.forEach((commit) => {
 							const listItem = document.createElement("li");
-							listItem.textContent = `${commit.commit.author.name}: ${commit.commit.message}`;
+							const itemText = document.createElement("pre");
+							itemText.textContent = `${commit.commit.author.name}: ${commit.commit.message}`;
 							commitList.appendChild(listItem);
+							listItem.appendChild(itemText);
 						});
 					})
 					.catch((error) => {
