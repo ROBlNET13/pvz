@@ -40,6 +40,27 @@ function downloadBytesAsFile(bytes, filename) {
 	URL.revokeObjectURL(url);
 }
 
+async function openAndLoadFileAsBytes() { 
+    return new Promise((resolve, reject) => {
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = ".izl";
+        input.onchange = () => {
+            const file = input.files[0];
+            const reader = new FileReader();
+            reader.onload = () => {
+                const bytes = new Uint8Array(reader.result);
+                resolve(bytes); // resolve the promise with the byte array
+            };
+            reader.onerror = () => {
+                reject(new Error("Failed to read file"));
+            };
+            reader.readAsArrayBuffer(file);
+        };
+        input.click();
+    });
+}
+
 function cloneFromPlants(name, sun, screenshot) {
     let keyedDict = Object.keys($P);
     let plantDict = {};
