@@ -92,7 +92,7 @@ oS.Init(
 		LoadAccess: function (a) {
 			NewImg(
 				"dDave",
-				"images/interface/Dave.gif",
+				"images/interface/Dave.webp",
 				"left:0;top:81px",
 				EDAll
 			);
@@ -106,11 +106,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.gif";
+						$("dDave").src = "images/interface/Dave3.webp";
 						oSym.addTask(
 							2,
 							function () {
-								$("dDave").src = "images/interface/Dave.gif";
+								$("dDave").src = "images/interface/Dave.webp";
 								c.onclick = function () {
 									oSym.addTask(10, b, [1]);
 								};
@@ -125,11 +125,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.gif";
+						$("dDave").src = "images/interface/Dave3.webp";
 						oSym.addTask(
 							2,
 							function () {
-								$("dDave").src = "images/interface/Dave.gif";
+								$("dDave").src = "images/interface/Dave.webp";
 								c.onclick = function () {
 									oSym.addTask(10, b, [2]);
 								};
@@ -144,11 +144,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.gif";
+						$("dDave").src = "images/interface/Dave3.webp";
 						oSym.addTask(
 							2,
 							function () {
-								$("dDave").src = "images/interface/Dave.gif";
+								$("dDave").src = "images/interface/Dave.webp";
 								c.onclick = function () {
 									oSym.addTask(10, b, [3]);
 								};
@@ -159,7 +159,7 @@ oS.Init(
 							'<span style="font-size:22px">Good luck</span>';
 						break;
 					case 3:
-						$("dDave").src = "images/interface/Dave2.gif";
+						$("dDave").src = "images/interface/Dave2.webp";
 						ClearChild($("DivTeach"));
 						oSym.addTask(
 							5,
@@ -211,7 +211,7 @@ oS.Init(
 			);
 			NewImg(
 				"PointerUD",
-				"images/interface/PointerDown.gif",
+				"images/interface/PointerDown.webp",
 				"top:185px;left:676px",
 				EDAll
 			);

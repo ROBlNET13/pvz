@@ -91,7 +91,7 @@ oS.Init(
 		FlagToEnd: function () {
 			NewImg(
 				"imgSF",
-				"images/interface/0.gif",
+				"images/interface/0.webp",
 				"left:667px;top:330px;clip:rect(auto,auto,237px,auto)",
 				EDAll,
 				{

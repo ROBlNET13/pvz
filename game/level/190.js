@@ -137,7 +137,7 @@ oS.Init(
 					},
 				}
 			);
-			EditImg($("PointerUD"), 0, "images/interface/PointerDown.gif", {
+			EditImg($("PointerUD"), 0, "images/interface/PointerDown.webp", {
 				left: "676px",
 				top: "295px",
 				visibility: "visible",

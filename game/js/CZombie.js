@@ -579,7 +579,7 @@ var CZombies = (function (b, a) {
 							(d.FreeFreezeTime = oSym.Now + 400),
 							NewImg(
 								"icetrap_" + Math.random(),
-								"images/Plants/IceShroom/icetrap.gif",
+								"images/Plants/IceShroom/icetrap.webp",
 								d.getShadow(d),
 								d.Ele
 							),
@@ -939,17 +939,17 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/BackupDancer/";
 			return [
 				"images/Card/Zombies/BackupDancer.png",
-				a + "0.gif",
-				a + "BackupDancer.gif",
-				a + "Attack.gif",
-				a + "LostHead.gif",
-				a + "LostHeadAttack.gif",
-				a + "Head.gif" + $Random,
-				a + "Die.gif" + $Random,
-				a + "BoomDie.gif" + $Random,
-				a + "Dancing.gif" + $Random,
-				a + "LostHeadDancing.gif" + $Random,
-				a + "Mound.gif" + $Random,
+				a + "0.webp",
+				a + "BackupDancer.webp",
+				a + "Attack.webp",
+				a + "LostHead.webp",
+				a + "LostHeadAttack.webp",
+				a + "Head.webp" + $Random,
+				a + "Die.webp" + $Random,
+				a + "BoomDie.webp" + $Random,
+				a + "Dancing.webp" + $Random,
+				a + "LostHeadDancing.webp" + $Random,
+				a + "Mound.webp" + $Random,
 			];
 		})(),
 		bedevil: function (a) {
@@ -1019,7 +1019,7 @@ var CZombies = (function (b, a) {
 					(b.FreeFreezeTime = oSym.Now + 400),
 					NewImg(
 						"icetrap_" + Math.random(),
-						"images/Plants/IceShroom/icetrap.gif",
+						"images/Plants/IceShroom/icetrap.webp",
 						b.getShadow(b),
 						b.Ele
 					),
@@ -1214,22 +1214,22 @@ var CZombies = (function (b, a) {
 				b = d + "spotlight2" + c + ".png" + $Random;
 			return [
 				"images/Card/Zombies/DancingZombie.png",
-				d + "0.gif",
-				d + "DancingZombie.gif",
-				d + "Attack.gif",
-				d + "LostHead.gif",
-				d + "LostHeadAttack.gif",
-				d + "Head.gif" + $Random,
-				d + "Die.gif" + $Random,
-				d + "BoomDie.gif" + $Random,
-				d + "SlidingStep.gif" + $Random,
-				d + "Dancing.gif" + $Random,
-				d + "Summon1.gif",
-				d + "Summon2.gif",
-				d + "Summon3.gif",
-				d + "LostHeadSlidingStep.gif" + $Random,
-				d + "LostHeadDancing.gif" + $Random,
-				d + "LostHeadSummon.gif" + $Random,
+				d + "0.webp",
+				d + "DancingZombie.webp",
+				d + "Attack.webp",
+				d + "LostHead.webp",
+				d + "LostHeadAttack.webp",
+				d + "Head.webp" + $Random,
+				d + "Die.webp" + $Random,
+				d + "BoomDie.webp" + $Random,
+				d + "SlidingStep.webp" + $Random,
+				d + "Dancing.webp" + $Random,
+				d + "Summon1.webp",
+				d + "Summon2.webp",
+				d + "Summon3.webp",
+				d + "LostHeadSlidingStep.webp" + $Random,
+				d + "LostHeadDancing.webp" + $Random,
+				d + "LostHeadSummon.webp" + $Random,
 				a,
 				b,
 			];
@@ -1688,7 +1688,7 @@ var CZombies = (function (b, a) {
 				b = d.ChkActs;
 			d.ChkActs = d.ChkTmp;
 			d.ChkTmp = b;
-			a.src = "images/Zombies/DancingZombie/Summon1.gif";
+			a.src = "images/Zombies/DancingZombie/Summon1.webp";
 			PlayAudio("dancer");
 			oSym.addTask(
 				10,
@@ -1696,7 +1696,7 @@ var CZombies = (function (b, a) {
 					var g = $Z[f];
 					g &&
 						g.beAttacked &&
-						((e.src = "images/Zombies/DancingZombie/Summon2.gif"),
+						((e.src = "images/Zombies/DancingZombie/Summon2.webp"),
 						oSym.addTask(
 							10,
 							function (t, s, x) {
@@ -1705,7 +1705,7 @@ var CZombies = (function (b, a) {
 									m = h.ArDZ,
 									n = [],
 									k =
-										"images/Zombies/BackupDancer/Mound.gif" +
+										"images/Zombies/BackupDancer/Mound.webp" +
 										$Random +
 										Math.random(),
 									r = 4,
@@ -1716,7 +1716,7 @@ var CZombies = (function (b, a) {
 									l;
 								if (h && h.beAttacked) {
 									s.src =
-										"images/Zombies/DancingZombie/Summon3.gif";
+										"images/Zombies/DancingZombie/Summon3.webp";
 									while (r--) {
 										(q = m[r]) &&
 											(!(l = q[0]) || !$Z[l]) &&
@@ -1879,22 +1879,22 @@ var CZombies = (function (b, a) {
 				b = d + "spotlight2" + c + ".png" + $Random;
 			return [
 				"images/Card/Zombies/IDancingZombie.png",
-				d + "0.gif",
-				d + "DancingZombie.gif",
-				d + "Attack.gif",
-				d + "LostHead.gif",
-				d + "LostHeadAttack.gif",
-				d + "Head.gif" + $Random,
-				d + "Die.gif" + $Random,
-				d + "BoomDie.gif" + $Random,
-				d + "SlidingStep.gif" + $Random,
-				d + "Dancing.gif" + $Random,
-				d + "Summon1.gif",
-				d + "Summon2.gif",
-				d + "Summon3.gif",
-				d + "LostHeadSlidingStep.gif" + $Random,
-				d + "LostHeadDancing.gif" + $Random,
-				d + "LostHeadSummon.gif" + $Random,
+				d + "0.webp",
+				d + "DancingZombie.webp",
+				d + "Attack.webp",
+				d + "LostHead.webp",
+				d + "LostHeadAttack.webp",
+				d + "Head.webp" + $Random,
+				d + "Die.webp" + $Random,
+				d + "BoomDie.webp" + $Random,
+				d + "SlidingStep.webp" + $Random,
+				d + "Dancing.webp" + $Random,
+				d + "Summon1.webp",
+				d + "Summon2.webp",
+				d + "Summon3.webp",
+				d + "LostHeadSlidingStep.webp" + $Random,
+				d + "LostHeadDancing.webp" + $Random,
+				d + "LostHeadSummon.webp" + $Random,
 				a,
 				b,
 			];
@@ -2353,7 +2353,7 @@ var CZombies = (function (b, a) {
 				b = d.ChkActs;
 			d.ChkActs = d.ChkTmp;
 			d.ChkTmp = b;
-			a.src = "images/Zombies/DancingZombie/Summon1.gif";
+			a.src = "images/Zombies/DancingZombie/Summon1.webp";
 			PlayAudio("dancer");
 			oSym.addTask(
 				10,
@@ -2361,7 +2361,7 @@ var CZombies = (function (b, a) {
 					var g = $Z[f];
 					g &&
 						g.beAttacked &&
-						((e.src = "images/Zombies/DancingZombie/Summon2.gif"),
+						((e.src = "images/Zombies/DancingZombie/Summon2.webp"),
 						oSym.addTask(
 							10,
 							function (t, s, x) {
@@ -2370,7 +2370,7 @@ var CZombies = (function (b, a) {
 									m = h.ArDZ,
 									n = [],
 									k =
-										"images/Zombies/BackupDancer/Mound.gif" +
+										"images/Zombies/BackupDancer/Mound.webp" +
 										$Random +
 										Math.random(),
 									r = 4,
@@ -2381,7 +2381,7 @@ var CZombies = (function (b, a) {
 									l;
 								if (h && h.beAttacked) {
 									s.src =
-										"images/Zombies/DancingZombie/Summon3.gif";
+										"images/Zombies/DancingZombie/Summon3.webp";
 									while (r--) {
 										(q = m[r]) &&
 											(!(l = q[0]) || !$Z[l]) &&
@@ -2494,15 +2494,15 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/Zombie/";
 			return [
 				"images/Card/Zombies/Zombie.png",
-				a + "0.gif",
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -2516,15 +2516,15 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/Zombie/";
 			return [
 				"images/Card/Zombies/IZombie.png",
-				a + "0.gif",
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -2543,15 +2543,15 @@ var CZombies = (function (b, a) {
 			var b = "images/Zombies/MustacheZombie/";
 			return [
 				"images/Card/Zombies/MustacheZombie.png",
-				b + "0.gif",
-				b + "Zombie.gif",
-				b + "ZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				b + "1.gif",
+				b + "0.webp",
+				b + "Zombie.webp",
+				b + "ZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				b + "1.webp",
 			];
 		})(),
 	}),
@@ -2560,15 +2560,15 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/FlagZombie/";
 			return [
 				"images/Card/Zombies/FlagZombie.png",
-				a + "0.gif",
-				a + "FlagZombie.gif",
-				a + "FlagZombieAttack.gif",
-				a + "FlagZombieLostHead.gif",
-				a + "FlagZombieLostHeadAttack.gif",
-				"images/Zombies/Zombie/ZombieHead.gif" + $Random,
-				"images/Zombies/Zombie/ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "FlagZombie.webp",
+				a + "FlagZombieAttack.webp",
+				a + "FlagZombieLostHead.webp",
+				a + "FlagZombieLostHeadAttack.webp",
+				"images/Zombies/Zombie/ZombieHead.webp" + $Random,
+				"images/Zombies/Zombie/ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		EName: "oFlagZombie",
@@ -2649,17 +2649,17 @@ var CZombies = (function (b, a) {
 				a = "images/Zombies/Zombie/";
 			return [
 				"images/Card/Zombies/ConeheadZombie.png",
-				b + "0.gif",
-				b + "ConeheadZombie.gif",
-				b + "ConeheadZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				b + "1.gif",
+				b + "0.webp",
+				b + "ConeheadZombie.webp",
+				b + "ConeheadZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				b + "1.webp",
 			];
 		})(),
 		AudioArr: ["plastichit"],
@@ -2695,17 +2695,17 @@ var CZombies = (function (b, a) {
 				a = "images/Zombies/Zombie/";
 			return [
 				"images/Card/Zombies/IConeheadZombie.png",
-				b + "0.gif",
-				b + "ConeheadZombie.gif",
-				b + "ConeheadZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				b + "1.gif",
+				b + "0.webp",
+				b + "ConeheadZombie.webp",
+				b + "ConeheadZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				b + "1.webp",
 			];
 		})(),
 		AudioArr: ["plastichit"],
@@ -2745,17 +2745,17 @@ var CZombies = (function (b, a) {
 				a = "images/Zombies/LionDanceZombie/";
 			return [
 				"images/Card/Zombies/LionDanceZombie.png",
-				b + "0.gif",
-				b + "ConeheadZombie.gif",
-				b + "ConeheadZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				b + "1.gif",
+				b + "0.webp",
+				b + "ConeheadZombie.webp",
+				b + "ConeheadZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				b + "1.webp",
 			];
 		})(),
 		Produce:
@@ -2794,11 +2794,11 @@ var CZombies = (function (b, a) {
 		{
 			PicArr: {
 				0: "images/Card/Zombies/BucketheadZombie.png",
-				1: "images/Zombies/BucketheadZombie/0.gif",
-				2: "images/Zombies/BucketheadZombie/BucketheadZombie.gif",
-				3: "images/Zombies/BucketheadZombie/BucketheadZombieAttack.gif",
-				9: "images/Zombies/Zombie/Zombie.gif",
-				11: "images/Zombies/BucketheadZombie/1.gif",
+				1: "images/Zombies/BucketheadZombie/0.webp",
+				2: "images/Zombies/BucketheadZombie/BucketheadZombie.webp",
+				3: "images/Zombies/BucketheadZombie/BucketheadZombieAttack.webp",
+				9: "images/Zombies/Zombie/Zombie.webp",
+				11: "images/Zombies/BucketheadZombie/1.webp",
 			},
 		}
 	),
@@ -2821,11 +2821,11 @@ var CZombies = (function (b, a) {
 		{
 			PicArr: {
 				0: "images/Card/Zombies/IBucketheadZombie.png",
-				1: "images/Zombies/BucketheadZombie/0.gif",
-				2: "images/Zombies/BucketheadZombie/BucketheadZombie.gif",
-				3: "images/Zombies/BucketheadZombie/BucketheadZombieAttack.gif",
-				9: "images/Zombies/Zombie/Zombie.gif",
-				11: "images/Zombies/BucketheadZombie/1.gif",
+				1: "images/Zombies/BucketheadZombie/0.webp",
+				2: "images/Zombies/BucketheadZombie/BucketheadZombie.webp",
+				3: "images/Zombies/BucketheadZombie/BucketheadZombieAttack.webp",
+				9: "images/Zombies/Zombie/Zombie.webp",
+				11: "images/Zombies/BucketheadZombie/1.webp",
 			},
 		}
 	),
@@ -2849,17 +2849,17 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/FootballZombie/";
 			return [
 				"images/Card/Zombies/FootballZombie.png",
-				a + "0.gif",
-				a + "FootballZombie.gif",
-				a + "Attack.gif",
-				a + "LostHead.gif",
-				a + "LostHeadAttack.gif",
-				"images/Zombies/Zombie/ZombieHead.gif" + $Random,
-				a + "Die.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "OrnLost.gif",
-				a + "OrnLostAttack.gif",
-				a + "1.gif",
+				a + "0.webp",
+				a + "FootballZombie.webp",
+				a + "Attack.webp",
+				a + "LostHead.webp",
+				a + "LostHeadAttack.webp",
+				"images/Zombies/Zombie/ZombieHead.webp" + $Random,
+				a + "Die.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "OrnLost.webp",
+				a + "OrnLostAttack.webp",
+				a + "1.webp",
 			];
 		})(),
 		getShadow: function (a) {
@@ -2894,17 +2894,17 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/FootballZombie/";
 			return [
 				"images/Card/Zombies/IFootballZombie.png",
-				a + "0.gif",
-				a + "FootballZombie.gif",
-				a + "Attack.gif",
-				a + "LostHead.gif",
-				a + "LostHeadAttack.gif",
-				"images/Zombies/Zombie/ZombieHead.gif" + $Random,
-				a + "Die.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "OrnLost.gif",
-				a + "OrnLostAttack.gif",
-				a + "1.gif",
+				a + "0.webp",
+				a + "FootballZombie.webp",
+				a + "Attack.webp",
+				a + "LostHead.webp",
+				a + "LostHeadAttack.webp",
+				"images/Zombies/Zombie/ZombieHead.webp" + $Random,
+				a + "Die.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "OrnLost.webp",
+				a + "OrnLostAttack.webp",
+				a + "1.webp",
 			];
 		})(),
 		getShadow: function (a) {
@@ -2935,17 +2935,17 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/HeiFootballZombie/";
 			return [
 				"images/Card/Zombies/HeiFootballZombie.png",
-				a + "0.gif",
-				a + "FootballZombie.gif",
-				a + "Attack.gif",
-				a + "LostHead.gif",
-				a + "LostHeadAttack.gif",
-				"images/Zombies/Zombie/ZombieHead.gif" + $Random,
-				a + "Die.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "OrnLost.gif",
-				a + "OrnLostAttack.gif",
-				a + "1.gif",
+				a + "0.webp",
+				a + "FootballZombie.webp",
+				a + "Attack.webp",
+				a + "LostHead.webp",
+				a + "LostHeadAttack.webp",
+				"images/Zombies/Zombie/ZombieHead.webp" + $Random,
+				a + "Die.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "OrnLost.webp",
+				a + "OrnLostAttack.webp",
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -2958,17 +2958,17 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/wall/FootballZombie/";
 			return [
 				"images/Card/Zombies/FootballZombie.png",
-				a + "0.gif",
-				a + "FootballZombie.gif",
-				a + "Attack.gif",
-				a + "LostHead.gif",
-				a + "LostHeadAttack.gif",
-				"images/Zombies/Zombie/ZombieHead.gif" + $Random,
-				a + "Die.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "OrnLost.gif",
-				a + "OrnLostAttack.gif",
-				a + "1.gif",
+				a + "0.webp",
+				a + "FootballZombie.webp",
+				a + "Attack.webp",
+				a + "LostHead.webp",
+				a + "LostHeadAttack.webp",
+				"images/Zombies/Zombie/ZombieHead.webp" + $Random,
+				a + "Die.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "OrnLost.webp",
+				a + "OrnLostAttack.webp",
+				a + "1.webp",
 			];
 		})(),
 		Produce: "",
@@ -2996,19 +2996,19 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/PoleVaultingZombie/";
 			return [
 				"images/Card/Zombies/PoleVaultingZombie.png",
-				a + "0.gif",
-				a + "PoleVaultingZombie.gif",
-				a + "PoleVaultingZombieAttack.gif",
-				a + "PoleVaultingZombieLostHead.gif",
-				a + "PoleVaultingZombieLostHeadAttack.gif",
-				a + "PoleVaultingZombieHead.gif" + $Random,
-				a + "PoleVaultingZombieDie.gif" + $Random,
-				a + "BoomDie.gif" + $Random,
-				a + "PoleVaultingZombieWalk.gif",
-				a + "PoleVaultingZombieLostHeadWalk.gif",
-				a + "PoleVaultingZombieJump.gif",
-				a + "PoleVaultingZombieJump2.gif",
-				a + "1.gif",
+				a + "0.webp",
+				a + "PoleVaultingZombie.webp",
+				a + "PoleVaultingZombieAttack.webp",
+				a + "PoleVaultingZombieLostHead.webp",
+				a + "PoleVaultingZombieLostHeadAttack.webp",
+				a + "PoleVaultingZombieHead.webp" + $Random,
+				a + "PoleVaultingZombieDie.webp" + $Random,
+				a + "BoomDie.webp" + $Random,
+				a + "PoleVaultingZombieWalk.webp",
+				a + "PoleVaultingZombieLostHeadWalk.webp",
+				a + "PoleVaultingZombieJump.webp",
+				a + "PoleVaultingZombieJump2.webp",
+				a + "1.webp",
 			];
 		})(),
 		AudioArr: ["polevault", "grassstep"],
@@ -3102,7 +3102,7 @@ var CZombies = (function (b, a) {
 				c = f.EleShadow,
 				e = f.EleBody;
 			e.src =
-				"images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump.gif" +
+				"images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump.webp" +
 				$Random +
 				Math.random();
 			PlayAudio("grassstep");
@@ -3138,7 +3138,7 @@ var CZombies = (function (b, a) {
 									h.beAttackedPointR),
 							  SetStyle(i, { left: h.X + "px" }),
 							  (n.src =
-									"images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif"),
+									"images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.webp"),
 							  SetVisible(l),
 							  (h.isAttacking = 0),
 							  (h.Altitude = 1),
@@ -3157,7 +3157,7 @@ var CZombies = (function (b, a) {
 									h.beAttackedPointL),
 							  SetStyle(i, { left: h.X + "px" }),
 							  (n.src =
-									"images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" +
+									"images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.webp" +
 									$Random +
 									Math.random()),
 							  SetVisible(l),
@@ -3168,7 +3168,7 @@ var CZombies = (function (b, a) {
 											t;
 										u &&
 											((v.src =
-												"images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif"),
+												"images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.webp"),
 											(u.isAttacking = 0),
 											(u.Altitude = 1),
 											(u.OSpeed = u.Speed = 1.6),
@@ -3210,19 +3210,19 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/PoleVaultingZombie/";
 			return [
 				"images/Card/Zombies/IPoleVaultingZombie.png",
-				a + "0.gif",
-				a + "PoleVaultingZombie.gif",
-				a + "PoleVaultingZombieAttack.gif",
-				a + "PoleVaultingZombieLostHead.gif",
-				a + "PoleVaultingZombieLostHeadAttack.gif",
-				a + "PoleVaultingZombieHead.gif" + $Random,
-				a + "PoleVaultingZombieDie.gif" + $Random,
-				a + "BoomDie.gif" + $Random,
-				a + "PoleVaultingZombieWalk.gif",
-				a + "PoleVaultingZombieLostHeadWalk.gif",
-				a + "PoleVaultingZombieJump.gif",
-				a + "PoleVaultingZombieJump2.gif",
-				a + "1.gif",
+				a + "0.webp",
+				a + "PoleVaultingZombie.webp",
+				a + "PoleVaultingZombieAttack.webp",
+				a + "PoleVaultingZombieLostHead.webp",
+				a + "PoleVaultingZombieLostHeadAttack.webp",
+				a + "PoleVaultingZombieHead.webp" + $Random,
+				a + "PoleVaultingZombieDie.webp" + $Random,
+				a + "BoomDie.webp" + $Random,
+				a + "PoleVaultingZombieWalk.webp",
+				a + "PoleVaultingZombieLostHeadWalk.webp",
+				a + "PoleVaultingZombieJump.webp",
+				a + "PoleVaultingZombieJump2.webp",
+				a + "1.webp",
 			];
 		})(),
 		AudioArr: ["polevault", "grassstep"],
@@ -3316,7 +3316,7 @@ var CZombies = (function (b, a) {
 				c = f.EleShadow,
 				e = f.EleBody;
 			e.src =
-				"images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump.gif" +
+				"images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump.webp" +
 				$Random +
 				Math.random();
 			PlayAudio("grassstep");
@@ -3352,7 +3352,7 @@ var CZombies = (function (b, a) {
 									h.beAttackedPointR),
 							  SetStyle(i, { left: h.X + "px" }),
 							  (n.src =
-									"images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif"),
+									"images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.webp"),
 							  SetVisible(l),
 							  (h.isAttacking = 0),
 							  (h.Altitude = 1),
@@ -3371,7 +3371,7 @@ var CZombies = (function (b, a) {
 									h.beAttackedPointL),
 							  SetStyle(i, { left: h.X + "px" }),
 							  (n.src =
-									"images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" +
+									"images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.webp" +
 									$Random +
 									Math.random()),
 							  SetVisible(l),
@@ -3382,7 +3382,7 @@ var CZombies = (function (b, a) {
 											t;
 										u &&
 											((v.src =
-												"images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif"),
+												"images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.webp"),
 											(u.isAttacking = 0),
 											(u.Altitude = 1),
 											(u.OSpeed = u.Speed = 1.6),
@@ -3409,19 +3409,19 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/wall/PoleVaultingZombie/";
 			return [
 				"images/Card/Zombies/PoleVaultingZombie.png",
-				a + "0.gif",
-				a + "PoleVaultingZombie.gif",
-				a + "PoleVaultingZombieAttack.gif",
-				a + "PoleVaultingZombieLostHead.gif",
-				a + "PoleVaultingZombieLostHeadAttack.gif",
-				a + "PoleVaultingZombieHead.gif" + $Random,
-				a + "PoleVaultingZombieDie.gif" + $Random,
-				b + "BoomDie.gif" + $Random,
-				a + "PoleVaultingZombieWalk.gif",
-				a + "PoleVaultingZombieLostHeadWalk.gif",
-				a + "PoleVaultingZombieJump.gif",
-				a + "PoleVaultingZombieJump2.gif",
-				a + "1.gif",
+				a + "0.webp",
+				a + "PoleVaultingZombie.webp",
+				a + "PoleVaultingZombieAttack.webp",
+				a + "PoleVaultingZombieLostHead.webp",
+				a + "PoleVaultingZombieLostHeadAttack.webp",
+				a + "PoleVaultingZombieHead.webp" + $Random,
+				a + "PoleVaultingZombieDie.webp" + $Random,
+				b + "BoomDie.webp" + $Random,
+				a + "PoleVaultingZombieWalk.webp",
+				a + "PoleVaultingZombieLostHeadWalk.webp",
+				a + "PoleVaultingZombieJump.webp",
+				a + "PoleVaultingZombieJump2.webp",
+				a + "1.webp",
 			];
 		})(),
 		NormalAttack: function (d, b, g) {
@@ -3430,7 +3430,7 @@ var CZombies = (function (b, a) {
 				c = f.EleShadow,
 				e = f.EleBody;
 			e.src =
-				"images/Zombies/wall/PoleVaultingZombie/PoleVaultingZombieJump.gif" +
+				"images/Zombies/wall/PoleVaultingZombie/PoleVaultingZombieJump.webp" +
 				$Random +
 				Math.random();
 			PlayAudio("grassstep");
@@ -3466,7 +3466,7 @@ var CZombies = (function (b, a) {
 									h.beAttackedPointR),
 							  SetStyle(i, { left: h.X + "px" }),
 							  (n.src =
-									"images/Zombies/wall/PoleVaultingZombie/PoleVaultingZombieWalk.gif"),
+									"images/Zombies/wall/PoleVaultingZombie/PoleVaultingZombieWalk.webp"),
 							  SetVisible(l),
 							  (h.isAttacking = 0),
 							  (h.Altitude = 1),
@@ -3485,7 +3485,7 @@ var CZombies = (function (b, a) {
 									h.beAttackedPointL),
 							  SetStyle(i, { left: h.X + "px" }),
 							  (n.src =
-									"images/Zombies/wall/PoleVaultingZombie/PoleVaultingZombieJump2.gif" +
+									"images/Zombies/wall/PoleVaultingZombie/PoleVaultingZombieJump2.webp" +
 									$Random +
 									Math.random()),
 							  SetVisible(l),
@@ -3496,7 +3496,7 @@ var CZombies = (function (b, a) {
 											t;
 										u &&
 											((v.src =
-												"images/Zombies/wall/PoleVaultingZombie/PoleVaultingZombieWalk.gif"),
+												"images/Zombies/wall/PoleVaultingZombie/PoleVaultingZombieWalk.webp"),
 											(u.isAttacking = 0),
 											(u.Altitude = 1),
 											(u.OSpeed = u.Speed = 1.6),
@@ -3546,20 +3546,20 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/NewspaperZombie/";
 			return [
 				"images/Card/Zombies/NewspaperZombie.png",
-				a + "0.gif",
-				a + "HeadWalk1.gif",
-				a + "HeadAttack1.gif",
-				a + "LostHeadWalk1.gif",
-				a + "LostHeadAttack1.gif",
-				a + "HeadWalk0.gif",
-				a + "HeadAttack0.gif",
-				a + "LostHeadWalk0.gif",
-				a + "LostHeadAttack0.gif",
-				a + "Head.gif" + $Random,
-				a + "Die.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "LostNewspaper.gif",
-				a + "1.gif",
+				a + "0.webp",
+				a + "HeadWalk1.webp",
+				a + "HeadAttack1.webp",
+				a + "LostHeadWalk1.webp",
+				a + "LostHeadAttack1.webp",
+				a + "HeadWalk0.webp",
+				a + "HeadAttack0.webp",
+				a + "LostHeadWalk0.webp",
+				a + "LostHeadAttack0.webp",
+				a + "Head.webp" + $Random,
+				a + "Die.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "LostNewspaper.webp",
+				a + "1.webp",
 			];
 		})(),
 		AudioArr: ["newspaper_rarrgh2"],
@@ -3878,19 +3878,19 @@ var CZombies = (function (b, a) {
 				b = "images/Zombies/Zombie/";
 			return [
 				"images/Card/Zombies/ScreenDoorZombie.png",
-				a + "0.gif",
-				a + "HeadWalk1.gif",
-				a + "HeadAttack1.gif",
-				a + "LostHeadWalk1.gif",
-				a + "LostHeadAttack1.gif",
-				b + "Zombie.gif",
-				b + "ZombieAttack.gif",
-				b + "ZombieLostHead.gif",
-				b + "ZombieLostHeadAttack.gif",
-				b + "ZombieHead.gif" + $Random,
-				b + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "HeadWalk1.webp",
+				a + "HeadAttack1.webp",
+				a + "LostHeadWalk1.webp",
+				a + "LostHeadAttack1.webp",
+				b + "Zombie.webp",
+				b + "ZombieAttack.webp",
+				b + "ZombieLostHead.webp",
+				b + "ZombieLostHeadAttack.webp",
+				b + "ZombieHead.webp" + $Random,
+				b + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		PlayNormalballAudio: function () {
@@ -4014,19 +4014,19 @@ var CZombies = (function (b, a) {
 				b = "images/Zombies/Zombie/";
 			return [
 				"images/Card/Zombies/IScreenDoorZombie.png",
-				a + "0.gif",
-				a + "HeadWalk1.gif",
-				a + "HeadAttack1.gif",
-				a + "LostHeadWalk1.gif",
-				a + "LostHeadAttack1.gif",
-				b + "Zombie.gif",
-				b + "ZombieAttack.gif",
-				b + "ZombieLostHead.gif",
-				b + "ZombieLostHeadAttack.gif",
-				b + "ZombieHead.gif" + $Random,
-				b + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "HeadWalk1.webp",
+				a + "HeadAttack1.webp",
+				a + "LostHeadWalk1.webp",
+				a + "LostHeadAttack1.webp",
+				b + "Zombie.webp",
+				b + "ZombieAttack.webp",
+				b + "ZombieLostHead.webp",
+				b + "ZombieLostHeadAttack.webp",
+				b + "ZombieHead.webp" + $Random,
+				b + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		PlayNormalballAudio: function () {
@@ -4142,19 +4142,19 @@ var CZombies = (function (b, a) {
 				b = "images/Zombies/Zombie/";
 			return [
 				"images/Card/Zombies/TrashZombie.png",
-				a + "0.gif",
-				a + "HeadWalk1.gif",
-				a + "HeadAttack1.gif",
-				a + "LostHeadWalk1.gif",
-				a + "LostHeadAttack1.gif",
-				b + "Zombie.gif",
-				b + "ZombieAttack.gif",
-				b + "ZombieLostHead.gif",
-				b + "ZombieLostHeadAttack.gif",
-				b + "ZombieHead.gif" + $Random,
-				b + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "HeadWalk1.webp",
+				a + "HeadAttack1.webp",
+				a + "LostHeadWalk1.webp",
+				a + "LostHeadAttack1.webp",
+				b + "Zombie.webp",
+				b + "ZombieAttack.webp",
+				b + "ZombieLostHead.webp",
+				b + "ZombieLostHeadAttack.webp",
+				b + "ZombieHead.webp" + $Random,
+				b + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -4398,13 +4398,13 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/DuckyTubeZombie1/";
 			return [
 				"images/Card/Zombies/DuckyTubeZombie1.png",
-				a + "0.gif",
-				a + "Walk1.gif",
-				a + "Walk2.gif",
-				a + "1.gif",
-				a + "Attack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "Die.gif" + $Random,
+				a + "0.webp",
+				a + "Walk1.webp",
+				a + "Walk2.webp",
+				a + "1.webp",
+				a + "Attack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "Die.webp" + $Random,
 			];
 		})(),
 		AudioArr: ["zombie_entering_water"],
@@ -4422,13 +4422,13 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/DuckyTubeZombie1/";
 			return [
 				"images/Card/Zombies/IDuckyTubeZombie1.png",
-				a + "Walk2.gif",
-				a + "Walk1.gif",
-				a + "Walk2.gif",
-				a + "Walk2.gif",
-				a + "Attack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "Die.gif" + $Random,
+				a + "Walk2.webp",
+				a + "Walk1.webp",
+				a + "Walk2.webp",
+				a + "Walk2.webp",
+				a + "Attack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "Die.webp" + $Random,
 			];
 		})(),
 		AudioArr: ["zombie_entering_water"],
@@ -4454,13 +4454,13 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/WarshipsZombie/";
 			return [
 				"images/Card/Zombies/WarshipsZombie.png",
-				a + "0.gif",
-				a + "Walk1.gif",
-				a + "Walk2.gif",
-				a + "1.gif",
-				a + "Attack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "Die.gif" + $Random,
+				a + "0.webp",
+				a + "Walk1.webp",
+				a + "Walk2.webp",
+				a + "1.webp",
+				a + "Attack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "Die.webp" + $Random,
 			];
 		})(),
 	}),
@@ -4481,16 +4481,16 @@ var CZombies = (function (b, a) {
 				a = "images/Zombies/DuckyTubeZombie1/";
 			return [
 				"images/Card/Zombies/DuckyTubeZombie1.png",
-				b + "0.gif",
-				b + "Walk1.gif",
-				b + "Walk2.gif",
-				b + "1.gif",
-				b + "Attack.gif",
-				"images/Zombies/Zombie/ZombieHead.gif" + $Random,
-				a + "Die.gif" + $Random,
-				a + "Walk1.gif",
-				a + "Walk2.gif",
-				a + "Attack.gif",
+				b + "0.webp",
+				b + "Walk1.webp",
+				b + "Walk2.webp",
+				b + "1.webp",
+				b + "Attack.webp",
+				"images/Zombies/Zombie/ZombieHead.webp" + $Random,
+				a + "Die.webp" + $Random,
+				a + "Walk1.webp",
+				a + "Walk2.webp",
+				a + "Attack.webp",
 			];
 		})(),
 		AudioArr: ["plastichit", "zombie_entering_water"],
@@ -4517,16 +4517,16 @@ var CZombies = (function (b, a) {
 				a = "images/Zombies/DuckyTubeZombie1/";
 			return [
 				"images/Card/Zombies/IDuckyTubeZombie2.png",
-				b + "Walk2.gif",
-				b + "Walk1.gif",
-				b + "Walk2.gif",
-				b + "Walk2.gif",
-				b + "Attack.gif",
-				"images/Zombies/Zombie/ZombieHead.gif" + $Random,
-				a + "Die.gif" + $Random,
-				a + "Walk1.gif",
-				a + "Walk2.gif",
-				a + "Attack.gif",
+				b + "Walk2.webp",
+				b + "Walk1.webp",
+				b + "Walk2.webp",
+				b + "Walk2.webp",
+				b + "Attack.webp",
+				"images/Zombies/Zombie/ZombieHead.webp" + $Random,
+				a + "Die.webp" + $Random,
+				a + "Walk1.webp",
+				a + "Walk2.webp",
+				a + "Attack.webp",
 			];
 		})(),
 		AudioArr: ["plastichit", "zombie_entering_water"],
@@ -4553,16 +4553,16 @@ var CZombies = (function (b, a) {
 				a = "images/Zombies/DuckyTubeZombie1/";
 			return [
 				"images/Card/Zombies/DuckyTubeZombie1.png",
-				b + "0.gif",
-				b + "Walk1.gif",
-				b + "Walk2.gif",
-				b + "1.gif",
-				b + "Attack.gif",
-				"images/Zombies/Zombie/ZombieHead.gif" + $Random,
-				a + "Die.gif" + $Random,
-				a + "Walk1.gif",
-				a + "Walk2.gif",
-				a + "Attack.gif",
+				b + "0.webp",
+				b + "Walk1.webp",
+				b + "Walk2.webp",
+				b + "1.webp",
+				b + "Attack.webp",
+				"images/Zombies/Zombie/ZombieHead.webp" + $Random,
+				a + "Die.webp" + $Random,
+				a + "Walk1.webp",
+				a + "Walk2.webp",
+				a + "Attack.webp",
 			];
 		})(),
 	}),
@@ -4583,16 +4583,16 @@ var CZombies = (function (b, a) {
 				a = "images/Zombies/DuckyTubeZombie1/";
 			return [
 				"images/Card/Zombies/IDuckyTubeZombie3.png",
-				b + "Walk2.gif",
-				b + "Walk1.gif",
-				b + "Walk2.gif",
-				b + "Walk2.gif",
-				b + "Attack.gif",
-				"images/Zombies/Zombie/ZombieHead.gif" + $Random,
-				a + "Die.gif" + $Random,
-				a + "Walk1.gif",
-				a + "Walk2.gif",
-				a + "Attack.gif",
+				b + "Walk2.webp",
+				b + "Walk1.webp",
+				b + "Walk2.webp",
+				b + "Walk2.webp",
+				b + "Attack.webp",
+				"images/Zombies/Zombie/ZombieHead.webp" + $Random,
+				a + "Die.webp" + $Random,
+				a + "Walk1.webp",
+				a + "Walk2.webp",
+				a + "Attack.webp",
 			];
 		})(),
 	}),
@@ -4604,16 +4604,16 @@ var CZombies = (function (b, a) {
 				a = "images/Zombies/DuckyTubeZombie1/";
 			return [
 				"images/Card/Zombies/DuckyTubeZombie1.png",
-				b + "0.gif",
-				b + "Walk1.gif",
-				b + "Walk2.gif",
-				b + "1.gif",
-				b + "Attack.gif",
-				"images/Zombies/Zombie/ZombieHead.gif" + $Random,
-				a + "Die.gif" + $Random,
-				a + "Walk1.gif",
-				a + "Walk2.gif",
-				a + "Attack.gif",
+				b + "0.webp",
+				b + "Walk1.webp",
+				b + "Walk2.webp",
+				b + "1.webp",
+				b + "Attack.webp",
+				"images/Zombies/Zombie/ZombieHead.webp" + $Random,
+				a + "Die.webp" + $Random,
+				a + "Walk1.webp",
+				a + "Walk2.webp",
+				a + "Attack.webp",
 			];
 		})(),
 		getHit: OrnIIZombies.prototype.getHit,
@@ -4940,16 +4940,16 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/SnorkelZombie/";
 			return [
 				"images/Card/Zombies/SnorkelZombie.png",
-				a + "0.gif",
-				a + "Walk1.gif",
-				a + "Walk2.gif",
-				a + "1.gif",
-				a + "Attack.gif",
-				a + "Head.gif" + $Random,
-				a + "Die.gif" + $Random,
-				a + "Jump.gif" + $Random,
-				a + "Risk.gif" + $Random,
-				a + "Sink.gif" + $Random,
+				a + "0.webp",
+				a + "Walk1.webp",
+				a + "Walk2.webp",
+				a + "1.webp",
+				a + "Attack.webp",
+				a + "Head.webp" + $Random,
+				a + "Die.webp" + $Random,
+				a + "Jump.webp" + $Random,
+				a + "Risk.webp" + $Random,
+				a + "Sink.webp" + $Random,
 			];
 		})(),
 		AudioArr: ["zombie_entering_water"],
@@ -5195,16 +5195,16 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/SubZombie/";
 			return [
 				"images/Card/Zombies/SubZombie.png",
-				a + "0.gif",
-				a + "Walk1.gif",
-				a + "Walk2.gif",
-				a + "1.gif",
-				a + "Attack.gif",
-				a + "Head.gif" + $Random,
-				a + "Die.gif" + $Random,
-				a + "Jump.gif" + $Random,
-				a + "Risk.gif" + $Random,
-				a + "Sink.gif" + $Random,
+				a + "0.webp",
+				a + "Walk1.webp",
+				a + "Walk2.webp",
+				a + "1.webp",
+				a + "Attack.webp",
+				a + "Head.webp" + $Random,
+				a + "Die.webp" + $Random,
+				a + "Jump.webp" + $Random,
+				a + "Risk.webp" + $Random,
+				a + "Sink.webp" + $Random,
 			];
 		})(),
 	}),
@@ -5589,10 +5589,10 @@ var CZombies = (function (b, a) {
 							function () {};
 					return;
 				case c < 391:
-					d.EleBody.src = "images/Zombies/Zomboni/3.gif";
+					d.EleBody.src = "images/Zombies/Zomboni/3.webp";
 					break;
 				case c < 871:
-					d.EleBody.src = "images/Zombies/Zomboni/2.gif";
+					d.EleBody.src = "images/Zombies/Zomboni/2.webp";
 			}
 			d.SetAlpha(d, d.EleBody, 50, 0.5);
 			oSym.addTask(
@@ -5632,13 +5632,13 @@ var CZombies = (function (b, a) {
 				var b = "images/Zombies/Zomboni/";
 				return [
 					"images/Card/Zombies/Zomboni.png",
-					b + "0.gif",
-					b + "1.gif",
-					b + "2.gif",
-					b + "3.gif",
-					b + "4.gif",
-					b + "5.gif" + $Random,
-					b + "BoomDie.gif" + $Random,
+					b + "0.webp",
+					b + "1.webp",
+					b + "2.webp",
+					b + "3.webp",
+					b + "4.webp",
+					b + "5.webp" + $Random,
+					b + "BoomDie.webp" + $Random,
 					b + "ice.png",
 					b + "ice_cap.png",
 				];
@@ -5841,7 +5841,7 @@ var CZombies = (function (b, a) {
 			},
 			flatTire: function () {
 				var b = this;
-				b.EleBody.src = "images/Zombies/Zomboni/4.gif";
+				b.EleBody.src = "images/Zombies/Zomboni/4.webp";
 				b.beAttacked = 0;
 				b.HP = 0;
 				b.getHit0 = b.getHit1 = b.getHit2 = b.getHit3 = function () {};
@@ -5921,10 +5921,10 @@ var CZombies = (function (b, a) {
 							function () {};
 					return;
 				case c < 391:
-					d.EleBody.src = "images/Zombies/wall/Zomboni/3.gif";
+					d.EleBody.src = "images/Zombies/wall/Zomboni/3.webp";
 					break;
 				case c < 871:
-					d.EleBody.src = "images/Zombies/wall/Zomboni/2.gif";
+					d.EleBody.src = "images/Zombies/wall/Zomboni/2.webp";
 			}
 			d.SetAlpha(d, d.EleBody, 50, 0.5);
 			oSym.addTask(
@@ -5962,13 +5962,13 @@ var CZombies = (function (b, a) {
 				var b = "images/Zombies/wall/Zomboni/";
 				return [
 					"images/Card/Zombies/Zomboni.png",
-					b + "0.gif",
-					b + "1.gif",
-					b + "2.gif",
-					b + "3.gif",
-					b + "4.gif",
-					b + "5.gif" + $Random,
-					b + "BoomDie.gif" + $Random,
+					b + "0.webp",
+					b + "1.webp",
+					b + "2.webp",
+					b + "3.webp",
+					b + "4.webp",
+					b + "5.webp" + $Random,
+					b + "BoomDie.webp" + $Random,
 					b + "ice.png",
 					b + "ice_cap.png",
 				];
@@ -6171,7 +6171,7 @@ var CZombies = (function (b, a) {
 			},
 			flatTire: function () {
 				var b = this;
-				b.EleBody.src = "images/Zombies/wall/Zomboni/4.gif";
+				b.EleBody.src = "images/Zombies/wall/Zomboni/4.webp";
 				b.beAttacked = 0;
 				b.HP = 0;
 				b.getHit0 = b.getHit1 = b.getHit2 = b.getHit3 = function () {};
@@ -6269,19 +6269,19 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/DolphinRiderZombie/";
 			return [
 				"images/Card/Zombies/DolphinRiderZombie.png",
-				a + "0.gif",
-				a + "Walk1.gif",
-				a + "Walk2.gif",
-				a + "1.gif",
-				a + "Attack.gif",
-				a + "Head.gif" + $Random,
-				a + "Die.gif" + $Random,
-				a + "Jump.gif" + $Random,
-				a + "Jump2.gif" + $Random,
-				a + "Walk3.gif",
-				a + "Walk4.gif",
-				a + "Die2.gif" + $Random,
-				a + "Jump3.gif" + $Random,
+				a + "0.webp",
+				a + "Walk1.webp",
+				a + "Walk2.webp",
+				a + "1.webp",
+				a + "Attack.webp",
+				a + "Head.webp" + $Random,
+				a + "Die.webp" + $Random,
+				a + "Jump.webp" + $Random,
+				a + "Jump2.webp" + $Random,
+				a + "Walk3.webp",
+				a + "Walk4.webp",
+				a + "Die2.webp" + $Random,
+				a + "Jump3.webp" + $Random,
 			];
 		})(),
 		AudioArr: [
@@ -6489,15 +6489,15 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/Imp/";
 			return [
 				"images/Card/Zombies/Imp.png",
-				a + "0.gif",
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -6515,15 +6515,15 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/Imp/";
 			return [
 				"images/Card/Zombies/IImp.png",
-				a + "0.gif",
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -6542,15 +6542,15 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/JX/";
 			return [
 				"images/Card/Zombies/JX.png",
-				a + "0.gif",
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -6586,17 +6586,17 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/JackinTheBoxZombie/";
 			return [
 				"images/Card/Zombies/JackboxZombie.png",
-				a + "0.gif",
-				a + "Attack.gif",
-				a + "Die.gif" + $Random,
-				a + "BoomDie.gif" + $Random,
-				a + "1.gif",
-				a + "Walk.gif",
-				a + "OpenBox.gif",
-				a + "Boom.gif" + $Random,
-				a + "LostHead.gif",
-				a + "LostHeadAttack.gif",
-				"images/Zombies/Zombie/ZombieHead.gif" + $Random,
+				a + "0.webp",
+				a + "Attack.webp",
+				a + "Die.webp" + $Random,
+				a + "BoomDie.webp" + $Random,
+				a + "1.webp",
+				a + "Walk.webp",
+				a + "OpenBox.webp",
+				a + "Boom.webp" + $Random,
+				a + "LostHead.webp",
+				a + "LostHeadAttack.webp",
+				"images/Zombies/Zombie/ZombieHead.webp" + $Random,
 			];
 		})(),
 		RandomOpenBox: function (a) {
@@ -6830,17 +6830,17 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/JackinTheBoxZombie/";
 			return [
 				"images/Card/Zombies/IJackboxZombie.png",
-				a + "0.gif",
-				a + "Attack.gif",
-				a + "Die.gif" + $Random,
-				a + "BoomDie.gif" + $Random,
-				a + "1.gif",
-				a + "Walk.gif",
-				a + "OpenBox.gif",
-				a + "Boom.gif" + $Random,
-				a + "LostHead.gif",
-				a + "LostHeadAttack.gif",
-				"images/Zombies/Zombie/ZombieHead.gif" + $Random,
+				a + "0.webp",
+				a + "Attack.webp",
+				a + "Die.webp" + $Random,
+				a + "BoomDie.webp" + $Random,
+				a + "1.webp",
+				a + "Walk.webp",
+				a + "OpenBox.webp",
+				a + "Boom.webp" + $Random,
+				a + "LostHead.webp",
+				a + "LostHeadAttack.webp",
+				"images/Zombies/Zombie/ZombieHead.webp" + $Random,
 			];
 		})(),
 		RandomOpenBox: function (a) {
@@ -7078,18 +7078,18 @@ var CZombies = (function (b, a) {
 		var a = "images/Zombies/BalloonZombie/";
 		return [
 			"images/Card/Zombies/Balloonzombie.png",
-			a + "0.gif",
-			a + "1.gif",
-			a + "Attack.gif",
-			a + "Walk2.gif",
-			a + "Attack2.gif",
-			a + "Head.gif" + $Random,
-			a + "Die.gif" + $Random,
-			a + "Boom.gif",
-			a + "Walk.gif",
-			a + "Drop.gif",
-			a + "Boom2.gif",
-			a + "1.gif",
+			a + "0.webp",
+			a + "1.webp",
+			a + "Attack.webp",
+			a + "Walk2.webp",
+			a + "Attack2.webp",
+			a + "Head.webp" + $Random,
+			a + "Die.webp" + $Random,
+			a + "Boom.webp",
+			a + "Walk.webp",
+			a + "Drop.webp",
+			a + "Boom2.webp",
+			a + "1.webp",
 		];
 	})(),
 	Produce:
@@ -7147,7 +7147,7 @@ var CZombies = (function (b, a) {
 		var a = this;
 		PlayAudio("balloon_pop");
 		a.EleBody.src =
-			"images/Zombies/BalloonZombie/Drop.gif" + $Random + Math.random();
+			"images/Zombies/BalloonZombie/Drop.webp" + $Random + Math.random();
 		a.ChkActs = function () {
 			return 1;
 		};
@@ -7162,7 +7162,7 @@ var CZombies = (function (b, a) {
 					c.Altitude = 1;
 					c.OSpeed = c.Speed = 1.6;
 					c.getFreeze = OrnIZombies.prototype.getFreeze;
-					c.EleBody.src = "images/Zombies/BalloonZombie/Walk.gif";
+					c.EleBody.src = "images/Zombies/BalloonZombie/Walk.webp";
 					c.ChkActs = OrnIZombies.prototype.ChkActs;
 					c.ExplosionDie = function () {
 						var d = this;
@@ -7276,17 +7276,17 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/BalloonZombie/";
 			return [
 				"images/Card/Zombies/IBalloonzombie.png",
-				a + "1.gif",
-				a + "1.gif",
-				a + "Attack.gif",
-				a + "Walk2.gif",
-				a + "Attack2.gif",
-				a + "Head.gif" + $Random,
-				a + "Die.gif" + $Random,
-				a + "Boom.gif",
-				a + "Walk.gif",
-				a + "Drop.gif",
-				a + "Boom2.gif",
+				a + "1.webp",
+				a + "1.webp",
+				a + "Attack.webp",
+				a + "Walk2.webp",
+				a + "Attack2.webp",
+				a + "Head.webp" + $Random,
+				a + "Die.webp" + $Random,
+				a + "Boom.webp",
+				a + "Walk.webp",
+				a + "Drop.webp",
+				a + "Boom2.webp",
 			];
 		})(),
 		Produce:
@@ -7345,7 +7345,7 @@ var CZombies = (function (b, a) {
 			var a = this;
 			PlayAudio("balloon_pop");
 			a.EleBody.src =
-				"images/Zombies/BalloonZombie/Drop.gif" +
+				"images/Zombies/BalloonZombie/Drop.webp" +
 				$Random +
 				Math.random();
 			a.ChkActs = function () {
@@ -7362,7 +7362,7 @@ var CZombies = (function (b, a) {
 						c.Altitude = 1;
 						c.OSpeed = c.Speed = 1.6;
 						c.getFreeze = OrnIZombies.prototype.getFreeze;
-						c.EleBody.src = "images/Zombies/BalloonZombie/Walk.gif";
+						c.EleBody.src = "images/Zombies/BalloonZombie/Walk.webp";
 						c.ChkActs = OrnIZombies.prototype.ChkActs;
 						c.ExplosionDie = function () {
 							var d = this;
@@ -7477,18 +7477,18 @@ var CZombies = (function (b, a) {
 		var a = "images/Zombies/JY/";
 		return [
 			"images/Card/Zombies/JY.png",
-			a + "0.gif",
-			a + "1.gif",
-			a + "Attack.gif",
-			a + "Walk2.gif",
-			a + "Attack2.gif",
-			a + "Head.gif" + $Random,
-			a + "Die.gif" + $Random,
-			a + "Boom.gif",
-			a + "Walk.gif",
-			a + "Drop.gif",
-			a + "Boom2.gif",
-			a + "BalloonZombie.gif",
+			a + "0.webp",
+			a + "1.webp",
+			a + "Attack.webp",
+			a + "Walk2.webp",
+			a + "Attack2.webp",
+			a + "Head.webp" + $Random,
+			a + "Die.webp" + $Random,
+			a + "Boom.webp",
+			a + "Walk.webp",
+			a + "Drop.webp",
+			a + "Boom2.webp",
+			a + "BalloonZombie.webp",
 		];
 	})(),
 	Produce:
@@ -7545,7 +7545,7 @@ var CZombies = (function (b, a) {
 	Drop: function () {
 		var a = this;
 		PlayAudio("balloon_pop");
-		a.EleBody.src = "images/Zombies/JY/Drop.gif" + $Random + Math.random();
+		a.EleBody.src = "images/Zombies/JY/Drop.webp" + $Random + Math.random();
 		a.ChkActs = function () {
 			return 1;
 		};
@@ -7560,7 +7560,7 @@ var CZombies = (function (b, a) {
 					c.Altitude = 1;
 					c.OSpeed = c.Speed = 1.6;
 					c.getFreeze = OrnIZombies.prototype.getFreeze;
-					c.EleBody.src = "images/Zombies/JY/Walk.gif";
+					c.EleBody.src = "images/Zombies/JY/Walk.webp";
 					c.ChkActs = OrnIZombies.prototype.ChkActs;
 					c.ExplosionDie = function () {
 						var d = this;
@@ -7641,15 +7641,15 @@ var CZombies = (function (b, a) {
 			var a = "images/Zombies/wall/Zombie/";
 			return [
 				"images/Card/Zombies/CZombie.png",
-				a + "0.gif",
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -7660,8 +7660,8 @@ var CZombies = (function (b, a) {
 		{ EName: "oCZombie2" },
 		{
 			PicArr: {
-				2: "images/Zombies/wall/Zombie/Zombie.gif",
-				9: "images/Zombies/wall/Zombie/1.gif",
+				2: "images/Zombies/wall/Zombie/Zombie.webp",
+				9: "images/Zombies/wall/Zombie/1.webp",
 			},
 		}
 	)),
@@ -7670,8 +7670,8 @@ var CZombies = (function (b, a) {
 		{ EName: "oCZombie3" },
 		{
 			PicArr: {
-				2: "images/Zombies/wall/Zombie/Zombie.gif",
-				9: "images/Zombies/wall/Zombie/1.gif",
+				2: "images/Zombies/wall/Zombie/Zombie.webp",
+				9: "images/Zombies/wall/Zombie/1.webp",
 			},
 		}
 	));
@@ -7688,17 +7688,17 @@ oCConeheadZombie = InheritO(OrnIZombies, {
 			a = "images/Zombies/wall/Zombie/";
 		return [
 			"images/Card/Zombies/CConeheadZombie.png",
-			b + "0.gif",
-			b + "ConeheadZombie.gif",
-			b + "ConeheadZombieAttack.gif",
-			a + "ZombieLostHead.gif",
-			a + "ZombieLostHeadAttack.gif",
-			a + "ZombieHead.gif" + $Random,
-			a + "ZombieDie.gif" + $Random,
-			"images/Zombies/BoomDie.gif" + $Random,
-			a + "Zombie.gif",
-			a + "ZombieAttack.gif",
-			b + "1.gif",
+			b + "0.webp",
+			b + "ConeheadZombie.webp",
+			b + "ConeheadZombieAttack.webp",
+			a + "ZombieLostHead.webp",
+			a + "ZombieLostHeadAttack.webp",
+			a + "ZombieHead.webp" + $Random,
+			a + "ZombieDie.webp" + $Random,
+			"images/Zombies/BoomDie.webp" + $Random,
+			a + "Zombie.webp",
+			a + "ZombieAttack.webp",
+			b + "1.webp",
 		];
 	})(),
 	AudioArr: ["plastichit"],
@@ -7728,11 +7728,11 @@ oCBucketheadZombie = InheritO(
 	{
 		PicArr: {
 			0: "images/Card/Zombies/CBucketheadZombie.png",
-			1: "images/Zombies/wall/BucketheadZombie/0.gif",
-			2: "images/Zombies/wall/BucketheadZombie/BucketheadZombie.gif",
-			3: "images/Zombies/wall/BucketheadZombie/BucketheadZombieAttack.gif",
-			9: "images/Zombies/wall/Zombie/Zombie.gif",
-			11: "images/Zombies/wall/BucketheadZombie/1.gif",
+			1: "images/Zombies/wall/BucketheadZombie/0.webp",
+			2: "images/Zombies/wall/BucketheadZombie/BucketheadZombie.webp",
+			3: "images/Zombies/wall/BucketheadZombie/BucketheadZombieAttack.webp",
+			9: "images/Zombies/wall/Zombie/Zombie.webp",
+			11: "images/Zombies/wall/BucketheadZombie/1.webp",
 		},
 	}
 );
@@ -7760,19 +7760,19 @@ oCBucketheadZombie = InheritO(
 		var a = "images/Zombies/wall/thugZombie/";
 		return [
 			"images/Card/Zombies/thugZombie.png",
-			a + "0.gif",
-			a + "PoleVaultingZombie.gif",
-			a + "PoleVaultingZombieAttack.gif",
-			a + "PoleVaultingZombieLostHead.gif",
-			a + "PoleVaultingZombieLostHeadAttack.gif",
-			a + "PoleVaultingZombieHead.gif" + $Random,
-			a + "PoleVaultingZombieDie.gif" + $Random,
-			"images/Zombies/PoleVaultingZombie/BoomDie.gif" + $Random,
-			a + "PoleVaultingZombieWalk.gif",
-			a + "PoleVaultingZombieLostHeadWalk.gif",
-			a + "PoleVaultingZombieJump.gif",
-			a + "PoleVaultingZombieJump2.gif",
-			a + "1.gif",
+			a + "0.webp",
+			a + "PoleVaultingZombie.webp",
+			a + "PoleVaultingZombieAttack.webp",
+			a + "PoleVaultingZombieLostHead.webp",
+			a + "PoleVaultingZombieLostHeadAttack.webp",
+			a + "PoleVaultingZombieHead.webp" + $Random,
+			a + "PoleVaultingZombieDie.webp" + $Random,
+			"images/Zombies/PoleVaultingZombie/BoomDie.webp" + $Random,
+			a + "PoleVaultingZombieWalk.webp",
+			a + "PoleVaultingZombieLostHeadWalk.webp",
+			a + "PoleVaultingZombieJump.webp",
+			a + "PoleVaultingZombieJump2.webp",
+			a + "1.webp",
 		];
 	})(),
 	Produce:
@@ -7865,7 +7865,7 @@ oCBucketheadZombie = InheritO(
 			c = f.EleShadow,
 			e = f.EleBody;
 		e.src =
-			"images/Zombies/wall/thugZombie/PoleVaultingZombieJump.gif" +
+			"images/Zombies/wall/thugZombie/PoleVaultingZombieJump.webp" +
 			$Random +
 			Math.random();
 		SetHidden(c);
@@ -7896,7 +7896,7 @@ oCBucketheadZombie = InheritO(
 									h.beAttackedPointL) + h.beAttackedPointR),
 						  SetStyle(i, { left: h.X + "px" }),
 						  (n.src =
-								"images/Zombies/wall/thugZombie/PoleVaultingZombieWalk.gif"),
+								"images/Zombies/wall/thugZombie/PoleVaultingZombieWalk.webp"),
 						  SetVisible(l),
 						  (h.isAttacking = 0),
 						  (h.Altitude = 1),
@@ -7914,7 +7914,7 @@ oCBucketheadZombie = InheritO(
 								h.beAttackedPointL),
 						  SetStyle(i, { left: h.X + "px" }),
 						  (n.src =
-								"images/Zombies/wall/thugZombie/PoleVaultingZombieJump2.gif" +
+								"images/Zombies/wall/thugZombie/PoleVaultingZombieJump2.webp" +
 								$Random +
 								Math.random()),
 						  SetVisible(l),
@@ -7925,7 +7925,7 @@ oCBucketheadZombie = InheritO(
 										t;
 									u &&
 										((v.src =
-											"images/Zombies/wall/thugZombie/PoleVaultingZombieWalk.gif"),
+											"images/Zombies/wall/thugZombie/PoleVaultingZombieWalk.webp"),
 										(u.isAttacking = 0),
 										(u.Altitude = 1),
 										(u.OSpeed = u.Speed = 1.2),
@@ -7962,20 +7962,20 @@ oCBucketheadZombie = InheritO(
 			var a = "images/Zombies/wall/EunZombie/";
 			return [
 				"images/Card/Zombies/EunZombie.png",
-				a + "0.gif",
-				a + "HeadWalk1.gif",
-				a + "HeadAttack1.gif",
-				a + "LostHeadWalk1.gif",
-				a + "LostHeadAttack1.gif",
-				a + "HeadWalk0.gif",
-				a + "HeadAttack0.gif",
-				a + "LostHeadWalk0.gif",
-				a + "LostHeadAttack0.gif",
-				a + "Head.gif" + $Random,
-				a + "Die.gif" + $Random,
-				"images/Zombies/NewspaperZombie/BoomDie.gif" + $Random,
-				a + "LostNewspaper.gif",
-				a + "1.gif",
+				a + "0.webp",
+				a + "HeadWalk1.webp",
+				a + "HeadAttack1.webp",
+				a + "LostHeadWalk1.webp",
+				a + "LostHeadAttack1.webp",
+				a + "HeadWalk0.webp",
+				a + "HeadAttack0.webp",
+				a + "LostHeadWalk0.webp",
+				a + "LostHeadAttack0.webp",
+				a + "Head.webp" + $Random,
+				a + "Die.webp" + $Random,
+				"images/Zombies/NewspaperZombie/BoomDie.webp" + $Random,
+				a + "LostNewspaper.webp",
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -8293,15 +8293,15 @@ oCBucketheadZombie = InheritO(
 		var a = "images/Zombies/wall/ZZ/";
 		return [
 			"images/Card/Zombies/ZZ.png",
-			a + "0.gif",
-			a + "Zombie.gif",
-			a + "ZombieAttack.gif",
-			a + "ZombieLostHead.gif",
-			a + "ZombieLostHeadAttack.gif",
-			a + "ZombieHead.gif" + $Random,
-			a + "ZombieDie.gif" + $Random,
-			"images/Zombies/NewspaperZombie/BoomDie.gif" + $Random,
-			a + "1.gif",
+			a + "0.webp",
+			a + "Zombie.webp",
+			a + "ZombieAttack.webp",
+			a + "ZombieLostHead.webp",
+			a + "ZombieLostHeadAttack.webp",
+			a + "ZombieHead.webp" + $Random,
+			a + "ZombieDie.webp" + $Random,
+			"images/Zombies/NewspaperZombie/BoomDie.webp" + $Random,
+			a + "1.webp",
 		];
 	})(),
 	Produce:
@@ -8327,15 +8327,15 @@ oCBucketheadZombie = InheritO(
 			var a = "images/Zombies/wall/Emperor/";
 			return [
 				"images/Card/Zombies/Emperor.png",
-				a + "0.gif",
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				"images/Zombies/Imp/ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				"images/Zombies/Imp/ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -8355,20 +8355,20 @@ oCBucketheadZombie = InheritO(
 			var a = "images/Zombies/WJY/";
 			return [
 				"images/Card/Zombies/WJY.png",
-				a + "0.gif",
-				a + "HeadWalk1.gif",
-				a + "HeadAttack1.gif",
-				a + "LostHeadWalk1.gif",
-				a + "LostHeadAttack1.gif",
-				a + "HeadWalk0.gif",
-				a + "HeadAttack0.gif",
-				a + "LostHeadWalk0.gif",
-				a + "LostHeadAttack0.gif",
-				a + "Head.gif" + $Random,
-				a + "Die.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "LostNewspaper.gif",
-				a + "1.gif",
+				a + "0.webp",
+				a + "HeadWalk1.webp",
+				a + "HeadAttack1.webp",
+				a + "LostHeadWalk1.webp",
+				a + "LostHeadAttack1.webp",
+				a + "HeadWalk0.webp",
+				a + "HeadAttack0.webp",
+				a + "LostHeadWalk0.webp",
+				a + "LostHeadAttack0.webp",
+				a + "Head.webp" + $Random,
+				a + "Die.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "LostNewspaper.webp",
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -8391,13 +8391,13 @@ oCBucketheadZombie = InheritO(
 		var a = "images/Zombies/WJY/water/";
 		return [
 			"images/Card/Zombies/DuckyTubeZombie1.png",
-			a + "0.gif",
-			a + "Walk1.gif",
-			a + "Walk2.gif",
-			a + "1.gif",
-			a + "Attack.gif",
-			a + "ZombieHead.gif" + $Random,
-			a + "Die.gif" + $Random,
+			a + "0.webp",
+			a + "Walk1.webp",
+			a + "Walk2.webp",
+			a + "1.webp",
+			a + "Attack.webp",
+			a + "ZombieHead.webp" + $Random,
+			a + "Die.webp" + $Random,
 		];
 	})(),
 	AudioArr: ["zombie_entering_water"],
@@ -8413,15 +8413,15 @@ oCBucketheadZombie = InheritO(
 			var a = "images/Zombies/XB/";
 			return [
 				"images/Card/Zombies/XB.png",
-				a + "0.gif",
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -8442,15 +8442,15 @@ oCBucketheadZombie = InheritO(
 			var a = "images/Zombies/CX/";
 			return [
 				"images/Card/Zombies/CX.png",
-				a + "0.gif",
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/NewspaperZombie/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/NewspaperZombie/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -8472,15 +8472,15 @@ oCBucketheadZombie = InheritO(
 			var a = "images/Zombies/CX/";
 			return [
 				"images/Card/Zombies/ICX.png",
-				a + "0.gif",
-				a + "Zombie.gif",
-				a + "ZombieAttack.gif",
-				a + "ZombieLostHead.gif",
-				a + "ZombieLostHeadAttack.gif",
-				a + "ZombieHead.gif" + $Random,
-				a + "ZombieDie.gif" + $Random,
-				"images/Zombies/NewspaperZombie/BoomDie.gif" + $Random,
-				a + "1.gif",
+				a + "0.webp",
+				a + "Zombie.webp",
+				a + "ZombieAttack.webp",
+				a + "ZombieLostHead.webp",
+				a + "ZombieLostHeadAttack.webp",
+				a + "ZombieHead.webp" + $Random,
+				a + "ZombieDie.webp" + $Random,
+				"images/Zombies/NewspaperZombie/BoomDie.webp" + $Random,
+				a + "1.webp",
 			];
 		})(),
 		Produce:
@@ -8499,10 +8499,10 @@ oCBucketheadZombie = InheritO(
 							function () {};
 					return;
 				case c < 3e3:
-					d.EleBody.src = "images/Zombies/LGBOSS/3.gif";
+					d.EleBody.src = "images/Zombies/LGBOSS/3.webp";
 					break;
 				case c < 5e3:
-					d.EleBody.src = "images/Zombies/LGBOSS/2.gif";
+					d.EleBody.src = "images/Zombies/LGBOSS/2.webp";
 			}
 			d.SetAlpha(d, d.EleBody, 50, 0.5);
 			oSym.addTask(
@@ -8527,12 +8527,12 @@ oCBucketheadZombie = InheritO(
 				var b = "images/Zombies/LGBOSS/";
 				return [
 					"images/Card/Zombies/LGBOSS.png",
-					b + "0.gif",
-					b + "1.gif",
-					b + "2.gif",
-					b + "3.gif",
-					b + "5.gif" + $Random,
-					b + "BoomDie.gif" + $Random,
+					b + "0.webp",
+					b + "1.webp",
+					b + "2.webp",
+					b + "3.webp",
+					b + "5.webp" + $Random,
+					b + "BoomDie.webp" + $Random,
 					b + "ice.png",
 					b + "ice_cap.png",
 				];
@@ -8735,7 +8735,7 @@ oCBucketheadZombie = InheritO(
 			},
 			flatTire: function () {
 				var b = this;
-				b.EleBody.src = "images/Zombies/LGBOSS/5.gif";
+				b.EleBody.src = "images/Zombies/LGBOSS/5.webp";
 				b.beAttacked = 0;
 				b.HP = 0;
 				b.getHit0 = b.getHit1 = b.getHit2 = b.getHit3 = function () {};
@@ -9237,7 +9237,7 @@ oCBucketheadZombie = InheritO(
 											(d.FreeFreezeTime = oSym.Now + 400),
 											NewImg(
 												"icetrap_" + Math.random(),
-												"images/Plants/IceShroom/icetrap.gif",
+												"images/Plants/IceShroom/icetrap.webp",
 												d.getShadow(d),
 												d.Ele
 											),
@@ -9647,17 +9647,17 @@ oCBucketheadZombie = InheritO(
 							var a = "images/Zombies/BackupDancer/";
 							return [
 								"images/Card/Zombies/BackupDancer.png",
-								a + "0.gif",
-								a + "BackupDancer.gif",
-								a + "Attack.gif",
-								a + "LostHead.gif",
-								a + "LostHeadAttack.gif",
-								a + "Head.gif" + $Random,
-								a + "Die.gif" + $Random,
-								a + "BoomDie.gif" + $Random,
-								a + "Dancing.gif" + $Random,
-								a + "LostHeadDancing.gif" + $Random,
-								a + "Mound.gif" + $Random,
+								a + "0.webp",
+								a + "BackupDancer.webp",
+								a + "Attack.webp",
+								a + "LostHead.webp",
+								a + "LostHeadAttack.webp",
+								a + "Head.webp" + $Random,
+								a + "Die.webp" + $Random,
+								a + "BoomDie.webp" + $Random,
+								a + "Dancing.webp" + $Random,
+								a + "LostHeadDancing.webp" + $Random,
+								a + "Mound.webp" + $Random,
 							];
 						})(),
 						bedevil: function (a) {
@@ -9735,7 +9735,7 @@ oCBucketheadZombie = InheritO(
 									(b.FreeFreezeTime = oSym.Now + 400),
 									NewImg(
 										"icetrap_" + Math.random(),
-										"images/Plants/IceShroom/icetrap.gif",
+										"images/Plants/IceShroom/icetrap.webp",
 										b.getShadow(b),
 										b.Ele
 									),
@@ -9955,22 +9955,22 @@ oCBucketheadZombie = InheritO(
 								b = d + "spotlight2" + c + ".png" + $Random;
 							return [
 								"images/Card/Zombies/DancingZombie.png",
-								d + "0.gif",
-								d + "DancingZombie.gif",
-								d + "Attack.gif",
-								d + "LostHead.gif",
-								d + "LostHeadAttack.gif",
-								d + "Head.gif" + $Random,
-								d + "Die.gif" + $Random,
-								d + "BoomDie.gif" + $Random,
-								d + "SlidingStep.gif" + $Random,
-								d + "Dancing.gif" + $Random,
-								d + "Summon1.gif",
-								d + "Summon2.gif",
-								d + "Summon3.gif",
-								d + "LostHeadSlidingStep.gif" + $Random,
-								d + "LostHeadDancing.gif" + $Random,
-								d + "LostHeadSummon.gif" + $Random,
+								d + "0.webp",
+								d + "DancingZombie.webp",
+								d + "Attack.webp",
+								d + "LostHead.webp",
+								d + "LostHeadAttack.webp",
+								d + "Head.webp" + $Random,
+								d + "Die.webp" + $Random,
+								d + "BoomDie.webp" + $Random,
+								d + "SlidingStep.webp" + $Random,
+								d + "Dancing.webp" + $Random,
+								d + "Summon1.webp",
+								d + "Summon2.webp",
+								d + "Summon3.webp",
+								d + "LostHeadSlidingStep.webp" + $Random,
+								d + "LostHeadDancing.webp" + $Random,
+								d + "LostHeadSummon.webp" + $Random,
 								a,
 								b,
 							];
@@ -10487,7 +10487,7 @@ oCBucketheadZombie = InheritO(
 								b = d.ChkActs;
 							d.ChkActs = d.ChkTmp;
 							d.ChkTmp = b;
-							a.src = "images/Zombies/DancingZombie/Summon1.gif";
+							a.src = "images/Zombies/DancingZombie/Summon1.webp";
 							PlayAudio("dancer");
 							oSym.addTask(
 								10,
@@ -10496,7 +10496,7 @@ oCBucketheadZombie = InheritO(
 									g &&
 										g.beAttacked &&
 										((e.src =
-											"images/Zombies/DancingZombie/Summon2.gif"),
+											"images/Zombies/DancingZombie/Summon2.webp"),
 										oSym.addTask(
 											10,
 											function (t, s, x) {
@@ -10505,7 +10505,7 @@ oCBucketheadZombie = InheritO(
 													m = h.ArDZ,
 													n = [],
 													k =
-														"images/Zombies/BackupDancer/Mound.gif" +
+														"images/Zombies/BackupDancer/Mound.webp" +
 														$Random +
 														Math.random(),
 													r = 4,
@@ -10516,7 +10516,7 @@ oCBucketheadZombie = InheritO(
 													l;
 												if (h && h.beAttacked) {
 													s.src =
-														"images/Zombies/DancingZombie/Summon3.gif";
+														"images/Zombies/DancingZombie/Summon3.webp";
 													while (r--) {
 														(q = m[r]) &&
 															(!(l = q[0]) ||
@@ -10641,15 +10641,15 @@ oCBucketheadZombie = InheritO(
 							var a = "images/Zombies/Zombie/";
 							return [
 								"images/Card/Zombies/Zombie.png",
-								a + "0.gif",
-								a + "Zombie.gif",
-								a + "ZombieAttack.gif",
-								a + "ZombieLostHead.gif",
-								a + "ZombieLostHeadAttack.gif",
-								a + "ZombieHead.gif" + $Random,
-								a + "ZombieDie.gif" + $Random,
-								a + "BoomDie.gif" + $Random,
-								a + "1.gif",
+								a + "0.webp",
+								a + "Zombie.webp",
+								a + "ZombieAttack.webp",
+								a + "ZombieLostHead.webp",
+								a + "ZombieLostHeadAttack.webp",
+								a + "ZombieHead.webp" + $Random,
+								a + "ZombieDie.webp" + $Random,
+								a + "BoomDie.webp" + $Random,
+								a + "1.webp",
 							];
 						})(),
 						Produce:
@@ -10662,8 +10662,8 @@ oCBucketheadZombie = InheritO(
 						},
 						{
 							PicArr: {
-								2: "images/Zombies/Zombie/Zombie2.gif",
-								9: "images/Zombies/Zombie/2.gif",
+								2: "images/Zombies/Zombie/Zombie2.webp",
+								9: "images/Zombies/Zombie/2.webp",
 							},
 						}
 					),
@@ -10674,8 +10674,8 @@ oCBucketheadZombie = InheritO(
 						},
 						{
 							PicArr: {
-								2: "images/Zombies/Zombie/Zombie3.gif",
-								9: "images/Zombies/Zombie/3.gif",
+								2: "images/Zombies/Zombie/Zombie3.webp",
+								9: "images/Zombies/Zombie/3.webp",
 							},
 						}
 					),
@@ -10684,16 +10684,16 @@ oCBucketheadZombie = InheritO(
 							var a = "images/Zombies/FlagZombie/";
 							return [
 								"images/Card/Zombies/FlagZombie.png",
-								a + "0.gif",
-								a + "FlagZombie.gif",
-								a + "FlagZombieAttack.gif",
-								a + "FlagZombieLostHead.gif",
-								a + "FlagZombieLostHeadAttack.gif",
-								"images/Zombies/Zombie/ZombieHead.gif" +
+								a + "0.webp",
+								a + "FlagZombie.webp",
+								a + "FlagZombieAttack.webp",
+								a + "FlagZombieLostHead.webp",
+								a + "FlagZombieLostHeadAttack.webp",
+								"images/Zombies/Zombie/ZombieHead.webp" +
 									$Random,
-								"images/Zombies/Zombie/ZombieDie.gif" + $Random,
-								"images/Zombies/Zombie/BoomDie.gif" + $Random,
-								a + "1.gif",
+								"images/Zombies/Zombie/ZombieDie.webp" + $Random,
+								"images/Zombies/Zombie/BoomDie.webp" + $Random,
+								a + "1.webp",
 							];
 						})(),
 						EName: "oFlagZombie",
@@ -10761,17 +10761,17 @@ oCBucketheadZombie = InheritO(
 								a = "images/Zombies/Zombie/";
 							return [
 								"images/Card/Zombies/ConeheadZombie.png",
-								b + "0.gif",
-								b + "ConeheadZombie.gif",
-								b + "ConeheadZombieAttack.gif",
-								a + "ZombieLostHead.gif",
-								a + "ZombieLostHeadAttack.gif",
-								a + "ZombieHead.gif" + $Random,
-								a + "ZombieDie.gif" + $Random,
-								a + "BoomDie.gif" + $Random,
-								a + "Zombie.gif",
-								a + "ZombieAttack.gif",
-								b + "1.gif",
+								b + "0.webp",
+								b + "ConeheadZombie.webp",
+								b + "ConeheadZombieAttack.webp",
+								a + "ZombieLostHead.webp",
+								a + "ZombieLostHeadAttack.webp",
+								a + "ZombieHead.webp" + $Random,
+								a + "ZombieDie.webp" + $Random,
+								a + "BoomDie.webp" + $Random,
+								a + "Zombie.webp",
+								a + "ZombieAttack.webp",
+								b + "1.webp",
 							];
 						})(),
 						AudioArr: ["plastichit"],
@@ -10802,11 +10802,11 @@ oCBucketheadZombie = InheritO(
 						{
 							PicArr: {
 								0: "images/Card/Zombies/BucketheadZombie.png",
-								1: "images/Zombies/BucketheadZombie/0.gif",
-								2: "images/Zombies/BucketheadZombie/BucketheadZombie.gif",
-								3: "images/Zombies/BucketheadZombie/BucketheadZombieAttack.gif",
-								9: "images/Zombies/Zombie/Zombie2.gif",
-								11: "images/Zombies/BucketheadZombie/1.gif",
+								1: "images/Zombies/BucketheadZombie/0.webp",
+								2: "images/Zombies/BucketheadZombie/BucketheadZombie.webp",
+								3: "images/Zombies/BucketheadZombie/BucketheadZombieAttack.webp",
+								9: "images/Zombies/Zombie/Zombie2.webp",
+								11: "images/Zombies/BucketheadZombie/1.webp",
 							},
 						}
 					),
@@ -10830,18 +10830,18 @@ oCBucketheadZombie = InheritO(
 							var a = "images/Zombies/FootballZombie/";
 							return [
 								"images/Card/Zombies/FootballZombie.png",
-								a + "0.gif",
-								a + "FootballZombie.gif",
-								a + "Attack.gif",
-								a + "LostHead.gif",
-								a + "LostHeadAttack.gif",
-								"images/Zombies/Zombie/ZombieHead.gif" +
+								a + "0.webp",
+								a + "FootballZombie.webp",
+								a + "Attack.webp",
+								a + "LostHead.webp",
+								a + "LostHeadAttack.webp",
+								"images/Zombies/Zombie/ZombieHead.webp" +
 									$Random,
-								a + "Die.gif" + $Random,
-								a + "BoomDie.gif" + $Random,
-								a + "OrnLost.gif",
-								a + "OrnLostAttack.gif",
-								a + "1.gif",
+								a + "Die.webp" + $Random,
+								a + "BoomDie.webp" + $Random,
+								a + "OrnLost.webp",
+								a + "OrnLostAttack.webp",
+								a + "1.webp",
 							];
 						})(),
 						getShadow: function (a) {
@@ -10880,19 +10880,19 @@ oCBucketheadZombie = InheritO(
 							var a = "images/Zombies/PoleVaultingZombie/";
 							return [
 								"images/Card/Zombies/PoleVaultingZombie.png",
-								a + "0.gif",
-								a + "PoleVaultingZombie.gif",
-								a + "PoleVaultingZombieAttack.gif",
-								a + "PoleVaultingZombieLostHead.gif",
-								a + "PoleVaultingZombieLostHeadAttack.gif",
-								a + "PoleVaultingZombieHead.gif" + $Random,
-								a + "PoleVaultingZombieDie.gif" + $Random,
-								a + "BoomDie.gif" + $Random,
-								a + "PoleVaultingZombieWalk.gif",
-								a + "PoleVaultingZombieLostHeadWalk.gif",
-								a + "PoleVaultingZombieJump.gif",
-								a + "PoleVaultingZombieJump2.gif",
-								a + "1.gif",
+								a + "0.webp",
+								a + "PoleVaultingZombie.webp",
+								a + "PoleVaultingZombieAttack.webp",
+								a + "PoleVaultingZombieLostHead.webp",
+								a + "PoleVaultingZombieLostHeadAttack.webp",
+								a + "PoleVaultingZombieHead.webp" + $Random,
+								a + "PoleVaultingZombieDie.webp" + $Random,
+								a + "BoomDie.webp" + $Random,
+								a + "PoleVaultingZombieWalk.webp",
+								a + "PoleVaultingZombieLostHeadWalk.webp",
+								a + "PoleVaultingZombieJump.webp",
+								a + "PoleVaultingZombieJump2.webp",
+								a + "1.webp",
 							];
 						})(),
 						AudioArr: ["polevault", "grassstep"],
@@ -10997,7 +10997,7 @@ oCBucketheadZombie = InheritO(
 								c = f.EleShadow,
 								e = f.EleBody;
 							e.src =
-								"images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump.gif" +
+								"images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump.webp" +
 								$Random +
 								Math.random();
 							PlayAudio("grassstep");
@@ -11035,7 +11035,7 @@ oCBucketheadZombie = InheritO(
 													left: h.X + "px",
 											  }),
 											  (n.src =
-													"images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif"),
+													"images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.webp"),
 											  SetVisible(l),
 											  (h.isAttacking = 0),
 											  (h.Altitude = 1),
@@ -11056,7 +11056,7 @@ oCBucketheadZombie = InheritO(
 													left: h.X + "px",
 											  }),
 											  (n.src =
-													"images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.gif" +
+													"images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump2.webp" +
 													$Random +
 													Math.random()),
 											  SetVisible(l),
@@ -11067,7 +11067,7 @@ oCBucketheadZombie = InheritO(
 															t;
 														u &&
 															((v.src =
-																"images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.gif"),
+																"images/Zombies/PoleVaultingZombie/PoleVaultingZombieWalk.webp"),
 															(u.isAttacking = 0),
 															(u.Altitude = 1),
 															(u.OSpeed =
@@ -11123,20 +11123,20 @@ oCBucketheadZombie = InheritO(
 							var a = "images/Zombies/NewspaperZombie/";
 							return [
 								"images/Card/Zombies/NewspaperZombie.png",
-								a + "0.gif",
-								a + "HeadWalk1.gif",
-								a + "HeadAttack1.gif",
-								a + "LostHeadWalk1.gif",
-								a + "LostHeadAttack1.gif",
-								a + "HeadWalk0.gif",
-								a + "HeadAttack0.gif",
-								a + "LostHeadWalk0.gif",
-								a + "LostHeadAttack0.gif",
-								a + "Head.gif" + $Random,
-								a + "Die.gif" + $Random,
-								a + "BoomDie.gif" + $Random,
-								a + "LostNewspaper.gif",
-								a + "1.gif",
+								a + "0.webp",
+								a + "HeadWalk1.webp",
+								a + "HeadAttack1.webp",
+								a + "LostHeadWalk1.webp",
+								a + "LostHeadAttack1.webp",
+								a + "HeadWalk0.webp",
+								a + "HeadAttack0.webp",
+								a + "LostHeadWalk0.webp",
+								a + "LostHeadAttack0.webp",
+								a + "Head.webp" + $Random,
+								a + "Die.webp" + $Random,
+								a + "BoomDie.webp" + $Random,
+								a + "LostNewspaper.webp",
+								a + "1.webp",
 							];
 						})(),
 						AudioArr: ["newspaper_rarrgh2"],
@@ -11524,19 +11524,19 @@ oCBucketheadZombie = InheritO(
 								b = "images/Zombies/Zombie/";
 							return [
 								"images/Card/Zombies/ScreenDoorZombie.png",
-								a + "0.gif",
-								a + "HeadWalk1.gif",
-								a + "HeadAttack1.gif",
-								a + "LostHeadWalk1.gif",
-								a + "LostHeadAttack1.gif",
-								b + "Zombie2.gif",
-								b + "ZombieAttack.gif",
-								b + "ZombieLostHead.gif",
-								b + "ZombieLostHeadAttack.gif",
-								b + "ZombieHead.gif" + $Random,
-								b + "ZombieDie.gif" + $Random,
-								b + "BoomDie.gif" + $Random,
-								a + "1.gif",
+								a + "0.webp",
+								a + "HeadWalk1.webp",
+								a + "HeadAttack1.webp",
+								a + "LostHeadWalk1.webp",
+								a + "LostHeadAttack1.webp",
+								b + "Zombie2.webp",
+								b + "ZombieAttack.webp",
+								b + "ZombieLostHead.webp",
+								b + "ZombieLostHeadAttack.webp",
+								b + "ZombieHead.webp" + $Random,
+								b + "ZombieDie.webp" + $Random,
+								b + "BoomDie.webp" + $Random,
+								a + "1.webp",
 							];
 						})(),
 						PlayNormalballAudio: function () {
@@ -11933,14 +11933,14 @@ oCBucketheadZombie = InheritO(
 							var a = "images/Zombies/DuckyTubeZombie1/";
 							return [
 								"images/Card/Zombies/DuckyTubeZombie1.png",
-								a + "0.gif",
-								a + "Walk1.gif",
-								a + "Walk2.gif",
-								a + "1.gif",
-								a + "Attack.gif",
-								"images/Zombies/Zombie/ZombieHead.gif" +
+								a + "0.webp",
+								a + "Walk1.webp",
+								a + "Walk2.webp",
+								a + "1.webp",
+								a + "Attack.webp",
+								"images/Zombies/Zombie/ZombieHead.webp" +
 									$Random,
-								a + "Die.gif" + $Random,
+								a + "Die.webp" + $Random,
 							];
 						})(),
 						AudioArr: ["zombie_entering_water"],
@@ -11962,17 +11962,17 @@ oCBucketheadZombie = InheritO(
 								a = "images/Zombies/DuckyTubeZombie1/";
 							return [
 								"images/Card/Zombies/DuckyTubeZombie1.png",
-								b + "0.gif",
-								b + "Walk1.gif",
-								b + "Walk2.gif",
-								b + "1.gif",
-								b + "Attack.gif",
-								"images/Zombies/Zombie/ZombieHead.gif" +
+								b + "0.webp",
+								b + "Walk1.webp",
+								b + "Walk2.webp",
+								b + "1.webp",
+								b + "Attack.webp",
+								"images/Zombies/Zombie/ZombieHead.webp" +
 									$Random,
-								a + "Die.gif" + $Random,
-								a + "Walk1.gif",
-								a + "Walk2.gif",
-								a + "Attack.gif",
+								a + "Die.webp" + $Random,
+								a + "Walk1.webp",
+								a + "Walk2.webp",
+								a + "Attack.webp",
 							];
 						})(),
 						AudioArr: ["plastichit", "zombie_entering_water"],
@@ -12005,17 +12005,17 @@ oCBucketheadZombie = InheritO(
 								a = "images/Zombies/DuckyTubeZombie1/";
 							return [
 								"images/Card/Zombies/DuckyTubeZombie1.png",
-								b + "0.gif",
-								b + "Walk1.gif",
-								b + "Walk2.gif",
-								b + "1.gif",
-								b + "Attack.gif",
-								"images/Zombies/Zombie/ZombieHead.gif" +
+								b + "0.webp",
+								b + "Walk1.webp",
+								b + "Walk2.webp",
+								b + "1.webp",
+								b + "Attack.webp",
+								"images/Zombies/Zombie/ZombieHead.webp" +
 									$Random,
-								a + "Die.gif" + $Random,
-								a + "Walk1.gif",
-								a + "Walk2.gif",
-								a + "Attack.gif",
+								a + "Die.webp" + $Random,
+								a + "Walk1.webp",
+								a + "Walk2.webp",
+								a + "Attack.webp",
 							];
 						})(),
 					}),
@@ -12047,16 +12047,16 @@ oCBucketheadZombie = InheritO(
 							var a = "images/Zombies/SnorkelZombie/";
 							return [
 								"images/Card/Zombies/SnorkelZombie.png",
-								a + "0.gif",
-								a + "Walk1.gif",
-								a + "Walk2.gif",
-								a + "1.gif",
-								a + "Attack.gif",
-								a + "Head.gif" + $Random,
-								a + "Die.gif" + $Random,
-								a + "Jump.gif" + $Random,
-								a + "Risk.gif" + $Random,
-								a + "Sink.gif" + $Random,
+								a + "0.webp",
+								a + "Walk1.webp",
+								a + "Walk2.webp",
+								a + "1.webp",
+								a + "Attack.webp",
+								a + "Head.webp" + $Random,
+								a + "Die.webp" + $Random,
+								a + "Jump.webp" + $Random,
+								a + "Risk.webp" + $Random,
+								a + "Sink.webp" + $Random,
 							];
 						})(),
 						AudioArr: ["zombie_entering_water"],
@@ -12728,11 +12728,11 @@ oCBucketheadZombie = InheritO(
 									return;
 								case c < 391:
 									d.EleBody.src =
-										"images/Zombies/Zomboni/3.gif";
+										"images/Zombies/Zomboni/3.webp";
 									break;
 								case c < 871:
 									d.EleBody.src =
-										"images/Zombies/Zomboni/2.gif";
+										"images/Zombies/Zomboni/2.webp";
 							}
 							d.SetAlpha(d, d.EleBody, 50, 0.5);
 							oSym.addTask(
@@ -12773,13 +12773,13 @@ oCBucketheadZombie = InheritO(
 								var b = "images/Zombies/Zomboni/";
 								return [
 									"images/Card/Zombies/Zomboni.png",
-									b + "0.gif",
-									b + "1.gif",
-									b + "2.gif",
-									b + "3.gif",
-									b + "4.gif",
-									b + "5.gif" + $Random,
-									b + "BoomDie.gif" + $Random,
+									b + "0.webp",
+									b + "1.webp",
+									b + "2.webp",
+									b + "3.webp",
+									b + "4.webp",
+									b + "5.webp" + $Random,
+									b + "BoomDie.webp" + $Random,
 									b + "ice.png",
 									b + "ice_cap.png",
 								];
@@ -13034,7 +13034,7 @@ oCBucketheadZombie = InheritO(
 							},
 							flatTire: function () {
 								var b = this;
-								b.EleBody.src = "images/Zombies/Zomboni/4.gif";
+								b.EleBody.src = "images/Zombies/Zomboni/4.webp";
 								b.beAttacked = 0;
 								b.HP = 0;
 								b.getHit0 =
@@ -13165,19 +13165,19 @@ oCBucketheadZombie = InheritO(
 							var a = "images/Zombies/DolphinRiderZombie/";
 							return [
 								"images/Card/Zombies/DolphinRiderZombie.png",
-								a + "0.gif",
-								a + "Walk1.gif",
-								a + "Walk2.gif",
-								a + "1.gif",
-								a + "Attack.gif",
-								a + "Head.gif" + $Random,
-								a + "Die.gif" + $Random,
-								a + "Jump.gif" + $Random,
-								a + "Jump2.gif" + $Random,
-								a + "Walk3.gif",
-								a + "Walk4.gif",
-								a + "Die2.gif" + $Random,
-								a + "Jump3.gif" + $Random,
+								a + "0.webp",
+								a + "Walk1.webp",
+								a + "Walk2.webp",
+								a + "1.webp",
+								a + "Attack.webp",
+								a + "Head.webp" + $Random,
+								a + "Die.webp" + $Random,
+								a + "Jump.webp" + $Random,
+								a + "Jump2.webp" + $Random,
+								a + "Walk3.webp",
+								a + "Walk4.webp",
+								a + "Die2.webp" + $Random,
+								a + "Jump3.webp" + $Random,
 							];
 						})(),
 						AudioArr: [
@@ -13464,11 +13464,11 @@ oCBucketheadZombie = InheritO(
 							var a = "images/Zombies/Imp/";
 							return [
 								"images/Card/Zombies/Imp.png",
-								a + "0.gif",
-								a + "Attack.gif",
-								a + "Die.gif" + $Random,
-								a + "BoomDie.gif" + $Random,
-								a + "1.gif",
+								a + "0.webp",
+								a + "Attack.webp",
+								a + "Die.webp" + $Random,
+								a + "BoomDie.webp" + $Random,
+								a + "1.webp",
 							];
 						})(),
 					}),
@@ -13506,17 +13506,17 @@ oCBucketheadZombie = InheritO(
 							var a = "images/Zombies/JackinTheBoxZombie/";
 							return [
 								"images/Card/Zombies/JackboxZombie.png",
-								a + "0.gif",
-								a + "Attack.gif",
-								a + "Die.gif" + $Random,
-								a + "BoomDie.gif" + $Random,
-								a + "1.gif",
-								a + "Walk.gif",
-								a + "OpenBox.gif",
-								a + "Boom.gif" + $Random,
-								a + "LostHead.gif",
-								a + "LostHeadAttack.gif",
-								"images/Zombies/Zombie/ZombieHead.gif" +
+								a + "0.webp",
+								a + "Attack.webp",
+								a + "Die.webp" + $Random,
+								a + "BoomDie.webp" + $Random,
+								a + "1.webp",
+								a + "Walk.webp",
+								a + "OpenBox.webp",
+								a + "Boom.webp" + $Random,
+								a + "LostHead.webp",
+								a + "LostHeadAttack.webp",
+								"images/Zombies/Zombie/ZombieHead.webp" +
 									$Random,
 							];
 						})(),
@@ -13842,17 +13842,17 @@ oCBucketheadZombie = InheritO(
 							var a = "images/Zombies/BalloonZombie/";
 							return [
 								"images/Card/Zombies/Balloonzombie.png",
-								a + "0.gif",
-								a + "1.gif",
-								a + "Attack.gif",
-								a + "Walk2.gif",
-								a + "Attack2.gif",
-								a + "Head.gif" + $Random,
-								a + "Die.gif" + $Random,
-								a + "Boom.gif",
-								a + "Walk.gif",
-								a + "Drop.gif",
-								a + "Boom2.gif",
+								a + "0.webp",
+								a + "1.webp",
+								a + "Attack.webp",
+								a + "Walk2.webp",
+								a + "Attack2.webp",
+								a + "Head.webp" + $Random,
+								a + "Die.webp" + $Random,
+								a + "Boom.webp",
+								a + "Walk.webp",
+								a + "Drop.webp",
+								a + "Boom2.webp",
 							];
 						})(),
 						Produce:
@@ -13918,7 +13918,7 @@ oCBucketheadZombie = InheritO(
 							var a = this;
 							PlayAudio("balloon_pop");
 							a.EleBody.src =
-								"images/Zombies/BalloonZombie/Drop.gif" +
+								"images/Zombies/BalloonZombie/Drop.webp" +
 								$Random +
 								Math.random();
 							a.ChkActs = function () {
@@ -13937,7 +13937,7 @@ oCBucketheadZombie = InheritO(
 										c.getFreeze =
 											OrnIZombies.prototype.getFreeze;
 										c.EleBody.src =
-											"images/Zombies/BalloonZombie/Walk.gif";
+											"images/Zombies/BalloonZombie/Walk.webp";
 										c.ChkActs =
 											OrnIZombies.prototype.ChkActs;
 										c.ExplosionDie = function () {

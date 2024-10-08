@@ -97,7 +97,7 @@
 		nekoEl.style.top = `${nekoPosY - 16}px`;
 		nekoEl.style.zIndex = "9999";
 
-		let nekoFile = "./images/interface/oneko.gif";
+		let nekoFile = "./images/interface/oneko.webp";
 		const curScript = document.currentScript;
 		if (curScript && curScript.dataset.cat) {
 			nekoFile = curScript.dataset.cat;

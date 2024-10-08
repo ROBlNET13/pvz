@@ -467,7 +467,7 @@
             );
             NewImg(
                 "PointerUD",
-                "images/interface/PointerDown.gif",
+                "images/interface/PointerDown.webp",
                 "top:198px;left:269px",
                 EDAll
             );

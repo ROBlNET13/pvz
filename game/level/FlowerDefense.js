@@ -49,7 +49,7 @@ oS.Init(
             oSmallFootballZombie,
         ],
         PicArr: [
-            "images/Zombies/Zombie/1.gif",
+            "images/Zombies/Zombie/1.webp",
             "images/interface/background_TF.jpg",
             "images/interface/background2_TF.jpg",
             "images/interface/background1unsodded2.jpg",
@@ -200,7 +200,7 @@ oS.Init(
         LoadAccess: function (start_game) {
             NewImg(
                 "BackGround_TF_night",
-                "https://s4.gifyu.com/images/background2_TF.jpg",
+                "https://s4.webpyu.com/images/background2_TF.jpg",
                 "opacity:0;left:-115",
                 EDAll
             );
@@ -354,7 +354,7 @@ oS.Init(
             );
             NewImg(
                 "PointerUD",
-                "images/interface/PointerDown.gif",
+                "images/interface/PointerDown.webp",
                 "top:185px;left:51%",
                 EDAll
             );

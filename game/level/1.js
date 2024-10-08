@@ -39,7 +39,7 @@ oS.Init(
 			);
 			NewImg(
 				"dDave",
-				"images/interface/Dave.gif",
+				"images/interface/Dave.webp",
 				"left:0;top:81px",
 				EDAll
 			);
@@ -50,11 +50,11 @@ oS.Init(
 				switch (d) {
 					case 0:
 						PlayAudio("crazydaveshort1");
-						$("dDave").src = "images/interface/Dave3.gif";
+						$("dDave").src = "images/interface/Dave3.webp";
 						oSym.addTask(
 							1,
 							function () {
-								$("dDave").src = "images/interface/Dave.gif";
+								$("dDave").src = "images/interface/Dave.webp";
 								c.onclick = function () {
 									oSym.addTask(10, b, [1]);
 								};
@@ -68,11 +68,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.gif";
+						$("dDave").src = "images/interface/Dave3.webp";
 						oSym.addTask(
 							1,
 							function () {
-								$("dDave").src = "images/interface/Dave.gif";
+								$("dDave").src = "images/interface/Dave.webp";
 								c.onclick = function () {
 									oSym.addTask(10, b, [2]);
 								};
@@ -89,11 +89,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.gif";
+						$("dDave").src = "images/interface/Dave3.webp";
 						oSym.addTask(
 							1,
 							function () {
-								$("dDave").src = "images/interface/Dave.gif";
+								$("dDave").src = "images/interface/Dave.webp";
 								c.onclick = function () {
 									oSym.addTask(10, b, [3]);
 								};
@@ -110,11 +110,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.gif";
+						$("dDave").src = "images/interface/Dave3.webp";
 						oSym.addTask(
 							1,
 							function () {
-								$("dDave").src = "images/interface/Dave.gif";
+								$("dDave").src = "images/interface/Dave.webp";
 								c.onclick = function () {
 									oSym.addTask(10, b, [4]);
 								};
@@ -131,11 +131,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.gif";
+						$("dDave").src = "images/interface/Dave3.webp";
 						oSym.addTask(
 							1,
 							function () {
-								$("dDave").src = "images/interface/Dave.gif";
+								$("dDave").src = "images/interface/Dave.webp";
 								c.onclick = function () {
 									oSym.addTask(10, b, [5]);
 								};
@@ -239,7 +239,7 @@ oS.Init(
 											);
 											NewImg(
 												"PointerUD",
-												"images/interface/PointerUP.gif",
+												"images/interface/PointerUP.webp",
 												"top:60px;left:50px",
 												EDAll
 											);
@@ -256,7 +256,7 @@ oS.Init(
 												EditImg(
 													$("PointerUD"),
 													"",
-													"images/interface/PointerDown.gif",
+													"images/interface/PointerDown.webp",
 													{
 														left: "170px",
 														top: "270px",
@@ -301,7 +301,7 @@ oS.Init(
 												EditImg(
 													$("PointerUD"),
 													"",
-													"images/interface/PointerUP.gif",
+													"images/interface/PointerUP.webp",
 													{
 														left: "50px",
 														top: "60px",
@@ -360,7 +360,7 @@ oS.Init(
 					},
 				}
 			);
-			EditImg($("PointerUD"), 0, "images/interface/PointerDown.gif", {
+			EditImg($("PointerUD"), 0, "images/interface/PointerDown.webp", {
 				left: "676px",
 				top: "295px",
 				visibility: "visible",

@@ -58,7 +58,7 @@ oS.Init(
         PicArr: [
             "images/interface/background4.jpg",
             "images/interface/trophy.png",
-            "images/interface/PointerDown.gif",
+            "images/interface/PointerDown.webp",
         ],
         backgroundImage: "images/interface/background4.jpg",
         LF: [0, 1, 1, 2, 2, 1, 1],
@@ -157,7 +157,7 @@ oS.Init(
             );
             NewImg(
                 "PointerUD",
-                "images/interface/PointerDown.gif",
+                "images/interface/PointerDown.webp",
                 "top:185px;left:51%",
                 EDAll
             );

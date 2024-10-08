@@ -73,7 +73,7 @@ oS.Init(
 		LoadAccess: function (a) {
 			NewImg(
 				"dDave",
-				"images/interface/Dave.gif",
+				"images/interface/Dave.webp",
 				"left:0;top:81px",
 				EDAll
 			);
@@ -84,11 +84,11 @@ oS.Init(
 				switch (d) {
 					case 0:
 						PlayAudio("crazydaveshort1");
-						$("dDave").src = "images/interface/Dave3.gif";
+						$("dDave").src = "images/interface/Dave3.webp";
 						oSym.addTask(
 							100,
 							function () {
-								$("dDave").src = "images/interface/Dave.gif";
+								$("dDave").src = "images/interface/Dave.webp";
 								c.onclick = function () {
 									oSym.addTask(10, b, [1]);
 								};
@@ -102,11 +102,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.gif";
+						$("dDave").src = "images/interface/Dave3.webp";
 						oSym.addTask(
 							200,
 							function () {
-								$("dDave").src = "images/interface/Dave.gif";
+								$("dDave").src = "images/interface/Dave.webp";
 								c.onclick = function () {
 									oSym.addTask(10, b, [2]);
 								};
@@ -120,11 +120,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.gif";
+						$("dDave").src = "images/interface/Dave3.webp";
 						oSym.addTask(
 							200,
 							function () {
-								$("dDave").src = "images/interface/Dave.gif";
+								$("dDave").src = "images/interface/Dave.webp";
 								c.onclick = function () {
 									oSym.addTask(10, b, [3]);
 								};
@@ -138,11 +138,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.gif";
+						$("dDave").src = "images/interface/Dave3.webp";
 						oSym.addTask(
 							200,
 							function () {
-								$("dDave").src = "images/interface/Dave.gif";
+								$("dDave").src = "images/interface/Dave.webp";
 								c.onclick = function () {
 									oSym.addTask(10, b, [4]);
 								};
@@ -152,7 +152,7 @@ oS.Init(
 						innerText(c, "祝你挑战愉快，别丢掉脑子哈!");
 						break;
 					case 4:
-						$("dDave").src = "images/interface/Dave2.gif";
+						$("dDave").src = "images/interface/Dave2.webp";
 						ClearChild($("DivTeach"));
 						oSym.addTask(
 							50,
@@ -196,7 +196,7 @@ oS.Init(
 			);
 			NewImg(
 				"PointerUD",
-				"images/interface/PointerDown.gif",
+				"images/interface/PointerDown.webp",
 				"top:185px;left:676px",
 				EDAll
 			);
