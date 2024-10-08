@@ -904,9 +904,9 @@ var $User = (function () {
 				}, 100);
 			};
 			image.style.animation = `moveLeft${balloonId} ${
-				13 / $User.Visitor.TimeStep
+				13 / ($User.Visitor.TimeStep / 10)
 			}s linear, bobbing${balloonId} ${
-				2 / $User.Visitor.TimeStep
+				2 / ($User.Visitor.TimeStep / 10)
 			}s ease-in-out infinite`;
 			image.style.top = `${randomY}px`;
 			image.style.cursor = "pointer";
@@ -2493,6 +2493,7 @@ var $User = (function () {
 	oSym.addTask(Math.floor(9 + Math.random() * 3) * 100, AutoProduceSun, [a]);
 }),
 	(AppearSun = function (h, f, e, a) {
+		console.log('adsdsdasad', h, f, e, a)
 		var b,
 			d,
 			g = "Sun" + Math.random(),

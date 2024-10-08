@@ -1,0 +1,6 @@
+convert.js
+ffmpeg*
+node_modules/
+package.json
+pnpm-lock.yaml
+package-lock.json
