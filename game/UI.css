@@ -384,6 +384,8 @@ td.HandBookZombie {
 	width: 99px;
 	height: 99px;
 	cursor: pointer;
+background: url(images/interface/SelectorScreen_Almanac_32.png) no-repeat;
+	_background: url(images/interface/SelectorScreen_Almanac_8.png) no-repeat;
 }
 
 #ZombieHand {
