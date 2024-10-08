@@ -445,13 +445,13 @@ var $User = (function () {
 					g = $User.Visitor;
 				NewImg(
 					"imgGrowSoil",
-					"images/interface/GrowSoil.webp",
+					"images/interface/GrowSoil.gif",
 					"visibility:hidden;z-index:50",
 					EDAll
 				);
 				NewImg(
 					"imgGrowSpray",
-					"images/interface/GrowSpray.webp",
+					"images/interface/GrowSpray.gif",
 					"visibility:hidden;z-index:50",
 					EDAll
 				);
@@ -2370,7 +2370,7 @@ var $User = (function () {
 			(SetHidden($("imgShovel")),
 			NewImg(
 				"tShovel",
-				"images/interface/Shovel/0.webp",
+				"images/interface/Shovel/0.gif",
 				"left:" +
 					(a.clientX - 10) +
 					"px;top:" +
@@ -2627,7 +2627,7 @@ var $User = (function () {
 		PlayAudio("hugewave");
 		NewImg(
 			"LargeWave",
-			"images/interface/LargeWave.webp",
+			"images/interface/LargeWave.gif",
 			"left:71px;top:249px;width:400px;height:200px;z-index:50",
 			EDAll
 		);
@@ -2659,7 +2659,7 @@ var $User = (function () {
 			PlayAudio("finalwave");
 			NewImg(
 				"FinalWave",
-				"images/interface/FinalWave.webp",
+				"images/interface/FinalWave.gif",
 				"left:122px;top:194px;width:756px;height:213px;z-index:50",
 				EDAll
 			);

@@ -200,8 +200,8 @@ var CPlants = NewO({
 		canEat: 0,
 		PicArr: [
 			"images/Card/Plants/GraveBuster.png",
-			"images/Plants/GraveBuster/0.webp",
-			"images/Plants/GraveBuster/GraveBuster.webp" +
+			"images/Plants/GraveBuster/0.gif",
+			"images/Plants/GraveBuster/GraveBuster.gif" +
 				$Random +
 				Math.random(),
 		],
@@ -328,7 +328,7 @@ var CPlants = NewO({
 		SunNum: 0,
 		PicArr: [
 			"images/interface/BZ.png",
-			"images/Plants/Jalapeno/JalapenoAttack.webp",
+			"images/Plants/Jalapeno/JalapenoAttack.gif",
 		],
 		Tooltip: "Firecrackers",
 		AudioArr: ["jalapeno"],
@@ -355,7 +355,7 @@ var CPlants = NewO({
 						EditEle(
 							b.childNodes[1],
 							{
-								src: "images/Plants/Jalapeno/JalapenoAttack.webp",
+								src: "images/Plants/Jalapeno/JalapenoAttack.gif",
 							},
 							{
 								width: "755px",
@@ -466,9 +466,9 @@ var CPlants = NewO({
 		},
 		PicArr: [
 			"images/Card/Plants/Starfruit.png",
-			"images/Plants/Starfruit/0.webp",
-			"images/Plants/Starfruit/Starfruit.webp",
-			"images/Plants/Starfruit/Star.webp",
+			"images/Plants/Starfruit/0.gif",
+			"images/Plants/Starfruit/Starfruit.gif",
+			"images/Plants/Starfruit/Star.gif",
 		],
 		Tooltip: "Shoots stars in 5 directions",
 		Produce:
@@ -539,7 +539,7 @@ var CPlants = NewO({
 				a = d.pixelTop + 20;
 			d.BulletEle = NewImg(
 				0,
-				"images/Plants/Starfruit/Star.webp",
+				"images/Plants/Starfruit/Star.gif",
 				"left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2)
 			);
 		},
@@ -791,9 +791,9 @@ var CPlants = NewO({
 		},
 		PicArr: [
 			"images/Card/Plants/Starfruit.png",
-			"images/Plants/Starfruit/0.webp",
-			"images/Plants/Starfruit/Starfruit.webp",
-			"images/Plants/Starfruit/Star.webp",
+			"images/Plants/Starfruit/0.gif",
+			"images/Plants/Starfruit/Starfruit.gif",
+			"images/Plants/Starfruit/Star.gif",
 		],
 		Tooltip: "Shoots stars in 5 directions",
 		Produce:
@@ -864,7 +864,7 @@ var CPlants = NewO({
 				a = d.pixelTop + 20;
 			d.BulletEle = NewImg(
 				0,
-				"images/Plants/Starfruit/Star.webp",
+				"images/Plants/Starfruit/Star.gif",
 				"left:" + b + "px;top:" + a + "px;z-index:" + (d.zIndex + 2)
 			);
 		},
@@ -1122,10 +1122,10 @@ var CPlants = NewO({
 		],
 		PicArr: [
 			"images/Card/Plants/Peashooter.png",
-			"images/Plants/Peashooter/0.webp",
-			"images/Plants/Peashooter/Peashooter.webp",
-			"images/Plants/PB00.webp",
-			"images/Plants/PeaBulletHit.webp",
+			"images/Plants/Peashooter/0.gif",
+			"images/Plants/Peashooter/Peashooter.gif",
+			"images/Plants/PB00.gif",
+			"images/Plants/PeaBulletHit.gif",
 		],
 		Tooltip: "Shoots peas at the enemy",
 		Produce:
@@ -1189,7 +1189,7 @@ var CPlants = NewO({
 						  (SetStyle(j, {
 								left: o + 28 + "px",
 						  }).src = [
-								"images/Plants/PeaBulletHit.webp",
+								"images/Plants/PeaBulletHit.gif",
 								"images/Plants/FireBulletHit.webp",
 						  ][m]),
 						  oSym.addTask(10, ClearChild, [j]))
@@ -1242,10 +1242,10 @@ var CPlants = NewO({
 		],
 		PicArr: [
 			"images/Card/Plants/Peashooter.png",
-			"images/Plants/Peashooter/0.webp",
-			"images/Plants/Peashooter/Peashooter.webp",
-			"images/Plants/PB00.webp",
-			"images/Plants/PeaBulletHit.webp",
+			"images/Plants/Peashooter/0.gif",
+			"images/Plants/Peashooter/Peashooter.gif",
+			"images/Plants/PB00.gif",
+			"images/Plants/PeaBulletHit.gif",
 		],
 		Tooltip: "Shoots peas at the enemy",
 		Produce:
@@ -1309,7 +1309,7 @@ var CPlants = NewO({
 						  (SetStyle(j, {
 								left: o + 28 + "px",
 						  }).src = [
-								"images/Plants/PeaBulletHit.webp",
+								"images/Plants/PeaBulletHit.gif",
 								"images/Plants/FireBulletHit.webp",
 						  ][m]),
 						  oSym.addTask(10, ClearChild, [j]))
@@ -1358,8 +1358,8 @@ var CPlants = NewO({
 		},
 		PicArr: [
 			"images/Card/Plants/LotusRoot.png",
-			"images/Plants/LotusRoot/0.webp",
-			"images/Plants/LotusRoot/Peashooter.webp",
+			"images/Plants/LotusRoot/0.gif",
+			"images/Plants/LotusRoot/Peashooter.gif",
 			"images/Plants/LotusRoot/Missile.png",
 			"images/Plants/LotusRoot/BulletHit.png",
 		],
@@ -1408,7 +1408,7 @@ var CPlants = NewO({
 				15,
 				function (o) {
 					$(a.id).childNodes[1].src =
-						"images/Plants/LotusRoot/Peashooter.webp";
+						"images/Plants/LotusRoot/Peashooter.gif";
 				},
 				[this]
 			);
@@ -1484,10 +1484,10 @@ var CPlants = NewO({
 		BKind: -1,
 		PicArr: [
 			"images/Card/Plants/SnowPea.png",
-			"images/Plants/SnowPea/0.webp",
-			"images/Plants/SnowPea/SnowPea.webp",
-			"images/Plants/PB-10.webp",
-			"images/Plants/PeaBulletHit1.webp",
+			"images/Plants/SnowPea/0.gif",
+			"images/Plants/SnowPea/SnowPea.gif",
+			"images/Plants/PB-10.gif",
+			"images/Plants/PeaBulletHit1.gif",
 		],
 		AudioArr: [
 			"frozen",
@@ -1543,7 +1543,7 @@ var CPlants = NewO({
 						  ](d, h, c),
 						  (SetStyle(j, {
 								left: o + 28 + "px",
-						  }).src = "images/Plants/PeaBulletHit1.webp"),
+						  }).src = "images/Plants/PeaBulletHit1.gif"),
 						  oSym.addTask(10, ClearChild, [j]))
 						: (n += l = !c ? 5 : -5) < oS.W && n > 100
 						? ((j.style.left = (o += l) + "px"),
@@ -1583,10 +1583,10 @@ var CPlants = NewO({
 		BKind: -1,
 		PicArr: [
 			"images/Card/Plants/SnowPea.png",
-			"images/Plants/SnowPea/0.webp",
-			"images/Plants/SnowPea/SnowPea.webp",
-			"images/Plants/PB-10.webp",
-			"images/Plants/PeaBulletHit1.webp",
+			"images/Plants/SnowPea/0.gif",
+			"images/Plants/SnowPea/SnowPea.gif",
+			"images/Plants/PB-10.gif",
+			"images/Plants/PeaBulletHit1.gif",
 		],
 		AudioArr: [
 			"frozen",
@@ -1642,7 +1642,7 @@ var CPlants = NewO({
 						  ](d, h, c),
 						  (SetStyle(j, {
 								left: o + 28 + "px",
-						  }).src = "images/Plants/PeaBulletHit1.webp"),
+						  }).src = "images/Plants/PeaBulletHit1.gif"),
 						  oSym.addTask(10, ClearChild, [j]))
 						: (n += l = !c ? 5 : -5) < oS.W && n > 100
 						? ((j.style.left = (o += l) + "px"),
@@ -1681,10 +1681,10 @@ var CPlants = NewO({
 		SunNum: 250,
 		PicArr: [
 			"images/Card/Plants/SnowRepeater.png",
-			"images/Plants/SnowRepeater/0.webp",
-			"images/Plants/SnowRepeater/SnowPea.webp",
-			"images/Plants/PB-10.webp",
-			"images/Plants/PeaBulletHit1.webp",
+			"images/Plants/SnowRepeater/0.gif",
+			"images/Plants/SnowRepeater/SnowPea.gif",
+			"images/Plants/PB-10.gif",
+			"images/Plants/PeaBulletHit1.gif",
 		],
 		Tooltip:
 			"Fires two frozen peas that damage and slow the enemy at a time",
@@ -1712,10 +1712,10 @@ var CPlants = NewO({
 		SunNum: 0,
 		PicArr: [
 			"images/Card/Plants/Repeater.png",
-			"images/Plants/Repeater/0.webp",
-			"images/Plants/Repeater/Repeater.webp",
-			"images/Plants/PB00.webp",
-			"images/Plants/PeaBulletHit.webp",
+			"images/Plants/Repeater/0.gif",
+			"images/Plants/Repeater/Repeater.gif",
+			"images/Plants/PB00.gif",
+			"images/Plants/PeaBulletHit.gif",
 		],
 		AudioArr: [
 			"splat1",
@@ -1750,10 +1750,10 @@ var CPlants = NewO({
 		SunNum: 200,
 		PicArr: [
 			"images/Card/Plants/Repeater.png",
-			"images/Plants/Repeater/0.webp",
-			"images/Plants/Repeater/Repeater.webp",
-			"images/Plants/PB00.webp",
-			"images/Plants/PeaBulletHit.webp",
+			"images/Plants/Repeater/0.gif",
+			"images/Plants/Repeater/Repeater.gif",
+			"images/Plants/PB00.gif",
+			"images/Plants/PeaBulletHit.gif",
 		],
 		AudioArr: [
 			"splat1",
@@ -1785,10 +1785,10 @@ var CPlants = NewO({
 		SunNum: 0,
 		PicArr: [
 			"images/Card/Plants/Repeater2.png",
-			"images/Plants/Repeater2/0.webp",
-			"images/Plants/Repeater2/Repeater2.webp",
-			"images/Plants/PB00.webp",
-			"images/Plants/PeaBulletHit.webp",
+			"images/Plants/Repeater2/0.gif",
+			"images/Plants/Repeater2/Repeater2.gif",
+			"images/Plants/PB00.gif",
+			"images/Plants/PeaBulletHit.gif",
 		],
 		NormalAttack1: function () {
 			var a = this,
@@ -1835,7 +1835,7 @@ var CPlants = NewO({
 								left: o + 28 + "px",
 								width: "52px",
 								height: "46px",
-						  }).src = "images/Plants/PeaBulletHit.webp"),
+						  }).src = "images/Plants/PeaBulletHit.gif"),
 						  oSym.addTask(10, ClearChild, [j]))
 						: (n += l = !c ? 5 : -5) < oS.W && n > 100
 						? ((j.style.left = (o += l) + "px"),
@@ -1876,10 +1876,10 @@ var CPlants = NewO({
 		CName: "Reverse Repeater",
 		PicArr: [
 			"images/Card/Plants/Repeater2.png",
-			"images/Plants/Repeater2/0.webp",
-			"images/Plants/Repeater2/Repeater2.webp",
-			"images/Plants/PB00.webp",
-			"images/Plants/PeaBulletHit.webp",
+			"images/Plants/Repeater2/0.gif",
+			"images/Plants/Repeater2/Repeater2.gif",
+			"images/Plants/PB00.gif",
+			"images/Plants/PeaBulletHit.gif",
 		],
 		NormalAttack1: function () {
 			var a = this,
@@ -1926,7 +1926,7 @@ var CPlants = NewO({
 								left: o + 28 + "px",
 								width: "52px",
 								height: "46px",
-						  }).src = "images/Plants/PeaBulletHit.webp"),
+						  }).src = "images/Plants/PeaBulletHit.gif"),
 						  oSym.addTask(10, ClearChild, [j]))
 						: (n += l = !c ? 5 : -5) < oS.W && n > 100
 						? ((j.style.left = (o += l) + "px"),
@@ -1971,10 +1971,10 @@ var CPlants = NewO({
 		SunNum: 325,
 		PicArr: [
 			"images/Card/Plants/Threepeater.png",
-			"images/Plants/Threepeater/0.webp",
-			"images/Plants/Threepeater/Threepeater.webp",
-			"images/Plants/PB00.webp",
-			"images/Plants/PeaBulletHit.webp",
+			"images/Plants/Threepeater/0.gif",
+			"images/Plants/Threepeater/Threepeater.gif",
+			"images/Plants/PB00.gif",
+			"images/Plants/PeaBulletHit.gif",
 			"images/Plants/FireBulletHit.webp",
 		],
 		AudioArr: [
@@ -2015,7 +2015,7 @@ var CPlants = NewO({
 				f.BulletEle.push(
 					NewImg(
 						0,
-						"images/Plants/PB00.webp",
+						"images/Plants/PB00.gif",
 						"left:" +
 							d +
 							"px;top:" +
@@ -2076,7 +2076,7 @@ var CPlants = NewO({
 							  (SetStyle(l, {
 									left: q + 28 + "px",
 							  }).src = [
-									"images/Plants/PeaBulletHit.webp",
+									"images/Plants/PeaBulletHit.gif",
 									"images/Plants/FireBulletHit.webp",
 							  ][o]),
 							  oSym.addTask(10, ClearChild, [l]))
@@ -2121,10 +2121,10 @@ var CPlants = NewO({
 		SunNum: 0,
 		PicArr: [
 			"images/Card/Plants/Threepeater.png",
-			"images/Plants/Threepeater/0.webp",
-			"images/Plants/Threepeater/Threepeater.webp",
-			"images/Plants/PB00.webp",
-			"images/Plants/PeaBulletHit.webp",
+			"images/Plants/Threepeater/0.gif",
+			"images/Plants/Threepeater/Threepeater.gif",
+			"images/Plants/PB00.gif",
+			"images/Plants/PeaBulletHit.gif",
 			"images/Plants/FireBulletHit.webp",
 		],
 		AudioArr: [
@@ -2165,7 +2165,7 @@ var CPlants = NewO({
 				f.BulletEle.push(
 					NewImg(
 						0,
-						"images/Plants/PB00.webp",
+						"images/Plants/PB00.gif",
 						"left:" +
 							d +
 							"px;top:" +
@@ -2226,7 +2226,7 @@ var CPlants = NewO({
 							  (SetStyle(l, {
 									left: q + 28 + "px",
 							  }).src = [
-									"images/Plants/PeaBulletHit.webp",
+									"images/Plants/PeaBulletHit.gif",
 									"images/Plants/FireBulletHit.webp",
 							  ][o]),
 							  oSym.addTask(10, ClearChild, [l]))
@@ -2271,10 +2271,10 @@ var CPlants = NewO({
 		SunNum: 250,
 		PicArr: [
 			"images/Card/Plants/GatlingPea.png",
-			"images/Plants/GatlingPea/0.webp",
-			"images/Plants/GatlingPea/GatlingPea.webp",
-			"images/Plants/PB00.webp",
-			"images/Plants/PeaBulletHit.webp",
+			"images/Plants/GatlingPea/0.gif",
+			"images/Plants/GatlingPea/GatlingPea.gif",
+			"images/Plants/PB00.gif",
+			"images/Plants/PeaBulletHit.gif",
 		],
 		AudioArr: [
 			"splat1",
@@ -2339,11 +2339,11 @@ var CPlants = NewO({
 		SunNum: 125,
 		PicArr: [
 			"images/Card/Plants/SplitPea.png",
-			"images/Plants/SplitPea/0.webp",
-			"images/Plants/SplitPea/SplitPea.webp",
-			"images/Plants/PB00.webp",
-			"images/Plants/PB01.webp",
-			"images/Plants/PeaBulletHit.webp",
+			"images/Plants/SplitPea/0.gif",
+			"images/Plants/SplitPea/SplitPea.gif",
+			"images/Plants/PB00.gif",
+			"images/Plants/PB01.gif",
+			"images/Plants/PeaBulletHit.gif",
 		],
 		AudioArr: [
 			"splat1",
@@ -2476,7 +2476,7 @@ var CPlants = NewO({
 								  (SetStyle(m, {
 										left: r + 28 + "px",
 								  }).src = [
-										"images/Plants/PeaBulletHit.webp",
+										"images/Plants/PeaBulletHit.gif",
 										"images/Plants/FireBulletHit.webp",
 								  ][m]),
 								  oSym.addTask(10, ClearChild, [m]))
@@ -2511,9 +2511,9 @@ var CPlants = NewO({
 		SunNum: 50,
 		PicArr: [
 			"images/Card/Plants/SunFlower.png",
-			"images/Plants/SunFlower/0.webp",
-			"images/Plants/SunFlower/SunFlower1.webp",
-			"images/Plants/SunFlower/SunFlower.webp",
+			"images/Plants/SunFlower/0.gif",
+			"images/Plants/SunFlower/SunFlower1.gif",
+			"images/Plants/SunFlower/SunFlower.gif",
 		],
 		Tooltip: "Gives you additional sun",
 		Produce:
@@ -2521,7 +2521,7 @@ var CPlants = NewO({
 		/*
     BirthStyle: function (c, e, b, a) {
         var d = b.childNodes[1];
-        d.src = "images/Plants/SunFlower/SunFlower.webp";
+        d.src = "images/Plants/SunFlower/SunFlower.gif";
         d.style.clip = "rect(0,auto,74px,0)";
         d.style.height = "148px";
         EditEle(
@@ -2652,9 +2652,9 @@ var CPlants = NewO({
 		SunNum: 150,
 		PicArr: [
 			"images/Card/Plants/TwinSunflower.png",
-			"images/Plants/TwinSunflower/0.webp",
-			"images/Plants/TwinSunflower/TwinSunflower1.webp",
-			"images/Plants/TwinSunflower/TwinSunflower.webp",
+			"images/Plants/TwinSunflower/0.gif",
+			"images/Plants/TwinSunflower/TwinSunflower1.gif",
+			"images/Plants/TwinSunflower/TwinSunflower.gif",
 		],
 		Tooltip:
 			'Gives twice as much sun as a sunflower  <p> <font color="#FF0000">(requires sunflower)</font>',
@@ -2667,7 +2667,7 @@ var CPlants = NewO({
 		/*
 BirthStyle: function (c, e, b, a) {
     var d = b.childNodes[1];
-    d.src = "images/Plants/TwinSunflower/TwinSunflower.webp";
+    d.src = "images/Plants/TwinSunflower/TwinSunflower.gif";
     d.style.clip = "rect(0,auto,84px,0)";
     d.style.height = "168px";
     EditEle(
@@ -2744,13 +2744,13 @@ BirthStyle: function (c, e, b, a) {
 		zIndex: 1,
 		PicArr: [
 			"images/Card/Plants/PumpkinHead.png",
-			"images/Plants/PumpkinHead/0.webp",
-			"images/Plants/PumpkinHead/PumpkinHead.webp",
-			"images/Plants/PumpkinHead/PumpkinHead1.webp",
-			"images/Plants/PumpkinHead/PumpkinHead2.webp",
-			"images/Plants/PumpkinHead/Pumpkin_damage1.webp",
-			"images/Plants/PumpkinHead/Pumpkin_damage2.webp",
-			"images/Plants/PumpkinHead/Pumpkin_back.webp",
+			"images/Plants/PumpkinHead/0.gif",
+			"images/Plants/PumpkinHead/PumpkinHead.gif",
+			"images/Plants/PumpkinHead/PumpkinHead1.gif",
+			"images/Plants/PumpkinHead/PumpkinHead2.gif",
+			"images/Plants/PumpkinHead/Pumpkin_damage1.gif",
+			"images/Plants/PumpkinHead/Pumpkin_damage2.gif",
+			"images/Plants/PumpkinHead/Pumpkin_back.gif",
 		],
 		Tooltip: "Protects plants that are within its shell",
 		Produce:
@@ -2782,20 +2782,20 @@ BirthStyle: function (c, e, b, a) {
 					d.HurtStatus < 2 &&
 						((d.HurtStatus = 2),
 						(a.childNodes[1].src =
-							"images/Plants/PumpkinHead/Pumpkin_damage2.webp"));
+							"images/Plants/PumpkinHead/Pumpkin_damage2.gif"));
 					break;
 				case d.HP < 2667:
 					d.HurtStatus < 1 &&
 						((d.HurtStatus = 1),
 						(a.childNodes[1].src =
-							"images/Plants/PumpkinHead/Pumpkin_damage1.webp"),
+							"images/Plants/PumpkinHead/Pumpkin_damage1.gif"),
 						($(f + "_2").src =
-							"images/Plants/PumpkinHead/Pumpkin_back.webp"));
+							"images/Plants/PumpkinHead/Pumpkin_back.gif"));
 			}
 		},
 		InitTrigger: function () {},
 		BirthStyle: function (c, d, b, a) {
-			b.childNodes[1].src = "images/Plants/PumpkinHead/PumpkinHead1.webp";
+			b.childNodes[1].src = "images/Plants/PumpkinHead/PumpkinHead1.gif";
 			EditEle(
 				b,
 				{
@@ -2806,7 +2806,7 @@ BirthStyle: function (c, e, b, a) {
 			);
 			NewImg(
 				d + "_2",
-				"images/Plants/PumpkinHead/PumpkinHead2.webp",
+				"images/Plants/PumpkinHead/PumpkinHead2.gif",
 				"left:" +
 					c.pixelLeft +
 					"px;top:" +
@@ -2834,13 +2834,13 @@ BirthStyle: function (c, e, b, a) {
 		zIndex: 1,
 		PicArr: [
 			"images/Card/Plants/PumpkinHead.png",
-			"images/Plants/PumpkinHead/0.webp",
-			"images/Plants/PumpkinHead/PumpkinHead.webp",
-			"images/Plants/PumpkinHead/PumpkinHead1.webp",
-			"images/Plants/PumpkinHead/PumpkinHead2.webp",
-			"images/Plants/PumpkinHead/Pumpkin_damage1.webp",
-			"images/Plants/PumpkinHead/Pumpkin_damage2.webp",
-			"images/Plants/PumpkinHead/Pumpkin_back.webp",
+			"images/Plants/PumpkinHead/0.gif",
+			"images/Plants/PumpkinHead/PumpkinHead.gif",
+			"images/Plants/PumpkinHead/PumpkinHead1.gif",
+			"images/Plants/PumpkinHead/PumpkinHead2.gif",
+			"images/Plants/PumpkinHead/Pumpkin_damage1.gif",
+			"images/Plants/PumpkinHead/Pumpkin_damage2.gif",
+			"images/Plants/PumpkinHead/Pumpkin_back.gif",
 		],
 		Tooltip: "Protects plants that are within its shell",
 		Produce:
@@ -2872,20 +2872,20 @@ BirthStyle: function (c, e, b, a) {
 					d.HurtStatus < 2 &&
 						((d.HurtStatus = 2),
 						(a.childNodes[1].src =
-							"images/Plants/PumpkinHead/Pumpkin_damage2.webp"));
+							"images/Plants/PumpkinHead/Pumpkin_damage2.gif"));
 					break;
 				case d.HP < 2667:
 					d.HurtStatus < 1 &&
 						((d.HurtStatus = 1),
 						(a.childNodes[1].src =
-							"images/Plants/PumpkinHead/Pumpkin_damage1.webp"),
+							"images/Plants/PumpkinHead/Pumpkin_damage1.gif"),
 						($(f + "_2").src =
-							"images/Plants/PumpkinHead/Pumpkin_back.webp"));
+							"images/Plants/PumpkinHead/Pumpkin_back.gif"));
 			}
 		},
 		InitTrigger: function () {},
 		BirthStyle: function (c, d, b, a) {
-			b.childNodes[1].src = "images/Plants/PumpkinHead/PumpkinHead1.webp";
+			b.childNodes[1].src = "images/Plants/PumpkinHead/PumpkinHead1.gif";
 			EditEle(
 				b,
 				{
@@ -2896,7 +2896,7 @@ BirthStyle: function (c, e, b, a) {
 			);
 			NewImg(
 				d + "_2",
-				"images/Plants/PumpkinHead/PumpkinHead2.webp",
+				"images/Plants/PumpkinHead/PumpkinHead2.gif",
 				"left:" +
 					c.pixelLeft +
 					"px;top:" +
@@ -2921,8 +2921,8 @@ BirthStyle: function (c, e, b, a) {
 		HP: 1e3,
 		PicArr: [
 			"images/Card/Plants/FlowerPot.png",
-			"images/Plants/FlowerPot/0.webp",
-			"images/Plants/FlowerPot/FlowerPot.webp",
+			"images/Plants/FlowerPot/0.gif",
+			"images/Plants/FlowerPot/FlowerPot.gif",
 		],
 		PKind: 0,
 		Stature: -1,
@@ -2955,8 +2955,8 @@ BirthStyle: function (c, e, b, a) {
 		EName: "oCFlowerPot",
 		PicArr: [
 			"images/Card/Plants/CFlowerPot.png",
-			"images/Plants/FlowerPot/C/0.webp",
-			"images/Plants/FlowerPot/C/CFlowerPot.webp",
+			"images/Plants/FlowerPot/C/0.gif",
+			"images/Plants/FlowerPot/C/CFlowerPot.gif",
 		],
 		Produce:
 			"Allows plants to be planted on tiled terrain.</font></p>Celadon flower pot, no introduction needed",
@@ -2972,8 +2972,8 @@ BirthStyle: function (c, e, b, a) {
 		//     HP: 1e3,
 		PicArr: [
 			"images/Card/Plants/LilyPad.png",
-			"images/Plants/LilyPad/0.webp",
-			"images/Plants/LilyPad/LilyPad.webp",
+			"images/Plants/LilyPad/0.gif",
+			"images/Plants/LilyPad/LilyPad.gif",
 		],
 		getShadow: function (a) {
 			return "left:-8px;top:25px";
@@ -3005,8 +3005,8 @@ BirthStyle: function (c, e, b, a) {
 		//     HP: 1e3,
 		PicArr: [
 			"images/Card/Plants/LilyPad.png",
-			"images/Plants/LilyPad/0.webp",
-			"images/Plants/LilyPad/LilyPad.webp",
+			"images/Plants/LilyPad/0.gif",
+			"images/Plants/LilyPad/LilyPad.gif",
 		],
 		getShadow: function (a) {
 			return "left:-8px;top:25px";
@@ -3038,8 +3038,8 @@ BirthStyle: function (c, e, b, a) {
 		HP: 1e3,
 		PicArr: [
 			"images/Card/Plants/LilyPad.png",
-			"images/Plants/LilyPad/0.webp",
-			"images/Plants/LilyPad/LilyPad.webp",
+			"images/Plants/LilyPad/0.gif",
+			"images/Plants/LilyPad/LilyPad.gif",
 		],
 		getShadow: function (a) {
 			return "left:-8px;top:25px";
@@ -3094,11 +3094,11 @@ BirthStyle: function (c, e, b, a) {
 		},
 		PicArr: [
 			"images/Card/Plants/PotatoMine.png",
-			"images/Plants/PotatoMine/0.webp",
-			"images/Plants/PotatoMine/PotatoMine.webp",
-			"images/Plants/PotatoMine/PotatoMineNotReady.webp",
-			"images/Plants/PotatoMine/PotatoMine_mashed.webp",
-			"images/Plants/PotatoMine/ExplosionSpudow.webp",
+			"images/Plants/PotatoMine/0.gif",
+			"images/Plants/PotatoMine/PotatoMine.gif",
+			"images/Plants/PotatoMine/PotatoMineNotReady.gif",
+			"images/Plants/PotatoMine/PotatoMine_mashed.gif",
+			"images/Plants/PotatoMine/ExplosionSpudow.gif",
 		],
 		Tooltip: "Explodes on contact, but takes time to arm itself",
 		Produce:
@@ -3108,13 +3108,13 @@ BirthStyle: function (c, e, b, a) {
 		canTrigger: 0,
 		BirthStyle: function (d, e, c, b, a) {
 			c.childNodes[1].src = !a
-				? "images/Plants/PotatoMine/PotatoMineNotReady.webp"
+				? "images/Plants/PotatoMine/PotatoMineNotReady.gif"
 				: (~(function () {
 						d.Status = 1;
 						d.canTrigger = 1;
 						d.getHurt = d.getHurt2;
 				  })(),
-				  "images/Plants/PotatoMine/PotatoMine.webp");
+				  "images/Plants/PotatoMine/PotatoMine.gif");
 			EditEle(
 				c,
 				{
@@ -3138,7 +3138,7 @@ BirthStyle: function (c, e, b, a) {
 						var c = $P[d];
 						c &&
 							(($(d).childNodes[1].src =
-								"images/Plants/PotatoMine/PotatoMine.webp"),
+								"images/Plants/PotatoMine/PotatoMine.gif"),
 							(c.Status = 1),
 							(c.canTrigger = 1),
 							(c.getHurt = c.getHurt2));
@@ -3172,7 +3172,7 @@ BirthStyle: function (c, e, b, a) {
 			EditEle(
 				d.childNodes[1],
 				{
-					src: "images/Plants/PotatoMine/PotatoMine_mashed.webp",
+					src: "images/Plants/PotatoMine/PotatoMine_mashed.gif",
 				},
 				{
 					width: "132px",
@@ -3183,7 +3183,7 @@ BirthStyle: function (c, e, b, a) {
 			);
 			NewImg(
 				0,
-				"images/Plants/PotatoMine/ExplosionSpudow.webp",
+				"images/Plants/PotatoMine/ExplosionSpudow.gif",
 				"left:-90px;top:-40px",
 				d
 			);
@@ -3228,11 +3228,11 @@ BirthStyle: function (c, e, b, a) {
 		},
 		PicArr: [
 			"images/Card/Plants/PotatoMine.png",
-			"images/Plants/PotatoMine/0.webp",
-			"images/Plants/PotatoMine/PotatoMine.webp",
-			"images/Plants/PotatoMine/PotatoMineNotReady.webp",
-			"images/Plants/PotatoMine/PotatoMine_mashed.webp",
-			"images/Plants/PotatoMine/ExplosionSpudow.webp",
+			"images/Plants/PotatoMine/0.gif",
+			"images/Plants/PotatoMine/PotatoMine.gif",
+			"images/Plants/PotatoMine/PotatoMineNotReady.gif",
+			"images/Plants/PotatoMine/PotatoMine_mashed.gif",
+			"images/Plants/PotatoMine/ExplosionSpudow.gif",
 		],
 		Tooltip: "Explodes on contact, but takes time to arm itself",
 		Produce:
@@ -3242,13 +3242,13 @@ BirthStyle: function (c, e, b, a) {
 		canTrigger: 0,
 		BirthStyle: function (d, e, c, b, a) {
 			c.childNodes[1].src = !a
-				? "images/Plants/PotatoMine/PotatoMineNotReady.webp"
+				? "images/Plants/PotatoMine/PotatoMineNotReady.gif"
 				: (~(function () {
 						d.Status = 1;
 						d.canTrigger = 1;
 						d.getHurt = d.getHurt2;
 				  })(),
-				  "images/Plants/PotatoMine/PotatoMine.webp");
+				  "images/Plants/PotatoMine/PotatoMine.gif");
 			EditEle(
 				c,
 				{
@@ -3272,7 +3272,7 @@ BirthStyle: function (c, e, b, a) {
 						var c = $P[d];
 						c &&
 							(($(d).childNodes[1].src =
-								"images/Plants/PotatoMine/PotatoMine.webp"),
+								"images/Plants/PotatoMine/PotatoMine.gif"),
 							(c.Status = 1),
 							(c.canTrigger = 1),
 							(c.getHurt = c.getHurt2));
@@ -3306,7 +3306,7 @@ BirthStyle: function (c, e, b, a) {
 			EditEle(
 				d.childNodes[1],
 				{
-					src: "images/Plants/PotatoMine/PotatoMine_mashed.webp",
+					src: "images/Plants/PotatoMine/PotatoMine_mashed.gif",
 				},
 				{
 					width: "132px",
@@ -3317,7 +3317,7 @@ BirthStyle: function (c, e, b, a) {
 			);
 			NewImg(
 				0,
-				"images/Plants/PotatoMine/ExplosionSpudow.webp",
+				"images/Plants/PotatoMine/ExplosionSpudow.gif",
 				"left:-90px;top:-40px",
 				d
 			);
@@ -3362,11 +3362,11 @@ BirthStyle: function (c, e, b, a) {
 		},
 		PicArr: [
 			"images/Card/Plants/PotatoMine.png",
-			"images/Plants/PotatoMine/0.webp",
-			"images/Plants/PotatoMine/PotatoMine.webp",
-			"images/Plants/PotatoMine/PotatoMineNotReady.webp",
-			"images/Plants/PotatoMine/PotatoMine_mashed.webp",
-			"images/Plants/PotatoMine/ExplosionSpudow.webp",
+			"images/Plants/PotatoMine/0.gif",
+			"images/Plants/PotatoMine/PotatoMine.gif",
+			"images/Plants/PotatoMine/PotatoMineNotReady.gif",
+			"images/Plants/PotatoMine/PotatoMine_mashed.gif",
+			"images/Plants/PotatoMine/ExplosionSpudow.gif",
 		],
 		Tooltip: "Explodes on contact, but takes time to arm itself",
 		Produce:
@@ -3376,13 +3376,13 @@ BirthStyle: function (c, e, b, a) {
 		canTrigger: 0,
 		BirthStyle: function (d, e, c, b, a) {
 			c.childNodes[1].src = !a
-				? "images/Plants/PotatoMine/PotatoMine.webp"
+				? "images/Plants/PotatoMine/PotatoMine.gif"
 				: (~(function () {
 						d.Status = 1;
 						d.canTrigger = 1;
 						d.getHurt = d.getHurt2;
 				  })(),
-				  "images/Plants/PotatoMine/PotatoMine.webp");
+				  "images/Plants/PotatoMine/PotatoMine.gif");
 			EditEle(
 				c,
 				{
@@ -3406,7 +3406,7 @@ BirthStyle: function (c, e, b, a) {
 						var c = $P[d];
 						c &&
 							(($(d).childNodes[1].src =
-								"images/Plants/PotatoMine/PotatoMine.webp"),
+								"images/Plants/PotatoMine/PotatoMine.gif"),
 							(c.Status = 1),
 							(c.canTrigger = 1),
 							(c.getHurt = c.getHurt2));
@@ -3440,7 +3440,7 @@ BirthStyle: function (c, e, b, a) {
 			EditEle(
 				d.childNodes[1],
 				{
-					src: "images/Plants/PotatoMine/PotatoMine_mashed.webp",
+					src: "images/Plants/PotatoMine/PotatoMine_mashed.gif",
 				},
 				{
 					width: "132px",
@@ -3451,7 +3451,7 @@ BirthStyle: function (c, e, b, a) {
 			);
 			NewImg(
 				0,
-				"images/Plants/PotatoMine/ExplosionSpudow.webp",
+				"images/Plants/PotatoMine/ExplosionSpudow.gif",
 				"left:-90px;top:-40px",
 				d
 			);
@@ -3474,8 +3474,8 @@ BirthStyle: function (c, e, b, a) {
 		SunNum: 175,
 		PicArr: [
 			"images/Card/Plants/Torchwood.png",
-			"images/Plants/Torchwood/0.webp",
-			"images/Plants/Torchwood/Torchwood.webp",
+			"images/Plants/Torchwood/0.gif",
+			"images/Plants/Torchwood/Torchwood.gif",
 			"images/Plants/PB00.png",
 			"images/Plants/PB01.png",
 			"images/Plants/PB10.webp",
@@ -3584,8 +3584,8 @@ BirthStyle: function (c, e, b, a) {
 		SunNum: 0,
 		PicArr: [
 			"images/Card/Plants/Torchwood.png",
-			"images/Plants/Torchwood/0.webp",
-			"images/Plants/Torchwood/Torchwood.webp",
+			"images/Plants/Torchwood/0.gif",
+			"images/Plants/Torchwood/Torchwood.gif",
 			"images/Plants/PB00.png",
 			"images/Plants/PB01.png",
 			"images/Plants/PB10.webp",
@@ -3696,10 +3696,10 @@ BirthStyle: function (c, e, b, a) {
 		HP: 4e3,
 		PicArr: [
 			"images/Card/Plants/WallNut.png",
-			"images/Plants/WallNut/0.webp",
-			"images/Plants/WallNut/WallNut.webp",
-			"images/Plants/WallNut/Wallnut_cracked1.webp",
-			"images/Plants/WallNut/Wallnut_cracked2.webp",
+			"images/Plants/WallNut/0.gif",
+			"images/Plants/WallNut/WallNut.gif",
+			"images/Plants/WallNut/Wallnut_cracked1.gif",
+			"images/Plants/WallNut/Wallnut_cracked2.gif",
 		],
 		Tooltip: "Blocks off zombies and protects your other plants",
 		Produce:
@@ -3731,11 +3731,11 @@ BirthStyle: function (c, e, b, a) {
 					: c.HP < 1334
 					? c.HurtStatus < 2 &&
 					  ((c.HurtStatus = 2),
-					  (d.src = "images/Plants/WallNut/Wallnut_cracked2.webp"))
+					  (d.src = "images/Plants/WallNut/Wallnut_cracked2.gif"))
 					: c.HP < 2667 &&
 					  c.HurtStatus < 1 &&
 					  ((c.HurtStatus = 1),
-					  (d.src = "images/Plants/WallNut/Wallnut_cracked1.webp"))
+					  (d.src = "images/Plants/WallNut/Wallnut_cracked1.gif"))
 				: c.Die(1);
 		},
 	}),
@@ -3750,10 +3750,10 @@ BirthStyle: function (c, e, b, a) {
 		HP: 4e3,
 		PicArr: [
 			"images/Card/Plants/WallNut.png",
-			"images/Plants/WallNut/0.webp",
-			"images/Plants/WallNut/WallNut.webp",
-			"images/Plants/WallNut/Wallnut_cracked1.webp",
-			"images/Plants/WallNut/Wallnut_cracked2.webp",
+			"images/Plants/WallNut/0.gif",
+			"images/Plants/WallNut/WallNut.gif",
+			"images/Plants/WallNut/Wallnut_cracked1.gif",
+			"images/Plants/WallNut/Wallnut_cracked2.gif",
 		],
 		Tooltip: "Blocks off zombies and protects your other plants",
 		Produce:
@@ -3785,11 +3785,11 @@ BirthStyle: function (c, e, b, a) {
 					: c.HP < 1334
 					? c.HurtStatus < 2 &&
 					  ((c.HurtStatus = 2),
-					  (d.src = "images/Plants/WallNut/Wallnut_cracked2.webp"))
+					  (d.src = "images/Plants/WallNut/Wallnut_cracked2.gif"))
 					: c.HP < 2667 &&
 					  c.HurtStatus < 1 &&
 					  ((c.HurtStatus = 1),
-					  (d.src = "images/Plants/WallNut/Wallnut_cracked1.webp"))
+					  (d.src = "images/Plants/WallNut/Wallnut_cracked1.gif"))
 				: c.Die(1);
 		},
 	}),
@@ -3880,13 +3880,13 @@ BirthStyle: function (c, e, b, a) {
 			var a = "images/Plants/Cattail/";
 			return [
 				"images/Card/Plants/Catttail.png",
-				a + "cat.webp",
-				a + "cat.webp",
+				a + "cat.gif",
+				a + "cat.gif",
 				"images/Plants/Cactus/Projectile" +
 					($User.Browser.IE6 ? 8 : 32) +
 					".png",
 				"images/interface/blank.png",
-				a + "Attack.webp",
+				a + "Attack.gif",
 			];
 		})(),
 		Tooltip:
@@ -4244,8 +4244,8 @@ BirthStyle: function (c, e, b, a) {
 		},
 		PicArr: [
 			"images/Card/Plants/Ling.png",
-			"images/Plants/Ling/0.webp",
-			"images/Plants/Ling/Ling.webp",
+			"images/Plants/Ling/0.gif",
+			"images/Plants/Ling/Ling.gif",
 		],
 		Tooltip: "Nanhu Ling is the first obstacle in the water",
 		Produce:
@@ -4271,11 +4271,11 @@ BirthStyle: function (c, e, b, a) {
 					: c.HP < 1334
 					? c.HurtStatus < 2 &&
 					  ((c.HurtStatus = 2),
-					  (d.src = "images/Plants/Ling/Ling.webp"))
+					  (d.src = "images/Plants/Ling/Ling.gif"))
 					: c.HP < 2667 &&
 					  c.HurtStatus < 1 &&
 					  ((c.HurtStatus = 1),
-					  (d.src = "images/Plants/Ling/Ling.webp"))
+					  (d.src = "images/Plants/Ling/Ling.gif"))
 				: c.Die(1);
 		},
 	}),
@@ -4293,8 +4293,8 @@ BirthStyle: function (c, e, b, a) {
 		Tooltip: "",
 		PicArr: [
 			"images/Card/Plants/WallNut.png",
-			"images/Plants/WallNut/0.webp",
-			"images/Plants/WallNut/WallNutRoll.webp",
+			"images/Plants/WallNut/0.gif",
+			"images/Plants/WallNut/WallNutRoll.gif",
 		],
 		AudioArr: ["bowling", "bowlingimpact", "bowlingimpact2"],
 		Produce: "",
@@ -4444,8 +4444,8 @@ BirthStyle: function (c, e, b, a) {
 		Stature: 1,
 		PicArr: [
 			"images/Card/Plants/HugeWallNut.png",
-			"images/Plants/WallNut/2.webp",
-			"images/Plants/WallNut/HugeWallNutRoll.webp",
+			"images/Plants/WallNut/2.gif",
+			"images/Plants/WallNut/HugeWallNutRoll.gif",
 		],
 		PrivateBirth: function (a) {
 			PlayAudio("bowling");
@@ -4482,9 +4482,9 @@ BirthStyle: function (c, e, b, a) {
 		CName: "Explode-o-nut",
 		PicArr: [
 			"images/Card/Plants/BoomWallNut.png",
-			"images/Plants/WallNut/1.webp",
-			"images/Plants/WallNut/BoomWallNutRoll.webp",
-			"images/Plants/CherryBomb/Boom.webp",
+			"images/Plants/WallNut/1.gif",
+			"images/Plants/WallNut/BoomWallNutRoll.gif",
+			"images/Plants/CherryBomb/Boom.gif",
 		],
 		AudioArr: ["cherrybomb", "bowling"],
 		PrivateBirth: function (a) {
@@ -4512,7 +4512,7 @@ BirthStyle: function (c, e, b, a) {
 					EditEle(
 						m.childNodes[1],
 						{
-							src: "images/Plants/CherryBomb/Boom.webp",
+							src: "images/Plants/CherryBomb/Boom.gif",
 						},
 						{
 							width: "213px",
@@ -4561,10 +4561,10 @@ BirthStyle: function (c, e, b, a) {
 		coolTime: 24.5,
 		PicArr: [
 			"images/Card/Plants/TallNut.png",
-			"images/Plants/TallNut/0.webp",
-			"images/Plants/TallNut/TallNut.webp",
-			"images/Plants/TallNut/TallnutCracked1.webp",
-			"images/Plants/TallNut/TallnutCracked2.webp",
+			"images/Plants/TallNut/0.gif",
+			"images/Plants/TallNut/TallNut.gif",
+			"images/Plants/TallNut/TallnutCracked1.gif",
+			"images/Plants/TallNut/TallnutCracked2.gif",
 		],
 		Tooltip: "Heavy-duty wall that can't be vaulted over",
 		Produce:
@@ -4595,11 +4595,11 @@ BirthStyle: function (c, e, b, a) {
 					: c.HP < 2667
 					? c.HurtStatus < 2 &&
 					  ((c.HurtStatus = 2),
-					  (d.src = "images/Plants/TallNut/TallnutCracked2.webp"))
+					  (d.src = "images/Plants/TallNut/TallnutCracked2.gif"))
 					: c.HP < 5333 &&
 					  c.HurtStatus < 1 &&
 					  ((c.HurtStatus = 1),
-					  (d.src = "images/Plants/TallNut/TallnutCracked1.webp"))
+					  (d.src = "images/Plants/TallNut/TallnutCracked1.gif"))
 				: c.Die(1);
 		},
 	}),
@@ -4614,10 +4614,10 @@ BirthStyle: function (c, e, b, a) {
 		coolTime: 24.5,
 		PicArr: [
 			"images/Card/Plants/TallNut.png",
-			"images/Plants/TallNut/0.webp",
-			"images/Plants/TallNut/TallNut.webp",
-			"images/Plants/TallNut/TallnutCracked1.webp",
-			"images/Plants/TallNut/TallnutCracked2.webp",
+			"images/Plants/TallNut/0.gif",
+			"images/Plants/TallNut/TallNut.gif",
+			"images/Plants/TallNut/TallnutCracked1.gif",
+			"images/Plants/TallNut/TallnutCracked2.gif",
 		],
 		Tooltip: "Heavy-duty wall that can't be vaulted over",
 		Produce:
@@ -4648,11 +4648,11 @@ BirthStyle: function (c, e, b, a) {
 					: c.HP < 2667
 					? c.HurtStatus < 2 &&
 					  ((c.HurtStatus = 2),
-					  (d.src = "images/Plants/TallNut/TallnutCracked2.webp"))
+					  (d.src = "images/Plants/TallNut/TallnutCracked2.gif"))
 					: c.HP < 5333 &&
 					  c.HurtStatus < 1 &&
 					  ((c.HurtStatus = 1),
-					  (d.src = "images/Plants/TallNut/TallnutCracked1.webp"))
+					  (d.src = "images/Plants/TallNut/TallnutCracked1.gif"))
 				: c.Die(1);
 		},
 	}),
@@ -4669,8 +4669,8 @@ BirthStyle: function (c, e, b, a) {
 		canEat: 1,
 		PicArr: [
 			"images/Card/Plants/TenManNut.png",
-			"images/Plants/TenManNut/0.webp",
-			"images/Plants/TenManNut/Spikeweed.webp",
+			"images/Plants/TenManNut/0.gif",
+			"images/Plants/TenManNut/Spikeweed.gif",
 		],
 		Attack: 40,
 		ArZ: {},
@@ -4693,10 +4693,10 @@ BirthStyle: function (c, e, b, a) {
 					e.Die();
 					break;
 				case d < 101:
-					a.src = "images/Plants/TenManNut/Spikeweed.webp";
+					a.src = "images/Plants/TenManNut/Spikeweed.gif";
 					break;
 				case d < 201:
-					a.src = "images/Plants/TenManNut/Spikeweed.webp";
+					a.src = "images/Plants/TenManNut/Spikeweed.gif";
 			}
 		},
 		NormalAttack: function (b, a) {
@@ -4748,9 +4748,9 @@ BirthStyle: function (c, e, b, a) {
 		coolTime: 20,
 		PicArr: [
 			"images/Card/Plants/CherryBomb.png",
-			"images/Plants/CherryBomb/0.webp",
-			"images/Plants/CherryBomb/CherryBomb.webp",
-			"images/Plants/CherryBomb/Boom.webp" + $Random,
+			"images/Plants/CherryBomb/0.gif",
+			"images/Plants/CherryBomb/CherryBomb.gif",
+			"images/Plants/CherryBomb/Boom.gif" + $Random,
 		],
 		AudioArr: ["cherrybomb"],
 		Tooltip: "Blows up all zombies in an area",
@@ -4809,9 +4809,9 @@ BirthStyle: function (c, e, b, a) {
 		coolTime: 20,
 		PicArr: [
 			"images/Card/Plants/CherryBomb.png",
-			"images/Plants/CherryBomb/0.webp",
-			"images/Plants/CherryBomb/CherryBomb.webp",
-			"images/Plants/CherryBomb/Boom.webp" + $Random,
+			"images/Plants/CherryBomb/0.gif",
+			"images/Plants/CherryBomb/CherryBomb.gif",
+			"images/Plants/CherryBomb/Boom.gif" + $Random,
 		],
 		AudioArr: ["cherrybomb"],
 		Tooltip: "Blows up all zombies in an area",
@@ -4869,9 +4869,9 @@ BirthStyle: function (c, e, b, a) {
 		beAttackedPointR: 48,
 		PicArr: [
 			"images/Card/Plants/Jalapeno.png",
-			"images/Plants/Jalapeno/0.webp",
-			"images/Plants/Jalapeno/Jalapeno.webp",
-			"images/Plants/Jalapeno/JalapenoAttack.webp",
+			"images/Plants/Jalapeno/0.gif",
+			"images/Plants/Jalapeno/Jalapeno.gif",
+			"images/Plants/Jalapeno/JalapenoAttack.gif",
 		],
 		AudioArr: ["jalapeno"],
 		Tooltip: "Destroys an entire lane of zombies",
@@ -4897,7 +4897,7 @@ BirthStyle: function (c, e, b, a) {
 						EditEle(
 							b.childNodes[1],
 							{
-								src: "images/Plants/Jalapeno/JalapenoAttack.webp",
+								src: "images/Plants/Jalapeno/JalapenoAttack.gif",
 							},
 							{
 								width: "755px",
@@ -4928,9 +4928,9 @@ BirthStyle: function (c, e, b, a) {
 		beAttackedPointR: 48,
 		PicArr: [
 			"images/Card/Plants/Jalapeno.png",
-			"images/Plants/Jalapeno/0.webp",
-			"images/Plants/Jalapeno/Jalapeno.webp",
-			"images/Plants/Jalapeno/JalapenoAttack.webp",
+			"images/Plants/Jalapeno/0.gif",
+			"images/Plants/Jalapeno/Jalapeno.gif",
+			"images/Plants/Jalapeno/JalapenoAttack.gif",
 		],
 		AudioArr: ["jalapeno"],
 		Tooltip: "Destroys an entire lane of zombies",
@@ -4956,7 +4956,7 @@ BirthStyle: function (c, e, b, a) {
 						EditEle(
 							b.childNodes[1],
 							{
-								src: "images/Plants/Jalapeno/JalapenoAttack.webp",
+								src: "images/Plants/Jalapeno/JalapenoAttack.gif",
 							},
 							{
 								width: "755px",
@@ -4990,8 +4990,8 @@ BirthStyle: function (c, e, b, a) {
 		canEat: 0,
 		PicArr: [
 			"images/Card/Plants/Spikeweed.png",
-			"images/Plants/Spikeweed/0.webp",
-			"images/Plants/Spikeweed/Spikeweed.webp",
+			"images/Plants/Spikeweed/0.gif",
+			"images/Plants/Spikeweed/Spikeweed.gif",
 		],
 		Attack: 20,
 		ArZ: {},
@@ -5082,8 +5082,8 @@ BirthStyle: function (c, e, b, a) {
 		canEat: 0,
 		PicArr: [
 			"images/Card/Plants/Spikeweed.png",
-			"images/Plants/Spikeweed/0.webp",
-			"images/Plants/Spikeweed/Spikeweed.webp",
+			"images/Plants/Spikeweed/0.gif",
+			"images/Plants/Spikeweed/Spikeweed.gif",
 		],
 		Attack: 20,
 		ArZ: {},
@@ -5172,10 +5172,10 @@ BirthStyle: function (c, e, b, a) {
 		SunNum: 125,
 		PicArr: [
 			"images/Card/Plants/Spikerock.png",
-			"images/Plants/Spikerock/0.webp",
-			"images/Plants/Spikerock/Spikerock.webp",
-			"images/Plants/Spikerock/2.webp",
-			"images/Plants/Spikerock/3.webp",
+			"images/Plants/Spikerock/0.gif",
+			"images/Plants/Spikerock/Spikerock.gif",
+			"images/Plants/Spikerock/2.gif",
+			"images/Plants/Spikerock/3.gif",
 		],
 		Attack: 40,
 		Tooltip:
@@ -5205,10 +5205,10 @@ BirthStyle: function (c, e, b, a) {
 					e.Die();
 					break;
 				case d < 101:
-					a.src = "images/Plants/Spikerock/3.webp";
+					a.src = "images/Plants/Spikerock/3.gif";
 					break;
 				case d < 201:
-					a.src = "images/Plants/Spikerock/2.webp";
+					a.src = "images/Plants/Spikerock/2.gif";
 			}
 		},
 	}),
@@ -5222,10 +5222,10 @@ BirthStyle: function (c, e, b, a) {
 		HP: 400,
 		PicArr: [
 			"images/Card/Plants/Garlic.png",
-			"images/Plants/Garlic/0.webp",
-			"images/Plants/Garlic/Garlic.webp",
-			"images/Plants/Garlic/Garlic_body2.webp",
-			"images/Plants/Garlic/Garlic_body3.webp",
+			"images/Plants/Garlic/0.gif",
+			"images/Plants/Garlic/Garlic.gif",
+			"images/Plants/Garlic/Garlic_body2.gif",
+			"images/Plants/Garlic/Garlic_body3.gif",
 		],
 		Tooltip: "Diverts zombies into other lanes",
 		Produce:
@@ -5266,12 +5266,12 @@ BirthStyle: function (c, e, b, a) {
 					  c.HP < 134
 							? c.HurtStatus < 2 &&
 							  ((c.HurtStatus = 2),
-							  (d.src = "images/Plants/Garlic/Garlic_body3.webp"))
+							  (d.src = "images/Plants/Garlic/Garlic_body3.gif"))
 							: c.HP < 267 &&
 							  c.HurtStatus < 1 &&
 							  ((c.HurtStatus = 1),
 							  (d.src =
-									"images/Plants/Garlic/Garlic_body2.webp")))
+									"images/Plants/Garlic/Garlic_body2.gif")))
 				: c.Die(1);
 		},
 	}),
@@ -5285,10 +5285,10 @@ BirthStyle: function (c, e, b, a) {
 		HP: 400,
 		PicArr: [
 			"images/Card/Plants/Garlic.png",
-			"images/Plants/Garlic/0.webp",
-			"images/Plants/Garlic/Garlic.webp",
-			"images/Plants/Garlic/Garlic_body2.webp",
-			"images/Plants/Garlic/Garlic_body3.webp",
+			"images/Plants/Garlic/0.gif",
+			"images/Plants/Garlic/Garlic.gif",
+			"images/Plants/Garlic/Garlic_body2.gif",
+			"images/Plants/Garlic/Garlic_body3.gif",
 		],
 		Tooltip: "Diverts zombies into other lanes",
 		Produce:
@@ -5329,12 +5329,12 @@ BirthStyle: function (c, e, b, a) {
 					  c.HP < 134
 							? c.HurtStatus < 2 &&
 							  ((c.HurtStatus = 2),
-							  (d.src = "images/Plants/Garlic/Garlic_body3.webp"))
+							  (d.src = "images/Plants/Garlic/Garlic_body3.gif"))
 							: c.HP < 267 &&
 							  c.HurtStatus < 1 &&
 							  ((c.HurtStatus = 1),
 							  (d.src =
-									"images/Plants/Garlic/Garlic_body2.webp")))
+									"images/Plants/Garlic/Garlic_body2.gif")))
 				: c.Die(1);
 		},
 	}),
@@ -5347,9 +5347,9 @@ BirthStyle: function (c, e, b, a) {
 		SunNum: 50,
 		PicArr: [
 			"images/Card/Plants/Squash.png",
-			"images/Plants/Squash/0.webp",
-			"images/Plants/Squash/Squash.webp",
-			"images/Plants/Squash/SquashAttack.webp",
+			"images/Plants/Squash/0.gif",
+			"images/Plants/Squash/Squash.gif",
+			"images/Plants/Squash/SquashAttack.gif",
 			"images/Plants/Squash/SquashL.png",
 			"images/Plants/Squash/SquashR.png",
 		],
@@ -5406,7 +5406,7 @@ BirthStyle: function (c, e, b, a) {
 				e = $Z[c];
 			e && (b = e.ZX + e.Speed * 4 * (!e.WalkDirection ? -1 : 1) - 50);
 			a.childNodes[1].src =
-				"images/Plants/Squash/SquashAttack.webp" +
+				"images/Plants/Squash/SquashAttack.gif" +
 				$Random +
 				Math.random();
 			SetStyle(a, {
@@ -5441,9 +5441,9 @@ BirthStyle: function (c, e, b, a) {
 		SunNum: 0,
 		PicArr: [
 			"images/Card/Plants/Squash.png",
-			"images/Plants/Squash/0.webp",
-			"images/Plants/Squash/Squash.webp",
-			"images/Plants/Squash/SquashAttack.webp",
+			"images/Plants/Squash/0.gif",
+			"images/Plants/Squash/Squash.gif",
+			"images/Plants/Squash/SquashAttack.gif",
 			"images/Plants/Squash/SquashL.png",
 			"images/Plants/Squash/SquashR.png",
 		],
@@ -5500,7 +5500,7 @@ BirthStyle: function (c, e, b, a) {
 				e = $Z[c];
 			e && (b = e.ZX + e.Speed * 4 * (!e.WalkDirection ? -1 : 1) - 50);
 			a.childNodes[1].src =
-				"images/Plants/Squash/SquashAttack.webp" +
+				"images/Plants/Squash/SquashAttack.gif" +
 				$Random +
 				Math.random();
 			SetStyle(a, {
@@ -5536,10 +5536,10 @@ BirthStyle: function (c, e, b, a) {
 		AudioArr: ["bigchomp"],
 		PicArr: [
 			"images/Card/Plants/Chomper.png",
-			"images/Plants/Chomper/0.webp",
-			"images/Plants/Chomper/Chomper.webp",
-			"images/Plants/Chomper/ChomperAttack.webp",
-			"images/Plants/Chomper/ChomperDigest.webp",
+			"images/Plants/Chomper/0.gif",
+			"images/Plants/Chomper/Chomper.gif",
+			"images/Plants/Chomper/ChomperAttack.gif",
+			"images/Plants/Chomper/ChomperDigest.gif",
 		],
 		Tooltip: "Devours a zombie whole, but is vulnerable while chewing",
 		Produce:
@@ -5562,7 +5562,7 @@ BirthStyle: function (c, e, b, a) {
 		},
 		NormalAttack: function (a, b) {
 			$(a).childNodes[1].src =
-				"images/Plants/Chomper/ChomperAttack.webp" +
+				"images/Plants/Chomper/ChomperAttack.gif" +
 				$Random +
 				Math.random();
 			oSym.addTask(
@@ -5589,13 +5589,13 @@ BirthStyle: function (c, e, b, a) {
 																($(
 																	i
 																).childNodes[1].src =
-																	"images/Plants/Chomper/Chomper.webp"));
+																	"images/Plants/Chomper/Chomper.gif"));
 														},
 														[e]
 												  ),
-												  "images/Plants/Chomper/ChomperDigest.webp")
+												  "images/Plants/Chomper/ChomperDigest.gif")
 												: ((g.canTrigger = 1),
-												  "images/Plants/Chomper/Chomper.webp"))
+												  "images/Plants/Chomper/Chomper.gif"))
 										: oSym.addTask(
 												18,
 												function (i) {
@@ -5605,7 +5605,7 @@ BirthStyle: function (c, e, b, a) {
 														($(
 															i
 														).childNodes[1].src =
-															"images/Plants/Chomper/Chomper.webp"));
+															"images/Plants/Chomper/Chomper.gif"));
 												},
 												[e]
 										  ));
@@ -5627,10 +5627,10 @@ BirthStyle: function (c, e, b, a) {
 		AudioArr: ["bigchomp"],
 		PicArr: [
 			"images/Card/Plants/Chomper.png",
-			"images/Plants/Chomper/0.webp",
-			"images/Plants/Chomper/Chomper.webp",
-			"images/Plants/Chomper/ChomperAttack.webp",
-			"images/Plants/Chomper/ChomperDigest.webp",
+			"images/Plants/Chomper/0.gif",
+			"images/Plants/Chomper/Chomper.gif",
+			"images/Plants/Chomper/ChomperAttack.gif",
+			"images/Plants/Chomper/ChomperDigest.gif",
 		],
 		Tooltip: "Devours a zombie whole, but is vulnerable while chewing",
 		Produce:
@@ -5653,7 +5653,7 @@ BirthStyle: function (c, e, b, a) {
 		},
 		NormalAttack: function (a, b) {
 			$(a).childNodes[1].src =
-				"images/Plants/Chomper/ChomperAttack.webp" +
+				"images/Plants/Chomper/ChomperAttack.gif" +
 				$Random +
 				Math.random();
 			oSym.addTask(
@@ -5680,13 +5680,13 @@ BirthStyle: function (c, e, b, a) {
 																($(
 																	i
 																).childNodes[1].src =
-																	"images/Plants/Chomper/Chomper.webp"));
+																	"images/Plants/Chomper/Chomper.gif"));
 														},
 														[e]
 												  ),
-												  "images/Plants/Chomper/ChomperDigest.webp")
+												  "images/Plants/Chomper/ChomperDigest.gif")
 												: ((g.canTrigger = 1),
-												  "images/Plants/Chomper/Chomper.webp"))
+												  "images/Plants/Chomper/Chomper.gif"))
 										: oSym.addTask(
 												18,
 												function (i) {
@@ -5696,7 +5696,7 @@ BirthStyle: function (c, e, b, a) {
 														($(
 															i
 														).childNodes[1].src =
-															"images/Plants/Chomper/Chomper.webp"));
+															"images/Plants/Chomper/Chomper.gif"));
 												},
 												[e]
 										  ));
@@ -5714,10 +5714,10 @@ BirthStyle: function (c, e, b, a) {
 		coolTime: 15,
 		PicArr: [
 			"images/Card/Plants/BigChomper.png",
-			"images/Plants/BigChomper/0.webp",
-			"images/Plants/BigChomper/Chomper.webp",
-			"images/Plants/BigChomper/ChomperAttack.webp",
-			"images/Plants/BigChomper/ChomperDigest.webp",
+			"images/Plants/BigChomper/0.gif",
+			"images/Plants/BigChomper/Chomper.gif",
+			"images/Plants/BigChomper/ChomperAttack.gif",
+			"images/Plants/BigChomper/ChomperDigest.gif",
 		],
 		Tooltip:
 			"Can devour multiple zombie whole at once, but is vulnerable while rapidly chewing",
@@ -5731,7 +5731,7 @@ return c && c.EName == "oChomper"
 */
 		NormalAttack: function (a, b) {
 			$(a).childNodes[1].src =
-				"images/Plants/BigChomper/ChomperAttack.webp" +
+				"images/Plants/BigChomper/ChomperAttack.gif" +
 				$Random +
 				Math.random();
 			oSym.addTask(
@@ -5758,13 +5758,13 @@ return c && c.EName == "oChomper"
 																($(
 																	i
 																).childNodes[1].src =
-																	"images/Plants/BigChomper/Chomper.webp"));
+																	"images/Plants/BigChomper/Chomper.gif"));
 														},
 														[e]
 												  ),
-												  "images/Plants/BigChomper/ChomperDigest.webp")
+												  "images/Plants/BigChomper/ChomperDigest.gif")
 												: ((g.canTrigger = 1),
-												  "images/Plants/BigChomper/Chomper.webp"))
+												  "images/Plants/BigChomper/Chomper.gif"))
 										: oSym.addTask(
 												9,
 												function (i) {
@@ -5774,7 +5774,7 @@ return c && c.EName == "oChomper"
 														($(
 															i
 														).childNodes[1].src =
-															"images/Plants/BigChomper/Chomper.webp"));
+															"images/Plants/BigChomper/Chomper.gif"));
 												},
 												[e]
 										  ));
@@ -5798,11 +5798,11 @@ return c && c.EName == "oChomper"
 		night: true,
 		PicArr: [
 			"images/Card/Plants/FumeShroom.png",
-			"images/Plants/FumeShroom/0.webp",
-			"images/Plants/FumeShroom/FumeShroom.webp",
-			"images/Plants/FumeShroom/FumeShroomSleep.webp",
-			"images/Plants/FumeShroom/FumeShroomAttack.webp",
-			"images/Plants/FumeShroom/FumeShroomBullet.webp",
+			"images/Plants/FumeShroom/0.gif",
+			"images/Plants/FumeShroom/FumeShroom.gif",
+			"images/Plants/FumeShroom/FumeShroomSleep.gif",
+			"images/Plants/FumeShroom/FumeShroomAttack.gif",
+			"images/Plants/FumeShroom/FumeShroomBullet.gif",
 		],
 		AudioArr: ["fume"],
 		Tooltip: "Shoots fumes that can pass through screen doors",
@@ -5837,7 +5837,7 @@ return c && c.EName == "oChomper"
 					b.AttackedRX +
 					"px;top:" +
 					(b.pixelTop + 5) +
-					"px;background:url(images/Plants/FumeShroom/FumeShroomBullet.webp);z-index:" +
+					"px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" +
 					(b.zIndex + 1),
 				0,
 				EDPZ
@@ -5866,7 +5866,7 @@ return c && c.EName == "oChomper"
 				(g = d[e]).Altitude < 2 && g.getHit1(g, 20);
 			}
 			b.childNodes[1].src =
-				"images/Plants/FumeShroom/FumeShroomAttack.webp";
+				"images/Plants/FumeShroom/FumeShroomAttack.gif";
 			SetVisible($(a));
 			ImgSpriter(
 				a,
@@ -5886,7 +5886,7 @@ return c && c.EName == "oChomper"
 					var h = $(j);
 					$P[j] &&
 						((h.childNodes[1].src =
-							"images/Plants/FumeShroom/FumeShroom.webp"),
+							"images/Plants/FumeShroom/FumeShroom.gif"),
 						SetHidden($(i)));
 				}
 			);
@@ -5904,11 +5904,11 @@ return c && c.EName == "oChomper"
 		night: true,
 		PicArr: [
 			"images/Card/Plants/FumeShroom.png",
-			"images/Plants/FumeShroom/0.webp",
-			"images/Plants/FumeShroom/FumeShroom.webp",
-			"images/Plants/FumeShroom/FumeShroomSleep.webp",
-			"images/Plants/FumeShroom/FumeShroomAttack.webp",
-			"images/Plants/FumeShroom/FumeShroomBullet.webp",
+			"images/Plants/FumeShroom/0.gif",
+			"images/Plants/FumeShroom/FumeShroom.gif",
+			"images/Plants/FumeShroom/FumeShroomSleep.gif",
+			"images/Plants/FumeShroom/FumeShroomAttack.gif",
+			"images/Plants/FumeShroom/FumeShroomBullet.gif",
 		],
 		AudioArr: ["fume"],
 		Tooltip: "Shoots fumes that can pass through screen doors",
@@ -5943,7 +5943,7 @@ return c && c.EName == "oChomper"
 					b.AttackedRX +
 					"px;top:" +
 					(b.pixelTop + 5) +
-					"px;background:url(images/Plants/FumeShroom/FumeShroomBullet.webp);z-index:" +
+					"px;background:url(images/Plants/FumeShroom/FumeShroomBullet.gif);z-index:" +
 					(b.zIndex + 1),
 				0,
 				EDPZ
@@ -5972,7 +5972,7 @@ return c && c.EName == "oChomper"
 				(g = d[e]).Altitude < 2 && g.getHit1(g, 20);
 			}
 			b.childNodes[1].src =
-				"images/Plants/FumeShroom/FumeShroomAttack.webp";
+				"images/Plants/FumeShroom/FumeShroomAttack.gif";
 			SetVisible($(a));
 			ImgSpriter(
 				a,
@@ -5992,7 +5992,7 @@ return c && c.EName == "oChomper"
 					var h = $(j);
 					$P[j] &&
 						((h.childNodes[1].src =
-							"images/Plants/FumeShroom/FumeShroom.webp"),
+							"images/Plants/FumeShroom/FumeShroom.gif"),
 						SetHidden($(i)));
 				}
 			);
@@ -6004,11 +6004,11 @@ return c && c.EName == "oChomper"
 		SunNum: 200,
 		PicArr: [
 			"images/Card/Plants/IcyFumeShroom.png",
-			"images/Plants/IcyFumeShroom/0.webp",
-			"images/Plants/IcyFumeShroom/FumeShroom.webp",
-			"images/Plants/IcyFumeShroom/FumeShroomSleep.webp",
-			"images/Plants/IcyFumeShroom/FumeShroomAttack.webp",
-			"images/Plants/IcyFumeShroom/FumeShroomBullet.webp",
+			"images/Plants/IcyFumeShroom/0.gif",
+			"images/Plants/IcyFumeShroom/FumeShroom.gif",
+			"images/Plants/IcyFumeShroom/FumeShroomSleep.gif",
+			"images/Plants/IcyFumeShroom/FumeShroomAttack.gif",
+			"images/Plants/IcyFumeShroom/FumeShroomBullet.gif",
 		],
 		Tooltip:
 			'Shoots icy fumes that can pass through screen doors  <p> <font color="#FF0000">(requires fume-shroom)</font>',
@@ -6023,7 +6023,7 @@ return c && c.EName == "oChomper"
 					b.AttackedRX +
 					"px;top:" +
 					(b.pixelTop + 5) +
-					"px;background:url(images/Plants/IcyFumeShroom/FumeShroomBullet.webp);z-index:" +
+					"px;background:url(images/Plants/IcyFumeShroom/FumeShroomBullet.gif);z-index:" +
 					(b.zIndex + 1),
 				0,
 				EDPZ
@@ -6046,7 +6046,7 @@ return c && c.EName == "oChomper"
 				(g = d[e]).Altitude < 2 && g.getSnowPea(g, 20);
 			}
 			b.childNodes[1].src =
-				"images/Plants/IcyFumeShroom/FumeShroomAttack.webp";
+				"images/Plants/IcyFumeShroom/FumeShroomAttack.gif";
 			SetVisible($(a));
 			ImgSpriter(
 				a,
@@ -6066,7 +6066,7 @@ return c && c.EName == "oChomper"
 					var h = $(j);
 					$P[j] &&
 						((h.childNodes[1].src =
-							"images/Plants/IcyFumeShroom/FumeShroom.webp"),
+							"images/Plants/IcyFumeShroom/FumeShroom.gif"),
 						SetHidden($(i)));
 				}
 			);
@@ -6084,9 +6084,9 @@ return c && c.EName == "oChomper"
 		canEat: 0,
 		PicArr: [
 			"images/Card/Plants/CoffeeBean.png",
-			"images/Plants/CoffeeBean/0.webp",
-			"images/Plants/CoffeeBean/CoffeeBean.webp",
-			"images/Plants/CoffeeBean/CoffeeBeanEat.webp" + $Random,
+			"images/Plants/CoffeeBean/0.gif",
+			"images/Plants/CoffeeBean/CoffeeBean.gif",
+			"images/Plants/CoffeeBean/CoffeeBeanEat.gif" + $Random,
 		],
 		AudioArr: ["coffee", "wakeup"],
 		Tooltip: "Plant it on a mushroom to wake it up",
@@ -6145,11 +6145,11 @@ return c && c.EName == "oChomper"
 		SunNum: 150,
 		PicArr: [
 			"images/Card/Plants/GloomShroom.png",
-			"images/Plants/GloomShroom/0.webp",
-			"images/Plants/GloomShroom/GloomShroom.webp",
-			"images/Plants/GloomShroom/GloomShroomSleep.webp",
-			"images/Plants/GloomShroom/GloomShroomAttack.webp",
-			"images/Plants/GloomShroom/GloomShroomBullet.webp",
+			"images/Plants/GloomShroom/0.gif",
+			"images/Plants/GloomShroom/GloomShroom.gif",
+			"images/Plants/GloomShroom/GloomShroomSleep.gif",
+			"images/Plants/GloomShroom/GloomShroomAttack.gif",
+			"images/Plants/GloomShroom/GloomShroomBullet.gif",
 		],
 		AudioArr: ["kernelpult", "kernelpult2"],
 		Tooltip:
@@ -6180,7 +6180,7 @@ return c && c.EName == "oChomper"
 					(b.pixelLeft - 60) +
 					"px;top:" +
 					(b.pixelTop - 65) +
-					"px;background:url(images/Plants/GloomShroom/GloomShroomBullet.webp);z-index:" +
+					"px;background:url(images/Plants/GloomShroom/GloomShroomBullet.gif);z-index:" +
 					(b.zIndex + 1),
 				0,
 				EDPZ
@@ -6233,7 +6233,7 @@ return c && c.EName == "oChomper"
 				[4]
 			);
 			d.childNodes[1].src =
-				"images/Plants/GloomShroom/GloomShroomAttack.webp";
+				"images/Plants/GloomShroom/GloomShroomAttack.gif";
 			SetVisible($(l));
 			ImgSpriter(
 				l,
@@ -6257,7 +6257,7 @@ return c && c.EName == "oChomper"
 					var i = $(n);
 					$P[n] &&
 						(i.childNodes[1].src =
-							"images/Plants/GloomShroom/GloomShroom.webp");
+							"images/Plants/GloomShroom/GloomShroom.gif");
 					SetHidden($(m));
 				}
 			);
@@ -6272,11 +6272,11 @@ return c && c.EName == "oChomper"
 		SunNum: 0,
 		PicArr: [
 			"images/Card/Plants/GloomShroom.png",
-			"images/Plants/GloomShroom/0.webp",
-			"images/Plants/GloomShroom/GloomShroom.webp",
-			"images/Plants/GloomShroom/GloomShroomSleep.webp",
-			"images/Plants/GloomShroom/GloomShroomAttack.webp",
-			"images/Plants/GloomShroom/GloomShroomBullet.webp",
+			"images/Plants/GloomShroom/0.gif",
+			"images/Plants/GloomShroom/GloomShroom.gif",
+			"images/Plants/GloomShroom/GloomShroomSleep.gif",
+			"images/Plants/GloomShroom/GloomShroomAttack.gif",
+			"images/Plants/GloomShroom/GloomShroomBullet.gif",
 		],
 		AudioArr: ["kernelpult", "kernelpult2"],
 		Tooltip:
@@ -6307,7 +6307,7 @@ return c && c.EName == "oChomper"
 					(b.pixelLeft - 60) +
 					"px;top:" +
 					(b.pixelTop - 65) +
-					"px;background:url(images/Plants/GloomShroom/GloomShroomBullet.webp);z-index:" +
+					"px;background:url(images/Plants/GloomShroom/GloomShroomBullet.gif);z-index:" +
 					(b.zIndex + 1),
 				0,
 				EDPZ
@@ -6360,7 +6360,7 @@ return c && c.EName == "oChomper"
 				[4]
 			);
 			d.childNodes[1].src =
-				"images/Plants/GloomShroom/GloomShroomAttack.webp";
+				"images/Plants/GloomShroom/GloomShroomAttack.gif";
 			SetVisible($(l));
 			ImgSpriter(
 				l,
@@ -6384,7 +6384,7 @@ return c && c.EName == "oChomper"
 					var i = $(n);
 					$P[n] &&
 						(i.childNodes[1].src =
-							"images/Plants/GloomShroom/GloomShroom.webp");
+							"images/Plants/GloomShroom/GloomShroom.gif");
 					SetHidden($(m));
 				}
 			);
@@ -6401,11 +6401,11 @@ return c && c.EName == "oChomper"
 		Stature: -1,
 		PicArr: [
 			"images/Card/Plants/PuffShroom.png",
-			"images/Plants/PuffShroom/0.webp",
-			"images/Plants/PuffShroom/PuffShroom.webp",
-			"images/Plants/PuffShroom/PuffShroomSleep.webp",
-			"images/Plants/ShroomBullet.webp",
-			"images/Plants/ShroomBulletHit.webp",
+			"images/Plants/PuffShroom/0.gif",
+			"images/Plants/PuffShroom/PuffShroom.gif",
+			"images/Plants/PuffShroom/PuffShroomSleep.gif",
+			"images/Plants/ShroomBullet.gif",
+			"images/Plants/ShroomBulletHit.gif",
 		],
 		AudioArr: ["puff"],
 		Tooltip: "Shoots short-ranged spores at the enemy",
@@ -6418,7 +6418,7 @@ return c && c.EName == "oChomper"
 		PrivateBirth: function (a) {
 			a.BulletEle = NewImg(
 				0,
-				"images/Plants/ShroomBullet.webp",
+				"images/Plants/ShroomBullet.gif",
 				"left:" +
 					(a.AttackedLX - 46) +
 					"px;top:" +
@@ -6460,7 +6460,7 @@ return c && c.EName == "oChomper"
 						? (h.getPea(h, 20, 0),
 						  (SetStyle(d, {
 								left: g + 38 + "px",
-						  }).src = "images/Plants/ShroomBulletHit.webp"),
+						  }).src = "images/Plants/ShroomBulletHit.gif"),
 						  oSym.addTask(10, ClearChild, [d]))
 						: (e += 5) < oS.W
 						? ((d.style.left = (g += 5) + "px"),
@@ -6482,11 +6482,11 @@ return c && c.EName == "oChomper"
 		Stature: -1,
 		PicArr: [
 			"images/Card/Plants/PuffShroom.png",
-			"images/Plants/PuffShroom/0.webp",
-			"images/Plants/PuffShroom/PuffShroom.webp",
-			"images/Plants/PuffShroom/PuffShroomSleep.webp",
-			"images/Plants/ShroomBullet.webp",
-			"images/Plants/ShroomBulletHit.webp",
+			"images/Plants/PuffShroom/0.gif",
+			"images/Plants/PuffShroom/PuffShroom.gif",
+			"images/Plants/PuffShroom/PuffShroomSleep.gif",
+			"images/Plants/ShroomBullet.gif",
+			"images/Plants/ShroomBulletHit.gif",
 		],
 		AudioArr: ["puff"],
 		Tooltip: "Shoots short-ranged spores at the enemy",
@@ -6499,7 +6499,7 @@ return c && c.EName == "oChomper"
 		PrivateBirth: function (a) {
 			a.BulletEle = NewImg(
 				0,
-				"images/Plants/ShroomBullet.webp",
+				"images/Plants/ShroomBullet.gif",
 				"left:" +
 					(a.AttackedLX - 46) +
 					"px;top:" +
@@ -6541,7 +6541,7 @@ return c && c.EName == "oChomper"
 						? (h.getPea(h, 20, 0),
 						  (SetStyle(d, {
 								left: g + 38 + "px",
-						  }).src = "images/Plants/ShroomBulletHit.webp"),
+						  }).src = "images/Plants/ShroomBulletHit.gif"),
 						  oSym.addTask(10, ClearChild, [d]))
 						: (e += 5) < oS.W
 						? ((d.style.left = (g += 5) + "px"),
@@ -6564,12 +6564,12 @@ return c && c.EName == "oChomper"
 		Attacking: 0,
 		PicArr: [
 			"images/Card/Plants/ScaredyShroom.png",
-			"images/Plants/ScaredyShroom/0.webp",
-			"images/Plants/ScaredyShroom/ScaredyShroom.webp",
-			"images/Plants/ScaredyShroom/ScaredyShroomSleep.webp",
-			"images/Plants/ScaredyShroom/ScaredyShroomCry.webp",
-			"images/Plants/ShroomBullet.webp",
-			"images/Plants/ShroomBulletHit.webp",
+			"images/Plants/ScaredyShroom/0.gif",
+			"images/Plants/ScaredyShroom/ScaredyShroom.gif",
+			"images/Plants/ScaredyShroom/ScaredyShroomSleep.gif",
+			"images/Plants/ScaredyShroom/ScaredyShroomCry.gif",
+			"images/Plants/ShroomBullet.gif",
+			"images/Plants/ShroomBulletHit.gif",
 		],
 		Tooltip: "Long-ranged shooter that hides when enemies get near it",
 		Produce:
@@ -6589,7 +6589,7 @@ return c && c.EName == "oChomper"
 				  !b.Cry &&
 						((b.Cry = 1),
 						($(a).childNodes[1].src =
-							"images/Plants/ScaredyShroom/ScaredyShroomCry.webp"),
+							"images/Plants/ScaredyShroom/ScaredyShroomCry.gif"),
 						b.CryCheck(a)))
 				: e.R == b.R &&
 				  !b.Cry &&
@@ -6609,7 +6609,7 @@ return c && c.EName == "oChomper"
 			});
 			c.BulletEle = NewImg(
 				0,
-				"images/Plants/ShroomBullet.webp",
+				"images/Plants/ShroomBullet.gif",
 				"left:" +
 					a +
 					"px;top:" +
@@ -6644,7 +6644,7 @@ return c && c.EName == "oChomper"
 						? (i.getPea(i, 20, 0),
 						  (SetStyle(e, {
 								left: h + 38 + "px",
-						  }).src = "images/Plants/ShroomBulletHit.webp"),
+						  }).src = "images/Plants/ShroomBulletHit.gif"),
 						  oSym.addTask(10, ClearChild, [e]))
 						: (f += 5) < oS.W
 						? ((e.style.left = (h += 5) + "px"),
@@ -6691,7 +6691,7 @@ return c && c.EName == "oChomper"
 							? d.CryCheck(b)
 							: ((d.Cry = 0),
 							  ($(b).childNodes[1].src =
-									"images/Plants/ScaredyShroom/ScaredyShroom.webp"));
+									"images/Plants/ScaredyShroom/ScaredyShroom.gif"));
 					}
 				},
 				[a]
@@ -6710,12 +6710,12 @@ return c && c.EName == "oChomper"
 		Attacking: 0,
 		PicArr: [
 			"images/Card/Plants/ScaredyShroom.png",
-			"images/Plants/ScaredyShroom/0.webp",
-			"images/Plants/ScaredyShroom/ScaredyShroom.webp",
-			"images/Plants/ScaredyShroom/ScaredyShroomSleep.webp",
-			"images/Plants/ScaredyShroom/ScaredyShroomCry.webp",
-			"images/Plants/ShroomBullet.webp",
-			"images/Plants/ShroomBulletHit.webp",
+			"images/Plants/ScaredyShroom/0.gif",
+			"images/Plants/ScaredyShroom/ScaredyShroom.gif",
+			"images/Plants/ScaredyShroom/ScaredyShroomSleep.gif",
+			"images/Plants/ScaredyShroom/ScaredyShroomCry.gif",
+			"images/Plants/ShroomBullet.gif",
+			"images/Plants/ShroomBulletHit.gif",
 		],
 		Tooltip: "Long-ranged shooter that hides when enemies get near it",
 		Produce:
@@ -6735,7 +6735,7 @@ return c && c.EName == "oChomper"
 				  !b.Cry &&
 						((b.Cry = 1),
 						($(a).childNodes[1].src =
-							"images/Plants/ScaredyShroom/ScaredyShroomCry.webp"),
+							"images/Plants/ScaredyShroom/ScaredyShroomCry.gif"),
 						b.CryCheck(a)))
 				: e.R == b.R &&
 				  !b.Cry &&
@@ -6755,7 +6755,7 @@ return c && c.EName == "oChomper"
 			});
 			c.BulletEle = NewImg(
 				0,
-				"images/Plants/ShroomBullet.webp",
+				"images/Plants/ShroomBullet.gif",
 				"left:" +
 					a +
 					"px;top:" +
@@ -6790,7 +6790,7 @@ return c && c.EName == "oChomper"
 						? (i.getPea(i, 20, 0),
 						  (SetStyle(e, {
 								left: h + 38 + "px",
-						  }).src = "images/Plants/ShroomBulletHit.webp"),
+						  }).src = "images/Plants/ShroomBulletHit.gif"),
 						  oSym.addTask(10, ClearChild, [e]))
 						: (f += 5) < oS.W
 						? ((e.style.left = (h += 5) + "px"),
@@ -6837,7 +6837,7 @@ return c && c.EName == "oChomper"
 							? d.CryCheck(b)
 							: ((d.Cry = 0),
 							  ($(b).childNodes[1].src =
-									"images/Plants/ScaredyShroom/ScaredyShroom.webp"));
+									"images/Plants/ScaredyShroom/ScaredyShroom.gif"));
 					}
 				},
 				[a]
@@ -6856,9 +6856,9 @@ return c && c.EName == "oChomper"
 		HP: 0,
 		PicArr: [
 			"images/Card/Plants/HypnoShroom.png",
-			"images/Plants/HypnoShroom/0.webp",
-			"images/Plants/HypnoShroom/HypnoShroom.webp",
-			"images/Plants/HypnoShroom/HypnoShroomSleep.webp",
+			"images/Plants/HypnoShroom/0.gif",
+			"images/Plants/HypnoShroom/HypnoShroom.gif",
+			"images/Plants/HypnoShroom/HypnoShroomSleep.gif",
 		],
 		Tooltip: "Makes a zombie fight for you",
 		Produce:
@@ -6892,9 +6892,9 @@ return c && c.EName == "oChomper"
 		HP: 0,
 		PicArr: [
 			"images/Card/Plants/HypnoShroom.png",
-			"images/Plants/HypnoShroom/0.webp",
-			"images/Plants/HypnoShroom/HypnoShroom.webp",
-			"images/Plants/HypnoShroom/HypnoShroomSleep.webp",
+			"images/Plants/HypnoShroom/0.gif",
+			"images/Plants/HypnoShroom/HypnoShroom.gif",
+			"images/Plants/HypnoShroom/HypnoShroomSleep.gif",
 		],
 		Tooltip: "Makes a zombie fight for you",
 		Produce:
@@ -6926,11 +6926,11 @@ return c && c.EName == "oChomper"
 		coolTime: 50,
 		PicArr: [
 			"images/Card/Plants/IceShroom.png",
-			"images/Plants/IceShroom/0.webp",
-			"images/Plants/IceShroom/IceShroom.webp",
-			"images/Plants/IceShroom/IceShroomSleep.webp",
-			"images/Plants/IceShroom/Snow.webp",
-			"images/Plants/IceShroom/icetrap.webp",
+			"images/Plants/IceShroom/0.gif",
+			"images/Plants/IceShroom/IceShroom.gif",
+			"images/Plants/IceShroom/IceShroomSleep.gif",
+			"images/Plants/IceShroom/Snow.gif",
+			"images/Plants/IceShroom/icetrap.gif",
 		],
 		AudioArr: ["frozen", "wakeup"],
 		Tooltip: "Temporarily immobilizes all zombies on the screen",
@@ -6948,7 +6948,7 @@ return c && c.EName == "oChomper"
 		WakeUP: function (a) {
 			var b = a.id;
 			a.Sleep = 0;
-			$(b).childNodes[1].src = "images/Plants/IceShroom/IceShroom.webp";
+			$(b).childNodes[1].src = "images/Plants/IceShroom/IceShroom.gif";
 			a.NormalAttack(b);
 		},
 		NormalAttack: function (a) {
@@ -6973,7 +6973,7 @@ return c && c.EName == "oChomper"
 								NewEle(
 									b,
 									"div",
-									"position:absolute;left:0;top:0;width:900px;height:600px;z-index:10;filter:alpha(opacity=50);opacity:.5;background:#9CF url(images/Plants/IceShroom/Snow.webp) no-repeat scroll " +
+									"position:absolute;left:0;top:0;width:900px;height:600px;z-index:10;filter:alpha(opacity=50);opacity:.5;background:#9CF url(images/Plants/IceShroom/Snow.gif) no-repeat scroll " +
 										(f.pixelLeft - 197) +
 										"px " +
 										(f.pixelTop - 80) +
@@ -7000,11 +7000,11 @@ return c && c.EName == "oChomper"
 		coolTime: 50,
 		PicArr: [
 			"images/Card/Plants/IceShroom.png",
-			"images/Plants/IceShroom/0.webp",
-			"images/Plants/IceShroom/IceShroom.webp",
-			"images/Plants/IceShroom/IceShroomSleep.webp",
-			"images/Plants/IceShroom/Snow.webp",
-			"images/Plants/IceShroom/icetrap.webp",
+			"images/Plants/IceShroom/0.gif",
+			"images/Plants/IceShroom/IceShroom.gif",
+			"images/Plants/IceShroom/IceShroomSleep.gif",
+			"images/Plants/IceShroom/Snow.gif",
+			"images/Plants/IceShroom/icetrap.gif",
 		],
 		AudioArr: ["frozen", "wakeup"],
 		Tooltip: "Temporarily immobilizes all zombies on the screen",
@@ -7022,7 +7022,7 @@ return c && c.EName == "oChomper"
 		WakeUP: function (a) {
 			var b = a.id;
 			a.Sleep = 0;
-			$(b).childNodes[1].src = "images/Plants/IceShroom/IceShroom.webp";
+			$(b).childNodes[1].src = "images/Plants/IceShroom/IceShroom.gif";
 			a.NormalAttack(b);
 		},
 		NormalAttack: function (a) {
@@ -7047,7 +7047,7 @@ return c && c.EName == "oChomper"
 								NewEle(
 									b,
 									"div",
-									"position:absolute;left:0;top:0;width:900px;height:600px;z-index:10;filter:alpha(opacity=50);opacity:.5;background:#9CF url(images/Plants/IceShroom/Snow.webp) no-repeat scroll " +
+									"position:absolute;left:0;top:0;width:900px;height:600px;z-index:10;filter:alpha(opacity=50);opacity:.5;background:#9CF url(images/Plants/IceShroom/Snow.gif) no-repeat scroll " +
 										(f.pixelLeft - 197) +
 										"px " +
 										(f.pixelTop - 80) +
@@ -7076,10 +7076,10 @@ return c && c.EName == "oChomper"
 		Status: 0,
 		PicArr: [
 			"images/Card/Plants/SunShroom.png",
-			"images/Plants/SunShroom/0.webp",
-			"images/Plants/SunShroom/SunShroom2.webp",
-			"images/Plants/SunShroom/SunShroomSleep.webp",
-			"images/Plants/SunShroom/SunShroom.webp",
+			"images/Plants/SunShroom/0.gif",
+			"images/Plants/SunShroom/SunShroom2.gif",
+			"images/Plants/SunShroom/SunShroomSleep.gif",
+			"images/Plants/SunShroom/SunShroom.gif",
 		],
 		Tooltip: "Gives small sun at first and normal sun later",
 		Produce:
@@ -7094,7 +7094,7 @@ return c && c.EName == "oChomper"
 				? ((c.canTrigger = 0),
 				  (c.Sleep = 1),
 				  (b.childNodes[1].src =
-						"images/Plants/SunShroom/SunShroomSleep.webp"))
+						"images/Plants/SunShroom/SunShroomSleep.gif"))
 				: (oSym.addTask(
 						600,
 						function (h, g, f) {
@@ -7110,7 +7110,7 @@ return c && c.EName == "oChomper"
 							e &&
 								((e.Sleep = 0),
 								($(f).childNodes[1].src =
-									"images/Plants/SunShroom/SunShroom.webp"),
+									"images/Plants/SunShroom/SunShroom.gif"),
 								(e.Status = 1));
 						},
 						[d]
@@ -7143,7 +7143,7 @@ return c && c.EName == "oChomper"
 		WakeUP: function (a) {
 			var b = a.id;
 			a.ProduceSun(a, GetX(a.C) - 40, GetY(a.R));
-			$(b).childNodes[1].src = "images/Plants/SunShroom/SunShroom2.webp";
+			$(b).childNodes[1].src = "images/Plants/SunShroom/SunShroom2.gif";
 			a.Sleep = 0;
 			oSym.addTask(
 				12e3,
@@ -7151,7 +7151,7 @@ return c && c.EName == "oChomper"
 					var c = $P[d];
 					c &&
 						(($(d).childNodes[1].src =
-							"images/Plants/SunShroom/SunShroom.webp"),
+							"images/Plants/SunShroom/SunShroom.gif"),
 						(c.Status = 1));
 				},
 				[b]
@@ -7169,10 +7169,10 @@ return c && c.EName == "oChomper"
 		AudioArr: ["doomshroom"],
 		PicArr: [
 			"images/Card/Plants/DoomShroom.png",
-			"images/Plants/DoomShroom/0.webp",
-			"images/Plants/DoomShroom/DoomShroom.webp",
-			"images/Plants/DoomShroom/Sleep.webp",
-			"images/Plants/DoomShroom/BeginBoom.webp",
+			"images/Plants/DoomShroom/0.gif",
+			"images/Plants/DoomShroom/DoomShroom.gif",
+			"images/Plants/DoomShroom/Sleep.gif",
+			"images/Plants/DoomShroom/BeginBoom.gif",
 			"images/Plants/DoomShroom/crater10.png",
 			"images/Plants/DoomShroom/crater11.png",
 			"images/Plants/DoomShroom/crater20.png",
@@ -7191,7 +7191,7 @@ return c && c.EName == "oChomper"
 				: ((c.Sleep = 0),
 				  (c.getHurt = function () {}),
 				  (b.childNodes[1].src =
-						"images/Plants/DoomShroom/BeginBoom.webp"),
+						"images/Plants/DoomShroom/BeginBoom.gif"),
 				  c.NormalAttack(d));
 			EditEle(
 				b,
@@ -7206,7 +7206,7 @@ return c && c.EName == "oChomper"
 			var b = a.id;
 			a.Sleep = 0;
 			a.getHurt = function () {};
-			$(b).childNodes[1].src = "images/Plants/DoomShroom/BeginBoom.webp";
+			$(b).childNodes[1].src = "images/Plants/DoomShroom/BeginBoom.gif";
 			a.NormalAttack(b);
 		},
 		NormalAttack: function (a) {
@@ -7383,10 +7383,10 @@ return c && c.EName == "oChomper"
 		AudioArr: ["doomshroom"],
 		PicArr: [
 			"images/Card/Plants/DoomShroom.png",
-			"images/Plants/DoomShroom/0.webp",
-			"images/Plants/DoomShroom/DoomShroom.webp",
-			"images/Plants/DoomShroom/Sleep.webp",
-			"images/Plants/DoomShroom/BeginBoom.webp",
+			"images/Plants/DoomShroom/0.gif",
+			"images/Plants/DoomShroom/DoomShroom.gif",
+			"images/Plants/DoomShroom/Sleep.gif",
+			"images/Plants/DoomShroom/BeginBoom.gif",
 			"images/Plants/DoomShroom/crater10.png",
 			"images/Plants/DoomShroom/crater11.png",
 			"images/Plants/DoomShroom/crater20.png",
@@ -7405,7 +7405,7 @@ return c && c.EName == "oChomper"
 				: ((c.Sleep = 0),
 				  (c.getHurt = function () {}),
 				  (b.childNodes[1].src =
-						"images/Plants/DoomShroom/BeginBoom.webp"),
+						"images/Plants/DoomShroom/BeginBoom.gif"),
 				  c.NormalAttack(d));
 			EditEle(
 				b,
@@ -7420,7 +7420,7 @@ return c && c.EName == "oChomper"
 			var b = a.id;
 			a.Sleep = 0;
 			a.getHurt = function () {};
-			$(b).childNodes[1].src = "images/Plants/DoomShroom/BeginBoom.webp";
+			$(b).childNodes[1].src = "images/Plants/DoomShroom/BeginBoom.gif";
 			a.NormalAttack(b);
 		},
 		NormalAttack: function (a) {
@@ -7603,8 +7603,8 @@ return c && c.EName == "oChomper"
 		AudioArr: ["TangleKlep"],
 		PicArr: [
 			"images/Card/Plants/TangleKlep.png",
-			"images/Plants/TangleKlep/0.webp",
-			"images/Plants/TangleKlep/Float.webp",
+			"images/Plants/TangleKlep/0.gif",
+			"images/Plants/TangleKlep/Float.gif",
 			"images/Plants/TangleKlep/Grab.png",
 			"images/interface/splash.png",
 		],
@@ -7630,7 +7630,7 @@ return c && c.EName == "oChomper"
 			return [[b, c, 0]];
 		},
 		BirthStyle: function (c, d, b, a) {
-			b.childNodes[1].src = "images/Plants/TangleKlep/Float.webp";
+			b.childNodes[1].src = "images/Plants/TangleKlep/Float.gif";
 			EditEle(
 				b,
 				{
@@ -7756,8 +7756,8 @@ return c && c.EName == "oChomper"
 		AudioArr: ["TangleKlep"],
 		PicArr: [
 			"images/Card/Plants/TangleKlep.png",
-			"images/Plants/TangleKlep/0.webp",
-			"images/Plants/TangleKlep/Float.webp",
+			"images/Plants/TangleKlep/0.gif",
+			"images/Plants/TangleKlep/Float.gif",
 			"images/Plants/TangleKlep/Grab.png",
 			"images/interface/splash.png",
 		],
@@ -7783,7 +7783,7 @@ return c && c.EName == "oChomper"
 			return [[b, c, 0]];
 		},
 		BirthStyle: function (c, d, b, a) {
-			b.childNodes[1].src = "images/Plants/TangleKlep/Float.webp";
+			b.childNodes[1].src = "images/Plants/TangleKlep/Float.gif";
 			EditEle(
 				b,
 				{
@@ -7907,11 +7907,11 @@ return c && c.EName == "oChomper"
 		},
 		PicArr: [
 			"images/Card/Plants/SeaShroom.png",
-			"images/Plants/SeaShroom/0.webp",
-			"images/Plants/SeaShroom/SeaShroom.webp",
-			"images/Plants/SeaShroom/SeaShroomSleep.webp",
-			"images/Plants/ShroomBullet.webp",
-			"images/Plants/ShroomBulletHit.webp",
+			"images/Plants/SeaShroom/0.gif",
+			"images/Plants/SeaShroom/SeaShroom.gif",
+			"images/Plants/SeaShroom/SeaShroomSleep.gif",
+			"images/Plants/ShroomBullet.gif",
+			"images/Plants/ShroomBulletHit.gif",
 		],
 		CanGrow: function (c, b, d) {
 			var a = b + "_" + d;
@@ -7954,11 +7954,11 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 	},
 	PicArr: [
 		"images/Card/Plants/SeaShroom.png",
-		"images/Plants/SeaShroom/0.webp",
-		"images/Plants/SeaShroom/SeaShroom.webp",
-		"images/Plants/SeaShroom/SeaShroomSleep.webp",
-		"images/Plants/ShroomBullet.webp",
-		"images/Plants/ShroomBulletHit.webp",
+		"images/Plants/SeaShroom/0.gif",
+		"images/Plants/SeaShroom/SeaShroom.gif",
+		"images/Plants/SeaShroom/SeaShroomSleep.gif",
+		"images/Plants/ShroomBullet.gif",
+		"images/Plants/ShroomBulletHit.gif",
 	],
 	CanGrow: function (c, b, d) {
 		var a = b + "_" + d;
@@ -7999,13 +7999,13 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 	PicArr: (function () {
 		return [
 			"images/Card/Plants/Cactus.png",
-			"images/Plants/Cactus/0.webp",
-			"images/Plants/Cactus/Cactus.webp",
-			"images/Plants/Cactus/Cactus2.webp",
-			"images/Plants/Cactus/Attack.webp",
-			"images/Plants/Cactus/Attack2.webp",
-			"images/Plants/Cactus/Elongation.webp",
-			"images/Plants/Cactus/Shorten.webp",
+			"images/Plants/Cactus/0.gif",
+			"images/Plants/Cactus/Cactus.gif",
+			"images/Plants/Cactus/Cactus2.gif",
+			"images/Plants/Cactus/Attack.gif",
+			"images/Plants/Cactus/Attack2.gif",
+			"images/Plants/Cactus/Elongation.gif",
+			"images/Plants/Cactus/Shorten.gif",
 			"images/Plants/Cactus/Projectile32.png",
 		];
 	})(),
@@ -8083,7 +8083,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			PlayAudio("plantgrow");
 			a.canTrigger = 0;
 			a.Status = 1;
-			$(b).childNodes[1].src = "images/Plants/Cactus/Elongation.webp";
+			$(b).childNodes[1].src = "images/Plants/Cactus/Elongation.gif";
 			oSym.addTask(
 				1,
 				function (e) {
@@ -8092,7 +8092,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 					if (d) {
 						d.NormalGif = 3;
 						$(e).childNodes[1].src =
-							"images/Plants/Cactus/Cactus2.webp";
+							"images/Plants/Cactus/Cactus2.gif";
 						c = d.CheckLoop;
 						d.CheckLoop = d.CheckLoop2;
 						d.CheckLoop2 = c;
@@ -8116,7 +8116,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		} else {
 			a.canTrigger = 0;
 			a.Status = 0;
-			$(b).childNodes[1].src = "images/Plants/Cactus/Shorten.webp";
+			$(b).childNodes[1].src = "images/Plants/Cactus/Shorten.gif";
 			oSym.addTask(
 				1,
 				function (e) {
@@ -8125,7 +8125,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 					if (d) {
 						d.NormalGif = 2;
 						$(e).childNodes[1].src =
-							"images/Plants/Cactus/Cactus.webp";
+							"images/Plants/Cactus/Cactus.gif";
 						c = d.CheckLoop;
 						d.CheckLoop = d.CheckLoop2;
 						d.CheckLoop2 = c;
@@ -8145,12 +8145,12 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		var b = this,
 			c = "CB" + Math.random(),
 			a = b.id;
-		$(a).childNodes[1].src = "images/Plants/Cactus/Attack.webp";
+		$(a).childNodes[1].src = "images/Plants/Cactus/Attack.gif";
 		oSym.addTask(
 			40,
 			function (e) {
 				var d = $(e);
-				d && (d.childNodes[1].src = "images/Plants/Cactus/Cactus.webp");
+				d && (d.childNodes[1].src = "images/Plants/Cactus/Cactus.gif");
 			},
 			[a]
 		);
@@ -8193,12 +8193,12 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		var b = this,
 			c = "CB" + Math.random(),
 			a = b.id;
-		$(a).childNodes[1].src = "images/Plants/Cactus/Attack2.webp";
+		$(a).childNodes[1].src = "images/Plants/Cactus/Attack2.gif";
 		oSym.addTask(
 			50,
 			function (e) {
 				var d = $(e);
-				d && (d.childNodes[1].src = "images/Plants/Cactus/Cactus2.webp");
+				d && (d.childNodes[1].src = "images/Plants/Cactus/Cactus2.gif");
 			},
 			[a]
 		);
@@ -8251,13 +8251,13 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		PicArr: (function () {
 			return [
 				"images/Card/Plants/Cactus.png",
-				"images/Plants/Cactus/0.webp",
-				"images/Plants/Cactus/Cactus.webp",
-				"images/Plants/Cactus/Cactus2.webp",
-				"images/Plants/Cactus/Attack.webp",
-				"images/Plants/Cactus/Attack2.webp",
-				"images/Plants/Cactus/Elongation.webp",
-				"images/Plants/Cactus/Shorten.webp",
+				"images/Plants/Cactus/0.gif",
+				"images/Plants/Cactus/Cactus.gif",
+				"images/Plants/Cactus/Cactus2.gif",
+				"images/Plants/Cactus/Attack.gif",
+				"images/Plants/Cactus/Attack2.gif",
+				"images/Plants/Cactus/Elongation.gif",
+				"images/Plants/Cactus/Shorten.gif",
 				"images/Plants/Cactus/Projectile32.png",
 			];
 		})(),
@@ -8335,7 +8335,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 				PlayAudio("plantgrow");
 				a.canTrigger = 0;
 				a.Status = 1;
-				$(b).childNodes[1].src = "images/Plants/Cactus/Elongation.webp";
+				$(b).childNodes[1].src = "images/Plants/Cactus/Elongation.gif";
 				oSym.addTask(
 					1,
 					function (e) {
@@ -8344,7 +8344,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 						if (d) {
 							d.NormalGif = 3;
 							$(e).childNodes[1].src =
-								"images/Plants/Cactus/Cactus2.webp";
+								"images/Plants/Cactus/Cactus2.gif";
 							c = d.CheckLoop;
 							d.CheckLoop = d.CheckLoop2;
 							d.CheckLoop2 = c;
@@ -8368,7 +8368,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			} else {
 				a.canTrigger = 0;
 				a.Status = 0;
-				$(b).childNodes[1].src = "images/Plants/Cactus/Shorten.webp";
+				$(b).childNodes[1].src = "images/Plants/Cactus/Shorten.gif";
 				oSym.addTask(
 					1,
 					function (e) {
@@ -8377,7 +8377,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 						if (d) {
 							d.NormalGif = 2;
 							$(e).childNodes[1].src =
-								"images/Plants/Cactus/Cactus.webp";
+								"images/Plants/Cactus/Cactus.gif";
 							c = d.CheckLoop;
 							d.CheckLoop = d.CheckLoop2;
 							d.CheckLoop2 = c;
@@ -8397,14 +8397,14 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			var b = this,
 				c = "CB" + Math.random(),
 				a = b.id;
-			$(a).childNodes[1].src = "images/Plants/Cactus/Attack.webp";
+			$(a).childNodes[1].src = "images/Plants/Cactus/Attack.gif";
 			oSym.addTask(
 				40,
 				function (e) {
 					var d = $(e);
 					d &&
 						(d.childNodes[1].src =
-							"images/Plants/Cactus/Cactus.webp");
+							"images/Plants/Cactus/Cactus.gif");
 				},
 				[a]
 			);
@@ -8447,14 +8447,14 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			var b = this,
 				c = "CB" + Math.random(),
 				a = b.id;
-			$(a).childNodes[1].src = "images/Plants/Cactus/Attack2.webp";
+			$(a).childNodes[1].src = "images/Plants/Cactus/Attack2.gif";
 			oSym.addTask(
 				50,
 				function (e) {
 					var d = $(e);
 					d &&
 						(d.childNodes[1].src =
-							"images/Plants/Cactus/Cactus2.webp");
+							"images/Plants/Cactus/Cactus2.gif");
 				},
 				[a]
 			);
@@ -8503,8 +8503,8 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		SunNum: 100,
 		PicArr: [
 			"images/Card/Plants/Blover.png",
-			"images/Plants/Blover/0.webp",
-			"images/Plants/Blover/Blover.webp",
+			"images/Plants/Blover/0.gif",
+			"images/Plants/Blover/Blover.gif",
 		],
 		Tooltip: "Blows away all balloon zombies and fog",
 		Produce:
@@ -8518,7 +8518,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 				function (id) {
 					PlayAudio("blover"),
 						($(id).childNodes[1].src =
-							"images/Plants/Blover/BloverBlow.webp"),
+							"images/Plants/Blover/BloverBlow.gif"),
 						$P[id].Dispel();
 				},
 				[o.id]
@@ -8560,8 +8560,8 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		SunNum: 0,
 		PicArr: [
 			"images/Card/Plants/Blover.png",
-			"images/Plants/Blover/0.webp",
-			"images/Plants/Blover/Blover.webp",
+			"images/Plants/Blover/0.gif",
+			"images/Plants/Blover/Blover.gif",
 		],
 		Tooltip: "Blows away all balloon zombies and fog",
 		Produce:
@@ -8575,7 +8575,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 				function (id) {
 					PlayAudio("blover"),
 						($(id).childNodes[1].src =
-							"images/Plants/Blover/BloverBlow.webp"),
+							"images/Plants/Blover/BloverBlow.gif"),
 						$P[id].Dispel();
 				},
 				[o.id]
@@ -8620,8 +8620,8 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		coolTime: 7.5,
 		PicArr: [
 			"images/Card/Plants/Oxygen.png",
-			"images/Plants/Oxygen/0.webp",
-			"images/Plants/Oxygen/Oxygen.webp",
+			"images/Plants/Oxygen/0.gif",
+			"images/Plants/Oxygen/Oxygen.gif",
 		],
 		Tooltip: "Oxygen provides algae to plants on the ground",
 		Produce:
@@ -8683,10 +8683,10 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		coolTime: 30,
 		PicArr: [
 			"images/Card/Plants/FlamesMushroom.png",
-			"images/Plants/FlamesMushroom/0.webp",
-			"images/Plants/FlamesMushroom/FlamesMushroom.webp",
-			"images/Plants/FlamesMushroom/FlamesMushroom1.webp",
-			"images/Plants/FlamesMushroom/FlamesMushroom2.webp",
+			"images/Plants/FlamesMushroom/0.gif",
+			"images/Plants/FlamesMushroom/FlamesMushroom.gif",
+			"images/Plants/FlamesMushroom/FlamesMushroom1.gif",
+			"images/Plants/FlamesMushroom/FlamesMushroom2.gif",
 		],
 		Tooltip: "烈焰菇可以召唤多个毁灭菇，嗨翻全场僵尸",
 		Produce:
@@ -8701,12 +8701,12 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 					? c.HurtStatus < 2 &&
 					  ((c.HurtStatus = 2),
 					  (d.src =
-							"images/Plants/FlamesMushroom/FlamesMushroom2.webp"))
+							"images/Plants/FlamesMushroom/FlamesMushroom2.gif"))
 					: c.HP < 5333 &&
 					  c.HurtStatus < 1 &&
 					  ((c.HurtStatus = 1),
 					  (d.src =
-							"images/Plants/FlamesMushroom/FlamesMushroom1.webp"))
+							"images/Plants/FlamesMushroom/FlamesMushroom1.gif"))
 				: c.Die(1);
 		},
 		NormalAttack: function () {},
@@ -8746,8 +8746,8 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		BookHandBack: 5,
 		PicArr: [
 			"images/Card/Plants/Oxygen.png",
-			"images/Plants/Oxygen/0.webp",
-			"images/Plants/Oxygen/Oxygen1.webp",
+			"images/Plants/Oxygen/0.gif",
+			"images/Plants/Oxygen/Oxygen1.gif",
 		],
 		PKind: 0,
 		Stature: -1,
@@ -8797,8 +8797,8 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		SunNum: 25,
 		PicArr: [
 			"images/Card/Plants/Plantern.png",
-			"images/Plants/Plantern/0.webp",
-			"images/Plants/Plantern/Plantern.webp",
+			"images/Plants/Plantern/0.gif",
+			"images/Plants/Plantern/Plantern.gif",
 		],
 		Tooltip: "Lights up an area, letting you see through fog",
 		Produce:
@@ -8809,7 +8809,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			oGd.$Plantern[a + "_" + b] = c.id;
 			NewImg(
 				"",
-				"images/Plants/Plantern/light.webp",
+				"images/Plants/Plantern/light.gif",
 				"filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" +
 					c.zIndex,
 				$(c.id)
@@ -8850,9 +8850,9 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		SunNum: 0,
 		PicArr: [
 			"images/Card/Plants/Plantern.png",
-			"images/Plants/Plantern/0.webp",
-			"images/Plants/Plantern/Plantern.webp",
-			"images/Plants/Plantern/light.webp",
+			"images/Plants/Plantern/0.gif",
+			"images/Plants/Plantern/Plantern.gif",
+			"images/Plants/Plantern/light.gif",
 		],
 		Tooltip: "照亮一片区域, 让玩家可以看穿战场迷雾",
 		Produce:
@@ -8863,7 +8863,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			oGd.$Plantern[a + "_" + b] = c.id;
 			NewImg(
 				"",
-				"images/Plants/Plantern/light.webp",
+				"images/Plants/Plantern/light.gif",
 				"filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" +
 					c.zIndex,
 				$(c.id)
@@ -8908,8 +8908,8 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			'海星果的触手可以轻易掀翻僵尸并造成混乱<p>攻击：<font color="#FF0000">较大</font><br>路径：<font color="#FF0000">随机的撞击线</font></p>海星果永远保持着迷人的微笑，没人知道他那</font><br>么热爱转圈圈却不会头晕的秘密，有人说因为他</font><br>那双斗鸡眼只看一点才不会转晕。',
 		PicArr: [
 			"images/Card/Plants/star.png",
-			"images/Plants/star/0.webp",
-			"images/Plants/star/starRoll.webp",
+			"images/Plants/star/0.gif",
+			"images/Plants/star/starRoll.gif",
 		],
 		AudioArr: ["bowling", "bowlingimpact", "bowlingimpact2"],
 		CanAttack: 1,
@@ -9072,8 +9072,8 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		Stature: 1,
 		PicArr: [
 			"images/Card/Plants/star.png",
-			"images/Plants/star/0.webp",
-			"images/Plants/star/starRoll.webp",
+			"images/Plants/star/0.gif",
+			"images/Plants/star/starRoll.gif",
 		],
 		Tooltip: "",
 		Produce: "",
@@ -9119,11 +9119,11 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		SunNum: 25,
 		PicArr: [
 			"images/Card/Plants/gun.png",
-			"images/Plants/gun/0.webp",
-			"images/Plants/gun/SeaShroom.webp",
-			"images/Plants/gun/SeaShroomSleep.webp",
-			"images/Plants/gun/ShroomBullet.webp",
-			"images/Plants/gun/ShroomBulletHit.webp",
+			"images/Plants/gun/0.gif",
+			"images/Plants/gun/SeaShroom.gif",
+			"images/Plants/gun/SeaShroomSleep.gif",
+			"images/Plants/gun/ShroomBullet.gif",
+			"images/Plants/gun/ShroomBulletHit.gif",
 		],
 		CanGrow: function (e, d, f) {
 			var c = d + "_" + f,
@@ -9148,7 +9148,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		PrivateBirth: function (a) {
 			a.BulletEle = NewImg(
 				0,
-				"images/Plants/gun/ShroomBullet.webp",
+				"images/Plants/gun/ShroomBullet.gif",
 				"left:" +
 					(a.AttackedLX - 46) +
 					"px;top:" +
@@ -9203,7 +9203,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 						? (h.getPea(h, 20, 0),
 						  (SetStyle(d, {
 								left: g + 38 + "px",
-						  }).src = "images/Plants/gun/ShroomBulletHit.webp"),
+						  }).src = "images/Plants/gun/ShroomBulletHit.gif"),
 						  oSym.addTask(10, ClearChild, [d]))
 						: (e += 5) < oS.W
 						? ((d.style.left = (g += 5) + "px"),
@@ -9212,9 +9212,9 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 				},
 				[c, $(c), a, b.R, a - 46]
 			);
-			d.childNodes[1].src = "images/Plants/gun/SeaShroomShoot.webp";
+			d.childNodes[1].src = "images/Plants/gun/SeaShroomShoot.gif";
 			setTimeout(() => {
-				d.childNodes[1].src = "images/Plants/gun/SeaShroom.webp";
+				d.childNodes[1].src = "images/Plants/gun/SeaShroom.gif";
 			}, 750);
 		},
 	})),
@@ -9230,11 +9230,11 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		AudioArr: ["SeaAnemone"],
 		PicArr: [
 			"images/Card/Plants/SeaAnemone.png",
-			"images/Plants/SeaAnemone/0.webp",
-			"images/Plants/SeaAnemone/GloomShroom.webp",
-			"images/Plants/SeaAnemone/GloomShroomSleep.webp",
-			"images/Plants/SeaAnemone/GloomShroomAttack.webp",
-			"images/Plants/SeaAnemone/GloomShroomBullet.webp",
+			"images/Plants/SeaAnemone/0.gif",
+			"images/Plants/SeaAnemone/GloomShroom.gif",
+			"images/Plants/SeaAnemone/GloomShroomSleep.gif",
+			"images/Plants/SeaAnemone/GloomShroomAttack.gif",
+			"images/Plants/SeaAnemone/GloomShroomBullet.gif",
 		],
 		AudioArr: ["kernelpult", "kernelpult2"],
 		Tooltip: "Hurts zombies around it",
@@ -9276,7 +9276,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 					(b.pixelLeft - 60) +
 					"px;top:" +
 					(b.pixelTop - 65) +
-					"px;background:url(images/Plants/SeaAnemone/GloomShroomBullet.webp);z-index:" +
+					"px;background:url(images/Plants/SeaAnemone/GloomShroomBullet.gif);z-index:" +
 					(b.zIndex + 1),
 				0,
 				EDPZ
@@ -9316,7 +9316,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 				[4]
 			);
 			d.childNodes[1].src =
-				"images/Plants/SeaAnemone/GloomShroomAttack.webp";
+				"images/Plants/SeaAnemone/GloomShroomAttack.gif";
 			SetVisible($(l));
 			ImgSpriter(
 				l,
@@ -9340,7 +9340,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 					var i = $(n);
 					$P[n] &&
 						(i.childNodes[1].src =
-							"images/Plants/SeaAnemone/GloomShroom.webp");
+							"images/Plants/SeaAnemone/GloomShroom.gif");
 					SetHidden($(m));
 				}
 			);
@@ -9362,8 +9362,8 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		AudioArr: ["TTS"],
 		PicArr: [
 			"images/Card/Plants/TTS.png",
-			"images/Plants/TTS/0.webp",
-			"images/Plants/TTS/Float.webp",
+			"images/Plants/TTS/0.gif",
+			"images/Plants/TTS/Float.gif",
 			"images/Plants/TTS/Grab.png",
 			"images/Plants/TTS/splash.png",
 		],
@@ -9391,7 +9391,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			return [[b, c, 0]];
 		},
 		BirthStyle: function (c, d, b, a) {
-			b.childNodes[1].src = "images/Plants/TTS/Float.webp";
+			b.childNodes[1].src = "images/Plants/TTS/Float.gif";
 			EditEle(
 				b,
 				{
@@ -9500,9 +9500,9 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		AudioArr: ["Magneticmu"],
 		PicArr: [
 			"images/Card/Plants/MagneticmuShroom.png",
-			"images/Plants/MagneticmuShroom/0.webp",
-			"images/Plants/MagneticmuShroom/Shrubbery.webp",
-			"images/Plants/MagneticmuShroom/ShrubberyBoom.webp" + $Random,
+			"images/Plants/MagneticmuShroom/0.gif",
+			"images/Plants/MagneticmuShroom/Shrubbery.gif",
+			"images/Plants/MagneticmuShroom/ShrubberyBoom.gif" + $Random,
 		],
 		Tooltip: "Removes helmets and other metal objects from zombies。",
 		Produce:
@@ -9551,7 +9551,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 						EditEle(
 							b.childNodes[1],
 							{
-								src: "images/Plants/MagneticmuShroom/ShrubberyBoom.webp",
+								src: "images/Plants/MagneticmuShroom/ShrubberyBoom.gif",
 							},
 							{
 								width: "176px",
@@ -9579,11 +9579,11 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		HP: 4e3,
 		PicArr: [
 			"images/Card/Plants/LaserBean.png",
-			"images/Plants/LaserPea/0.webp",
-			"images/Plants/LaserPea/LaserPea.webp",
-			"images/Plants/LaserPea/LaserPeaSleep.webp",
-			"images/Plants/LaserPea/LaserPeaAttack.webp",
-			"images/Plants/LaserPea/LaserPeaBullet.webp",
+			"images/Plants/LaserPea/0.gif",
+			"images/Plants/LaserPea/LaserPea.gif",
+			"images/Plants/LaserPea/LaserPeaSleep.gif",
+			"images/Plants/LaserPea/LaserPeaAttack.gif",
+			"images/Plants/LaserPea/LaserPeaBullet.gif",
 		],
 		AudioArr: ["LaserBean"],
 		Tooltip: "Fires a high-powered laser at an entire row of zombies",
@@ -9625,7 +9625,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 					b.AttackedRX +
 					"px;top:" +
 					(b.pixelTop + 5) +
-					"px;background:url(images/Plants/LaserPea/LaserPeaBullet.webp);z-index:" +
+					"px;background:url(images/Plants/LaserPea/LaserPeaBullet.gif);z-index:" +
 					(b.zIndex + 1),
 				0,
 				EDPZ
@@ -9653,7 +9653,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			while (e--) {
 				(g = d[e]).Altitude < 2 && g.getHit1(g, 850);
 			}
-			b.childNodes[1].src = "images/Plants/LaserPea/LaserPeaAttack.webp";
+			b.childNodes[1].src = "images/Plants/LaserPea/LaserPeaAttack.gif";
 			SetVisible($(a));
 			ImgSpriter(
 				a,
@@ -9673,7 +9673,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 					var h = $(j);
 					$P[j] &&
 						((h.childNodes[1].src =
-							"images/Plants/LaserPea/LaserPea.webp"),
+							"images/Plants/LaserPea/LaserPea.gif"),
 						SetHidden($(i)));
 				}
 			);
@@ -9682,7 +9682,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 	(oGoldenPrize = InheritO(CPlants, {
 		EName: "oGoldenPrize",
 		CName: "Sunflower Golden Trophy",
-		PicArr: ["images/interface/0.webp", "images/interface/0.webp"],
+		PicArr: ["images/interface/0.gif", "images/interface/0.gif"],
 		Tooltip: "Ta daa!",
 	})),
 	(oShovel = InheritO(CPlants, {
@@ -9693,7 +9693,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		beAttackedPointR: 70,
 		PicArr: [
 			"images/interface/Shovel/ShovelCard.png",
-			"images/interface/Shovel/0.webp",
+			"images/interface/Shovel/0.gif",
 		],
 		Tooltip: "Shovel up plants you dont want!",
 	}));
@@ -9851,7 +9851,7 @@ oFlowerVase = InheritO(CPlants, {
 
 			case "SunNum":
 				EleCard.style = "left:10px;top:12.5px;width:64px;height:64px;";
-				EleCard.src = "images/interface/Sun.webp";
+				EleCard.src = "images/interface/Sun.gif";
 				break;
 		}
 

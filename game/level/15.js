@@ -35,7 +35,7 @@ oS.Init(
 		LoadAccess: function (a) {
 			NewImg(
 				"dDave",
-				"images/interface/Dave.webp",
+				"images/interface/Dave.gif",
 				"left:0;top:81px",
 				EDAll
 			);
@@ -46,11 +46,11 @@ oS.Init(
 				switch (d) {
 					case 0:
 						PlayAudio("crazydaveshort1");
-						$("dDave").src = "images/interface/Dave3.webp";
+						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							1,
 							function () {
-								$("dDave").src = "images/interface/Dave.webp";
+								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [1]);
 								};
@@ -67,11 +67,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.webp";
+						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
 							function () {
-								$("dDave").src = "images/interface/Dave.webp";
+								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [2]);
 								};
@@ -88,11 +88,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.webp";
+						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
 							function () {
-								$("dDave").src = "images/interface/Dave.webp";
+								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [3]);
 								};
@@ -109,11 +109,11 @@ oS.Init(
 							"crazydavelong" + Math.floor(1 + Math.random() * 3)
 						);
 						c.onclick = null;
-						$("dDave").src = "images/interface/Dave3.webp";
+						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
 							function () {
-								$("dDave").src = "images/interface/Dave.webp";
+								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [4]);
 								};
@@ -123,7 +123,7 @@ oS.Init(
 						innerText(c, "Hmm, we might need some quick plants!");
 						break;
 					case 4:
-						$("dDave").src = "images/interface/Dave2.webp";
+						$("dDave").src = "images/interface/Dave2.gif";
 						ClearChild($("DivTeach"));
 						oSym.addTask(
 							5,
@@ -173,7 +173,7 @@ oS.Init(
 			);
 			NewImg(
 				"PointerUD",
-				"images/interface/PointerDown.webp",
+				"images/interface/PointerDown.gif",
 				"top:490px;left:836px",
 				EDAll
 			);

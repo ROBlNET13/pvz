@@ -78,7 +78,7 @@ oS.Init(
 			);
 			NewImg(
 				"PointerUD",
-				"images/interface/PointerDown.webp",
+				"images/interface/PointerDown.gif",
 				"top:235px;left:596px",
 				EDAll
 			);

@@ -49,9 +49,9 @@ oS.Init(
 				b = a.PicArr;
 			return [
 				"images/interface/background5.jpg",
-				"images/interface/Dave.webp",
-				"images/interface/Dave2.webp",
-				"images/interface/Dave3.webp",
+				"images/interface/Dave.gif",
+				"images/interface/Dave2.gif",
+				"images/interface/Dave3.gif",
 				b[a.CardGif],
 				b[a.NormalGif],
 			];
@@ -104,7 +104,7 @@ oS.Init(
 			);
 			NewImg(
 				"PointerUD",
-				"images/interface/PointerDown.webp",
+				"images/interface/PointerDown.gif",
 				"top:490px;left:836px",
 				EDAll
 			);

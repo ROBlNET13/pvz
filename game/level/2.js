@@ -134,7 +134,7 @@ oS.Init(
 												);
 												NewImg(
 													"PointerUD",
-													"images/interface/PointerUP.webp",
+													"images/interface/PointerUP.gif",
 													"top:120px;left:50px",
 													EDAll
 												);
@@ -263,7 +263,7 @@ oS.Init(
 					},
 				}
 			);
-			EditImg($("PointerUD"), 0, "images/interface/PointerDown.webp", {
+			EditImg($("PointerUD"), 0, "images/interface/PointerDown.gif", {
 				left: "836px",
 				top: "185px",
 				display: "block",

@@ -20,7 +20,7 @@ oS.Init(
 		PicArr: [
 			"images/interface/background2.jpg",
 			"images/interface/trophy.png",
-			"images/interface/PointerDown.webp",
+			"images/interface/PointerDown.gif",
 			"images/interface/Stripe.png",
 		],
 		backgroundImage: "images/interface/background2.jpg",
