@@ -1190,7 +1190,7 @@ var CPlants = NewO({
 								left: o + 28 + "px",
 						  }).src = [
 								"images/Plants/PeaBulletHit.gif",
-								"images/Plants/FireBulletHit.png",
+								"images/Plants/FireBulletHit.webp",
 						  ][m]),
 						  oSym.addTask(10, ClearChild, [j]))
 						: (n += l = !c ? 5 : -5) < oS.W && n > 100
@@ -1310,7 +1310,7 @@ var CPlants = NewO({
 								left: o + 28 + "px",
 						  }).src = [
 								"images/Plants/PeaBulletHit.gif",
-								"images/Plants/FireBulletHit.png",
+								"images/Plants/FireBulletHit.webp",
 						  ][m]),
 						  oSym.addTask(10, ClearChild, [j]))
 						: (n += l = !c ? 5 : -5) < oS.W && n > 100
@@ -1975,7 +1975,7 @@ var CPlants = NewO({
 			"images/Plants/Threepeater/Threepeater.gif",
 			"images/Plants/PB00.gif",
 			"images/Plants/PeaBulletHit.gif",
-			"images/Plants/FireBulletHit.png",
+			"images/Plants/FireBulletHit.webp",
 		],
 		AudioArr: [
 			"splat1",
@@ -2077,7 +2077,7 @@ var CPlants = NewO({
 									left: q + 28 + "px",
 							  }).src = [
 									"images/Plants/PeaBulletHit.gif",
-									"images/Plants/FireBulletHit.png",
+									"images/Plants/FireBulletHit.webp",
 							  ][o]),
 							  oSym.addTask(10, ClearChild, [l]))
 							: (p += n = !e ? 5 : -5) < oS.W && p > 100
@@ -2125,7 +2125,7 @@ var CPlants = NewO({
 			"images/Plants/Threepeater/Threepeater.gif",
 			"images/Plants/PB00.gif",
 			"images/Plants/PeaBulletHit.gif",
-			"images/Plants/FireBulletHit.png",
+			"images/Plants/FireBulletHit.webp",
 		],
 		AudioArr: [
 			"splat1",
@@ -2227,7 +2227,7 @@ var CPlants = NewO({
 									left: q + 28 + "px",
 							  }).src = [
 									"images/Plants/PeaBulletHit.gif",
-									"images/Plants/FireBulletHit.png",
+									"images/Plants/FireBulletHit.webp",
 							  ][o]),
 							  oSym.addTask(10, ClearChild, [l]))
 							: (p += n = !e ? 5 : -5) < oS.W && p > 100
@@ -2477,7 +2477,7 @@ var CPlants = NewO({
 										left: r + 28 + "px",
 								  }).src = [
 										"images/Plants/PeaBulletHit.gif",
-										"images/Plants/FireBulletHit.png",
+										"images/Plants/FireBulletHit.webp",
 								  ][m]),
 								  oSym.addTask(10, ClearChild, [m]))
 								: (q += o = !f ? 5 : -5) < oS.W && q > 100
@@ -3478,8 +3478,8 @@ BirthStyle: function (c, e, b, a) {
 			"images/Plants/Torchwood/Torchwood.gif",
 			"images/Plants/PB00.png",
 			"images/Plants/PB01.png",
-			"images/Plants/PB10.png",
-			"images/Plants/PB11.png",
+			"images/Plants/PB10.webp",
+			"images/Plants/PB11.webp",
 			"images/Plants/Torchwood/SputteringFire.gif",
 		],
 		AudioArr: ["firepea", "ignite", "ignite2"],
@@ -3542,7 +3542,7 @@ BirthStyle: function (c, e, b, a) {
 						  ](d, h, c),
 						  (SetStyle(j, {
 								left: o + 28 + "px",
-						  }).src = "images/Plants/FireBulletHit.png"),
+						  }).src = "images/Plants/FireBulletHit.webp"),
 						  oSym.addTask(75, ClearChild, [j]))
 						: (n += l = !c ? 5 : -5) < oS.W && n > 100
 						? ((j.style.left = (o += l) + "px"),
@@ -3588,8 +3588,8 @@ BirthStyle: function (c, e, b, a) {
 			"images/Plants/Torchwood/Torchwood.gif",
 			"images/Plants/PB00.png",
 			"images/Plants/PB01.png",
-			"images/Plants/PB10.png",
-			"images/Plants/PB11.png",
+			"images/Plants/PB10.webp",
+			"images/Plants/PB11.webp",
 			"images/Plants/Torchwood/SputteringFire.gif",
 		],
 		AudioArr: ["firepea", "ignite", "ignite2"],
@@ -3652,7 +3652,7 @@ BirthStyle: function (c, e, b, a) {
 						  ](d, h, c),
 						  (SetStyle(j, {
 								left: o + 28 + "px",
-						  }).src = "images/Plants/FireBulletHit.png"),
+						  }).src = "images/Plants/FireBulletHit.webp"),
 						  oSym.addTask(75, ClearChild, [j]))
 						: (n += l = !c ? 5 : -5) < oS.W && n > 100
 						? ((j.style.left = (o += l) + "px"),

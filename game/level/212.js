@@ -77,9 +77,9 @@ oS.Init(
 			oDuckyTubeZombie1,
 		],
 		PicArr: (function () {
-			return ["images/interface/background3.png"];
+			return ["images/interface/background3.webp"];
 		})(),
-		backgroundImage: "images/interface/background3.png",
+		backgroundImage: "images/interface/background3.webp",
 		CanSelectCard: 1,
 		Coord: 2,
 		DKind: 0,

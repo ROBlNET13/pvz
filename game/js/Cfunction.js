@@ -852,7 +852,7 @@ var $User = (function () {
 			}
 			let image = NewImg(
 				"",
-				"images/Zombies/Balloon/balloonidle.png",
+				"images/Zombies/Balloon/balloonidle.webp",
 				"position: absolute; display: block; left: 875px; z-index: 0;",
 				$("dPZ")
 			);
@@ -2554,7 +2554,7 @@ var $User = (function () {
 			  ),
 			  oSym.addTask(800, DisappearSun, [g], 3));
 		ArSun[g] = { id: g, N: e, C: 1, left: h, top: d };
-		NewImg(g, "images/interface/Sun.png", c, EDAll, {
+		NewImg(g, "images/interface/Sun.webp", c, EDAll, {
 			onclick: function () {
 				ClickSun(this.id);
 			},
@@ -2726,7 +2726,7 @@ var $User = (function () {
 		PlayAudio("scream");
 		NewImg(
 			"iGameOver",
-			"images/interface/ZombiesWon.png",
+			"images/interface/ZombiesWon.webp",
 			"width:900px;height:600px;z-index:255",
 			EDAll,
 			{

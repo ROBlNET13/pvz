@@ -38,7 +38,7 @@ oS.Init(
 			var a = oTallNut.prototype,
 				b = a.PicArr;
 			return [
-				"images/interface/background3.png",
+				"images/interface/background3.webp",
 				b[a.CardGif],
 				b[a.NormalGif],
 			];
@@ -46,7 +46,7 @@ oS.Init(
 		Coord: 2,
 		SunNum: 50,
 		LF: [0, 1, 1, 2, 2, 1, 1],
-		backgroundImage: "images/interface/background3.png",
+		backgroundImage: "images/interface/background3.webp",
 		CanSelectCard: 1,
 		LevelName: "Level 3-8",
 		LvlEName: 28,

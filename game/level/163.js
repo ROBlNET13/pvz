@@ -72,9 +72,9 @@ oS.Init(
 			oDuckyTubeZombie1,
 		],
 		PicArr: (function () {
-			return ["images/interface/background3.png"];
+			return ["images/interface/background3.webp"];
 		})(),
-		backgroundImage: "images/interface/background3.png",
+		backgroundImage: "images/interface/background3.webp",
 		CanSelectCard: 1,
 		LevelName: "常青之塔 13层",
 		LvlEName: 163,

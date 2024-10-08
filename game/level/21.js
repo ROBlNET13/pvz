@@ -30,7 +30,7 @@ oS.Init(
 			var a = oSquash.prototype,
 				b = a.PicArr;
 			return [
-				"images/interface/background3.png",
+				"images/interface/background3.webp",
 				"images/interface/Dave.gif",
 				"images/interface/Dave2.gif",
 				"images/interface/Dave3.gif",
@@ -41,7 +41,7 @@ oS.Init(
 		Coord: 2,
 		SunNum: 50,
 		LF: [0, 1, 1, 2, 2, 1, 1],
-		backgroundImage: "images/interface/background3.png",
+		backgroundImage: "images/interface/background3.webp",
 		CanSelectCard: 1,
 		LevelName: "Level 3-1",
 		LvlEName: 21,

@@ -37,14 +37,14 @@ oS.Init(
 		],
 		PicArr: (function () {
 			return [
-				"images/interface/background3.png",
+				"images/interface/background3.webp",
 				"images/interface/trophy.png",
 			];
 		})(),
 		Coord: 2,
 		SunNum: 2500,
 		LF: [0, 1, 1, 2, 2, 1, 1],
-		backgroundImage: "images/interface/background3.png",
+		backgroundImage: "images/interface/background3.webp",
 		CanSelectCard: 1,
 		LevelName: "靠天吃饭",
 		LvlEName: "yy",
