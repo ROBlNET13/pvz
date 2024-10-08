@@ -253,7 +253,7 @@
                                         $("dAll").appendChild(levelDataElement);
                                         const copyButtonElement = document.createElement("button");
                                         copyButtonElement.style.position = "absolute";
-                                        copyButtonElement.style.left = "calc(75% - 20px)";
+                                        copyButtonElement.style.left = "calc(75% - 19.5px)";
                                         copyButtonElement.style.top = "50%";
                                         copyButtonElement.style.transform = "translate(-50%, -50%)";
                                         copyButtonElement.style.width = "35px";
