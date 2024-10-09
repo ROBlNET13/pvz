@@ -7,14 +7,12 @@ on:
         branches:
             - main
 
-permissions:
-    contents: read
-    pages: write
-    id-token: write
 
 jobs:
     prettier:
         runs-on: ubuntu-latest
+        permissions:
+            contents: write
 
         steps:
             - name: Checkout
