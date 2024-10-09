@@ -4293,8 +4293,8 @@ BirthStyle: function (c, e, b, a) {
 		Tooltip: "",
 		PicArr: [
 			"images/Card/Plants/WallNut.png",
-			"images/Plants/WallNut/0.gif",
-			"images/Plants/WallNut/WallNutRoll.gif",
+			"images/Plants/WallNut/0.webp",
+			"images/Plants/WallNut/WallNutRoll.webp",
 		],
 		AudioArr: ["bowling", "bowlingimpact", "bowlingimpact2"],
 		Produce: "",
@@ -4444,8 +4444,8 @@ BirthStyle: function (c, e, b, a) {
 		Stature: 1,
 		PicArr: [
 			"images/Card/Plants/HugeWallNut.png",
-			"images/Plants/WallNut/2.gif",
-			"images/Plants/WallNut/HugeWallNutRoll.gif",
+			"images/Plants/WallNut/2.webp",
+			"images/Plants/WallNut/HugeWallNutRoll.webp",
 		],
 		PrivateBirth: function (a) {
 			PlayAudio("bowling");
@@ -4482,9 +4482,9 @@ BirthStyle: function (c, e, b, a) {
 		CName: "Explode-o-nut",
 		PicArr: [
 			"images/Card/Plants/BoomWallNut.png",
-			"images/Plants/WallNut/1.gif",
-			"images/Plants/WallNut/BoomWallNutRoll.gif",
-			"images/Plants/CherryBomb/Boom.gif",
+			"images/Plants/WallNut/1.webp",
+			"images/Plants/WallNut/BoomWallNutRoll.webp",
+			"images/Plants/CherryBomb/Boom.webp",
 		],
 		AudioArr: ["cherrybomb", "bowling"],
 		PrivateBirth: function (a) {
@@ -4512,7 +4512,7 @@ BirthStyle: function (c, e, b, a) {
 					EditEle(
 						m.childNodes[1],
 						{
-							src: "images/Plants/CherryBomb/Boom.gif",
+							src: "images/Plants/CherryBomb/Boom.webp",
 						},
 						{
 							width: "213px",
