@@ -258,7 +258,7 @@ oS.Init(
 				ele &&
 				(!a.HasChosen && a.top < b - 52
 					? ((ele.style.top = (a.top += 2) + "px"),
-					  oSym.addTask(5, MoveDropCard, [c, b, t]))
+						oSym.addTask(5, MoveDropCard, [c, b, t]))
 					: DisappearCard(c, t));
 		},
 		DisappearCard: function (d, r) {
@@ -308,11 +308,11 @@ oS.Init(
 								EDPZ.appendChild(n), m.Birth();
 							},
 							a
-					  ),
+						),
 				o
 					? (delete ArCard[j], ClearChild($(j)))
 					: (innerText(ESSunNum, (oS.SunNum -= k.SunNum)),
-					  i && ((f.CDReady = 0), DoCoolTimer(j, k.coolTime))),
+						i && ((f.CDReady = 0), DoCoolTimer(j, k.coolTime))),
 				oSym.addTask(20, SetHidden, [
 					SetStyle(g != 2 ? $("imgGrowSoil") : $("imgGrowSpray"), {
 						left: d - 30 + "px",

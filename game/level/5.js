@@ -176,14 +176,14 @@ oS.Init(
 									? (innerText(
 											$("DivTeach"),
 											"Just keep digging until you have no plants on your lawn!"
-									  ),
-									  ++c)
+										),
+										++c)
 									: b > -1 &&
-									  (innerText(
+										(innerText(
 											$("DivTeach"),
 											"Tap the shovel to dig out those plants!"
-									  ),
-									  (c = 1));
+										),
+										(c = 1));
 								oSym.addTask(10, arguments.callee, [c]);
 								break;
 							default:
@@ -220,7 +220,7 @@ oS.Init(
 													[]
 												);
 											});
-									  })()
+										})()
 									: oSym.addTask(10, arguments.callee, [3]);
 						}
 					},

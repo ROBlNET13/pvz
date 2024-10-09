@@ -221,9 +221,9 @@ oS.Init(
 							g,
 							a,
 							f,
-					  ])
+						])
 					: (ClearChild($("SodRoll_1"), $("SodRollCap_1")),
-					  (function () {
+						(function () {
 							NewEle("DivTeach", "div", 0, 0, EDAll);
 							oS.InitLawnMower();
 							oP.Monitor({
@@ -321,25 +321,25 @@ oS.Init(
 											}
 											j > 0
 												? (SetHidden($("PointerUD")),
-												  innerText(
+													innerText(
 														$("DivTeach"),
 														"Don't let zombies near your house!"
-												  ),
-												  oP.AddZombiesFlag(),
-												  oSym.addTask(500, SetNone, [
+													),
+													oP.AddZombiesFlag(),
+													oSym.addTask(500, SetNone, [
 														$("DivTeach"),
-												  ]))
+													]))
 												: oSym.addTask(
 														10,
 														arguments.callee,
 														[4]
-												  );
+													);
 									}
 								},
 							});
 							BeginCool();
 							SetVisible($("dFlagMeter"), $("dTop"));
-					  })());
+						})());
 			})(283, 122, 68, 117, 73, 71, 131, 511);
 		},
 	},

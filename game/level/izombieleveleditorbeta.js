@@ -91,7 +91,7 @@
 								$("dMenu"),
 								$("dSelectCard"),
 								$("dCardList")
-						  );
+							);
 				})();
 			};
 			a(0);

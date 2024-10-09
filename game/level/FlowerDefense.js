@@ -152,16 +152,16 @@ oS.Init(
 				!--u.NumZombies &&
 					(i < u.FlagNum
 						? ((u.ReadyFlag = ++i),
-						  oSym.addTask(500, u.FlagPrgs, []))
+							oSym.addTask(500, u.FlagPrgs, []))
 						: (NewEle(
 								"DivA",
 								"div",
 								"position:absolute;width:900px;height:600px;background:#FFF;filter:alpha(opacity=0);opacity:0;z-index:255",
 								0,
 								EDAll
-						  ),
-						  u.FlagToEnd(),
-						  $User.isAuthorWebsite &&
+							),
+							u.FlagToEnd(),
+							$User.isAuthorWebsite &&
 								$User.Visitor.UserName != "游客" &&
 								(ClearChild($("JSPVZAjax")),
 								f.SaveLvl &&
@@ -179,14 +179,14 @@ oS.Init(
 										},
 										document.body
 									)),
-						  f.SaveLvlCallBack &&
+							f.SaveLvlCallBack &&
 								f.SaveLvlCallBack({
 									UserName: f.UserName,
 									SunNum: oS.SunNum,
 									Lvl: s,
 									T: oSym.Now - oS.StartTime,
 								}),
-						  !isNaN(Math.floor(s)) &&
+							!isNaN(Math.floor(s)) &&
 								((t = $("dAdventure")),
 								($User.Visitor.Progress = ++s),
 								(t.firstChild.innerHTML = Math.ceil(s / 10)),
@@ -194,7 +194,7 @@ oS.Init(
 									s - Math.floor(s / 10) * 10)
 									? s
 									: s + 1)),
-						  PauseGame($("dMenu0"), 1)));
+							PauseGame($("dMenu0"), 1)));
 			};
 		},
 		LoadAccess: function (start_game) {

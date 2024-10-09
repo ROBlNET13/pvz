@@ -108,14 +108,14 @@ oS.Init(
 							g,
 							a,
 							f,
-					  ])
+						])
 					: (ClearChild(
 							$("SodRoll_1"),
 							$("SodRoll_2"),
 							$("SodRollCap_1"),
 							$("SodRollCap_2")
-					  ),
-					  (function () {
+						),
+						(function () {
 							StopMusic();
 							PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 							oS.InitLawnMower();
@@ -213,24 +213,27 @@ oS.Init(
 													? (innerText(
 															$("DivTeach"),
 															"Now use the sunlight you get to grow other plants!"
-													  ),
-													  SetStyle($("PointerUD"), {
-															left: "50px",
-															top: "60px",
-													  }),
-													  oSym.addTask(
+														),
+														SetStyle(
+															$("PointerUD"),
+															{
+																left: "50px",
+																top: "60px",
+															}
+														),
+														oSym.addTask(
 															500,
 															SetNone,
 															[
 																$("PointerUD"),
 																$("DivTeach"),
 															]
-													  ))
+														))
 													: oSym.addTask(
 															10,
 															arguments.callee,
 															[3]
-													  );
+														);
 										}
 										return l;
 									},
@@ -238,7 +241,7 @@ oS.Init(
 								BeginCool();
 								AutoProduceSun(25);
 							});
-					  })());
+						})());
 			})(283, 122, 68, 117, 73, 71, 131, 511);
 		},
 	},

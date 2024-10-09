@@ -126,18 +126,18 @@ oS.Init({
 				? ($User.Browser.IE
 						? (b.onreadystatechange = function () {
 								b.readyState == "loaded" && ClearChild(b);
-						  })
+							})
 						: (b.onload = function () {
 								ClearChild(b);
-						  }),
-				  (b.onerror = function () {
+							}),
+					(b.onerror = function () {
 						ClearChild(this);
-				  }),
-				  (b.src = "" + Math.random()))
+					}),
+					(b.src = "" + Math.random()))
 				: console.log(
 						"Version",
 						oS.Version
-				  ) /*$("").innerHTML = 4/* oS.Version */;
+					) /*$("").innerHTML = 4/* oS.Version */;
 		})();
 		$("dServer") && SetBlock($("dServer"));
 	},

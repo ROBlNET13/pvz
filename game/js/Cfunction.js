@@ -13,13 +13,13 @@ var $User = (function () {
 		innerText = c
 			? function (l, k) {
 					l.innerText = k;
-			  }
+				}
 			: function (l, k) {
 					l.textContent = k;
-			  };
+				};
 		e
 			? (document.execCommand("BackgroundImageCache", false, true),
-			  (ShadowPNG = ""))
+				(ShadowPNG = ""))
 			: (ShadowPNG = "images/interface/plantshadow32.png");
 		return {
 			Browser: {
@@ -134,7 +134,7 @@ var $User = (function () {
 				a = window;
 			e.LoadMusic
 				? (PlayMusic(e.LoadMusic),
-				  NewAudio({ source: "ChooseYourSeeds", loop: true }))
+					NewAudio({ source: "ChooseYourSeeds", loop: true }))
 				: PlayMusic((e.LoadMusic = "ChooseYourSeeds"));
 			if (b != d) {
 				for (c in b) {
@@ -328,7 +328,7 @@ var $User = (function () {
 					while (a--) {
 						NewAudio({ source: b[a] });
 					}
-			  }
+				}
 			: function () {},
 		InitPn: function (a) {
 			var b = ($Pn[a[0]] = NewEle(0, "div", "position:absolute"));
@@ -348,7 +348,7 @@ var $User = (function () {
 						d(c, 0);
 					};
 					a.src = b;
-			  }
+				}
 			: function (b, d, c) {
 					var a = new Image();
 					a.src = b;
@@ -356,12 +356,12 @@ var $User = (function () {
 						? d(c, 1)
 						: ((a.onload = function () {
 								a.complete && d(c, 1);
-						  }),
-						  (a.onerror = function () {
+							}),
+							(a.onerror = function () {
 								a.title = b;
 								d(c, 0);
-						  }));
-			  },
+							}));
+				},
 		LoadScript: $User.Browser.IE
 			? function (f, c, e, a, d) {
 					var b = NewEle(f, "script", 0, { type: "text/javascript" });
@@ -376,7 +376,7 @@ var $User = (function () {
 					};
 					b.src = c;
 					a.appendChild(b);
-			  }
+				}
 			: function (f, c, e, a, d) {
 					var b = NewEle(f, "script", 0, { type: "text/javascript" });
 					b.onload = function () {
@@ -387,7 +387,7 @@ var $User = (function () {
 					};
 					b.src = c;
 					a.appendChild(b);
-			  },
+				},
 		CheckImg: function (b, a) {
 			var c = oS;
 			if (c.AccessNum > c.PicNum || !c.MustAllReady) {
@@ -473,7 +473,7 @@ var $User = (function () {
 									EDAll
 								),
 							]
-					  )
+						)
 					: (SetVisible($("dMenu")), AutoSelectCard(), LetsGO());
 			};
 			f.LoadAccess ? f.LoadAccess(d) : d();
@@ -482,15 +482,15 @@ var $User = (function () {
 			(EDAll.scrollLeft += 25) < 500
 				? oSym.addTask(2, arguments.callee, [])
 				: (DisplayZombie(),
-				  SetVisible($("dMenu")),
-				  oS.CanSelectCard
+					SetVisible($("dMenu")),
+					oS.CanSelectCard
 						? SetVisible(
 								$("dTop"),
 								$("dSelectCard"),
 								$("dCardList")
-						  )
+							)
 						: (AutoSelectCard(),
-						  oSym.addTask(200, oS.ScrollBack, [LetsGO])));
+							oSym.addTask(200, oS.ScrollBack, [LetsGO])));
 		},
 		ScrollBack: function (a) {
 			SetHidden(
@@ -505,7 +505,7 @@ var $User = (function () {
 				var b = EDAll.scrollLeft;
 				(b -= 25) > 0
 					? ((EDAll.scrollLeft = b),
-					  oSym.addTask(2, arguments.callee, [c]))
+						oSym.addTask(2, arguments.callee, [c]))
 					: ((EDAll.scrollLeft = 0), c());
 			})(a);
 		},
@@ -770,7 +770,7 @@ var $User = (function () {
 			}
 			a && a.FlagNum
 				? ((r.FlagHeadStep = Math.floor(140 / (a.FlagNum - 1))),
-				  (r.MonPrgs = function () {
+					(r.MonPrgs = function () {
 						var u = oP,
 							j,
 							i = u.FlagZombies,
@@ -780,9 +780,9 @@ var $User = (function () {
 						!--u.NumZombies &&
 							(i < u.FlagNum
 								? ((u.ReadyFlag = ++i),
-								  oSym.addTask(500, u.FlagPrgs, []))
+									oSym.addTask(500, u.FlagPrgs, []))
 								: (u.FlagToEnd(),
-								  $User.isAuthorWebsite &&
+									$User.isAuthorWebsite &&
 										$User.Visitor.UserName != "" &&
 										(ClearChild($("JSPVZAjax")),
 										f.SaveLvl &&
@@ -793,14 +793,14 @@ var $User = (function () {
 												{},
 												document.body
 											)),
-								  f.SaveLvlCallBack &&
+									f.SaveLvlCallBack &&
 										f.SaveLvlCallBack({
 											UserName: f.UserName,
 											SunNum: oS.SunNum,
 											Lvl: s,
 											T: oSym.Now - oS.StartTime,
 										}),
-								  !isNaN(Math.floor(s)) &&
+									!isNaN(Math.floor(s)) &&
 										((t = $("dAdventure")),
 										($User.Visitor.Progress = ++s),
 										(t.firstChild.innerHTML = Math.ceil(
@@ -810,15 +810,15 @@ var $User = (function () {
 											s - Math.floor(s / 10) * 10)
 											? s
 											: s + 1)),
-								  NewEle(
+									NewEle(
 										"DivA",
 										"div",
 										"position:absolute;width:900px;height:600px;background:#FFF;filter:alpha(opacity=0);opacity:0;z-index:255",
 										0,
 										EDAll
-								  ),
-								  PauseGame($("dMenu0"), 1)));
-				  }))
+									),
+									PauseGame($("dMenu0"), 1)));
+					}))
 				: (r.MonPrgs = function () {});
 			(!a || !a.FlagToEnd) &&
 				(r.FlagToEnd = function () {
@@ -933,7 +933,7 @@ var $User = (function () {
 					? SetStyle(c[e], {
 							visibility: "visible",
 							left: 150 - (e - 1) * b + "px",
-					  })
+						})
 					: SetVisible(c[e]);
 			}
 			PlayAudio("awooga");
@@ -1007,10 +1007,10 @@ var $User = (function () {
 				h = !n
 					? 150
 					: (PlayAudio("siren"),
-					  (n.style.top = "5px"),
-					  --j,
-					  (i[g++] = oS.FlagZombie || oFlagZombie),
-					  30),
+						(n.style.top = "5px"),
+						--j,
+						(i[g++] = oS.FlagZombie || oFlagZombie),
+						30),
 				p,
 				b,
 				f = e.MustShowAtFlag,
@@ -1056,9 +1056,9 @@ var $User = (function () {
 				b = !f
 					? 150
 					: ((f.style.top = "5px"),
-					  --d,
-					  (c[a++] = oS.FlagZombie || oFlagZombie),
-					  30);
+						--d,
+						(c[a++] = oS.FlagZombie || oFlagZombie),
+						30);
 			while (d > 0) {
 				d -= (c[a++] = g[Math.floor(Math.random() * $SEql(d, e))])
 					.prototype.Lvl;
@@ -1234,9 +1234,9 @@ var $User = (function () {
 				b;
 			f.FlagNum > (c = ++f.FlagZombies)
 				? (($("imgFlagHead").style.left = a + "px"),
-				  ($("imgFlagMeterFull").style.clip =
+					($("imgFlagMeterFull").style.clip =
 						"rect(0,157px,21px," + (a + 11) + "px)"),
-				  (b = $SEql(c, f.FlagToMonitor)) &&
+					(b = $SEql(c, f.FlagToMonitor)) &&
 						oSym.addTask(
 							1690,
 							function (g) {
@@ -1244,7 +1244,7 @@ var $User = (function () {
 							},
 							[b]
 						),
-				  oSym.addTask(
+					oSym.addTask(
 						1990,
 						function (g) {
 							var h = oP;
@@ -1252,9 +1252,10 @@ var $User = (function () {
 								((h.ReadyFlag = g), h.FlagPrgs());
 						},
 						[c]
-				  ))
+					))
 				: (($("imgFlagHead").style.left = "-1px"),
-				  ($("imgFlagMeterFull").style.clip = "rect(0,157px,21px,0)"));
+					($("imgFlagMeterFull").style.clip =
+						"rect(0,157px,21px,0)"));
 			f.SelectFlagZombie.call(f, d, c);
 			f.UserDefinedFlagFunc && f.UserDefinedFlagFunc();
 		},
@@ -1325,7 +1326,7 @@ var $User = (function () {
 				d -= 50;
 				d > b
 					? ((c.style.left = d + "px"),
-					  oSym.addTask(5, arguments.callee, [c, d, b, e]))
+						oSym.addTask(5, arguments.callee, [c, d, b, e]))
 					: ((c.style.left = b + "px"), e && e());
 			})($("dFog"), 900, GetX(oS.C - oS.HaveFog) - 30, a);
 		},
@@ -1336,7 +1337,7 @@ var $User = (function () {
 			(function (a, b) {
 				(b += 50) < 901
 					? ((a.style.left = b + "px"),
-					  oSym.addTask(5, arguments.callee, [a, b]))
+						oSym.addTask(5, arguments.callee, [a, b]))
 					: (a.style.left = "900px");
 			})($("dFog"), GetX(oS.C - oS.HaveFog) - 3);
 		},
@@ -1440,7 +1441,7 @@ var $User = (function () {
 				? (g = f)
 				: ((g = (this.$R[b] = j.slice(0)).sort(function (l, i) {
 						return i.AttackedRX - l.AttackedRX;
-				  })).RefreshTime = k);
+					})).RefreshTime = k);
 			e = g.length;
 			while (d < e && (c = g[d++]).AttackedRX >= h) {
 				if (c.PZ && c.HP && c.AttackedLX <= h) {
@@ -1536,10 +1537,10 @@ var $User = (function () {
 				}
 				l
 					? ((l = d = 0),
-					  j.sort(function (u, t) {
+						j.sort(function (u, t) {
 							return u.AttackedLX - t.AttackedLX;
-					  }),
-					  (j.RefreshTime = oSym.Now))
+						}),
+						(j.RefreshTime = oSym.Now))
 					: d && ((d = 0), (j.RefreshTime = oSym.Now));
 				--r && oSym.addTask(0, n, [r]);
 			})(b.length - 1);
@@ -1595,7 +1596,7 @@ var $User = (function () {
 				? (m = g)
 				: ((m = (this.$L[e] = c.slice(0)).sort(function (n, i) {
 						return n[0] - i[0];
-				  })).RefreshTime = l);
+					})).RefreshTime = l);
 			while (f < m.length && (d = m[f])[0] <= h) {
 				(a = $P[d[3]]).canTrigger &&
 					d[1] >= h &&
@@ -1636,9 +1637,9 @@ var $User = (function () {
 			var f = arguments.callee;
 			g--
 				? (e.appendChild(b.firstChild),
-				  setTimeout(function () {
+					setTimeout(function () {
 						f(g);
-				  }, 0))
+					}, 0))
 				: c(e, a);
 		})(b.childNodes.length);
 	},
@@ -1751,7 +1752,7 @@ var $User = (function () {
 					visibility: "visible",
 					left: f + l.GetDX() + "px",
 					top: c - l.height + l.GetDY(g, a, m[0]) + "px",
-			  })
+				})
 			: SetHidden($("MovePlantAlpha"));
 	},
 	GroundOnmousemove2 = function (k) {
@@ -1804,7 +1805,7 @@ var $User = (function () {
 			g = d[(a = Math.floor(Math.random() * b))][0].prototype;
 			g.CanDisplay
 				? (d.splice(a, 1),
-				  (e[b--] = g.getHTML(
+					(e[b--] = g.getHTML(
 						"",
 						Math.floor(50 + Math.random() * 201) - g.width * 0.5,
 						f[b] - g.height,
@@ -1813,7 +1814,7 @@ var $User = (function () {
 						"auto",
 						g.GetDTop,
 						g.PicArr[g.StandGif]
-				  )))
+					)))
 				: --b;
 		}
 		asyncInnerHTML(e.join(""), function (i) {
@@ -2044,9 +2045,9 @@ var $User = (function () {
 			"s<br>" +
 			(oS.DKind && a.night
 				? '<span style="color:#F00">Nocturnal - sleeps during the day</span><br>' +
-				  a.Tooltip
+					a.Tooltip
 				: a.Tooltip ||
-				  '<span style="text-align:left">' + a.Produce + "</span>");
+					'<span style="text-align:left">' + a.Produce + "</span>");
 		SetStyle(f, {
 			left:
 				c.clientX +
@@ -2259,9 +2260,9 @@ var $User = (function () {
 			while (b--) {
 				(c = (d = ArCard[b]).PName.prototype).SunNum > oS.SunNum
 					? (d.SunReady && (d.SunReady = 0),
-					  ($(d.DID).childNodes[0].style.top = "-60px"))
+						($(d.DID).childNodes[0].style.top = "-60px"))
 					: (!d.SunReady && (d.SunReady = 1),
-					  d.CDReady && ($(d.DID).childNodes[0].style.top = 0));
+						d.CDReady && ($(d.DID).childNodes[0].style.top = 0));
 			}
 		} else {
 			while (b--) {
@@ -2291,11 +2292,14 @@ var $User = (function () {
 		(function (d, e) {
 			d > 0
 				? (innerText($("dCD1" + e), d),
-				  innerText($("dCD2" + e), d),
-				  oSym.addTask(50, arguments.callee, [(d - 0.5).toFixed(1), e]))
+					innerText($("dCD2" + e), d),
+					oSym.addTask(50, arguments.callee, [
+						(d - 0.5).toFixed(1),
+						e,
+					]))
 				: (ClearChild($("dCD1" + e), $("dCD2" + e)),
-				  (ArCard[e].CDReady = 1),
-				  MonitorCard());
+					(ArCard[e].CDReady = 1),
+					MonitorCard());
 		})(b, c);
 	},
 	ChosePlant = function (h, d) {
@@ -2340,7 +2344,7 @@ var $User = (function () {
 						zIndex: 30,
 					},
 					EDAll
-			  )
+				)
 			: (NewImg(
 					"MovePlant",
 					j.PicArr[j.StandGif],
@@ -2350,13 +2354,13 @@ var $User = (function () {
 						(a + 20 - j.height) +
 						"px;z-index:254",
 					EDAll
-			  ),
-			  NewImg(
+				),
+				NewImg(
 					"MovePlantAlpha",
 					j.PicArr[j.StandGif],
 					"visibility:hidden;filter:alpha(opacity=40);opacity:0.4;z-index:30",
 					EDAll
-			  ));
+				));
 		while (e--) {
 			$(ArCard[e].DID).childNodes[0].style.top = "-60px";
 		}
@@ -2433,7 +2437,7 @@ var $User = (function () {
 							m.Birth();
 						},
 						a
-				  );
+					);
 
 			// Deduct sun points based on plant's cost
 			innerText(ESSunNum, (oS.SunNum -= k.SunNum));
@@ -2528,8 +2532,8 @@ var $User = (function () {
 		a
 			? ((d = 0), oSym.addTask(10, MoveDropSun, [g, f]))
 			: ((d = f - b - 20),
-			  (c += ";top:" + d + "px"),
-			  oSym.addTask(
+				(c += ";top:" + d + "px"),
+				oSym.addTask(
 					1,
 					function (q, p, n, j, l, k, m, i) {
 						if (ArSun[q] && ArSun[q].C) {
@@ -2563,8 +2567,8 @@ var $User = (function () {
 						8,
 						2,
 					]
-			  ),
-			  oSym.addTask(800, DisappearSun, [g], 3));
+				),
+				oSym.addTask(800, DisappearSun, [g], 3));
 		ArSun[g] = { id: g, N: e, C: 1, left: h, top: d };
 		NewImg(g, "images/interface/Sun.webp", c, EDAll, {
 			onclick: function () {
@@ -2579,7 +2583,7 @@ var $User = (function () {
 			a.C &&
 			(a.top < b - 53
 				? (($(c).style.top = (a.top += 3) + "px"),
-				  oSym.addTask(5, MoveDropSun, [c, b]))
+					oSym.addTask(5, MoveDropSun, [c, b]))
 				: oSym.addTask(800, DisappearSun, [c]));
 	}),
 	(DisappearSun = function (b) {
@@ -2603,7 +2607,7 @@ var $User = (function () {
 		(function (k, l, n, s, m, r, j, q, p) {
 			(m -= q) > n
 				? (SetStyle($(k), { left: m + "px", top: (r -= p) + "px" }),
-				  oSym.addTask(j, arguments.callee, [
+					oSym.addTask(j, arguments.callee, [
 						k,
 						l,
 						n,
@@ -2613,20 +2617,20 @@ var $User = (function () {
 						(j += 0.3),
 						q,
 						p,
-				  ]))
+					]))
 				: (SetStyle($(k), { left: n + "px", top: s + "px" }),
-				  Number(ESSunNum.innerHTML) != oS.SunNum &&
+					Number(ESSunNum.innerHTML) != oS.SunNum &&
 						(oS.SunNum = Math.min(
 							Number(ESSunNum.innerHTML),
 							oS.SunNum
 						)),
-				  innerText(
+					innerText(
 						ESSunNum,
 						(oS.SunNum = Math.min(oS.SunNum + l.N, 9990))
-				  ),
-				  MonitorCard(),
-				  delete ArSun[k],
-				  oSym.addTask(20, ClearChild, [$(k)]));
+					),
+					MonitorCard(),
+					delete ArSun[k],
+					oSym.addTask(20, ClearChild, [$(k)]));
 		})(b, c, e, i, d, h, 1, g, f);
 	}),
 	(AutoClickSun = function () {
@@ -2660,8 +2664,8 @@ var $User = (function () {
 								ClearChild($("LargeWave"));
 							},
 							[]
-					  ),
-					  d && d());
+						),
+						d && d());
 			},
 			[858, 102, a]
 		);
@@ -2692,7 +2696,7 @@ var $User = (function () {
 									ClearChild($("FinalWave"));
 								},
 								[]
-						  );
+							);
 				},
 				[756, 213, b]
 			);
@@ -2700,7 +2704,7 @@ var $User = (function () {
 		oP.FlagNum in oS.LargeWaveFlag
 			? ShowLargeWave(function () {
 					oSym.addTask(560, a, [150]);
-			  })
+				})
 			: a(500);
 	}),
 	(ShowBOSS = function (a) {
@@ -2728,8 +2732,8 @@ var $User = (function () {
 								ClearChild($("ShowBOSS"));
 							},
 							[]
-					  ),
-					  d && d());
+						),
+						d && d());
 			},
 			[858, 102, a]
 		);
@@ -2818,7 +2822,7 @@ var $User = (function () {
 			function (d, e) {
 				++d < 100
 					? (SetAlpha(e, d, d * 0.01),
-					  oSym.addTask(4, arguments.callee, [d, e]))
+						oSym.addTask(4, arguments.callee, [d, e]))
 					: (function () {
 							StopAudio("winmusic");
 							PlayAudio("plantsgarden", true);
@@ -2842,7 +2846,7 @@ var $User = (function () {
 								zIndex: 255,
 							});
 							SetVisible($("bMainMenu"));
-					  })();
+						})();
 			},
 			[0, $("DivA")]
 		);
@@ -3179,11 +3183,11 @@ var $User = (function () {
 		SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
 		oS.Lvl
 			? (AllAudioPaused(),
-			  PlayAudio("gravebutton"),
-			  SetNone($("dSurface")),
-			  oSym.Stop(),
-			  innerText($("dMenu0"), "back to game"),
-			  ($("dMenu1").onclick = null))
+				PlayAudio("gravebutton"),
+				SetNone($("dSurface")),
+				oSym.Stop(),
+				innerText($("dMenu0"), "back to game"),
+				($("dMenu1").onclick = null))
 			: (AllAudioPaused(), PlayAudio("tap"));
 		PlayAudio("ChooseYourSeeds");
 		SetVisible($("dHandBook"));
@@ -3256,10 +3260,10 @@ var $User = (function () {
 	(SetAlpha = $User.Browser.IE6
 		? function (c, b, a) {
 				c.style.filter = "alpha(opacity=" + b + ")";
-		  }
+			}
 		: function (c, b, a) {
 				c.style.opacity = a;
-		  }),
+			}),
 	(SetStyle = function (d, b) {
 		var c = d.style,
 			a;
@@ -3432,19 +3436,19 @@ var $User = (function () {
 	(NewMusic = $User.HTML5
 		? function (a) {
 				NewAudio({ autoplay: true, loop: true, source: a });
-		  }
+			}
 		: function (a) {
 				!oS.Silence && ($("oEmbed").innerHTML = "");
-		  }),
+			}),
 	(PauseMusic = $User.HTML5
 		? function () {
 				var a = oAudio[oS.LoadMusic];
 				a.currentTime = 0;
 				a.pause();
-		  }
+			}
 		: function () {
 				$("oEmbed").innerHTML = "";
-		  }),
+			}),
 	(StartAdventure = function (d) {
 		var c = $("ZombieHand"),
 			b = $("dAdventure"),
@@ -3492,9 +3496,9 @@ var $User = (function () {
 						SelectModal(d);
 						c.innerHTML = "";
 					}
-			  })(b, 1, 50)
+				})(b, 1, 50)
 			: (NewMusic("evillaugh"),
-			  (function (f, g, e) {
+				(function (f, g, e) {
 					if (--e) {
 						f.style.backgroundPosition = ["top", "bottom"][g];
 						oSym.addTask(10, arguments.callee, [f, g ? 0 : 1, e]);
@@ -3510,7 +3514,7 @@ var $User = (function () {
 						SelectModal(d);
 						c.innerHTML = "";
 					}
-			  })(b, 1, 50));
+				})(b, 1, 50));
 	}),
 	(oAudio = {}),
 	(PausedAudioArr = []),
@@ -3549,7 +3553,7 @@ var $User = (function () {
 				f.muted = oS.Silence;
 				l && f.addEventListener("canplaythrough", l, false);
 				return (oAudio[a] = f);
-		  }
+			}
 		: function () {}),
 	(PlayMusic = $User.HTML5
 		? function (b) {
@@ -3563,22 +3567,22 @@ var $User = (function () {
 					NewMusic(b);
 					oAudio[b].play();
 				}
-		  }
+			}
 		: function (a) {
 				NewMusic(a);
-		  }),
+			}),
 	(PlayAudio = $User.HTML5
 		? function (c, a) {
 				var b = oAudio[c];
 				b
 					? ((b.loop = !!a), b.play())
 					: NewAudio({ source: c, loop: !!a }).play();
-		  }
+			}
 		: function () {}),
 	(PauseAudio = $User.HTML5
 		? function (a) {
 				oAudio[a].pause();
-		  }
+			}
 		: function () {}),
 	(StopMusic = $User.HTML5
 		? function () {
@@ -3587,7 +3591,7 @@ var $User = (function () {
 					a.currentTime = 0;
 				} catch (b) {}
 				a.pause();
-		  }
+			}
 		: function () {}),
 	(StopAudio = $User.HTML5
 		? function (b) {
@@ -3596,7 +3600,7 @@ var $User = (function () {
 					a.currentTime = 0;
 				} catch (c) {}
 				a.pause();
-		  }
+			}
 		: function () {}),
 	(AllAudioPaused = $User.HTML5
 		? function () {
@@ -3606,7 +3610,7 @@ var $User = (function () {
 					!(b.paused || b.ended) &&
 						(PausedAudioArr.push(a), b.pause());
 				}
-		  }
+			}
 		: function () {}),
 	(AllAudioPauseCanceled = $User.HTML5
 		? function () {
@@ -3615,7 +3619,7 @@ var $User = (function () {
 					oAudio[PausedAudioArr[a]].play();
 				}
 				PausedAudioArr.length = 0;
-		  }
+			}
 		: function () {}),
 	(AllAudioMuted = function () {
 		var a;
@@ -3635,13 +3639,13 @@ var $User = (function () {
 				b != oS.Silence &&
 					(addCookie("JSPVZSilence", (oS.Silence = b)),
 					b ? AllAudioMuted() : AllAudioMuteCanceled());
-		  }
+			}
 		: function (a) {
 				var b = a.checked ? 1 : 0;
 				b != oS.Silence &&
 					(addCookie("JSPVZSilence", (oS.Silence = b)),
 					b ? PauseMusic() : NewMusic(oS.StartGameMusic));
-		  }),
+			}),
 	(AppearCard = function (h, f, e, a, t) {
 		// x, y, 植物id, 移动卡槽类型, 消失时间（默认 15s）
 		var b,
@@ -3727,7 +3731,7 @@ var $User = (function () {
 			ele &&
 			(!a.HasChosen && a.top < b - 52
 				? ((ele.style.top = (a.top += 2) + "px"),
-				  oSym.addTask(5, MoveDropCard, [c, b, t]))
+					oSym.addTask(5, MoveDropCard, [c, b, t]))
 				: DisappearCard(c, t));
 	}),
 	(DisappearCard = function (d, r) {

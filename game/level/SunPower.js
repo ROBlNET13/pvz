@@ -106,7 +106,7 @@ oS.Init(
 									ShowNameDiv();
 								},
 							}
-					  )
+						)
 					: GameOver("条件失败<br>请再接再厉!");
 			})();
 		},

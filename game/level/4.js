@@ -81,14 +81,14 @@ oS.Init(
 							g,
 							a,
 							f,
-					  ])
+						])
 					: (ClearChild(
 							$("SodRoll_1"),
 							$("SodRoll_2"),
 							$("SodRollCap_1"),
 							$("SodRollCap_2")
-					  ),
-					  (function () {
+						),
+						(function () {
 							StopMusic();
 							PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 							oS.InitLawnMower();
@@ -106,7 +106,7 @@ oS.Init(
 									[]
 								);
 							});
-					  })());
+						})());
 			})(283, 122, 68, 117, 73, 71, 131, 511);
 		},
 	},

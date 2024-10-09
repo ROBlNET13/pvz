@@ -148,18 +148,18 @@ oS.Init(
 										oP.FlagZombies < 6
 											? Math.floor(
 													1 + Math.random() * 10
-											  ) < 4
+												) < 4
 												? 1
 												: Math.floor(
 														Math.random() * c.length
-												  )
+													)
 											: Math.floor(
-													1 + Math.random() * 10
-											  ) < 3
-											? 0
-											: Math.floor(
-													Math.random() * c.length
-											  ),
+														1 + Math.random() * 10
+												  ) < 3
+												? 0
+												: Math.floor(
+														Math.random() * c.length
+													),
 									e = c[b],
 									d = e.prototype,
 									f = "dCard" + Math.random();
