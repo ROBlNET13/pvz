@@ -262,3 +262,7 @@ label {
 		transform: rotate(360deg);
 	}
 }
+
+td {
+	padding-top: 16px !important;
+}

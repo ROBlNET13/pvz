@@ -1,15 +1,11 @@
 oS.Init(
 	{
-		PName: [oNutBowling, oHugeNutBowling, oBoomNutBowling],
+		PName: [oNutBowling, oBoomNutBowling],
 		ZName: [
 			oZombie,
 			oZombie2,
 			oZombie3,
 			oConeheadZombie,
-			oDancingZombie,
-			oBackupDancer,
-			oScreenDoorZombie,
-			oFootballZombie,
 			oNewspaperZombie,
 			oBucketheadZombie,
 			oPoleVaultingZombie,
@@ -22,15 +18,14 @@ oS.Init(
 		LF: [0, 1, 1, 1, 1, 1],
 		CanSelectCard: 0,
 		DKind: 0,
-		LevelName: "Wall-nut Bowling 2",
-		LvlEName: "NutBowling2",
+		LevelName: "Wall-nut Bowling 1",
+		LvlEName: "NutBowling1",
 		LargeWaveFlag: {
 			10: $("imgFlag3"),
-			20: $("imgFlag2"),
-			30: $("imgFlag1"),
+			20: $("imgFlag1"),
 		},
-		StaticCard: 0,
 		StartGameMusic: "LoonSkirmish",
+		StaticCard: 0,
 		StartGame: function () {
 			NewEle(
 				0,
@@ -54,15 +49,17 @@ oS.Init(
 										oNutBowling,
 										oNutBowling,
 										oNutBowling,
-										oNutBowling,
 										oBoomNutBowling,
-										oHugeNutBowling,
 									],
 									b = Math.floor(Math.random() * c.length),
 									e = c[b],
 									d = e.prototype,
 									f = "dCard" + Math.random();
-								ArCard[a] = { DID: f, PName: e, PixelTop: 600 };
+								ArCard[a] = {
+									DID: f,
+									PName: e,
+									PixelTop: 600,
+								};
 								NewImg(
 									f,
 									d.PicArr[d.CardGif],
@@ -104,25 +101,22 @@ oS.Init(
 	},
 	{
 		AZ: [
-			[oZombie, 2, 1],
+			[oZombie, 4, 1],
 			[oZombie2, 2, 1],
 			[oZombie3, 2, 1],
-			[oConeheadZombie, 3, 1],
-			[oBucketheadZombie, 3, 1],
+			[oConeheadZombie, 4, 1],
+			[oBucketheadZombie, 4, 1],
 			[oNewspaperZombie, 2, 1],
 			[oPoleVaultingZombie, 2, 10],
-			[oScreenDoorZombie, 2, 10],
-			[oFootballZombie, 1, 10],
 		],
-		FlagNum: 30,
+		FlagNum: 20,
 		FlagToSumNum: {
-			a1: [3, 5, 9, 10, 13, 15, 19, 20, 23, 25, 29],
-			a2: [4, 7, 12, 20, 13, 16, 21, 40, 22, 25, 30, 50],
+			a1: [3, 5, 9, 10, 13, 15, 19],
+			a2: [4, 7, 12, 20, 13, 16, 21, 40],
 		},
 		FlagToMonitor: {
 			9: [ShowLargeWave, 0],
-			19: [ShowLargeWave, 0],
-			29: [ShowFinalWave, 0],
+			19: [ShowFinalWave, 0],
 		},
 		FlagToEnd: function () {
 			NewImg(
@@ -146,9 +140,6 @@ oS.Init(
 	},
 	{
 		GetChoseCard: function (b) {
-			if (oS.Chose) {
-				return;
-			}
 			var a = ArCard.length;
 			while (a--) {
 				ArCard[a].DID == b && ((oS.ChoseCard = a), (a = 0));
@@ -210,7 +201,7 @@ oS.Init(
 						0,
 						EDAll
 					),
-					""
+					"在红线的左边才能放坚果！"
 				);
 				return false;
 			}
