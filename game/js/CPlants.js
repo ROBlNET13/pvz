@@ -4490,7 +4490,7 @@ BirthStyle: function (c, e, b, a) {
 			"images/Card/Plants/BoomWallNut.png",
 			"images/Plants/WallNut/1.gif",
 			"images/Plants/WallNut/BoomWallNut.webp",
-			"images/Plants/CherryBomb/Boom.webp",
+			"images/Plants/CherryBomb/Boom.gif",
 		],
 		AudioArr: ["cherrybomb", "bowling"],
 		PrivateBirth: function (a) {
@@ -4524,7 +4524,7 @@ BirthStyle: function (c, e, b, a) {
 					EditEle(
 						m.childNodes[1],
 						{
-							src: "images/Plants/CherryBomb/Boom.webp",
+							src: "images/Plants/CherryBomb/Boom.gif",
 						},
 						{
 							width: "213px",
