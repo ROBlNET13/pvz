@@ -4309,7 +4309,7 @@ BirthStyle: function (c, e, b, a) {
 			var d = $(c.id);
 			PlayAudio("bowling");
 			EditEle(d.childNodes[1], {
-				style: `animation: spin ${0.75 / ($User.Visitor.TimeStep / 10)}s linear infinite`,
+				style: `animation: spin ${0.75 * ($User.Visitor.TimeStep / 10)}s linear infinite`,
 			});
 			(function (z, y, q, r, p, x, e, g, b) {
 				var a = z.R,
@@ -4453,7 +4453,7 @@ BirthStyle: function (c, e, b, a) {
 		PrivateBirth: function (a) {
 			PlayAudio("bowling");
 			EditEle($(a.id).childNodes[1], {
-				style: `animation: spin ${1.25 / ($User.Visitor.TimeStep / 10)}s linear infinite`,
+				style: `animation: spin ${1.25 * ($User.Visitor.TimeStep / 10)}s linear infinite`,
 			});
 			(function (b, c, n, m, e, g) {
 				var d = oZ.getArZ(n, m, e),
@@ -4488,7 +4488,7 @@ BirthStyle: function (c, e, b, a) {
 		CName: "Explode-o-nut",
 		PicArr: [
 			"images/Card/Plants/BoomWallNut.png",
-			"images/Plants/WallNut/1.webp",
+			"images/Plants/WallNut/1.gif",
 			"images/Plants/WallNut/BoomWallNut.webp",
 			"images/Plants/CherryBomb/Boom.webp",
 		],
@@ -4496,7 +4496,7 @@ BirthStyle: function (c, e, b, a) {
 		PrivateBirth: function (a) {
 			PlayAudio("bowling");
 			EditEle($(a.id).childNodes[1], {
-				style: `animation: spin ${0.75 / ($User.Visitor.TimeStep / 10)}s linear infinite`,
+				style: `animation: spin ${0.75 * ($User.Visitor.TimeStep / 10)}s linear infinite`,
 			});
 			(function (s, q, b, c, m) {
 				var v = s.R,

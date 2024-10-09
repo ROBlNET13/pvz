@@ -904,9 +904,9 @@ var $User = (function () {
 				}, 100);
 			};
 			image.style.animation = `moveLeft${balloonId} ${
-				13 / ($User.Visitor.TimeStep / 10)
+				13 * ($User.Visitor.TimeStep / 10)
 			}s linear, bobbing${balloonId} ${
-				2 / ($User.Visitor.TimeStep / 10)
+				2 * ($User.Visitor.TimeStep / 10)
 			}s ease-in-out infinite`;
 			image.style.top = `${randomY}px`;
 			image.style.cursor = "pointer";
