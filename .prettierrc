@@ -12,7 +12,6 @@
 	"printWidth": 80,
 	"proseWrap": "preserve",
 	"quoteProps": "as-needed",
-	"requirePragma": false,
 	"semi": true,
 	"singleAttributePerLine": false,
 	"singleQuote": false,

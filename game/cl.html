@@ -18,6 +18,9 @@
                         commits.forEach((commit) => {
                             const listItem = document.createElement("li");
                             const itemText = document.createElement("pre");
+							const itemLink = document.createElement("a");
+							itemLink.href = commit.html_url;
+							itemLink.target = "_blank";
                             const authorName = commit.commit.author.name;
                             let committerName = commit.commit.committer.name;
                             const committerLogin = commit.committer.login;
@@ -45,7 +48,8 @@
                             itemText.innerHTML = `<b>${allAuthors}</b>: `;
                             itemText.innerText += commitMessage.split("\n")[0];
                             commitList.appendChild(listItem);
-                            listItem.appendChild(itemText);
+                            itemLink.appendChild(itemText);
+							listItem.appendChild(itemLink);
                         });
                     })
                     .catch((error) => {
