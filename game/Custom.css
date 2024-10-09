@@ -266,3 +266,7 @@ label {
 td {
 	padding-top: 16px !important;
 }
+
+#dMini0 > table > tbody > tr:nth-child(2) td {
+	padding-top: 17px !important;
+}
