@@ -1652,9 +1652,11 @@ var $User = (function () {
 	GroundOnmousedown = function (i) {
 		i = window.event || i;
 		var a =
-				(i.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-				EElement.scrollLeft) * 10 / 9,
-			k = (i.clientY + EBody.scrollTop || EElement.scrollTop) * 10 / 9,
+				((i.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
+					EElement.scrollLeft) *
+					10) /
+				9,
+			k = ((i.clientY + EBody.scrollTop || EElement.scrollTop) * 10) / 9,
 			g = ChosePlantX(a),
 			h = ChosePlantY(k),
 			d = g[0],
@@ -1726,9 +1728,11 @@ var $User = (function () {
 	GroundOnmousemove1 = function (j) {
 		j = window.event || j;
 		var d =
-				(j.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-				EElement.scrollLeft) * 10 / 9,
-			b = (j.clientY + EBody.scrollTop || EElement.scrollTop) * 10 / 9,
+				((j.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
+					EElement.scrollLeft) *
+					10) /
+				9,
+			b = ((j.clientY + EBody.scrollTop || EElement.scrollTop) * 10) / 9,
 			k = oS.ChoseCard,
 			h = ChosePlantX(d),
 			i = ChosePlantY(b),
@@ -1739,8 +1743,8 @@ var $User = (function () {
 			m = GetAP(d, b, g, a);
 		var l = ArCard[k].PName.prototype;
 		SetStyle($("MovePlant"), {
-			left: (d - 0.5 * (l.beAttackedPointL + l.beAttackedPointR))+ "px",
-			top: (b + 20 - l.height) + "px",
+			left: d - 0.5 * (l.beAttackedPointL + l.beAttackedPointR) + "px",
+			top: b + 20 - l.height + "px",
 		});
 		l.CanGrow(m[0], g, a)
 			? SetStyle($("MovePlantAlpha"), {
@@ -1770,7 +1774,10 @@ var $User = (function () {
 		p != l &&
 			(p && SetAlpha($(p).childNodes[1], 100, 1),
 			(oS.MPID = l) && SetAlpha($(l).childNodes[1], 60, 0.6));
-		SetStyle($("tShovel"), { left: (d - 15) * 10 / 9 + "px", top: (b - 16) * 10 / 9 + "px" });
+		SetStyle($("tShovel"), {
+			left: ((d - 15) * 10) / 9 + "px",
+			top: ((b - 16) * 10) / 9 + "px",
+		});
 	},
 	DisplayZombie = function () {
 		SetVisible($("bShowHandBook"));
@@ -2056,8 +2063,13 @@ var $User = (function () {
 		var a = $("dTitle");
 		a.innerHTML = b;
 		SetStyle(a, {
-			left: c.clientX + (EBody.scrollLeft || EElement.scrollLeft) - 3 + "px",
-			top: c.clientY + 18 + (EBody.scrollTop || EElement.scrollTop) + "px",
+			left:
+				c.clientX +
+				(EBody.scrollLeft || EElement.scrollLeft) -
+				3 +
+				"px",
+			top:
+				c.clientY + 18 + (EBody.scrollTop || EElement.scrollTop) + "px",
 			visibility: "visible",
 		});
 	},
@@ -3742,4 +3754,4 @@ var $User = (function () {
 		f(r);
 	});
 
-	NewEle("dTitle", "div", 0, 0, $("dBody"));
+NewEle("dTitle", "div", 0, 0, $("dBody"));

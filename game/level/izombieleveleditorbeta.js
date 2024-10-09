@@ -255,7 +255,8 @@
 													)
 												);
 										} else {
-											levelDataElement.value = cloneFromPlants(l, f);
+											levelDataElement.value =
+												cloneFromPlants(l, f);
 										}
 										$("dAll").appendChild(levelDataElement);
 										let buttonElement =
