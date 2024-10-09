@@ -20,6 +20,7 @@
                             const itemText = document.createElement("pre");
                             const authorName = commit.commit.author.name;
                             let committerName = commit.commit.committer.name;
+                            const committerLogin = commit.committer.login;
                             const commitMessage = commit.commit.message;
                             const coAuthors = [];
                             if (committerName === "GitHub Action") {
@@ -30,7 +31,7 @@
                             while ((match = coAuthorRegex.exec(commitMessage)) !== null) {
                                 coAuthors.push(match[1]);
                             }
-                            if (committerName !== authorName) {
+                            if (committerName !== authorName && !(committerName === "GitHub" && committerLogin === "web-flow")) {
                                 coAuthors.push(committerName);
                             }
                             let allAuthors;
