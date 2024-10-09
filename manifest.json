@@ -5,8 +5,13 @@
 	"action": {
 		"default_icon": {
 			"16": "img/16x16.png",
+			"24": "img/24x24.png",
+			"32": "img/32x32.png",
 			"48": "img/48x48.png",
-			"256": "img/256x256.png"
+			"64": "img/64x64.png",
+			"128": "img/128x128.png",
+			"256": "img/256x256.png",
+			"512": "img/512x512.png"
 		},
 		"default_title": "Click to open the popup",
 		"default_popup": "game/iframe.html"
