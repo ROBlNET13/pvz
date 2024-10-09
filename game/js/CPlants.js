@@ -4294,7 +4294,7 @@ BirthStyle: function (c, e, b, a) {
 		PicArr: [
 			"images/Card/Plants/WallNut.png",
 			"images/Plants/WallNut/0.webp",
-			"images/Plants/WallNut/WallNutRoll.webp",
+			"images/Plants/WallNut/WallNut.webp",
 		],
 		AudioArr: ["bowling", "bowlingimpact", "bowlingimpact2"],
 		Produce: "",
@@ -4308,6 +4308,9 @@ BirthStyle: function (c, e, b, a) {
 		PrivateBirth: function (c) {
 			var d = $(c.id);
 			PlayAudio("bowling");
+			EditEle(d.childNodes[1], {
+				style: `animation: spin ${0.75 / ($User.Visitor.TimeStep / 10)}s linear infinite`,
+			});
 			(function (z, y, q, r, p, x, e, g, b) {
 				var a = z.R,
 					l = z.C,
@@ -4445,10 +4448,13 @@ BirthStyle: function (c, e, b, a) {
 		PicArr: [
 			"images/Card/Plants/HugeWallNut.png",
 			"images/Plants/WallNut/2.webp",
-			"images/Plants/WallNut/HugeWallNutRoll.webp",
+			"images/Plants/WallNut/2.webp",
 		],
 		PrivateBirth: function (a) {
 			PlayAudio("bowling");
+			EditEle($(a.id).childNodes[1], {
+				style: `animation: spin ${1.25 / ($User.Visitor.TimeStep / 10)}s linear infinite`,
+			});
 			(function (b, c, n, m, e, g) {
 				var d = oZ.getArZ(n, m, e),
 					f = d.length,
@@ -4483,12 +4489,15 @@ BirthStyle: function (c, e, b, a) {
 		PicArr: [
 			"images/Card/Plants/BoomWallNut.png",
 			"images/Plants/WallNut/1.webp",
-			"images/Plants/WallNut/BoomWallNutRoll.webp",
+			"images/Plants/WallNut/BoomWallNut.webp",
 			"images/Plants/CherryBomb/Boom.webp",
 		],
 		AudioArr: ["cherrybomb", "bowling"],
 		PrivateBirth: function (a) {
 			PlayAudio("bowling");
+			EditEle($(a.id).childNodes[1], {
+				style: `animation: spin ${0.75 / ($User.Visitor.TimeStep / 10)}s linear infinite`,
+			});
 			(function (s, q, b, c, m) {
 				var v = s.R,
 					p = s.C,
@@ -4501,6 +4510,9 @@ BirthStyle: function (c, e, b, a) {
 						r = s.pixelLeft + 160,
 						e,
 						k;
+						EditEle($(a.id).childNodes[1], {
+							style: "",
+						});
 					PlayAudio("cherrybomb");
 					do {
 						k = (e = oZ.getArZ(u, r, j)).length;
