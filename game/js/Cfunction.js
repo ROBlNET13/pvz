@@ -919,7 +919,10 @@ var $User = (function () {
 			// console.log(image.parentElement);
 		},
 		AddZombiesFlag: function (d) {
-			if (Math.floor(Math.random() * 5) == 1 && $("dSunNum").style.visibility == "") {
+			if (
+				Math.floor(Math.random() * 5) == 1 &&
+				$("dSunNum").style.visibility == ""
+			) {
 				oP.Balloon();
 			}
 			var g = oP,
