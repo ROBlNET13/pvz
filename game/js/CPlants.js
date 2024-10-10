@@ -1,4 +1,4 @@
-var CPlants = NewO({WallNut.webpWallNut.webp
+var CPlants = NewO({
 		name: "Plants",
 		HP: 300,
 		PKind: 1,
