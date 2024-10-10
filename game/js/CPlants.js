@@ -3697,7 +3697,7 @@ BirthStyle: function (c, e, b, a) {
 		PicArr: [
 			"images/Card/Plants/WallNut.png",
 			"images/Plants/WallNut/0.gif",
-			"images/Plants/WallNut/WallNut.gif",
+			"images/Plants/WallNut/WallNut.webp",
 			"images/Plants/WallNut/Wallnut_cracked1.gif",
 			"images/Plants/WallNut/Wallnut_cracked2.gif",
 		],
@@ -3759,7 +3759,7 @@ BirthStyle: function (c, e, b, a) {
 		PicArr: [
 			"images/Card/Plants/WallNut.png",
 			"images/Plants/WallNut/0.gif",
-			"images/Plants/WallNut/WallNut.gif",
+			"images/Plants/WallNut/WallNut.webp",
 			"images/Plants/WallNut/Wallnut_cracked1.gif",
 			"images/Plants/WallNut/Wallnut_cracked2.gif",
 		],
