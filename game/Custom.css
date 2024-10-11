@@ -270,3 +270,112 @@ td {
 #dMini0 > table > tbody > tr:nth-child(2) td {
 	padding-top: 17px !important;
 }
+@keyframes wallnutSpin {
+	0% {
+		rotate: 0deg;
+		transform: translate(0px, 0px);
+	}
+	8.33% {
+		rotate: 25deg;
+		transform: translate(0px, -1px);
+	}
+	16.67% {
+		rotate: 55deg;
+		transform: translate(2px, 0px);
+	}
+	25% {
+		rotate: 90deg;
+		transform: translate(4px, 0px);
+	}
+	33.33% {
+		rotate: 120deg;
+		transform: translate(4px, 0px);
+	}
+	41.67% {
+		rotate: 150deg;
+		transform: translate(0px, 0px);
+	}
+	50% {
+		rotate: 180deg;
+		transform: translate(0px, 2px);
+	}
+	58.33% {
+		rotate: 210deg;
+		transform: translate(1px, 0px);
+	}
+	66.67% {
+		rotate: 235deg;
+		transform: translate(-2px, -2px);
+	}
+	75% {
+		rotate: 270deg;
+		transform: translate(-6px, 0px);
+	}
+	83.33% {
+		rotate: 305deg;
+		transform: translate(-3px, -1px);
+	}
+	91.67% {
+		rotate: 330deg;
+		transform: translate(-2px, -1px);
+	}
+	100% {
+		rotate: 360deg;
+		transform: translate(0px, 0px);
+	}
+}
+
+@keyframes hugeWallnutSpin {
+	0% {
+		rotate: 0deg;
+		transform: translate(0px, 0px);
+	}
+	8.33% {
+		rotate: 25deg;
+		transform: translate(-1px, -2px);
+	}
+	16.67% {
+		rotate: 55deg;
+		transform: translate(2px, 2px);
+	}
+	25% {
+		rotate: 90deg;
+		transform: translate(11px, 0px);
+	}
+	33.33% {
+		rotate: 120deg;
+		transform: translate(9px, -6px);
+	}
+	41.67% {
+		rotate: 150deg;
+		transform: translate(3px, -4px);
+	}
+	50% {
+		rotate: 180deg;
+		transform: translate(0px, 0px);
+	}
+	58.33% {
+		rotate: 210deg;
+		transform: translate(-1px, -2px);
+	}
+	66.67% {
+		rotate: 235deg;
+		transform: translate(-5px, -4px);
+	}
+	75% {
+		rotate: 270deg;
+		transform: translate(-11px, 0px);
+	}
+	83.33% {
+		rotate: 305deg;
+		transform: translate(-3px, 4px);
+	}
+	91.67% {
+		rotate: 330deg;
+		transform: translate(0px, 1px);
+	}
+	100% {
+		rotate: 360deg;
+		transform: translate(0px, 0px);
+	}
+}

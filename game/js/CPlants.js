@@ -4331,7 +4331,7 @@ BirthStyle: function (c, e, b, a) {
 			var d = $(c.id);
 			PlayAudio("bowling");
 			EditEle(d.childNodes[1], {
-				style: `animation: spin ${
+				style: `animation: wallnutSpin ${
 					0.75 * ($User.Visitor.TimeStep / 10)
 				}s linear infinite`,
 			});
@@ -4477,7 +4477,7 @@ BirthStyle: function (c, e, b, a) {
 		PrivateBirth: function (a) {
 			PlayAudio("bowling");
 			EditEle($(a.id).childNodes[1], {
-				style: `animation: spin ${
+				style: `animation: hugeWallnutSpin ${
 					1.25 * ($User.Visitor.TimeStep / 10)
 				}s linear infinite`,
 			});
@@ -4522,7 +4522,7 @@ BirthStyle: function (c, e, b, a) {
 		PrivateBirth: function (a) {
 			PlayAudio("bowling");
 			EditEle($(a.id).childNodes[1], {
-				style: `animation: spin ${
+				style: `animation: wallnutSpin ${
 					0.75 * ($User.Visitor.TimeStep / 10)
 				}s linear infinite`,
 			});
