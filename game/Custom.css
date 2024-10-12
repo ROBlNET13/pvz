@@ -38,7 +38,7 @@
 }
 #sSunNum {
 	font-family: "continuumbold" !important;
-	margin-top: -5px !important;
+	margin-top: -2px !important;
 }
 #DivTeach {
 	width: 50% !important;
@@ -377,22 +377,5 @@ td {
 	100% {
 		rotate: 360deg;
 		transform: translate(0px, 0px);
-	}
-}
-
-@keyframes threepeaterDown { /* threepeaterDown 1.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards */
-	0% {
-		transform: translateY(0px);
-	}
-	100% {
-		transform: translateY(102px);
-	}
-}
-@keyframes threepeaterUp { /* threepeaterUp 1.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards */
-	0% {
-		transform: translateY(0px);
-	}
-	100% {
-		transform: translateY(-102px);
 	}
 }

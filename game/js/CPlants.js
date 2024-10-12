@@ -2000,17 +2000,18 @@ var CPlants = NewO({
 			f.BulletClass = [];
 			f.BulletEle = [];
 			for (b in c) {
-				let bullet = NewO({
-					X: e,
-					R: f.R,
-					D: 0,
-					Attack: 20,
-					Kind: 0,
-					ChangeC: 0,
-					pixelLeft: d,
-					F: oGd.MB1,
-				});
-				f.BulletClass.push(bullet);
+				f.BulletClass.push(
+					NewO({
+						X: e,
+						R: b,
+						D: 0,
+						Attack: 20,
+						Kind: 0,
+						ChangeC: 0,
+						pixelLeft: d,
+						F: oGd.MB1,
+					})
+				);
 				f.BulletEle.push(
 					NewImg(
 						0,
@@ -2018,11 +2019,12 @@ var CPlants = NewO({
 						"left:" +
 							d +
 							"px;top:" +
-							(GetY(f.R) - 65) +
+							(GetY(b) - 50) +
 							"px;visibility:hidden;z-index:" +
 							(3 * b + 2)
 					)
 				);
+<<<<<<< HEAD
 				if (b % 3 == 0) {
 					f.BulletEle[f.BulletEle.length - 1].style.animation =
 						`threepeaterDown ${(1.25 * $User.Visitor.TimeStep) / 10}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`;
@@ -2030,6 +2032,8 @@ var CPlants = NewO({
 					f.BulletEle[f.BulletEle.length - 1].style.animation =
 						`threepeaterUp ${(1.25 * $User.Visitor.TimeStep) / 10}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`;
 				}
+=======
+>>>>>>> parent of 36a1799 (better threepeater bullets and sun position fix)
 			}
 		},
 		PrivateDie: function (a) {
