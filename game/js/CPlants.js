@@ -2024,9 +2024,11 @@ var CPlants = NewO({
 					)
 				);
 				if (b % 3 == 0) {
-					f.BulletEle[f.BulletEle.length - 1].style.animation = `threepeaterDown ${1.25 * $User.Visitor.TimeStep / 10}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`;
+					f.BulletEle[f.BulletEle.length - 1].style.animation =
+						`threepeaterDown ${(1.25 * $User.Visitor.TimeStep) / 10}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`;
 				} else if (b % 3 == 1) {
-					f.BulletEle[f.BulletEle.length - 1].style.animation = `threepeaterUp ${1.25 * $User.Visitor.TimeStep / 10}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`;
+					f.BulletEle[f.BulletEle.length - 1].style.animation =
+						`threepeaterUp ${(1.25 * $User.Visitor.TimeStep) / 10}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards`;
 				}
 			}
 		},
