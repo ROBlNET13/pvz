@@ -21,7 +21,7 @@ oS.Init({
 		oIPoleVaultingZombie,
 		oIBucketheadZombie,
 		oIFootballZombie,
-		oIJackinTheBoxZombie,
+		oIDiggerZombie,
 		oIScreenDoorZombie,
 	],
 	PicArr: [

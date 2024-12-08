@@ -25,13 +25,7 @@ oS.Init({
 		ArC: [1, 4],
 		ArR: [1, 5],
 		Auto: 1,
-		P: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4, 3, 3, 3, 3, 3],
-	},
-	ArPN: {
-		ArNC: [4, 4],
-		ArNR: [1, 5],
-		Auto: 1,
-		PN: [3, 3, 3, 3, 3],
+		P: [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4],
 	},
 	RiddleAutoGrow: function () {
 		var k = oS.ArP,
@@ -41,24 +35,14 @@ oS.Init({
 			d = oS.PName,
 			c,
 			g = f[0],
-			b = f[1],
+			b = f[1] - 1,
 			i = j[0],
 			h = j[1],
 			a;
-		var nk = oS.ArPN,
-			nf = nk.ArNC,
-			nj = nk.ArNR,
-			ne = nk.PN,
-			nd = oS.PName,
-			nc,
-			ng = nf[0],
-			nb = nf[1],
-			ni = nj[0],
-			nh = nj[1],
-			na;
 		if (k.Auto) {
 			while (i <= h) {
 				CustomSpecial(oBrains, i, 0);
+				CustomSpecial(oWallNut, i, 4);
 				for (a = g; a <= b; a++) {
 					CustomSpecial(
 						d[e[(c = Math.floor(Math.random() * e.length))]],
@@ -78,38 +62,9 @@ oS.Init({
 		);
 	},
 	StartGame: function () {
-		SetVisible($("dSunNum"));
-		SetBlock($("dTop"));
-		NewEle("DivTeach", "div", 0, 0, EDAll);
-		oP.Monitor({
-			ar: [0],
-			f: function (d) {
-				var b = oS.Chose,
-					a = arguments.callee,
-					c = $("DivTeach");
-				switch (d) {
-					case 0:
-						BeginCool();
-						c.onclick = null;
-						oSym.addTask(
-							500,
-							function () {
-								SetNone(c);
-							},
-							[]
-						);
-						(function () {
-							SetVisible($("dFlagMeter"), $("dFlagMeterContent"));
-							ClearChild($("oEmbed"));
-							StopMusic();
-							PlayMusic((oS.LoadMusic = "Cerebrawl"));
-							BeginCool();
-							oP.Monitor();
-						})();
-				}
-			},
-		});
-		SetVisible($("dFlagMeter"));
+		oP.Monitor();
+		BeginCool();
+		SetVisible($("dFlagMeter"), $("dTop"));
 		oS.RiddleAutoGrow();
 	},
 });

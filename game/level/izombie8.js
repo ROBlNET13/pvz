@@ -1,11 +1,11 @@
 oS.Init({
-	PName: [oPeashooter, oSunFlower, oWallNut, oIPotatoMine, oSquash],
+	PName: [oPeashooter, oSunFlower, oWallNut, oIPotatoMine, oSquash, oMagnetShroom],
 	ZName: [
 		oIImp,
 		oIConeheadZombie,
 		oIBucketheadZombie,
 		oIJackinTheBoxZombie,
-		oIPoleVaultingZombie,
+		oIDiggerZombie,
 		oIScreenDoorZombie,
 	],
 	PicArr: [
@@ -33,7 +33,7 @@ oS.Init({
 		ArR: [1, 5],
 		Auto: 1,
 		P: [
-			0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3,
+			0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 5, 5, 3, 3,
 			4, 4,
 		],
 	},
