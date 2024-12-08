@@ -14066,106 +14066,111 @@ oCBucketheadZombie = InheritO(
 			},
 		});
 	})());
-	oDiggerZombie = InheritO(OrnNoneZombies, {
-		EName: "oDiggerZombie",
-		CName: "Digger Zombie",
-		Lvl: 4,
-		SunNum: 125,
-		HP: 500,
-		BreakPoint: 70,
-		width: 167,
-		height: 170,
-		GetDTop: 20,
-		beAttackedPointL: 65,
-		beAttackedPointR: 90,
-		OrnHP: 100,
-		OSpeed: 6,
-		Speed: 6,
-		Altitude: 0, // 挖矿
-		CardGif: 0,
-		StandGif: 1,
-		StaticGif: 2,
-		NormalGif: 3,
-		WalkGif0: 3,
-		WalkGif1: 4,
-		WalkGif2: 5,
-		AttackGif: 3,
-		AttackGif_Up0: 6,
-		AttackGif_Up1: 7,
-		HeadGif: 8,
-		DieGif: 9,
-		UpGif: 10,
-		DownGif: 11,
-		BoomDieGif: 8,
-		LostHeadGif: 5,
-		LostHeadAttackGif: 5,
-	  
-		Produce: '这种僵尸通过挖地来绕过防线。<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢</font><BR>特点：<font color="#FF0000">挖地道，然后在草地的左侧现身</font><BR>弱点：<font color="#FF0000">分裂射手，磁力菇</font></p>最近，他一直在听奥特曼的主题曲，据他所述，他好像是在某一处听到这首歌，觉得很好听，于是他现在也不挖土了，天天循环播放这首歌',
-		BirthCallBack: function(f) {
-		  var e = f.delayT,
+oDiggerZombie = InheritO(OrnNoneZombies, {
+	EName: "oDiggerZombie",
+	CName: "Digger Zombie",
+	Lvl: 4,
+	SunNum: 125,
+	HP: 500,
+	BreakPoint: 70,
+	width: 167,
+	height: 170,
+	GetDTop: 20,
+	beAttackedPointL: 65,
+	beAttackedPointR: 90,
+	OrnHP: 100,
+	OSpeed: 6,
+	Speed: 6,
+	Altitude: 0, // 挖矿
+	CardGif: 0,
+	StandGif: 1,
+	StaticGif: 2,
+	NormalGif: 3,
+	WalkGif0: 3,
+	WalkGif1: 4,
+	WalkGif2: 5,
+	AttackGif: 3,
+	AttackGif_Up0: 6,
+	AttackGif_Up1: 7,
+	HeadGif: 8,
+	DieGif: 9,
+	UpGif: 10,
+	DownGif: 11,
+	BoomDieGif: 8,
+	LostHeadGif: 5,
+	LostHeadAttackGif: 5,
+
+	Produce:
+		'这种僵尸通过挖地来绕过防线。<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢</font><BR>特点：<font color="#FF0000">挖地道，然后在草地的左侧现身</font><BR>弱点：<font color="#FF0000">分裂射手，磁力菇</font></p>最近，他一直在听奥特曼的主题曲，据他所述，他好像是在某一处听到这首歌，觉得很好听，于是他现在也不挖土了，天天循环播放这首歌',
+	BirthCallBack: function (f) {
+		var e = f.delayT,
 			d = f.id,
 			c = (f.Ele = $(d));
-		  (f.EleShadow = c.firstChild),
-		  (f.EleBody = c.childNodes[1]),
-		  SetHidden(f.EleShadow);
-		  e
-			?
-			oSym.addTask(
-			  e,
-			  function(h, g) {
-				var i = $Z[h];
-				i && ((i.FreeSetbodyTime = 0), SetBlock(g));
-			  },
-			  [d, c]
-			) :
-			SetBlock(c);
+		(f.EleShadow = c.firstChild),
+			(f.EleBody = c.childNodes[1]),
+			SetHidden(f.EleShadow);
+		e
+			? oSym.addTask(
+					e,
+					function (h, g) {
+						var i = $Z[h];
+						i && ((i.FreeSetbodyTime = 0), SetBlock(g));
+					},
+					[d, c]
+				)
+			: SetBlock(c);
+	},
+	HeadPosition: [
+		{
+			x: 42,
+			y: 146,
 		},
-		HeadPosition: [{
-		  x: 42,
-		  y: 146
-		}, {
-		  x: 40,
-		  y: 147
-		}, ],
-		getShadow: function(a) {
-		  return "left:" + a.beAttackedPointL + "px;top:" + (a.height - 20) + "px";
+		{
+			x: 40,
+			y: 147,
 		},
-		isUp: 0,
-		JudgeLR: function(f, d, e, c, g) {
-		  return e > 10 || e < 1 ?
-			false :
-			(function() {
-			  d += --e + "_";
-			  var h = 3,
-				i;
-			  while (h--) {
-				if ((i = g[d + h]) && i.canEat) {
-				  return i.AttackedRX >= c && i.AttackedLX <= c ?
-					[f.id, i.id] :
-					false;
-				}
-			  }
-			})();
-		},
-		JudgeSR: function(f, d, e, c, g) {
-		  return e > 9 ?
-			false :
-			(function() {
-			  d += e + "_";
-			  var h = 3,
-				i;
-			  while (h--) {
-				if ((i = g[d + h]) && i.canEat) {
-				  return i.AttackedRX >= c && i.AttackedLX <= c ?
-					[f.id, i.id] :
-					false;
-				}
-			  }
-			})();
-		},
-		PicArr: (function() {
-		  var a = "images/Zombies/Diggerzombie/";
-		  return [
+	],
+	getShadow: function (a) {
+		return (
+			"left:" + a.beAttackedPointL + "px;top:" + (a.height - 20) + "px"
+		);
+	},
+	isUp: 0,
+	JudgeLR: function (f, d, e, c, g) {
+		return e > 10 || e < 1
+			? false
+			: (function () {
+					d += --e + "_";
+					var h = 3,
+						i;
+					while (h--) {
+						if ((i = g[d + h]) && i.canEat) {
+							return i.AttackedRX >= c && i.AttackedLX <= c
+								? [f.id, i.id]
+								: false;
+						}
+					}
+				})();
+	},
+	JudgeSR: function (f, d, e, c, g) {
+		return e > 9
+			? false
+			: (function () {
+					d += e + "_";
+					var h = 3,
+						i;
+					while (h--) {
+						if ((i = g[d + h]) && i.canEat) {
+							return i.AttackedRX >= c && i.AttackedLX <= c
+								? [f.id, i.id]
+								: false;
+						}
+					}
+				})();
+	},
+	PicArr: (function () {
+		var a = "images/Zombies/Diggerzombie/";
+		return [
 			"images/Card/Zombies/Diggerzombie.png",
 			a + "0.gif",
 			a + "DiggerZombie.gif",
@@ -14179,233 +14184,246 @@ oCBucketheadZombie = InheritO(
 			a + "Up.gif" + $Random,
 			a + "Down.gif" + $Random,
 			a + "BoomDie.gif" + $Random,
-		  ];
-		})(),
-		AudioArr: ["zombie_entering_water"],
-		Go_Up: function(a, WD) {
-		  // WD: 方向，1右0左
-		  a.isUp = 1; //a.Ifgc=0;
-		  a.beAttacked &&
+		];
+	})(),
+	AudioArr: ["zombie_entering_water"],
+	Go_Up: function (a, WD) {
+		// WD: 方向，1右0左
+		a.isUp = 1; //a.Ifgc=0;
+		a.beAttacked &&
 			((a.WalkDirection = WD),
-			  (a.BoomDieGif = 12),
-			  PlayAudio("zombie_entering_water"),
-			  (a.Altitude = 4),
-			  SetVisible(a.EleShadow),
-			  (a.EleBody.src = a.PicArr[a.UpGif] + Math.random()),
-			  (a.OSpeed = a.Speed = 0)),
-			(a.ChkActs = function() {
-			  return 1;
+			(a.BoomDieGif = 12),
+			PlayAudio("zombie_entering_water"),
+			(a.Altitude = 4),
+			SetVisible(a.EleShadow),
+			(a.EleBody.src = a.PicArr[a.UpGif] + Math.random()),
+			(a.OSpeed = a.Speed = 0)),
+			(a.ChkActs = function () {
+				return 1;
 			}); // 跳起来
-		  oSym.addTask(
+		oSym.addTask(
 			100,
-			function(c, b) {
-			  WD
-				?
-				((b.AttackGif = b.AttackGif_Up0),
-				  (b.AttackedRX += 30),
-				  (b.beAttackedPointL = 70),
-				  (b.beAttackedPointR = 130),
-				  (b.Ele.lastChild.style.left = "40px"),
-				  (b.JudgeAttack = b.JudgeAttack_Up1)) :
-				(b.AttackGif = b.AttackGif_Up1); // GIF
-			  $Z[c] &&
-				b.beAttacked &&
-				(WD && b.ExchangeLR(b, WD),
-				  (b.Altitude = 1),
-				  (b.isAttacking = 0),
-				  (b.EleBody.src = b.PicArr[(b.NormalGif = b.DownGif)])); // 眩晕
-			  $Z[c] &&
-				b.beAttacked &&
-				oSym.addTask(
-				  WD ? 400 : 0,
-				  function(c, b) {
-					// 行走
-					(b.EleBody.src =
-					  b.PicArr[(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)]),
-					(b.OSpeed = b.Speed = 1.6),
-					(b.ChkActs =
-					  OrnNoneZombies["prototype"][WD ? "ChkActs1" : "ChkActs"]);
-				  },
-				  [c, b]
-				);
+			function (c, b) {
+				WD
+					? ((b.AttackGif = b.AttackGif_Up0),
+						(b.AttackedRX += 30),
+						(b.beAttackedPointL = 70),
+						(b.beAttackedPointR = 130),
+						(b.Ele.lastChild.style.left = "40px"),
+						(b.JudgeAttack = b.JudgeAttack_Up1))
+					: (b.AttackGif = b.AttackGif_Up1); // GIF
+				$Z[c] &&
+					b.beAttacked &&
+					(WD && b.ExchangeLR(b, WD),
+					(b.Altitude = 1),
+					(b.isAttacking = 0),
+					(b.EleBody.src = b.PicArr[(b.NormalGif = b.DownGif)])); // 眩晕
+				$Z[c] &&
+					b.beAttacked &&
+					oSym.addTask(
+						WD ? 400 : 0,
+						function (c, b) {
+							// 行走
+							(b.EleBody.src =
+								b.PicArr[
+									(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)
+								]),
+								(b.OSpeed = b.Speed = 1.6),
+								(b.ChkActs =
+									OrnNoneZombies["prototype"][
+										WD ? "ChkActs1" : "ChkActs"
+									]);
+						},
+						[c, b]
+					);
 			},
 			[a.id, a]
-		  );
-		},
-		ChkActs: function(f, d, g, c) {
-		  // 到了左边自己钻出来
-		  if (f.Altitude == 0 && f.AttackedRX < GetX(1) - 40) return f.Go_Up(f, 1), 1;
-	  
-		  var b, a, e;
-		  !(f.FreeFreezeTime || f.FreeSetbodyTime) ?
-		  (f.beAttacked && !f.isAttacking && f.JudgeAttack_Dig(),
-			!f.isAttacking ?
-			(a = f.AttackedRX -= b = f.Speed) < -50 ?
-			(g.splice(c, 1), f.DisappearDie(), (e = 0)) :
-			(a < 80 &&
-			  !f.PointZombie &&
-			  ((f.PointZombie = 1),
-				!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
-				f.ChangeR({
-				  R: d,
-				  ar: [oS.R - 1],
-				  CustomTop: 400 - f.height + f.GetDY(),
-				})),
-			  (f.ZX = f.AttackedLX -= b),
-			  (f.Ele.style.left = Math.floor((f.X -= b)) + "px"),
-			  (e = 1)) :
-			(e = 1)) :
-		  (e = 1);
-		  return e;
-		},
-		CanDig: {
-		  oPotatoMine: true
-		},
-		JudgeAttack_Dig: function() {
-		  var g = this,
+		);
+	},
+	ChkActs: function (f, d, g, c) {
+		// 到了左边自己钻出来
+		if (f.Altitude == 0 && f.AttackedRX < GetX(1) - 40)
+			return f.Go_Up(f, 1), 1;
+
+		var b, a, e;
+		!(f.FreeFreezeTime || f.FreeSetbodyTime)
+			? (f.beAttacked && !f.isAttacking && f.JudgeAttack_Dig(),
+				!f.isAttacking
+					? (a = f.AttackedRX -= b = f.Speed) < -50
+						? (g.splice(c, 1), f.DisappearDie(), (e = 0))
+						: (a < 80 &&
+								!f.PointZombie &&
+								((f.PointZombie = 1),
+								!oS.CardKind &&
+									(StopMusic(),
+									PlayAudio("losemusic", false)),
+								f.ChangeR({
+									R: d,
+									ar: [oS.R - 1],
+									CustomTop: 400 - f.height + f.GetDY(),
+								})),
+							(f.ZX = f.AttackedLX -= b),
+							(f.Ele.style.left = Math.floor((f.X -= b)) + "px"),
+							(e = 1))
+					: (e = 1))
+			: (e = 1);
+		return e;
+	},
+	CanDig: {
+		oPotatoMine: true,
+	},
+	JudgeAttack_Dig: function () {
+		var g = this,
 			d = g.ZX,
 			e = g.R + "_",
 			f = GetC(d),
 			h = oGd.$,
 			c;
-		  (c = g.JudgeLR(g, e, f, d, h) || g.JudgeSR(g, e, f, d, h)) &&
-		  g.CanDig[$P[c[1]]["EName"]] ?
-			(!g.isAttacking &&
-			  ((g.isAttacking = 1), (g.EleBody.src = g.PicArr[g.AttackGif])),
-			  g.NormalAttack(c[0], c[1])) :
-			g.isAttacking &&
-			((g.isAttacking = 0), (g.EleBody.src = g.PicArr[g.NormalGif]));
-		},
-		JudgeAttack_Up1: function() {
-		  var g = this,
+		(c = g.JudgeLR(g, e, f, d, h) || g.JudgeSR(g, e, f, d, h)) &&
+		g.CanDig[$P[c[1]]["EName"]]
+			? (!g.isAttacking &&
+					((g.isAttacking = 1),
+					(g.EleBody.src = g.PicArr[g.AttackGif])),
+				g.NormalAttack(c[0], c[1]))
+			: g.isAttacking &&
+				((g.isAttacking = 0), (g.EleBody.src = g.PicArr[g.NormalGif]));
+	},
+	JudgeAttack_Up1: function () {
+		var g = this,
 			d = g.AttackedRX,
 			e = g.R + "_",
 			f = GetC(d),
 			h = oGd.$,
 			c;
-		  (c = g.JudgeSR(g, e, f, d, h) || g.JudgeLR(g, e, f, d, h)) ?
-		  (!g.isAttacking &&
-			((g.isAttacking = 1), (g.EleBody.src = g.PicArr[g.AttackGif])),
-			g.NormalAttack(c[0], c[1])) :
-		  g.isAttacking &&
-			((g.isAttacking = 0), (g.EleBody.src = g.PicArr[g.NormalGif]));
-		},
-		Stone_of_Sinan_Up: function() {
-		  // 被磁铁吸了镐子调用的函数
-		  var g = this; //alert(1);
-		  if (g.isUp) {
+		(c = g.JudgeSR(g, e, f, d, h) || g.JudgeLR(g, e, f, d, h))
+			? (!g.isAttacking &&
+					((g.isAttacking = 1),
+					(g.EleBody.src = g.PicArr[g.AttackGif])),
+				g.NormalAttack(c[0], c[1]))
+			: g.isAttacking &&
+				((g.isAttacking = 0), (g.EleBody.src = g.PicArr[g.NormalGif]));
+	},
+	Stone_of_Sinan_Up: function () {
+		// 被磁铁吸了镐子调用的函数
+		var g = this; //alert(1);
+		if (g.isUp) {
 			g.EleBody.src =
-			  g.PicArr[
-				g.isAttacking ?
-				(g.AttackGif = g.AttackGif_Up1) :
-				(g.NormalGif = g.WalkGif2)
-			  ];
-		  } else {
+				g.PicArr[
+					g.isAttacking
+						? (g.AttackGif = g.AttackGif_Up1)
+						: (g.NormalGif = g.WalkGif2)
+				];
+		} else {
 			g.Go_Up(g, 0);
-		  }
-		  g.Stone_of_Sinan_Up = function() {};
-		},
-	  });
-	  oIDiggerZombie = InheritO(OrnNoneZombies, {
-		EName: "oIDiggerZombie",
-		CName: "Digger Zombie",
-		Lvl: 4,
-		SunNum: 125,
-		HP: 500,
-		BreakPoint: 70,
-		width: 167,
-		height: 170,
-		GetDTop: 20,
-		beAttackedPointL: 65,
-		beAttackedPointR: 90,
-		OrnHP: 100,
-		OSpeed: 7.8,
-		Speed: 7.8,
-		Altitude: 0, // 挖矿
-		CardGif: 0,
-		StandGif: 1,
-		StaticGif: 2,
-		NormalGif: 3,
-		WalkGif0: 3,
-		WalkGif1: 4,
-		WalkGif2: 5,
-		AttackGif: 3,
-		AttackGif_Up0: 6,
-		AttackGif_Up1: 7,
-		HeadGif: 8,
-		DieGif: 9,
-		UpGif: 10,
-		DownGif: 11,
-		BoomDieGif: 8,
-		LostHeadGif: 5,
-		LostHeadAttackGif: 5,
-	  
-		Produce: '这种僵尸通过挖地来绕过防线。<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢</font><BR>特点：<font color="#FF0000">挖地道，然后在草地的左侧现身</font><BR>弱点：<font color="#FF0000">分裂射手，磁力菇</font></p>最近，他一直在听奥特曼的主题曲，据他所述，他好像是在某一处听到这首歌，觉得很好听，于是他现在也不挖土了，天天循环播放这首歌',
-		BirthCallBack: function(f) {
-		  var e = f.delayT,
+		}
+		g.Stone_of_Sinan_Up = function () {};
+	},
+});
+oIDiggerZombie = InheritO(OrnNoneZombies, {
+	EName: "oIDiggerZombie",
+	CName: "Digger Zombie",
+	Lvl: 4,
+	SunNum: 125,
+	HP: 500,
+	BreakPoint: 70,
+	width: 167,
+	height: 170,
+	GetDTop: 20,
+	beAttackedPointL: 65,
+	beAttackedPointR: 90,
+	OrnHP: 100,
+	OSpeed: 7.8,
+	Speed: 7.8,
+	Altitude: 0, // 挖矿
+	CardGif: 0,
+	StandGif: 1,
+	StaticGif: 2,
+	NormalGif: 3,
+	WalkGif0: 3,
+	WalkGif1: 4,
+	WalkGif2: 5,
+	AttackGif: 3,
+	AttackGif_Up0: 6,
+	AttackGif_Up1: 7,
+	HeadGif: 8,
+	DieGif: 9,
+	UpGif: 10,
+	DownGif: 11,
+	BoomDieGif: 8,
+	LostHeadGif: 5,
+	LostHeadAttackGif: 5,
+
+	Produce:
+		'这种僵尸通过挖地来绕过防线。<p>韧性：<font color="#FF0000">中</font><Br>速度：<font color="#FF0000">快,而后慢</font><BR>特点：<font color="#FF0000">挖地道，然后在草地的左侧现身</font><BR>弱点：<font color="#FF0000">分裂射手，磁力菇</font></p>最近，他一直在听奥特曼的主题曲，据他所述，他好像是在某一处听到这首歌，觉得很好听，于是他现在也不挖土了，天天循环播放这首歌',
+	BirthCallBack: function (f) {
+		var e = f.delayT,
 			d = f.id,
 			c = (f.Ele = $(d));
-		  (f.EleShadow = c.firstChild),
-		  (f.EleBody = c.childNodes[1]),
-		  SetHidden(f.EleShadow);
-		  e
-			?
-			oSym.addTask(
-			  e,
-			  function(h, g) {
-				var i = $Z[h];
-				i && ((i.FreeSetbodyTime = 0), SetBlock(g));
-			  },
-			  [d, c]
-			) :
-			SetBlock(c);
+		(f.EleShadow = c.firstChild),
+			(f.EleBody = c.childNodes[1]),
+			SetHidden(f.EleShadow);
+		e
+			? oSym.addTask(
+					e,
+					function (h, g) {
+						var i = $Z[h];
+						i && ((i.FreeSetbodyTime = 0), SetBlock(g));
+					},
+					[d, c]
+				)
+			: SetBlock(c);
+	},
+	HeadPosition: [
+		{
+			x: 42,
+			y: 146,
 		},
-		HeadPosition: [{
-		  x: 42,
-		  y: 146
-		}, {
-		  x: 40,
-		  y: 147
-		}, ],
-		getShadow: function(a) {
-		  return "left:" + a.beAttackedPointL + "px;top:" + (a.height - 20) + "px";
+		{
+			x: 40,
+			y: 147,
 		},
-		isUp: 0,
-		JudgeLR: function(f, d, e, c, g) {
-		  return e > 10 || e < 1 ?
-			false :
-			(function() {
-			  d += --e + "_";
-			  var h = 3,
-				i;
-			  while (h--) {
-				if ((i = g[d + h]) && i.canEat) {
-				  return i.AttackedRX >= c && i.AttackedLX <= c ?
-					[f.id, i.id] :
-					false;
-				}
-			  }
-			})();
-		},
-		JudgeSR: function(f, d, e, c, g) {
-		  return e > 9 ?
-			false :
-			(function() {
-			  d += e + "_";
-			  var h = 3,
-				i;
-			  while (h--) {
-				if ((i = g[d + h]) && i.canEat) {
-				  return i.AttackedRX >= c && i.AttackedLX <= c ?
-					[f.id, i.id] :
-					false;
-				}
-			  }
-			})();
-		},
-		PicArr: (function() {
-		  var a = "images/Zombies/Diggerzombie/";
-		  return [
+	],
+	getShadow: function (a) {
+		return (
+			"left:" + a.beAttackedPointL + "px;top:" + (a.height - 20) + "px"
+		);
+	},
+	isUp: 0,
+	JudgeLR: function (f, d, e, c, g) {
+		return e > 10 || e < 1
+			? false
+			: (function () {
+					d += --e + "_";
+					var h = 3,
+						i;
+					while (h--) {
+						if ((i = g[d + h]) && i.canEat) {
+							return i.AttackedRX >= c && i.AttackedLX <= c
+								? [f.id, i.id]
+								: false;
+						}
+					}
+				})();
+	},
+	JudgeSR: function (f, d, e, c, g) {
+		return e > 9
+			? false
+			: (function () {
+					d += e + "_";
+					var h = 3,
+						i;
+					while (h--) {
+						if ((i = g[d + h]) && i.canEat) {
+							return i.AttackedRX >= c && i.AttackedLX <= c
+								? [f.id, i.id]
+								: false;
+						}
+					}
+				})();
+	},
+	PicArr: (function () {
+		var a = "images/Zombies/Diggerzombie/";
+		return [
 			"images/Card/Zombies/IDiggerzombie.png",
 			a + "0.gif",
 			a + "DiggerZombie.gif",
@@ -14419,130 +14437,138 @@ oCBucketheadZombie = InheritO(
 			a + "Up.gif" + $Random,
 			a + "Down.gif" + $Random,
 			a + "BoomDie.gif" + $Random,
-		  ];
-		})(),
-		AudioArr: ["zombie_entering_water"],
-		Go_Up: function(a, WD) {
-		  // WD: 方向，1右0左
-		  a.isUp = 1; //a.Ifgc=0;
-		  a.beAttacked &&
+		];
+	})(),
+	AudioArr: ["zombie_entering_water"],
+	Go_Up: function (a, WD) {
+		// WD: 方向，1右0左
+		a.isUp = 1; //a.Ifgc=0;
+		a.beAttacked &&
 			((a.WalkDirection = WD),
-			  (a.BoomDieGif = 12),
-			  PlayAudio("zombie_entering_water"),
-			  (a.Altitude = 4),
-			  SetVisible(a.EleShadow),
-			  (a.EleBody.src = a.PicArr[a.UpGif] + Math.random()),
-			  (a.OSpeed = a.Speed = 0)),
-			(a.ChkActs = function() {
-			  return 1;
+			(a.BoomDieGif = 12),
+			PlayAudio("zombie_entering_water"),
+			(a.Altitude = 4),
+			SetVisible(a.EleShadow),
+			(a.EleBody.src = a.PicArr[a.UpGif] + Math.random()),
+			(a.OSpeed = a.Speed = 0)),
+			(a.ChkActs = function () {
+				return 1;
 			}); // 跳起来
-		  oSym.addTask(
+		oSym.addTask(
 			100,
-			function(c, b) {
-			  WD
-				?
-				((b.AttackGif = b.AttackGif_Up0),
-				  (b.AttackedRX += 30),
-				  (b.beAttackedPointL = 70),
-				  (b.beAttackedPointR = 130),
-				  (b.Ele.lastChild.style.left = "40px"),
-				  (b.JudgeAttack = b.JudgeAttack_Up1)) :
-				(b.AttackGif = b.AttackGif_Up1); // GIF
-			  $Z[c] &&
-				b.beAttacked &&
-				(WD && b.ExchangeLR(b, WD),
-				  (b.Altitude = 1),
-				  (b.isAttacking = 0),
-				  (b.EleBody.src = b.PicArr[(b.NormalGif = b.DownGif)])); // 眩晕
-			  $Z[c] &&
-				b.beAttacked &&
-				oSym.addTask(
-				  WD ? 400 : 0,
-				  function(c, b) {
-					// 行走
-					(b.EleBody.src =
-					  b.PicArr[(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)]),
-					(b.OSpeed = b.Speed = 1.6),
-					(b.ChkActs =
-					  OrnNoneZombies["prototype"][WD ? "ChkActs1" : "ChkActs"]);
-				  },
-				  [c, b]
-				);
+			function (c, b) {
+				WD
+					? ((b.AttackGif = b.AttackGif_Up0),
+						(b.AttackedRX += 30),
+						(b.beAttackedPointL = 70),
+						(b.beAttackedPointR = 130),
+						(b.Ele.lastChild.style.left = "40px"),
+						(b.JudgeAttack = b.JudgeAttack_Up1))
+					: (b.AttackGif = b.AttackGif_Up1); // GIF
+				$Z[c] &&
+					b.beAttacked &&
+					(WD && b.ExchangeLR(b, WD),
+					(b.Altitude = 1),
+					(b.isAttacking = 0),
+					(b.EleBody.src = b.PicArr[(b.NormalGif = b.DownGif)])); // 眩晕
+				$Z[c] &&
+					b.beAttacked &&
+					oSym.addTask(
+						WD ? 400 : 0,
+						function (c, b) {
+							// 行走
+							(b.EleBody.src =
+								b.PicArr[
+									(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)
+								]),
+								(b.OSpeed = b.Speed = 1.6),
+								(b.ChkActs =
+									OrnNoneZombies["prototype"][
+										WD ? "ChkActs1" : "ChkActs"
+									]);
+						},
+						[c, b]
+					);
 			},
 			[a.id, a]
-		  );
-		},
-		ChkActs: function(f, d, g, c) {
-		  // 到了左边自己钻出来
-		  if (f.Altitude == 0 && f.AttackedRX < GetX(1) - 40) return f.Go_Up(f, 1), 1;
-	  
-		  var b, a, e;
-		  !(f.FreeFreezeTime || f.FreeSetbodyTime) ?
-		  (f.beAttacked && !f.isAttacking && f.JudgeAttack_Dig(),
-			!f.isAttacking ?
-			(a = f.AttackedRX -= b = f.Speed) < -50 ?
-			(g.splice(c, 1), f.DisappearDie(), (e = 0)) :
-			(a < 80 &&
-			  !f.PointZombie &&
-			  ((f.PointZombie = 1),
-				!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
-				f.ChangeR({
-				  R: d,
-				  ar: [oS.R - 1],
-				  CustomTop: 400 - f.height + f.GetDY(),
-				})),
-			  (f.ZX = f.AttackedLX -= b),
-			  (f.Ele.style.left = Math.floor((f.X -= b)) + "px"),
-			  (e = 1)) :
-			(e = 1)) :
-		  (e = 1);
-		  return e;
-		},
-		CanDig: {
-		  oPotatoMine: true
-		},
-		JudgeAttack_Dig: function() {
-		  var g = this,
+		);
+	},
+	ChkActs: function (f, d, g, c) {
+		// 到了左边自己钻出来
+		if (f.Altitude == 0 && f.AttackedRX < GetX(1) - 40)
+			return f.Go_Up(f, 1), 1;
+
+		var b, a, e;
+		!(f.FreeFreezeTime || f.FreeSetbodyTime)
+			? (f.beAttacked && !f.isAttacking && f.JudgeAttack_Dig(),
+				!f.isAttacking
+					? (a = f.AttackedRX -= b = f.Speed) < -50
+						? (g.splice(c, 1), f.DisappearDie(), (e = 0))
+						: (a < 80 &&
+								!f.PointZombie &&
+								((f.PointZombie = 1),
+								!oS.CardKind &&
+									(StopMusic(),
+									PlayAudio("losemusic", false)),
+								f.ChangeR({
+									R: d,
+									ar: [oS.R - 1],
+									CustomTop: 400 - f.height + f.GetDY(),
+								})),
+							(f.ZX = f.AttackedLX -= b),
+							(f.Ele.style.left = Math.floor((f.X -= b)) + "px"),
+							(e = 1))
+					: (e = 1))
+			: (e = 1);
+		return e;
+	},
+	CanDig: {
+		oPotatoMine: true,
+	},
+	JudgeAttack_Dig: function () {
+		var g = this,
 			d = g.ZX,
 			e = g.R + "_",
 			f = GetC(d),
 			h = oGd.$,
 			c;
-		  (c = g.JudgeLR(g, e, f, d, h) || g.JudgeSR(g, e, f, d, h)) &&
-		  g.CanDig[$P[c[1]]["EName"]] ?
-			(!g.isAttacking &&
-			  ((g.isAttacking = 1), (g.EleBody.src = g.PicArr[g.AttackGif])),
-			  g.NormalAttack(c[0], c[1])) :
-			g.isAttacking &&
-			((g.isAttacking = 0), (g.EleBody.src = g.PicArr[g.NormalGif]));
-		},
-		JudgeAttack_Up1: function() {
-		  var g = this,
+		(c = g.JudgeLR(g, e, f, d, h) || g.JudgeSR(g, e, f, d, h)) &&
+		g.CanDig[$P[c[1]]["EName"]]
+			? (!g.isAttacking &&
+					((g.isAttacking = 1),
+					(g.EleBody.src = g.PicArr[g.AttackGif])),
+				g.NormalAttack(c[0], c[1]))
+			: g.isAttacking &&
+				((g.isAttacking = 0), (g.EleBody.src = g.PicArr[g.NormalGif]));
+	},
+	JudgeAttack_Up1: function () {
+		var g = this,
 			d = g.AttackedRX,
 			e = g.R + "_",
 			f = GetC(d),
 			h = oGd.$,
 			c;
-		  (c = g.JudgeSR(g, e, f, d, h) || g.JudgeLR(g, e, f, d, h)) ?
-		  (!g.isAttacking &&
-			((g.isAttacking = 1), (g.EleBody.src = g.PicArr[g.AttackGif])),
-			g.NormalAttack(c[0], c[1])) :
-		  g.isAttacking &&
-			((g.isAttacking = 0), (g.EleBody.src = g.PicArr[g.NormalGif]));
-		},
-		Stone_of_Sinan_Up: function() {
-		  // 被磁铁吸了镐子调用的函数
-		  var g = this; //alert(1);
-		  if (g.isUp) {
+		(c = g.JudgeSR(g, e, f, d, h) || g.JudgeLR(g, e, f, d, h))
+			? (!g.isAttacking &&
+					((g.isAttacking = 1),
+					(g.EleBody.src = g.PicArr[g.AttackGif])),
+				g.NormalAttack(c[0], c[1]))
+			: g.isAttacking &&
+				((g.isAttacking = 0), (g.EleBody.src = g.PicArr[g.NormalGif]));
+	},
+	Stone_of_Sinan_Up: function () {
+		// 被磁铁吸了镐子调用的函数
+		var g = this; //alert(1);
+		if (g.isUp) {
 			g.EleBody.src =
-			  g.PicArr[
-				g.isAttacking ?
-				(g.AttackGif = g.AttackGif_Up1) :
-				(g.NormalGif = g.WalkGif2)
-			  ];
-		  } else {
+				g.PicArr[
+					g.isAttacking
+						? (g.AttackGif = g.AttackGif_Up1)
+						: (g.NormalGif = g.WalkGif2)
+				];
+		} else {
 			g.Go_Up(g, 0);
-		  }
-		  g.Stone_of_Sinan_Up = function() {};
-		},
-	  });
+		}
+		g.Stone_of_Sinan_Up = function () {};
+	},
+});

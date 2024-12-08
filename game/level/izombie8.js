@@ -1,5 +1,12 @@
 oS.Init({
-	PName: [oPeashooter, oSunFlower, oWallNut, oIPotatoMine, oSquash, oMagnetShroom],
+	PName: [
+		oPeashooter,
+		oSunFlower,
+		oWallNut,
+		oIPotatoMine,
+		oSquash,
+		oMagnetShroom,
+	],
 	ZName: [
 		oIImp,
 		oIConeheadZombie,
