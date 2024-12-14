@@ -2765,7 +2765,6 @@ var $User = (function () {
 		SetBlock($("dSurface"), $("dZombieFail"));
 		oSym.Stop();
 	}),
-
 	(PrepareGrowPlants = function (a) {
 		var b = function () {
 			PlayAudio("readysetplant");
