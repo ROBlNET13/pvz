@@ -3744,8 +3744,8 @@ BirthStyle: function (c, e, b, a) {
 			"images/Card/Plants/WallNut.png",
 			"images/Plants/WallNut/0.gif",
 			"images/Plants/WallNut/WallNut.webp",
-			"images/Plants/WallNut/Wallnut_cracked1.gif",
-			"images/Plants/WallNut/Wallnut_cracked2.gif",
+			"images/Plants/WallNut/Wallnut_cracked1.webp",
+			"images/Plants/WallNut/Wallnut_cracked2.webp",
 		],
 		Tooltip: "Blocks off zombies and protects your other plants",
 		Produce:
@@ -3784,12 +3784,12 @@ BirthStyle: function (c, e, b, a) {
 						? c.HurtStatus < 2 &&
 							((c.HurtStatus = 2),
 							(d.src =
-								"images/Plants/WallNut/Wallnut_cracked2.gif"))
+								"images/Plants/WallNut/Wallnut_cracked2.webp"))
 						: c.HP < 2667 &&
 							c.HurtStatus < 1 &&
 							((c.HurtStatus = 1),
 							(d.src =
-								"images/Plants/WallNut/Wallnut_cracked1.gif"))
+								"images/Plants/WallNut/Wallnut_cracked1.webp"))
 				: c.Die(1);
 		},
 	}),
@@ -3806,8 +3806,8 @@ BirthStyle: function (c, e, b, a) {
 			"images/Card/Plants/WallNut.png",
 			"images/Plants/WallNut/0.gif",
 			"images/Plants/WallNut/WallNut.webp",
-			"images/Plants/WallNut/Wallnut_cracked1.gif",
-			"images/Plants/WallNut/Wallnut_cracked2.gif",
+			"images/Plants/WallNut/Wallnut_cracked1.webp",
+			"images/Plants/WallNut/Wallnut_cracked2.webp",
 		],
 		Tooltip: "Blocks off zombies and protects your other plants",
 		Produce:
@@ -3846,12 +3846,12 @@ BirthStyle: function (c, e, b, a) {
 						? c.HurtStatus < 2 &&
 							((c.HurtStatus = 2),
 							(d.src =
-								"images/Plants/WallNut/Wallnut_cracked2.gif"))
+								"images/Plants/WallNut/Wallnut_cracked2.webp"))
 						: c.HP < 2667 &&
 							c.HurtStatus < 1 &&
 							((c.HurtStatus = 1),
 							(d.src =
-								"images/Plants/WallNut/Wallnut_cracked1.gif"))
+								"images/Plants/WallNut/Wallnut_cracked1.webp"))
 				: c.Die(1);
 		},
 	}),
