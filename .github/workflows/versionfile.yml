@@ -14,10 +14,16 @@ jobs:
       run: |
         echo "${{ github.sha }}" > v.txt
     
-    - name: Commit and push v.txt
+    - name: Commit and push changes and trigger another workflow
       run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add v.txt
-        git commit -m "Add v.txt with commit hash" || exit 0
-        git push
+        	git config user.name github-actions
+        	git config user.email github-actions@github.com
+        	git add v.txt
+        	git commit -m "v" || exit 0
+        	git push
+        	curl \
+        	-X POST \
+        	-H "Accept: application/vnd.github.v3+json" \
+        	-H "Authorization: token ${{ secrets.ACCESS_TOKEN }}" \
+        	https://api.github.com/repos/roblnet13/pvz/actions/workflows/static.yml/dispatches \
+        	-d '{"ref":"main"}'
