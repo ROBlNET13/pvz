@@ -396,3 +396,60 @@ td {
 		transform: translateY(-100px);
 	}
 }
+
+#dZombieFail .list div {
+	position: relative;
+	width: 100%;
+}
+
+#dZombieFail .button {
+	position: absolute;
+	cursor: pointer;
+	top: 410px;
+	font-family: 宋体;
+	color: #f93;
+	font-size: 24px;
+	font-weight: 700;
+}
+
+#dZombieFail .button {
+	left: 150px;
+	top: 404px;
+}
+
+#dZombieFailAD {
+	left: 0;
+	height: 100%;
+}
+
+#dZombieFail {
+	position: absolute;
+	left: 233px;
+	top: 20px;
+	width: 434px;
+	display: none;
+	font-weight: bold;
+}
+
+#dZombieFail .list {
+	position: absolute;
+	left: 0;
+	top: 90px;
+	z-index: 200;
+	width: 100%;
+	text-align: center;
+}
+
+#dZombieFail .list .hidden {
+	cursor: pointer;
+	height: 20px;
+	color: #f93;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+#dZombieFail .list .pause {
+	color: #000;
+	font-size: 18px;
+	line-height: 30px;
+}
