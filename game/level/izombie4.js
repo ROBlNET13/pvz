@@ -65,6 +65,7 @@ oS.Init({
 		oP.Monitor();
 		BeginCool();
 		SetVisible($("dFlagMeter"), $("dTop"));
+		StopMusic();
 		PlayMusic((oS.LoadMusic = "Cerebrawl"));
 		oS.RiddleAutoGrow();
 	},
