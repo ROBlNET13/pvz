@@ -453,3 +453,12 @@ td {
 	font-size: 18px;
 	line-height: 30px;
 }
+
+#imgSF {
+	z-index: 9999 !important;
+}
+
+#sSunNum {
+	top: 50% !important;
+	transform: translateY(-50%) !important;
+}
