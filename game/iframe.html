@@ -65,6 +65,25 @@
 		ondragstart="return false"
 		onselectstart="return false"
 	>
+		<div id="stolen-warning" style="display: none;">
+			<div class="stolen-warning-content">
+				<h2>🚫 WRONG WEBSITE! 🚫</h2>
+				<p style="font-size: 1.2em;">This is not the real game!</p>
+				<p style="font-size: 1.2em;">The only real website is:</p>
+				<a href="https://roblnet13.github.io/pvz" style="font-family: monospace !important;">roblnet13.github.io/pvz</a>
+				<p style="font-size: 1.2em; color: #ff0000;">Someone copied this game without permission!</p>
+				<p style="font-size: 1.2em;">Click the button to visit the real website:</p>
+				<a href="https://roblnet13.github.io/pvz" class="big-button">Play on the Real Website!</a>
+				<button class="small-button" onclick="document.getElementById('stolen-warning').style.display='none'">Stay Here</button>
+			</div>
+		</div>
+		<script>
+			(function checkReferrer() {
+				if (document.referrer && !document.referrer.includes('roblnet13.github.io')) {
+					document.getElementById('stolen-warning').style.display = 'flex';
+				}
+			})();
+		</script>
 		<script src="oneko.js"></script>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<!-- Global site tag (gtag.js) - Google Analytics -->
