@@ -76,13 +76,16 @@
 					That's normal! But if you found this through a different website, they might have copied the game without permission.</p>
 				</div>
 				<p style="font-size: 1.2em;">To be safe, you can:</p>
-				<a href="https://roblnet13.github.io/pvz" class="big-button">Play on the Official Website!</a>
+				<a href="https://roblnet13.github.io/pvz" target="_top" class="big-button" onclick="window.top.location.href='https://roblnet13.github.io/pvz'; return false;">Play on the Official Website!</a>
 				<button class="small-button" onclick="document.getElementById('stolen-warning').style.display='none'">Continue Here</button>
 			</div>
 		</div>
 		<script>
-			(function checkReferrer() {
-				if (document.referrer && !document.referrer.includes('roblnet13.github.io')) {
+			(function checkSite() {
+				var currentUrl = window.location.href;
+				var isOfficialSite = currentUrl.includes('roblnet13.github.io') || document.referrer.includes('roblnet13.github.io');
+				
+				if (!isOfficialSite) {
 					document.getElementById('stolen-warning').style.display = 'flex';
 				}
 			})();
