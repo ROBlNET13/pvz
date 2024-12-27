@@ -82,9 +82,16 @@
 		</div>
 		<script>
 			(function checkSite() {
-				var currentUrl = window.location.href;
-				var isOfficialSite = currentUrl.includes('roblnet13.github.io') || document.referrer.includes('roblnet13.github.io');
+				// First check referrer - if it exists and is official site, we're good
+				if (document.referrer && document.referrer.includes('roblnet13.github.io')) {
+					return; // Exit early if referrer is from official site
+				}
 				
+				// Otherwise check current URL only if referrer is empty/missing
+				var currentUrl = window.location.href;
+				var isOfficialSite = !document.referrer && currentUrl.includes('roblnet13.github.io');
+				
+				// Show warning if neither check passed
 				if (!isOfficialSite) {
 					document.getElementById('stolen-warning').style.display = 'flex';
 				}
