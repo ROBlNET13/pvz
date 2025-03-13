@@ -1,4 +1,29 @@
-﻿body {
+﻿/* briannetod.ttf */
+@font-face {
+	font-family: "briannetod";
+	src: url("fonts/briannetod.ttf");
+}
+/* dwarventodcraft.ttf */
+@font-face {
+	font-family: "dwarventodcraft";
+	src: url("fonts/dwarventodcraft.ttf");
+}
+/* houseofterrormedium.ttf */
+@font-face {
+	font-family: "houseofterrormedium";
+	src: url("fonts/houseofterrormedium.ttf");
+}
+/* pico12.ttf */
+@font-face {
+	font-family: "pico12";
+	src: url("fonts/pico12.ttf");
+}
+/* continuumbold.ttf */
+@font-face {
+	font-family: "continuumbold";
+	src: url("fonts/continuumbold.ttf");
+}
+body {
 	-moz-user-select: none;
 	overflow-x: hidden;
 	overflow-y: hidden;
@@ -748,8 +773,8 @@ td.HandBookZombie {
 	border-top: 3px solid #85411c;
 	border-bottom: 3px solid #4e250c;
 	background-color: #602d11;
-	font-weight: bold;
-	font-size: 12px;
+	font-size: large;
+	font-family: dwarventodcraft !important;
 	cursor: pointer;
 }
 

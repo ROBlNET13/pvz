@@ -9869,7 +9869,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			"images/interface/Shovel/ShovelCard.png",
 			"images/interface/Shovel/0.gif",
 		],
-		Tooltip: "Shovel up plants you dont want!",
+		Tooltip: "Shovel up plants you don't want!",
 	}));
 oFlowerVase = InheritO(CPlants, {
 	EName: "oFlowerVase",
