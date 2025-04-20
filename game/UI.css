@@ -588,7 +588,7 @@ td.HandBookZombie {
 }
 
 .OptionsMenuButtonSpan {
-	height: 100px;
+	height: 90px;
 	line-height: 100px;
 	cursor: pointer;
 }
@@ -1080,7 +1080,7 @@ td.HandBookZombie {
 }
 
 #dHandBookPlantName {
-	width: 100%;
+	width: 92.5%;
 	height: 60px;
 	text-align: center;
 	line-height: 60px;
@@ -1090,14 +1090,30 @@ td.HandBookZombie {
 }
 
 #dProducePlant {
-	margin-left: auto;
+	margin-left: 50px;
 	margin-right: auto;
-	width: 74%;
+	width: 64%;
 	height: 210px;
 	text-align: left;
 	font-size: 13px;
 	line-height: 16px;
-	font-family: Tahoma;
+	/*	font-family: Tahoma; */
+	overflow-y: auto;
+}
+
+#dProducePlant::-webkit-scrollbar {
+	width: 8px;
+}
+#dProducePlant::-webkit-scrollbar-thumb {
+	background: #954f19;
+	border-radius: 10px;
+}
+#dProducePlant::-webkit-scrollbar-thumb:hover {
+	background: #a4571b;
+}
+#dProducePlant::-webkit-scrollbar-track {
+	background: #e2ad57;
+	border-radius: 10px;
 }
 
 #spSunNum,
@@ -1172,7 +1188,7 @@ td.HandBookZombie {
 }
 
 #dHandBookZombieName {
-	width: 100%;
+	width: 95%;
 	height: 60px;
 	text-align: center;
 	line-height: 60px;
@@ -1183,14 +1199,30 @@ td.HandBookZombie {
 }
 
 #dProduceZombie {
-	margin-left: auto;
+	margin-left: 40px;
 	margin-right: auto;
-	width: 76%;
-	height: 210px;
+	width: 69%;
+	height: 150px;
 	text-align: left;
 	font-size: 14px;
 	line-height: 16px;
 	font-family: Tahoma;
+	overflow-y: auto;
+}
+
+#dProduceZombie::-webkit-scrollbar {
+	width: 10px;
+}
+#dProduceZombie::-webkit-scrollbar-thumb {
+	background: #5f606f;
+	border-radius: 3px;
+}
+#dProduceZombie::-webkit-scrollbar-thumb:hover {
+	background: #4e4f5b;
+}
+#dProduceZombie::-webkit-scrollbar-track {
+	background: #ded5f7;
+	border-radius: 3px;
 }
 
 #dNewPlant {
@@ -1672,7 +1704,7 @@ dd.yellow {
 	width: 100%;
 	height: 100%;
 	display: none;
-	font-weight: bold;
+	/*	font-weight: bold; */
 }
 
 #dOptionsMenu .button {
