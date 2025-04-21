@@ -27,6 +27,7 @@
 	font-family: "briannetod" !important;
 }
 [id^="sSunNum"]:not([id="sSunNum"]) {
+	text-shadow:1px 1px 2px #ffffff;
 	font-family: "pico12" !important;
 	margin-right: 7px !important;
 	font-size: 20px !important;
@@ -128,21 +129,14 @@
 	margin-left: -10px !important;
 	margin-top: 4px;
 }
-#btnNextLevel {
-	text-shadow: 0px 0px 3px #000, 0px 0px 3px #000;
-	/* box-shadow: inset #ffffff24 1px 2px 2px, inset #00000021 0px -1px 4px 0px, #0000007a 1px 2px 6px -1px; */
-	/* border-radius: 3px; */
-	border-left: 0 !important;
-	border-right: 0 !important;
-	border-top: 0 !important;
-	border-bottom: 0 !important;
-	background: url("images/SeedChooser_Button.png") no-repeat !important;
-	background-size: contain !important;
-	font-family: dwarventodcraft !important;
-	color: #d0932b !important;
-	font-size: 18px !important;
-	width: 150px !important;
-	margin-left: -25px !important;
+
+.Menu {
+	color: #06bd00 !important;
+	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
+
+	font-size: x-large !important;
+	/* -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important; */
 }
 #dNewPlantName {
 	color: #d0932b !important;
