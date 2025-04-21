@@ -1035,7 +1035,8 @@ td.HandBookZombie {
 }
 
 #dHandBookP .list .cost_cool {
-	width: 74%;
+	color: #8f431b;
+	width: 75%;
 	font-size: 14px;
 	margin-left: auto;
 	margin-right: auto;
@@ -1044,12 +1045,12 @@ td.HandBookZombie {
 
 #dHandBookP .list .cost_cool .cost {
 	float: left;
-	width: 20%;
+	width: 11%;
 }
 
 #dHandBookP .list .cost_cool .cool {
 	float: left;
-	width: 30%;
+	width: 18.5%;
 }
 
 #dHandBookPCard {
@@ -1125,8 +1126,15 @@ td.HandBookZombie {
 
 #spSunNum,
 #spCoolTime {
+	color: #cc241d;
+}
+#spSunNum {
 	float: left;
-	width: 24%;
+	width: 45%;
+}
+#spCoolTime {
+	float: left;
+	width: 10%;
 }
 
 #dHandBookZ {
