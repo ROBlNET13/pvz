@@ -1056,17 +1056,46 @@ td.HandBookZombie {
 #dHandBookPCard {
 	position: absolute;
 	top: 71px;
-	width: 55%;
-	height: 497px;
+	width: 50%;
+	height: 80%;
 	margin: 25px 0 0 15px;
+	overflow-y: auto;
 }
+
+#dHandBookPCard::-webkit-scrollbar {
+	width: 10px;
+}
+#dHandBookPCard::-webkit-scrollbar-thumb {
+	background: #954f19;
+	border-radius: 10px;
+	box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2), inset 1px 1px 2px 0 #b6703b;
+	background: linear-gradient(133deg, #954f19, #904b17);
+}
+#dHandBookPCard::-webkit-scrollbar-thumb:hover {
+/*	background: #a4571b; */
+	background: linear-gradient(133deg, #a4571b, #9a5018);
+}
+#dHandBookPCard::-webkit-scrollbar-track {
+/*	background: #e4a865; */
+	border-radius: 10px;
+	box-shadow: inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5), inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
+	background: linear-gradient(133deg, #e4a865, #d29a59);
+}
+
+
+#dHandBookPCard::-webkit-scrollbar-track {
+	/*	background: #e4a865; */
+		border-radius: 10px;
+		box-shadow: inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5), inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
+		background: linear-gradient(133deg, #e4a865, #d29a59);
+	}
 
 #pPlantBack,
 #pZombieBack {
 	position: absolute;
 	width: 250px;
 	height: 250px;
-	background: url("images/interface/Almanac_Ground.jpg") no-repeat;
+	background: url("images/interface/Almanac_Ground.png") no-repeat;
 }
 
 #pPlantBack {

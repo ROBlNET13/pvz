@@ -194,7 +194,7 @@
 #dChoseTitle {
 	margin-top: -6px;
 	font-size: 30px;
-	-webkit-text-stroke: 1px #ceaa31;
+/*	-webkit-text-stroke: 1px #ceaa31; */
 	font-weight: lighter;
 	text-shadow: 0px 3px 0px #000, 1px 3px 0px #000, 2px 3px 0px #000,
 		3px 3px 0px #000, 3px 2px 0px #000, 3px 1px 0px #000, 3px 0px 0px #000,
@@ -222,7 +222,7 @@
 #dChoseTitle {
 	color: #dfdfdf;
 	font-family: "houseofterrormedium" !important;
-	-webkit-text-stroke: 1px #cacaca;
+/*	-webkit-text-stroke: 1px #cacaca; */
 	margin-top: 1px;
 	font-weight: lighter !important;
 }

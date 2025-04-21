@@ -46,7 +46,7 @@ oS.Init({
 			//      a + "SelectorScreen_Shadow_Adventure.png",
 			//     a + "SelectorScreen_Shadow_Survival.png",
 			//      a + "SelectorScreen_Shadow_Challenge.png",
-			"images/interface/Almanac_Ground.jpg",
+			"images/interface/Almanac_Ground.png",
 			a + "Almanac_ZombieWindow2.png",
 			a + "Challenge_Background.jpg",
 			a + "Challenge.png",
