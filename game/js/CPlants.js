@@ -3948,7 +3948,7 @@ BirthStyle: function (c, e, b, a) {
 			var a = "images/Plants/Cattail/";
 			return [
 				"images/Card/Plants/Catttail.png",
-				a + "cat.gif",
+				a + "0.gif",
 				a + "cat.gif",
 				"images/Plants/Cactus/Projectile" +
 					($User.Browser.IE6 ? 8 : 32) +
