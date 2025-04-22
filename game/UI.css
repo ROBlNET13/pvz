@@ -610,7 +610,7 @@ td.HandBookZombie {
 	font-weight: bold;
 	font-family: Tahoma;
 	color: #00cb08;
-	height: 41px;
+	height: 46px;
 	width: 113px;
 	background: url(images/interface/Button.png) no-repeat;
 }
@@ -1865,7 +1865,7 @@ dd.yellow {
 	margin-left: 0;
 	width: 450px;
 	height: 600px;
-	background: url(images/interface/Almanac_IndexBack.png) no-repeat left top;
+	background: url(images/interface/Almanac_IndexBack.jpg) no-repeat left top;
 }
 
 #dRiddleInx .inx1 {
@@ -1875,7 +1875,7 @@ dd.yellow {
 	margin-left: 0;
 	width: 450px;
 	height: 600px;
-	background: url(images/interface/Almanac_IndexBack.png) no-repeat right top;
+	background: url(images/interface/Almanac_IndexBack.jpg) no-repeat right top;
 }
 
 #dRiddleInx1 {
@@ -1914,7 +1914,7 @@ dd.yellow {
 	margin-left: -110px;
 	width: 221px;
 	height: 310px;
-	background: url(images/interface/Almanac_IndexBack.png) no-repeat left top;
+	background: url(images/interface/Almanac_IndexBack.jpg) no-repeat left top;
 }
 
 #dRiddleInx1 .inx11 {
@@ -1924,7 +1924,7 @@ dd.yellow {
 	margin-left: -110px;
 	width: 221px;
 	height: 310px;
-	background: url(images/interface/Almanac_IndexBack.png) no-repeat right top;
+	background: url(images/interface/Almanac_IndexBack.jpg) no-repeat right top;
 }
 
 #dRiddle0 td,
