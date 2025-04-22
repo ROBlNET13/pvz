@@ -26,13 +26,12 @@
 body {
 	-moz-user-select: none;
 	overflow-x: hidden;
-	overflow-y: hidden;
-/*	background: #000; */
+/*	overflow-y: hidden;
+	background: #000; */
 	background: linear-gradient(-90deg, #0f0f1f, #091a09);
 	font-family: Tahoma, Verdana, fixedsys;
 	overflow-x: hidden;
 }
-
 td {
 	font-family: Verdana;
 	font-size: 12px;

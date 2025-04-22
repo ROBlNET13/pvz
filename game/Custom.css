@@ -138,6 +138,9 @@
 	font-size: x-large !important;
 	/* -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important; */
 }
+.Menu:hover {
+	color: #01e901 !important;
+}
 #dNewPlantName {
 	color: #d0932b !important;
 	font-family: dwarventodcraft !important;
