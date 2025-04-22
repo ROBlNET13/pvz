@@ -1123,7 +1123,7 @@ td.HandBookZombie {
 #dProducePlant {
 	margin-left: 50px;
 	margin-right: auto;
-	width: 64%;
+	width: 62%;
 	height: 210px;
 	text-align: left;
 	font-size: 15px;
@@ -1349,10 +1349,11 @@ td.HandBookZombie {
 	background-color: #8f431b;
 	color: #fc6;
 	font-weight: bold;
-	font-size: 12px;
+	font-size: 20px;
 	font-family: Tahoma;
 	left: 400px;
 	top: 507px;
+	border-radius: 5px;
 }
 
 #dProcess {
