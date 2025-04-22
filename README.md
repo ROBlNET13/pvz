@@ -23,7 +23,7 @@ You are not allowed to use this fangame on your website without written permissi
 
 **If requested, we will promptly take down this GitHub repo and the GitHub pages site. You may contact us at [claytontdm@gmail.com](mailto:claytontdm@gmail.com) and we will promptly remove this repo and all forks owned by us.**
 
-### ***All websites hosting our fangame without credit, whether original or modified, will be taken down.***
+### **_All websites hosting our fangame without credit, whether original or modified, will be taken down._**
 
 ---
 
