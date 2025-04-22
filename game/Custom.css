@@ -136,10 +136,16 @@
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	font-size: x-large !important;
+	padding-top: 0px
 	/* -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important; */
 }
 .Menu:hover {
 	color: #01e901 !important;
+	background: url(images/interface/Button.png) no-repeat;
+}
+.Menu:active {
+	background: url(images/interface/ButtonDown.png) no-repeat;
+	padding-top: 1.5px
 }
 #dNewPlantName {
 	color: #d0932b !important;
