@@ -142,6 +142,7 @@
 .Menu:hover {
 	color: #01e901 !important;
 	background: url(images/interface/Button.png) no-repeat;
+	padding-top: 0px
 }
 .Menu:active {
 	background: url(images/interface/ButtonDown.png) no-repeat;
