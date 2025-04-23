@@ -21,11 +21,11 @@ var $User = (function () {
 			? (document.execCommand("BackgroundImageCache", false, true),
 				(ShadowPNG = ""))
 			: (ShadowPNG = "images/interface/plantshadow32.png");
-		innerHTML = function(element, content) {
+		innerHTML = function (element, content) {
 			if (element) {
 				element.innerHTML = content;
 			}
-		}
+		};
 		return {
 			Browser: {
 				IE: c,
