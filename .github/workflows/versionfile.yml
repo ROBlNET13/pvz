@@ -7,16 +7,20 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Wait for other changes
+      run: |
+        echo "Waiting for other changes to be pushed..."
+        sleep 60
+
     - name: Checkout repository
       uses: actions/checkout@v4
-    
+
     - name: Create v.txt with commit hash
       run: |
         echo "${{ github.sha }}" > v.txt
     
     - name: Commit and push changes and trigger another workflow
       run: |
-        sleep 60
         git config user.name github-actions
         git config user.email github-actions@github.com
         git add v.txt
