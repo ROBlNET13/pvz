@@ -268,7 +268,7 @@
 										copyButtonElement.style.width = "35px";
 										copyButtonElement.style.height = "34px";
 										copyButtonElement.style.cursor =
-											"pointer";
+											"url(images/interface/Pointer.cur),pointer";
 										copyButtonElement.style.backgroundColor =
 											"#fff";
 										copyButtonElement.style.borderStyle =
@@ -560,7 +560,7 @@
 						NewEle(
 							"dBack",
 							"div",
-							"position:absolute;width:89px;height:26px;top:564px;left:700px;background-position:center top;background:url(images/interface/Almanac_CloseButton.png);cursor:pointer;text-align:center;line-height:26px;color:#000080;font-size:12px;",
+							"position:absolute;width:89px;height:26px;top:564px;left:700px;background-position:center top;background:url(images/interface/Almanac_CloseButton.png);cursor:url(images/interface/Pointer.cur),pointer;text-align:center;line-height:26px;color:#000080;font-size:12px;",
 							{
 								onmouseover: function () {
 									this.style.backgroundPosition = "bottom";
@@ -580,7 +580,7 @@
 						NewEle(
 							"dGrassDiv",
 							"div",
-							"left:100px;top:100px;background-image:url(images/interface/background2.jpg);display:block;position:absolute;z-index:100;cursor:pointer;background-position:-25px,0px;background-size:324px,139px;background-repeat:no-repeat;width:275px;height:139px;border:5px solid rgba(255,255,255,0.5);border-radius:15px;",
+							"left:100px;top:100px;background-image:url(images/interface/background2.jpg);display:block;position:absolute;z-index:100;cursor:url(images/interface/Pointer.cur),pointer;background-position:-25px,0px;background-size:324px,139px;background-repeat:no-repeat;width:275px;height:139px;border:5px solid rgba(255,255,255,0.5);border-radius:15px;",
 							{
 								onclick: function () {
 									Change_Level("NGrass");
@@ -602,7 +602,7 @@
 						NewEle(
 							"dPoolDiv",
 							"div",
-							"left:100px;top:250px;background-image:url(images/interface/background4.jpg);display:block;position:absolute;z-index:100;cursor:pointer;background-position:-25px,0px;background-size:324px,139px;background-repeat:no-repeat;width:275px;height:139px;border:5px solid rgba(255,255,255,0.5);border-radius:15px;",
+							"left:100px;top:250px;background-image:url(images/interface/background4.jpg);display:block;position:absolute;z-index:100;cursor:url(images/interface/Pointer.cur),pointer;background-position:-25px,0px;background-size:324px,139px;background-repeat:no-repeat;width:275px;height:139px;border:5px solid rgba(255,255,255,0.5);border-radius:15px;",
 							{
 								onclick: function () {
 									Change_Level("NPool");

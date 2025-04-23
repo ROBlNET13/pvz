@@ -63,7 +63,7 @@ oS.Init(
 								NewImg(
 									f,
 									d.PicArr[d.CardGif],
-									"top:600px;width:100px;height:120px;cursor:pointer;clip:rect(auto,auto,60px,auto)",
+									"top:600px;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto)",
 									$("dCardList"),
 									{
 										onmouseover: function (g) {

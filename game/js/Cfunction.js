@@ -119,10 +119,11 @@ var $User = (function () {
 		},
 	},
 	oS = {
-		Version: 4,
+		Version: 5,
 		W: 880,
 		H: 600,
 		C: 9,
+		B: atob,
 		LawnMowerX: 70,
 		Lvl: 0,
 		GlobalVariables: {},
@@ -310,7 +311,7 @@ var $User = (function () {
 			p.PicNum = w += i.length;
 			r = i.length;
 			y.setAttribute("title", "");
-			y.style.cursor = "pointer";
+			y.style.cursor = "url(images/interface/Pointer.cur),pointer";
 			y.onclick = function () {
 				oS.MustAllReady = false;
 				oS.LoadReady(oS);
@@ -396,7 +397,7 @@ var $User = (function () {
 			b = 139 - (c.AccessNum++ * 140) / c.PicNum - 11;
 			$("imgFlagHead").style.left = b + "px";
 			$("sFlagMeterTitleF").innerHTML =
-				'<span style="cursor:pointer;font-family:Tahoma;color:#fff">Loading...(' +
+				'<span style="cursor:url(images/interface/Pointer.cur),pointer;font-family:Tahoma;color:#fff">Loading...(' +
 				c.AccessNum +
 				"/" +
 				c.PicNum +
@@ -420,7 +421,7 @@ var $User = (function () {
 			oSym.TimeStep = $User.Visitor.TimeStep;
 			c.onclick = null;
 			c.title = null;
-			c.style.cursor = "default";
+			c.style.cursor = "url(images/interface/Cursor.cur),default";
 			SetHidden($("dFlagMeterContent"), dFlagMeter);
 			$("dFlagMeter").style.top = "490px";
 			//          $("dFlagMeter").style.left = "805px"; // not good
@@ -909,7 +910,7 @@ var $User = (function () {
 				2 * ($User.Visitor.TimeStep / 10)
 			}s ease-in-out infinite`;
 			image.style.top = `${randomY}px`;
-			image.style.cursor = "pointer";
+			image.style.cursor = "url(images/interface/Pointer.cur),pointer";
 			image.style.zIndex = "999";
 			image.addEventListener("animationend", () => {
 				image.parentNode.removeChild(image);
@@ -2516,7 +2517,7 @@ var $User = (function () {
 			d,
 			g = "Sun" + Math.random(),
 			c =
-				"cursor:pointer;z-index:25;filter:alpha(opacity=80);opacity:0.8;left:" +
+				"cursor:url(images/interface/Pointer.cur),pointer;z-index:25;filter:alpha(opacity=80);opacity:0.8;left:" +
 				h +
 				"px;";
 		switch (e) {
@@ -2828,7 +2829,7 @@ var $User = (function () {
 			width: "200px",
 			height: "240px",
 			clip: "rect(0,auto,120px,0)",
-			cursor: "default",
+			cursor: "url(images/interface/Cursor.cur),default",
 		}).onclick = null;
 		oSym.Init(
 			function (d, e) {
@@ -2917,7 +2918,7 @@ var $User = (function () {
 		document.cookie = a + "=0;";
 	}),
 	(WordUTF8 =
-		'<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><span id="commit" style="position: absolute;color: #ffffff0f;bottom: 0;user-select: none;"></span><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:pointer" onclick="PlayAudio(\'gravebutton\');SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'));ShowNameDiv();sa_event(\'clickstart0js\')"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:pointer;z-index:300" onclick="SetVisible($(\'dProcess\'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>');
+		'<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><span id="commit" style="position: absolute;color: #ffffff0f;bottom: 0;user-select: none;"></span><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:url(images/interface/Pointer.cur),pointer" onclick="PlayAudio(\'gravebutton\');SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'));ShowNameDiv();sa_event(\'clickstart0js\')"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:url(images/interface/Pointer.cur),pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:url(images/interface/Pointer.cur),pointer;z-index:300" onclick="SetVisible($(\'dProcess\'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>');
 
 (ShowNameDiv = function () {
 	oSym.Start();
@@ -3006,7 +3007,8 @@ var $User = (function () {
 			),
 			c = $User.Server,
 			b = c.List,
-			a = $("dProcess");
+			a = $("dProcess"),
+			floor = oS.B;
 		!$("dText1") &&
 			a.insertBefore(
 				NewEle(
@@ -3014,8 +3016,9 @@ var $User = (function () {
 					"div",
 					0,
 					{
-						innerHTML:
-							'<span style="line-height:23px;font-size:15px;font-family:&#x9ED1;&#x4F53;;color:#F60;top:32px">Welcome to experience<span style="font-family:Tahoma;font-weight:700">The new version of Plants vs. Zombies JS</span>,The program is made by the player, not affiliated with any for-profit company.<span style="font-family:Tahoma;font-weight:700">LonelyStar and Jiangnan Game Development Company and ROBLNET13 and ClaytonTDM</span>All rights reserved to the program,The game theme, material and sound effects are owned by Popcap Games, Electronic Arts, and individual background music sources are free music websites. If you need to reprint, please keep the above copyright instructions, otherwise it will be treated as piracy. The modded version is by ROBLNET13 and ClaytonTDM on Github. Do not remove this warning.</span>',
+						innerHTML: floor(
+							"PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OnNhbnMtc2VyaWY7Y29sb3I6I2JiYjt3aWR0aDo4NSU7ZGlzcGxheTpibG9jazttYXJnaW46MTVweCBhdXRvIDAgYXV0byI+PHNwYW4gc3R5bGU9ImNvbG9yOiNmNjA7Ij5XZWxjb21lIHRvIFBsYW50cyB2cy4gWm9tYmllczogTU9EREVEPGJyPjwvc3Bhbj48c3BhbiBzdHlsZT0iY29sb3I6I2VlZTsiPlBsYW50cyB2cy4gWm9tYmllcyBNT0RERUQgqSAyMDI1IGJ5IFJPQmxORVQxMyBhbmQgQ2xheXRvblRETSBpcyBsaWNlbnNlZCB1bmRlciA8YSBocmVmPSJodHRwczovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnktbmMtbmQvNC4wL2RlZWQuZW4iPkNDIEJZLU5DLU5EIDQuMDwvYT4uIFRoaXMgbGljZW5zZSBhcHBsaWVzIG9ubHkgdG8gb3JpZ2luYWwgY29kZS9jb250ZW50IGNyZWF0ZWQgYnkgdGhlIG1vZGRpbmcgdGVhbS4gQWxsIFBsYW50cyB2cy4gWm9tYmllcyBpbnRlbGxlY3R1YWwgcHJvcGVydHkgcmVtYWlucyB0aGUgZXhjbHVzaXZlIHByb3BlcnR5IG9mIFBvcENhcCBHYW1lcyBhbmQgRWxlY3Ryb25pYyBBcnRzIChFQSkuPC9zcGFuPjxicj48YnI+UGxhbnRzIHZzLiBab21iaWVzIE1PRERFRCBpcyBhbiB1bm9mZmljaWFsIG1vZGlmaWNhdGlvbiBhbmQgaXMgbm90IGFmZmlsaWF0ZWQgd2l0aCwgZW5kb3JzZWQgYnksIG9yIGFzc29jaWF0ZWQgd2l0aCBQb3BDYXAgR2FtZXMsIEVsZWN0cm9uaWMgQXJ0cyAoRUEpLCBvciB0aGUgb2ZmaWNpYWwgUGxhbnRzIHZzLiBab21iaWVzIGdhbWUuIEFsbCBpbnRlbGxlY3R1YWwgcHJvcGVydHksIHRyYWRlbWFya3MsIGFuZCBjb3B5cmlnaHRzIHJlbGF0ZWQgdG8gdGhlIG9yaWdpbmFsIFBsYW50cyB2cy4gWm9tYmllcyBnYW1lIGFyZSB0aGUgcHJvcGVydHkgb2YgUG9wQ2FwIEdhbWVzIGFuZCBFQS4gQWxsIGNvZGUgaW4gdGhpcyBmYW5nYW1lIGlzIG9yaWdpbmFsLCBiYXNlZCBvbiBhIFB2WiB3ZWJnYW1lIG9yaWdpbmFsbHkgY3JlYXRlZCBieSBKaWFuZ05hbiBHYW1lIERldmVsb3BtZW50IENvbXBhbnkgYW5kIExvbmVseVN0YXIuIFRoaXMgbW9kIGRvZXMgbm90IHVzZSBhbnkgY29kZSB3cml0dGVuIG9yIG93bmVkIGJ5IFBvcENhcCBHYW1lcyBvciBFQS4gVGhpcyBtb2QgaXMgY3JlYXRlZCBieSBmYW5zIGZvciBlbnRlcnRhaW5tZW50IHB1cnBvc2VzIG9ubHksIGFuZCBubyBjb21tZXJjaWFsIGdhaW4gaXMgc291Z2h0IG9yIG9idGFpbmVkIGZyb20gaXRzIGRpc3RyaWJ1dGlvbi4gVXNlIG9mIHRoaXMgbW9kIGlzIGF0IHlvdXIgb3duIHJpc2ssIGFuZCB0aGUgY3JlYXRvcnMgb2YgdGhlIG1vZCBhcmUgbm90IGxpYWJsZSBmb3IgYW55IGRhbWFnZXMgb3IgaXNzdWVzIHRoYXQgbWF5IGFyaXNlIGZyb20gaXRzIHVzZS48YnI+PGJyPlVzZXMgb2YgdGhlIFBvcENhcCBHYW1lcyBvciBFbGVjdHJvbmljIEFydHMgKEVBKSBuYW1lcyBhcmUgZm9yIGlkZW50aWZpY2F0aW9uIHB1cnBvc2VzIG9ubHkgYW5kIGRvIG5vdCBpbXBseSBhbiBlbmRvcnNlbWVudCBieSBQb3BDYXAgR2FtZXMgb3IgRUEuPGJyPjxicj48dT5EbyBub3QgcmVtb3ZlIHRoaXMgd2FybmluZy48L3U+IERvaW5nIHNvIDxzcGFuIHN0eWxlPSJjb2xvcjpyZWQiPnZpb2xhdGVzPC9zcGFuPiB0aGUgdGVybXMgb2YgdGhlIGxlZ2FsbHktYmluZGluZyBDcmVhdGl2ZSBDb21tb25zIExpY2Vuc2UsIGlmIG9yaWdpbmFsIGNvZGUvY29udGVudCBjcmVhdGVkIGJ5IHRoZSBtb2RkaW5nIHRlYW0gaXMgaW5jbHVkZWQuPGJyPjxicj48Yj5JZiByZXF1ZXN0ZWQgYnkgYW4gb2ZmaWNpYWwgc291cmNlLCB3ZSB3aWxsIHByb21wdGx5IHRha2UgZG93biB0aGlzIGZhbiBnYW1lIGFuZCB0aGUgYXNzb2NpYXRlZCBHaXRIdWIgcmVwby4gWW91IG1heSBjb250YWN0IHVzIHVzaW5nIHRoZSBlbWFpbCBsaXN0ZWQgb24gPGEgaHJlZj0iaHR0cHM6Ly9naXRodWIuY29tL1JPQmxORVQxMy9wdnovYmxvYi9tYWluL1JFQURNRS5tZCNsZWdhbC1pbmZvIj5odHRwczovL2dpdGh1Yi5jb20vUk9CbE5FVDEzL3B2ei9ibG9iL21haW4vUkVBRE1FLm1kI2xlZ2FsLWluZm88L2E+LjwvYj48L3NwYW4+"
+						),
 					},
 					0
 				),
@@ -3664,7 +3667,7 @@ var $User = (function () {
 			d,
 			g = "dCard" + Math.random(),
 			c =
-				"opacity:1;width:100px;height:120px;cursor:pointer;clip:rect(auto,auto,60px,auto);left:" +
+				"opacity:1;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto);left:" +
 				h +
 				"px;top:-1000",
 			t = t || 1500;

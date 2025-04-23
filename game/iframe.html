@@ -65,35 +65,62 @@
 		ondragstart="return false"
 		onselectstart="return false"
 	>
-		<div id="stolen-warning" style="display: none;">
+		<div id="stolen-warning" style="display: none">
 			<div class="stolen-warning-content">
 				<h2>⚠️ Different Website Warning ⚠️</h2>
-				<p style="font-size: 1.2em;">You're playing this game on a different website!</p>
-				<p style="font-size: 1.2em;">The official website is:</p>
-				<a href="https://roblnet13.github.io/pvz" style="font-family: monospace !important;">roblnet13.github.io/pvz</a>
+				<p style="font-size: 1.2em">
+					You're playing this game on a different website!
+				</p>
+				<p style="font-size: 1.2em">The official website is:</p>
+				<a
+					href="https://roblnet13.github.io/pvz"
+					style="font-family: monospace !important"
+					>roblnet13.github.io/pvz</a
+				>
 				<div class="note-box">
-					<p style="font-size: 1em; color: #666;">Note: If someone linked you here, this warning might appear by mistake. 
-					That's normal! But if you found this through a different website, they might have copied the game without permission.</p>
+					<p style="font-size: 1em; color: #666">
+						Note: If someone linked you here, this warning might
+						appear by mistake. That's normal! But if you found this
+						through a different website, they might have copied the
+						game without permission.
+					</p>
 				</div>
-				<p style="font-size: 1.2em;">To be safe, you can:</p>
-				<a href="https://roblnet13.github.io/pvz" target="_top" class="big-button" onclick="window.top.location.href='https://roblnet13.github.io/pvz'; return false;">Play on the Official Website!</a>
-				<button class="small-button" onclick="document.getElementById('stolen-warning').style.display='none'">Continue Here</button>
+				<p style="font-size: 1.2em">To be safe, you can:</p>
+				<a
+					href="https://roblnet13.github.io/pvz"
+					target="_top"
+					class="big-button"
+					onclick="window.top.location.href='https://roblnet13.github.io/pvz'; return false;"
+					>Play on the Official Website!</a
+				>
+				<button
+					class="small-button"
+					onclick="document.getElementById('stolen-warning').style.display='none'"
+				>
+					Continue Here
+				</button>
 			</div>
 		</div>
 		<script>
 			(function checkSite() {
 				// First check referrer - if it exists and is official site, we're good
-				if (document.referrer && document.referrer.includes('roblnet13.github.io')) {
+				if (
+					document.referrer &&
+					document.referrer.includes("roblnet13.github.io")
+				) {
 					return; // Exit early if referrer is from official site
 				}
-				
+
 				// Otherwise check current URL only if referrer is empty/missing
 				var currentUrl = window.location.href;
-				var isOfficialSite = !document.referrer && currentUrl.includes('roblnet13.github.io');
-				
+				var isOfficialSite =
+					!document.referrer &&
+					currentUrl.includes("roblnet13.github.io");
+
 				// Show warning if neither check passed
 				if (!isOfficialSite) {
-					document.getElementById('stolen-warning').style.display = 'flex';
+					document.getElementById("stolen-warning").style.display =
+						"flex";
 				}
 			})();
 		</script>
@@ -576,7 +603,11 @@
 						China Pavilion - Dave's China Trip
 					</div>
 					<div id="dMini0">
-						<table cellspacing="10" width="100%" style="color: #2a2a5a;">
+						<table
+							cellspacing="10"
+							width="100%"
+							style="color: #2a2a5a"
+						>
 							<script>
 								(function () {
 									var ar = [
@@ -670,7 +701,7 @@
 			>
 				<div id="dMiniSmallTitle">Mini-Games</div>
 				<div id="dMini0" style="overflow-y: auto; height: 477px">
-					<table cellspacing="10" width="100%" style="color: #2a2a5a;">
+					<table cellspacing="10" width="100%" style="color: #2a2a5a">
 						<script>
 							(function () {
 								var ar = [
@@ -1070,13 +1101,13 @@
 			<input
 				class="button"
 				type="button"
-				value="closure"
+				value="Close"
 				onclick="SetHidden($('dProcess'))"
-				style="margin-top: 40px"
+				style="margin-top: 330px"
 			/>
 			<script>
 				document.write(
-					'<a style="margin-left:50px;cursor:pointer;color:#FF0;font-size:15px;text-decoration:none;font-weight:bold" target="_blank" ></a>'
+					'<a style="margin-left:50px;cursor:url(images/interface/Pointer.cur),pointer;color:#FF0;font-size:15px;text-decoration:none;font-weight:bold;display:none" target="_blank" ></a>'
 				);
 			</script>
 		</div>
@@ -1104,21 +1135,19 @@
 			<div class="content">
 				<span>&nbsp;&nbsp;&nbsp; Speed Continue</span>: Ideally, the
 				speed adjustment provided by the game is
-				<span style="color: #FFFF00;">1/2 speed - 10 times speed</span>. But the
-				speed Continue effect is related to your browser and computer.
-				For example, IE6 browser can't be expected to be 10 times faster
-				on a good computer.<br />&nbsp;&nbsp;&nbsp; After the speed
-				adjustment, the visual visual of the screen may feel a bit
-				sluggish, and at high speeds, some browsers may not be able to
-				accelerate or can only accelerate for a short time and then slow
-				down.<br />&nbsp;&nbsp;&nbsp;
+				<span style="color: #ffff00">1/2 speed - 10 times speed</span>.
+				But the speed Continue effect is related to your browser and
+				computer. For example, IE6 browser can't be expected to be 10
+				times faster on a good computer.<br />&nbsp;&nbsp;&nbsp; After
+				the speed adjustment, the visual visual of the screen may feel a
+				bit sluggish, and at high speeds, some browsers may not be able
+				to accelerate or can only accelerate for a short time and then
+				slow down.<br />&nbsp;&nbsp;&nbsp;
 				<span style="color: #ff0"
-					
-						>Finally, it is strongly recommended to use: Chrome,
-						FireFox, Brave, so that you can experience the feeling
-						of a machine gun with a peashooter!<br />&nbsp;&nbsp;&nbsp;
-					</span
-				>
+					>Finally, it is strongly recommended to use: Chrome,
+					FireFox, Brave, so that you can experience the feeling of a
+					machine gun with a peashooter!<br />&nbsp;&nbsp;&nbsp;
+				</span>
 			</div>
 			<br />
 			<div>
@@ -1138,12 +1167,12 @@
 			$User.Client.PC && $User.HTTP
 				? ((oS.AutoSun = Math.floor(getCookie("JSPVZAutoSun"))) &&
 						($("cAutoSun").checked = true),
-				  (oS.Silence = Math.floor(getCookie("JSPVZSilence"))) &&
+					(oS.Silence = Math.floor(getCookie("JSPVZSilence"))) &&
 						($("cSilence").checked = true))
 				: ((oS.AutoSun = 1),
-				  ($("cAutoSun").checked = true),
-				  (oS.Silence = 0),
-				  ($("cSilence").checked = false));
+					($("cAutoSun").checked = true),
+					(oS.Silence = 0),
+					($("cSilence").checked = false));
 			InitGame();
 		</script>
 		<script src="js/CPlants.js"></script>
@@ -1165,6 +1194,16 @@
 			Changelog
 		</button>
 		<!-- 100% privacy-first analytics -->
-		<script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script><noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade"/></noscript>
+		<script
+			data-collect-dnt="true"
+			async
+			src="https://scripts.simpleanalyticscdn.com/latest.js"
+		></script>
+		<noscript
+			><img
+				src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true"
+				alt=""
+				referrerpolicy="no-referrer-when-downgrade"
+		/></noscript>
 	</body>
 </html>

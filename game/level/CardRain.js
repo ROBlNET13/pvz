@@ -173,7 +173,7 @@ oS.Init(
 				d,
 				g = "dCard" + Math.random(),
 				c =
-					"opacity:1;width:100px;height:120px;cursor:pointer;clip:rect(auto,auto,60px,auto);left:" +
+					"opacity:1;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto);left:" +
 					h +
 					"px;top:-1000",
 				t = t || 1500;

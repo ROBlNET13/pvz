@@ -26,7 +26,7 @@
 body {
 	-moz-user-select: none;
 	overflow-x: hidden;
-/*	overflow-y: hidden;
+	/*	overflow-y: hidden;
 	background: #000; */
 	background: linear-gradient(-90deg, #0f0f1f, #091a09);
 	font-family: Tahoma, Verdana, fixedsys;
@@ -58,7 +58,7 @@ div {
 }
 
 span {
-	cursor: default;
+	cursor: url(images/interface/Cursor.cur), default;
 }
 
 span,
@@ -369,7 +369,7 @@ td.HandBookZombie {
 	top: 80px;
 	width: 331px;
 	height: 146px;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 }
 
 #iSurfaceBackground .adventure0 {
@@ -390,7 +390,7 @@ td.HandBookZombie {
 	top: 203px;
 	width: 313px;
 	height: 133px;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 }
 
 #iSurfaceBackground .riddle {
@@ -399,7 +399,7 @@ td.HandBookZombie {
 	top: 303px;
 	width: 286px;
 	height: 122px;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 }
 
 #iSurfaceBackground .handbook {
@@ -408,7 +408,7 @@ td.HandBookZombie {
 	top: 428px;
 	width: 99px;
 	height: 99px;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	background: url(images/interface/SelectorScreen_Almanac_32.png) no-repeat;
 	_background: url(images/interface/SelectorScreen_Almanac_8.png) no-repeat;
 }
@@ -447,7 +447,7 @@ td.HandBookZombie {
 }
 
 #dNameDiv1 {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	position: absolute;
 	left: 3px;
 	top: 96px;
@@ -515,7 +515,7 @@ td.HandBookZombie {
 }
 
 #dTitleSmallContainer span {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 }
 
 #dMiniSmallContainer .SmallLevel {
@@ -523,7 +523,7 @@ td.HandBookZombie {
 }
 
 #dMiniSmallContainer .BigLevel span {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 }
 
 #dxiyouji .SmallLevel {
@@ -531,7 +531,7 @@ td.HandBookZombie {
 }
 
 #dxiyouji .BigLevel span {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 }
 
 #dMiniLvl2 {
@@ -551,7 +551,7 @@ td.HandBookZombie {
 
 .SmallLevel {
 	float: left;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 50%;
 	font-size: 12px;
 }
@@ -571,7 +571,7 @@ td.HandBookZombie {
 	float: left;
 	font-family: Tahoma;
 	font-size: 38px;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 360px;
 	height: 100px;
 	margin-left: 26px;
@@ -590,13 +590,13 @@ td.HandBookZombie {
 .OptionsMenuButtonSpan {
 	height: 90px;
 	line-height: 100px;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 }
 
 .SelectModal {
 	color: #fc6;
 	font-weight: bold;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	background: url(images/interface/Button.png) no-repeat center;
 	text-align: center;
 	height: 43px;
@@ -617,7 +617,7 @@ td.HandBookZombie {
 
 #imgSF {
 	position: absolute;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	z-index: 256;
 }
 
@@ -688,14 +688,14 @@ td.HandBookZombie {
 
 #dCardList div {
 	position: relative;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	padding: 0;
 	height: 60px;
 	overflow: hidden;
 }
 
 #dCardList span {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	text-align: right;
 	position: absolute;
 	left: 58px;
@@ -724,7 +724,7 @@ td.HandBookZombie {
 	left: 1300px;
 	top: 555px;
 	text-align: center;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 89px;
 	height: 26px;
 	z-index: 201;
@@ -775,7 +775,7 @@ td.HandBookZombie {
 	background-color: #602d11;
 	font-size: large;
 	font-family: dwarventodcraft !important;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 }
 
 #dPCard {
@@ -788,7 +788,7 @@ td.HandBookZombie {
 
 #dPCard .span1,
 #dHandBookPCard .span1 {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 70px;
 	height: 42px;
 	overflow: hidden;
@@ -799,7 +799,7 @@ td.HandBookZombie {
 
 #dPCard .span2,
 #dHandBookPCard .span2 {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	text-align: right;
 	position: absolute;
 	left: 42px;
@@ -867,7 +867,7 @@ td.HandBookZombie {
 	top: 0;
 	left: 46%;
 	margin-left: 227px;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 226px;
 	height: 41px;
 	z-index: 254;
@@ -906,7 +906,7 @@ td.HandBookZombie {
 }
 
 #dHandBook .content div .button {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 152.5px;
 	height: 41px;
 	font-size: 14pt;
@@ -918,7 +918,7 @@ td.HandBookZombie {
 	margin-top: 20px;
 	margin-left: 670px;
 	text-align: center;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 89px;
 	height: 26px;
 	line-height: 26px;
@@ -928,7 +928,7 @@ td.HandBookZombie {
 }
 
 #btnViewPlant {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 113;
 	height: 41;
 	border-left: 3px solid #85411c;
@@ -944,7 +944,7 @@ td.HandBookZombie {
 }
 
 #btnViewZombie {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 113;
 	height: 41;
 	background: #404364;
@@ -976,7 +976,7 @@ td.HandBookZombie {
 #dHandBookPZ .dButton div {
 	position: absolute;
 	text-align: center;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	height: 26px;
 	line-height: 26px;
 	color: #000080;
@@ -1067,27 +1067,32 @@ td.HandBookZombie {
 #dHandBookPCard::-webkit-scrollbar-thumb {
 	background: #954f19;
 	border-radius: 10px;
-	box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2), inset 1px 1px 2px 0 #b6703b;
+	box-shadow:
+		inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2),
+		inset 1px 1px 2px 0 #b6703b;
 	background: linear-gradient(133deg, #954f19, #904b17);
 }
 #dHandBookPCard::-webkit-scrollbar-thumb:hover {
-/*	background: #a4571b; */
+	/*	background: #a4571b; */
 	background: linear-gradient(133deg, #a4571b, #9a5018);
 }
 #dHandBookPCard::-webkit-scrollbar-track {
-/*	background: #e4a865; */
+	/*	background: #e4a865; */
 	border-radius: 10px;
-	box-shadow: inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5), inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
+	box-shadow:
+		inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5),
+		inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
 	background: linear-gradient(133deg, #e4a865, #d29a59);
 }
 
-
 #dHandBookPCard::-webkit-scrollbar-track {
 	/*	background: #e4a865; */
-		border-radius: 10px;
-		box-shadow: inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5), inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
-		background: linear-gradient(133deg, #e4a865, #d29a59);
-	}
+	border-radius: 10px;
+	box-shadow:
+		inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5),
+		inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
+	background: linear-gradient(133deg, #e4a865, #d29a59);
+}
 
 #pPlantBack,
 #pZombieBack {
@@ -1138,17 +1143,21 @@ td.HandBookZombie {
 #dProducePlant::-webkit-scrollbar-thumb {
 	background: #954f19;
 	border-radius: 10px;
-	box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2), inset 1px 1px 2px 0 #b6703b;
+	box-shadow:
+		inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2),
+		inset 1px 1px 2px 0 #b6703b;
 	background: linear-gradient(133deg, #954f19, #904b17);
 }
 #dProducePlant::-webkit-scrollbar-thumb:hover {
-/*	background: #a4571b; */
+	/*	background: #a4571b; */
 	background: linear-gradient(133deg, #a4571b, #9a5018);
 }
 #dProducePlant::-webkit-scrollbar-track {
-/*	background: #e4a865; */
+	/*	background: #e4a865; */
 	border-radius: 10px;
-	box-shadow: inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5), inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
+	box-shadow:
+		inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5),
+		inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
 	background: linear-gradient(133deg, #e4a865, #d29a59);
 }
 
@@ -1196,7 +1205,7 @@ td.HandBookZombie {
 }
 
 #dHandBookZCard .span1 {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	overflow: hidden;
 	width: 60px;
 	height: 70px;
@@ -1206,7 +1215,7 @@ td.HandBookZombie {
 }
 
 #dHandBookZCard .span2 {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	text-align: right;
 	width: 25px;
 	position: absolute;
@@ -1258,19 +1267,23 @@ td.HandBookZombie {
 	width: 10px;
 }
 #dProduceZombie::-webkit-scrollbar-thumb {
-/*	background: #5f606f; */
+	/*	background: #5f606f; */
 	border-radius: 3px;
-	box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2), inset 1px 1px 2px 0 rgba(255, 255, 255, 0.5);
+	box-shadow:
+		inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2),
+		inset 1px 1px 2px 0 rgba(255, 255, 255, 0.5);
 	background: linear-gradient(130deg, #5f606f, #525362);
 }
 #dProduceZombie::-webkit-scrollbar-thumb:hover {
-/*	background: #4e4f5b; */
+	/*	background: #4e4f5b; */
 	background: linear-gradient(130deg, #4e4f5b, #40414b);
 }
 #dProduceZombie::-webkit-scrollbar-track {
-/*	background: #ded5f7; */
+	/*	background: #ded5f7; */
 	border-radius: 3px;
-	box-shadow: inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5), inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
+	box-shadow:
+		inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5),
+		inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
 	background: linear-gradient(133deg, #ded5f7, #c9c1e2);
 }
 
@@ -1338,7 +1351,7 @@ td.HandBookZombie {
 
 #btnNextLevel {
 	position: absolute;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 113px;
 	height: 41px;
 	border-left: 3px solid #85411c;
@@ -1377,7 +1390,7 @@ td.HandBookZombie {
 }
 
 #dProcess .button {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 113px;
 	height: 30px;
 	border-left: 3px solid #85411c;
@@ -1642,7 +1655,7 @@ dd.yellow {
 	width: 157px;
 	height: 269px;
 	overflow: hidden;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 }
 
 .Sunflower_trophy img {
@@ -1691,7 +1704,7 @@ dd.yellow {
 #dLogin .button,
 #dPause .button {
 	position: absolute;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	top: 410px;
 	font-family: 宋体;
 	color: #f93;
@@ -1735,7 +1748,7 @@ dd.yellow {
 }
 
 #dPause .list .hidden {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	height: 20px;
 	color: #f93;
 	font-size: 16px;
@@ -1758,7 +1771,7 @@ dd.yellow {
 }
 
 #dOptionsMenu .button {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	color: #fff;
 	text-decoration: none;
 	font-family: Tahoma;
@@ -1843,7 +1856,7 @@ dd.yellow {
 }
 
 #dRiddleInx .button {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 113px;
 	height: 41px;
 	border-left: 3px solid #85411c;
@@ -1859,7 +1872,7 @@ dd.yellow {
 }
 
 #dRiddleInx .inx0 {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	top: 0;
 	left: 0;
 	margin-left: 0;
@@ -1869,7 +1882,7 @@ dd.yellow {
 }
 
 #dRiddleInx .inx1 {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	top: 0;
 	left: 0;
 	margin-left: 0;
@@ -1892,7 +1905,7 @@ dd.yellow {
 }
 
 #dRiddleInx1 .button {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 113px;
 	height: 41px;
 	border-left: 3px solid #85411c;
@@ -1908,7 +1921,7 @@ dd.yellow {
 }
 
 #dRiddleInx1 .inx01 {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	top: 0;
 	left: 50%;
 	margin-left: -110px;
@@ -1918,7 +1931,7 @@ dd.yellow {
 }
 
 #dRiddleInx1 .inx11 {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	top: 0;
 	left: 50%;
 	margin-left: -110px;
@@ -1930,7 +1943,7 @@ dd.yellow {
 #dRiddle0 td,
 #dMini0 td,
 #dMini1 td {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 20%;
 	text-align: center;
 	background: url(images/interface/Challenge.png) no-repeat 50%;
@@ -1957,7 +1970,7 @@ dd.yellow {
 	position: absolute;
 	left: 30px;
 	text-align: center;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 164px;
 	height: 26px;
 	line-height: 26px;
@@ -1983,7 +1996,7 @@ dd.yellow {
 	left: 650px;
 	top: 564px;
 	text-align: center;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 89px;
 	height: 26px;
 	line-height: 26px;
@@ -2009,7 +2022,7 @@ dd.yellow {
 	font-weight: bold;
 	font-family: Tahoma;
 	float: left;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	margin-left: 40px;
 }
 
@@ -2110,7 +2123,7 @@ dd.yellow {
 	color: #fff;
 	font-size: 14px;
 	vertical-align: top;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 }
 
 #dSpeedContainer {
@@ -2164,7 +2177,7 @@ dd.yellow {
 }
 
 .dSpeed div {
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 }
 
 .dSpeed .dS1 {
@@ -2196,7 +2209,7 @@ button.jhp {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 2px;
 	color: #666;
-	cursor: pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 	font-family: arial, sans-serif;
 	font-size: 11px;
 	font-weight: bold;
