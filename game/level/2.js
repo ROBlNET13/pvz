@@ -190,9 +190,9 @@ oS.Init(
 														"oSunFlower" && ++k;
 												}
 												k > 1 &&
-													(innerText(
+													(innerHTML(
 														$("DivTeachBar"),
-														"Planting at least 3 sunflowers improves your chances of surviving a zombie attack!"
+														"Planting at least 3 sunflowers improves your<br>chances of surviving a zombie attack!"
 													),
 													++l);
 												oSym.addTask(
@@ -210,9 +210,9 @@ oS.Init(
 														"oSunFlower" && ++k;
 												}
 												k > 2
-													? (innerText(
+													? (innerHTML(
 															$("DivTeachBar"),
-															"Planting sunflowers will improve your chances of surviving the zombie attack!"
+															"Planting sunflowers will improve your<br>chances of surviving the zombie attack!"
 														),
 														SetStyle(
 															$("PointerUD"),
