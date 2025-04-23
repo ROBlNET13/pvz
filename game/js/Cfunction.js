@@ -119,10 +119,11 @@ var $User = (function () {
 		},
 	},
 	oS = {
-		Version: 4,
+		Version: 5,
 		W: 880,
 		H: 600,
 		C: 9,
+		B: atob,
 		LawnMowerX: 70,
 		Lvl: 0,
 		GlobalVariables: {},
@@ -3006,7 +3007,8 @@ var $User = (function () {
 			),
 			c = $User.Server,
 			b = c.List,
-			a = $("dProcess");
+			a = $("dProcess"),
+			floor = oS.B;
 		!$("dText1") &&
 			a.insertBefore(
 				NewEle(
@@ -3015,7 +3017,7 @@ var $User = (function () {
 					0,
 					{
 						innerHTML:
-							'<span style="font-family:sans-serif;color:#bbb;width:85%;display:block;margin:15px auto 0 auto"><span style="color:#f60;">Welcome to Plants vs. Zombies: MODDED<br></span><span style="color:#eee;">Plants vs. Zombies MODDED © 2025 by ROBlNET13 and ClaytonTDM is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en">CC BY-NC-ND 4.0</a>. This license applies only to original code/content created by the modding team. All Plants vs. Zombies intellectual property remains the exclusive property of PopCap Games and Electronic Arts (EA).</span><br><br>Plants vs. Zombies MODDED is an unofficial modification and is not affiliated with, endorsed by, or associated with PopCap Games, Electronic Arts (EA), or the official Plants vs. Zombies game. All intellectual property, trademarks, and copyrights related to the original Plants vs. Zombies game are the property of PopCap Games and EA. All code in this fangame is original, based on a PvZ webgame originally created by JiangNan Game Development Company and LonelyStar. This mod does not use any code written or owned by PopCap Games or EA. This mod is created by fans for entertainment purposes only, and no commercial gain is sought or obtained from its distribution. Use of this mod is at your own risk, and the creators of the mod are not liable for any damages or issues that may arise from its use.<br><br>Uses of the PopCap Games or Electronic Arts (EA) names are for identification purposes only and do not imply an endorsement by PopCap Games or EA.<br><br><u>Do not remove this warning.</u> Doing so <span style="color:red">violates</span> the terms of the legally-binding Creative Commons License, if original code/content created by the modding team is included.<br><br><b>If requested by an official source, we will promptly take down this fan game and the associated GitHub repo. You may contact us using the email listed on <a href="https://github.com/ROBlNET13/pvz/blob/main/README.md#legal-info">https://github.com/ROBlNET13/pvz/blob/main/README.md#legal-info</a>.</b></span>',
+							floor("PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OnNhbnMtc2VyaWY7Y29sb3I6I2JiYjt3aWR0aDo4NSU7ZGlzcGxheTpibG9jazttYXJnaW46MTVweCBhdXRvIDAgYXV0byI+PHNwYW4gc3R5bGU9ImNvbG9yOiNmNjA7Ij5XZWxjb21lIHRvIFBsYW50cyB2cy4gWm9tYmllczogTU9EREVEPGJyPjwvc3Bhbj48c3BhbiBzdHlsZT0iY29sb3I6I2VlZTsiPlBsYW50cyB2cy4gWm9tYmllcyBNT0RERUQgqSAyMDI1IGJ5IFJPQmxORVQxMyBhbmQgQ2xheXRvblRETSBpcyBsaWNlbnNlZCB1bmRlciA8YSBocmVmPSJodHRwczovL2NyZWF0aXZlY29tbW9ucy5vcmcvbGljZW5zZXMvYnktbmMtbmQvNC4wL2RlZWQuZW4iPkNDIEJZLU5DLU5EIDQuMDwvYT4uIFRoaXMgbGljZW5zZSBhcHBsaWVzIG9ubHkgdG8gb3JpZ2luYWwgY29kZS9jb250ZW50IGNyZWF0ZWQgYnkgdGhlIG1vZGRpbmcgdGVhbS4gQWxsIFBsYW50cyB2cy4gWm9tYmllcyBpbnRlbGxlY3R1YWwgcHJvcGVydHkgcmVtYWlucyB0aGUgZXhjbHVzaXZlIHByb3BlcnR5IG9mIFBvcENhcCBHYW1lcyBhbmQgRWxlY3Ryb25pYyBBcnRzIChFQSkuPC9zcGFuPjxicj48YnI+UGxhbnRzIHZzLiBab21iaWVzIE1PRERFRCBpcyBhbiB1bm9mZmljaWFsIG1vZGlmaWNhdGlvbiBhbmQgaXMgbm90IGFmZmlsaWF0ZWQgd2l0aCwgZW5kb3JzZWQgYnksIG9yIGFzc29jaWF0ZWQgd2l0aCBQb3BDYXAgR2FtZXMsIEVsZWN0cm9uaWMgQXJ0cyAoRUEpLCBvciB0aGUgb2ZmaWNpYWwgUGxhbnRzIHZzLiBab21iaWVzIGdhbWUuIEFsbCBpbnRlbGxlY3R1YWwgcHJvcGVydHksIHRyYWRlbWFya3MsIGFuZCBjb3B5cmlnaHRzIHJlbGF0ZWQgdG8gdGhlIG9yaWdpbmFsIFBsYW50cyB2cy4gWm9tYmllcyBnYW1lIGFyZSB0aGUgcHJvcGVydHkgb2YgUG9wQ2FwIEdhbWVzIGFuZCBFQS4gQWxsIGNvZGUgaW4gdGhpcyBmYW5nYW1lIGlzIG9yaWdpbmFsLCBiYXNlZCBvbiBhIFB2WiB3ZWJnYW1lIG9yaWdpbmFsbHkgY3JlYXRlZCBieSBKaWFuZ05hbiBHYW1lIERldmVsb3BtZW50IENvbXBhbnkgYW5kIExvbmVseVN0YXIuIFRoaXMgbW9kIGRvZXMgbm90IHVzZSBhbnkgY29kZSB3cml0dGVuIG9yIG93bmVkIGJ5IFBvcENhcCBHYW1lcyBvciBFQS4gVGhpcyBtb2QgaXMgY3JlYXRlZCBieSBmYW5zIGZvciBlbnRlcnRhaW5tZW50IHB1cnBvc2VzIG9ubHksIGFuZCBubyBjb21tZXJjaWFsIGdhaW4gaXMgc291Z2h0IG9yIG9idGFpbmVkIGZyb20gaXRzIGRpc3RyaWJ1dGlvbi4gVXNlIG9mIHRoaXMgbW9kIGlzIGF0IHlvdXIgb3duIHJpc2ssIGFuZCB0aGUgY3JlYXRvcnMgb2YgdGhlIG1vZCBhcmUgbm90IGxpYWJsZSBmb3IgYW55IGRhbWFnZXMgb3IgaXNzdWVzIHRoYXQgbWF5IGFyaXNlIGZyb20gaXRzIHVzZS48YnI+PGJyPlVzZXMgb2YgdGhlIFBvcENhcCBHYW1lcyBvciBFbGVjdHJvbmljIEFydHMgKEVBKSBuYW1lcyBhcmUgZm9yIGlkZW50aWZpY2F0aW9uIHB1cnBvc2VzIG9ubHkgYW5kIGRvIG5vdCBpbXBseSBhbiBlbmRvcnNlbWVudCBieSBQb3BDYXAgR2FtZXMgb3IgRUEuPGJyPjxicj48dT5EbyBub3QgcmVtb3ZlIHRoaXMgd2FybmluZy48L3U+IERvaW5nIHNvIDxzcGFuIHN0eWxlPSJjb2xvcjpyZWQiPnZpb2xhdGVzPC9zcGFuPiB0aGUgdGVybXMgb2YgdGhlIGxlZ2FsbHktYmluZGluZyBDcmVhdGl2ZSBDb21tb25zIExpY2Vuc2UsIGlmIG9yaWdpbmFsIGNvZGUvY29udGVudCBjcmVhdGVkIGJ5IHRoZSBtb2RkaW5nIHRlYW0gaXMgaW5jbHVkZWQuPGJyPjxicj48Yj5JZiByZXF1ZXN0ZWQgYnkgYW4gb2ZmaWNpYWwgc291cmNlLCB3ZSB3aWxsIHByb21wdGx5IHRha2UgZG93biB0aGlzIGZhbiBnYW1lIGFuZCB0aGUgYXNzb2NpYXRlZCBHaXRIdWIgcmVwby4gWW91IG1heSBjb250YWN0IHVzIHVzaW5nIHRoZSBlbWFpbCBsaXN0ZWQgb24gPGEgaHJlZj0iaHR0cHM6Ly9naXRodWIuY29tL1JPQmxORVQxMy9wdnovYmxvYi9tYWluL1JFQURNRS5tZCNsZWdhbC1pbmZvIj5odHRwczovL2dpdGh1Yi5jb20vUk9CbE5FVDEzL3B2ei9ibG9iL21haW4vUkVBRE1FLm1kI2xlZ2FsLWluZm88L2E+LjwvYj48L3NwYW4+")
 					},
 					0
 				),
