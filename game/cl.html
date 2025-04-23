@@ -16,6 +16,7 @@
                     .then((response) => response.json())
                     .then((commits) => {
                         commits.forEach((commit) => {
+                            if (commit.commit.author.name !== "github-actions" && commit.commit.message !== "v") {
                             const listItem = document.createElement("li");
                             const itemText = document.createElement("pre");
 							const itemLink = document.createElement("a");
@@ -50,6 +51,7 @@
                             commitList.appendChild(listItem);
                             itemLink.appendChild(itemText);
 							listItem.appendChild(itemLink);
+                        }
                         });
                     })
                     .catch((error) => {
