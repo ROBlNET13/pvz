@@ -190,7 +190,7 @@ oS.Init(
 														"oSunFlower" && ++k;
 												}
 												k > 1 &&
-													(inner(
+													(innerText(
 														$("DivTeachBar"),
 														"Planting at least 3 sunflowers improves your chances of surviving a zombie attack!"
 													),
@@ -212,7 +212,7 @@ oS.Init(
 												k > 2
 													? (innerText(
 															$("DivTeachBar"),
-															"Planting sunflowers will improve your chances <br> of surviving the zombie attack!"
+															"Planting sunflowers will improve your chances of surviving the zombie attack!"
 														),
 														SetStyle(
 															$("PointerUD"),
