@@ -27,7 +27,7 @@
 	font-family: "briannetod" !important;
 }
 [id^="sSunNum"]:not([id="sSunNum"]) {
-	text-shadow:1px 1px 2px #ffffff;
+	text-shadow: 1px 1px 2px #ffffff;
 	font-family: "pico12" !important;
 	margin-right: 7px !important;
 	font-size: 20px !important;
@@ -71,7 +71,7 @@
 	padding-top: 3px;
 }
 .span2 {
-	text-shadow:1px 1px 2px #ffffff;
+	text-shadow: 1px 1px 2px #ffffff;
 	font-family: "pico12" !important;
 	margin-right: 7px !important;
 	font-size: 18px !important;
@@ -106,7 +106,8 @@
 }
 #dHandBookZombieName {
 	color: #06bd00 !important;
-	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+	text-shadow:
+		1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
@@ -119,7 +120,8 @@
 #btnViewZombie {
 	width: 155px !important;
 	color: #06bd00 !important;
-	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+	text-shadow:
+		1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
@@ -132,27 +134,29 @@
 
 .Menu {
 	color: #06bd00 !important;
-	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+	text-shadow:
+		1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	font-size: x-large !important;
-	padding-top: 0px
+	padding-top: 0px;
 	/* -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important; */
 }
 .Menu:hover {
 	color: #01e901 !important;
 	background: url(images/interface/Button.png) no-repeat;
-	padding-top: 0px
+	padding-top: 0px;
 }
 .Menu:active {
 	background: url(images/interface/ButtonDown.png) no-repeat;
-	padding-top: 1.5px
+	padding-top: 1.5px;
 }
 #dNewPlantName {
 	color: #d0932b !important;
 	font-family: dwarventodcraft !important;
 	text-transform: uppercase;
-	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+	text-shadow:
+		1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
@@ -175,7 +179,8 @@
 }
 #dHandBookPlantName {
 	color: #d0932b !important;
-	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+	text-shadow:
+		1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
@@ -187,7 +192,8 @@
 }
 #btnViewPlant {
 	color: #d0932b !important;
-	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
+	text-shadow:
+		1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
@@ -204,27 +210,73 @@
 #dChoseTitle {
 	margin-top: -6px;
 	font-size: 30px;
-/*	-webkit-text-stroke: 1px #ceaa31; */
+	/*	-webkit-text-stroke: 1px #ceaa31; */
 	font-weight: lighter;
-	text-shadow: 0px 3px 0px #000, 1px 3px 0px #000, 2px 3px 0px #000,
-		3px 3px 0px #000, 3px 2px 0px #000, 3px 1px 0px #000, 3px 0px 0px #000,
-		3px -1px 0px #000, 3px -2px 0px #000, 3px -3px 0px #000,
-		2px -1px 0px #000, 2px -2px 0px #000, 2px -3px 0px #000,
-		1px -1px 0px #000, 1px -2px 0px #000, 1px -3px 0px #000,
-		0px -1px 0px #000, 0px -2px 0px #000, 0px -3px 0px #000,
-		-1px -1px 0px #000, -1px -2px 0px #000, -1px -3px 0px #000,
-		-2px -1px 0px #000, -2px -2px 0px #000, -2px -3px 0px #000,
-		-3px -1px 0px #000, -3px -2px 0px #000, -3px -3px 0px #000,
-		-3px 0px 0px #000, -3px 1px 0px #000, -3px 2px 0px #000,
-		-3px 3px 0px #000, 2px 5px 0px #000, 3px 5px 0px #000, 4px 5px 0px #000,
-		5px 5px 0px #000, 5px 4px 0px #000, 5px 3px 0px #000, 5px 2px 0px #000,
-		5px 1px 0px #000, 5px 0px 0px #000, 5px -1px 0px #000, 4px 1px 0px #000,
-		4px 0px 0px #000, 4px -1px 0px #000, 3px 1px 0px #000, 3px 0px 0px #000,
-		3px -1px 0px #000, 2px 1px 0px #000, 2px 0px 0px #000, 2px -1px 0px #000,
-		1px 1px 0px #000, 1px 0px 0px #000, 1px -1px 0px #000, 0px 1px 0px #000,
-		0px 0px 0px #000, 0px -1px 0px #000, -1px 1px 0px #000,
-		-1px -0px 0px #000, -1px -1px 0px #000, -1px 2px 0px #000,
-		-1px 3px 0px #000, -1px 4px 0px #000, -1px 5px 0px #000;
+	text-shadow:
+		0px 3px 0px #000,
+		1px 3px 0px #000,
+		2px 3px 0px #000,
+		3px 3px 0px #000,
+		3px 2px 0px #000,
+		3px 1px 0px #000,
+		3px 0px 0px #000,
+		3px -1px 0px #000,
+		3px -2px 0px #000,
+		3px -3px 0px #000,
+		2px -1px 0px #000,
+		2px -2px 0px #000,
+		2px -3px 0px #000,
+		1px -1px 0px #000,
+		1px -2px 0px #000,
+		1px -3px 0px #000,
+		0px -1px 0px #000,
+		0px -2px 0px #000,
+		0px -3px 0px #000,
+		-1px -1px 0px #000,
+		-1px -2px 0px #000,
+		-1px -3px 0px #000,
+		-2px -1px 0px #000,
+		-2px -2px 0px #000,
+		-2px -3px 0px #000,
+		-3px -1px 0px #000,
+		-3px -2px 0px #000,
+		-3px -3px 0px #000,
+		-3px 0px 0px #000,
+		-3px 1px 0px #000,
+		-3px 2px 0px #000,
+		-3px 3px 0px #000,
+		2px 5px 0px #000,
+		3px 5px 0px #000,
+		4px 5px 0px #000,
+		5px 5px 0px #000,
+		5px 4px 0px #000,
+		5px 3px 0px #000,
+		5px 2px 0px #000,
+		5px 1px 0px #000,
+		5px 0px 0px #000,
+		5px -1px 0px #000,
+		4px 1px 0px #000,
+		4px 0px 0px #000,
+		4px -1px 0px #000,
+		3px 1px 0px #000,
+		3px 0px 0px #000,
+		3px -1px 0px #000,
+		2px 1px 0px #000,
+		2px 0px 0px #000,
+		2px -1px 0px #000,
+		1px 1px 0px #000,
+		1px 0px 0px #000,
+		1px -1px 0px #000,
+		0px 1px 0px #000,
+		0px 0px 0px #000,
+		0px -1px 0px #000,
+		-1px 1px 0px #000,
+		-1px -0px 0px #000,
+		-1px -1px 0px #000,
+		-1px 2px 0px #000,
+		-1px 3px 0px #000,
+		-1px 4px 0px #000,
+		-1px 5px 0px #000;
 }
 #dHandBook > div.title,
 #dMiniSmallTitle,
@@ -232,7 +284,7 @@
 #dChoseTitle {
 	color: #dfdfdf;
 	font-family: "houseofterrormedium" !important;
-/*	-webkit-text-stroke: 1px #cacaca; */
+	/*	-webkit-text-stroke: 1px #cacaca; */
 	margin-top: 1px;
 	font-weight: lighter !important;
 }
@@ -242,7 +294,9 @@
 }
 #dHandBookZ > div.title,
 #dNewPlantTitle {
-	text-shadow: 0px 0px 3px #000, 0px 0px 3px #000;
+	text-shadow:
+		0px 0px 3px #000,
+		0px 0px 3px #000;
 	color: #00d100;
 	font-size: 35px;
 }
@@ -266,9 +320,15 @@ label {
 }
 #sFlagMeterTitleF {
 	color: #e5bf64 !important;
-	text-shadow: 0px 2px 0px #000000, 2px 2px 0px #000000, 2px 0px 0px #000000,
-		2px -2px 0px #000000, 0px -2px 0px #000000, -2px -2px 0px #000000,
-		-2px 0px 0px #000000, -2px 2px 0px #000000 !important;
+	text-shadow:
+		0px 2px 0px #000000,
+		2px 2px 0px #000000,
+		2px 0px 0px #000000,
+		2px -2px 0px #000000,
+		0px -2px 0px #000000,
+		-2px -2px 0px #000000,
+		-2px 0px 0px #000000,
+		-2px 2px 0px #000000 !important;
 }
 
 #iSurfaceBackground .trophy {
@@ -412,7 +472,8 @@ td {
 	}
 }
 
-@keyframes threepeaterDown { /* threepeaterDown 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards */
+@keyframes threepeaterDown {
+	/* threepeaterDown 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards */
 	0% {
 		transform: translateY(0px);
 	}
@@ -420,7 +481,8 @@ td {
 		transform: translateY(100px);
 	}
 }
-@keyframes threepeaterUp { /* threepeaterUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards */
+@keyframes threepeaterUp {
+	/* threepeaterUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards */
 	0% {
 		transform: translateY(0px);
 	}
@@ -496,88 +558,90 @@ td {
 }
 
 #stolen-warning {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.95);
-    z-index: 999999;
-    display: none;
-    justify-content: center;
-    align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.95);
+	z-index: 999999;
+	display: none;
+	justify-content: center;
+	align-items: center;
 }
 
 .stolen-warning-content {
-    background: #fff;
-    padding: 2em;
-    border-radius: 20px;
-    text-align: center;
-    max-width: 80%;
-    border: 8px solid #ff9800; /* Changed from red to orange to be less alarming */
-    box-shadow: 0 0 50px rgba(255,152,0,0.3); /* Changed from red to orange */
+	background: #fff;
+	padding: 2em;
+	border-radius: 20px;
+	text-align: center;
+	max-width: 80%;
+	border: 8px solid #ff9800; /* Changed from red to orange to be less alarming */
+	box-shadow: 0 0 50px rgba(255, 152, 0, 0.3); /* Changed from red to orange */
 }
 
 .stolen-warning-content h2 {
-    color: #ff9800; /* Changed from red to orange */
-    margin-top: 0;
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
+	color: #ff9800; /* Changed from red to orange */
+	margin-top: 0;
+	font-size: 2.5em;
+	margin-bottom: 0.5em;
 }
 
 .stolen-warning-content a {
-    display: inline-block;
-    color: #0066cc;
-    font-size: 1.4em;
-    margin: 1em 0;
-    text-decoration: none;
-    font-weight: bold;
+	display: inline-block;
+	color: #0066cc;
+	font-size: 1.4em;
+	margin: 1em 0;
+	text-decoration: none;
+	font-weight: bold;
 }
 
 .stolen-warning-content .big-button {
-	font-family: 'dwarventodcraft' !important;
-    background: #4CAF50;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: 1.5em;
-    margin: 20px 0;
-    display: block;
-    transition: transform 0.2s;
+	font-family: "dwarventodcraft" !important;
+	background: #4caf50;
+	color: white;
+	padding: 15px 30px;
+	border-radius: 10px;
+	text-decoration: none;
+	font-size: 1.5em;
+	margin: 20px 0;
+	display: block;
+	transition: transform 0.2s;
 }
 
 .stolen-warning-content .big-button:hover {
-    transform: scale(1.05);
-    background: #45a049;
+	transform: scale(1.05);
+	background: #45a049;
 }
 
 .stolen-warning-content .small-button {
-    background: #666;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: url(images/interface/Pointer.cur), pointer;
-    margin-top: 10px;
-    font-size: 0.9em;
-    opacity: 0.7;
+	background: #666;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: url(images/interface/Pointer.cur), pointer;
+	margin-top: 10px;
+	font-size: 0.9em;
+	opacity: 0.7;
 }
 
 .stolen-warning-content .small-button:hover {
-    opacity: 1;
+	opacity: 1;
 }
 
 .stolen-warning-content .note-box {
-    background: #f5f5f5;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 15px 0;
+	background: #f5f5f5;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 10px;
+	margin: 15px 0;
 }
 
 .WindowFrame {
-  cursor: url(images/interface/Cursor.cur) 0 0, auto;
+	cursor:
+		url(images/interface/Cursor.cur) 0 0,
+		auto;
 }
 
 .WindowFrame a,
@@ -588,5 +652,5 @@ td {
 .WindowFrame label,
 .WindowFrame [role="button"],
 .WindowFrame area {
-  cursor: url(images/interface/Pointer.cur), pointer;
+	cursor: url(images/interface/Pointer.cur), pointer;
 }

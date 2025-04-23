@@ -26,7 +26,7 @@
 body {
 	-moz-user-select: none;
 	overflow-x: hidden;
-/*	overflow-y: hidden;
+	/*	overflow-y: hidden;
 	background: #000; */
 	background: linear-gradient(-90deg, #0f0f1f, #091a09);
 	font-family: Tahoma, Verdana, fixedsys;
@@ -1067,27 +1067,32 @@ td.HandBookZombie {
 #dHandBookPCard::-webkit-scrollbar-thumb {
 	background: #954f19;
 	border-radius: 10px;
-	box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2), inset 1px 1px 2px 0 #b6703b;
+	box-shadow:
+		inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2),
+		inset 1px 1px 2px 0 #b6703b;
 	background: linear-gradient(133deg, #954f19, #904b17);
 }
 #dHandBookPCard::-webkit-scrollbar-thumb:hover {
-/*	background: #a4571b; */
+	/*	background: #a4571b; */
 	background: linear-gradient(133deg, #a4571b, #9a5018);
 }
 #dHandBookPCard::-webkit-scrollbar-track {
-/*	background: #e4a865; */
+	/*	background: #e4a865; */
 	border-radius: 10px;
-	box-shadow: inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5), inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
+	box-shadow:
+		inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5),
+		inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
 	background: linear-gradient(133deg, #e4a865, #d29a59);
 }
 
-
 #dHandBookPCard::-webkit-scrollbar-track {
 	/*	background: #e4a865; */
-		border-radius: 10px;
-		box-shadow: inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5), inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
-		background: linear-gradient(133deg, #e4a865, #d29a59);
-	}
+	border-radius: 10px;
+	box-shadow:
+		inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5),
+		inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
+	background: linear-gradient(133deg, #e4a865, #d29a59);
+}
 
 #pPlantBack,
 #pZombieBack {
@@ -1138,17 +1143,21 @@ td.HandBookZombie {
 #dProducePlant::-webkit-scrollbar-thumb {
 	background: #954f19;
 	border-radius: 10px;
-	box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2), inset 1px 1px 2px 0 #b6703b;
+	box-shadow:
+		inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2),
+		inset 1px 1px 2px 0 #b6703b;
 	background: linear-gradient(133deg, #954f19, #904b17);
 }
 #dProducePlant::-webkit-scrollbar-thumb:hover {
-/*	background: #a4571b; */
+	/*	background: #a4571b; */
 	background: linear-gradient(133deg, #a4571b, #9a5018);
 }
 #dProducePlant::-webkit-scrollbar-track {
-/*	background: #e4a865; */
+	/*	background: #e4a865; */
 	border-radius: 10px;
-	box-shadow: inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5), inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
+	box-shadow:
+		inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5),
+		inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
 	background: linear-gradient(133deg, #e4a865, #d29a59);
 }
 
@@ -1258,19 +1267,23 @@ td.HandBookZombie {
 	width: 10px;
 }
 #dProduceZombie::-webkit-scrollbar-thumb {
-/*	background: #5f606f; */
+	/*	background: #5f606f; */
 	border-radius: 3px;
-	box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2), inset 1px 1px 2px 0 rgba(255, 255, 255, 0.5);
+	box-shadow:
+		inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2),
+		inset 1px 1px 2px 0 rgba(255, 255, 255, 0.5);
 	background: linear-gradient(130deg, #5f606f, #525362);
 }
 #dProduceZombie::-webkit-scrollbar-thumb:hover {
-/*	background: #4e4f5b; */
+	/*	background: #4e4f5b; */
 	background: linear-gradient(130deg, #4e4f5b, #40414b);
 }
 #dProduceZombie::-webkit-scrollbar-track {
-/*	background: #ded5f7; */
+	/*	background: #ded5f7; */
 	border-radius: 3px;
-	box-shadow: inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5), inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
+	box-shadow:
+		inset -0.5px -0.5px 2px 0 rgba(255, 255, 255, 0.5),
+		inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.2);
 	background: linear-gradient(133deg, #ded5f7, #c9c1e2);
 }
 
