@@ -9941,7 +9941,7 @@ oFlowerVase = InheritO(CPlants, {
 				Ele.style.left +
 				";top:" +
 				Ele.style.top +
-				";position:absolute;width:80px;height:101px;background:#FFF;filter:alpha(opacity=0);opacity:0;z-index:150;cursor:pointer",
+				";position:absolute;width:80px;height:101px;background:#FFF;filter:alpha(opacity=0);opacity:0;z-index:150;cursor:url(images/interface/Pointer.cur),pointer",
 			{
 				onclick: function () {
 					self.Die();

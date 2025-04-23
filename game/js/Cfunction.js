@@ -310,7 +310,7 @@ var $User = (function () {
 			p.PicNum = w += i.length;
 			r = i.length;
 			y.setAttribute("title", "");
-			y.style.cursor = "pointer";
+			y.style.cursor = "url(images/interface/Pointer.cur),pointer";
 			y.onclick = function () {
 				oS.MustAllReady = false;
 				oS.LoadReady(oS);
@@ -396,7 +396,7 @@ var $User = (function () {
 			b = 139 - (c.AccessNum++ * 140) / c.PicNum - 11;
 			$("imgFlagHead").style.left = b + "px";
 			$("sFlagMeterTitleF").innerHTML =
-				'<span style="cursor:pointer;font-family:Tahoma;color:#fff">Loading...(' +
+				'<span style="cursor:url(images/interface/Pointer.cur),pointer;font-family:Tahoma;color:#fff">Loading...(' +
 				c.AccessNum +
 				"/" +
 				c.PicNum +
@@ -420,7 +420,7 @@ var $User = (function () {
 			oSym.TimeStep = $User.Visitor.TimeStep;
 			c.onclick = null;
 			c.title = null;
-			c.style.cursor = "default";
+			c.style.cursor = "url(images/interface/Cursor.cur),default";
 			SetHidden($("dFlagMeterContent"), dFlagMeter);
 			$("dFlagMeter").style.top = "490px";
 			//          $("dFlagMeter").style.left = "805px"; // not good
@@ -909,7 +909,7 @@ var $User = (function () {
 				2 * ($User.Visitor.TimeStep / 10)
 			}s ease-in-out infinite`;
 			image.style.top = `${randomY}px`;
-			image.style.cursor = "pointer";
+			image.style.cursor = "url(images/interface/Pointer.cur),pointer";
 			image.style.zIndex = "999";
 			image.addEventListener("animationend", () => {
 				image.parentNode.removeChild(image);
@@ -2516,7 +2516,7 @@ var $User = (function () {
 			d,
 			g = "Sun" + Math.random(),
 			c =
-				"cursor:pointer;z-index:25;filter:alpha(opacity=80);opacity:0.8;left:" +
+				"cursor:url(images/interface/Pointer.cur),pointer;z-index:25;filter:alpha(opacity=80);opacity:0.8;left:" +
 				h +
 				"px;";
 		switch (e) {
@@ -2828,7 +2828,7 @@ var $User = (function () {
 			width: "200px",
 			height: "240px",
 			clip: "rect(0,auto,120px,0)",
-			cursor: "default",
+			cursor: "url(images/interface/Cursor.cur),default",
 		}).onclick = null;
 		oSym.Init(
 			function (d, e) {
@@ -2917,7 +2917,7 @@ var $User = (function () {
 		document.cookie = a + "=0;";
 	}),
 	(WordUTF8 =
-		'<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><span id="commit" style="position: absolute;color: #ffffff0f;bottom: 0;user-select: none;"></span><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:pointer" onclick="PlayAudio(\'gravebutton\');SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'));ShowNameDiv();sa_event(\'clickstart0js\')"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:pointer;z-index:300" onclick="SetVisible($(\'dProcess\'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>');
+		'<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><span id="commit" style="position: absolute;color: #ffffff0f;bottom: 0;user-select: none;"></span><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:url(images/interface/Pointer.cur),pointer" onclick="PlayAudio(\'gravebutton\');SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'));ShowNameDiv();sa_event(\'clickstart0js\')"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:url(images/interface/Pointer.cur),pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:url(images/interface/Pointer.cur),pointer;z-index:300" onclick="SetVisible($(\'dProcess\'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>');
 
 (ShowNameDiv = function () {
 	oSym.Start();
@@ -3664,7 +3664,7 @@ var $User = (function () {
 			d,
 			g = "dCard" + Math.random(),
 			c =
-				"opacity:1;width:100px;height:120px;cursor:pointer;clip:rect(auto,auto,60px,auto);left:" +
+				"opacity:1;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto);left:" +
 				h +
 				"px;top:-1000",
 			t = t || 1500;
