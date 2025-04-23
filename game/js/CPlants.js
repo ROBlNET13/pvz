@@ -4654,7 +4654,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Heavy-duty wall that can't be vaulted over",
 		Produce:
-		'<font color="#28325A">Tall-nuts are heavy-duty wall plants that can\'t be vaulted over.</font><p>Toughness: <font color="#CC241D">very high</font><br>Special: <font color="#CC241D">can\'t be vaulted or jumped over</font><p>People wonder if there\'s a rivalry between Wall-nut and Tall-nut. Tall-nut laughs a rich, baritone laugh. "How could there be anything between us? We are brothers. If you knew what Wall-nut has done for me..." Tall-nut\'s voice trails off and he smiles knowingly.',
+			'<font color="#28325A">Tall-nuts are heavy-duty wall plants that can\'t be vaulted over.</font><p>Toughness: <font color="#CC241D">very high</font><br>Special: <font color="#CC241D">can\'t be vaulted or jumped over</font><p>People wonder if there\'s a rivalry between Wall-nut and Tall-nut. Tall-nut laughs a rich, baritone laugh. "How could there be anything between us? We are brothers. If you knew what Wall-nut has done for me..." Tall-nut\'s voice trails off and he smiles knowingly.',
 		CanGrow: function (c, b, f) {
 			var a = b + "_" + f,
 				d = c[1],
@@ -4978,7 +4978,7 @@ BirthStyle: function (c, e, b, a) {
 		AudioArr: ["jalapeno"],
 		Tooltip: "Destroys an entire lane of zombies",
 		Produce:
-		'<font color="#28325A">Jalapenos destroy an entire lane of zombies.</font><p>Damage: <font color="#CC241D">massive</font><br>Range: <font color="#CC241D">all zombies in a lane</font><br>Usage: <font color="#CC241D">single use, instant</font></p>"NNNNNGGGGGG!!!!!!!!" Jalapeno says. He\'s not going to explode, not this time. But soon. Oh, so soon. It\'s close. He knows it, he can feel it, his whole life\'s been leading up to this moment.',
+			'<font color="#28325A">Jalapenos destroy an entire lane of zombies.</font><p>Damage: <font color="#CC241D">massive</font><br>Range: <font color="#CC241D">all zombies in a lane</font><br>Usage: <font color="#CC241D">single use, instant</font></p>"NNNNNGGGGGG!!!!!!!!" Jalapeno says. He\'s not going to explode, not this time. But soon. Oh, so soon. It\'s close. He knows it, he can feel it, his whole life\'s been leading up to this moment.',
 		PrivateBirth: function (a) {
 			oSym.addTask(
 				40,
@@ -5099,7 +5099,7 @@ BirthStyle: function (c, e, b, a) {
 		ArZ: {},
 		Tooltip: "Pops tires and hurts zombies that step on it",
 		Produce:
-		'<font color="#28325A">Spikeweeds pop tires and hurt any zombies that step on them.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">all zombies that walk over it</font><br>Special: <font color="#CC241D">can\'t be eaten by zombies</font></p>Hockey is Spikeweed\'s obsession. He\'s got box seat season tickets. He keeps close track of his favorite players. And he consistently cleans up in the office hockey pool. Just one problem: he\'s terrified of pucks.',
+			'<font color="#28325A">Spikeweeds pop tires and hurt any zombies that step on them.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">all zombies that walk over it</font><br>Special: <font color="#CC241D">can\'t be eaten by zombies</font></p>Hockey is Spikeweed\'s obsession. He\'s got box seat season tickets. He keeps close track of his favorite players. And he consistently cleans up in the office hockey pool. Just one problem: he\'s terrified of pucks.',
 		CanGrow: function (c, b, e) {
 			var a = b + "_" + e,
 				d = oS.ArP;
@@ -5331,7 +5331,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Diverts zombies into other lanes",
 		Produce:
-		'<font color="#28325A">Garlic diverts zombies into other lanes.</font><p>Usage: <font color="#CC241D">on contact</font><br>Special: <font color="#CC241D">diverts zombies into other lanes</font><p>Lane-diversion isn\'t just Garlic\'s profession. It\'s his passion. He carries an advanced Doctorate in Redirection from the Brussels University. He\'ll talk all day about lane vectors and repulse arrays. He even pushes things into alternate avenues at home. Somehow his wife puts up with it.',
+			'<font color="#28325A">Garlic diverts zombies into other lanes.</font><p>Usage: <font color="#CC241D">on contact</font><br>Special: <font color="#CC241D">diverts zombies into other lanes</font><p>Lane-diversion isn\'t just Garlic\'s profession. It\'s his passion. He carries an advanced Doctorate in Redirection from the Brussels University. He\'ll talk all day about lane vectors and repulse arrays. He even pushes things into alternate avenues at home. Somehow his wife puts up with it.',
 		CanGrow: function (c, b, f) {
 			var a = b + "_" + f,
 				d = c[1],
@@ -6207,7 +6207,7 @@ return c && c.EName == "oChomper"
 		AudioArr: ["coffee", "wakeup"],
 		Tooltip: "Plant it on a mushroom to wake it up",
 		Produce:
-				'<font color="#28325A">Use Coffee Beans to wake up sleeping mushrooms.</font><p>Usage: <font color="#CC241D">single use, instant</font><br>Special: <font color="#CC241D">can be planted over another plant, wakes up mushrooms</font><p>"Hey, guys, hey!" says Coffee Bean. "Hey! What\'s up? Who\'s that? Hey! Didja see that thing? What thing? Whoa! Lions!" Yep, Coffee Bean sure does get excited.',
+			'<font color="#28325A">Use Coffee Beans to wake up sleeping mushrooms.</font><p>Usage: <font color="#CC241D">single use, instant</font><br>Special: <font color="#CC241D">can be planted over another plant, wakes up mushrooms</font><p>"Hey, guys, hey!" says Coffee Bean. "Hey! What\'s up? Who\'s that? Hey! Didja see that thing? What thing? Whoa! Lions!" Yep, Coffee Bean sure does get excited.',
 		InitTrigger: function () {},
 		GetDBottom: function () {
 			return 49;
@@ -7750,7 +7750,7 @@ return c && c.EName == "oChomper"
 		],
 		Tooltip: "Aquatic plant that pulls a zombie underwater",
 		Produce:
-		'<font color="#28325A">Tangle Kelp are aquatic plants that pull the first zombie that nears them underwater.</font><p>Damage: <font color="#CC241D">massive</font><br>Usage: <font color="#CC241D">single use, on contact</font><br><font color="#0ca1db">Must be planted in water</font></p>"I\'m totally invisible," Tangle Kelp thinks to himself. "I\'ll hide here just below the surface and nobody will see me." His friends tell him they can see him perfectly well, but he\'ll never change.',
+			'<font color="#28325A">Tangle Kelp are aquatic plants that pull the first zombie that nears them underwater.</font><p>Damage: <font color="#CC241D">massive</font><br>Usage: <font color="#CC241D">single use, on contact</font><br><font color="#0ca1db">Must be planted in water</font></p>"I\'m totally invisible," Tangle Kelp thinks to himself. "I\'ll hide here just below the surface and nobody will see me." His friends tell him they can see him perfectly well, but he\'ll never change.',
 		CanGrow: function (c, b, d) {
 			var a = b + "_" + d;
 			return !(
@@ -8077,7 +8077,7 @@ return c && c.EName == "oChomper"
 		},
 		Tooltip: "Aquatic plant that shoots short-ranged spores",
 		Produce:
-		'<font color="#28325A">Sea-shrooms are aquatic plants that shoot short ranged spores.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">short</font><br><font color="#0ca1db">Must be planted in water</font><br><font color="#8832aa">Sleeps during the day</font></p>Sea-shroom has never seen the sea. It\'s in his name, he\'s heard loads about it, but he\'s just never found the time. One day, though, it\'ll go down.',
+			'<font color="#28325A">Sea-shrooms are aquatic plants that shoot short ranged spores.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">short</font><br><font color="#0ca1db">Must be planted in water</font><br><font color="#8832aa">Sleeps during the day</font></p>Sea-shroom has never seen the sea. It\'s in his name, he\'s heard loads about it, but he\'s just never found the time. One day, though, it\'ll go down.',
 	});
 oSeedSeaShroom = InheritO(oPuffShroom, {
 	EName: "oSeedSeaShroom",
@@ -8151,7 +8151,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 	})(),
 	Tooltip: "Shoots spikes that can pop balloons",
 	Produce:
-	'<font color="#28325A">Cactuses shoot spikes that can hit both ground and air targets.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">ground and air</font><p>She\'s prickly, sure, but Cactus\'s spikes belie a spongy heart filled with love and goodwill. She just wants to hug and be hugged. Most folks can\'t hang with that, but Cactus doesn\'t mind. She\'s been seeing an armadillo for a while and it really seems to be working out.',
+		'<font color="#28325A">Cactuses shoot spikes that can hit both ground and air targets.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">ground and air</font><p>She\'s prickly, sure, but Cactus\'s spikes belie a spongy heart filled with love and goodwill. She just wants to hug and be hugged. Most folks can\'t hang with that, but Cactus doesn\'t mind. She\'s been seeing an armadillo for a while and it really seems to be working out.',
 	getShadow: function (a) {
 		return "left:3px;top:132px";
 	},
@@ -8969,7 +8969,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		],
 		Tooltip: "Lights up an area, letting you see through fog",
 		Produce:
-		'<font color="#28325A">Planterns light up an area, letting you see through fog.</font><p>Range: <font color="#CC241D">one lane</font><br>Special: <font color="#CC241D">lets you see through fog</font><p>Plantern defies science. He just does. Other plants eat light and excrete oxygen; Plantern eats darkness and excretes light. Plantern\'s cagey about how he does it. "I\'m not gonna say \'sorcery,\' I wouldn\'t use the term \'dark forces,\' I just... I think I\'ve said enough."',
+			"<font color=\"#28325A\">Planterns light up an area, letting you see through fog.</font><p>Range: <font color=\"#CC241D\">one lane</font><br>Special: <font color=\"#CC241D\">lets you see through fog</font><p>Plantern defies science. He just does. Other plants eat light and excrete oxygen; Plantern eats darkness and excretes light. Plantern's cagey about how he does it. \"I'm not gonna say 'sorcery,' I wouldn't use the term 'dark forces,' I just... I think I've said enough.\"",
 		PrivateBirth: function (c) {
 			var a = c.R,
 				b = c.C;
@@ -9072,7 +9072,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		BookHandBack: 3.5,
 		Tooltip: "Sea Starfruit rolls and destroys any obstacles in its way",
 		Produce:
-		'<font color="#28325A">Sea Starfruits roll and ricochet on any obstacles in their way.</font><p>Damage: <font color="#CC241D">medium</font><br>Range: <font color="#CC241D">all zombies that it hits</font><br>Special: <font color="#CC241D">ricochets when it hits an obstacle</font></p>Sea Starfruit always has a charming smile. No one knows the secret of him not feeling dizzy despite always spinning in circles. Some say the reason being him looking at one fixed point cross-eyed.',
+			'<font color="#28325A">Sea Starfruits roll and ricochet on any obstacles in their way.</font><p>Damage: <font color="#CC241D">medium</font><br>Range: <font color="#CC241D">all zombies that it hits</font><br>Special: <font color="#CC241D">ricochets when it hits an obstacle</font></p>Sea Starfruit always has a charming smile. No one knows the secret of him not feeling dizzy despite always spinning in circles. Some say the reason being him looking at one fixed point cross-eyed.',
 		PicArr: [
 			"images/Card/Plants/star.png",
 			"images/Plants/star/0.gif",
@@ -9311,7 +9311,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		},
 		Tooltip: "轻型海底作战植物",
 		Produce:
-		'<font color="#28325A">Soak-shrooms are pretty cheap, but have a short range.</font><p>Damage: <font color="#CC241D">low</font><br>Range: <font color="#CC241D">short</font></p>Inhale, exhale; this anemone\'s unlocked zen breathing from ancient scrolls, training nonstop to blast its watergun past three tiles. Still a long shot, but its focus? Undeniable.',
+			'<font color="#28325A">Soak-shrooms are pretty cheap, but have a short range.</font><p>Damage: <font color="#CC241D">low</font><br>Range: <font color="#CC241D">short</font></p>Inhale, exhale; this anemone\'s unlocked zen breathing from ancient scrolls, training nonstop to blast its watergun past three tiles. Still a long shot, but its focus? Undeniable.',
 		PrivateBirth: function (a) {
 			a.BulletEle = NewImg(
 				0,
@@ -9542,7 +9542,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		],
 		Tooltip: "Grabs zombies in front of it",
 		Produce:
-		'<font color="#28325A">Thorn Seaweeds grab anything in front of them.</font><p>Damage: <font color="#CC241D">huge</font><br>Range: <font color="#CC241D">very short</font></p>Thorn Seaweed is Tangle Kelp’s overenthusiastic cousin. While Tangle Kelp claims to be "great at relationships," Thorn Seaweed’s idea of bonding involves spines, panic, and a barnacle who still owes him 10 sun. Gardeners appreciate his dedication, though submarines and confused starfish do not.',
+			'<font color="#28325A">Thorn Seaweeds grab anything in front of them.</font><p>Damage: <font color="#CC241D">huge</font><br>Range: <font color="#CC241D">very short</font></p>Thorn Seaweed is Tangle Kelp’s overenthusiastic cousin. While Tangle Kelp claims to be "great at relationships," Thorn Seaweed’s idea of bonding involves spines, panic, and a barnacle who still owes him 10 sun. Gardeners appreciate his dedication, though submarines and confused starfish do not.',
 		CanGrow: function (e, d, f) {
 			var c = d + "_" + f,
 				b = oGd.$LF[d],
