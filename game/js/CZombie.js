@@ -1054,7 +1054,7 @@ var CZombies = (function (b, a) {
 			);
 		},
 		Produce:
-			'当舞王僵尸摇摆时，这种僵尸四个结伙出现。</p><p>韧性：<span style="color: #CC241D;">低</span><br>伴舞僵尸曾在位于僵尸纽约城的“咀利牙”表演艺术学院钻研过六年的舞技。',
+			'当舞王僵尸摇摆时，这种僵尸四个结伙出现。</p><p>韧性：<font color="#CC241D">低</font><br>伴舞僵尸曾在位于僵尸纽约城的“咀利牙”表演艺术学院钻研过六年的舞技。',
 		BirthCallBack: function (e) {
 			var d = e.delayT,
 				c = e.id,
@@ -1241,7 +1241,7 @@ var CZombies = (function (b, a) {
 			];
 		})(),
 		Produce:
-			'舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<span style="color: #CC241D">中</font><br>特点：<font color="#CC241D;">召唤伴舞僵尸</span></p>舞王僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。',
+			'舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#CC241D">中</font><br>特点：<font color="#CC241D">召唤伴舞僵尸</font></p>舞王僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。',
 		getSnowPea: function () {
 			this.PlaySlowballAudio();
 		},
@@ -1906,7 +1906,7 @@ var CZombies = (function (b, a) {
 			];
 		})(),
 		Produce:
-			'舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<span style="color: #CC241D">中</font><br>特点：<font color="#CC241D;">召唤伴舞僵尸</span></p>舞王僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。',
+			'舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#CC241D">中</font><br>特点：<font color="#CC241D">召唤伴舞僵尸</font></p>舞王僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。',
 		getSnowPea: function () {
 			this.PlaySlowballAudio();
 		},
@@ -2512,7 +2512,7 @@ var CZombies = (function (b, a) {
 			];
 		})(),
 		Produce:
-			'韧性：<span style="color: #CC241D;">低</span></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。',
+			'韧性：<font color="#CC241D">低</font></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。',
 	}),
 	oIZombie = InheritO(OrnNoneZombies, {
 		EName: "oIZombie",
@@ -2534,7 +2534,7 @@ var CZombies = (function (b, a) {
 			];
 		})(),
 		Produce:
-			'韧性：<span style="color: #CC241D;">低</span></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。',
+			'韧性：<font color="#CC241D">低</font></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。',
 	}),
 	oZombie2 = InheritO(oZombie, { EName: "oZombie2" }),
 	oZombie3 = InheritO(oZombie, { EName: "oZombie3" }),
@@ -2543,7 +2543,7 @@ var CZombies = (function (b, a) {
 		CName: "Mustache Zombie",
 		HP: 540,
 		Produce:
-			'出没于常青之塔的神秘僵尸。<p>韧性：<span style="color: #CC241D;">高</span></p>姜还是老的辣，僵尸界也有这种说法。于是，一些老僵尸也上战场了。',
+			'出没于常青之塔的神秘僵尸。<p>韧性：<font color="#CC241D">高</font></p>姜还是老的辣，僵尸界也有这种说法。于是，一些老僵尸也上战场了。',
 		PicArr: (function () {
 			var a = "images/Zombies/Zombie/";
 			var b = "images/Zombies/MustacheZombie/";
@@ -2583,7 +2583,7 @@ var CZombies = (function (b, a) {
 		Speed: 2.2,
 		beAttackedPointR: 101,
 		Produce:
-			'旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<span style="color: #CC241D;">低</span></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
+			'旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#CC241D">低</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
 	}),
 	OrnIZombies = (function () {
 		var a = function (f, b) {
@@ -2673,7 +2673,7 @@ var CZombies = (function (b, a) {
 			PlayAudio("plastichit");
 		},
 		Produce:
-			'他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<span style="color: #CC241D;">中</span></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。',
+			'他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#CC241D">中</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。',
 	}),
 	oIConeheadZombie = InheritO(OrnIZombies, {
 		EName: "oIConeheadZombie",
@@ -2719,7 +2719,7 @@ var CZombies = (function (b, a) {
 			PlayAudio("plastichit");
 		},
 		Produce:
-			'他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<span style="color: #CC241D;">中</span></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。',
+			'他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#CC241D">中</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。',
 	}),
 	oLionDanceZombie = InheritO(oConeheadZombie, {
 		EName: "oLionDanceZombie",
@@ -2765,7 +2765,7 @@ var CZombies = (function (b, a) {
 			];
 		})(),
 		Produce:
-			'只出现于常青之塔101层。僵尸设计来自rdrz。<p>韧性：<span style="color: #CC241D;">高</span></p>舞狮是优秀的民间艺术。每逢佳节庆典，民间都以舞狮来助兴，南方以广东的舞狮表演最为有名。狮子是由彩布条制作而成的。每头狮子有两个人合作表演，一人舞头，一人舞尾。表演者在锣鼓音乐下，装扮成狮子的样子，做出狮子的各种形态动作。在表演过程中，舞狮者要以各种招式来表现南派武功，非常富有阳刚之气。',
+			'只出现于常青之塔101层。僵尸设计来自rdrz。<p>韧性：<font color="#CC241D">高</font></p>舞狮是优秀的民间艺术。每逢佳节庆典，民间都以舞狮来助兴，南方以广东的舞狮表演最为有名。狮子是由彩布条制作而成的。每头狮子有两个人合作表演，一人舞头，一人舞尾。表演者在锣鼓音乐下，装扮成狮子的样子，做出狮子的各种形态动作。在表演过程中，舞狮者要以各种招式来表现南派武功，非常富有阳刚之气。',
 	}),
 	oBucketheadZombie = InheritO(
 		oConeheadZombie,
@@ -2795,7 +2795,7 @@ var CZombies = (function (b, a) {
 				);
 			},
 			Produce:
-				'他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<span style="color: #CC241D">高</font><br>弱点：<font color="#CC241D;">土豆雷</span></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。',
+				'他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#CC241D">高</font><br>弱点：<font color="#CC241D">土豆雷</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。',
 		},
 		{
 			PicArr: {
@@ -2822,7 +2822,7 @@ var CZombies = (function (b, a) {
 				);
 			},
 			Produce:
-				'他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<span style="color: #CC241D">高</font><br>弱点：<font color="#CC241D;">土豆雷</span></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。',
+				'他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#CC241D">高</font><br>弱点：<font color="#CC241D">土豆雷</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。',
 		},
 		{
 			PicArr: {
@@ -2878,7 +2878,7 @@ var CZombies = (function (b, a) {
 			);
 		},
 		Produce:
-			'橄榄球僵尸的表演秀。<p>韧性：<span style="color: #CC241D">极高</font><br>速度：<font color="#CC241D;">快</span></p>在球场上，橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他完全不知道橄榄球是什么。',
+			'橄榄球僵尸的表演秀。<p>韧性：<font color="#CC241D">极高</font><br>速度：<font color="#CC241D">快</font></p>在球场上，橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他完全不知道橄榄球是什么。',
 	}),
 	oIFootballZombie = InheritO(oConeheadZombie, {
 		EName: "oIFootballZombie",
@@ -2923,7 +2923,7 @@ var CZombies = (function (b, a) {
 			);
 		},
 		Produce:
-			'橄榄球僵尸的表演秀。<p>韧性：<span style="color: #CC241D">极高</font><br>速度：<font color="#CC241D;">快</span></p>在球场上，橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他完全不知道橄榄球是什么。',
+			'橄榄球僵尸的表演秀。<p>韧性：<font color="#CC241D">极高</font><br>速度：<font color="#CC241D">快</font></p>在球场上，橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他完全不知道橄榄球是什么。',
 	}),
 	oHeiFootballZombie = InheritO(oFootballZombie, {
 		EName: "oHeiFootballZombie",
@@ -2955,7 +2955,7 @@ var CZombies = (function (b, a) {
 			];
 		})(),
 		Produce:
-			'黑暗橄榄球僵尸的表演秀。<p>韧性：<span style="color: #CC241D">极高</font><br>速度：<font color="#CC241D;">快</span></p>他着装低调深沉，他是僵尸橄榄球界的领军人物，拥有更强的防御能力，虽然他也完全不知道橄榄球是什么。',
+			'黑暗橄榄球僵尸的表演秀。<p>韧性：<font color="#CC241D">极高</font><br>速度：<font color="#CC241D">快</font></p>他着装低调深沉，他是僵尸橄榄球界的领军人物，拥有更强的防御能力，虽然他也完全不知道橄榄球是什么。',
 	}),
 	oCFootballZombie = InheritO(oFootballZombie, {
 		EName: "oCFootballZombie",
@@ -3019,7 +3019,7 @@ var CZombies = (function (b, a) {
 		})(),
 		AudioArr: ["polevault", "grassstep"],
 		Produce:
-			'撑杆僵尸运用标杆高高地跃过障碍物。<p>韧性：<span style="color: #CC241D">中</font><Br>速度：<font color="#CC241D">快,而后慢(跳跃后)</font><BR>特点：<font color="#CC241D;">跃过他所碰到的第一筑植物</span></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
+			'撑杆僵尸运用标杆高高地跃过障碍物。<p>韧性：<font color="#CC241D">中</font><Br>速度：<font color="#CC241D">快,而后慢(跳跃后)</font><BR>特点：<font color="#CC241D">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
 		getShadow: function (a) {
 			return (
 				"left:" +
@@ -3233,7 +3233,7 @@ var CZombies = (function (b, a) {
 		})(),
 		AudioArr: ["polevault", "grassstep"],
 		Produce:
-			'撑杆僵尸运用标杆高高地跃过障碍物。<p>韧性：<span style="color: #CC241D">中</font><Br>速度：<font color="#CC241D">快,而后慢(跳跃后)</font><BR>特点：<font color="#CC241D;">跃过他所碰到的第一筑植物</span></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
+			'撑杆僵尸运用标杆高高地跃过障碍物。<p>韧性：<font color="#CC241D">中</font><Br>速度：<font color="#CC241D">快,而后慢(跳跃后)</font><BR>特点：<font color="#CC241D">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
 		getShadow: function (a) {
 			return (
 				"left:" +
@@ -3570,7 +3570,7 @@ var CZombies = (function (b, a) {
 		})(),
 		AudioArr: ["newspaper_rarrgh2"],
 		Produce:
-			'他的报纸只能提供有限的防御。<p>韧性：<span style="color: #CC241D">低</font><br>报纸韧性：<font color="#CC241D;">低</span><br>速度：正常，而后快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
+			'他的报纸只能提供有限的防御。<p>韧性：<font color="#CC241D">低</font><br>报纸韧性：<font color="#CC241D">低</font><br>速度：正常，而后快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
 		getShadow: function (a) {
 			return "left:75px;top:" + (a.height - 25) + "px";
 		},
@@ -3903,7 +3903,7 @@ var CZombies = (function (b, a) {
 			PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
 		},
 		Produce:
-			'他的铁栅门是有效的盾牌。<p>韧性：<span style="color: #CC241D">低</font><br>铁栅门韧性：<font color="#CC241D;">高</span><br>弱点：大喷菇和磁力菇</p>门板僵尸上次拜访过的房主防守并不专业，在吃掉房主的脑子后拿走了他家的铁栅门。',
+			'他的铁栅门是有效的盾牌。<p>韧性：<font color="#CC241D">低</font><br>铁栅门韧性：<font color="#CC241D">高</font><br>弱点：大喷菇和磁力菇</p>门板僵尸上次拜访过的房主防守并不专业，在吃掉房主的脑子后拿走了他家的铁栅门。',
 		GoingDie: CZombies.prototype.GoingDie,
 		getFirePea: function (c, a, b) {
 			PlayAudio(
@@ -4039,7 +4039,7 @@ var CZombies = (function (b, a) {
 			PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
 		},
 		Produce:
-			'他的铁栅门是有效的盾牌。<p>韧性：<span style="color: #CC241D">低</font><br>铁栅门韧性：<font color="#CC241D;">高</span><br>弱点：大喷菇和磁力菇</p>门板僵尸上次拜访过的房主防守并不专业，在吃掉房主的脑子后拿走了他家的铁栅门。',
+			'他的铁栅门是有效的盾牌。<p>韧性：<font color="#CC241D">低</font><br>铁栅门韧性：<font color="#CC241D">高</font><br>弱点：大喷菇和磁力菇</p>门板僵尸上次拜访过的房主防守并不专业，在吃掉房主的脑子后拿走了他家的铁栅门。',
 		GoingDie: CZombies.prototype.GoingDie,
 		getFirePea: function (c, a, b) {
 			PlayAudio(
@@ -4400,7 +4400,7 @@ var CZombies = (function (b, a) {
 			return 5;
 		},
 		Produce:
-			'鸭子救生圈能让僵尸能浮在水面上。<p>韧性：<span style="color: #CC241D;">低</font><br>只在水池Level出现</span></p>只有特定的僵尸才能成为救生圈僵尸。并不是每个僵尸都能胜任的。有些救生圈有点漏气，但他们没能注意到，所以他们离开并放弃了对脑子的渴求。',
+			'鸭子救生圈能让僵尸能浮在水面上。<p>韧性：<font color="#CC241D">低</font><br>只在水池Level出现</font></p>只有特定的僵尸才能成为救生圈僵尸。并不是每个僵尸都能胜任的。有些救生圈有点漏气，但他们没能注意到，所以他们离开并放弃了对脑子的渴求。',
 		PicArr: (function () {
 			var a = "images/Zombies/DuckyTubeZombie1/";
 			return [
@@ -4424,7 +4424,7 @@ var CZombies = (function (b, a) {
 			return 5;
 		},
 		Produce:
-			'鸭子救生圈能让僵尸能浮在水面上。<p>韧性：<span style="color: #CC241D;">低</font><br>只在水池Level出现</span></p>只有特定的僵尸才能成为救生圈僵尸。并不是每个僵尸都能胜任的。有些救生圈有点漏气，但他们没能注意到，所以他们离开并放弃了对脑子的渴求。',
+			'鸭子救生圈能让僵尸能浮在水面上。<p>韧性：<font color="#CC241D">低</font><br>只在水池Level出现</font></p>只有特定的僵尸才能成为救生圈僵尸。并不是每个僵尸都能胜任的。有些救生圈有点漏气，但他们没能注意到，所以他们离开并放弃了对脑子的渴求。',
 		PicArr: (function () {
 			var a = "images/Zombies/DuckyTubeZombie1/";
 			return [
@@ -4456,7 +4456,7 @@ var CZombies = (function (b, a) {
 			return "display:none";
 		},
 		Produce:
-			'通常在最后一波时出现于池塘里。<p>韧性：<span style="color: #CC241D;">极高</font><br>只在水池Level出现</span></p>你一定很好奇军舰上的三只僵尸藏在水里是什么滋味，他们眼睁睁看着一只只同伴坠入海水生出，不过这些都不重要：“脑子!”。',
+			'通常在最后一波时出现于池塘里。<p>韧性：<font color="#CC241D">极高</font><br>只在水池Level出现</font></p>你一定很好奇军舰上的三只僵尸藏在水里是什么滋味，他们眼睁睁看着一只只同伴坠入海水生出，不过这些都不重要：“脑子!”。',
 		PicArr: (function () {
 			var a = "images/Zombies/WarshipsZombie/";
 			return [
@@ -4933,7 +4933,7 @@ var CZombies = (function (b, a) {
 				: SetBlock(b);
 		},
 		Produce:
-			'潜水僵尸可以在水下前行。<p>韧性：<span style="color: #CC241D">低</font><br>特点：<font color="#CC241D;">潜泳以避免遭到攻击<br>只在水池Level出现</span></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
+			'潜水僵尸可以在水下前行。<p>韧性：<font color="#CC241D">低</font><br>特点：<font color="#CC241D">潜泳以避免遭到攻击<br>只在水池Level出现</font></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
 		JumpTime: 40,
 		getShadow: function (a) {
 			return (
@@ -5198,7 +5198,7 @@ var CZombies = (function (b, a) {
 		beAttackedPointR: 290,
 		BookHandBack: 4.9,
 		Produce:
-			'强劲有力的机械潜水艇，可以在水中躲过大多数攻击。<p>韧性：<span style="color: #CC241D">极高</font><br>特点：<font color="#CC241D;">潜入水底以避免遭到攻击<br>只在水池Level出现</span></p>这是由作者僵尸亲自打造的无敌潜水艇,不要妄想击碎他，他的猛烈进攻，只会让你的植物死得更快!。',
+			'强劲有力的机械潜水艇，可以在水中躲过大多数攻击。<p>韧性：<font color="#CC241D">极高</font><br>特点：<font color="#CC241D">潜入水底以避免遭到攻击<br>只在水池Level出现</font></p>这是由作者僵尸亲自打造的无敌潜水艇,不要妄想击碎他，他的猛烈进攻，只会让你的植物死得更快!。',
 		PicArr: (function () {
 			var a = "images/Zombies/SubZombie/";
 			return [
@@ -5635,7 +5635,7 @@ var CZombies = (function (b, a) {
 			AKind: 2,
 			Attack: 50,
 			Produce:
-				'冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<span style="color: #CC241D">高</font><br>特点：<font color="#CC241D;">碾压植物，留下条冰道</span></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸。',
+				'冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<font color="#CC241D">高</font><br>特点：<font color="#CC241D">碾压植物，留下条冰道</font></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸。',
 			PicArr: (function () {
 				var b = "images/Zombies/Zomboni/";
 				return [
@@ -6298,7 +6298,7 @@ var CZombies = (function (b, a) {
 			"zombie_entering_water",
 		],
 		Produce:
-			'海豚骑士僵尸善于利用你水池防御的弱点。<p>韧性：<span style="color: #CC241D">中</font><br>速度：<font color="#CC241D">快，慢（跳越后）</font><br>特点：<font color="#CC241D;">跃过他所遇到的第一株植物</font><br>只在水池Level出现</span></p>那海豚其实也是个僵尸。',
+			'海豚骑士僵尸善于利用你水池防御的弱点。<p>韧性：<font color="#CC241D">中</font><br>速度：<font color="#CC241D">快，慢（跳越后）</font><br>特点：<font color="#CC241D">跃过他所遇到的第一株植物</font><br>只在水池Level出现</font></p>那海豚其实也是个僵尸。',
 		BirthCallBack: function (a) {
 			PlayAudio("dolphin_appears");
 			oAquaticZombie.prototype.BirthCallBack(a);
@@ -6509,7 +6509,7 @@ var CZombies = (function (b, a) {
 			];
 		})(),
 		Produce:
-			'小鬼僵尸会快速突破你的防线。</p><p>韧性：<span style="color: #CC241D;">低</span><br>其实小鬼僵尸天生就能跑的很快，一些懒惰的小鬼僵尸喜欢粘着巨人僵尸，但是一些勤奋的，就会经常出门成群的跑马拉松。',
+			'小鬼僵尸会快速突破你的防线。</p><p>韧性：<font color="#CC241D">低</font><br>其实小鬼僵尸天生就能跑的很快，一些懒惰的小鬼僵尸喜欢粘着巨人僵尸，但是一些勤奋的，就会经常出门成群的跑马拉松。',
 	}),
 	oIImp = InheritO(OrnNoneZombies, {
 		EName: "oIImp",
@@ -6535,7 +6535,7 @@ var CZombies = (function (b, a) {
 			];
 		})(),
 		Produce:
-			'小鬼僵尸会快速突破你的防线。</p><p>韧性：<span style="color: #CC241D;">低</span><br>其实小鬼僵尸天生就能跑的很快，一些懒惰的小鬼僵尸喜欢粘着巨人僵尸，但是一些勤奋的，就会经常出门成群的跑马拉松。',
+			'小鬼僵尸会快速突破你的防线。</p><p>韧性：<font color="#CC241D">低</font><br>其实小鬼僵尸天生就能跑的很快，一些懒惰的小鬼僵尸喜欢粘着巨人僵尸，但是一些勤奋的，就会经常出门成群的跑马拉松。',
 	}),
 	oJX = InheritO(OrnNoneZombies, {
 		EName: "oJX",
@@ -6562,7 +6562,7 @@ var CZombies = (function (b, a) {
 			];
 		})(),
 		Produce:
-			'小鬼僵尸的亲戚，攻击似乎提升了不少。</p><p>韧性：<span style="color: #CC241D;">中</span><br>矮小的他喜欢这副捡来的蟹壳，V字型的蟹钳更是让他感到兴奋，以至忘掉了身高上的劣势。',
+			'小鬼僵尸的亲戚，攻击似乎提升了不少。</p><p>韧性：<font color="#CC241D">中</font><br>矮小的他喜欢这副捡来的蟹壳，V字型的蟹钳更是让他感到兴奋，以至忘掉了身高上的劣势。',
 	}),
 	oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		EName: "oJackinTheBoxZombie",
@@ -6588,7 +6588,7 @@ var CZombies = (function (b, a) {
 		OSpeed: 3.6,
 		Speed: 3.6,
 		Produce:
-			'这种僵尸带着个会爆炸的潘多拉盒子。</p><p>韧性：<span style="color: #CC241D">中</font><br>速度：<font color="#CC241D">快</font><br>特点：<font color="#CC241D">打开玩偶匣会爆炸</font><br>弱点：<font color="#CC241D;">磁力菇</span><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
+			'这种僵尸带着个会爆炸的潘多拉盒子。</p><p>韧性：<font color="#CC241D">中</font><br>速度：<font color="#CC241D">快</font><br>特点：<font color="#CC241D">打开玩偶匣会爆炸</font><br>弱点：<font color="#CC241D">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
 		AudioArr: ["jackinthebox", "explosion"],
 		PicArr: (function () {
 			var a = "images/Zombies/JackinTheBoxZombie/";
@@ -6832,7 +6832,7 @@ var CZombies = (function (b, a) {
 		OSpeed: 3.6,
 		Speed: 3.6,
 		Produce:
-			'这种僵尸带着个会爆炸的潘多拉盒子。</p><p>韧性：<span style="color: #CC241D">中</font><br>速度：<font color="#CC241D">快</font><br>特点：<font color="#CC241D">打开玩偶匣会爆炸</font><br>弱点：<font color="#CC241D;">磁力菇</span><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
+			'这种僵尸带着个会爆炸的潘多拉盒子。</p><p>韧性：<font color="#CC241D">中</font><br>速度：<font color="#CC241D">快</font><br>特点：<font color="#CC241D">打开玩偶匣会爆炸</font><br>弱点：<font color="#CC241D">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
 		AudioArr: ["jackinthebox", "explosion"],
 		PicArr: (function () {
 			var a = "images/Zombies/JackinTheBoxZombie/";
@@ -7101,7 +7101,7 @@ var CZombies = (function (b, a) {
 		];
 	})(),
 	Produce:
-		'气球僵尸漂浮在空中，躲过大多数攻击。<p>韧性：<span style="color: #CC241D">低</font><br>特点：<font color="#CC241D">飞行</font><br>弱点：<font color="#CC241D;">仙人掌和三叶草</span></p>气球僵尸真幸运。气球有很多功效，而其他僵尸都不曾捡到过。',
+		'气球僵尸漂浮在空中，躲过大多数攻击。<p>韧性：<font color="#CC241D">低</font><br>特点：<font color="#CC241D">飞行</font><br>弱点：<font color="#CC241D">仙人掌和三叶草</font></p>气球僵尸真幸运。气球有很多功效，而其他僵尸都不曾捡到过。',
 	GetDX: function () {
 		return -10;
 	},
@@ -7298,7 +7298,7 @@ var CZombies = (function (b, a) {
 			];
 		})(),
 		Produce:
-			'气球僵尸漂浮在空中，躲过大多数攻击。<p>韧性：<span style="color: #CC241D">低</font><br>特点：<font color="#CC241D">飞行</font><br>弱点：<font color="#CC241D;">仙人掌和三叶草</span></p>气球僵尸真幸运。气球有很多功效，而其他僵尸都不曾捡到过。',
+			'气球僵尸漂浮在空中，躲过大多数攻击。<p>韧性：<font color="#CC241D">低</font><br>特点：<font color="#CC241D">飞行</font><br>弱点：<font color="#CC241D">仙人掌和三叶草</font></p>气球僵尸真幸运。气球有很多功效，而其他僵尸都不曾捡到过。',
 		BirthCallBack: function (e) {
 			var d = e.delayT,
 				c = e.id,
@@ -7500,7 +7500,7 @@ var CZombies = (function (b, a) {
 		];
 	})(),
 	Produce:
-		'贱鱼僵尸利用鱼形飞行器，躲过了陆地上的攻击。<p>速度：<span style="color: #CC241D">快</font><br>特点：<font color="#CC241D">飞行</font><br>弱点：<font color="#CC241D;">仙人掌</span></p>曾经站在巨人肩膀上的他也想要体验做巨人的感觉，他把鱼形飞行器系在背上，可让他万万没想到，这玩意居然让自己飞了起来!',
+		'贱鱼僵尸利用鱼形飞行器，躲过了陆地上的攻击。<p>速度：<font color="#CC241D">快</font><br>特点：<font color="#CC241D">飞行</font><br>弱点：<font color="#CC241D">仙人掌</font></p>曾经站在巨人肩膀上的他也想要体验做巨人的感觉，他把鱼形飞行器系在背上，可让他万万没想到，这玩意居然让自己飞了起来!',
 	GetDX: function () {
 		return -10;
 	},
@@ -7661,7 +7661,7 @@ var CZombies = (function (b, a) {
 			];
 		})(),
 		Produce:
-			'身着古装的僵尸。<p>韧性：<span style="color: #CC241D;">低</span></p>这样的庶民气质是不是让你想到了普通僵尸？是的，他是普通僵尸在中国的远房表亲。这一族都是忠实的脑髓追求者。',
+			'身着古装的僵尸。<p>韧性：<font color="#CC241D">低</font></p>这样的庶民气质是不是让你想到了普通僵尸？是的，他是普通僵尸在中国的远房表亲。这一族都是忠实的脑髓追求者。',
 	})),
 	(oCZombie2 = InheritO(
 		oCZombie,
@@ -7714,7 +7714,7 @@ oCConeheadZombie = InheritO(OrnIZombies, {
 		PlayAudio("plastichit");
 	},
 	Produce:
-		'他的竹篓头盔使他更能经受来自植物的打击<p>韧性：<span style="color: #CC241D;">携带一般防具</span></p>竹篓僵尸是个持家的好父亲，他最大的爱好就是追着别人询问哪里可以买到特价的脑子。',
+		'他的竹篓头盔使他更能经受来自植物的打击<p>韧性：<font color="#CC241D">携带一般防具</font></p>竹篓僵尸是个持家的好父亲，他最大的爱好就是追着别人询问哪里可以买到特价的脑子。',
 });
 oCBucketheadZombie = InheritO(
 	oCConeheadZombie,
@@ -7731,7 +7731,7 @@ oCBucketheadZombie = InheritO(
 			);
 		},
 		Produce:
-			'他的瓷碗能有效抵挡弹丸的冲击<p>韧性：<span style="color: #CC241D;">携带坚固防具</span></p>僵尸们都不忍心把乞丐僵尸送上战场，他们害怕听到“碎了一个，碎了两个…”。',
+			'他的瓷碗能有效抵挡弹丸的冲击<p>韧性：<font color="#CC241D">携带坚固防具</font></p>僵尸们都不忍心把乞丐僵尸送上战场，他们害怕听到“碎了一个，碎了两个…”。',
 	},
 	{
 		PicArr: {
@@ -7784,7 +7784,7 @@ oCBucketheadZombie = InheritO(
 		];
 	})(),
 	Produce:
-		'刺客僵尸出其不意地突破你的阵型<p>韧性：<span style="color: #CC241D;">高</span></p>刺客，生前经受着残酷的训练；死后，他们虽然已经忘记了刺杀的使命，但是反复训练过的轻功奇术却还熟记于心，当然还有那忘不了的美味脑子。',
+		'刺客僵尸出其不意地突破你的阵型<p>韧性：<font color="#CC241D">高</font></p>刺客，生前经受着残酷的训练；死后，他们虽然已经忘记了刺杀的使命，但是反复训练过的轻功奇术却还熟记于心，当然还有那忘不了的美味脑子。',
 	getShadow: function (a) {
 		return (
 			"left:" +
@@ -7987,7 +7987,7 @@ oCBucketheadZombie = InheritO(
 			];
 		})(),
 		Produce:
-			'同样是尸变，这位老兄不大一样<p>韧性：<span style="color: #CC241D">高</font><br>特点：<font color="#CC241D;">灵符被打掉后会进入爆发状态</span></p>灵符僵尸生前官至一品，所以尽管他已经不能好好走路了，他还是时刻提醒自己：穿好袍子、戴好顶戴…。',
+			'同样是尸变，这位老兄不大一样<p>韧性：<font color="#CC241D">高</font><br>特点：<font color="#CC241D">灵符被打掉后会进入爆发状态</font></p>灵符僵尸生前官至一品，所以尽管他已经不能好好走路了，他还是时刻提醒自己：穿好袍子、戴好顶戴…。',
 		getShadow: function (a) {
 			return "left:75px;top:" + (a.height - 25) + "px";
 		},
@@ -8313,7 +8313,7 @@ oCBucketheadZombie = InheritO(
 		];
 	})(),
 	Produce:
-		'怨灵僵尸神出鬼没，很多时候，她甚至是隐形的。<p>韧性：<span style="color: #CC241D">中</font><br>特点：<font color="#CC241D;">有可能抵消子弹攻击</span></p>有些鬼魂设法被超度，去不了天堂，只能在人间恶作剧。自从僵尸出现后，怨灵也兴奋了起来，如同找到了自家人。不过她还是像以前一样怕光。',
+		'怨灵僵尸神出鬼没，很多时候，她甚至是隐形的。<p>韧性：<font color="#CC241D">中</font><br>特点：<font color="#CC241D">有可能抵消子弹攻击</font></p>有些鬼魂设法被超度，去不了天堂，只能在人间恶作剧。自从僵尸出现后，怨灵也兴奋了起来，如同找到了自家人。不过她还是像以前一样怕光。',
 })),
 	(oEmperor = InheritO(oCZombie, {
 		EName: "oEmperor",
@@ -8347,7 +8347,7 @@ oCBucketheadZombie = InheritO(
 			];
 		})(),
 		Produce:
-			'秦始皇僵尸好霸气，还威风，有木有？<p>韧性：<span style="color: #CC241D">非常高</font><br>速度：<font color="#CC241D;">慢</span></p>秦始皇做梦都想长生不老!自从变成僵尸，一日三餐吃脑子，果然长生不老!每天在无尽的长城中，追寻脑子......',
+			'秦始皇僵尸好霸气，还威风，有木有？<p>韧性：<font color="#CC241D">非常高</font><br>速度：<font color="#CC241D">慢</font></p>秦始皇做梦都想长生不老!自从变成僵尸，一日三餐吃脑子，果然长生不老!每天在无尽的长城中，追寻脑子......',
 	})),
 	(oWJY = InheritO(oEunZombie, {
 		EName: "oWJY",
@@ -8380,7 +8380,7 @@ oCBucketheadZombie = InheritO(
 			];
 		})(),
 		Produce:
-			'新一代僵王博士登场。<p>体力：<span style="color: #CC241D;">不死之身</span></p>喂!你怎么会在出现在游戏里？我总会听到有玩家这么问。嗯，这都要怪一个叫严启伦的家伙。',
+			'新一代僵王博士登场。<p>体力：<font color="#CC241D">不死之身</font></p>喂!你怎么会在出现在游戏里？我总会听到有玩家这么问。嗯，这都要怪一个叫严启伦的家伙。',
 	}));
 (oWJY1 = InheritO(oDuckyTubeZombie1, {
 	EName: "oWJY1",
@@ -8433,7 +8433,7 @@ oCBucketheadZombie = InheritO(
 			];
 		})(),
 		Produce:
-			'流线型的虾头为他带来了比其他僵尸快一倍的速度。<p>韧性：<span style="color: #CC241D">低</font><br>弱点：<font color="#CC241D;">寒冰射手</span></p>长期漂浮在海底令他产生了自己在飞的错觉，他坚信把虾戴在头上可以令自己飞得更高更远。',
+			'流线型的虾头为他带来了比其他僵尸快一倍的速度。<p>韧性：<font color="#CC241D">低</font><br>弱点：<font color="#CC241D">寒冰射手</font></p>长期漂浮在海底令他产生了自己在飞的错觉，他坚信把虾戴在头上可以令自己飞得更高更远。',
 	})),
 	(oCXZombie = InheritO(oZombie, {
 		EName: "oCXZombie",
@@ -8462,7 +8462,7 @@ oCBucketheadZombie = InheritO(
 			];
 		})(),
 		Produce:
-			'他坚硬的龟壳能减小大部分伤害。<p>韧性：<span style="color: #CC241D">很高</font><br>弱点：<font color="#CC241D;">海星果</span></p>为了爬进与自己身形不符的龟壳，他不惜舍弃作为僵尸的尊严，最终在第一百次尝试之后成功把自己挤进了龟壳，再也出不来啦。',
+			'他坚硬的龟壳能减小大部分伤害。<p>韧性：<font color="#CC241D">很高</font><br>弱点：<font color="#CC241D">海星果</font></p>为了爬进与自己身形不符的龟壳，他不惜舍弃作为僵尸的尊严，最终在第一百次尝试之后成功把自己挤进了龟壳，再也出不来啦。',
 	})),
 	(oICXZombie = InheritO(oZombie, {
 		EName: "oICXZombie",
@@ -8492,7 +8492,7 @@ oCBucketheadZombie = InheritO(
 			];
 		})(),
 		Produce:
-			'他坚硬的龟壳能减小大部分伤害。<p>韧性：<span style="color: #CC241D">很高</font><br>弱点：<font color="#CC241D;">海星果</span></p>为了爬进与自己身形不符的龟壳，他不惜舍弃作为僵尸的尊严，最终在第一百次尝试之后成功把自己挤进了龟壳，再也出不来啦。',
+			'他坚硬的龟壳能减小大部分伤害。<p>韧性：<font color="#CC241D">很高</font><br>弱点：<font color="#CC241D">海星果</font></p>为了爬进与自己身形不符的龟壳，他不惜舍弃作为僵尸的尊严，最终在第一百次尝试之后成功把自己挤进了龟壳，再也出不来啦。',
 	})),
 	(oLGBOSS = (function () {
 		var a = function (d, b) {
@@ -8530,7 +8530,7 @@ oCBucketheadZombie = InheritO(
 			beAttackedPointL: 140,
 			beAttackedPointR: 300,
 			Produce:
-				'东海龙王拥有无限延长的身躯，带领僵尸大军突破你的阵型。<p>韧性：<span style="color: #CC241D">不死之身</font><br>技能：<font color="#CC241D;">无限身躯，碾压植物</span></p>僵王博士所研制的新一代水下作战机器。博士花了近一年的功夫，从龙王的排水系统到每一个菱角，都进行了细致的打磨加强。此刻这位僵尸天才正沉浸于机器完成的喜悦中。',
+				'东海龙王拥有无限延长的身躯，带领僵尸大军突破你的阵型。<p>韧性：<font color="#CC241D">不死之身</font><br>技能：<font color="#CC241D">无限身躯，碾压植物</font></p>僵王博士所研制的新一代水下作战机器。博士花了近一年的功夫，从龙王的排水系统到每一个菱角，都进行了细致的打磨加强。此刻这位僵尸天才正沉浸于机器完成的喜悦中。',
 			PicArr: (function () {
 				var b = "images/Zombies/LGBOSS/";
 				return [
@@ -9774,7 +9774,7 @@ oCBucketheadZombie = InheritO(
 							);
 						},
 						Produce:
-							'当舞王僵尸摇摆时，这种僵尸四个结伙出现。</p><p>韧性：<span style="color: #CC241D;">低</span><br>伴舞僵尸曾在位于僵尸纽约城的“咀利牙”表演艺术学院钻研过六年的舞技。',
+							'当舞王僵尸摇摆时，这种僵尸四个结伙出现。</p><p>韧性：<font color="#CC241D">低</font><br>伴舞僵尸曾在位于僵尸纽约城的“咀利牙”表演艺术学院钻研过六年的舞技。',
 						BirthCallBack: function (e) {
 							var d = e.delayT,
 								c = e.id,
@@ -9984,7 +9984,7 @@ oCBucketheadZombie = InheritO(
 							];
 						})(),
 						Produce:
-							'舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<span style="color: #CC241D">中</font><br>特点：<font color="#CC241D;">召唤伴舞僵尸</span></p>舞王僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。',
+							'舞王僵尸和人类(在世或者死去的)如有雷同，纯属巧合。</p><p>韧性：<font color="#CC241D">中</font><br>特点：<font color="#CC241D">召唤伴舞僵尸</font></p>舞王僵尸的最新唱片“抓住脑子啃啊啃”在僵尸界的人气正急速飙升。',
 						getSnowPea: function () {
 							this.PlaySlowballAudio();
 						},
@@ -10661,7 +10661,7 @@ oCBucketheadZombie = InheritO(
 							];
 						})(),
 						Produce:
-							'韧性：<span style="color: #CC241D;">低</span></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。',
+							'韧性：<font color="#CC241D">低</font></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。',
 					}),
 					oZombie2 = InheritO(
 						oZombie,
@@ -10710,7 +10710,7 @@ oCBucketheadZombie = InheritO(
 						Speed: 2.2,
 						beAttackedPointR: 101,
 						Produce:
-							'旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<span style="color: #CC241D;">低</span></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
+							'旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#CC241D">低</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
 					}),
 					OrnIZombies = (function () {
 						var a = function (f, b) {
@@ -10787,7 +10787,7 @@ oCBucketheadZombie = InheritO(
 							PlayAudio("plastichit");
 						},
 						Produce:
-							'他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<span style="color: #CC241D;">中</span></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。',
+							'他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#CC241D">中</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。',
 					}),
 					oBucketheadZombie = InheritO(
 						oConeheadZombie,
@@ -10805,7 +10805,7 @@ oCBucketheadZombie = InheritO(
 								);
 							},
 							Produce:
-								'他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<span style="color: #CC241D">高</font><br>弱点：<font color="#CC241D;">磁力菇</span></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。',
+								'他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#CC241D">高</font><br>弱点：<font color="#CC241D">磁力菇</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。',
 						},
 						{
 							PicArr: {
@@ -10862,7 +10862,7 @@ oCBucketheadZombie = InheritO(
 							);
 						},
 						Produce:
-							'橄榄球僵尸的表演秀。<p>韧性：<span style="color: #CC241D">极高</font><br>速度：<font color="#CC241D">快</font><br>弱点：<font color="#CC241D;">磁力菇</span></p>在球场上，橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他完全不知道橄榄球是什么。',
+							'橄榄球僵尸的表演秀。<p>韧性：<font color="#CC241D">极高</font><br>速度：<font color="#CC241D">快</font><br>弱点：<font color="#CC241D">磁力菇</font></p>在球场上，橄榄球僵尸表现出110%的激情，他进攻防守样样在行。虽然他完全不知道橄榄球是什么。',
 					}),
 					oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 						EName: "oPoleVaultingZombie",
@@ -10905,7 +10905,7 @@ oCBucketheadZombie = InheritO(
 						})(),
 						AudioArr: ["polevault", "grassstep"],
 						Produce:
-							'撑杆僵尸运用标杆高高地跃过障碍物。<p>韧性：<span style="color: #CC241D">中</font><Br>速度：<font color="#CC241D">快,而后慢(跳跃后)</font><BR>特点：<font color="#CC241D;">跃过他所碰到的第一筑植物</span></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
+							'撑杆僵尸运用标杆高高地跃过障碍物。<p>韧性：<font color="#CC241D">中</font><Br>速度：<font color="#CC241D">快,而后慢(跳跃后)</font><BR>特点：<font color="#CC241D">跃过他所碰到的第一筑植物</font></p>一些僵尸渴望走得更远、得到更多，这也促使他们由普通成为非凡。那就是撑杆僵尸。',
 						getShadow: function (a) {
 							return (
 								"left:" +
@@ -11149,7 +11149,7 @@ oCBucketheadZombie = InheritO(
 						})(),
 						AudioArr: ["newspaper_rarrgh2"],
 						Produce:
-							'他的报纸只能提供有限的防御。<p>韧性：<span style="color: #CC241D">低</font><br>报纸韧性：<font color="#CC241D;">低</span><br>速度：正常，而后快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
+							'他的报纸只能提供有限的防御。<p>韧性：<font color="#CC241D">低</font><br>报纸韧性：<font color="#CC241D">低</font><br>速度：正常，而后快(失去报纸后)</p>读报僵尸，他正痴迷于完成他的数独难题。难怪他这么反常。',
 						getShadow: function (a) {
 							return "left:75px;top:" + (a.height - 25) + "px";
 						},
@@ -11553,7 +11553,7 @@ oCBucketheadZombie = InheritO(
 							);
 						},
 						Produce:
-							'他的铁栅门是有效的盾牌。<p>韧性：<span style="color: #CC241D">低</font><br>铁栅门韧性：<font color="#CC241D;">高</span><br>弱点：大喷菇和磁力菇</p>门板僵尸上次拜访过的房主防守并不专业，在吃掉房主的脑子后拿走了他家的铁栅门。',
+							'他的铁栅门是有效的盾牌。<p>韧性：<font color="#CC241D">低</font><br>铁栅门韧性：<font color="#CC241D">高</font><br>弱点：大喷菇和磁力菇</p>门板僵尸上次拜访过的房主防守并不专业，在吃掉房主的脑子后拿走了他家的铁栅门。',
 						GoingDie: CZombies.prototype.GoingDie,
 						getFirePea: function (c, a, b) {
 							PlayAudio(
@@ -11936,7 +11936,7 @@ oCBucketheadZombie = InheritO(
 							return 5;
 						},
 						Produce:
-							'鸭子救生圈能让僵尸能浮在水面上。<p>韧性：<span style="color: #CC241D;">低</font><br>只在水池关卡出现</span></p>只有特定的僵尸才能成为救生圈僵尸。并不是每个僵尸都能胜任的。有些救生圈有点漏气，但他们没能注意到，所以他们离开并放弃了对脑子的渴求。',
+							'鸭子救生圈能让僵尸能浮在水面上。<p>韧性：<font color="#CC241D">低</font><br>只在水池关卡出现</font></p>只有特定的僵尸才能成为救生圈僵尸。并不是每个僵尸都能胜任的。有些救生圈有点漏气，但他们没能注意到，所以他们离开并放弃了对脑子的渴求。',
 						PicArr: (function () {
 							var a = "images/Zombies/DuckyTubeZombie1/";
 							return [
@@ -12040,7 +12040,7 @@ oCBucketheadZombie = InheritO(
 						Speed: 3.2,
 						Altitude: 1,
 						Produce:
-							'潜水僵尸可以在水下前行。<p>韧性：<span style="color: #CC241D">低</font><br>特点：<font color="#CC241D;">潜泳以避免遭到攻击<br>只在水池关卡出现</span></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
+							'潜水僵尸可以在水下前行。<p>韧性：<font color="#CC241D">低</font><br>特点：<font color="#CC241D">潜泳以避免遭到攻击<br>只在水池关卡出现</font></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
 						JumpTime: 40,
 						getShadow: function (a) {
 							return (
@@ -12779,7 +12779,7 @@ oCBucketheadZombie = InheritO(
 							AKind: 2,
 							Attack: 50,
 							Produce:
-								'冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<span style="color: #CC241D">高</font><br>特点：<font color="#CC241D;">碾压植物，留下条冰道</span></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸。',
+								'冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<font color="#CC241D">高</font><br>特点：<font color="#CC241D">碾压植物，留下条冰道</font></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸。',
 							PicArr: (function () {
 								var b = "images/Zombies/Zomboni/";
 								return [
@@ -13197,7 +13197,7 @@ oCBucketheadZombie = InheritO(
 							"zombie_entering_water",
 						],
 						Produce:
-							'海豚骑士僵尸善于利用你水池防御的弱点。<p>韧性：<span style="color: #CC241D">中</font><br>速度：<font color="#CC241D">快，慢（跳越后）</font><br>特点：<font color="#CC241D;">跃过他所遇到的第一株植物</font><br>只在水池关卡出现</span></p>那海豚其实也是个僵尸。',
+							'海豚骑士僵尸善于利用你水池防御的弱点。<p>韧性：<font color="#CC241D">中</font><br>速度：<font color="#CC241D">快，慢（跳越后）</font><br>特点：<font color="#CC241D">跃过他所遇到的第一株植物</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
 						BirthCallBack: function (a) {
 							PlayAudio("dolphin_appears");
 							oAquaticZombie.prototype.BirthCallBack(a),
@@ -13446,7 +13446,7 @@ oCBucketheadZombie = InheritO(
 							);
 						},
 						Produce:
-							'小淘气们是一群小型僵尸，他们被伽刚特尔用来投掷进你的防御体系。</p><p>韧性：<span style="color: #CC241D;">低</span><br>小淘气虽然瘦小，却很结实。他精通僵尸柔道，僵尸空手道和僵尸关节技。另外，他还会吹口琴。',
+							'小淘气们是一群小型僵尸，他们被伽刚特尔用来投掷进你的防御体系。</p><p>韧性：<font color="#CC241D">低</font><br>小淘气虽然瘦小，却很结实。他精通僵尸柔道，僵尸空手道和僵尸关节技。另外，他还会吹口琴。',
 						GoingDie: function () {
 							var b = this,
 								c = b.id,
@@ -13509,7 +13509,7 @@ oCBucketheadZombie = InheritO(
 						OSpeed: 3.6,
 						Speed: 3.6,
 						Produce:
-							'这种僵尸带着个会爆炸的潘多拉盒子。</p><p>韧性：<span style="color: #CC241D">中</font><br>速度：<font color="#CC241D">快</font><br>特点：<font color="#CC241D">打开玩偶匣会爆炸</font><br>弱点：<font color="#CC241D;">磁力菇</span><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
+							'这种僵尸带着个会爆炸的潘多拉盒子。</p><p>韧性：<font color="#CC241D">中</font><br>速度：<font color="#CC241D">快</font><br>特点：<font color="#CC241D">打开玩偶匣会爆炸</font><br>弱点：<font color="#CC241D">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
 						AudioArr: [
 							"jackinthebox",
 							"jack_surprise",
@@ -13869,7 +13869,7 @@ oCBucketheadZombie = InheritO(
 							];
 						})(),
 						Produce:
-							'气球僵尸漂浮在空中，躲过大多数攻击。<p>韧性：<span style="color: #CC241D">低</font><br>特点：<font color="#CC241D">飞行</font><br>弱点：<font color="#CC241D;">仙人掌和三叶草</span></p>气球僵尸真幸运。气球有很多功效，而其他僵尸都不曾捡到过。',
+							'气球僵尸漂浮在空中，躲过大多数攻击。<p>韧性：<font color="#CC241D">低</font><br>特点：<font color="#CC241D">飞行</font><br>弱点：<font color="#CC241D">仙人掌和三叶草</font></p>气球僵尸真幸运。气球有很多功效，而其他僵尸都不曾捡到过。',
 						BirthCallBack: function (e) {
 							var d = e.delayT,
 								c = e.id,
@@ -14101,7 +14101,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 	LostHeadAttackGif: 5,
 
 	Produce:
-		'这种僵尸通过挖地来绕过防线。<p>韧性：<span style="color: #CC241D">中</font><Br>速度：<font color="#CC241D">快,而后慢</font><BR>特点：<font color="#CC241D">挖地道，然后在草地的左侧现身</font><BR>弱点：<font color="#CC241D;">分裂射手，磁力菇</span></p>最近，他一直在听奥特曼的主题曲，据他所述，他好像是在某一处听到这首歌，觉得很好听，于是他现在也不挖土了，天天循环播放这首歌',
+		'这种僵尸通过挖地来绕过防线。<p>韧性：<font color="#CC241D">中</font><Br>速度：<font color="#CC241D">快,而后慢</font><BR>特点：<font color="#CC241D">挖地道，然后在草地的左侧现身</font><BR>弱点：<font color="#CC241D">分裂射手，磁力菇</font></p>最近，他一直在听奥特曼的主题曲，据他所述，他好像是在某一处听到这首歌，觉得很好听，于是他现在也不挖土了，天天循环播放这首歌',
 	BirthCallBack: function (f) {
 		var e = f.delayT,
 			d = f.id,
@@ -14354,7 +14354,7 @@ oIDiggerZombie = InheritO(OrnNoneZombies, {
 	LostHeadAttackGif: 5,
 
 	Produce:
-		'这种僵尸通过挖地来绕过防线。<p>韧性：<span style="color: #CC241D">中</font><Br>速度：<font color="#CC241D">快,而后慢</font><BR>特点：<font color="#CC241D">挖地道，然后在草地的左侧现身</font><BR>弱点：<font color="#CC241D;">分裂射手，磁力菇</span></p>最近，他一直在听奥特曼的主题曲，据他所述，他好像是在某一处听到这首歌，觉得很好听，于是他现在也不挖土了，天天循环播放这首歌',
+		'这种僵尸通过挖地来绕过防线。<p>韧性：<font color="#CC241D">中</font><Br>速度：<font color="#CC241D">快,而后慢</font><BR>特点：<font color="#CC241D">挖地道，然后在草地的左侧现身</font><BR>弱点：<font color="#CC241D">分裂射手，磁力菇</font></p>最近，他一直在听奥特曼的主题曲，据他所述，他好像是在某一处听到这首歌，觉得很好听，于是他现在也不挖土了，天天循环播放这首歌',
 	BirthCallBack: function (f) {
 		var e = f.delayT,
 			d = f.id,

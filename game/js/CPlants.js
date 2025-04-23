@@ -234,7 +234,7 @@ var CPlants = NewO({
 		InitTrigger: function () {},
 		Tooltip: "Plant it on a grave to remove the grave",
 		Produce:
-			'<span style="color: #28325A">Plant Grave Busters on graves to remove the graves.</font><p>Usage: <font color="#CC241D">single use, must be planted on graves</font><br>Special: <font color="#CC241D;">removes graves</span></p>Despite Grave Buster\'s fearsome appearance, he wants everyone to know that he loves kittens and spends his off hours volunteering at a local zombie rehabilitation center. "It\'s just the right thing to do," he says.',
+			'<font color="#28325A">Plant Grave Busters on graves to remove the graves.</font><p>Usage: <font color="#CC241D">single use, must be planted on graves</font><br>Special: <font color="#CC241D">removes graves</font></p>Despite Grave Buster\'s fearsome appearance, he wants everyone to know that he loves kittens and spends his off hours volunteering at a local zombie rehabilitation center. "It\'s just the right thing to do," he says.',
 		PrivateBirth: function (a) {
 			PlayAudio("gravebusterchomp");
 			oSym.addTask(
@@ -472,7 +472,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Shoots stars in 5 directions",
 		Produce:
-			'<span style="color: #28325A">Starfruits shoot stars in 5 directions.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D;">5 directions</span><p>"Aw, man," says Starfruit. "I went to the dentist the other day and he said I have four cavities. I\'ve got --count it-- ONE tooth! Four cavities in one tooth? How does this happen?"',
+			'<font color="#28325A">Starfruits shoot stars in 5 directions.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">5 directions</font><p>"Aw, man," says Starfruit. "I went to the dentist the other day and he said I have four cavities. I\'ve got --count it-- ONE tooth! Four cavities in one tooth? How does this happen?"',
 		getTriggerRange: function (e, g, f) {
 			var a = this.R,
 				b = GetY(a),
@@ -797,7 +797,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Shoots stars in 5 directions",
 		Produce:
-			'Starfruit can fire small starfruits in five directions.<p>Harm:<span style="color: #CC241D">medium</font><br>Scope:<font color="#CC241D;">five directions</font></p>Starfruit: "Hey man, I went to the dentist one day and he said</font><br>I have four cavities. When I count, I only have one tooth! one</span><br>Carambola: "Hey man, theres a tooth with four cavities? Why is that?" I went to the dentist and he said',
+			'Starfruit can fire small starfruits in five directions.<p>Harm:<font color="#CC241D">medium</font><br>Scope:<font color="#CC241D">five directions</font></p>Starfruit: "Hey man, I went to the dentist one day and he said</font><br>I have four cavities. When I count, I only have one tooth! one</font><br>Carambola: "Hey man, theres a tooth with four cavities? Why is that?" I went to the dentist and he said',
 		getTriggerRange: function (e, g, f) {
 			var a = this.R,
 				b = GetY(a),
@@ -1129,7 +1129,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Shoots peas at the enemy",
 		Produce:
-			'<span style="color: #28325A">Pea shooters are your first line of defense. They shoot peas at attacking zombies.</font><p>Damage: <font color="#CC241D;">normal</span></p>How can a single plant grow and shoot so many peas so quickly? Peashooter says, "Hard work, commitment, and a healthy, well-balanced breakfast of sunlight and high-fiber carbon dioxide make it all possible." ',
+			'<font color="#28325A">Pea shooters are your first line of defense. They shoot peas at attacking zombies.</font><p>Damage: <font color="#CC241D">normal</font></p>How can a single plant grow and shoot so many peas so quickly? Peashooter says, "Hard work, commitment, and a healthy, well-balanced breakfast of sunlight and high-fiber carbon dioxide make it all possible." ',
 		PrivateBirth: function (a) {
 			a.BulletEle = NewImg(
 				0,
@@ -1249,7 +1249,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Shoots peas at the enemy",
 		Produce:
-			'Pea shooters are your first line of defense. They shoot peas at attacking zombies.<p>Damage: <span style="color: #CC241D;">normal</span></p>How can a single plant grow and shoot so many peas so quickly? Peashooter says, "Hard work, commitment, and a healthy, well-balanced breakfast of sunlight and high-fiber carbon dioxide make it all possible." ',
+			'Pea shooters are your first line of defense. They shoot peas at attacking zombies.<p>Damage: <font color="#CC241D">normal</font></p>How can a single plant grow and shoot so many peas so quickly? Peashooter says, "Hard work, commitment, and a healthy, well-balanced breakfast of sunlight and high-fiber carbon dioxide make it all possible." ',
 		PrivateBirth: function (a) {
 			a.BulletEle = NewImg(
 				0,
@@ -1365,7 +1365,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Fire high-powered rocket launchers, inflicting heavy damage",
 		Produce:
-			'The lotus root rocket launcher can launch high-fire rocket launchers, targeting warships and</font><br>The submarine inflicted heavy damage.<p>Harm:<span style="color: #CC241D;">极高</font></p>What else can the lotus root rocket launcher do besides firing shells. Ok,</font><br>For this question, you should ask the intensive phobia patient</span><br>。”',
+			'The lotus root rocket launcher can launch high-fire rocket launchers, targeting warships and</font><br>The submarine inflicted heavy damage.<p>Harm:<font color="#CC241D">极高</font></p>What else can the lotus root rocket launcher do besides firing shells. Ok,</font><br>For this question, you should ask the intensive phobia patient</font><br>。”',
 		CanGrow: function (c, b, d) {
 			var a = b + "_" + d;
 			return !(
@@ -1500,7 +1500,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Shoots frozen peas that damage and slow the enemy",
 		Produce:
-			'<span style="color: #28325A">Snow Peas shoot frozen peas that damage and slow the enemy.</font><p>Damage: <font color="#CC241D;">normal, slows zombies</span></p>Folks often tell Snow Pea how "cool" he is, or exhort him to "chill out." They tell him to "stay frosty." Snow Pea just rolls his eyes. He\'s heard \'em al',
+			'<font color="#28325A">Snow Peas shoot frozen peas that damage and slow the enemy.</font><p>Damage: <font color="#CC241D">normal, slows zombies</font></p>Folks often tell Snow Pea how "cool" he is, or exhort him to "chill out." They tell him to "stay frosty." Snow Pea just rolls his eyes. He\'s heard \'em al',
 		NormalAttack: function () {
 			var a = this,
 				b = "PB" + Math.random();
@@ -1599,7 +1599,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Shoots frozen peas that damage and slow the enemy",
 		Produce:
-			'The Frost Archer fires Frozen Peas to attack enemies and has</font><br>Slow down effect.<p>Harm:<span style="color: #CC241D;">Medium, with a slowing effect</font></p>People often tell the ice shooter how cold he is, or</font><br>Admonish him to be calm. They told him to keep your composure. cold</span><br>The ice shooter just rolled his eyes. In fact, he heard it all.',
+			'The Frost Archer fires Frozen Peas to attack enemies and has</font><br>Slow down effect.<p>Harm:<font color="#CC241D">Medium, with a slowing effect</font></p>People often tell the ice shooter how cold he is, or</font><br>Admonish him to be calm. They told him to keep your composure. cold</font><br>The ice shooter just rolled his eyes. In fact, he heard it all.',
 		NormalAttack: function () {
 			var a = this,
 				b = "PB" + Math.random();
@@ -1689,7 +1689,7 @@ var CPlants = NewO({
 		Tooltip:
 			"Fires two frozen peas that damage and slow the enemy at a time",
 		Produce:
-			'Fires two frozen peas that damage and slow the enemy at a time.<p>Harm:<span style="color: #CC241D">medium (each)</font><br>Launch speed:<font color="#CC241D;">double</font></p>The dual-shot ice shooter is a shooting enthusiast, he often</font><br>People mention how accurate their shots are. Well, although things</span><br>Not so.',
+			'Fires two frozen peas that damage and slow the enemy at a time.<p>Harm:<font color="#CC241D">medium (each)</font><br>Launch speed:<font color="#CC241D">double</font></p>The dual-shot ice shooter is a shooting enthusiast, he often</font><br>People mention how accurate their shots are. Well, although things</font><br>Not so.',
 		NormalAttack1: oSnowPea.prototype.NormalAttack,
 		NormalAttack: function (a) {
 			this.NormalAttack1();
@@ -1727,7 +1727,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Fires two peas at a time",
 		Produce:
-			'Dual shooters can shoot two peas at once<p>Harm:<span style="color: #CC241D">Medium (per piece)</font><br>Launch speed:<font color="#CC241D;">double</font></p>The dual shooter is fierce, and he grew up on the street. Hes not in now</font><br>Regardless of anyones opinion, whether its a plant or a zombie, he fights</font><br>Out of peas, is to keep others away from him. Actually, double</span><br>The launcher has been secretly longing for love.',
+			'Dual shooters can shoot two peas at once<p>Harm:<font color="#CC241D">Medium (per piece)</font><br>Launch speed:<font color="#CC241D">double</font></p>The dual shooter is fierce, and he grew up on the street. Hes not in now</font><br>Regardless of anyones opinion, whether its a plant or a zombie, he fights</font><br>Out of peas, is to keep others away from him. Actually, double</font><br>The launcher has been secretly longing for love.',
 		NormalAttack1: oPeashooter.prototype.NormalAttack,
 		NormalAttack: function (a) {
 			this.NormalAttack1();
@@ -1765,7 +1765,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Fires two peas at a time",
 		Produce:
-			'<span style="color: #28325A">Repeaters fire two peas at a time.</font><p>Damage: <font color="#CC241D">normal (for each pea)</font><br>Firing speed: <font color="#CC241D;">2x</span></p>Repeater is fierce. He\'s from the streets. He doesn\'t take attitude from anybody, plant or zombie, and he shoots peas to keep people at a distance. Secretly, though, Repeater yearns for love.',
+			'<font color="#28325A">Repeaters fire two peas at a time.</font><p>Damage: <font color="#CC241D">normal (for each pea)</font><br>Firing speed: <font color="#CC241D">2x</font></p>Repeater is fierce. He\'s from the streets. He doesn\'t take attitude from anybody, plant or zombie, and he shoots peas to keep people at a distance. Secretly, though, Repeater yearns for love.',
 		NormalAttack1: oPeashooter.prototype.NormalAttack,
 		NormalAttack: function (a) {
 			this.NormalAttack1();
@@ -1987,7 +1987,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Shoots peas in three lanes",
 		Produce:
-			'<span style="color: #28325A">Threepeaters shoot peas in three lanes.</font><p>Damage: <font color="#CC241D">normal (for each pea)</font><br>Range: <font color="#CC241D;">three lanes</span></p>Threepeater likes reading, backgammon and long periods of immobility in the park. Threepeater enjoys going to shows, particularly modern jazz. "I\'m just looking for that special someone," he says. Threepeater\'s favorite number is 5.',
+			'<font color="#28325A">Threepeaters shoot peas in three lanes.</font><p>Damage: <font color="#CC241D">normal (for each pea)</font><br>Range: <font color="#CC241D">three lanes</font></p>Threepeater likes reading, backgammon and long periods of immobility in the park. Threepeater enjoys going to shows, particularly modern jazz. "I\'m just looking for that special someone," he says. Threepeater\'s favorite number is 5.',
 		getTriggerR: function (a) {
 			return [a > 2 ? a - 1 : 1, a < oS.R ? Number(a) + 1 : a];
 		},
@@ -2183,7 +2183,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Shoots peas in three lanes",
 		Produce:
-			'A three-line shooter can shoot peas on three lines at the same time.<p>Harm:<span style="color: #CC241D">Ordinary (each)</font><br>Scope:<font color="#CC241D;">three lines</font></p>The three-line shooter enjoys reading, playing chess and sitting in the park. he</font><br>Also enjoys performing, especially modern jazz. "Im looking for</font><br>The other half of my life," he said. The third-line shooters favorite number</span><br>The word is 5.',
+			'A three-line shooter can shoot peas on three lines at the same time.<p>Harm:<font color="#CC241D">Ordinary (each)</font><br>Scope:<font color="#CC241D">three lines</font></p>The three-line shooter enjoys reading, playing chess and sitting in the park. he</font><br>Also enjoys performing, especially modern jazz. "Im looking for</font><br>The other half of my life," he said. The third-line shooters favorite number</font><br>The word is 5.',
 		getTriggerR: function (a) {
 			return [a > 2 ? a - 1 : 1, a < oS.R ? Number(a) + 1 : a];
 		},
@@ -2331,9 +2331,9 @@ var CPlants = NewO({
 			"shieldhit2",
 		],
 		Tooltip:
-			'shoots four peas at a time <p> <span style="color: #CC241D;">(requires repeater)</span>',
+			'shoots four peas at a time <p> <font color="#CC241D">(requires repeater)</font>',
 		Produce:
-			'The machine gun shooter can fire four peas at once<p>Harm:<span style="color: #CC241D">medium (each)</font><br>Launch speed:<font color="#CC241D;">four times<br>Can be planted on dual launchers</font></p>He was worried, and they said to him in unison: "When Gatlin announced that he was going to join the army, his parents were very excited,</font><br>He was worried, and they said to him in unison: "My dear,</font><br>Its too dangerous. "Gatlin refuses to budge," life is in danger</font><br>Dangerous," he replied, and in his eyes,</span><br>Flashes of steely faith.',
+			'The machine gun shooter can fire four peas at once<p>Harm:<font color="#CC241D">medium (each)</font><br>Launch speed:<font color="#CC241D">four times<br>Can be planted on dual launchers</font></p>He was worried, and they said to him in unison: "When Gatlin announced that he was going to join the army, his parents were very excited,</font><br>He was worried, and they said to him in unison: "My dear,</font><br>Its too dangerous. "Gatlin refuses to budge," life is in danger</font><br>Dangerous," he replied, and in his eyes,</font><br>Flashes of steely faith.',
 		PrivateBirth: function (c) {
 			var b = c.AttackedLX,
 				a = b - 40;
@@ -2401,7 +2401,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Shoots peas forward and backwards",
 		Produce:
-			'<span style="color: #28325A">Split Peas shoot peas forward and backwards.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">forward and backwards</font><br>Firing speed: <font color="#CC241D;">1x forward, 2x backwards</span></p>"Yeah, I\'m a Gemini," says Split Pea. "I know, big surprise. But having two heads --or really, one head with a large head-like growth on the back-- pays off big in my line of work."',
+			'<font color="#28325A">Split Peas shoot peas forward and backwards.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">forward and backwards</font><br>Firing speed: <font color="#CC241D">1x forward, 2x backwards</font></p>"Yeah, I\'m a Gemini," says Split Pea. "I know, big surprise. But having two heads --or really, one head with a large head-like growth on the back-- pays off big in my line of work."',
 		GetDX: function () {
 			return -55;
 		},
@@ -2563,7 +2563,7 @@ var CPlants = NewO({
 		],
 		Tooltip: "Gives you additional sun",
 		Produce:
-			'<span style="color: #28325A">Sunflowers are essential for you to produce extra sun. Try planting as many as you can!</font><p>Sun production: <font color="#CC241D;">normal</span></p>Sunflower can\'t resist bouncing to the beat. Which beat is that? Why, the life-giving jazzy rhythm of the Earth itself, thumping at a frequency only Sunflower can hear.',
+			'<font color="#28325A">Sunflowers are essential for you to produce extra sun. Try planting as many as you can!</font><p>Sun production: <font color="#CC241D">normal</font></p>Sunflower can\'t resist bouncing to the beat. Which beat is that? Why, the life-giving jazzy rhythm of the Earth itself, thumping at a frequency only Sunflower can hear.',
 		/*
     BirthStyle: function (c, e, b, a) {
         var d = b.childNodes[1];
@@ -2703,9 +2703,9 @@ var CPlants = NewO({
 			"images/Plants/TwinSunflower/TwinSunflower.gif",
 		],
 		Tooltip:
-			'Gives twice as much sun as a sunflower  <p> <span style="color: #CC241D;">(requires sunflower)</span>',
+			'Gives twice as much sun as a sunflower  <p> <font color="#CC241D">(requires sunflower)</font>',
 		Produce:
-			'Twin sunflowers produce twice as much sunlight as regular sunflowers.<p>Sunlight Yield:<span style="color: #CC241D;">double<br>Can be planted on common sunflowers</font></p>Its a crazy night where forbidden science and technology make double</font><br>The cell sunflower came to this world. Lightning, thunder, gust of wind, roar</font><br>, are expressing the worlds rejection of him. but everything</span><br>To no avail, Gemini Sunflower is still alive!',
+			'Twin sunflowers produce twice as much sunlight as regular sunflowers.<p>Sunlight Yield:<font color="#CC241D">double<br>Can be planted on common sunflowers</font></p>Its a crazy night where forbidden science and technology make double</font><br>The cell sunflower came to this world. Lightning, thunder, gust of wind, roar</font><br>, are expressing the worlds rejection of him. but everything</font><br>To no avail, Gemini Sunflower is still alive!',
 		CanGrow: function (b, a, d) {
 			var c = b[1];
 			return c && c.EName == "oSunFlower";
@@ -2800,7 +2800,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Protects plants that are within its shell",
 		Produce:
-			'<span style="color: #28325A">Pumpkins protect plants that are within their shells.</font><p>Toughness: <font color="#CC241D">high</font><br>Special: <font color="#CC241D;">can be planted over another plant</span></p>Pumpkin hasn\'t heard from his cousin Renfield lately. Apparently Renfield\'s a big star, some kind of... what was it... sports hero? Peggle Master? Pumpkin doesn\'t really get it. He just does his job.',
+			'<font color="#28325A">Pumpkins protect plants that are within their shells.</font><p>Toughness: <font color="#CC241D">high</font><br>Special: <font color="#CC241D">can be planted over another plant</font></p>Pumpkin hasn\'t heard from his cousin Renfield lately. Apparently Renfield\'s a big star, some kind of... what was it... sports hero? Peggle Master? Pumpkin doesn\'t really get it. He just does his job.',
 		CanGrow: function (c, b, d) {
 			var a = b + "_" + d;
 			return c[2]
@@ -2890,7 +2890,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Protects plants that are within its shell",
 		Produce:
-			'Pumpkin head, can use his shell to protect other plants.<p>Toughness:<span style="color: #CC241D">high</font><br>Features:<font color="#CC241D;">可以种在其他植物上</font></p>Pumpkin head hasnt been received recently, about his cousin Resfield</font><br>information. Clearly, Renfield is a big star, a kind of...</font><br>What is a sports star called...? Pegg jump ball big</font><br>division? Pumpkin Head doesnt understand what exercise is anyway, he just wants to do well</span><br>his own work.',
+			'Pumpkin head, can use his shell to protect other plants.<p>Toughness:<font color="#CC241D">high</font><br>Features:<font color="#CC241D">可以种在其他植物上</font></p>Pumpkin head hasnt been received recently, about his cousin Resfield</font><br>information. Clearly, Renfield is a big star, a kind of...</font><br>What is a sports star called...? Pegg jump ball big</font><br>division? Pumpkin Head doesnt understand what exercise is anyway, he just wants to do well</font><br>his own work.',
 		CanGrow: function (c, b, d) {
 			var a = b + "_" + d;
 			return c[2]
@@ -2994,7 +2994,7 @@ BirthStyle: function (c, e, b, a) {
 		},
 		Tooltip: "Lets you plant on the roof",
 		Produce:
-			'<span style="color: #28325A">Flower Pots let you plant on the roof.</font><p>Special: <font color="#CC241D;">allows you to plant on the roof</span></p>"I\'m a pot for planting. Yet I\'m also a plant. HAS YOUR MIND EXPLODED YET?"',
+			'<font color="#28325A">Flower Pots let you plant on the roof.</font><p>Special: <font color="#CC241D">allows you to plant on the roof</font></p>"I\'m a pot for planting. Yet I\'m also a plant. HAS YOUR MIND EXPLODED YET?"',
 		InitTrigger: function () {},
 	}),
 	oCFlowerPot = InheritO(oFlowerPot, {
@@ -3038,7 +3038,7 @@ BirthStyle: function (c, e, b, a) {
 		},
 		Tooltip: "Lilypads allow you to grow non-aquatic plants on them。",
 		Produce:
-			'<span style="color: #28325A">Lily pads let you plant non-aquatic plants on top of them.</font><p>Special: <font color="#CC241D">non-aquatic plants can be planted on top of it</font><br><font color="#0ca1db;">Must be planted in water</span></p>Lily Pad never complains. Lily Pad never wants to know what\'s going on. Put a plant on top of Lily Pad, he won\'t say a thing. Does he have startling opinions or shocking secrets? Nobody knows. Lily Pad keeps it all inside.',
+			'<font color="#28325A">Lily pads let you plant non-aquatic plants on top of them.</font><p>Special: <font color="#CC241D">non-aquatic plants can be planted on top of it</font><br><font color="#0ca1db">Must be planted in water</font></p>Lily Pad never complains. Lily Pad never wants to know what\'s going on. Put a plant on top of Lily Pad, he won\'t say a thing. Does he have startling opinions or shocking secrets? Nobody knows. Lily Pad keeps it all inside.',
 	}),
 	oSeedLilyPad = InheritO(oFlowerPot, {
 		BookHandBack: 4.9,
@@ -3071,7 +3071,7 @@ BirthStyle: function (c, e, b, a) {
 		},
 		Tooltip: "Lilypads allow you to grow non-aquatic plants on them。",
 		Produce:
-			'Lilypads allow you to grow non-aquatic plants on top of them。<p>Features:<span style="color: #CC241D;">Non-aquatic plants can be planted on it<br>Must be planted on water</font></p>Lilypad never complains, it never wants to know what happened</font><br> Plant a plant on it and it wont say anything.</font><br>，Does it have any surprising ideas or terrible secrets?？</span><br>Lotus Ye buries all these inside of her heart。',
+			'Lilypads allow you to grow non-aquatic plants on top of them。<p>Features:<font color="#CC241D">Non-aquatic plants can be planted on it<br>Must be planted on water</font></p>Lilypad never complains, it never wants to know what happened</font><br> Plant a plant on it and it wont say anything.</font><br>，Does it have any surprising ideas or terrible secrets?？</font><br>Lotus Ye buries all these inside of her heart。',
 	}),
 	oILilyPad = InheritO(oFlowerPot, {
 		BookHandBack: 4.9,
@@ -3104,7 +3104,7 @@ BirthStyle: function (c, e, b, a) {
 		},
 		Tooltip: "Lilypads allow you to grow non-aquatic plants on them。",
 		Produce:
-			'Lilypads allow you to grow non-aquatic plants on top of them。<p>Features:<span style="color: #CC241D;">Non-aquatic plants can be planted on it<br>Must be planted on water</font></p>Lilypad never complains, it never wants to know what happened</font><br> Plant a plant on it and it wont say anything.</font><br>，Does it have any surprising ideas or terrible secrets?？</span><br>Lotus Ye buries all these inside of her heart。',
+			'Lilypads allow you to grow non-aquatic plants on top of them。<p>Features:<font color="#CC241D">Non-aquatic plants can be planted on it<br>Must be planted on water</font></p>Lilypad never complains, it never wants to know what happened</font><br> Plant a plant on it and it wont say anything.</font><br>，Does it have any surprising ideas or terrible secrets?？</font><br>Lotus Ye buries all these inside of her heart。',
 	}),
 	oLilyPad1 = InheritO(oLilyPad, {
 		EName: "oLilyPad1",
@@ -3148,7 +3148,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Explodes on contact, but takes time to arm itself",
 		Produce:
-			'<span style="color: #28325A">Potato Mines pack a powerful punch, but they need a while to arm themselves. You should plant them ahead of zombies. They will explode on contact.</font><p>Damage: <font color="CC241D">massive</font><br>Range: <font color="#CC241D">all zombies in a small area</font><br>Usage: <font color="#CC241D;">single use, delayed activation</span></p>Some folks say Potato Mine is lazy, that he leaves everything to the last minute. Potato Mine says nothing. He\'s too busy thinking about his investment strategy.',
+			'<font color="#28325A">Potato Mines pack a powerful punch, but they need a while to arm themselves. You should plant them ahead of zombies. They will explode on contact.</font><p>Damage: <font color="CC241D">massive</font><br>Range: <font color="#CC241D">all zombies in a small area</font><br>Usage: <font color="#CC241D">single use, delayed activation</font></p>Some folks say Potato Mine is lazy, that he leaves everything to the last minute. Potato Mine says nothing. He\'s too busy thinking about his investment strategy.',
 		Status: 0,
 		AudioArr: ["potato_mine"],
 		canTrigger: 0,
@@ -3282,7 +3282,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Explodes on contact, but takes time to arm itself",
 		Produce:
-			'Potato mines are powerful, but they take time</font><br>to arm yourself. You should plant them in the way of zombies</font><br>, which explode when they are touched.<p>Harm:<span style="color: CC241D">huge</font><br>Scope:<font color="#CC241D">All zombies in a small area</font><br>Instructions:<font color="#CC241D;">It takes some preparation time to use alone.</font></p>Some people say Potato Ray is lazy because he always puts everything</font><br>Save for last. Tudou Lei didnt have time to talk to them, he was busy with exams</span><br>Consider his investment strategy.',
+			'Potato mines are powerful, but they take time</font><br>to arm yourself. You should plant them in the way of zombies</font><br>, which explode when they are touched.<p>Harm:<font color="CC241D">huge</font><br>Scope:<font color="#CC241D">All zombies in a small area</font><br>Instructions:<font color="#CC241D">It takes some preparation time to use alone.</font></p>Some people say Potato Ray is lazy because he always puts everything</font><br>Save for last. Tudou Lei didnt have time to talk to them, he was busy with exams</font><br>Consider his investment strategy.',
 		Status: 0,
 		AudioArr: ["potato_mine"],
 		canTrigger: 0,
@@ -3416,7 +3416,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Explodes on contact, but takes time to arm itself",
 		Produce:
-			'Potato mines are powerful, but they take time</font><br>to arm yourself. You should plant them in the way of zombies</font><br>, which explode when they are touched.<p>Harm:<span style="color: CC241D">huge</font><br>Scope:<font color="#CC241D">All zombies in a small area</font><br>Instructions:<font color="#CC241D;">It takes some preparation time to use alone.</font></p>Some people say Potato Ray is lazy because he always puts everything</font><br>Save for last. Tudou Lei didnt have time to talk to them, he was busy with exams</span><br>Consider his investment strategy.',
+			'Potato mines are powerful, but they take time</font><br>to arm yourself. You should plant them in the way of zombies</font><br>, which explode when they are touched.<p>Harm:<font color="CC241D">huge</font><br>Scope:<font color="#CC241D">All zombies in a small area</font><br>Instructions:<font color="#CC241D">It takes some preparation time to use alone.</font></p>Some people say Potato Ray is lazy because he always puts everything</font><br>Save for last. Tudou Lei didnt have time to talk to them, he was busy with exams</font><br>Consider his investment strategy.',
 		Status: 0,
 		AudioArr: ["potato_mine"],
 		canTrigger: 0,
@@ -3531,7 +3531,7 @@ BirthStyle: function (c, e, b, a) {
 		AudioArr: ["firepea", "ignite", "ignite2"],
 		Tooltip: "Peas that pass through it turn into fireballs",
 		Produce:
-			'<span style="color: #28325A">Torchwoods turn peas that pass through them into fireballs that deal twice as much damage.</font><p>Special: <font color="#CC241D;">doubles the damage of peas that pass through it.  Fireballs deal damage to nearby zombies on impact</span><p>Everybody likes and respects Torchwood. They like him for his integrity, for his steadfast friendship, for his ability to greatly maximize pea damage. But Torchwood has a secret: he can\'t read.',
+			'<font color="#28325A">Torchwoods turn peas that pass through them into fireballs that deal twice as much damage.</font><p>Special: <font color="#CC241D">doubles the damage of peas that pass through it.  Fireballs deal damage to nearby zombies on impact</font><p>Everybody likes and respects Torchwood. They like him for his integrity, for his steadfast friendship, for his ability to greatly maximize pea damage. But Torchwood has a secret: he can\'t read.',
 		PrivateBirth: function (c) {
 			var a = c.R,
 				b = c.C;
@@ -3641,7 +3641,7 @@ BirthStyle: function (c, e, b, a) {
 		AudioArr: ["firepea", "ignite", "ignite2"],
 		Tooltip: "Peas that pass through it turn into fireballs",
 		Produce:
-			'Torch Stump can turn peas that pass through him into fireballs, causing</font><br>Double damage.<p>Features:<span style="color: #CC241D;">Causes fireballs that pass through him to deal double damage. fireball also</font><br>against nearby zombies</font><br>Deals splash damage</font></p>Everyone loves and respects torch stumps. they like his</font><br>Honest and steadfast friendship, and the ability to increase pea damage.</span><br>But he also has his own secret: he cant read!',
+			'Torch Stump can turn peas that pass through him into fireballs, causing</font><br>Double damage.<p>Features:<font color="#CC241D">Causes fireballs that pass through him to deal double damage. fireball also</font><br>against nearby zombies</font><br>Deals splash damage</font></p>Everyone loves and respects torch stumps. they like his</font><br>Honest and steadfast friendship, and the ability to increase pea damage.</font><br>But he also has his own secret: he cant read!',
 		PrivateBirth: function (c) {
 			var a = c.R,
 				b = c.C;
@@ -3749,7 +3749,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Blocks off zombies and protects your other plants",
 		Produce:
-			'<span style="color: #28325A">Wall-nuts have hard shells which you can use to protect your other plants.</font><p>Toughness: <font color="CC241D;">high</span></p>"People wonder how I feel about getting constantly chewed on by zombies," says Wall-nut. "What they don\'t realize is that with my limited senses all I can feel is a kind of tingling, like a relaxing back rub."',
+			'<font color="#28325A">Wall-nuts have hard shells which you can use to protect your other plants.</font><p>Toughness: <font color="CC241D">high</font></p>"People wonder how I feel about getting constantly chewed on by zombies," says Wall-nut. "What they don\'t realize is that with my limited senses all I can feel is a kind of tingling, like a relaxing back rub."',
 		CanGrow: function (c, b, f) {
 			var a = b + "_" + f,
 				d = c[1],
@@ -3811,7 +3811,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Blocks off zombies and protects your other plants",
 		Produce:
-			'Nut Walls are tough enough for you to use to protect other plants</font><br>shell.<p>Toughness:<span style="color: CC241D;">high</font></p>Wall of Nuts: People want to know what its like to be constantly gnawed by zombies</font><br>how? They dont know that my limited senses can only let me</span><br>Feel a tingling, like, relaxing back massage. "',
+			'Nut Walls are tough enough for you to use to protect other plants</font><br>shell.<p>Toughness:<font color="CC241D">high</font></p>Wall of Nuts: People want to know what its like to be constantly gnawed by zombies</font><br>how? They dont know that my limited senses can only let me</font><br>Feel a tingling, like, relaxing back massage. "',
 		CanGrow: function (c, b, f) {
 			var a = b + "_" + f,
 				d = c[1],
@@ -3871,7 +3871,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "goober",
 		Produce:
-			'Balloonatics have a chance to spawn every wave. Popping them produces 75 sun.</font><br><p>Toughness:<span style="color: CC241D;">low</span></p>  ">:3" says the Balloonatic, ">:3" says the Balloonatic, again.',
+			'Balloonatics have a chance to spawn every wave. Popping them produces 75 sun.</font><br><p>Toughness:<font color="CC241D">low</font></p>  ">:3" says the Balloonatic, ">:3" says the Balloonatic, again.',
 		CanGrow: function (c, b, f) {
 			var a = b + "_" + f,
 				d = c[1],
@@ -3958,9 +3958,9 @@ BirthStyle: function (c, e, b, a) {
 			];
 		})(),
 		Tooltip:
-			'Attacks any lane and shoots down balloon zombies <p> <span style="color: #CC241D;">(requires lily pad)</span>',
+			'Attacks any lane and shoots down balloon zombies <p> <font color="#CC241D">(requires lily pad)</font>',
 		Produce:
-			'猫尾草能够攻击气球僵尸或任何一条路上的僵尸。<p><span style="color: #CC241D;">必须种在睡莲上。</span></p>魔法猫咪!稳辣!稳辣!猫尾草不知道从哪里听的这句话，总之在听完之后，她破防了，她怒骂道：“一群*东西!我下次就用我对待僵尸的方式十倍来对待你们!”',
+			'猫尾草能够攻击气球僵尸或任何一条路上的僵尸。<p><font color="#CC241D">必须种在睡莲上。</font></p>魔法猫咪!稳辣!稳辣!猫尾草不知道从哪里听的这句话，总之在听完之后，她破防了，她怒骂道：“一群*东西!我下次就用我对待僵尸的方式十倍来对待你们!”',
 		TriggerCheck: function (b, a) {
 			this.AttackCheck2(b) &&
 				((this.canTrigger = 0), this.CheckLoop(b.id, a));
@@ -4317,7 +4317,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Nanhu Ling is the first obstacle in the water",
 		Produce:
-			'Nanhu Ling is the first obstacle in the water<p>Toughness:<span style="color: CC241D;">high</font></p>Look, how big is a cashew nut?</font><br>He said, but he didnt care. In Nanhulings head, every day only</font><br>think about one thing"If Qianlong didnt open the golden mouth, I wouldnt be able to use it</span><br>Horn to stab zombies? !"',
+			'Nanhu Ling is the first obstacle in the water<p>Toughness:<font color="CC241D">high</font></p>Look, how big is a cashew nut?</font><br>He said, but he didnt care. In Nanhulings head, every day only</font><br>think about one thing"If Qianlong didnt open the golden mouth, I wouldnt be able to use it</font><br>Horn to stab zombies? !"',
 		CanGrow: function (c, b, d) {
 			var a = b + "_" + d;
 			return !(
@@ -4654,7 +4654,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Heavy-duty wall that can't be vaulted over",
 		Produce:
-			'<span style="color: #28325A">Tall-nuts are heavy-duty wall plants that can\'t be vaulted over.</font><p>Toughness: <font color="#CC241D">very high</font><br>Special: <font color="#CC241D;">can\'t be vaulted or jumped over</span><p>People wonder if there\'s a rivalry between Wall-nut and Tall-nut. Tall-nut laughs a rich, baritone laugh. "How could there be anything between us? We are brothers. If you knew what Wall-nut has done for me..." Tall-nut\'s voice trails off and he smiles knowingly.',
+		'<font color="#28325A">Tall-nuts are heavy-duty wall plants that can\'t be vaulted over.</font><p>Toughness: <font color="#CC241D">very high</font><br>Special: <font color="#CC241D">can\'t be vaulted or jumped over</font><p>People wonder if there\'s a rivalry between Wall-nut and Tall-nut. Tall-nut laughs a rich, baritone laugh. "How could there be anything between us? We are brothers. If you knew what Wall-nut has done for me..." Tall-nut\'s voice trails off and he smiles knowingly.',
 		CanGrow: function (c, b, f) {
 			var a = b + "_" + f,
 				d = c[1],
@@ -4715,7 +4715,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Heavy-duty wall that can't be vaulted over",
 		Produce:
-			'高坚果是重型壁垒植物，而且不会被跳过。<p>Toughness:<span style="color: #CC241D">非常高</font><br>特殊：<font color="#CC241D;">不会被跨过或越过</font></p>人们想知道，坚果墙和高坚果是否在竞争。高</font><br>坚果以男中音的声调大声笑了。“我们之间怎么</font><br>会存在竞争关系？我们是哥们儿。你知道坚果墙</font><br>为我做了什么吗……”高坚果的声音越来越小，</span><br>他狡黠地笑着。”',
+			'高坚果是重型壁垒植物，而且不会被跳过。<p>Toughness:<font color="#CC241D">非常高</font><br>特殊：<font color="#CC241D">不会被跨过或越过</font></p>人们想知道，坚果墙和高坚果是否在竞争。高</font><br>坚果以男中音的声调大声笑了。“我们之间怎么</font><br>会存在竞争关系？我们是哥们儿。你知道坚果墙</font><br>为我做了什么吗……”高坚果的声音越来越小，</font><br>他狡黠地笑着。”',
 		CanGrow: function (c, b, f) {
 			var a = b + "_" + f,
 				d = c[1],
@@ -4778,7 +4778,7 @@ BirthStyle: function (c, e, b, a) {
 		ArZ: {},
 		Tooltip: "Damages zombies that eat it",
 		Produce:
-			'能近距离攻击僵尸<p>Harm:<span style="color: #CC241D">普通</font><br>强度：<font color="#CC241D;">非常高</font></p>大家一直在质疑高坚果和坚果的特殊关系，直</font><br>到高坚果找到了属于他的藤蔓，这种谣言才不</span><br>攻自散。',
+			'能近距离攻击僵尸<p>Harm:<font color="#CC241D">普通</font><br>强度：<font color="#CC241D">非常高</font></p>大家一直在质疑高坚果和坚果的特殊关系，直</font><br>到高坚果找到了属于他的藤蔓，这种谣言才不</font><br>攻自散。',
 		getHurt: function (f, c, b) {
 			var e = this,
 				d,
@@ -4857,7 +4857,7 @@ BirthStyle: function (c, e, b, a) {
 		AudioArr: ["cherrybomb"],
 		Tooltip: "Blows up all zombies in an area",
 		Produce:
-			'<span style="color: #28325A">Cherry Bombs can blow up all zombies in an area. They have a short fuse so plant them near zombies.</font><p>Harm: <font color="#CC241D">massive</font><br>Range: <font color="#CC241D">all zombies in a medium area</font><br>Usage: <font color="#CC241D;">single use, instant</span></p>"I wanna explode," says Cherry #1. "No, let\'s detonate instead!" says his brother, Cherry #2. After intense consultation they agree to explodonate.',
+			'<font color="#28325A">Cherry Bombs can blow up all zombies in an area. They have a short fuse so plant them near zombies.</font><p>Harm: <font color="#CC241D">massive</font><br>Range: <font color="#CC241D">all zombies in a medium area</font><br>Usage: <font color="#CC241D">single use, instant</font></p>"I wanna explode," says Cherry #1. "No, let\'s detonate instead!" says his brother, Cherry #2. After intense consultation they agree to explodonate.',
 		InitTrigger: function () {},
 		getHurt: function () {},
 		PrivateBirth: function (a) {
@@ -4918,7 +4918,7 @@ BirthStyle: function (c, e, b, a) {
 		AudioArr: ["cherrybomb"],
 		Tooltip: "Blows up all zombies in an area",
 		Produce:
-			'Cherry bomb can blow up all zombies in a certain area.</font><br>One will detonate immediately. So please plant them on zombies</font><br>around them.<p>Harm:<span style="color: #CC241D">huge</font><br>Scope:<font color="#CC241D">All zombies in a medium area</font><br>Instructions:<font color="#CC241D;">Instant use, it explodes immediately</font></p>“I am going to explode. "Cherry No. 1 said. "No, we are</font><br>‘炸’开了!”Said its brother Cherry No. 2. After intense discussion</span><br>After discussion, they finally agreed on the term "explosion."”',
+			'Cherry bomb can blow up all zombies in a certain area.</font><br>One will detonate immediately. So please plant them on zombies</font><br>around them.<p>Harm:<font color="#CC241D">huge</font><br>Scope:<font color="#CC241D">All zombies in a medium area</font><br>Instructions:<font color="#CC241D">Instant use, it explodes immediately</font></p>“I am going to explode. "Cherry No. 1 said. "No, we are</font><br>‘炸’开了!”Said its brother Cherry No. 2. After intense discussion</font><br>After discussion, they finally agreed on the term "explosion."”',
 		InitTrigger: function () {},
 		getHurt: function () {},
 		PrivateBirth: function (a) {
@@ -4978,7 +4978,7 @@ BirthStyle: function (c, e, b, a) {
 		AudioArr: ["jalapeno"],
 		Tooltip: "Destroys an entire lane of zombies",
 		Produce:
-			'<span style="color: #28325A">Jalapenos destroy an entire lane of zombies.</font><p>Damage: <font color="#CC241D">massive</font><br>Range: <font color="#CC241D">all zombies in a lane</font><br>Usage: <font color="#CC241D;">single use, instant</span></p>"NNNNNGGGGGG!!!!!!!!" Jalapeno says. He\'s not going to explode, not this time. But soon. Oh, so soon. It\'s close. He knows it, he can feel it, his whole life\'s been leading up to this moment.',
+		'<font color="#28325A">Jalapenos destroy an entire lane of zombies.</font><p>Damage: <font color="#CC241D">massive</font><br>Range: <font color="#CC241D">all zombies in a lane</font><br>Usage: <font color="#CC241D">single use, instant</font></p>"NNNNNGGGGGG!!!!!!!!" Jalapeno says. He\'s not going to explode, not this time. But soon. Oh, so soon. It\'s close. He knows it, he can feel it, his whole life\'s been leading up to this moment.',
 		PrivateBirth: function (a) {
 			oSym.addTask(
 				40,
@@ -5037,7 +5037,7 @@ BirthStyle: function (c, e, b, a) {
 		AudioArr: ["jalapeno"],
 		Tooltip: "Destroys an entire lane of zombies",
 		Produce:
-			'火爆辣椒可以摧毁一整条线上的敌人。<p>Harm:<span style="color: #CC241D">极高</font><br>Scope:<font color="#CC241D">整条线上的僵尸</font><br>用法：<font color="#CC241D;">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎!!!”火爆辣椒说。他现在</font><br>不会爆炸，还不到时候，不过快了，喔~，快了快</font><br>了，快来了。他知道，他感受到了，他一生都是</span><br>在等待这个时刻!',
+			'火爆辣椒可以摧毁一整条线上的敌人。<p>Harm:<font color="#CC241D">极高</font><br>Scope:<font color="#CC241D">整条线上的僵尸</font><br>用法：<font color="#CC241D">单独使用，立即生效</font></p>“嘎嘎嘎嘎嘎嘎嘎!!!”火爆辣椒说。他现在</font><br>不会爆炸，还不到时候，不过快了，喔~，快了快</font><br>了，快来了。他知道，他感受到了，他一生都是</font><br>在等待这个时刻!',
 		PrivateBirth: function (a) {
 			oSym.addTask(
 				40,
@@ -5099,7 +5099,7 @@ BirthStyle: function (c, e, b, a) {
 		ArZ: {},
 		Tooltip: "Pops tires and hurts zombies that step on it",
 		Produce:
-			'<span style="color: #28325A">Spikeweeds pop tires and hurt any zombies that step on them.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">all zombies that walk over it</font><br>Special: <font color="#CC241D;">can\'t be eaten by zombies</span></p>Hockey is Spikeweed\'s obsession. He\'s got box seat season tickets. He keeps close track of his favorite players. And he consistently cleans up in the office hockey pool. Just one problem: he\'s terrified of pucks.',
+		'<font color="#28325A">Spikeweeds pop tires and hurt any zombies that step on them.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">all zombies that walk over it</font><br>Special: <font color="#CC241D">can\'t be eaten by zombies</font></p>Hockey is Spikeweed\'s obsession. He\'s got box seat season tickets. He keeps close track of his favorite players. And he consistently cleans up in the office hockey pool. Just one problem: he\'s terrified of pucks.',
 		CanGrow: function (c, b, e) {
 			var a = b + "_" + e,
 				d = oS.ArP;
@@ -5191,7 +5191,7 @@ BirthStyle: function (c, e, b, a) {
 		ArZ: {},
 		Tooltip: "Pops tires and hurts zombies that step on it",
 		Produce:
-			'地刺可以扎破轮胎，并对踩到他的僵尸造成伤</font><br>害<p>Harm:<span style="color: #CC241D">普通</font><br>Scope:<font color="#CC241D">所有踩到他的僵尸</font><br>Features:<font color="#CC241D;">不会被僵尸吃掉</font></p>地刺痴迷冰球，他买了包厢的季票。他一直关</font><br>注着他喜欢的球员，他也始终如一的在赛后清理</span><br>冰球场。但只有一个问题：他害怕冰球。',
+			'地刺可以扎破轮胎，并对踩到他的僵尸造成伤</font><br>害<p>Harm:<font color="#CC241D">普通</font><br>Scope:<font color="#CC241D">所有踩到他的僵尸</font><br>Features:<font color="#CC241D">不会被僵尸吃掉</font></p>地刺痴迷冰球，他买了包厢的季票。他一直关</font><br>注着他喜欢的球员，他也始终如一的在赛后清理</font><br>冰球场。但只有一个问题：他害怕冰球。',
 		CanGrow: function (c, b, e) {
 			var a = b + "_" + e,
 				d = oS.ArP;
@@ -5281,9 +5281,9 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Attack: 40,
 		Tooltip:
-			'Pops multiple tires and damages zombies that walk over it  <p> <span style="color: #CC241D;">(requires spikeweed)</span>',
+			'Pops multiple tires and damages zombies that walk over it  <p> <font color="#CC241D">(requires spikeweed)</font>',
 		Produce:
-			'地刺王可以扎破多个轮胎，并对踩到他的僵尸</font><br>造成伤害。<p><span style="color: #CC241D;">可以种植在地刺上</font></p>地刺王刚刚从欧洲旅行回来。他玩的很高兴，</font><br>也认识了很多有趣的人。这些都真的拓展了他</font><br>视野——他从来不知道，他们建造了这么大博</span><br>物馆，有这么多的画作。这对他说太惊奇了。',
+			'地刺王可以扎破多个轮胎，并对踩到他的僵尸</font><br>造成伤害。<p><font color="#CC241D">可以种植在地刺上</font></p>地刺王刚刚从欧洲旅行回来。他玩的很高兴，</font><br>也认识了很多有趣的人。这些都真的拓展了他</font><br>视野——他从来不知道，他们建造了这么大博</font><br>物馆，有这么多的画作。这对他说太惊奇了。',
 		CanGrow: function (b, a, d) {
 			var c = b[1];
 			return c && c.EName == "oSpikeweed";
@@ -5331,7 +5331,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Diverts zombies into other lanes",
 		Produce:
-			'<span style="color: #28325A">Garlic diverts zombies into other lanes.</font><p>Usage: <font color="#CC241D">on contact</font><br>Special: <font color="#CC241D;">diverts zombies into other lanes</span><p>Lane-diversion isn\'t just Garlic\'s profession. It\'s his passion. He carries an advanced Doctorate in Redirection from the Brussels University. He\'ll talk all day about lane vectors and repulse arrays. He even pushes things into alternate avenues at home. Somehow his wife puts up with it.',
+		'<font color="#28325A">Garlic diverts zombies into other lanes.</font><p>Usage: <font color="#CC241D">on contact</font><br>Special: <font color="#CC241D">diverts zombies into other lanes</font><p>Lane-diversion isn\'t just Garlic\'s profession. It\'s his passion. He carries an advanced Doctorate in Redirection from the Brussels University. He\'ll talk all day about lane vectors and repulse arrays. He even pushes things into alternate avenues at home. Somehow his wife puts up with it.',
 		CanGrow: function (c, b, f) {
 			var a = b + "_" + f,
 				d = c[1],
@@ -5401,7 +5401,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Diverts zombies into other lanes",
 		Produce:
-			'大蒜可以让僵尸改变前进的路线。<p>Scope:<span style="color: #CC241D">近距离接触</font><br>Features:<font color="#CC241D;">改变僵尸的前进路线</font></p>路线转向，这不仅仅是大蒜的专业，更是他</font><br>的热情所在。他在布鲁塞尔大学里，获得了转向</font><br>学的博士学位。他能把路线向量和反击阵列，讲</font><br>上一整天。他甚至会把家里的东西，推到街上去</span><br>。不知道为啥，他老婆还可以忍受这些。',
+			'大蒜可以让僵尸改变前进的路线。<p>Scope:<font color="#CC241D">近距离接触</font><br>Features:<font color="#CC241D">改变僵尸的前进路线</font></p>路线转向，这不仅仅是大蒜的专业，更是他</font><br>的热情所在。他在布鲁塞尔大学里，获得了转向</font><br>学的博士学位。他能把路线向量和反击阵列，讲</font><br>上一整天。他甚至会把家里的东西，推到街上去</font><br>。不知道为啥，他老婆还可以忍受这些。',
 		CanGrow: function (c, b, f) {
 			var a = b + "_" + f,
 				d = c[1],
@@ -5472,7 +5472,7 @@ BirthStyle: function (c, e, b, a) {
 		AudioArr: ["squash_hmm", "gargantuar_thump"],
 		Tooltip: "Squashes zombies",
 		Produce:
-			'<span style="color: #28325A">Squashes will smash the first zombie that gets close to it.</font><p>Damage: <font color="#CC241D">massive</font><br>Range: <font color="#CC241D">short range, hits all zombies that it lands on</font><br>Usage: <font color="#CC241D;">single use</span></p>"I\'m ready!" yells Squash. "Let\'s do it! Put me in! There\'s nobody better! I\'m your guy! C\'mon! Whaddya waiting for? I need this!"',
+			'<font color="#28325A">Squashes will smash the first zombie that gets close to it.</font><p>Damage: <font color="#CC241D">massive</font><br>Range: <font color="#CC241D">short range, hits all zombies that it lands on</font><br>Usage: <font color="#CC241D">single use</font></p>"I\'m ready!" yells Squash. "Let\'s do it! Put me in! There\'s nobody better! I\'m your guy! C\'mon! Whaddya waiting for? I need this!"',
 		GetDY: function (b, c, a) {
 			return a[0] ? -21 : -10;
 		},
@@ -5566,7 +5566,7 @@ BirthStyle: function (c, e, b, a) {
 		AudioArr: ["squash_hmm", "gargantuar_thump"],
 		Tooltip: "Squashes zombies",
 		Produce:
-			'窝瓜会压扁第一个接近它的僵尸。<p>Harm:<span style="color: #CC241D">极高</font><br>Scope:<font color="#CC241D">短，覆盖所有它压到的僵尸。</font><br>用法：<font color="#CC241D;">单独使用</font></p>“我准备好了!”窝瓜大吼道，“干吧!!算我</font><br>一份!没人比我厉害!我就是你要的人!来啊!</span><br>等啥啊？要的就是这个!”',
+			'窝瓜会压扁第一个接近它的僵尸。<p>Harm:<font color="#CC241D">极高</font><br>Scope:<font color="#CC241D">短，覆盖所有它压到的僵尸。</font><br>用法：<font color="#CC241D">单独使用</font></p>“我准备好了!”窝瓜大吼道，“干吧!!算我</font><br>一份!没人比我厉害!我就是你要的人!来啊!</font><br>等啥啊？要的就是这个!”',
 		GetDY: function (b, c, a) {
 			return a[0] ? -21 : -10;
 		},
@@ -5659,7 +5659,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Devours a zombie whole, but is vulnerable while chewing",
 		Produce:
-			'<span style="color: #28325A">Chompers can devour a zombie whole, but they are vulnerable while chewing.</font><p>Damage: <font color="#CC241D">massive</font><br>Range: <font color="#CC241D">very short</font><br>Special: <font color="#CC241D;">long delay between chomps</span></p>Chomper almost got a gig doing stunts for The Little Shop of Horrors but it fell through when his agent demanded too much on the front end. Chomper\'s not resentful, though. He says it\'s just part of the business.',
+			'<font color="#28325A">Chompers can devour a zombie whole, but they are vulnerable while chewing.</font><p>Damage: <font color="#CC241D">massive</font><br>Range: <font color="#CC241D">very short</font><br>Special: <font color="#CC241D">long delay between chomps</font></p>Chomper almost got a gig doing stunts for The Little Shop of Horrors but it fell through when his agent demanded too much on the front end. Chomper\'s not resentful, though. He says it\'s just part of the business.',
 		GetDX: function () {
 			return -40;
 		},
@@ -5750,7 +5750,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "Devours a zombie whole, but is vulnerable while chewing",
 		Produce:
-			'Big-mouthed flowers can swallow a whole zombie in one bite, but they are very fragile when digesting zombies.<p>Harm:<span style="color: #CC241D">huge</font><br>Scope:<font color="#CC241D">very close</font><br>Features:<font color="#CC241D;">Digestion takes a long time</font></p>Big Mouth Flower can almost go to "Little Shop of Horrors"”，to perform its absolute best</font><br>Skilled, but his agent squeezed him too much money.</font><br>Because he didnt go. Despite this, Dazuihua has no complaints, only</span><br>Said it was just part of the deal.',
+			'Big-mouthed flowers can swallow a whole zombie in one bite, but they are very fragile when digesting zombies.<p>Harm:<font color="#CC241D">huge</font><br>Scope:<font color="#CC241D">very close</font><br>Features:<font color="#CC241D">Digestion takes a long time</font></p>Big Mouth Flower can almost go to "Little Shop of Horrors"”，to perform its absolute best</font><br>Skilled, but his agent squeezed him too much money.</font><br>Because he didnt go. Despite this, Dazuihua has no complaints, only</font><br>Said it was just part of the deal.',
 		GetDX: function () {
 			return -40;
 		},
@@ -5838,7 +5838,7 @@ BirthStyle: function (c, e, b, a) {
 		Tooltip:
 			"Can devour multiple zombie whole at once, but is vulnerable while rapidly chewing",
 		Produce:
-			'超级大嘴花能一口气吞下一只僵尸, 并且咀嚼速</font><br>度是普通大嘴花的50%。<p>Harm:<span style="color: #CC241D">巨大</font><br>Scope:<font color="#CC241D">非常近</font><br>Features:<font color="#CC241D;">咀嚼时间短</font></p>超级大嘴花曾经是电视节目“超级大胃王”节</font><br>目的常客，但后来他被踢出了节目组，原因是</font><br>它的存在直接影响到观众的饮食量和节目收视</font><br>率。没办法，为了糊口他只得干起吞食僵尸行</span><br>动。',
+			'超级大嘴花能一口气吞下一只僵尸, 并且咀嚼速</font><br>度是普通大嘴花的50%。<p>Harm:<font color="#CC241D">巨大</font><br>Scope:<font color="#CC241D">非常近</font><br>Features:<font color="#CC241D">咀嚼时间短</font></p>超级大嘴花曾经是电视节目“超级大胃王”节</font><br>目的常客，但后来他被踢出了节目组，原因是</font><br>它的存在直接影响到观众的饮食量和节目收视</font><br>率。没办法，为了糊口他只得干起吞食僵尸行</font><br>动。',
 		/*
 CanGrow: function(b, a, d) {
 var c = b[1];
@@ -5923,7 +5923,7 @@ return c && c.EName == "oChomper"
 		AudioArr: ["fume"],
 		Tooltip: "Shoots fumes that can pass through screen doors",
 		Produce:
-			'<span style="color: #28325A">Fume-shrooms shoot fumes that can pass through screen doors.</font><p>Damage: <font color="#CC241D">normal, penetrates screen doors</font><br>Range: <font color="#CC241D">all zombies in the fume cloud	</font><br><font color="#8832aa;">Sleeps during the day</span></p>"I was in a dead-end job producing yeast spores for a bakery," says Fume-shroom. "Then Puff-shroom, bless \'im, told me about this great opportunity blasting zombies. Now I really feel like I\'m making a difference."',
+			'<font color="#28325A">Fume-shrooms shoot fumes that can pass through screen doors.</font><p>Damage: <font color="#CC241D">normal, penetrates screen doors</font><br>Range: <font color="#CC241D">all zombies in the fume cloud	</font><br><font color="#8832aa">Sleeps during the day</font></p>"I was in a dead-end job producing yeast spores for a bakery," says Fume-shroom. "Then Puff-shroom, bless \'im, told me about this great opportunity blasting zombies. Now I really feel like I\'m making a difference."',
 		GetDY: function (b, c, a) {
 			return a[0] ? -18 : -10;
 		},
@@ -6029,7 +6029,7 @@ return c && c.EName == "oChomper"
 		AudioArr: ["fume"],
 		Tooltip: "Shoots fumes that can pass through screen doors",
 		Produce:
-			'大喷菇喷出的臭气可以穿透铁丝网门。<p>Harm:<span style="color: #CC241D">普通，可穿透铁丝网门</font><br>Scope:<font color="#CC241D;">臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房</font><br>生产酵母孢，”大喷菇说。“然后小喷菇，上帝</font><br>保佑它，告诉了我这个喷杀僵尸的机会。现在</span><br>我真觉得自己完全不同了。”',
+			'大喷菇喷出的臭气可以穿透铁丝网门。<p>Harm:<font color="#CC241D">普通，可穿透铁丝网门</font><br>Scope:<font color="#CC241D">臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房</font><br>生产酵母孢，”大喷菇说。“然后小喷菇，上帝</font><br>保佑它，告诉了我这个喷杀僵尸的机会。现在</font><br>我真觉得自己完全不同了。”',
 		GetDY: function (b, c, a) {
 			return a[0] ? -18 : -10;
 		},
@@ -6127,9 +6127,9 @@ return c && c.EName == "oChomper"
 			"images/Plants/IcyFumeShroom/FumeShroomBullet.gif",
 		],
 		Tooltip:
-			'Shoots icy fumes that can pass through screen doors  <p> <span style="color: #CC241D;">(requires fume-shroom)</span>',
+			'Shoots icy fumes that can pass through screen doors  <p> <font color="#CC241D">(requires fume-shroom)</font>',
 		Produce:
-			'大喷菇喷出的臭气可以穿透铁丝网门。<p>Harm:<span style="color: #CC241D">普通，可穿透铁丝网门</font><br>Scope:<font color="#CC241D;">臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房</font><br>生产酵母孢，”大喷菇说。“然后小喷菇，上帝</font><br>保佑它，告诉了我这个喷杀僵尸的机会。现在</span><br>我真觉得自己完全不同了。”',
+			'大喷菇喷出的臭气可以穿透铁丝网门。<p>Harm:<font color="#CC241D">普通，可穿透铁丝网门</font><br>Scope:<font color="#CC241D">臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房</font><br>生产酵母孢，”大喷菇说。“然后小喷菇，上帝</font><br>保佑它，告诉了我这个喷杀僵尸的机会。现在</font><br>我真觉得自己完全不同了。”',
 		PrivateBirth: function (b) {
 			var a = b.id;
 			NewEle(
@@ -6207,7 +6207,7 @@ return c && c.EName == "oChomper"
 		AudioArr: ["coffee", "wakeup"],
 		Tooltip: "Plant it on a mushroom to wake it up",
 		Produce:
-			'<span style="color: #28325A">Use Coffee Beans to wake up sleeping mushrooms.</font><p>Usage: <font color="#CC241D">single use, instant</font><br>Special: <font color="#CC241D;">can be planted over another plant, wakes up mushrooms</span><p>"Hey, guys, hey!" says Coffee Bean. "Hey! What\'s up? Who\'s that? Hey! Didja see that thing? What thing? Whoa! Lions!" Yep, Coffee Bean sure does get excited.',
+				'<font color="#28325A">Use Coffee Beans to wake up sleeping mushrooms.</font><p>Usage: <font color="#CC241D">single use, instant</font><br>Special: <font color="#CC241D">can be planted over another plant, wakes up mushrooms</font><p>"Hey, guys, hey!" says Coffee Bean. "Hey! What\'s up? Who\'s that? Hey! Didja see that thing? What thing? Whoa! Lions!" Yep, Coffee Bean sure does get excited.',
 		InitTrigger: function () {},
 		GetDBottom: function () {
 			return 49;
@@ -6269,9 +6269,9 @@ return c && c.EName == "oChomper"
 		],
 		AudioArr: ["kernelpult", "kernelpult2"],
 		Tooltip:
-			'Releases heavy fumes in an area around itself  <p> <span style="color: #CC241D;">(requires fume-shroom)</span>',
+			'Releases heavy fumes in an area around itself  <p> <font color="#CC241D">(requires fume-shroom)</font>',
 		Produce:
-			'围绕自身释放大量孢子<p><span style="color: #CC241D;">可以种植在大喷菇上</font></p>“我喜欢喷射大量烟雾。”忧郁蘑菇说，“我</font><br>知道许多人不喜欢这样，他们说这又粗鲁啦烟</font><br>雾又很臭啦之类的，我只想说，你们想不想自</span><br>己的脑袋被僵尸吃掉？”',
+			'围绕自身释放大量孢子<p><font color="#CC241D">可以种植在大喷菇上</font></p>“我喜欢喷射大量烟雾。”忧郁蘑菇说，“我</font><br>知道许多人不喜欢这样，他们说这又粗鲁啦烟</font><br>雾又很臭啦之类的，我只想说，你们想不想自</font><br>己的脑袋被僵尸吃掉？”',
 		CanGrow: function (b, a, d) {
 			var c = b[1];
 			return c && c.EName == "oFumeShroom";
@@ -6396,9 +6396,9 @@ return c && c.EName == "oChomper"
 		],
 		AudioArr: ["kernelpult", "kernelpult2"],
 		Tooltip:
-			'Releases heavy fumes in an area around itself  <p> <span style="color: #CC241D;">(requires fume-shroom)</span>',
+			'Releases heavy fumes in an area around itself  <p> <font color="#CC241D">(requires fume-shroom)</font>',
 		Produce:
-			'围绕自身释放大量孢子<p><span style="color: #CC241D;">可以种植在大喷菇上</font></p>“我喜欢喷射大量烟雾。”忧郁蘑菇说，“我</font><br>知道许多人不喜欢这样，他们说这又粗鲁啦烟</font><br>雾又很臭啦之类的，我只想说，你们想不想自</span><br>己的脑袋被僵尸吃掉？”',
+			'围绕自身释放大量孢子<p><font color="#CC241D">可以种植在大喷菇上</font></p>“我喜欢喷射大量烟雾。”忧郁蘑菇说，“我</font><br>知道许多人不喜欢这样，他们说这又粗鲁啦烟</font><br>雾又很臭啦之类的，我只想说，你们想不想自</font><br>己的脑袋被僵尸吃掉？”',
 		CanGrow: function (b, a, d) {
 			var c = b[1];
 			return c && c.EName == "oSeedFumeShroom";
@@ -6526,7 +6526,7 @@ return c && c.EName == "oChomper"
 		AudioArr: ["puff"],
 		Tooltip: "Shoots short-ranged spores at the enemy",
 		Produce:
-			'<span style="color: #28325A">Puff-shrooms are cheap, but can only fire a short distance.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">short</font><br><font color="#8832aa;">Sleeps during the day</span></p>"I only recently became aware of the existence of zombies," says Puff-shroom. "Like many fungi, I\'d just assumed they were fairy tales or movie monsters. This whole experience has been a huge eye-opener for me."',
+			'<font color="#28325A">Puff-shrooms are cheap, but can only fire a short distance.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">short</font><br><font color="#8832aa">Sleeps during the day</font></p>"I only recently became aware of the existence of zombies," says Puff-shroom. "Like many fungi, I\'d just assumed they were fairy tales or movie monsters. This whole experience has been a huge eye-opener for me."',
 		GetDX: CPlants.prototype.GetDX,
 		getTriggerRange: function (a, b, c) {
 			return [[b, Math.min(c + 250, oS.W), 0]];
@@ -6613,7 +6613,7 @@ return c && c.EName == "oChomper"
 		AudioArr: ["puff"],
 		Tooltip: "Shoots short-ranged spores at the enemy",
 		Produce:
-			'小喷菇是免费的，不过射程很近。<p>Harm: <span style="color: #CC241D">中等</font><br>Scope:<font color="#CC241D;">近<br>白天要睡觉</font></p>小喷菇：“我也是最近才知道僵尸的存在，和</font><br>很多蘑菇一样，我只是把他们想象成童话和电</font><br>影里的怪物。不过这次的经历已经让我大开眼</span><br>界了。',
+			'小喷菇是免费的，不过射程很近。<p>Harm: <font color="#CC241D">中等</font><br>Scope:<font color="#CC241D">近<br>白天要睡觉</font></p>小喷菇：“我也是最近才知道僵尸的存在，和</font><br>很多蘑菇一样，我只是把他们想象成童话和电</font><br>影里的怪物。不过这次的经历已经让我大开眼</font><br>界了。',
 		GetDX: CPlants.prototype.GetDX,
 		getTriggerRange: function (a, b, c) {
 			return [[b, Math.min(c + 250, oS.W), 0]];
@@ -6701,7 +6701,7 @@ return c && c.EName == "oChomper"
 		],
 		Tooltip: "Long-ranged shooter that hides when enemies get near it",
 		Produce:
-			'<span style="color: #28325A">Scaredy-shrooms are long-ranged shooters that hide when enemies get near them.</font><p>Damage: <font color="#CC241D">normal, penetrates screen doors</font><br>Special: <font color="#CC241D">stops shooting when enemy is close</font><br><font color="#8832aa;">Sleeps during the day</span></p>"Who\'s there?" whispers Scaredy-shroom, voice barely audible. "Go away. I don\'<|t want to see anybody. Unless it\'s the man from the circus."',
+			'<font color="#28325A">Scaredy-shrooms are long-ranged shooters that hide when enemies get near them.</font><p>Damage: <font color="#CC241D">normal, penetrates screen doors</font><br>Special: <font color="#CC241D">stops shooting when enemy is close</font><br><font color="#8832aa">Sleeps during the day</font></p>"Who\'s there?" whispers Scaredy-shroom, voice barely audible. "Go away. I don\'<|t want to see anybody. Unless it\'s the man from the circus."',
 		GetDX: CPlants.prototype.GetDX,
 		getTriggerRange: CPlants.prototype.getTriggerRange,
 		getTriggerR: function (c) {
@@ -6853,7 +6853,7 @@ return c && c.EName == "oChomper"
 		],
 		Tooltip: "Long-ranged shooter that hides when enemies get near it",
 		Produce:
-			'胆小菇是一种远程射手，敌人接近后会躲起来。<p>Harm:<span style="color: #CC241D">普通</font><br>Features:<font color="#CC241D;">敌人接近后就停止攻击<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“</font><br>走开!我不想见任何人。除非……除非你是马</span><br>戏团的人。”',
+			'胆小菇是一种远程射手，敌人接近后会躲起来。<p>Harm:<font color="#CC241D">普通</font><br>Features:<font color="#CC241D">敌人接近后就停止攻击<br>白天睡觉</font></p>“谁在那？”胆小菇低声说，声音细微难辨。“</font><br>走开!我不想见任何人。除非……除非你是马</font><br>戏团的人。”',
 		GetDX: CPlants.prototype.GetDX,
 		getTriggerRange: CPlants.prototype.getTriggerRange,
 		getTriggerR: function (c) {
@@ -7002,7 +7002,7 @@ return c && c.EName == "oChomper"
 		],
 		Tooltip: "Makes a zombie fight for you",
 		Produce:
-			'<span style="color: #28325A">When eaten, Hypno-shrooms will make a zombie turn around and fight for you.</font><p>Usage: <font color="#CC241D">single use, on contact</font><br>Special: <font color="#CC241D">makes a zombie fight for you</font><br><font color="#8832aa;">Sleeps during the day</span></p>"Zombies are our friends," asserts Hypno-shroom. "They\'re badly misunderstood creatures who play a valuable role in our ecology. We can and should do more to bring them round to our way of thinking."',
+			'<font color="#28325A">When eaten, Hypno-shrooms will make a zombie turn around and fight for you.</font><p>Usage: <font color="#CC241D">single use, on contact</font><br>Special: <font color="#CC241D">makes a zombie fight for you</font><br><font color="#8832aa">Sleeps during the day</font></p>"Zombies are our friends," asserts Hypno-shroom. "They\'re badly misunderstood creatures who play a valuable role in our ecology. We can and should do more to bring them round to our way of thinking."',
 		InitTrigger: function () {},
 		getHurt: function (d, b, a) {
 			var c = this;
@@ -7038,7 +7038,7 @@ return c && c.EName == "oChomper"
 		],
 		Tooltip: "Makes a zombie fight for you",
 		Produce:
-			'当僵尸吃下魅惑菇后，他将会掉转方向为你作</font><br>战。<p>Instructions:<span style="color: #CC241D">单独使用，接触生效</font><br>Features:<font color="#CC241D;">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被</font><br>严重误解了，僵尸们在我们的生态环境里扮演着</font><br>重要角色。我们可以也应当更努力地让他们学</span><br>会用我们的方式来思考。”',
+			'当僵尸吃下魅惑菇后，他将会掉转方向为你作</font><br>战。<p>Instructions:<font color="#CC241D">单独使用，接触生效</font><br>Features:<font color="#CC241D">让一只僵尸为你作战<br>白天睡觉</font></p>魅惑菇声称：“僵尸们是我们的朋友，他们被</font><br>严重误解了，僵尸们在我们的生态环境里扮演着</font><br>重要角色。我们可以也应当更努力地让他们学</font><br>会用我们的方式来思考。”',
 		InitTrigger: function () {},
 		getHurt: function (d, b, a) {
 			var c = this;
@@ -7075,7 +7075,7 @@ return c && c.EName == "oChomper"
 		AudioArr: ["frozen", "wakeup"],
 		Tooltip: "Temporarily immobilizes all zombies on the screen",
 		Produce:
-			'<span style="color: #28325A">Ice-shrooms temporarily immobilize all zombies on the screen.</font><p>Damage: <font color="#CC241D">very light, immobilizes zombies</font><br>Range: <font color="#CC241D">all zombies on the screen</font><br>Usage: <font color="#CC241D">single use, instant</font><br><font color="#8832aa;">Sleeps during the day</span></p>Ice-shroom frowns, not because he\'s unhappy or because he disapproves, but because of a childhood injury that left his facial nerves paralyzed.',
+			'<font color="#28325A">Ice-shrooms temporarily immobilize all zombies on the screen.</font><p>Damage: <font color="#CC241D">very light, immobilizes zombies</font><br>Range: <font color="#CC241D">all zombies on the screen</font><br>Usage: <font color="#CC241D">single use, instant</font><br><font color="#8832aa">Sleeps during the day</font></p>Ice-shroom frowns, not because he\'s unhappy or because he disapproves, but because of a childhood injury that left his facial nerves paralyzed.',
 		GetDX: CPlants.prototype.GetDX,
 		GetDY: CPlants.prototype.GetDY,
 		InitTrigger: function () {},
@@ -7149,7 +7149,7 @@ return c && c.EName == "oChomper"
 		AudioArr: ["frozen", "wakeup"],
 		Tooltip: "Temporarily immobilizes all zombies on the screen",
 		Produce:
-			'寒冰菇，能短暂的冻结屏幕上所有僵尸。<p>Harm:<span style="color: #CC241D">非常低，冻结僵尸</font><br>Scope:<font color="#CC241D">屏幕上的所有僵尸</font><br>用法：<font color="#CC241D;">单独使用，立即生效<br>白天睡觉</font></p>寒冰菇皱着眉头，倒不是因为它不高兴或不满</font><br>意，只是因为，它儿时因受创伤而</span><br>遗留下了面瘫。',
+			'寒冰菇，能短暂的冻结屏幕上所有僵尸。<p>Harm:<font color="#CC241D">非常低，冻结僵尸</font><br>Scope:<font color="#CC241D">屏幕上的所有僵尸</font><br>用法：<font color="#CC241D">单独使用，立即生效<br>白天睡觉</font></p>寒冰菇皱着眉头，倒不是因为它不高兴或不满</font><br>意，只是因为，它儿时因受创伤而</font><br>遗留下了面瘫。',
 		GetDX: CPlants.prototype.GetDX,
 		GetDY: CPlants.prototype.GetDY,
 		InitTrigger: function () {},
@@ -7223,7 +7223,7 @@ return c && c.EName == "oChomper"
 		],
 		Tooltip: "Gives small sun at first and normal sun later",
 		Produce:
-			'<span style="color: #28325A">Sun-shrooms give small sun at first and normal sun later.</font><p>Sun production: <font color="#CC241D">low</font><br><font color="#8832aa;">Sleeps during the day</span></p>Sun-shroom hates sun. He hates it so much that when it builds up in his system, he spits it out as fast as he can. He just won\'t abide it. To him, sun is crass.',
+			'<font color="#28325A">Sun-shrooms give small sun at first and normal sun later.</font><p>Sun production: <font color="#CC241D">low</font><br><font color="#8832aa">Sleeps during the day</font></p>Sun-shroom hates sun. He hates it so much that when it builds up in his system, he spits it out as fast as he can. He just won\'t abide it. To him, sun is crass.',
 		GetDX: CPlants.prototype.GetDX,
 		GetDY: CPlants.prototype.GetDY,
 		InitTrigger: function () {},
@@ -7323,7 +7323,7 @@ return c && c.EName == "oChomper"
 		],
 		Tooltip: "Destroys a large area, leaving a crater in its wake",
 		Produce:
-			'<span style="color: #28325A">Doom-shrooms destroy everything in a large area and leave a crater that can\'t be planted on.</font><p>Damage: <font color="#CC241D">massive</font><br>Range: <font color="#CC241D">all zombies in a huge area</font><br>Usage: <font color="#CC241D">single use, instant</font><br>Special: <font color="#CC241D">leaves a crater</font><br><font color="#8832aa;">Sleeps during the day</span></p>"You\'re lucky I\'m on your side," says Doom-shroom. "I could destroy everything you hold dear. It wouldn\'t be hard."',
+			'<font color="#28325A">Doom-shrooms destroy everything in a large area and leave a crater that can\'t be planted on.</font><p>Damage: <font color="#CC241D">massive</font><br>Range: <font color="#CC241D">all zombies in a huge area</font><br>Usage: <font color="#CC241D">single use, instant</font><br>Special: <font color="#CC241D">leaves a crater</font><br><font color="#8832aa">Sleeps during the day</font></p>"You\'re lucky I\'m on your side," says Doom-shroom. "I could destroy everything you hold dear. It wouldn\'t be hard."',
 		InitTrigger: function () {},
 		BirthStyle: function (c, d, b, a) {
 			oS.DKind
@@ -7537,7 +7537,7 @@ return c && c.EName == "oChomper"
 		],
 		Tooltip: "Destroys a large area, leaving a crater in its wake",
 		Produce:
-			'毁灭菇可以摧毁大范围的僵尸，并留下一个不</font><br>能种植物的大弹坑。<p>Harm:<span style="color: #CC241D">极高</font><br>Scope:<font color="#CC241D">大范围内的所有僵尸</font><br>用法：<font color="#CC241D">单独使用，立即生效</font><br>Features:<font color="#CC241D;">留下一个弹坑<br>白天睡觉</font></p>“你很幸运，我是和你一伙的，”毁灭菇说，“</span><br>我能摧毁任何你所珍视的东西，小菜一碟。”',
+			'毁灭菇可以摧毁大范围的僵尸，并留下一个不</font><br>能种植物的大弹坑。<p>Harm:<font color="#CC241D">极高</font><br>Scope:<font color="#CC241D">大范围内的所有僵尸</font><br>用法：<font color="#CC241D">单独使用，立即生效</font><br>Features:<font color="#CC241D">留下一个弹坑<br>白天睡觉</font></p>“你很幸运，我是和你一伙的，”毁灭菇说，“</font><br>我能摧毁任何你所珍视的东西，小菜一碟。”',
 		InitTrigger: function () {},
 		BirthStyle: function (c, d, b, a) {
 			oS.DKind
@@ -7750,7 +7750,7 @@ return c && c.EName == "oChomper"
 		],
 		Tooltip: "Aquatic plant that pulls a zombie underwater",
 		Produce:
-			'<span style="color: #28325A">Tangle Kelp are aquatic plants that pull the first zombie that nears them underwater.</font><p>Damage: <font color="#CC241D">massive</font><br>Usage: <font color="#CC241D">single use, on contact</font><br><font color="#0ca1db;">Must be planted in water</span></p>"I\'m totally invisible," Tangle Kelp thinks to himself. "I\'ll hide here just below the surface and nobody will see me." His friends tell him they can see him perfectly well, but he\'ll never change.',
+		'<font color="#28325A">Tangle Kelp are aquatic plants that pull the first zombie that nears them underwater.</font><p>Damage: <font color="#CC241D">massive</font><br>Usage: <font color="#CC241D">single use, on contact</font><br><font color="#0ca1db">Must be planted in water</font></p>"I\'m totally invisible," Tangle Kelp thinks to himself. "I\'ll hide here just below the surface and nobody will see me." His friends tell him they can see him perfectly well, but he\'ll never change.',
 		CanGrow: function (c, b, d) {
 			var a = b + "_" + d;
 			return !(
@@ -7903,7 +7903,7 @@ return c && c.EName == "oChomper"
 		],
 		Tooltip: "Aquatic plant that pulls a zombie underwater",
 		Produce:
-			'缠绕水草是一种可以把接近他的僵尸拉进水中</font><br>的水生植物。<p>Harm:<span style="color: #CC241D">极高</font><br>用法：<font color="#CC241D">单独使用，接触后生效</font><br>Features:<font color="#CC241D;">必须种在水中</font></p>“我是完全隐形的，”缠绕水草自己想，“我就</font><br>藏在水面下，没人会看到我。”他的朋友告诉他</font><br>，他们可以清楚地看到他。不过，缠绕水草似</span><br>乎不想改变自己的看法。',
+			'缠绕水草是一种可以把接近他的僵尸拉进水中</font><br>的水生植物。<p>Harm:<font color="#CC241D">极高</font><br>用法：<font color="#CC241D">单独使用，接触后生效</font><br>Features:<font color="#CC241D">必须种在水中</font></p>“我是完全隐形的，”缠绕水草自己想，“我就</font><br>藏在水面下，没人会看到我。”他的朋友告诉他</font><br>，他们可以清楚地看到他。不过，缠绕水草似</font><br>乎不想改变自己的看法。',
 		CanGrow: function (c, b, d) {
 			var a = b + "_" + d;
 			return !(
@@ -8077,7 +8077,7 @@ return c && c.EName == "oChomper"
 		},
 		Tooltip: "Aquatic plant that shoots short-ranged spores",
 		Produce:
-			'<span style="color: #28325A">Sea-shrooms are aquatic plants that shoot short ranged spores.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">short</font><br><font color="#0ca1db">Must be planted in water</font><br><font color="#8832aa;">Sleeps during the day</span></p>Sea-shroom has never seen the sea. It\'s in his name, he\'s heard loads about it, but he\'s just never found the time. One day, though, it\'ll go down.',
+		'<font color="#28325A">Sea-shrooms are aquatic plants that shoot short ranged spores.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">short</font><br><font color="#0ca1db">Must be planted in water</font><br><font color="#8832aa">Sleeps during the day</font></p>Sea-shroom has never seen the sea. It\'s in his name, he\'s heard loads about it, but he\'s just never found the time. One day, though, it\'ll go down.',
 	});
 oSeedSeaShroom = InheritO(oPuffShroom, {
 	EName: "oSeedSeaShroom",
@@ -8124,7 +8124,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 	},
 	Tooltip: "Aquatic plant that shoots short-ranged spores",
 	Produce:
-		'海蘑菇，能够发射短程孢子的水生植物。<p>Harm:<span style="color: #CC241D">普通</font><br>射程：<font color="#CC241D;">短<br>必须种在水上</font></p>海蘑菇从来没看到过大海，大海就在他的名字</font><br>里，他总听到关于大海的事。他只是没找到合适的</span><br>时间，总有一天……是的，他会见到海的。',
+		'海蘑菇，能够发射短程孢子的水生植物。<p>Harm:<font color="#CC241D">普通</font><br>射程：<font color="#CC241D">短<br>必须种在水上</font></p>海蘑菇从来没看到过大海，大海就在他的名字</font><br>里，他总听到关于大海的事。他只是没找到合适的</font><br>时间，总有一天……是的，他会见到海的。',
 });
 (oCactus = InheritO(CPlants, {
 	EName: "oCactus",
@@ -8151,7 +8151,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 	})(),
 	Tooltip: "Shoots spikes that can pop balloons",
 	Produce:
-		'<span style="color: #28325A">Cactuses shoot spikes that can hit both ground and air targets.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D;">ground and air</span><p>She\'s prickly, sure, but Cactus\'s spikes belie a spongy heart filled with love and goodwill. She just wants to hug and be hugged. Most folks can\'t hang with that, but Cactus doesn\'t mind. She\'s been seeing an armadillo for a while and it really seems to be working out.',
+	'<font color="#28325A">Cactuses shoot spikes that can hit both ground and air targets.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">ground and air</font><p>She\'s prickly, sure, but Cactus\'s spikes belie a spongy heart filled with love and goodwill. She just wants to hug and be hugged. Most folks can\'t hang with that, but Cactus doesn\'t mind. She\'s been seeing an armadillo for a while and it really seems to be working out.',
 	getShadow: function (a) {
 		return "left:3px;top:132px";
 	},
@@ -8417,7 +8417,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		})(),
 		Tooltip: "Shoots spikes that can pop balloons",
 		Produce:
-			'仙人掌发射的穿刺弹可以用来打击地面和空中</font><br>目标<p>Harm:<span style="color: #CC241D">中等</font><br>Scope:<font color="#CC241D;">地面和空中</font></p>确实，仙人掌非常“刺儿”，但是她的刺下，隐</font><br>藏着颗温柔的心，充满着爱和善良。她只是想拥</font><br>抱别人，和被别人拥抱。大多数人都做不到这点</font><br>，但是仙人掌她并不介意。她盯着一只铠甲鼠好</span><br>一阵子了，这次好像真的可以抱抱了。',
+			'仙人掌发射的穿刺弹可以用来打击地面和空中</font><br>目标<p>Harm:<font color="#CC241D">中等</font><br>Scope:<font color="#CC241D">地面和空中</font></p>确实，仙人掌非常“刺儿”，但是她的刺下，隐</font><br>藏着颗温柔的心，充满着爱和善良。她只是想拥</font><br>抱别人，和被别人拥抱。大多数人都做不到这点</font><br>，但是仙人掌她并不介意。她盯着一只铠甲鼠好</font><br>一阵子了，这次好像真的可以抱抱了。',
 		getShadow: function (a) {
 			return "left:3px;top:132px";
 		},
@@ -8676,7 +8676,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		],
 		Tooltip: "Blows away all balloon zombies and fog",
 		Produce:
-			'三叶草，能吹走所有的气球僵尸，也可以把雾吹散。<p>使用方法：<span style="color: #CC241D">单独使用，立即生效</font><br>特点：<font color="#CC241D;">吹走屏幕上所有的气球僵尸</span></p>当三叶草五岁生日的时候，他得到了一个闪亮的生日蛋糕。他许好愿，然后深吸一口气却只吹灭了60%的蜡烛。然而他没有放弃，小时候的那次失败促使他更加努力直到现在。',
+			'三叶草，能吹走所有的气球僵尸，也可以把雾吹散。<p>使用方法：<font color="#CC241D">单独使用，立即生效</font><br>特点：<font color="#CC241D">吹走屏幕上所有的气球僵尸</font></p>当三叶草五岁生日的时候，他得到了一个闪亮的生日蛋糕。他许好愿，然后深吸一口气却只吹灭了60%的蜡烛。然而他没有放弃，小时候的那次失败促使他更加努力直到现在。',
 		AudioArr: ["blover"],
 		InitTrigger: function () {},
 		PrivateBirth: function (o) {
@@ -8733,7 +8733,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		],
 		Tooltip: "Blows away all balloon zombies and fog",
 		Produce:
-			'三叶草，能吹走所有的气球僵尸，也可以把雾吹散。<p>使用方法：<span style="color: #CC241D">单独使用，立即生效</font><br>特点：<font color="#CC241D;">吹走屏幕上所有的气球僵尸</span></p>当三叶草五岁生日的时候，他得到了一个闪亮的生日蛋糕。他许好愿，然后深吸一口气却只吹灭了60%的蜡烛。然而他没有放弃，小时候的那次失败促使他更加努力直到现在。',
+			'三叶草，能吹走所有的气球僵尸，也可以把雾吹散。<p>使用方法：<font color="#CC241D">单独使用，立即生效</font><br>特点：<font color="#CC241D">吹走屏幕上所有的气球僵尸</font></p>当三叶草五岁生日的时候，他得到了一个闪亮的生日蛋糕。他许好愿，然后深吸一口气却只吹灭了60%的蜡烛。然而他没有放弃，小时候的那次失败促使他更加努力直到现在。',
 		AudioArr: ["blover"],
 		InitTrigger: function () {},
 		PrivateBirth: function (o) {
@@ -8793,7 +8793,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		],
 		Tooltip: "Oxygen provides algae to plants on the ground",
 		Produce:
-			'<span style="color: #28325A">Oxygen Algae can provide oxygen bubbles to plants on land</font><p>Range: <font color="#CC241D;">all tiles in a medium area</span><br></p>Puff...puff..." puffs Oxygen Algae, it wasn\'t that he was willing to keep spitting bubbles, only to blame him for drinking too much soda last night. However, there are rumors that all he knows is spitting bubbles.',
+			'<font color="#28325A">Oxygen Algae can provide oxygen bubbles to plants on land</font><p>Range: <font color="#CC241D">all tiles in a medium area</font><br></p>Puff...puff..." puffs Oxygen Algae, it wasn\'t that he was willing to keep spitting bubbles, only to blame him for drinking too much soda last night. However, there are rumors that all he knows is spitting bubbles.',
 		CanGrow: function (e, d, f) {
 			var c = d + "_" + f,
 				b = oGd.$LF[d],
@@ -8857,7 +8857,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		],
 		Tooltip: "烈焰菇可以召唤多个毁灭菇，嗨翻全场僵尸",
 		Produce:
-			'烈焰菇可以召唤多个毁灭菇，嗨翻全场僵尸<p>Toughness:<span style="color: CC241D">高</font><p><font color="#000000">技能：<font color="#1F470B;">在自身3x3范围内召唤8只毁灭菇</font></p>烈焰菇总是为自己的火焰感到反感，因为它们</font><br>总是伤害到自己的朋友。所以为了朋友，烈焰</span><br>菇到花园里找到了自己的归宿。',
+			'烈焰菇可以召唤多个毁灭菇，嗨翻全场僵尸<p>Toughness:<font color="CC241D">高</font><p><font color="#000000">技能：<font color="#1F470B">在自身3x3范围内召唤8只毁灭菇</font></p>烈焰菇总是为自己的火焰感到反感，因为它们</font><br>总是伤害到自己的朋友。所以为了朋友，烈焰</font><br>菇到花园里找到了自己的归宿。',
 		getHurt: function (e, b, a) {
 			var c = this,
 				d = $(c.id).childNodes[1];
@@ -8969,7 +8969,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		],
 		Tooltip: "Lights up an area, letting you see through fog",
 		Produce:
-			"<span style=\"color: #28325A\">Planterns light up an area, letting you see through fog.</font><p>Range: <font color=\"#CC241D\">one lane</font><br>Special: <font color=\"#CC241D;\">lets you see through fog</span><p>Plantern defies science. He just does. Other plants eat light and excrete oxygen; Plantern eats darkness and excretes light. Plantern's cagey about how he does it. \"I'm not gonna say 'sorcery,' I wouldn't use the term 'dark forces,' I just... I think I've said enough.\"",
+		'<font color="#28325A">Planterns light up an area, letting you see through fog.</font><p>Range: <font color="#CC241D">one lane</font><br>Special: <font color="#CC241D">lets you see through fog</font><p>Plantern defies science. He just does. Other plants eat light and excrete oxygen; Plantern eats darkness and excretes light. Plantern\'s cagey about how he does it. "I\'m not gonna say \'sorcery,\' I wouldn\'t use the term \'dark forces,\' I just... I think I\'ve said enough."',
 		PrivateBirth: function (c) {
 			var a = c.R,
 				b = c.C;
@@ -9023,7 +9023,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		],
 		Tooltip: "照亮一片区域, 让玩家可以看穿战场迷雾",
 		Produce:
-			'灯笼草，能照亮一片区域，让你看清战场迷雾<p>范围：<span style="color: #CC241D">一片圆形区域</font><br>特点：<font color="#CC241D;">使你看清战场迷雾</span></p>灯笼草拒绝科学，他只会埋头苦干。其他植物吃的是光，挤出的是氧气。灯笼草吃的是黑暗，挤出的却是光。对于他如何能产生光这件事，灯笼草持谨慎态度。“我不会说这是‘巫术’，我也不会使用‘黑暗力量’，我只是……我想我说得够多的了。”',
+			'灯笼草，能照亮一片区域，让你看清战场迷雾<p>范围：<font color="#CC241D">一片圆形区域</font><br>特点：<font color="#CC241D">使你看清战场迷雾</font></p>灯笼草拒绝科学，他只会埋头苦干。其他植物吃的是光，挤出的是氧气。灯笼草吃的是黑暗，挤出的却是光。对于他如何能产生光这件事，灯笼草持谨慎态度。“我不会说这是‘巫术’，我也不会使用‘黑暗力量’，我只是……我想我说得够多的了。”',
 		PrivateBirth: function (c) {
 			var a = c.R,
 				b = c.C;
@@ -9072,7 +9072,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		BookHandBack: 3.5,
 		Tooltip: "Sea Starfruit rolls and destroys any obstacles in its way",
 		Produce:
-			'<span style="color: #28325A">Sea Starfruits roll and ricochet on any obstacles in their way.</font><p>Damage: <font color="#CC241D">medium</font><br>Range: <font color="#CC241D">all zombies that it hits</font><br>Special: <font color="#CC241D;">ricochets when it hits an obstacle</span></p>Sea Starfruit always has a charming smile. No one knows the secret of him not feeling dizzy despite always spinning in circles. Some say the reason being him looking at one fixed point cross-eyed.',
+		'<font color="#28325A">Sea Starfruits roll and ricochet on any obstacles in their way.</font><p>Damage: <font color="#CC241D">medium</font><br>Range: <font color="#CC241D">all zombies that it hits</font><br>Special: <font color="#CC241D">ricochets when it hits an obstacle</font></p>Sea Starfruit always has a charming smile. No one knows the secret of him not feeling dizzy despite always spinning in circles. Some say the reason being him looking at one fixed point cross-eyed.',
 		PicArr: [
 			"images/Card/Plants/star.png",
 			"images/Plants/star/0.gif",
@@ -9311,7 +9311,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		},
 		Tooltip: "轻型海底作战植物",
 		Produce:
-			'<span style="color: #28325A">Soak-shrooms are pretty cheap, but have a short range.</font><p>Damage: <font color="#CC241D">low</font><br>Range: <font color="#CC241D;">short</span></p>Inhale, exhale; this anemone\'s unlocked zen breathing from ancient scrolls, training nonstop to blast its watergun past three tiles. Still a long shot, but its focus? Undeniable.',
+		'<font color="#28325A">Soak-shrooms are pretty cheap, but have a short range.</font><p>Damage: <font color="#CC241D">low</font><br>Range: <font color="#CC241D">short</font></p>Inhale, exhale; this anemone\'s unlocked zen breathing from ancient scrolls, training nonstop to blast its watergun past three tiles. Still a long shot, but its focus? Undeniable.',
 		PrivateBirth: function (a) {
 			a.BulletEle = NewImg(
 				0,
@@ -9542,7 +9542,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		],
 		Tooltip: "Grabs zombies in front of it",
 		Produce:
-			'<span style="color: #28325A">Thorn Seaweeds grab anything in front of them.</font><p>Damage: <font color="#CC241D">huge</font><br>Range: <font color="#CC241D;">very short</span></p>Thorn Seaweed is Tangle Kelp’s overenthusiastic cousin. While Tangle Kelp claims to be "great at relationships," Thorn Seaweed’s idea of bonding involves spines, panic, and a barnacle who still owes him 10 sun. Gardeners appreciate his dedication, though submarines and confused starfish do not.',
+		'<font color="#28325A">Thorn Seaweeds grab anything in front of them.</font><p>Damage: <font color="#CC241D">huge</font><br>Range: <font color="#CC241D">very short</font></p>Thorn Seaweed is Tangle Kelp’s overenthusiastic cousin. While Tangle Kelp claims to be "great at relationships," Thorn Seaweed’s idea of bonding involves spines, panic, and a barnacle who still owes him 10 sun. Gardeners appreciate his dedication, though submarines and confused starfish do not.',
 		CanGrow: function (e, d, f) {
 			var c = d + "_" + f,
 				b = oGd.$LF[d],
@@ -9679,7 +9679,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		],
 		Tooltip: "Removes helmets and other metal objects from zombies。",
 		Produce:
-			'磁力菇可以吸走周围僵尸的护具<p>Scope:<span style="color: #CC241D">约一行</font><br>Instructions:<font color="#CC241D;">安放即可使用（一次性）</font></p>磁力是一种强大的力量，非常强大，强大到有</font><br>时都吓到磁力菇自己了。能力越大，责任越大</span><br>，他不知道自己能否肩负得起这责任',
+			'磁力菇可以吸走周围僵尸的护具<p>Scope:<font color="#CC241D">约一行</font><br>Instructions:<font color="#CC241D">安放即可使用（一次性）</font></p>磁力是一种强大的力量，非常强大，强大到有</font><br>时都吓到磁力菇自己了。能力越大，责任越大</font><br>，他不知道自己能否肩负得起这责任',
 		InitTrigger: function () {},
 		getHurt: function () {},
 		PrivateBirth: function (a) {
@@ -9761,7 +9761,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		AudioArr: ["LaserBean"],
 		Tooltip: "Fires a high-powered laser at an entire row of zombies",
 		Produce:
-			'激光蚕豆向一整排僵尸发射激光<p>Scope:<span style="color: #CC241D;">一整排僵尸<p>本豆由上海宝开绘制<br></font><p><br>这位就是大名鼎鼎的激光豆。但是为什么他是</span><br>蚕豆？恐怕没人搞得清楚。',
+			'激光蚕豆向一整排僵尸发射激光<p>Scope:<font color="#CC241D">一整排僵尸<p>本豆由上海宝开绘制<br></font><p><br>这位就是大名鼎鼎的激光豆。但是为什么他是</font><br>蚕豆？恐怕没人搞得清楚。',
 		CheckLoop: function (b, c) {
 			var a = this.id;
 			this.NormalAttack(b);
@@ -10269,7 +10269,7 @@ oMagnetShroom = InheritO(CPlants, {
 	night: true,
 	Tooltip: "可以用磁力吸取僵尸的头盔",
 	Produce:
-		'磁力菇可以用磁力吸取僵尸的头盔等其它金属物品。<p>范围：<span style="color: #CC241D">靠近的僵尸</font><br>特点：<font color="#CC241D;">移除僵尸们所有的金属物品<br>白天睡觉</span></p>磁力是一种强大的力量，非常强大，强大到有时都吓到磁力菇自己了。能力越大，责任越大，他不知道自己能否肩负得起这责任。',
+		'磁力菇可以用磁力吸取僵尸的头盔等其它金属物品。<p>范围：<font color="#CC241D">靠近的僵尸</font><br>特点：<font color="#CC241D">移除僵尸们所有的金属物品<br>白天睡觉</font></p>磁力是一种强大的力量，非常强大，强大到有时都吓到磁力菇自己了。能力越大，责任越大，他不知道自己能否肩负得起这责任。',
 	InitTrigger: function () {},
 	PicArr: [
 		"images/Card/Plants/MagnetShroom.png",
