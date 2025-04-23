@@ -226,7 +226,9 @@ oS.Init(
 															SetNone,
 															[
 																$("PointerUD"),
-																$("DivTeachBar"),
+																$(
+																	"DivTeachBar"
+																),
 															]
 														))
 													: oSym.addTask(
