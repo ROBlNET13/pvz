@@ -55,6 +55,124 @@
 			content="https://roblnet13.github.io/pvz/game/images/gamethumbnail4.png"
 		/>
 		<link rel="stylesheet" href="UI.css" />
+		<!-- REMOVE THIS SCRIPT AFTER REFACTOR IS DONE -->
+		<script>
+			function replaceSingleFontTag(fontElement) {
+				if (
+					!fontElement ||
+					!fontElement.parentNode ||
+					fontElement.tagName !== "FONT"
+				) {
+					return;
+				}
+
+				const fontSizeMap = {
+					1: "x-small",
+					2: "small",
+					3: "medium",
+					4: "large",
+					5: "x-large",
+					6: "xx-large",
+					7: "xxx-large",
+				};
+
+				const spanElement = document.createElement("span");
+
+				spanElement.innerHTML = fontElement.innerHTML;
+
+				const color = fontElement.getAttribute("color");
+				if (color) {
+					spanElement.style.color = color;
+				}
+				const size = fontElement.getAttribute("size");
+				if (size && fontSizeMap[size]) {
+					spanElement.style.fontSize = fontSizeMap[size];
+				}
+				const face = fontElement.getAttribute("face");
+				if (face) {
+					spanElement.style.fontFamily = face;
+				}
+
+				console.log("Replacing <font> tag:", fontElement);
+				fontElement.replaceWith(spanElement);
+			}
+
+			function replaceExistingFontTags() {
+				const existingFonts = document.querySelectorAll("font");
+				let replacedCount = 0;
+				existingFonts.forEach((font) => {
+					if (font.parentNode) {
+						replaceSingleFontTag(font);
+						replacedCount++;
+					}
+				});
+				if (replacedCount > 0) {
+					console.log(
+						`Replaced ${replacedCount} initially present <font> tag(s).`
+					);
+				} else {
+					console.log("No initial <font> tags found to replace.");
+				}
+			}
+
+			const mutationCallback = (mutationsList, observer) => {
+				for (const mutation of mutationsList) {
+					if (mutation.type === "childList") {
+						mutation.addedNodes.forEach((node) => {
+							if (
+								node.nodeType === Node.ELEMENT_NODE &&
+								node.tagName === "FONT"
+							) {
+								replaceSingleFontTag(node);
+							} else if (
+								node.nodeType === Node.ELEMENT_NODE &&
+								node.querySelectorAll
+							) {
+								const nestedFonts =
+									node.querySelectorAll("font");
+								nestedFonts.forEach(replaceSingleFontTag);
+							}
+						});
+					} else if (mutation.type === "attributes") {
+						if (
+							mutation.target.nodeType === Node.ELEMENT_NODE &&
+							mutation.target.tagName === "FONT"
+						) {
+							console.log(
+								`Attribute '${mutation.attributeName}' changed on:`,
+								mutation.target
+							);
+							replaceSingleFontTag(mutation.target);
+						}
+					}
+				}
+			};
+
+			const observer = new MutationObserver(mutationCallback);
+
+			const config = {
+				childList: true,
+				subtree: true,
+				attributes: true,
+				// attributeFilter: ["color", "size", "face"],
+			};
+
+			// Function to start the process
+			function initializeFontReplacement() {
+				replaceExistingFontTags();
+
+				observer.observe(document.body, config);
+
+				console.log(
+					"MutationObserver started, watching for new <font> tags and attribute changes."
+				);
+			}
+
+			document.addEventListener(
+				"DOMContentLoaded",
+				initializeFontReplacement
+			);
+		</script>
 	</head>
 
 	<body
@@ -1167,12 +1285,12 @@
 			$User.Client.PC && $User.HTTP
 				? ((oS.AutoSun = Math.floor(getCookie("JSPVZAutoSun"))) &&
 						($("cAutoSun").checked = true),
-					(oS.Silence = Math.floor(getCookie("JSPVZSilence"))) &&
+				  (oS.Silence = Math.floor(getCookie("JSPVZSilence"))) &&
 						($("cSilence").checked = true))
 				: ((oS.AutoSun = 1),
-					($("cAutoSun").checked = true),
-					(oS.Silence = 0),
-					($("cSilence").checked = false));
+				  ($("cAutoSun").checked = true),
+				  (oS.Silence = 0),
+				  ($("cSilence").checked = false));
 			InitGame();
 		</script>
 		<script src="js/CPlants.js"></script>
