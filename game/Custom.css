@@ -47,6 +47,9 @@
 	cursor: url(images/interface/Pointer.cur), pointer !important;
 	color: #000 !important;
 }
+#DivTeachBar{
+	font-family: "houseofterrormedium" !important;
+}
 #dTitle,
 #dTitle * {
 	font-family: "pico12" !important;

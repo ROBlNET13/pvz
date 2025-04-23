@@ -121,7 +121,7 @@ oS.Init(
 							oS.InitLawnMower();
 							SetVisible($("dFlagMeter"), $("dTop"));
 							PrepareGrowPlants(function () {
-								NewEle("DivTeach", "div", 0, 0, EDAll);
+								NewEle("DivTeachBar", "div", 0, 0, EDAll);
 								oP.Monitor({
 									ar: [0],
 									f: function (l) {
@@ -129,8 +129,8 @@ oS.Init(
 										switch (l) {
 											case 0:
 												innerText(
-													$("DivTeach"),
-													"Sunflowers are very important plants!"
+													$("DivTeachBar"),
+													"Sunflowers are an extremely important plant!"
 												);
 												NewImg(
 													"PointerUD",
@@ -153,8 +153,8 @@ oS.Init(
 														"oSunFlower"
 													) {
 														innerText(
-															$("DivTeach"),
-															"Plant at least three sunflowers!"
+															$("DivTeachBar"),
+															"Try to plant at least 3 of them!"
 														);
 														oSym.addTask(
 															10,
@@ -190,9 +190,9 @@ oS.Init(
 														"oSunFlower" && ++k;
 												}
 												k > 1 &&
-													(innerText(
-														$("DivTeach"),
-														"You need more sunflowers so you can plant faster!"
+													(inner(
+														$("DivTeachBar"),
+														"Planting at least 3 sunflowers improves your chances of surviving a zombie attack!"
 													),
 													++l);
 												oSym.addTask(
@@ -211,8 +211,8 @@ oS.Init(
 												}
 												k > 2
 													? (innerText(
-															$("DivTeach"),
-															"Now use the sunlight you get to grow other plants!"
+															$("DivTeachBar"),
+															"Planting sunflowers will improve your chances <br> of surviving the zombie attack!"
 														),
 														SetStyle(
 															$("PointerUD"),
@@ -226,7 +226,7 @@ oS.Init(
 															SetNone,
 															[
 																$("PointerUD"),
-																$("DivTeach"),
+																$("DivTeachBar"),
 															]
 														))
 													: oSym.addTask(
