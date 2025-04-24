@@ -289,12 +289,7 @@ oS.Init(
 			j && j.parentNode.removeChild(j);
 			if (c > 347) {
 				innerHTML(
-					NewEle(
-						"DivTeachBar",
-						"div",
-						0,
-						EDAll
-					),
+					NewEle("DivTeachBar", "div", 0, EDAll),
 					"Place your sea starfruit to the left of the rolling line"
 				);
 				return false;

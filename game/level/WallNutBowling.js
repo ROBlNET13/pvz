@@ -203,12 +203,7 @@ oS.Init(
 			j && j.parentNode.removeChild(j);
 			if (c > 347) {
 				innerText(
-					NewEle(
-						"DivTeachBar",
-						"div",
-						0,
-						EDAll
-					),
+					NewEle("DivTeachBar", "div", 0, EDAll),
 					"Place your wall-nut to the left of the bowling line"
 				);
 				return false;

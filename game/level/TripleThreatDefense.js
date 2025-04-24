@@ -169,13 +169,7 @@ oS.Init(
 			j && j.parentNode.removeChild(j);
 			if (c > 347) {
 				innerText(
-					NewEle(
-						"DivTeachBar",
-						"div",
-						"line-height:40px",
-						0,
-						EDAll
-					),
+					NewEle("DivTeachBar", "div", "line-height:40px", 0, EDAll),
 					"Place your plant to the left of the line"
 				);
 				return false;
