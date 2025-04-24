@@ -140,7 +140,7 @@ oS.Init(
 		StartGame: function () {
 			SetHidden($("dSunNum"));
 			SetVisible($("tdShovel"), $("dTop"));
-			NewEle("DivTeach", "div", 0, 0, EDAll);
+			NewEle("DivTeachBar", "div", 0, 0, EDAll);
 			oP.Monitor(
 				{
 					ar: [0],
@@ -151,8 +151,8 @@ oS.Init(
 						switch (c) {
 							case 0:
 								innerText(
-									$("DivTeach"),
-									"Tap to pick up the shovel!"
+									$("DivTeachBar"),
+									"Click on the shovel to pick it up!"
 								);
 								NewImg(
 									"PointerUD",
@@ -165,8 +165,8 @@ oS.Init(
 							case 1:
 								b < 0 &&
 									(innerText(
-										$("DivTeach"),
-										"Click to remove a plant!"
+										$("DivTeachBar"),
+										"Click on a plant to remove it!"
 									),
 									++c);
 								oSym.addTask(10, arguments.callee, [c]);
@@ -174,14 +174,14 @@ oS.Init(
 							case 2:
 								!(a["2_6_1"] && a["3_8_1"] && a["4_7_1"])
 									? (innerText(
-											$("DivTeach"),
-											"Just keep digging until you have no plants on your lawn!"
+											$("DivTeachBar"),
+											"Keep digging until your lawn is clear of plants!"
 										),
 										++c)
 									: b > -1 &&
 										(innerText(
-											$("DivTeach"),
-											"Tap the shovel to dig out those plants!"
+											$("DivTeachBar"),
+											"Click on those plants to remove them!"
 										),
 										(c = 1));
 								oSym.addTask(10, arguments.callee, [c]);
@@ -190,7 +190,7 @@ oS.Init(
 								!(a["2_6_1"] || a["3_8_1"] || a["4_7_1"])
 									? (function () {
 											SetHidden(
-												$("DivTeach"),
+												$("DivTeachBar"),
 												$("PointerUD")
 											);
 											SetVisible(

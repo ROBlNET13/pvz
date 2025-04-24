@@ -285,18 +285,18 @@ oS.Init(
 			GroundOnmousemove = function () {};
 		},
 		GrowPlant: function (l, c, b, f, a) {
-			var j = $("DivTeach");
+			var j = $("DivTeachBar");
 			j && j.parentNode.removeChild(j);
 			if (c > 347) {
-				innerText(
+				innerHTML(
 					NewEle(
-						"DivTeach",
+						"DivTeachBar",
 						"div",
 						"line-height:40px;font-size: 14px",
 						0,
 						EDAll
 					),
-					"The starfish fruit can only be placed on the left side of the red line!"
+					"Place your sea starfruit to the left of the rolling line"
 				);
 				return false;
 			}

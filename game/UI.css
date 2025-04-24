@@ -31,6 +31,7 @@ body {
 	background: linear-gradient(-90deg, #0f0f1f, #091a09);
 	font-family: Tahoma, Verdana, fixedsys;
 	overflow-x: hidden;
+	font-variant-ligatures: none;
 }
 td {
 	font-family: Verdana;
@@ -88,27 +89,21 @@ td.HandBookZombie {
 	left: 100;
 	z-index: 100;
 	text-align: center;
-	font-family: Tahoma;
 	font-size: 18px;
-	font-weight: bold;
 	color: #000;
 	background-color: rgba(91, 67, 46, 0);
 	font-family: Tahoma;
 }
 #DivTeachBar {
-	filter: "alpha(opacity=90)"; /* IE 8 */
-	filter: alpha(opacity=90); /* IE 4-7 */
-	opacity: 0.9; /* FireFox,Safari(WebKit),Opera */
-	-moz-opacity: 0.9; /* FireFox<3.5 */
 	position: absolute;
 	width: 900px !important;
 	top: 400px;
 	left: 0 !important;
 	z-index: 100;
 	text-align: center;
-	font-size: 31px;
+	font-size: 31px !important;
 	color: #fdf5ad;
-	background-color: #5b432e;
+	background-color: #000000;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	text-shadow:
@@ -120,8 +115,8 @@ td.HandBookZombie {
 		-2px -2px 0px #000000,
 		-2px 0px 0px #000000,
 		-2px 2px 0px #000000 !important;
-	font-variant-ligatures: none;
-}
+background: #00000090
+	}
 
 /* .WindowFrame {
     position: absolute;
