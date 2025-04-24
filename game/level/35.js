@@ -292,7 +292,6 @@ oS.Init(
 					NewEle(
 						"DivTeachBar",
 						"div",
-						"line-height:40px;font-size: 14px",
 						0,
 						EDAll
 					),

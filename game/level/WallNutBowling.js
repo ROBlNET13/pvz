@@ -199,18 +199,17 @@ oS.Init(
 			GroundOnmousemove = function () {};
 		},
 		GrowPlant: function (l, c, b, f, a) {
-			var j = $("DivTeach");
+			var j = $("DivTeachBar");
 			j && j.parentNode.removeChild(j);
 			if (c > 347) {
 				innerText(
 					NewEle(
-						"DivTeach",
+						"DivTeachBar",
 						"div",
-						"line-height:40px;font-size: 14px",
 						0,
 						EDAll
 					),
-					""
+					"Place your wall-nut to the left of the bowling line"
 				);
 				return false;
 			}
