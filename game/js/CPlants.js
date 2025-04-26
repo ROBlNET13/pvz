@@ -2333,7 +2333,7 @@ var CPlants = NewO({
 		Tooltip:
 			'shoots four peas at a time <p> <font color="red">(requires repeater)</font>',
 		Produce:
-		'<font color="#28325A">Gatling Peas shoot four peas at a time.</font><p>Damage: <font color="#CC241D">normal (for each pea)</font><br>Firing Speed: <font color="#CC241D">4x</font><br>Must be planted on repeaters<p>Gatling Pea\'s parents were concerned when he announced his intention to join the military. "But honey, it\'s so dangerous!" they said in unison. Gatling Pea refused to budge. "Life is dangerous," he replied, eyes glinting with steely conviction.',
+			'<font color="#28325A">Gatling Peas shoot four peas at a time.</font><p>Damage: <font color="#CC241D">normal (for each pea)</font><br>Firing Speed: <font color="#CC241D">4x</font><br>Must be planted on repeaters<p>Gatling Pea\'s parents were concerned when he announced his intention to join the military. "But honey, it\'s so dangerous!" they said in unison. Gatling Pea refused to budge. "Life is dangerous," he replied, eyes glinting with steely conviction.',
 		PrivateBirth: function (c) {
 			var b = c.AttackedLX,
 				a = b - 40;
@@ -2705,7 +2705,7 @@ var CPlants = NewO({
 		Tooltip:
 			'Gives twice as much sun as a sunflower  <p> <font color="red">(requires sunflower)</font>',
 		Produce:
-		'<font color="#28325A">Twin Sunflowers give twice as much sun as a normal sunflower.</font><p>Sun production: <font color="#CC241D">double</font><br>Must be planted on sunflowers<p>It was a crazed night of forbidden science that brought Twin Sunflower into existence. Thunder crashed overhead, strange lights flickered, even the very roaring wind seemed to hiss its angry denial. But to no avail. Twin Sunflower was alive, ALIVE!',
+			'<font color="#28325A">Twin Sunflowers give twice as much sun as a normal sunflower.</font><p>Sun production: <font color="#CC241D">double</font><br>Must be planted on sunflowers<p>It was a crazed night of forbidden science that brought Twin Sunflower into existence. Thunder crashed overhead, strange lights flickered, even the very roaring wind seemed to hiss its angry denial. But to no avail. Twin Sunflower was alive, ALIVE!',
 		CanGrow: function (b, a, d) {
 			var c = b[1];
 			return c && c.EName == "oSunFlower";
@@ -4778,7 +4778,7 @@ BirthStyle: function (c, e, b, a) {
 		ArZ: {},
 		Tooltip: "Damages zombies that eat it",
 		Produce:
-		'<font color="#28325A">Vine-nuts are heavy-duty wall plants that can\'t be vaulted over and also damage zombies.</font><p>Damage: <font color="#CC241D">normal</font><br>Toughness: <font color="#CC241D">very high</font><p>cool vine nut description',
+			'<font color="#28325A">Vine-nuts are heavy-duty wall plants that can\'t be vaulted over and also damage zombies.</font><p>Damage: <font color="#CC241D">normal</font><br>Toughness: <font color="#CC241D">very high</font><p>cool vine nut description',
 		getHurt: function (f, c, b) {
 			var e = this,
 				d,
@@ -5283,7 +5283,7 @@ BirthStyle: function (c, e, b, a) {
 		Tooltip:
 			'Pops multiple tires and damages zombies that walk over it  <p> <font color="red">(requires spikeweed)</font>',
 		Produce:
-		'<font color="#28325A">Spikerocks pop multiple tires and damage zombies that walk over it.</font><p>Must be planted on spikeweeds<p>Spikerock just got back from a trip to Europe. He had a great time, met some wonderful people, really broadened his horizons. He never knew they made museums so big, or put so many paintings in them. That was a big surprise for him.',
+			'<font color="#28325A">Spikerocks pop multiple tires and damage zombies that walk over it.</font><p>Must be planted on spikeweeds<p>Spikerock just got back from a trip to Europe. He had a great time, met some wonderful people, really broadened his horizons. He never knew they made museums so big, or put so many paintings in them. That was a big surprise for him.',
 		CanGrow: function (b, a, d) {
 			var c = b[1];
 			return c && c.EName == "oSpikeweed";
@@ -6271,7 +6271,7 @@ return c && c.EName == "oChomper"
 		Tooltip:
 			'Releases heavy fumes in an area around itself  <p> <font color="red">(requires fume-shroom)</font>',
 		Produce:
-		'<font color="#28325A">Gloom-shrooms release heavy fumes in an area around themselves.</font><p>Must be planted on fume-shrooms<p>"I\'ve always enjoyed releasing heavy fumes," says Gloom Shroom. "I know a lot of people aren\'t cool with that. They say it\'s rude or that it smells bad. All I can say is, would you rather have your brain eaten by zombies?"',
+			'<font color="#28325A">Gloom-shrooms release heavy fumes in an area around themselves.</font><p>Must be planted on fume-shrooms<p>"I\'ve always enjoyed releasing heavy fumes," says Gloom Shroom. "I know a lot of people aren\'t cool with that. They say it\'s rude or that it smells bad. All I can say is, would you rather have your brain eaten by zombies?"',
 		CanGrow: function (b, a, d) {
 			var c = b[1];
 			return c && c.EName == "oFumeShroom";
