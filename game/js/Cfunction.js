@@ -2606,7 +2606,7 @@ var lastB;
 		a && a.C && (delete ArSun[b], ClearChild($(b)));
 	}),
 	(ClickSun = function (b) {
-		PlayAudio("points");
+		PlayAudioLegacy("points");
 		var a = ArSun[b];
 		a && a.C && ((a.C = 0), oSym.addTask(0, MoveClickSun, [b]));
 	}),
@@ -2771,7 +2771,7 @@ var lastB;
 	(GameOverZombies = function (c, a) {
 		var b = oSym;
 		StopMusic();
-		PlayAudio("losemusic");
+		PlayAudioLegacy("losemusic");
 		b.Stop();
 		//innerText(c, "Speed");
 		SetBlock($("dSurface"), $("dZombieFail"));
@@ -2832,7 +2832,7 @@ var lastB;
 	}),
 	(GetNewCard = function (a, b, c) {
 		StopMusic();
-		PlayAudio("winmusic");
+		PlayAudioLegacy("winmusic");
 		oSym.Clear();
 		SetStyle(a, {
 			left: "350px",
@@ -3597,6 +3597,17 @@ var lastB;
 		: function (a) {
 				NewMusic(a);
 			}),
+			(PlayAudioLegacy = $User.HTML5
+				? function (c, a) {
+					var b = oAudio[c];
+					if (b) {
+						b.loop = !!a;
+						b.play();
+					} else {
+						NewAudio({ source: c, loop: !!a }).play();
+					}
+					}
+				: function () {}),
 	(PlayAudio = $User.HTML5
 		? function (c, a) {
 				var b = oAudio[c];
