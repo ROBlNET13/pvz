@@ -2331,9 +2331,9 @@ var CPlants = NewO({
 			"shieldhit2",
 		],
 		Tooltip:
-			'shoots four peas at a time <p> <font color="#CC241D">(requires repeater)</font>',
+			'shoots four peas at a time <p> <font color="red">(requires repeater)</font>',
 		Produce:
-			'The machine gun shooter can fire four peas at once<p>Harm:<font color="#CC241D">medium (each)</font><br>Launch speed:<font color="#CC241D">four times<br>Can be planted on dual launchers</font></p>He was worried, and they said to him in unison: "When Gatlin announced that he was going to join the army, his parents were very excited,</font><br>He was worried, and they said to him in unison: "My dear,</font><br>Its too dangerous. "Gatlin refuses to budge," life is in danger</font><br>Dangerous," he replied, and in his eyes,</font><br>Flashes of steely faith.',
+		'<font color="#28325A">Gatling Peas shoot four peas at a time.</font><p>Damage: <font color="#CC241D">normal (for each pea)</font><br>Firing Speed: <font color="#CC241D">4x</font><br>Must be planted on repeaters<p>Gatling Pea\'s parents were concerned when he announced his intention to join the military. "But honey, it\'s so dangerous!" they said in unison. Gatling Pea refused to budge. "Life is dangerous," he replied, eyes glinting with steely conviction.',
 		PrivateBirth: function (c) {
 			var b = c.AttackedLX,
 				a = b - 40;
@@ -2703,9 +2703,9 @@ var CPlants = NewO({
 			"images/Plants/TwinSunflower/TwinSunflower.gif",
 		],
 		Tooltip:
-			'Gives twice as much sun as a sunflower  <p> <font color="#CC241D">(requires sunflower)</font>',
+			'Gives twice as much sun as a sunflower  <p> <font color="red">(requires sunflower)</font>',
 		Produce:
-			'Twin sunflowers produce twice as much sunlight as regular sunflowers.<p>Sunlight Yield:<font color="#CC241D">double<br>Can be planted on common sunflowers</font></p>Its a crazy night where forbidden science and technology make double</font><br>The cell sunflower came to this world. Lightning, thunder, gust of wind, roar</font><br>, are expressing the worlds rejection of him. but everything</font><br>To no avail, Gemini Sunflower is still alive!',
+		'<font color="#28325A">Twin Sunflowers give twice as much sun as a normal sunflower.</font><p>Sun production: <font color="#CC241D">double</font><br>Must be planted on sunflowers<p>It was a crazed night of forbidden science that brought Twin Sunflower into existence. Thunder crashed overhead, strange lights flickered, even the very roaring wind seemed to hiss its angry denial. But to no avail. Twin Sunflower was alive, ALIVE!',
 		CanGrow: function (b, a, d) {
 			var c = b[1];
 			return c && c.EName == "oSunFlower";
@@ -3958,7 +3958,7 @@ BirthStyle: function (c, e, b, a) {
 			];
 		})(),
 		Tooltip:
-			'Attacks any lane and shoots down balloon zombies <p> <font color="#CC241D">(requires lily pad)</font>',
+			'Attacks any lane and shoots down balloon zombies <p> <font color="red">(requires lily pad)</font>',
 		Produce:
 			'猫尾草能够攻击气球僵尸或任何一条路上的僵尸。<p><font color="#CC241D">必须种在睡莲上。</font></p>魔法猫咪!稳辣!稳辣!猫尾草不知道从哪里听的这句话，总之在听完之后，她破防了，她怒骂道：“一群*东西!我下次就用我对待僵尸的方式十倍来对待你们!”',
 		TriggerCheck: function (b, a) {
@@ -4778,7 +4778,7 @@ BirthStyle: function (c, e, b, a) {
 		ArZ: {},
 		Tooltip: "Damages zombies that eat it",
 		Produce:
-			'能近距离攻击僵尸<p>Harm:<font color="#CC241D">普通</font><br>强度：<font color="#CC241D">非常高</font></p>大家一直在质疑高坚果和坚果的特殊关系，直</font><br>到高坚果找到了属于他的藤蔓，这种谣言才不</font><br>攻自散。',
+		'<font color="#28325A">Vine-nuts are heavy-duty wall plants that can\'t be vaulted over and also damage zombies.</font><p>Damage: <font color="#CC241D">normal</font><br>Toughness: <font color="#CC241D">very high</font><p>cool vine nut description',
 		getHurt: function (f, c, b) {
 			var e = this,
 				d,
@@ -5281,9 +5281,9 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Attack: 40,
 		Tooltip:
-			'Pops multiple tires and damages zombies that walk over it  <p> <font color="#CC241D">(requires spikeweed)</font>',
+			'Pops multiple tires and damages zombies that walk over it  <p> <font color="red">(requires spikeweed)</font>',
 		Produce:
-			'地刺王可以扎破多个轮胎，并对踩到他的僵尸</font><br>造成伤害。<p><font color="#CC241D">可以种植在地刺上</font></p>地刺王刚刚从欧洲旅行回来。他玩的很高兴，</font><br>也认识了很多有趣的人。这些都真的拓展了他</font><br>视野——他从来不知道，他们建造了这么大博</font><br>物馆，有这么多的画作。这对他说太惊奇了。',
+		'<font color="#28325A">Spikerocks pop multiple tires and damage zombies that walk over it.</font><p>Must be planted on spikeweeds<p>Spikerock just got back from a trip to Europe. He had a great time, met some wonderful people, really broadened his horizons. He never knew they made museums so big, or put so many paintings in them. That was a big surprise for him.',
 		CanGrow: function (b, a, d) {
 			var c = b[1];
 			return c && c.EName == "oSpikeweed";
@@ -6127,7 +6127,7 @@ return c && c.EName == "oChomper"
 			"images/Plants/IcyFumeShroom/FumeShroomBullet.gif",
 		],
 		Tooltip:
-			'Shoots icy fumes that can pass through screen doors  <p> <font color="#CC241D">(requires fume-shroom)</font>',
+			'Shoots icy fumes that can pass through screen doors  <p> <font color="red">(requires fume-shroom)</font>',
 		Produce:
 			'大喷菇喷出的臭气可以穿透铁丝网门。<p>Harm:<font color="#CC241D">普通，可穿透铁丝网门</font><br>Scope:<font color="#CC241D">臭气中的所有僵尸<br>白天睡觉</font></p>“我以前那份没前途的工作，是为一个面包房</font><br>生产酵母孢，”大喷菇说。“然后小喷菇，上帝</font><br>保佑它，告诉了我这个喷杀僵尸的机会。现在</font><br>我真觉得自己完全不同了。”',
 		PrivateBirth: function (b) {
@@ -6269,9 +6269,9 @@ return c && c.EName == "oChomper"
 		],
 		AudioArr: ["kernelpult", "kernelpult2"],
 		Tooltip:
-			'Releases heavy fumes in an area around itself  <p> <font color="#CC241D">(requires fume-shroom)</font>',
+			'Releases heavy fumes in an area around itself  <p> <font color="red">(requires fume-shroom)</font>',
 		Produce:
-			'围绕自身释放大量孢子<p><font color="#CC241D">可以种植在大喷菇上</font></p>“我喜欢喷射大量烟雾。”忧郁蘑菇说，“我</font><br>知道许多人不喜欢这样，他们说这又粗鲁啦烟</font><br>雾又很臭啦之类的，我只想说，你们想不想自</font><br>己的脑袋被僵尸吃掉？”',
+		'<font color="#28325A">Gloom-shrooms release heavy fumes in an area around themselves.</font><p>Must be planted on fume-shrooms<p>"I\'ve always enjoyed releasing heavy fumes," says Gloom Shroom. "I know a lot of people aren\'t cool with that. They say it\'s rude or that it smells bad. All I can say is, would you rather have your brain eaten by zombies?"',
 		CanGrow: function (b, a, d) {
 			var c = b[1];
 			return c && c.EName == "oFumeShroom";
@@ -6396,7 +6396,7 @@ return c && c.EName == "oChomper"
 		],
 		AudioArr: ["kernelpult", "kernelpult2"],
 		Tooltip:
-			'Releases heavy fumes in an area around itself  <p> <font color="#CC241D">(requires fume-shroom)</font>',
+			'Releases heavy fumes in an area around itself  <p> <font color="red">(requires fume-shroom)</font>',
 		Produce:
 			'围绕自身释放大量孢子<p><font color="#CC241D">可以种植在大喷菇上</font></p>“我喜欢喷射大量烟雾。”忧郁蘑菇说，“我</font><br>知道许多人不喜欢这样，他们说这又粗鲁啦烟</font><br>雾又很臭啦之类的，我只想说，你们想不想自</font><br>己的脑袋被僵尸吃掉？”',
 		CanGrow: function (b, a, d) {
