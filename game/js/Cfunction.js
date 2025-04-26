@@ -2528,7 +2528,7 @@ var $User = (function () {
 			d,
 			g = "Sun" + Math.random(),
 			c =
-				"cursor:url(images/interface/Pointer.cur),pointer;z-index:25;filter:alpha(opacity=80);opacity:0.8;left:" +
+				"cursor:url(images/interface/Pointer.cur),pointer;z-index:25;left:" +
 				h +
 				"px;";
 		switch (e) {
