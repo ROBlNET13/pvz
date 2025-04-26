@@ -2018,12 +2018,12 @@ var $User = (function () {
 		SetNone($("dHandBookP"));
 		SetBlock($("dHandBookZ"));
 	};
-	var lastB
-	ViewProducePlant = function (b) {
-		if (lastB !== b) {
-			lastB = b
-			var a = b.prototype;
-			PlayAudio("tap");
+var lastB;
+(ViewProducePlant = function (b) {
+	if (lastB !== b) {
+		lastB = b;
+		var a = b.prototype;
+		PlayAudio("tap");
 		$("pHandBookPlant").style.backgroundImage =
 			"url(" + a.PicArr[a.StaticGif] + ")";
 		$("pHandBookPlant").style.backgroundPosition =
@@ -2034,9 +2034,9 @@ var $User = (function () {
 		innerText($("spCoolTime"), a.coolTime + "s");
 		$("pPlantBack").style.backgroundPosition =
 			-200 * a.BookHandBack + "px 0";
-		}
-	},
-	ViewProduceZombie = function (b) {
+	}
+}),
+	(ViewProduceZombie = function (b) {
 		PlayAudio("tap");
 		var a = b.prototype;
 		$("pHandBookZombie").style.background =
@@ -2048,8 +2048,8 @@ var $User = (function () {
 		innerText($("dHandBookZombieName"), a.CName);
 		$("pZombieBack").style.backgroundPosition =
 			-200 * a.BookHandBack + "px 0";
-	},
-	ViewCardTitle = function (b, c) {
+	}),
+	(ViewCardTitle = function (b, c) {
 		c = c || window.event;
 		var f = $("dTitle"),
 			a = b.prototype;
@@ -2072,8 +2072,8 @@ var $User = (function () {
 			top: c.clientY + 18 + EBody.scrollTop || EElement.scrollTop + "px",
 			visibility: "visible",
 		});
-	},
-	ViewGenericMouseover = function (b, c) {
+	}),
+	(ViewGenericMouseover = function (b, c) {
 		// b is innerhtml, c is event
 		c = c || window.event;
 		var a = $("dTitle");
@@ -2088,8 +2088,8 @@ var $User = (function () {
 				c.clientY + 18 + (EBody.scrollTop || EElement.scrollTop) + "px",
 			visibility: "visible",
 		});
-	},
-	SelectCard = function (c) {
+	}),
+	(SelectCard = function (c) {
 		PlayAudio("tap");
 		var h = $("Card" + c).childNodes,
 			f = h[0],
@@ -2133,8 +2133,8 @@ var $User = (function () {
 			ClearChild(g.firstChild, g.childNodes[1], g.lastChild, g);
 			f.style.top = 0;
 		}
-	},
-	ResetSelectCard = function () {
+	}),
+	(ResetSelectCard = function () {
 		var b,
 			a = $("btnOK");
 		for (b in ArPCard) {
@@ -2142,8 +2142,8 @@ var $User = (function () {
 		}
 		a.disabled = "disalbed";
 		a.style.color = "#888";
-	},
-	LetsGO = function () {
+	}),
+	(LetsGO = function () {
 		var e = $("dCardList"),
 			g = 0,
 			k = e.childNodes.length,
@@ -2212,8 +2212,8 @@ var $User = (function () {
 			}
 		)();
 		oS.StartTime = oSym.Now;
-	},
-	ViewPlantTitle = function (b) {
+	}),
+	(ViewPlantTitle = function (b) {
 		var f = $("dTitle"),
 			e = ArCard[b],
 			c = e.PName.prototype,
@@ -2226,8 +2226,8 @@ var $User = (function () {
 			(a += '<br><span style="color:#F00">Not enough sunlight!</span>');
 		f.innerHTML = a;
 		SetStyle(f, { top: 60 * b + "px", left: EDAlloffsetLeft + 100 + "px" });
-	},
-	BeginCool = function () {
+	}),
+	(BeginCool = function () {
 		var b = ArCard.length,
 			c,
 			d,
@@ -2251,8 +2251,8 @@ var $User = (function () {
 					DoCoolTimer(b, 35);
 			}
 		}
-	},
-	ImmediatelyCool = function () {
+	}),
+	(ImmediatelyCool = function () {
 		var b = ArCard.length,
 			c,
 			d,
@@ -2265,8 +2265,8 @@ var $User = (function () {
 			d.SunReady = 1;
 			$(d.DID).childNodes[0].style.top = 0;
 		}
-	},
-	MonitorCard = function (d) {
+	}),
+	(MonitorCard = function (d) {
 		var b = ArCard.length,
 			c,
 			a = Number(ESSunNum.innerHTML);
@@ -2287,8 +2287,8 @@ var $User = (function () {
 			}
 		}
 		ViewPlantTitle(oS.MCID);
-	},
-	DoCoolTimer = function (c, b) {
+	}),
+	(DoCoolTimer = function (c, b) {
 		var a = $(ArCard[c].DID);
 		NewEle(
 			"dCD1" + c,
@@ -2316,8 +2316,8 @@ var $User = (function () {
 					(ArCard[e].CDReady = 1),
 					MonitorCard());
 		})(b, c);
-	},
-	ChosePlant = function (h, d) {
+	}),
+	(ChosePlant = function (h, d) {
 		// PlayAudio("seedlift");
 		var g = ArCard[(oS.ChoseCard = d)];
 		if (!(g.CDReady && g.SunReady)) {
@@ -2381,21 +2381,21 @@ var $User = (function () {
 		}
 		SetHidden($("dTitle"));
 		GroundOnmousemove = GroundOnmousemove1;
-	},
-	CancelPlant = function () {
+	}),
+	(CancelPlant = function () {
 		ClearChild($("MovePlant"), $("MovePlantAlpha"));
 		oS.Chose = 0;
 		MonitorCard();
 		GroundOnmousemove = function () {};
-	},
-	ShovelPlant = function (a) {
+	}),
+	(ShovelPlant = function (a) {
 		PlayAudio("plant2");
 		var b = a[0],
 			c = a[1];
 		c && (c.PKind || !(b[1] || b[2])) && (c.Die(), (oS.MPID = ""));
 		CancelShovel();
-	},
-	ChoseShovel = function (a) {
+	}),
+	(ChoseShovel = function (a) {
 		PlayAudio("shovel");
 		WhichMouseButton(a) < 2 &&
 			(SetHidden($("imgShovel")),
@@ -2412,19 +2412,19 @@ var $User = (function () {
 			(oS.Chose = -1),
 			(GroundOnmousemove = GroundOnmousemove2),
 			StopBubble(a));
-	},
-	CancelShovel = function (a) {
+	}),
+	(CancelShovel = function (a) {
 		var b = oS.MPID;
 		ClearChild($("tShovel"));
 		oS.Chose = 0;
 		SetVisible($("imgShovel"));
 		b && SetAlpha($(b).childNodes[1], 100, 1);
 		GroundOnmousemove = function () {};
-	},
-	StopBubble = function (a) {
+	}),
+	(StopBubble = function (a) {
 		window.event ? (event.cancelBubble = true) : a.stopPropagation();
-	},
-	GrowPlant = function (l, d, c, e, b) {
+	}),
+	(GrowPlant = function (l, d, c, e, b) {
 		var j = oS.ChoseCard,
 			f = ArCard[j],
 			h = f.PName,
@@ -2511,7 +2511,7 @@ var $User = (function () {
 
 		// Clear plant selection
 		CancelPlant();
-	};
+	});
 
 (AutoProduceSun = function (a) {
 	//           console.log("ROBLNET13 on github")
@@ -3599,17 +3599,17 @@ var $User = (function () {
 			}),
 	(PlayAudio = $User.HTML5
 		? function (c, a) {
-			var b = oAudio[c];
+				var b = oAudio[c];
 
-			if (!b) {
-				b = NewAudio({ source: c, loop: !!a });
-				oAudio[c] = b;
-			} else {
-				b.loop = !!a;
-			}
-	
-			b.currentTime = 0; // Restart to beginning
-			b.play();
+				if (!b) {
+					b = NewAudio({ source: c, loop: !!a });
+					oAudio[c] = b;
+				} else {
+					b.loop = !!a;
+				}
+
+				b.currentTime = 0; // Restart to beginning
+				b.play();
 			}
 		: function () {}),
 	(PauseAudio = $User.HTML5
