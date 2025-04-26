@@ -3597,17 +3597,17 @@ var lastB;
 		: function (a) {
 				NewMusic(a);
 			}),
-			(PlayAudioLegacy = $User.HTML5
-				? function (c, a) {
-					var b = oAudio[c];
-					if (b) {
-						b.loop = !!a;
-						b.play();
-					} else {
-						NewAudio({ source: c, loop: !!a }).play();
-					}
-					}
-				: function () {}),
+	(PlayAudioLegacy = $User.HTML5
+		? function (c, a) {
+				var b = oAudio[c];
+				if (b) {
+					b.loop = !!a;
+					b.play();
+				} else {
+					NewAudio({ source: c, loop: !!a }).play();
+				}
+			}
+		: function () {}),
 	(PlayAudio = $User.HTML5
 		? function (c, a) {
 				var b = oAudio[c];

@@ -9385,8 +9385,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 				},
 				[c, $(c), a, b.R, a - 46]
 			);
-			d.childNodes[1].src =
-				"images/Plants/Gun/SeaShroomShoot.gif";
+			d.childNodes[1].src = "images/Plants/Gun/SeaShroomShoot.gif";
 			ImgSpriter(
 				k.id,
 				j,
