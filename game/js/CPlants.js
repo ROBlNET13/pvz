@@ -9385,10 +9385,33 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 				},
 				[c, $(c), a, b.R, a - 46]
 			);
-			d.childNodes[1].src = "images/Plants/gun/SeaShroomShoot.gif";
-			setTimeout(() => {
-				d.childNodes[1].src = "images/Plants/gun/SeaShroom.gif";
-			}, 750);
+			d.childNodes[1].src =
+				"images/Plants/Gun/SeaShroomShoot.gif";
+			ImgSpriter(
+				k.id,
+				j,
+				[
+					["0 0", 9, 1],
+					["0 -200px", 9, 2],
+					["0 -400px", 9, 3],
+					["0 -600px", 9, 4],
+					["0 -800px", 9, 5],
+					["0 -1000px", 9, 6],
+					["0 -1200px", 9, 7],
+					["0 -1400px", 9, 8],
+					["0 -1600px", 9, 9],
+					["0 -1800px", 9, 10],
+					["0 -2000px", 9, 11],
+					["0 -2200px", 9, -1],
+				],
+				0,
+				function (m, n) {
+					var i = $(n);
+					$P[n] &&
+						(i.childNodes[1].src =
+							"images/Plants/Gun/SeaShroom.gif");
+				}
+			);
 		},
 	})),
 	(oSeaAnemone = InheritO(oGloomShroom, {
