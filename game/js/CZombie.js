@@ -777,7 +777,7 @@ var CZombies = (function (b, a) {
 						["chomp", "chompsoft"][Math.floor(Math.random() * 2)]
 					);
 					oSym.addTask(
-						50,
+						85,
 						function (e) {
 							$Z[e] &&
 								PlayAudio(
@@ -9471,7 +9471,7 @@ oCBucketheadZombie = InheritO(
 										]
 									);
 									oSym.addTask(
-										50,
+										85,
 										function (e) {
 											$Z[e] &&
 												PlayAudio(
