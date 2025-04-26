@@ -2026,7 +2026,8 @@ var $User = (function () {
 			PlayAudio("tap");
 		$("pHandBookPlant").style.backgroundImage =
 			"url(" + a.PicArr[a.StaticGif] + ")";
-			$("pHandBookPlant").style.backgroundPosition = "50% " + (60 + a.height / 4)	 + "%";
+		$("pHandBookPlant").style.backgroundPosition =
+			"50% " + (60 + a.height / 4) + "%";
 		$("dProducePlant").innerHTML = a.Produce;
 		innerText($("dHandBookPlantName"), a.CName);
 		innerText($("spSunNum"), a.SunNum);
