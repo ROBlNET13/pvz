@@ -2017,10 +2017,13 @@ var $User = (function () {
 		SetVisible($("dHandBookPZ"));
 		SetNone($("dHandBookP"));
 		SetBlock($("dHandBookZ"));
-	},
+	};
+	var lastB
 	ViewProducePlant = function (b) {
-		PlayAudio("tap");
-		var a = b.prototype;
+		if (lastB !== b) {
+			lastB = b
+			var a = b.prototype;
+			PlayAudio("tap");
 		$("pHandBookPlant").style.backgroundImage =
 			"url(" + a.PicArr[a.StaticGif] + ")";
 			$("pHandBookPlant").style.backgroundPosition = "50% " + (60 + a.height / 4)	 + "%";
@@ -2030,6 +2033,7 @@ var $User = (function () {
 		innerText($("spCoolTime"), a.coolTime + "s");
 		$("pPlantBack").style.backgroundPosition =
 			-200 * a.BookHandBack + "px 0";
+		}
 	},
 	ViewProduceZombie = function (b) {
 		PlayAudio("tap");
