@@ -2055,7 +2055,7 @@ var lastB;
 			a = b.prototype;
 		f.innerHTML =
 			a.CName +
-			"<br>cooldown:" +
+			"<br>cooldown: " +
 			a.coolTime +
 			"s<br>" +
 			(oS.DKind && a.night
@@ -2219,11 +2219,11 @@ var lastB;
 			c = e.PName.prototype,
 			a = c.CName;
 		!oS.CardKind &&
-			((a += "<br>cooldown:" + c.coolTime + "s<br>" + c.Tooltip),
+			((a += "<br>cooldown: " + c.coolTime + "s<br>" + c.Tooltip),
 			!e.CDReady &&
-				(a += '<br><span style="color:#F00">ReLoading...</span>'));
+				(a += '<br><span style="color:#F00">recharging</span>'));
 		!e.SunReady &&
-			(a += '<br><span style="color:#F00">Not enough sunlight!</span>');
+			(a += '<br><span style="color:#F00">not enough sun</span>');
 		f.innerHTML = a;
 		SetStyle(f, { top: 60 * b + "px", left: EDAlloffsetLeft + 100 + "px" });
 	}),
