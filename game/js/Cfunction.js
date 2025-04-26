@@ -3594,10 +3594,17 @@ var $User = (function () {
 			}),
 	(PlayAudio = $User.HTML5
 		? function (c, a) {
-				var b = oAudio[c];
-				b
-					? ((b.loop = !!a), b.play())
-					: NewAudio({ source: c, loop: !!a }).play();
+			var b = oAudio[c];
+
+			if (!b) {
+				b = NewAudio({ source: c, loop: !!a });
+				oAudio[c] = b;
+			} else {
+				b.loop = !!a;
+			}
+	
+			b.currentTime = 0; // Restart to beginning
+			b.play();
 			}
 		: function () {}),
 	(PauseAudio = $User.HTML5
