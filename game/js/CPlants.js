@@ -8794,7 +8794,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		],
 		Tooltip: "Oxygen provides algae to plants on the ground",
 		Produce:
-			'<font color="#28325A">Oxygen Algae can provide oxygen bubbles to plants on land</font><p>Range: <font color="#CC241D">all tiles in a medium area</font><br></p>Puff...puff..." puffs Oxygen Algae, it wasn\'t that he was willing to keep spitting bubbles, only to blame him for drinking too much soda last night. However, there are rumors that all he knows is spitting bubbles.',
+			'<font color="#28325A">Oxygen Algae can provide oxygen bubbles to plants on land</font><p>Range: <font color="#CC241D">all tiles in a medium area</font><br></p>"Puff...puff..." puffs Oxygen Algae, it wasn\'t that he was willing to keep spitting bubbles, only to blame him for drinking too much soda last night. However, there are rumors that all he knows is spitting bubbles.',
 		CanGrow: function (e, d, f) {
 			var c = d + "_" + f,
 				b = oGd.$LF[d],
