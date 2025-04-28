@@ -4777,6 +4777,7 @@ BirthStyle: function (c, e, b, a) {
 		Attack: 40,
 		ArZ: {},
 		Tooltip: "Damages zombies that eat it",
+		// cool comment!
 		Produce:
 			'<font color="#28325A">Vine-nuts are heavy-duty wall plants that can\'t be vaulted over and also damage zombies.</font><p>Damage: <font color="#CC241D">normal</font><br>Toughness: <font color="#CC241D">very high</font><p>cool vine nut description',
 		getHurt: function (f, c, b) {
