@@ -1689,7 +1689,7 @@ var CPlants = NewO({
 		Tooltip:
 			"Fires two frozen peas that damage and slow the enemy at a time",
 		Produce:
-			'Fires two frozen peas that damage and slow the enemy at a time.<p>Harm:<font color="#CC241D">medium (each)</font><br>Launch speed:<font color="#CC241D">double</font></p>The dual-shot ice shooter is a shooting enthusiast, he often</font><br>People mention how accurate their shots are. Well, although things</font><br>Not so.',
+		'<font color="#28325A">Snow Repeaters shoot 2 frozen peas that damage and slow the enemy.</font><p>Damage: <font color="#CC241D">normal, slows zombies</font><br>Firing Speed: <font color="#CC241D">2x</font></p>A Repeater that channels its inner Snow Pea. Fires two rapid, chilling peas that slow zombies to a crawl, because sometimes frostbite is better in bursts!',
 		NormalAttack1: oSnowPea.prototype.NormalAttack,
 		NormalAttack: function (a) {
 			this.NormalAttack1();
@@ -3960,7 +3960,7 @@ BirthStyle: function (c, e, b, a) {
 		Tooltip:
 			'Attacks any lane and shoots down balloon zombies <p> <font color="red">(requires lily pad)</font>',
 		Produce:
-			'猫尾草能够攻击气球僵尸或任何一条路上的僵尸。<p><font color="#CC241D">必须种在睡莲上。</font></p>魔法猫咪!稳辣!稳辣!猫尾草不知道从哪里听的这句话，总之在听完之后，她破防了，她怒骂道：“一群*东西!我下次就用我对待僵尸的方式十倍来对待你们!”',
+		'<font color="#28325A">Cattails can attack any lane and shoot down balloon zombies too.</font><p>Must be planted on lily pads</p>"Woof!" says Cattail. "Woof woof woof! Does this confuse you? Do you expect me to say \'Meow\' like a cat just because the word \'cat\' is in my name and I also look like a cat? That\'s not how things work around here. I refuse to be pigeonholed."',
 		TriggerCheck: function (b, a) {
 			this.AttackCheck2(b) &&
 				((this.canTrigger = 0), this.CheckLoop(b.id, a));
@@ -4779,7 +4779,7 @@ BirthStyle: function (c, e, b, a) {
 		Tooltip: "Damages zombies that eat it",
 		// cool comment!
 		Produce:
-			'<font color="#28325A">Vine-nuts are heavy-duty wall plants that can\'t be vaulted over and also damage zombies.</font><p>Damage: <font color="#CC241D">normal</font><br>Toughness: <font color="#CC241D">very high</font><p>cool vine nut description',
+			'<font color="#28325A">Vine-nuts are heavy-duty wall plants that can\'t be vaulted over and also damage zombies.</font><p>Damage: <font color="#CC241D">normal</font><br>Toughness: <font color="#CC241D">very high</font><p>Vine-Nut started as a plain Tall-Nut but became entangled in some wild jungle vines. Now, when zombies bite, thorny vines lash out, slowing them down. It\'s not just a nut, it\'s a vengeful nut!',
 		getHurt: function (f, c, b) {
 			var e = this,
 				d,
