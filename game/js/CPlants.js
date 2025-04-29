@@ -1689,7 +1689,7 @@ var CPlants = NewO({
 		Tooltip:
 			"Fires two frozen peas that damage and slow the enemy at a time",
 		Produce:
-		'<font color="#28325A">Snow Repeaters shoot 2 frozen peas that damage and slow the enemy.</font><p>Damage: <font color="#CC241D">normal, slows zombies</font><br>Firing Speed: <font color="#CC241D">2x</font></p>A Repeater that channels its inner Snow Pea. Fires two rapid, chilling peas that slow zombies to a crawl, because sometimes frostbite is better in bursts!',
+			'<font color="#28325A">Snow Repeaters shoot 2 frozen peas that damage and slow the enemy.</font><p>Damage: <font color="#CC241D">normal, slows zombies</font><br>Firing Speed: <font color="#CC241D">2x</font></p>A Repeater that channels its inner Snow Pea. Fires two rapid, chilling peas that slow zombies to a crawl, because sometimes frostbite is better in bursts!',
 		NormalAttack1: oSnowPea.prototype.NormalAttack,
 		NormalAttack: function (a) {
 			this.NormalAttack1();
@@ -3960,7 +3960,7 @@ BirthStyle: function (c, e, b, a) {
 		Tooltip:
 			'Attacks any lane and shoots down balloon zombies <p> <font color="red">(requires lily pad)</font>',
 		Produce:
-		'<font color="#28325A">Cattails can attack any lane and shoot down balloon zombies too.</font><p>Must be planted on lily pads</p>"Woof!" says Cattail. "Woof woof woof! Does this confuse you? Do you expect me to say \'Meow\' like a cat just because the word \'cat\' is in my name and I also look like a cat? That\'s not how things work around here. I refuse to be pigeonholed."',
+			'<font color="#28325A">Cattails can attack any lane and shoot down balloon zombies too.</font><p>Must be planted on lily pads</p>"Woof!" says Cattail. "Woof woof woof! Does this confuse you? Do you expect me to say \'Meow\' like a cat just because the word \'cat\' is in my name and I also look like a cat? That\'s not how things work around here. I refuse to be pigeonholed."',
 		TriggerCheck: function (b, a) {
 			this.AttackCheck2(b) &&
 				((this.canTrigger = 0), this.CheckLoop(b.id, a));
