@@ -7,11 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Wait for other changes
-      run: |
-        echo "Waiting for other changes to be pushed..."
-        sleep 60
-
     - name: Checkout repository
       uses: actions/checkout@v4
 
