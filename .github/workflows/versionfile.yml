@@ -15,6 +15,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Prettify code
+      run: |
+        npx prettier --write "**/*.{js,md,html,css}"
+
     - name: Create v.txt with commit hash
       run: |
         echo "${{ github.sha }}" > v.txt
@@ -23,8 +32,8 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        git add v.txt
-        git commit -m "v" || exit 0
+        git add .
+        git commit -m "Prettify code and update version file" || exit 0
         git push
         curl \
         -X POST \
