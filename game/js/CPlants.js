@@ -3871,7 +3871,7 @@ BirthStyle: function (c, e, b, a) {
 		],
 		Tooltip: "goober",
 		Produce:
-			'Balloonatics have a chance to spawn every wave. Popping them produces 75 sun.</font><br><p>Toughness:<font color="CC241D">low</font></p>  ">:3" says the Balloonatic, ">:3" says the Balloonatic, again.',
+			'<font color="#28325A">Balloonatics have a chance to spawn every wave. Popping them produces 75 sun</font>.</font><br><p>Toughness: <font color="CC241D">low</font></p> ">:3" says the Balloonatic, ">:3" says the Balloonatic, again.',
 		CanGrow: function (c, b, f) {
 			var a = b + "_" + f,
 				d = c[1],
@@ -9785,7 +9785,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		AudioArr: ["LaserBean"],
 		Tooltip: "Fires a high-powered laser at an entire row of zombies",
 		Produce:
-			'<font color="#28325A">Laser Beans fire down a lane, hitting all zombies ahead of it.</font><p>Range: <font color="#CC241D">all zombies in a lane</font><p>After a laser eye surgery had gone horribly right, Laser Bean gained a sense of purpose and a new-found affinity for competitive staring contests.',
+		'<font color="#28325A">Laser Beans fire down a lane, hitting all zombies ahead of it.</font><p>Range: <font color="#CC241D">all zombies in a lane</font><p>After a laser eye surgery had gone horribly right, Laser Bean gained a sense of purpose and a new-found affinity for competitive staring contests.',
 		CheckLoop: function (b, c) {
 			var a = this.id;
 			this.NormalAttack(b);
