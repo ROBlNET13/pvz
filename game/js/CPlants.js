@@ -9785,7 +9785,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		AudioArr: ["LaserBean"],
 		Tooltip: "Fires a high-powered laser at an entire row of zombies",
 		Produce:
-			'激光蚕豆向一整排僵尸发射激光<p>Scope:<font color="#CC241D">一整排僵尸<p>本豆由上海宝开绘制<br></font><p><br>这位就是大名鼎鼎的激光豆。但是为什么他是</font><br>蚕豆？恐怕没人搞得清楚。',
+		'<font color="#28325A">Laser Beans fire down a lane, hitting all zombies ahead of it.</font><p>Range: <font color="#CC241D">all zombies in a lane</font><p>After a laser eye surgery had gone horribly right, Laser Bean gained a sense of purpose and a new-found affinity for competitive staring contests.',
 		CheckLoop: function (b, c) {
 			var a = this.id;
 			this.NormalAttack(b);
