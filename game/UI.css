@@ -231,6 +231,7 @@ td.HandBookZombie {
 	top: 19px;
 	left: -6px;
 	font-family: Tahoma;
+	pointer-events: none;
 }
 
 #dFlagMeterTitleB {
