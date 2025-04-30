@@ -3,7 +3,7 @@ name: Create Version File + Prettify Code
 on: [push]
 
 jobs:
-  create-version-file:
+  main:
     runs-on: ubuntu-latest
 
     steps:
