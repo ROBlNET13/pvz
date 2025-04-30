@@ -1,6 +1,6 @@
 oS.Init(
 	{
-		PName: [ostar1],
+		PName: [oStarfruit],
 		ZName: [
 			oZombie,
 			oZombie2,
@@ -20,7 +20,7 @@ oS.Init(
 		LF: [0, 3, 3, 3, 3, 3],
 		CanSelectCard: 0,
 		DKind: 0,
-		LevelName: "3-5 Mini Game: Starfish Rolling",
+		LevelName: "3-5: Starfish Rolling",
 		LvlEName: "35",
 		LargeWaveFlag: { 10: $("imgFlag2"), 20: $("imgFlag1") },
 		StartGameMusic: "LoonSkirmish",
