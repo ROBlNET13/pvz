@@ -27,7 +27,7 @@ jobs:
       id: get_commit_message
       run: |
         COMMIT_MSG=$(git log -1 --pretty=format:%s)
-        echo "::set-output name=message::$COMMIT_MSG"
+        echo "message=$COMMIT_MSG" >> $GITHUB_OUTPUT
 
     - name: Commit changes
       run: |
