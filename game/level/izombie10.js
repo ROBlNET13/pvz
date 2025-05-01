@@ -71,8 +71,7 @@ oS.Init({
 				1
 			);
 			placed.plantImage.classList.add("cardboard");
-			Point.length--,
-			Arr.length--;
+			Point.length--, Arr.length--;
 		}
 	},
 	RiddleAutoGrow: function () {
@@ -89,7 +88,7 @@ oS.Init({
 		for (var i = f[0]; i <= f[1]; ++i) {
 			let placedLilypads = CustomSpecial(oILilyPad, 3, i);
 			let placedLilypads2 = CustomSpecial(oLilyPad, 4, i); // 荷叶
-	
+
 			SummonRange(Arr, 3, 4), oS.RandomGrow(Arr, e.Arr); // 处理泳池的植物
 			SummonRange(Arr, 1, 2),
 				SummonRange(Arr, 5, 6),
