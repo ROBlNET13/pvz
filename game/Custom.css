@@ -109,8 +109,7 @@
 }
 #dHandBookZombieName {
 	color: #06bd00 !important;
-	text-shadow:
-		1px 1px 0px rgba(255, 255, 255, 0.1),
+	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
@@ -123,8 +122,7 @@
 #btnViewZombie {
 	width: 155px !important;
 	color: #06bd00 !important;
-	text-shadow:
-		1px 1px 0px rgba(255, 255, 255, 0.1),
+	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
@@ -137,8 +135,7 @@
 
 .Menu {
 	color: #06bd00 !important;
-	text-shadow:
-		1px 1px 0px rgba(255, 255, 255, 0.1),
+	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	font-size: x-large !important;
@@ -158,8 +155,7 @@
 	color: #d0932b !important;
 	font-family: dwarventodcraft !important;
 	text-transform: uppercase;
-	text-shadow:
-		1px 1px 0px rgba(255, 255, 255, 0.1),
+	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
@@ -182,8 +178,7 @@
 }
 #dHandBookPlantName {
 	color: #d0932b !important;
-	text-shadow:
-		1px 1px 0px rgba(255, 255, 255, 0.1),
+	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
@@ -195,8 +190,7 @@
 }
 #btnViewPlant {
 	color: #d0932b !important;
-	text-shadow:
-		1px 1px 0px rgba(255, 255, 255, 0.1),
+	text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
@@ -215,71 +209,25 @@
 	font-size: 30px;
 	/*	-webkit-text-stroke: 1px #ceaa31; */
 	font-weight: lighter;
-	text-shadow:
-		0px 3px 0px #000,
-		1px 3px 0px #000,
-		2px 3px 0px #000,
-		3px 3px 0px #000,
-		3px 2px 0px #000,
-		3px 1px 0px #000,
-		3px 0px 0px #000,
-		3px -1px 0px #000,
-		3px -2px 0px #000,
-		3px -3px 0px #000,
-		2px -1px 0px #000,
-		2px -2px 0px #000,
-		2px -3px 0px #000,
-		1px -1px 0px #000,
-		1px -2px 0px #000,
-		1px -3px 0px #000,
-		0px -1px 0px #000,
-		0px -2px 0px #000,
-		0px -3px 0px #000,
-		-1px -1px 0px #000,
-		-1px -2px 0px #000,
-		-1px -3px 0px #000,
-		-2px -1px 0px #000,
-		-2px -2px 0px #000,
-		-2px -3px 0px #000,
-		-3px -1px 0px #000,
-		-3px -2px 0px #000,
-		-3px -3px 0px #000,
-		-3px 0px 0px #000,
-		-3px 1px 0px #000,
-		-3px 2px 0px #000,
-		-3px 3px 0px #000,
-		2px 5px 0px #000,
-		3px 5px 0px #000,
-		4px 5px 0px #000,
-		5px 5px 0px #000,
-		5px 4px 0px #000,
-		5px 3px 0px #000,
-		5px 2px 0px #000,
-		5px 1px 0px #000,
-		5px 0px 0px #000,
-		5px -1px 0px #000,
-		4px 1px 0px #000,
-		4px 0px 0px #000,
-		4px -1px 0px #000,
-		3px 1px 0px #000,
-		3px 0px 0px #000,
-		3px -1px 0px #000,
-		2px 1px 0px #000,
-		2px 0px 0px #000,
-		2px -1px 0px #000,
-		1px 1px 0px #000,
-		1px 0px 0px #000,
-		1px -1px 0px #000,
-		0px 1px 0px #000,
-		0px 0px 0px #000,
-		0px -1px 0px #000,
-		-1px 1px 0px #000,
-		-1px -0px 0px #000,
-		-1px -1px 0px #000,
-		-1px 2px 0px #000,
-		-1px 3px 0px #000,
-		-1px 4px 0px #000,
-		-1px 5px 0px #000;
+	text-shadow: 0px 3px 0px #000, 1px 3px 0px #000, 2px 3px 0px #000,
+		3px 3px 0px #000, 3px 2px 0px #000, 3px 1px 0px #000, 3px 0px 0px #000,
+		3px -1px 0px #000, 3px -2px 0px #000, 3px -3px 0px #000,
+		2px -1px 0px #000, 2px -2px 0px #000, 2px -3px 0px #000,
+		1px -1px 0px #000, 1px -2px 0px #000, 1px -3px 0px #000,
+		0px -1px 0px #000, 0px -2px 0px #000, 0px -3px 0px #000,
+		-1px -1px 0px #000, -1px -2px 0px #000, -1px -3px 0px #000,
+		-2px -1px 0px #000, -2px -2px 0px #000, -2px -3px 0px #000,
+		-3px -1px 0px #000, -3px -2px 0px #000, -3px -3px 0px #000,
+		-3px 0px 0px #000, -3px 1px 0px #000, -3px 2px 0px #000,
+		-3px 3px 0px #000, 2px 5px 0px #000, 3px 5px 0px #000, 4px 5px 0px #000,
+		5px 5px 0px #000, 5px 4px 0px #000, 5px 3px 0px #000, 5px 2px 0px #000,
+		5px 1px 0px #000, 5px 0px 0px #000, 5px -1px 0px #000, 4px 1px 0px #000,
+		4px 0px 0px #000, 4px -1px 0px #000, 3px 1px 0px #000, 3px 0px 0px #000,
+		3px -1px 0px #000, 2px 1px 0px #000, 2px 0px 0px #000, 2px -1px 0px #000,
+		1px 1px 0px #000, 1px 0px 0px #000, 1px -1px 0px #000, 0px 1px 0px #000,
+		0px 0px 0px #000, 0px -1px 0px #000, -1px 1px 0px #000,
+		-1px -0px 0px #000, -1px -1px 0px #000, -1px 2px 0px #000,
+		-1px 3px 0px #000, -1px 4px 0px #000, -1px 5px 0px #000;
 }
 #dHandBook > div.title,
 #dMiniSmallTitle,
@@ -297,9 +245,7 @@
 }
 #dHandBookZ > div.title,
 #dNewPlantTitle {
-	text-shadow:
-		0px 0px 3px #000,
-		0px 0px 3px #000;
+	text-shadow: 0px 0px 3px #000, 0px 0px 3px #000;
 	color: #00d100;
 	font-size: 35px;
 }
@@ -323,15 +269,9 @@ label {
 }
 #sFlagMeterTitleF {
 	color: #e5bf64 !important;
-	text-shadow:
-		0px 2px 0px #000000,
-		2px 2px 0px #000000,
-		2px 0px 0px #000000,
-		2px -2px 0px #000000,
-		0px -2px 0px #000000,
-		-2px -2px 0px #000000,
-		-2px 0px 0px #000000,
-		-2px 2px 0px #000000 !important;
+	text-shadow: 0px 2px 0px #000000, 2px 2px 0px #000000, 2px 0px 0px #000000,
+		2px -2px 0px #000000, 0px -2px 0px #000000, -2px -2px 0px #000000,
+		-2px 0px 0px #000000, -2px 2px 0px #000000 !important;
 }
 
 #iSurfaceBackground .trophy {
@@ -613,71 +553,25 @@ td {
 	font-size: 2.5em;
 	margin-bottom: 0.5em;
 	font-family: "houseofterrormedium" !important;
-	text-shadow:
-		0px 3px 0px #000,
-		1px 3px 0px #000,
-		2px 3px 0px #000,
-		3px 3px 0px #000,
-		3px 2px 0px #000,
-		3px 1px 0px #000,
-		3px 0px 0px #000,
-		3px -1px 0px #000,
-		3px -2px 0px #000,
-		3px -3px 0px #000,
-		2px -1px 0px #000,
-		2px -2px 0px #000,
-		2px -3px 0px #000,
-		1px -1px 0px #000,
-		1px -2px 0px #000,
-		1px -3px 0px #000,
-		0px -1px 0px #000,
-		0px -2px 0px #000,
-		0px -3px 0px #000,
-		-1px -1px 0px #000,
-		-1px -2px 0px #000,
-		-1px -3px 0px #000,
-		-2px -1px 0px #000,
-		-2px -2px 0px #000,
-		-2px -3px 0px #000,
-		-3px -1px 0px #000,
-		-3px -2px 0px #000,
-		-3px -3px 0px #000,
-		-3px 0px 0px #000,
-		-3px 1px 0px #000,
-		-3px 2px 0px #000,
-		-3px 3px 0px #000,
-		2px 5px 0px #000,
-		3px 5px 0px #000,
-		4px 5px 0px #000,
-		5px 5px 0px #000,
-		5px 4px 0px #000,
-		5px 3px 0px #000,
-		5px 2px 0px #000,
-		5px 1px 0px #000,
-		5px 0px 0px #000,
-		5px -1px 0px #000,
-		4px 1px 0px #000,
-		4px 0px 0px #000,
-		4px -1px 0px #000,
-		3px 1px 0px #000,
-		3px 0px 0px #000,
-		3px -1px 0px #000,
-		2px 1px 0px #000,
-		2px 0px 0px #000,
-		2px -1px 0px #000,
-		1px 1px 0px #000,
-		1px 0px 0px #000,
-		1px -1px 0px #000,
-		0px 1px 0px #000,
-		0px 0px 0px #000,
-		0px -1px 0px #000,
-		-1px 1px 0px #000,
-		-1px -0px 0px #000,
-		-1px -1px 0px #000,
-		-1px 2px 0px #000,
-		-1px 3px 0px #000,
-		-1px 4px 0px #000,
-		-1px 5px 0px #000;
+	text-shadow: 0px 3px 0px #000, 1px 3px 0px #000, 2px 3px 0px #000,
+		3px 3px 0px #000, 3px 2px 0px #000, 3px 1px 0px #000, 3px 0px 0px #000,
+		3px -1px 0px #000, 3px -2px 0px #000, 3px -3px 0px #000,
+		2px -1px 0px #000, 2px -2px 0px #000, 2px -3px 0px #000,
+		1px -1px 0px #000, 1px -2px 0px #000, 1px -3px 0px #000,
+		0px -1px 0px #000, 0px -2px 0px #000, 0px -3px 0px #000,
+		-1px -1px 0px #000, -1px -2px 0px #000, -1px -3px 0px #000,
+		-2px -1px 0px #000, -2px -2px 0px #000, -2px -3px 0px #000,
+		-3px -1px 0px #000, -3px -2px 0px #000, -3px -3px 0px #000,
+		-3px 0px 0px #000, -3px 1px 0px #000, -3px 2px 0px #000,
+		-3px 3px 0px #000, 2px 5px 0px #000, 3px 5px 0px #000, 4px 5px 0px #000,
+		5px 5px 0px #000, 5px 4px 0px #000, 5px 3px 0px #000, 5px 2px 0px #000,
+		5px 1px 0px #000, 5px 0px 0px #000, 5px -1px 0px #000, 4px 1px 0px #000,
+		4px 0px 0px #000, 4px -1px 0px #000, 3px 1px 0px #000, 3px 0px 0px #000,
+		3px -1px 0px #000, 2px 1px 0px #000, 2px 0px 0px #000, 2px -1px 0px #000,
+		1px 1px 0px #000, 1px 0px 0px #000, 1px -1px 0px #000, 0px 1px 0px #000,
+		0px 0px 0px #000, 0px -1px 0px #000, -1px 1px 0px #000,
+		-1px -0px 0px #000, -1px -1px 0px #000, -1px 2px 0px #000,
+		-1px 3px 0px #000, -1px 4px 0px #000, -1px 5px 0px #000;
 }
 
 .stolen-warning-content a {
@@ -704,8 +598,7 @@ td {
 	margin: 20px 0;
 	display: block;
 	transition: transform 0.2s;
-	box-shadow:
-		inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2),
+	box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2),
 		inset 1px 1px 2px 0 #6be56f;
 	background: linear-gradient(90deg, #4caf50, #409d44);
 }
@@ -727,8 +620,7 @@ td {
 	margin-top: 10px;
 	font-size: 0.9em;
 	opacity: 0.7;
-	box-shadow:
-		inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2),
+	box-shadow: inset -1px -1px 2px 0 rgba(0, 0, 0, 0.2),
 		inset 1px 1px 2px 0 #a8a8a8;
 	background: linear-gradient(90deg, #666, #504f4f);
 }
@@ -746,9 +638,7 @@ td {
 }
 
 .WindowFrame {
-	cursor:
-		url(images/interface/Cursor.cur) 0 0,
-		auto;
+	cursor: url(images/interface/Cursor.cur) 0 0, auto;
 }
 
 .WindowFrame a,
@@ -760,4 +650,11 @@ td {
 .WindowFrame [role="button"],
 .WindowFrame area {
 	cursor: url(images/interface/Pointer.cur), pointer;
+}
+
+.cardboard {
+	filter: url("#cardboard") brightness(0.9) sepia(0.1)
+		drop-shadow(rgb(171, 135, 107) -2px -2px 0px)
+		drop-shadow(rgb(171, 135, 107) 2px 2px 0px)
+		drop-shadow(rgb(122, 86, 58) 2px 2px 0px);
 }

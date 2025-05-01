@@ -1287,12 +1287,12 @@
 			$User.Client.PC && $User.HTTP
 				? ((oS.AutoSun = Math.floor(getCookie("JSPVZAutoSun"))) &&
 						($("cAutoSun").checked = true),
-					(oS.Silence = Math.floor(getCookie("JSPVZSilence"))) &&
+				  (oS.Silence = Math.floor(getCookie("JSPVZSilence"))) &&
 						($("cSilence").checked = true))
 				: ((oS.AutoSun = 1),
-					($("cAutoSun").checked = true),
-					(oS.Silence = 0),
-					($("cSilence").checked = false));
+				  ($("cAutoSun").checked = true),
+				  (oS.Silence = 0),
+				  ($("cSilence").checked = false));
 			InitGame();
 		</script>
 		<script src="js/CPlants.js"></script>
@@ -1313,6 +1313,21 @@
 		>
 			Changelog
 		</button>
+		<svg style="width: 0; height: 0">
+			<defs>
+				<filter id="cardboard">
+					<feColorMatrix
+						type="matrix"
+						values="
+        					1.25  0 0 0 0
+        					0     0.788 0 0 0
+        					0     0 0.627 0 0
+        					0     0 0     1 0
+      					"
+					></feColorMatrix>
+				</filter>
+			</defs>
+		</svg>
 		<!-- 100% privacy-first analytics -->
 		<script
 			data-collect-dnt="true"
