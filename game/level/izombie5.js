@@ -70,17 +70,14 @@ oS.Init({
 	StartGame: function () {
 		SetVisible($("dSunNum"));
 		SetBlock($("dTop"));
-		NewEle("DivTeach", "div", 0, 0, EDAll);
 		oP.Monitor({
 			ar: [0],
 			f: function (d) {
 				var b = oS.Chose,
-					a = arguments.callee,
-					c = $("DivTeach");
+					a = arguments.callee;
 				switch (d) {
 					case 0:
 						BeginCool();
-						c.onclick = null;
 						oSym.addTask(
 							500,
 							function () {
