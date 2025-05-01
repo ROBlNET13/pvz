@@ -10083,10 +10083,12 @@ oFlowerVase = InheritO(CPlants, {
 					self.Die();
 				},
 				onmouseover: function () {
-					SetAlpha(Ele, 50, 0.5);
+				    Ele.style.filter = "brightness(150%)"
+					self.EleCard.style.filter = "brightness(70%)"
 				},
 				onmouseout: function () {
-					SetAlpha(Ele, 100, 1);
+    Ele.style.filter = "brightness(100%)"
+		self.EleCard.style.filter = "brightness(100%)"
 				},
 			},
 			EDAll
