@@ -90,13 +90,6 @@ oS.Init({
 				switch (d) {
 					case 0:
 						BeginCool();
-						oSym.addTask(
-							500,
-							function () {
-								SetNone(c);
-							},
-							[]
-						);
 						(function () {
 							SetVisible($("dFlagMeter"), $("dFlagMeterContent"));
 							ClearChild($("oEmbed"));

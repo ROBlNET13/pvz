@@ -774,20 +774,9 @@ var CZombies = (function (b, a) {
 				},
 				NormalAttack: function (d, c) {
 					PlayAudio(
-						["chomp", "chompsoft"][Math.floor(Math.random() * 2)]
+						["chomp", "chomp2", "chompsoft"][Math.floor(Math.random() * 2)]
 					);
-					oSym.addTask(
-						85,
-						function (e) {
-							$Z[e] &&
-								PlayAudio(
-									["chomp", "chompsoft"][
-										Math.floor(Math.random() * 2)
-									]
-								);
-						},
-						[d]
-					);
+					console.log("chomp")
 					oSym.addTask(
 						100,
 						function (f, e) {
@@ -9466,23 +9455,13 @@ oCBucketheadZombie = InheritO(
 								},
 								NormalAttack: function (d, c) {
 									PlayAudio(
-										["chomp", "chompsoft"][
+										["chomp", "chomp2", "chompsoft"][
 											Math.floor(Math.random() * 2)
 										]
 									);
 									oSym.addTask(
 										85,
-										function (e) {
-											$Z[e] &&
-												PlayAudio(
-													["chomp", "chompsoft"][
-														Math.floor(
-															Math.random() * 2
-														)
-													]
-												);
-										},
-										[d]
+										console.log("chomp")
 									);
 									oSym.addTask(
 										100,
