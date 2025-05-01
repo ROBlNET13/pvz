@@ -52,9 +52,12 @@ oS.Init({
 			let levelData = inputDataElement.value;
 			inputDataElement.disabled = true;
 			inputDataElement.value = "Loading...";
-			// decode the input value by using parseClone(datahere)
+			// decode the input value
 			try {
-				levelDataToLoad = parseClone(levelData);
+				levelDataToLoad =
+					levelData[0] === "="
+						? parseCloneTiny(levelData)
+						: parseClone(levelData);
 			} catch (e) {
 				inputDataElement.value = "Invalid level data!";
 				inputDataElement.disabled = false;

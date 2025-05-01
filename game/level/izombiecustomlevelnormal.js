@@ -121,6 +121,9 @@ oS.Init({
 		);
 	},
 	StartGame: function () {
+		restoreToPlants(levelDataToLoad); // load the plants
+		// clear all query parameters from the url without reloadng
+		window.history.pushState({}, document.title, window.location.pathname);
 		SetVisible($("dSunNum"));
 		SetBlock($("dTop"));
 		oP.Monitor({
@@ -131,7 +134,7 @@ oS.Init({
 				switch (d) {
 					case 0:
 						BeginCool();
-						c.onclick = null;
+						d.onclick = null;
 						(function () {
 							SetVisible($("dFlagMeter"), $("dFlagMeterContent"));
 							ClearChild($("oEmbed"));
@@ -147,7 +150,3 @@ oS.Init({
 		oS.RiddleAutoGrow();
 	},
 });
-
-restoreToPlants(levelDataToLoad); // load the plants
-// clear all query parameters from the url without reloadng
-window.history.pushState({}, document.title, window.location.pathname);

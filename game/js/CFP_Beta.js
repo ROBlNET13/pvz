@@ -1,6 +1,25 @@
+// hai
+// - clay
+
 let levelDataToLoad; // global variable to store the level data to load
 let pNameValue = []; // for loading plants
 let backgroundImage; // for loading the background image
+const TINYIFIER_MAP = {
+	// main
+	lfValue: 1,
+	music: 2,
+	name: 3,
+	plants: 4,
+	screenshot: 5,
+	stripeCol: 6,
+	sun: 7,
+	// plants
+	plantCol: 8,
+	plantName: 9,
+	plantRow: 10,
+	zIndex: 11,
+};
+
 // the compression stuff assumes that pako is loaded
 function compressString(input) {
 	const inputUTF8 = new TextEncoder().encode(input);
@@ -62,6 +81,15 @@ async function openAndLoadFileAsBytes() {
 }
 
 function cloneFromPlants(name, sun, screenshot) {
+	name = name
+		.replaceAll(/\uE000/g, "")
+		.replaceAll(/\uE001/g, "")
+		.replaceAll(/\uE002/g, "")
+		.replaceAll(/\uE003/g, "")
+		.replaceAll(/\uE004/g, "")
+		.replaceAll(/\uE005/g, "")
+		.replaceAll(/\uE006/g, "")
+		.replaceAll(/\uE007/g, "");
 	let keyedDict = Object.keys($P);
 	let plantDict = {};
 	// for every object in $P, save the following data:
@@ -102,6 +130,102 @@ function cloneFromPlants(name, sun, screenshot) {
 
 	return levelData;
 }
+function tinyifyClone(clone) {
+	// iterate through every key
+	let tinyifiedClone = {};
+	for (const [key, value] of Object.entries(clone)) {
+		// check if its lf or plants
+		let val = "";
+		if (Array.isArray(value)) {
+			if (typeof value[0] === "object" && Array.isArray(value)) {
+				let innerValArr = [];
+				for (const obj of value) {
+					let innerVal = "\uE001"; // marker for object start/end
+					let innerArr = [];
+					for (const [innerKey, innerValue] of Object.entries(obj)) {
+						innerArr.push(
+							TINYIFIER_MAP[innerKey] + "\uE004" + innerValue
+						);
+					}
+					innerVal += innerArr.join("\uE002");
+					innerVal += "\uE001"; // marker for object start/end
+					innerValArr.push(innerVal);
+				}
+				val = innerValArr.join("\uE003");
+			} else {
+				val = value.join("\uE000");
+			}
+		} else if (typeof value !== "undefined") {
+			val = value.toString();
+		}
+		tinyifiedClone[TINYIFIER_MAP[key]] = val;
+	}
+	// merge into a string
+	let arr = [];
+	for (const [key, value] of Object.entries(tinyifiedClone)) {
+		arr.push(key + "\uE005" + value);
+	}
+	return arr.join("\uE006");
+}
+
+function untinyifyClone(tinyString) {
+	const REVERSE_TINYIFIER_MAP = Object.fromEntries(
+		Object.entries(TINYIFIER_MAP).map(([key, value]) => [value, key])
+	);
+	let originalClone = {};
+	const pairs = tinyString.split("\uE006");
+
+	for (const pair of pairs) {
+		const [tinyKey, tinyValue] = pair.split("\uE005");
+		const originalKey = REVERSE_TINYIFIER_MAP[tinyKey];
+
+		if (!originalKey) continue; // skip if key not found
+
+		let originalValue;
+		if (originalKey === "plants") {
+			originalValue = [];
+			const plantStrings = tinyValue.split("\uE003");
+			for (const plantString of plantStrings) {
+				if (!plantString) continue;
+				const plantObj = {};
+				const plantData = plantString
+					.slice(1, -1) // remove start/end markers \uE001
+					.split("\uE002");
+				for (const plantPair of plantData) {
+					const [plantTinyKey, plantValueStr] =
+						plantPair.split("\uE004");
+					const plantOriginalKey =
+						REVERSE_TINYIFIER_MAP[plantTinyKey];
+					if (plantOriginalKey) {
+						// convert numeric values back to numbers
+						if (
+							["zIndex", "plantRow", "plantCol"].includes(
+								plantOriginalKey
+							)
+						) {
+							plantObj[plantOriginalKey] = parseInt(
+								plantValueStr,
+								10
+							);
+						} else {
+							plantObj[plantOriginalKey] = plantValueStr;
+						}
+					}
+				}
+				originalValue.push(plantObj);
+			}
+		} else if (originalKey === "lfValue") {
+			originalValue = tinyValue.split("\uE000").map(Number);
+		} else if (["sun", "stripeCol"].includes(originalKey)) {
+			originalValue = parseInt(tinyValue, 10);
+		} else {
+			originalValue = tinyValue; // keep as string for name, music, screenshot
+		}
+		originalClone[originalKey] = originalValue;
+	}
+	return originalClone;
+}
+
 function stringifyClone(levelData) {
 	if (levelData.screenshot) {
 		let screenshot = levelData.screenshot.replace(
@@ -114,6 +238,9 @@ function stringifyClone(levelData) {
 		return compressString(JSON.stringify(levelData));
 	}
 }
+function stringifyCloneTiny(levelData) {
+	return "=" + compressString(tinyifyClone(levelData));
+}
 function parseClone(stringifiedData) {
 	let levelData = JSON.parse(decompressString(stringifiedData.split(";")[0]));
 	let screenshot = stringifiedData.split(";")[1];
@@ -122,6 +249,14 @@ function parseClone(stringifiedData) {
 	}
 	return levelData;
 }
+function parseCloneTiny(stringifiedData) {
+	if (stringifiedData[0] === "=") {
+		return untinyifyClone(decompressString(stringifiedData.slice(1)));
+	} else {
+		throw new Error("Invalid data format");
+	}
+}
+
 function restoreToPlants(levelData) {
 	let plantArray = levelData.plants;
 	plantArray.sort((a, b) => a.zIndex - b.zIndex);
