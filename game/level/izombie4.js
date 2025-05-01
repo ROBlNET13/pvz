@@ -43,7 +43,7 @@ oS.Init({
 			while (i <= h) {
 				CustomSpecial(oBrains, i, 0);
 				let wallnutPlaced = CustomSpecial(oWallNut, i, 4);
-				wallnutPlaced.plantImage.classList.add("cardboard")
+				wallnutPlaced.plantImage.classList.add("cardboard");
 				for (a = g; a <= b; a++) {
 					let placed = CustomSpecial(
 						d[e[(c = Math.floor(Math.random() * e.length))]],
