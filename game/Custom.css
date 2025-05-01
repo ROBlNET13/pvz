@@ -763,8 +763,5 @@ td {
 }
 
 .cardboard {
-	filter: url("#cardboard") brightness(0.9) sepia(0.1)
-		drop-shadow(rgb(171, 135, 107) -2px -2px 0px)
-		drop-shadow(rgb(171, 135, 107) 2px 2px 0px)
-		drop-shadow(rgb(122, 86, 58) 2px 2px 0px);
+	filter: url("#cardboard");
 }
