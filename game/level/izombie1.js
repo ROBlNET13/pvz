@@ -43,11 +43,13 @@ oS.Init({
 			while (i <= h) {
 				CustomSpecial(oBrains, i, 0);
 				for (a = g; a <= b; a++) {
-					CustomSpecial(
+					let placed = CustomSpecial(
 						d[e[(c = Math.floor(Math.random() * e.length))]],
 						i,
 						a
 					);
+					console.log(placed);
+					placed.plantImage.classList.add("cardboard");
 					e.splice(c, 1);
 				}
 				++i;

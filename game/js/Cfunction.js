@@ -2823,7 +2823,9 @@ var lastB;
 		new ArCard[b].PName().Birth(GetX(c), GetY(a), a, c, []);
 	}),
 	(CustomSpecial = function (c, b, d, a) {
-		new c().Birth(GetX(d), GetY(b), b, d, [], a);
+		let plant = new c();
+		plant.Birth(GetX(d), GetY(b), b, d, [], a);
+		return plant;
 	}),
 	(CheckAutoSun = function (a) {
 		var b = a.checked ? 1 : 0;

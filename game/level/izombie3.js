@@ -39,20 +39,22 @@ oS.Init({
 			i = j[0],
 			h = j[1],
 			a;
-		if (k.Auto) {
-			while (i <= h) {
-				CustomSpecial(oBrains, i, 0);
-				for (a = g; a <= b; a++) {
-					CustomSpecial(
-						d[e[(c = Math.floor(Math.random() * e.length))]],
-						i,
-						a
-					);
-					e.splice(c, 1);
+			if (k.Auto) {
+				while (i <= h) {
+					CustomSpecial(oBrains, i, 0);
+					for (a = g; a <= b; a++) {
+						let placed = CustomSpecial(
+							d[e[(c = Math.floor(Math.random() * e.length))]],
+							i,
+							a
+						);
+						console.log(placed);
+						placed.plantImage.classList.add("cardboard");
+						e.splice(c, 1);
+					}
+					++i;
 				}
-				++i;
 			}
-		}
 		NewImg(
 			"iStripe",
 			"images/interface/Stripe.png",

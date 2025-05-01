@@ -51,43 +51,48 @@ var CPlants = NewO({
 		},
 		Birth: function (d, c, h, a, m, n) {
 			var e = this,
-				k = d + e.GetDX(),
-				i = c + e.GetDY(h, a, m),
-				l = e.prototype,
-				g = i - e.height,
-				b = (e.id = "P_" + Math.random()),
-				j = (e.zIndex += 3 * h),
-				f = NewEle(0, "div", "position:absolute");
-			NewImg(0, ShadowPNG, e.getShadow(e), f);
-			NewImg(0, e.PicArr[e.NormalGif], "", f);
-			e.pixelLeft = k;
-			e.pixelRight = k + e.width;
-			e.pixelTop = g;
-			e.pixelBottom = g + e.GetDBottom();
-			e.opacity = 1;
-			e.InitTrigger(
-				e,
-				b,
-				(e.R = h),
-				(e.C = a),
-				(e.AttackedLX = k + e.beAttackedPointL),
-				(e.AttackedRX = k + e.beAttackedPointR)
-			);
-			$P[b] = e;
-			$P.length += 1;
-			e.BirthStyle(
-				e,
-				b,
-				f,
-				{
-					left: k + "px",
-					top: g + "px",
-					zIndex: j,
-				},
-				n
-			);
-			oGd.add(e, h + "_" + a + "_" + e.PKind);
-			e.PrivateBirth(e, n);
+			k = d + e.GetDX(),
+			i = c + e.GetDY(h, a, m),
+			l = e.prototype,
+			g = i - e.height,
+			b = (e.id = "P_" + Math.random()),
+			j = (e.zIndex += 3 * h),
+			f = NewEle(0, "div", "position:absolute");
+			
+		NewImg(0, ShadowPNG, e.getShadow(e), f);
+		e.plantImage = NewImg(0, e.PicArr[e.NormalGif], "", f);
+		
+		// 🪄 Add this line:
+		e.ele = f;
+	
+		e.pixelLeft = k;
+		e.pixelRight = k + e.width;
+		e.pixelTop = g;
+		e.pixelBottom = g + e.GetDBottom();
+		e.opacity = 1;
+		e.InitTrigger(
+			e,
+			b,
+			(e.R = h),
+			(e.C = a),
+			(e.AttackedLX = k + e.beAttackedPointL),
+			(e.AttackedRX = k + e.beAttackedPointR)
+		);
+		$P[b] = e;
+		$P.length += 1;
+		e.BirthStyle(
+			e,
+			b,
+			f,
+			{
+				left: k + "px",
+				top: g + "px",
+				zIndex: j,
+			},
+			n
+		);
+		oGd.add(e, h + "_" + a + "_" + e.PKind);
+		e.PrivateBirth(e, n);
 		},
 		getShadow: function (a) {
 			return (
@@ -3422,13 +3427,10 @@ BirthStyle: function (c, e, b, a) {
 		canTrigger: 0,
 		BirthStyle: function (d, e, c, b, a) {
 			c.childNodes[1].src = !a
-				? "images/Plants/PotatoMine/PotatoMine.gif"
-				: (~(function () {
-						d.Status = 1;
-						d.canTrigger = 1;
-						d.getHurt = d.getHurt2;
-					})(),
-					"images/Plants/PotatoMine/PotatoMine.gif");
+				? "images/Plants/PotatoMine/PotatoMine.gif":
+				d.Status = 1;
+				d.canTrigger = 1;
+				d.getHurt = d.getHurt2;
 			EditEle(
 				c,
 				{
