@@ -71,8 +71,7 @@ oS.Init({
 				1
 			);
 			placed.plantImage.classList.add("cardboard");
-			Point.length--,
-			Arr.length--;
+			Point.length--, Arr.length--;
 		}
 	},
 	RiddleAutoGrow: function () {
@@ -92,33 +91,32 @@ oS.Init({
 			placedLilypads.plantImage.classList.add("cardboard");
 			placedLilypads2.plantImage.classList.add("cardboard");
 		}
-		
+
 		// 处理泳池的植物
 		SummonRange(Arr, 3, 4);
 		oS.RandomGrow(Arr, e.Arr);
-		
+
 		// 处理剩余的植物
 		SummonRange(Arr, 1, 2);
 		SummonRange(Arr, 5, 6);
 		oS.RandomGrow(Arr, e.Arr1);
 		oS.RandomGrow(Arr, e.Arr);
-		
+
 		// 处理南瓜头
 		SummonRange(Arr, 1, 6);
 		oS.RandomGrow(Arr, e.Arr2);
-		
+
 		// 脑子
 		for (var i = j[0]; i <= j[1]; ++i) {
 			CustomSpecial(oBrains, i, 0);
 		}
-		
+
 		NewImg(
 			"iStripe",
 			"images/interface/Stripe.png",
 			"left:" + (GetX1X2(6)[0] - 11) + "px;top:65px",
 			EDAll
 		);
-		
 	},
 	StartGame: function () {
 		oP.Monitor(), BeginCool();
