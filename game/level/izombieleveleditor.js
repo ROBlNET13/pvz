@@ -252,7 +252,7 @@
 										levelDataElement.style.fontSize =
 											"large";
 										levelDataElement.style.zIndex = "1000";
-										levelDataElement.value = stringifyClone(
+										levelDataElement.value = stringifyCloneTiny(
 											cloneFromPlants(l, f)
 										);
 										$("dAll").appendChild(levelDataElement);
