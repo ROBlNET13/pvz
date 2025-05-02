@@ -2124,14 +2124,14 @@ var lastB;
 				)),
 				NewImg(0, f.src, "width:100px;height:120px", g),
 				innerText(NewEle("sSunNum" + c, "span", 0, 0, g), i.SunNum),
-				(f.style.top = "-42px"));
+				(f.style.filter = "grayscale(1) brightness(1.15)"));
 		} else {
 			b.Select = 0;
 			!--ArPCard.SelNum &&
 				((e.disabled = "disabled"), (e.style.color = "#888"));
 			(g = $("dCard" + c)).onclick = null;
 			ClearChild(g.firstChild, g.childNodes[1], g.lastChild, g);
-			f.style.top = 0;
+			f.style.filter = "grayscale(0) brightness(1)";
 		}
 	}),
 	(ResetSelectCard = function () {
@@ -2171,7 +2171,7 @@ var lastB;
 				j.onmouseout = function () {
 					SetHidden($("dTitle"));
 				};
-				j.firstChild.style.top = "-60px";
+				j.firstChild.style.filter = "grayscale(1) brightness(1.15)";
 				(a = j.lastChild).id = "sSunNum" + d;
 				innerText(a, l.SunNum);
 				ArCard.push({ DID: j.id, CDReady: 0, SunReady: 0, PName: h });
@@ -2242,7 +2242,7 @@ var lastB;
 					d.CDReady = 1;
 					e <= oS.SunNum &&
 						((d.SunReady = 1),
-						($(d.DID).childNodes[0].style.top = "0"));
+						($(d.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)"));
 					break;
 				case 30:
 					DoCoolTimer(b, 20);
@@ -2263,7 +2263,7 @@ var lastB;
 			e = c.SunNum;
 			d.CDReady = 1;
 			d.SunReady = 1;
-			$(d.DID).childNodes[0].style.top = 0;
+			$(d.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)";
 		}
 	}),
 	(MonitorCard = function (d) {
@@ -2275,9 +2275,9 @@ var lastB;
 			while (b--) {
 				(c = (d = ArCard[b]).PName.prototype).SunNum > oS.SunNum
 					? (d.SunReady && (d.SunReady = 0),
-						($(d.DID).childNodes[0].style.top = "-60px"))
+						($(d.DID).childNodes[0].style.filter = "grayscale(1) brightness(1.15)"))
 					: (!d.SunReady && (d.SunReady = 1),
-						d.CDReady && ($(d.DID).childNodes[0].style.top = 0));
+						d.CDReady && ($(d.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)"));
 			}
 		} else {
 			while (b--) {
@@ -2377,7 +2377,7 @@ var lastB;
 					EDAll
 				));
 		while (e--) {
-			$(ArCard[e].DID).childNodes[0].style.top = "-60px";
+			$(ArCard[e].DID).childNodes[0].style.filter = "grayscale(1) brightness(1.15)";
 		}
 		SetHidden($("dTitle"));
 		GroundOnmousemove = GroundOnmousemove1;
@@ -2857,7 +2857,7 @@ var lastB;
 							$("iNewPlantCard").src = f.PicArr[f.CardGif];
 							$("iNewPlantCard").style.width = 100 + "px";
 							$("iNewPlantCard").style.height = 120 + "px";
-							$("iNewPlantCard").style.top = 0 + "px";
+							$("iNewPlantCard").style.filter = "grayscale(1) brightness(1.15)";
 							//                          $("iNewPlantCard").style.marginTop =
 							//                              180 - f.height + "px";
 							innerText($("dNewPlantName"), f.CName);
