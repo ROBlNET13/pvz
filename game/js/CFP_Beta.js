@@ -266,7 +266,7 @@ function restoreToPlants(levelData) {
 		let plantName = plant.plantName;
 		let plantRow = plant.plantRow;
 		let plantCol = plant.plantCol;
-		CustomSpecial(window[plantName], plantRow, plantCol);
+		CustomSpecial(window[plantName], plantRow, plantCol, 1);
 	}
 }
 

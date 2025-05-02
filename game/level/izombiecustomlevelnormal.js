@@ -16,8 +16,114 @@ if (typeof levelDataToLoad === "undefined") {
 		!levelDataToLoad.hasOwnProperty("lfValue") ||
 		!levelDataToLoad.hasOwnProperty("stripeCol")
 	) {
-		alert("Invalid level data!");
-		SelectModal(0);
+		/* alert("Invalid level data!");
+		SelectModal(0); */
+		levelDataToLoad = {
+			lfValue: [0, 1, 1, 1, 1, 1],
+			music: "Cerebrawl",
+			name: "lol",
+			plants: [
+				{
+					zIndex: 6,
+					plantRow: 2,
+					plantCol: 1,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 9,
+					plantRow: 3,
+					plantCol: 1,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 12,
+					plantRow: 4,
+					plantCol: 1,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 12,
+					plantRow: 4,
+					plantCol: 2,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 6,
+					plantRow: 2,
+					plantCol: 4,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 9,
+					plantRow: 3,
+					plantCol: 4,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 12,
+					plantRow: 4,
+					plantCol: 4,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 6,
+					plantRow: 2,
+					plantCol: 5,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 12,
+					plantRow: 4,
+					plantCol: 5,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 6,
+					plantRow: 2,
+					plantCol: 6,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 9,
+					plantRow: 3,
+					plantCol: 6,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 12,
+					plantRow: 4,
+					plantCol: 6,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 12,
+					plantRow: 4,
+					plantCol: 8,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 12,
+					plantRow: 4,
+					plantCol: 9,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 9,
+					plantRow: 3,
+					plantCol: 8,
+					plantName: "oWallNut",
+				},
+				{
+					zIndex: 6,
+					plantRow: 2,
+					plantCol: 8,
+					plantName: "oWallNut",
+				},
+			],
+			screenshot: "",
+			stripeCol: 49,
+			sun: 49,
+		};
 	}
 	// make sure the keys are the right types
 	if (
