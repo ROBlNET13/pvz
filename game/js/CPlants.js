@@ -62,7 +62,6 @@ var CPlants = NewO({
 			NewImg(0, ShadowPNG, e.getShadow(e), f);
 			e.plantImage = NewImg(0, e.PicArr[e.NormalGif], "", f);
 
-			// 🪄 Add this line:
 			e.ele = f;
 
 			e.pixelLeft = k;
