@@ -49,13 +49,15 @@ function decompressStringFromBytes(compressed) {
 	return decompressedString;
 }
 
-function downloadBytesAsFile(bytes, filename) {
+function downloadBytesAsFile(bytes, filename) { // bytes is a Uint8Array
 	const blob = new Blob([bytes], { type: "application/octet-stream" });
 	const url = URL.createObjectURL(blob);
 	const a = document.createElement("a");
 	a.href = url;
 	a.download = filename;
+	document.body.appendChild(a);
 	a.click();
+	document.body.removeChild(a);
 	URL.revokeObjectURL(url);
 }
 
