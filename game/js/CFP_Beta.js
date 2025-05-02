@@ -49,7 +49,8 @@ function decompressStringFromBytes(compressed) {
 	return decompressedString;
 }
 
-function downloadBytesAsFile(bytes, filename) { // bytes is a Uint8Array
+function downloadBytesAsFile(bytes, filename) {
+	// bytes is a Uint8Array
 	const blob = new Blob([bytes], { type: "application/octet-stream" });
 	const url = URL.createObjectURL(blob);
 	const a = document.createElement("a");
