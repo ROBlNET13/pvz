@@ -14297,7 +14297,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 		g.Stone_of_Sinan_Up = function () {};
 	},
 });
-oIDiggerZombie = InheritO(OrnNoneZombies, {
+(oIDiggerZombie = InheritO(OrnNoneZombies, {
 	EName: "oIDiggerZombie",
 	CName: "Digger Zombie",
 	Lvl: 4,
@@ -14549,81 +14549,83 @@ oIDiggerZombie = InheritO(OrnNoneZombies, {
 		}
 		g.Stone_of_Sinan_Up = function () {};
 	},
-}),
-oJalapenoZombie = InheritO(oZombie, {
-    EName: "oJalapenoZombie",
-    CName: "Jalapeno Zombie",
-    HP: 500,
-	PicArr: (function () {
-		var a = "images/Zombies/JalapenoZombie/";
-		return [
-			"images/Card/Zombies/JalapenoZombie.png",
-			a + "0.png",
-			a + "Zombie.png",
-			a + "ZombieAttack.png",
-			"images/Zombies/Zombie/ZombieLostHead.gif",
-			"images/Zombies/Zombie/ZombieLostHeadAttack.gif",
-			a + "JalapenoHead.png"+ $Random,
-			"images/Zombies/Zombie/ZombieDie.gif"+ $Random,
-			"images/Zombies/BoomDie.gif",
-			a + "1.png",
-		];
-	})(),
-    Produce:
-      'Toughness: <font color="#FF0000">medium</font></p>A rebellious hot pepper from the plant family, codenamed 47, often self-destructs to destroy plants.',
-    BirthCallBack: function (f) {
-      var e = f.delayT,
-        d = f.id,
-        c = (f.Ele = $(d));
-      f.EleShadow = c.firstChild;
-      f.EleBody = c.childNodes[1];
-      e
-        ? oSym.addTask(
-            e,
-            function (h, g) {
-              var i = $Z[h];
-              i && ((i.FreeSetbodyTime = 0), SetBlock(g));
-            },
-            [d, c]
-          )
-        : SetBlock(c);
-      f.CheckBoomFire(f);
-    },
-    CheckBoomFire: function (f) {
-      oSym.addTask(
-        1000,
-        function (f) {
-          // 生成1到100之间的随机整数
-        let randomNumber = Math.floor(Math.random() * 100) + 1;
+})),
+	(oJalapenoZombie = InheritO(oZombie, {
+		EName: "oJalapenoZombie",
+		CName: "Jalapeno Zombie",
+		HP: 500,
+		PicArr: (function () {
+			var a = "images/Zombies/JalapenoZombie/";
+			return [
+				"images/Card/Zombies/JalapenoZombie.png",
+				a + "0.png",
+				a + "Zombie.png",
+				a + "ZombieAttack.png",
+				"images/Zombies/Zombie/ZombieLostHead.gif",
+				"images/Zombies/Zombie/ZombieLostHeadAttack.gif",
+				a + "JalapenoHead.png" + $Random,
+				"images/Zombies/Zombie/ZombieDie.gif" + $Random,
+				"images/Zombies/BoomDie.gif",
+				a + "1.png",
+			];
+		})(),
+		Produce:
+			'Toughness: <font color="#FF0000">medium</font></p>A rebellious hot pepper from the plant family, codenamed 47, often self-destructs to destroy plants.',
+		BirthCallBack: function (f) {
+			var e = f.delayT,
+				d = f.id,
+				c = (f.Ele = $(d));
+			f.EleShadow = c.firstChild;
+			f.EleBody = c.childNodes[1];
+			e
+				? oSym.addTask(
+						e,
+						function (h, g) {
+							var i = $Z[h];
+							i && ((i.FreeSetbodyTime = 0), SetBlock(g));
+						},
+						[d, c]
+					)
+				: SetBlock(c);
+			f.CheckBoomFire(f);
+		},
+		CheckBoomFire: function (f) {
+			oSym.addTask(
+				1000,
+				function (f) {
+					// 生成1到100之间的随机整数
+					let randomNumber = Math.floor(Math.random() * 100) + 1;
 
-          $Z[f.id] && randomNumber <= 10 && f.BoomFire(f.R);
-          oSym.addTask(100, arguments.callee, [f]);
-        },
-        [f]
-      );
-    },
-    BoomFire: function (y) {
-      PlayAudio("jalapeno");
-      fireid = "fire_" + Math.random();
-      NewImg(
-        fireid,
-        "images/Plants/Jalapeno/JalapenoAttack.gif",
-        "width:755px;height:131px;left:120px;top:" + (GetY(y - 1) - 42) + "px",
-        EDAll
-      );
-      oSym.addTask(
-        135,
-        (id) => {
-          ClearChild($(id));
-        },
-        [fireid]
-      );
-      for (let i = 1; i <= oS.C; i++) {
-        for (let j = 0; j < 4; j++) {
-          let g = oGd.$[y + "_" + i + "_" + j];
-          g && g.BoomDie();
-        }
-      }
-      this.DisappearDie();
-    },
-  });
+					$Z[f.id] && randomNumber <= 10 && f.BoomFire(f.R);
+					oSym.addTask(100, arguments.callee, [f]);
+				},
+				[f]
+			);
+		},
+		BoomFire: function (y) {
+			PlayAudio("jalapeno");
+			fireid = "fire_" + Math.random();
+			NewImg(
+				fireid,
+				"images/Plants/Jalapeno/JalapenoAttack.gif",
+				"width:755px;height:131px;left:120px;top:" +
+					(GetY(y - 1) - 42) +
+					"px",
+				EDAll
+			);
+			oSym.addTask(
+				135,
+				(id) => {
+					ClearChild($(id));
+				},
+				[fireid]
+			);
+			for (let i = 1; i <= oS.C; i++) {
+				for (let j = 0; j < 4; j++) {
+					let g = oGd.$[y + "_" + i + "_" + j];
+					g && g.BoomDie();
+				}
+			}
+			this.DisappearDie();
+		},
+	}));

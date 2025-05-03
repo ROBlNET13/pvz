@@ -2242,7 +2242,8 @@ var lastB;
 					d.CDReady = 1;
 					e <= oS.SunNum &&
 						((d.SunReady = 1),
-						($(d.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)"));
+						($(d.DID).childNodes[0].style.filter =
+							"grayscale(0) brightness(1)"));
 					break;
 				case 30:
 					DoCoolTimer(b, 20);
@@ -2275,9 +2276,12 @@ var lastB;
 			while (b--) {
 				(c = (d = ArCard[b]).PName.prototype).SunNum > oS.SunNum
 					? (d.SunReady && (d.SunReady = 0),
-						($(d.DID).childNodes[0].style.filter = "grayscale(1) brightness(1.15)"))
+						($(d.DID).childNodes[0].style.filter =
+							"grayscale(1) brightness(1.15)"))
 					: (!d.SunReady && (d.SunReady = 1),
-						d.CDReady && ($(d.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)"));
+						d.CDReady &&
+							($(d.DID).childNodes[0].style.filter =
+								"grayscale(0) brightness(1)"));
 			}
 		} else {
 			while (b--) {
@@ -2377,7 +2381,8 @@ var lastB;
 					EDAll
 				));
 		while (e--) {
-			$(ArCard[e].DID).childNodes[0].style.filter = "grayscale(1) brightness(1.15)";
+			$(ArCard[e].DID).childNodes[0].style.filter =
+				"grayscale(1) brightness(1.15)";
 		}
 		SetHidden($("dTitle"));
 		GroundOnmousemove = GroundOnmousemove1;
@@ -2857,7 +2862,8 @@ var lastB;
 							$("iNewPlantCard").src = f.PicArr[f.CardGif];
 							$("iNewPlantCard").style.width = 100 + "px";
 							$("iNewPlantCard").style.height = 120 + "px";
-							$("iNewPlantCard").style.filter = "grayscale(1) brightness(1.15)";
+							$("iNewPlantCard").style.filter =
+								"grayscale(1) brightness(1.15)";
 							//                          $("iNewPlantCard").style.marginTop =
 							//                              180 - f.height + "px";
 							innerText($("dNewPlantName"), f.CName);
