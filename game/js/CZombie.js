@@ -14563,8 +14563,8 @@ oJalapenoZombie = InheritO(oZombie, {
 			a + "ZombieAttack.png",
 			"images/Zombies/Zombie/ZombieLostHead.gif",
 			"images/Zombies/Zombie/ZombieLostHeadAttack.gif",
-			"images/Zombies/Zombie/ZombieHead.gif",
-			"images/Zombies/Zombie/ZombieDie.gif",
+			a + "JalapenoHead.png"+ $Random,
+			"images/Zombies/Zombie/ZombieDie.gif"+ $Random,
 			"images/Zombies/BoomDie.gif",
 			a + "1.png",
 		];
