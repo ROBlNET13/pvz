@@ -1,4 +1,4 @@
-name: Create Version File + Prettify Code
+name: Deploy
 
 on:
     push:
@@ -30,9 +30,9 @@ jobs:
               run: |
                   npx prettier --write "**/*.{js,md,html,css,yml}"
 
-            - name: Create v.txt with commit hash
+            - name: Create v.html with commit hash
               run: |
-                  echo "${{ github.sha }}" > game/images/Zombies/CX/v.txt
+                  echo "${{ github.sha }}" > game/images/Zombies/CX/v.html
 
             - name: Get commit message
               id: get_commit_message
