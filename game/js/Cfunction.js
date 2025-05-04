@@ -2862,8 +2862,6 @@ var lastB;
 							$("iNewPlantCard").src = f.PicArr[f.CardGif];
 							$("iNewPlantCard").style.width = 100 + "px";
 							$("iNewPlantCard").style.height = 120 + "px";
-							$("iNewPlantCard").style.filter =
-								"grayscale(1) brightness(1.15)";
 							//                          $("iNewPlantCard").style.marginTop =
 							//                              180 - f.height + "px";
 							innerText($("dNewPlantName"), f.CName);
@@ -3150,7 +3148,10 @@ var lastB;
 			oSym.Stop(),
 			SetBlock($("dSurface")),
 			innerText($("dMenu0"), "Speed"),
-			ShowOptions());
+			ShowOptions())
+			if (ArCard[oS.ChoseCard] && ArCard[oS.ChoseCard].DID != null) {
+				CancelPlant()
+			};
 	}),
 	(OptionsMenuDown = function (b, a) {
 		b.className = "OptionsMenuButtonDown";

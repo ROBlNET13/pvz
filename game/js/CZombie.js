@@ -589,7 +589,7 @@ var CZombies = (function (b, a) {
 				NormalDie: function () {
 					var c = this;
 					PlayAudio("zombie_falling_1");
-					c.EleBody.src = c.PicArr[c.DieGif] + Math.random();
+					c.EleBody.src = c.PicArr[c.DieGif];
 					oSym.addTask(250, ClearChild, [c.Ele]);
 					c.HP = 0;
 					delete $Z[c.id];
@@ -597,7 +597,7 @@ var CZombies = (function (b, a) {
 				},
 				ExplosionDie: function () {
 					var c = this;
-					c.EleBody.src = c.PicArr[c.BoomDieGif] + Math.random();
+					c.EleBody.src = c.PicArr[c.BoomDieGif];
 					oSym.addTask(300, ClearChild, [c.Ele]);
 					c.HP = 0;
 					delete $Z[c.id];
@@ -621,7 +621,7 @@ var CZombies = (function (b, a) {
 					oSym.addTask(200, ClearChild, [
 						NewImg(
 							0,
-							c[d.HeadGif] + Math.random(),
+							c[d.HeadGif],
 							"left:" +
 								d.AttackedLX +
 								"px;top:" +
@@ -1239,7 +1239,7 @@ var CZombies = (function (b, a) {
 		NormalDie: function () {
 			var a = this;
 			a.ResetBackupDancer(a);
-			a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
+			a.EleBody.src = a.PicArr[a.DieGif];
 			oSym.addTask(250, ClearChild, [a.Ele]);
 			a.HP = 0;
 			delete $Z[a.id];
@@ -1248,7 +1248,7 @@ var CZombies = (function (b, a) {
 		ExplosionDie: function () {
 			var a = this;
 			a.ResetBackupDancer(a);
-			a.EleBody.src = a.PicArr[a.BoomDieGif] + Math.random();
+			a.EleBody.src = a.PicArr[a.BoomDieGif];
 			oSym.addTask(300, ClearChild, [a.Ele]);
 			a.HP = 0;
 			delete $Z[a.id];
@@ -1904,7 +1904,7 @@ var CZombies = (function (b, a) {
 		NormalDie: function () {
 			var a = this;
 			a.ResetBackupDancer(a);
-			a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
+			a.EleBody.src = a.PicArr[a.DieGif];
 			oSym.addTask(250, ClearChild, [a.Ele]);
 			a.HP = 0;
 			delete $Z[a.id];
@@ -1913,7 +1913,7 @@ var CZombies = (function (b, a) {
 		ExplosionDie: function () {
 			var a = this;
 			a.ResetBackupDancer(a);
-			a.EleBody.src = a.PicArr[a.BoomDieGif] + Math.random();
+			a.EleBody.src = a.PicArr[a.BoomDieGif];
 			oSym.addTask(300, ClearChild, [a.Ele]);
 			a.HP = 0;
 			delete $Z[a.id];
@@ -3024,7 +3024,7 @@ var CZombies = (function (b, a) {
 			oSym.addTask(200, ClearChild, [
 				NewImg(
 					0,
-					a[b.HeadGif] + Math.random(),
+					a[b.HeadGif],
 					"left:" +
 						b.X +
 						"px;top:" +
@@ -3238,7 +3238,7 @@ var CZombies = (function (b, a) {
 			oSym.addTask(200, ClearChild, [
 				NewImg(
 					0,
-					a[b.HeadGif] + Math.random(),
+					a[b.HeadGif],
 					"left:" +
 						b.X +
 						"px;top:" +
@@ -3572,7 +3572,7 @@ var CZombies = (function (b, a) {
 			oSym.addTask(200, ClearChild, [
 				NewImg(
 					0,
-					a.PicArr[a.HeadGif] + Math.random(),
+					a.PicArr[a.HeadGif],
 					"left:" +
 						a.AttackedLX +
 						"px;top:" +
@@ -4339,7 +4339,7 @@ var CZombies = (function (b, a) {
 			var b = this,
 				c = b.id,
 				a = b.PicArr;
-			b.EleBody.src = a[7] + Math.random();
+			b.EleBody.src = a[7];
 			b.GoingDieHead(c, a, b);
 			b.beAttacked = 0;
 			b.FreeFreezeTime = b.FreeSetbodyTime = b.FreeSlowTime = 0;
@@ -4804,7 +4804,7 @@ var CZombies = (function (b, a) {
 			var b = this,
 				c = b.id,
 				a = b.PicArr;
-			b.EleBody.src = a[7] + Math.random();
+			b.EleBody.src = a[7];
 			b.GoingDieHead(c, a, b);
 			b.beAttacked = 0;
 			b.FreeFreezeTime = b.FreeSetbodyTime = b.FreeSlowTime = 0;
@@ -4957,7 +4957,7 @@ var CZombies = (function (b, a) {
 				(PlayAudio("zombie_entering_water"),
 				(a.Altitude = 2),
 				SetHidden(a.EleShadow),
-				(a.EleBody.src = a.PicArr[8] + Math.random()),
+				(a.EleBody.src = a.PicArr[8]),
 				oSym.addTask(
 					160,
 					function (c, b) {
@@ -5017,7 +5017,7 @@ var CZombies = (function (b, a) {
 			(a = e.JudgeLR(e, c, d, b, g) || e.JudgeSR(e, c, d, b, g))
 				? !e.isAttacking
 					? ((e.isAttacking = 1),
-						(e.EleBody.src = e.PicArr[9] + Math.random()),
+						(e.EleBody.src = e.PicArr[9]),
 						oSym.addTask(
 							50,
 							function (i, h) {
@@ -5031,7 +5031,7 @@ var CZombies = (function (b, a) {
 						))
 					: e.NormalAttack(a[0], a[1])
 				: e.isAttacking &&
-					((e.EleBody.src = e.PicArr[10] + Math.random()),
+					((e.EleBody.src = e.PicArr[10]),
 					(e.Altitude = 0),
 					oSym.addTask(
 						70,
@@ -5067,7 +5067,7 @@ var CZombies = (function (b, a) {
 			b && b.beAttacked && b.AttackedLX < 900 && b.Altitude < 2
 				? !c.isAttacking
 					? ((c.isAttacking = 1),
-						(c.EleBody.src = c.PicArr[9] + Math.random()),
+						(c.EleBody.src = c.PicArr[9]),
 						(a = b.id),
 						!b.isAttacking && b.AttackZombie2(b, a, d),
 						oSym.addTask(
@@ -5086,7 +5086,7 @@ var CZombies = (function (b, a) {
 						))
 					: c.AttackZombie(d, a)
 				: c.isAttacking &&
-					((c.EleBody.src = c.PicArr[10] + Math.random()),
+					((c.EleBody.src = c.PicArr[10]),
 					(c.Altitude = 0),
 					oSym.addTask(
 						70,
@@ -5101,7 +5101,7 @@ var CZombies = (function (b, a) {
 		},
 		AttackZombie2: function (c, b, a) {
 			c.isAttacking = 1;
-			c.EleBody.src = c.PicArr[9] + Math.random();
+			c.EleBody.src = c.PicArr[9];
 			oSym.addTask(
 				50,
 				function (g, e, d, f) {
@@ -5144,7 +5144,7 @@ var CZombies = (function (b, a) {
 									},
 									[g, e, f, d]
 								))
-							: ((g.EleBody.src = g.PicArr[10] + Math.random()),
+							: ((g.EleBody.src = g.PicArr[10]),
 								(g.Altitude = 0),
 								oSym.addTask(
 									70,
@@ -5247,7 +5247,7 @@ var CZombies = (function (b, a) {
 			oSym.addTask(200, ClearChild, [
 				NewImg(
 					0,
-					a[b.HeadGif] + Math.random(),
+					a[b.HeadGif],
 					"width:75px;height:93px;left:" +
 						b.AttackedLX +
 						"px;top:" +
@@ -5308,7 +5308,7 @@ var CZombies = (function (b, a) {
 			oSym.addTask(200, ClearChild, [
 				NewImg(
 					0,
-					a[b.HeadGif] + Math.random(),
+					a[b.HeadGif],
 					"width:75px;height:93px;left:" +
 						b.AttackedLX +
 						"px;top:" +
@@ -5369,7 +5369,7 @@ var CZombies = (function (b, a) {
 			oSym.addTask(200, ClearChild, [
 				NewImg(
 					0,
-					a[b.HeadGif] + Math.random(),
+					a[b.HeadGif],
 					"width:75px;height:93px;left:" +
 						b.AttackedLX +
 						"px;top:" +
@@ -5431,7 +5431,7 @@ var CZombies = (function (b, a) {
 			oSym.addTask(200, ClearChild, [
 				NewImg(
 					0,
-					a[b.HeadGif] + Math.random(),
+					a[b.HeadGif],
 					"width:75px;height:93px;left:" +
 						b.AttackedLX +
 						"px;top:" +
@@ -5493,7 +5493,7 @@ var CZombies = (function (b, a) {
 			oSym.addTask(200, ClearChild, [
 				NewImg(
 					0,
-					a[b.HeadGif] + Math.random(),
+					a[b.HeadGif],
 					"width:75px;height:93px;left:" +
 						b.AttackedLX +
 						"px;top:" +
@@ -5554,7 +5554,7 @@ var CZombies = (function (b, a) {
 			oSym.addTask(200, ClearChild, [
 				NewImg(
 					0,
-					a[b.HeadGif] + Math.random(),
+					a[b.HeadGif],
 					"width:71px;height:105px;left:" +
 						b.AttackedLX +
 						"px;top:" +
@@ -5786,7 +5786,7 @@ var CZombies = (function (b, a) {
 			NormalDie: function () {
 				var b = this;
 				PlayAudio("explosion");
-				b.EleBody.src = b.PicArr[b.DieGif] + Math.random();
+				b.EleBody.src = b.PicArr[b.DieGif];
 				oSym.addTask(70, ClearChild, [b.Ele]);
 				b.HP = 0;
 				delete $Z[b.id];
@@ -5803,7 +5803,7 @@ var CZombies = (function (b, a) {
 			},
 			ExplosionDie: function () {
 				var b = this;
-				b.EleBody.src = b.PicArr[b.BoomDieGif] + Math.random();
+				b.EleBody.src = b.PicArr[b.BoomDieGif];
 				oSym.addTask(300, ClearChild, [b.Ele]);
 				b.HP = 0;
 				delete $Z[b.id];
@@ -6116,7 +6116,7 @@ var CZombies = (function (b, a) {
 			NormalDie: function () {
 				var b = this;
 				PlayAudio("explosion");
-				b.EleBody.src = b.PicArr[b.DieGif] + Math.random();
+				b.EleBody.src = b.PicArr[b.DieGif];
 				oSym.addTask(70, ClearChild, [b.Ele]);
 				b.HP = 0;
 				delete $Z[b.id];
@@ -6133,7 +6133,7 @@ var CZombies = (function (b, a) {
 			},
 			ExplosionDie: function () {
 				var b = this;
-				b.EleBody.src = b.PicArr[b.BoomDieGif] + Math.random();
+				b.EleBody.src = b.PicArr[b.BoomDieGif];
 				oSym.addTask(300, ClearChild, [b.Ele]);
 				b.HP = 0;
 				delete $Z[b.id];
@@ -6299,7 +6299,7 @@ var CZombies = (function (b, a) {
 				(PlayAudio("zombie_entering_water"),
 				(a.Altitude = 2),
 				SetHidden(a.EleShadow),
-				(a.EleBody.src = a.PicArr[8] + Math.random()),
+				(a.EleBody.src = a.PicArr[8]),
 				oSym.addTask(
 					240,
 					function (d, b) {
@@ -6399,7 +6399,7 @@ var CZombies = (function (b, a) {
 				a = f.Ele,
 				c = f.EleShadow,
 				e = f.EleBody;
-			e.src = f.PicArr[9] + Math.random();
+			e.src = f.PicArr[9];
 			SetHidden(c);
 			f.isAttacking = 1;
 			f.Altitude = 2;
@@ -6450,7 +6450,7 @@ var CZombies = (function (b, a) {
 									(h.beAttackedPointL = 45)),
 								SetStyle(i, { left: h.X + "px" }),
 								(h.EleShadow.style.left = "45px"),
-								(q.src = h.PicArr[13] + Math.random()),
+								(q.src = h.PicArr[13]),
 								oSym.addTask(
 									170,
 									function (t, w) {
@@ -6468,7 +6468,7 @@ var CZombies = (function (b, a) {
 			var b = this,
 				c = b.id,
 				a = b.PicArr;
-			b.EleBody.src = a[b.haveDolphin ? 7 : 12] + Math.random();
+			b.EleBody.src = a[b.haveDolphin ? 7 : 12];
 			b.GoingDieHead(c, a, b);
 			b.beAttacked = 0;
 			b.FreeFreezeTime = b.FreeSetbodyTime = b.FreeSlowTime = 0;
@@ -6679,7 +6679,7 @@ var CZombies = (function (b, a) {
 											"px;z-index:20"
 									)),
 									PlayAudio("explosion"),
-									(d.src = e.PicArr[8] + Math.random()),
+									(d.src = e.PicArr[8]),
 									EDPZ.appendChild(d),
 									oSym.addTask(70, ClearChild, [d]),
 									e.PZ
@@ -6767,7 +6767,7 @@ var CZombies = (function (b, a) {
 		NormalDie: function () {
 			var a = this;
 			a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
-			a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
+			a.EleBody.src = a.PicArr[a.DieGif];
 			oSym.addTask(250, ClearChild, [a.Ele]);
 			a.HP = 0;
 			delete $Z[a.id];
@@ -6776,7 +6776,7 @@ var CZombies = (function (b, a) {
 		ExplosionDie: function () {
 			var a = this;
 			a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
-			a.EleBody.src = a.PicArr[a.BoomDieGif] + Math.random();
+			a.EleBody.src = a.PicArr[a.BoomDieGif];
 			oSym.addTask(300, ClearChild, [a.Ele]);
 			a.HP = 0;
 			delete $Z[a.id];
@@ -6923,7 +6923,7 @@ var CZombies = (function (b, a) {
 											"px;z-index:20"
 									)),
 									PlayAudio("explosion"),
-									(d.src = e.PicArr[8] + Math.random()),
+									(d.src = e.PicArr[8]),
 									EDPZ.appendChild(d),
 									oSym.addTask(70, ClearChild, [d]),
 									e.PZ
@@ -7011,7 +7011,7 @@ var CZombies = (function (b, a) {
 		NormalDie: function () {
 			var a = this;
 			a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
-			a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
+			a.EleBody.src = a.PicArr[a.DieGif];
 			oSym.addTask(250, ClearChild, [a.Ele]);
 			a.HP = 0;
 			delete $Z[a.id];
@@ -7020,7 +7020,7 @@ var CZombies = (function (b, a) {
 		ExplosionDie: function () {
 			var a = this;
 			a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
-			a.EleBody.src = a.PicArr[a.BoomDieGif] + Math.random();
+			a.EleBody.src = a.PicArr[a.BoomDieGif];
 			oSym.addTask(300, ClearChild, [a.Ele]);
 			a.HP = 0;
 			delete $Z[a.id];
@@ -7208,7 +7208,7 @@ var CZombies = (function (b, a) {
 	},
 	NormalDie: function () {
 		var a = this;
-		a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
+		a.EleBody.src = a.PicArr[a.DieGif];
 		oSym.addTask(250, ClearChild, [a.Ele]);
 		a.HP = 0;
 		delete $Z[a.id];
@@ -7411,7 +7411,7 @@ var CZombies = (function (b, a) {
 		},
 		NormalDie: function () {
 			var a = this;
-			a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
+			a.EleBody.src = a.PicArr[a.DieGif];
 			oSym.addTask(250, ClearChild, [a.Ele]);
 			a.HP = 0;
 			delete $Z[a.id];
@@ -7606,7 +7606,7 @@ var CZombies = (function (b, a) {
 	},
 	NormalDie: function () {
 		var a = this;
-		a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
+		a.EleBody.src = a.PicArr[a.DieGif];
 		oSym.addTask(250, ClearChild, [a.Ele]);
 		a.HP = 0;
 		delete $Z[a.id];
@@ -7789,7 +7789,7 @@ oCBucketheadZombie = InheritO(
 		oSym.addTask(200, ClearChild, [
 			NewImg(
 				0,
-				a[b.HeadGif] + Math.random(),
+				a[b.HeadGif],
 				"left:" +
 					b.X +
 					"px;top:" +
@@ -7989,7 +7989,7 @@ oCBucketheadZombie = InheritO(
 			oSym.addTask(200, ClearChild, [
 				NewImg(
 					0,
-					a.PicArr[a.HeadGif] + Math.random(),
+					a.PicArr[a.HeadGif],
 					"left:" +
 						a.AttackedLX +
 						"px;top:" +
@@ -8680,7 +8680,7 @@ oCBucketheadZombie = InheritO(
 			NormalDie: function () {
 				var b = this;
 				PlayAudio("explosion");
-				b.EleBody.src = b.PicArr[b.DieGif] + Math.random();
+				b.EleBody.src = b.PicArr[b.DieGif];
 				oSym.addTask(70, ClearChild, [b.Ele]);
 				b.HP = 0;
 				delete $Z[b.id];
@@ -8697,7 +8697,7 @@ oCBucketheadZombie = InheritO(
 			},
 			ExplosionDie: function () {
 				var b = this;
-				b.EleBody.src = b.PicArr[b.BoomDieGif] + Math.random();
+				b.EleBody.src = b.PicArr[b.BoomDieGif];
 				oSym.addTask(300, ClearChild, [b.Ele]);
 				b.HP = 0;
 				delete $Z[b.id];
@@ -9246,7 +9246,7 @@ oCBucketheadZombie = InheritO(
 								NormalDie: function () {
 									var c = this;
 									c.EleBody.src =
-										c.PicArr[c.DieGif] + Math.random();
+										c.PicArr[c.DieGif];
 									oSym.addTask(250, ClearChild, [c.Ele]);
 									c.HP = 0;
 									delete $Z[c.id];
@@ -9255,7 +9255,7 @@ oCBucketheadZombie = InheritO(
 								ExplosionDie: function () {
 									var c = this;
 									c.EleBody.src =
-										c.PicArr[c.BoomDieGif] + Math.random();
+										c.PicArr[c.BoomDieGif];
 									oSym.addTask(300, ClearChild, [c.Ele]);
 									c.HP = 0;
 									delete $Z[c.id];
@@ -9279,7 +9279,7 @@ oCBucketheadZombie = InheritO(
 									oSym.addTask(200, ClearChild, [
 										NewImg(
 											0,
-											c[d.HeadGif] + Math.random(),
+											c[d.HeadGif],
 											"left:" +
 												d.AttackedLX +
 												"px;top:" +
@@ -9969,7 +9969,7 @@ oCBucketheadZombie = InheritO(
 						NormalDie: function () {
 							var a = this;
 							a.ResetBackupDancer(a);
-							a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
+							a.EleBody.src = a.PicArr[a.DieGif];
 							oSym.addTask(250, ClearChild, [a.Ele]);
 							a.HP = 0;
 							delete $Z[a.id];
@@ -9979,7 +9979,7 @@ oCBucketheadZombie = InheritO(
 							var a = this;
 							a.ResetBackupDancer(a);
 							a.EleBody.src =
-								a.PicArr[a.BoomDieGif] + Math.random();
+								a.PicArr[a.BoomDieGif];
 							oSym.addTask(300, ClearChild, [a.Ele]);
 							a.HP = 0;
 							delete $Z[a.id];
@@ -10897,7 +10897,7 @@ oCBucketheadZombie = InheritO(
 							oSym.addTask(200, ClearChild, [
 								NewImg(
 									0,
-									a[b.HeadGif] + Math.random(),
+									a[b.HeadGif],
 									"left:" +
 										b.X +
 										"px;top:" +
@@ -11138,7 +11138,7 @@ oCBucketheadZombie = InheritO(
 							oSym.addTask(200, ClearChild, [
 								NewImg(
 									0,
-									a.PicArr[a.HeadGif] + Math.random(),
+									a.PicArr[a.HeadGif],
 									"left:" +
 										a.AttackedLX +
 										"px;top:" +
@@ -11853,7 +11853,7 @@ oCBucketheadZombie = InheritO(
 							var b = this,
 								c = b.id,
 								a = b.PicArr;
-							b.EleBody.src = a[7] + Math.random();
+							b.EleBody.src = a[7];
 							b.GoingDieHead(c, a, b);
 							b.beAttacked = 0;
 							b.FreeFreezeTime =
@@ -12055,7 +12055,7 @@ oCBucketheadZombie = InheritO(
 								(PlayAudio("zombie_entering_water"),
 								(a.Altitude = 2),
 								SetHidden(a.EleShadow),
-								(a.EleBody.src = a.PicArr[8] + Math.random()),
+								(a.EleBody.src = a.PicArr[8]),
 								oSym.addTask(
 									160,
 									function (c, b) {
@@ -12127,7 +12127,7 @@ oCBucketheadZombie = InheritO(
 								? !e.isAttacking
 									? ((e.isAttacking = 1),
 										(e.EleBody.src =
-											e.PicArr[9] + Math.random()),
+											e.PicArr[9]),
 										oSym.addTask(
 											50,
 											function (i, h) {
@@ -12143,7 +12143,7 @@ oCBucketheadZombie = InheritO(
 									: e.NormalAttack(a[0], a[1])
 								: e.isAttacking &&
 									((e.EleBody.src =
-										e.PicArr[10] + Math.random()),
+										e.PicArr[10]),
 									(e.Altitude = 0),
 									oSym.addTask(
 										70,
@@ -12185,7 +12185,7 @@ oCBucketheadZombie = InheritO(
 								? !c.isAttacking
 									? ((c.isAttacking = 1),
 										(c.EleBody.src =
-											c.PicArr[9] + Math.random()),
+											c.PicArr[9]),
 										(a = b.id),
 										!b.isAttacking &&
 											b.AttackZombie2(b, a, d),
@@ -12211,7 +12211,7 @@ oCBucketheadZombie = InheritO(
 									: c.AttackZombie(d, a)
 								: c.isAttacking &&
 									((c.EleBody.src =
-										c.PicArr[10] + Math.random()),
+										c.PicArr[10]),
 									(c.Altitude = 0),
 									oSym.addTask(
 										70,
@@ -12227,7 +12227,7 @@ oCBucketheadZombie = InheritO(
 						},
 						AttackZombie2: function (c, b, a) {
 							c.isAttacking = 1;
-							c.EleBody.src = c.PicArr[9] + Math.random();
+							c.EleBody.src = c.PicArr[9];
 							oSym.addTask(
 								50,
 								function (g, e, d, f) {
@@ -12370,7 +12370,7 @@ oCBucketheadZombie = InheritO(
 							oSym.addTask(200, ClearChild, [
 								NewImg(
 									0,
-									a[b.HeadGif] + Math.random(),
+									a[b.HeadGif],
 									"width:75px;height:93px;left:" +
 										b.AttackedLX +
 										"px;top:" +
@@ -12432,7 +12432,7 @@ oCBucketheadZombie = InheritO(
 							oSym.addTask(200, ClearChild, [
 								NewImg(
 									0,
-									a[b.HeadGif] + Math.random(),
+									a[b.HeadGif],
 									"width:75px;height:93px;left:" +
 										b.AttackedLX +
 										"px;top:" +
@@ -12494,7 +12494,7 @@ oCBucketheadZombie = InheritO(
 							oSym.addTask(200, ClearChild, [
 								NewImg(
 									0,
-									a[b.HeadGif] + Math.random(),
+									a[b.HeadGif],
 									"width:75px;height:93px;left:" +
 										b.AttackedLX +
 										"px;top:" +
@@ -12557,7 +12557,7 @@ oCBucketheadZombie = InheritO(
 							oSym.addTask(200, ClearChild, [
 								NewImg(
 									0,
-									a[b.HeadGif] + Math.random(),
+									a[b.HeadGif],
 									"width:75px;height:93px;left:" +
 										b.AttackedLX +
 										"px;top:" +
@@ -12620,7 +12620,7 @@ oCBucketheadZombie = InheritO(
 							oSym.addTask(200, ClearChild, [
 								NewImg(
 									0,
-									a[b.HeadGif] + Math.random(),
+									a[b.HeadGif],
 									"width:75px;height:93px;left:" +
 										b.AttackedLX +
 										"px;top:" +
@@ -12682,7 +12682,7 @@ oCBucketheadZombie = InheritO(
 							oSym.addTask(200, ClearChild, [
 								NewImg(
 									0,
-									a[b.HeadGif] + Math.random(),
+									a[b.HeadGif],
 									"width:71px;height:105px;left:" +
 										b.AttackedLX +
 										"px;top:" +
@@ -12963,7 +12963,7 @@ oCBucketheadZombie = InheritO(
 								var b = this;
 								PlayAudio("explosion");
 								b.EleBody.src =
-									b.PicArr[b.DieGif] + Math.random();
+									b.PicArr[b.DieGif];
 								oSym.addTask(70, ClearChild, [b.Ele]);
 								b.HP = 0;
 								delete $Z[b.id];
@@ -12981,7 +12981,7 @@ oCBucketheadZombie = InheritO(
 							ExplosionDie: function () {
 								var b = this;
 								b.EleBody.src =
-									b.PicArr[b.BoomDieGif] + Math.random();
+									b.PicArr[b.BoomDieGif];
 								oSym.addTask(300, ClearChild, [b.Ele]);
 								b.HP = 0;
 								delete $Z[b.id];
@@ -13186,7 +13186,7 @@ oCBucketheadZombie = InheritO(
 								(PlayAudio("zombie_entering_water"),
 								(a.Altitude = 2),
 								SetHidden(a.EleShadow),
-								(a.EleBody.src = a.PicArr[8] + Math.random()),
+								(a.EleBody.src = a.PicArr[8]),
 								oSym.addTask(
 									240,
 									function (d, b) {
@@ -13304,7 +13304,7 @@ oCBucketheadZombie = InheritO(
 								a = f.Ele,
 								c = f.EleShadow,
 								e = f.EleBody;
-							e.src = f.PicArr[9] + Math.random();
+							e.src = f.PicArr[9];
 							SetHidden(c);
 							f.isAttacking = 1;
 							f.Altitude = 2;
@@ -13382,7 +13382,7 @@ oCBucketheadZombie = InheritO(
 								c = b.id,
 								a = b.PicArr;
 							b.EleBody.src =
-								a[b.haveDolphin ? 7 : 12] + Math.random();
+								a[b.haveDolphin ? 7 : 12];
 							b.GoingDieHead(c, a, b);
 							b.beAttacked = 0;
 							b.FreeFreezeTime =
@@ -13429,7 +13429,7 @@ oCBucketheadZombie = InheritO(
 							var b = this,
 								c = b.id,
 								a = b.PicArr;
-							b.EleBody.src = a[3] + Math.random();
+							b.EleBody.src = a[3];
 							b.beAttacked = 0;
 							b.FreeFreezeTime =
 								b.FreeSetbodyTime =
@@ -13754,7 +13754,7 @@ oCBucketheadZombie = InheritO(
 							a.Status &&
 								!--oGd.$JackinTheBox &&
 								StopAudio("jackinthebox");
-							a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
+							a.EleBody.src = a.PicArr[a.DieGif];
 							oSym.addTask(250, ClearChild, [a.Ele]);
 							a.HP = 0;
 							delete $Z[a.id];
@@ -13766,7 +13766,7 @@ oCBucketheadZombie = InheritO(
 								!--oGd.$JackinTheBox &&
 								StopAudio("jackinthebox");
 							a.EleBody.src =
-								a.PicArr[a.BoomDieGif] + Math.random();
+								a.PicArr[a.BoomDieGif];
 							oSym.addTask(300, ClearChild, [a.Ele]);
 							a.HP = 0;
 							delete $Z[a.id];
@@ -13982,7 +13982,7 @@ oCBucketheadZombie = InheritO(
 						},
 						NormalDie: function () {
 							var a = this;
-							a.EleBody.src = a.PicArr[a.DieGif] + Math.random();
+							a.EleBody.src = a.PicArr[a.DieGif];
 							oSym.addTask(250, ClearChild, [a.Ele]);
 							a.HP = 0;
 							delete $Z[a.id];
@@ -14174,7 +14174,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 			PlayAudio("zombie_entering_water"),
 			(a.Altitude = 4),
 			SetVisible(a.EleShadow),
-			(a.EleBody.src = a.PicArr[a.UpGif] + Math.random()),
+			(a.EleBody.src = a.PicArr[a.UpGif]),
 			(a.OSpeed = a.Speed = 0)),
 			(a.ChkActs = function () {
 				return 1;
@@ -14427,7 +14427,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 			PlayAudio("zombie_entering_water"),
 			(a.Altitude = 4),
 			SetVisible(a.EleShadow),
-			(a.EleBody.src = a.PicArr[a.UpGif] + Math.random()),
+			(a.EleBody.src = a.PicArr[a.UpGif]),
 			(a.OSpeed = a.Speed = 0)),
 			(a.ChkActs = function () {
 				return 1;
