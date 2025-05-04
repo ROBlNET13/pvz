@@ -3148,10 +3148,10 @@ var lastB;
 			oSym.Stop(),
 			SetBlock($("dSurface")),
 			innerText($("dMenu0"), "Speed"),
-			ShowOptions())
-			if (ArCard[oS.ChoseCard] && ArCard[oS.ChoseCard].DID != null) {
-				CancelPlant()
-			};
+			ShowOptions());
+		if (ArCard[oS.ChoseCard] && ArCard[oS.ChoseCard].DID != null) {
+			CancelPlant();
+		}
 	}),
 	(OptionsMenuDown = function (b, a) {
 		b.className = "OptionsMenuButtonDown";

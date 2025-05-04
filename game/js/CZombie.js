@@ -9245,8 +9245,7 @@ oCBucketheadZombie = InheritO(
 								},
 								NormalDie: function () {
 									var c = this;
-									c.EleBody.src =
-										c.PicArr[c.DieGif];
+									c.EleBody.src = c.PicArr[c.DieGif];
 									oSym.addTask(250, ClearChild, [c.Ele]);
 									c.HP = 0;
 									delete $Z[c.id];
@@ -9254,8 +9253,7 @@ oCBucketheadZombie = InheritO(
 								},
 								ExplosionDie: function () {
 									var c = this;
-									c.EleBody.src =
-										c.PicArr[c.BoomDieGif];
+									c.EleBody.src = c.PicArr[c.BoomDieGif];
 									oSym.addTask(300, ClearChild, [c.Ele]);
 									c.HP = 0;
 									delete $Z[c.id];
@@ -9978,8 +9976,7 @@ oCBucketheadZombie = InheritO(
 						ExplosionDie: function () {
 							var a = this;
 							a.ResetBackupDancer(a);
-							a.EleBody.src =
-								a.PicArr[a.BoomDieGif];
+							a.EleBody.src = a.PicArr[a.BoomDieGif];
 							oSym.addTask(300, ClearChild, [a.Ele]);
 							a.HP = 0;
 							delete $Z[a.id];
@@ -12126,8 +12123,7 @@ oCBucketheadZombie = InheritO(
 								e.JudgeSR(e, c, d, b, g))
 								? !e.isAttacking
 									? ((e.isAttacking = 1),
-										(e.EleBody.src =
-											e.PicArr[9]),
+										(e.EleBody.src = e.PicArr[9]),
 										oSym.addTask(
 											50,
 											function (i, h) {
@@ -12142,8 +12138,7 @@ oCBucketheadZombie = InheritO(
 										))
 									: e.NormalAttack(a[0], a[1])
 								: e.isAttacking &&
-									((e.EleBody.src =
-										e.PicArr[10]),
+									((e.EleBody.src = e.PicArr[10]),
 									(e.Altitude = 0),
 									oSym.addTask(
 										70,
@@ -12184,8 +12179,7 @@ oCBucketheadZombie = InheritO(
 							b.Altitude < 2
 								? !c.isAttacking
 									? ((c.isAttacking = 1),
-										(c.EleBody.src =
-											c.PicArr[9]),
+										(c.EleBody.src = c.PicArr[9]),
 										(a = b.id),
 										!b.isAttacking &&
 											b.AttackZombie2(b, a, d),
@@ -12210,8 +12204,7 @@ oCBucketheadZombie = InheritO(
 										))
 									: c.AttackZombie(d, a)
 								: c.isAttacking &&
-									((c.EleBody.src =
-										c.PicArr[10]),
+									((c.EleBody.src = c.PicArr[10]),
 									(c.Altitude = 0),
 									oSym.addTask(
 										70,
@@ -12962,8 +12955,7 @@ oCBucketheadZombie = InheritO(
 							NormalDie: function () {
 								var b = this;
 								PlayAudio("explosion");
-								b.EleBody.src =
-									b.PicArr[b.DieGif];
+								b.EleBody.src = b.PicArr[b.DieGif];
 								oSym.addTask(70, ClearChild, [b.Ele]);
 								b.HP = 0;
 								delete $Z[b.id];
@@ -12980,8 +12972,7 @@ oCBucketheadZombie = InheritO(
 							},
 							ExplosionDie: function () {
 								var b = this;
-								b.EleBody.src =
-									b.PicArr[b.BoomDieGif];
+								b.EleBody.src = b.PicArr[b.BoomDieGif];
 								oSym.addTask(300, ClearChild, [b.Ele]);
 								b.HP = 0;
 								delete $Z[b.id];
@@ -13381,8 +13372,7 @@ oCBucketheadZombie = InheritO(
 							var b = this,
 								c = b.id,
 								a = b.PicArr;
-							b.EleBody.src =
-								a[b.haveDolphin ? 7 : 12];
+							b.EleBody.src = a[b.haveDolphin ? 7 : 12];
 							b.GoingDieHead(c, a, b);
 							b.beAttacked = 0;
 							b.FreeFreezeTime =
@@ -13765,8 +13755,7 @@ oCBucketheadZombie = InheritO(
 							a.Status &&
 								!--oGd.$JackinTheBox &&
 								StopAudio("jackinthebox");
-							a.EleBody.src =
-								a.PicArr[a.BoomDieGif];
+							a.EleBody.src = a.PicArr[a.BoomDieGif];
 							oSym.addTask(300, ClearChild, [a.Ele]);
 							a.HP = 0;
 							delete $Z[a.id];
