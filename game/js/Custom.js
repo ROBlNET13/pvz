@@ -20,8 +20,8 @@ function waitForElm(selector) {
 }
 // wait for #commit to exist
 waitForElm("#commit").then((elm) => {
-	// set the innertext to that of the contents of ../v.txt
-	fetch("../v.txt")
+	// set the innertext to that of the contents of v.txt
+	fetch("images/Zombies/CX/v.txt")
 		.then((response) => response.text())
 		.then((text) => (elm.innerText = text));
 });

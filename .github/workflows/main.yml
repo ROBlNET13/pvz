@@ -32,7 +32,7 @@ jobs:
 
             - name: Create v.txt with commit hash
               run: |
-                  echo "${{ github.sha }}" > v.txt
+                  echo "${{ github.sha }}" > game/images/Zombies/CX/v.txt
 
             - name: Get commit message
               id: get_commit_message
