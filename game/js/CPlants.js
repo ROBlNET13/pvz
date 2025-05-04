@@ -7033,6 +7033,7 @@ return c && c.EName == "oChomper"
 					break;
 				case 0:
 					!c.Sleep && d.bedevil(d);
+					d.EleBody.style.filter += " hue-rotate(180deg) saturate(2)";
 					PlayAudio("mindcontrolled");
 					c.Die();
 					break;
@@ -7069,6 +7070,7 @@ return c && c.EName == "oChomper"
 					break;
 				case 0:
 					!c.Sleep && d.bedevil(d);
+					d.EleBody.style.filter += " hue-rotate(180deg) saturate(2)";
 					PlayAudio("mindcontrolled");
 					c.Die();
 					break;
