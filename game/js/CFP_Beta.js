@@ -34,8 +34,23 @@ function compressStringAsBytes(input) {
 	return compressed;
 }
 
+function compressBytes(input) {
+	const compressed = pako.deflate(input);
+	const compressedBase64 = btoa(String.fromCharCode.apply(null, compressed));
+	return compressedBase64.replaceAll("=", "");
+}
+
 function decompressString(compressedBase64) {
 	const compressed = Uint8Array.from(atob(compressedBase64), (c) =>
+		c.charCodeAt(0)
+	);
+	const decompressed = pako.inflate(compressed);
+	const decompressedString = new TextDecoder().decode(decompressed);
+	return decompressedString;
+}
+
+function decompressStringNoBase64(compressed) {
+	compressed = Uint8Array.from(compressed, (c) =>
 		c.charCodeAt(0)
 	);
 	const decompressed = pako.inflate(compressed);
@@ -60,13 +75,15 @@ function downloadBytesAsFile(bytes, filename) {
 	a.click();
 	document.body.removeChild(a);
 	URL.revokeObjectURL(url);
-}
+}	
+
 
 async function openAndLoadFileAsBytes() {
 	return new Promise((resolve, reject) => {
 		const input = document.createElement("input");
 		input.type = "file";
-		input.accept = ".izl";
+		// accept izl and izl2
+		input.accept = ".izl,.izl2";
 		input.onchange = () => {
 			const file = input.files[0];
 			const reader = new FileReader();
@@ -82,6 +99,11 @@ async function openAndLoadFileAsBytes() {
 		input.click();
 	});
 }
+
+async function fileToLevelData() {
+	return "=" + compressString(decompressStringFromBytes(await openAndLoadFileAsBytes())); // i hate this and want to fix it but its 4 am and i need to sleep. fuck text encoding
+}
+
 
 function cloneFromPlants(name, sun, screenshot) {
 	name = name

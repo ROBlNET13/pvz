@@ -47,6 +47,19 @@ oS.Init({
 		buttonElement.setAttribute("value", "LOAD LEVEL");
 		buttonElement.id = "btnNextLevel"; // not actually a next level button, but it's the same style
 		buttonElement.style.top = "60%";
+		buttonElement.style.left = "calc(50% - 120px)";
+		let buttonElementUpload = document.createElement("input");
+		buttonElementUpload.setAttribute("type", "button");
+		buttonElementUpload.setAttribute("value", "SELECT FILE");
+		buttonElementUpload.id = "btnNextLevel"; // not actually a next level button, but it's the same style
+		buttonElementUpload.style.top = "60%";
+		buttonElementUpload.style.left = "calc(50% + 5px)";
+		buttonElementUpload.onclick = async function () {
+			let levelData = await fileToLevelData();
+			inputDataElement.value = levelData;
+			buttonElement.click();
+		}
+		$("dAll").appendChild(buttonElementUpload);
 		buttonElement.onclick = function () {
 			// store the input value and disable it, then make it say "Loading..."
 			let levelData = inputDataElement.value;

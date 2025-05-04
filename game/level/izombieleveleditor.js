@@ -295,19 +295,20 @@
 										$("dAll").appendChild(
 											copyButtonElement
 										);
-										let buttonElement =
+										let closeButton =
 											document.createElement("input");
-										buttonElement.setAttribute(
+										closeButton.setAttribute(
 											"type",
 											"button"
 										);
-										buttonElement.setAttribute(
+										closeButton.setAttribute(
 											"value",
 											"EXIT"
 										);
-										buttonElement.id = "btnNextLevel"; // not actually a next level button, but it's the same style
-										buttonElement.style.top = "60%";
-										buttonElement.onclick = function () {
+										closeButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
+										closeButton.style.top = "60%";
+										closeButton.style.left = "calc(50% - 120px)"; // "calc(33.333% - 56.5px)";
+										closeButton.onclick = function () {
 											$("dAll").style.zIndex = "";
 											let oldLv = oS.Lvl;
 											SelectModal(0);
@@ -317,9 +318,55 @@
 											);
 											oS.Lvl = oldLv;
 										};
-										buttonElement.style.zIndex = "1000";
+										closeButton.style.zIndex = "1000";
+
+										let uploadButton =
+											document.createElement("input");
+										uploadButton.setAttribute(
+											"type",
+											"button"
+										);
+										uploadButton.setAttribute(
+											"value",
+											"UPLOAD"
+										);
+										uploadButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
+										uploadButton.style.top = "60%";
+										uploadButton.style.left = "calc(50% - 56.5px)";
+										uploadButton.onclick = function () {
+											// nothing for now
+										};
+										uploadButton.style.zIndex = "1000";
+										uploadButton.style.display = "none"; // hide for now
+
+										let downloadButton =
+											document.createElement("input");
+										downloadButton.setAttribute(
+											"type",
+											"button"
+										);
+										downloadButton.setAttribute(
+											"value",
+											"DOWNLOAD"
+										);
+										downloadButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
+										downloadButton.style.top = "60%";
+										downloadButton.style.left = "calc(50% + 5px)"; // "calc(66.666% - 56.5px)";
+										downloadButton.onclick = function () {
+											downloadBytesAsFile(
+												compressStringAsBytes(
+													tinyifyClone(
+														cloneFromPlants(l, f)
+													)
+												), l + ".izl2"
+											)
+										};
+										downloadButton.style.zIndex = "1000";
+
 										// put in #dAll
-										$("dAll").appendChild(buttonElement);
+										$("dAll").appendChild(closeButton);
+										$("dAll").appendChild(uploadButton);
+										$("dAll").appendChild(downloadButton);
 										let coverElement =
 											document.createElement("div");
 										coverElement.style.position =
