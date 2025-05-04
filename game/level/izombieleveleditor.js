@@ -204,7 +204,7 @@
 
 									if (
 										(f = prompt(
-											"Please enter the amount of sunlight, range 50-1000.",
+											"Please enter the amount of sunlight, range 50-9990.",
 											"150"
 										)) == null
 									)
@@ -212,10 +212,10 @@
 									if (
 										isNaN((f = Number(f))) ||
 										f < 50 ||
-										f > 1000
+										f > 9990
 									)
 										return alert(
-											"Please enter a number in the range 50-1000!"
+											"Please enter a number in the range 50-9990!"
 										); // 输入阳光
 
 									if (
