@@ -307,7 +307,8 @@
 										);
 										closeButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
 										closeButton.style.top = "60%";
-										closeButton.style.left = "calc(50% - 120px)"; // "calc(33.333% - 56.5px)";
+										closeButton.style.left =
+											"calc(50% - 120px)"; // "calc(33.333% - 56.5px)";
 										closeButton.onclick = function () {
 											$("dAll").style.zIndex = "";
 											let oldLv = oS.Lvl;
@@ -332,7 +333,8 @@
 										);
 										uploadButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
 										uploadButton.style.top = "60%";
-										uploadButton.style.left = "calc(50% - 56.5px)";
+										uploadButton.style.left =
+											"calc(50% - 56.5px)";
 										uploadButton.onclick = function () {
 											// nothing for now
 										};
@@ -351,15 +353,17 @@
 										);
 										downloadButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
 										downloadButton.style.top = "60%";
-										downloadButton.style.left = "calc(50% + 5px)"; // "calc(66.666% - 56.5px)";
+										downloadButton.style.left =
+											"calc(50% + 5px)"; // "calc(66.666% - 56.5px)";
 										downloadButton.onclick = function () {
 											downloadBytesAsFile(
 												compressStringAsBytes(
 													tinyifyClone(
 														cloneFromPlants(l, f)
 													)
-												), l + ".izl2"
-											)
+												),
+												l + ".izl2"
+											);
 										};
 										downloadButton.style.zIndex = "1000";
 

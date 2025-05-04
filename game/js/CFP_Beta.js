@@ -50,9 +50,7 @@ function decompressString(compressedBase64) {
 }
 
 function decompressStringNoBase64(compressed) {
-	compressed = Uint8Array.from(compressed, (c) =>
-		c.charCodeAt(0)
-	);
+	compressed = Uint8Array.from(compressed, (c) => c.charCodeAt(0));
 	const decompressed = pako.inflate(compressed);
 	const decompressedString = new TextDecoder().decode(decompressed);
 	return decompressedString;
@@ -75,8 +73,7 @@ function downloadBytesAsFile(bytes, filename) {
 	a.click();
 	document.body.removeChild(a);
 	URL.revokeObjectURL(url);
-}	
-
+}
 
 async function openAndLoadFileAsBytes() {
 	return new Promise((resolve, reject) => {
@@ -101,9 +98,13 @@ async function openAndLoadFileAsBytes() {
 }
 
 async function fileToLevelData() {
-	return "=" + compressString(decompressStringFromBytes(await openAndLoadFileAsBytes())); // i hate this and want to fix it but its 4 am and i need to sleep. fuck text encoding
+	return (
+		"=" +
+		compressString(
+			decompressStringFromBytes(await openAndLoadFileAsBytes())
+		)
+	); // i hate this and want to fix it but its 4 am and i need to sleep. fuck text encoding
 }
-
 
 function cloneFromPlants(name, sun, screenshot) {
 	name = name

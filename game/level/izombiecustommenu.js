@@ -58,7 +58,7 @@ oS.Init({
 			let levelData = await fileToLevelData();
 			inputDataElement.value = levelData;
 			buttonElement.click();
-		}
+		};
 		$("dAll").appendChild(buttonElementUpload);
 		buttonElement.onclick = function () {
 			// store the input value and disable it, then make it say "Loading..."
