@@ -28,7 +28,8 @@ jobs:
 
             - name: Beautify code
               run: |
-                  npx eslint . --fix
+                  npm install -cidr
+                  npm run fix || true
                   npx prettier --write "**/*.{js,md,html,css,yml}"
 
             - name: Create v.html with commit hash
