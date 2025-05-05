@@ -34,7 +34,7 @@ oS.Init(
 		],
 		PicArr: (function () {
 			var a = oSpikeweed.prototype;
-				var b = a.PicArr;
+			var b = a.PicArr;
 			return [
 				"images/interface/background3.webp",
 				b[a.CardGif],
@@ -48,11 +48,11 @@ oS.Init(
 		CanSelectCard: 1,
 		LevelName: "3-5 Special Level: Zombie Run",
 		LvlEName: 25,
-		LvlClearFunc () {
+		LvlClearFunc() {
 			oSym.Clear();
 		},
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
-		LoadAccess (a) {
+		LoadAccess(a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -62,7 +62,7 @@ oS.Init(
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
-					var c = $("DivTeach");
+				var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio("crazydaveshort1");
@@ -133,7 +133,7 @@ oS.Init(
 			})(0);
 		},
 		StartGameMusic: "LoonSkirmish",
-		StartGame () {
+		StartGame() {
 			StopMusic();
 			PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 			SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
@@ -141,7 +141,7 @@ oS.Init(
 			PrepareGrowPlants(() => {
 				oP.Monitor({
 					ar: [],
-					f () {
+					f() {
 						oSym.TimeStep = 4;
 					},
 				});
@@ -175,14 +175,14 @@ oS.Init(
 			a2: [1, 3, 5, 20, 10, 15, 20],
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(26);
 					},
 				}

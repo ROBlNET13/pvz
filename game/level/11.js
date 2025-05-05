@@ -14,7 +14,7 @@ oS.Init(
 		ZName: [oZombie, oZombie2, oZombie3, oNewspaperZombie],
 		PicArr: (function () {
 			var a = oSunShroom.prototype;
-				var b = a.PicArr;
+			var b = a.PicArr;
 			return [
 				"images/interface/background2.jpg",
 				"images/interface/Dave.gif",
@@ -39,11 +39,11 @@ oS.Init(
 		],
 		LargeWaveFlag: { 10: $("imgFlag1") },
 		Monitor: { f: AppearTombstones, ar: [7, 9, 4] },
-		UserDefinedFlagFunc (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie]);
 		},
 		StartGameMusic: "Moongrains",
-		LoadAccess (a) {
+		LoadAccess(a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -53,7 +53,7 @@ oS.Init(
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
-					var c = $("DivTeach");
+				var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio("crazydaveshort1");
@@ -224,14 +224,14 @@ oS.Init(
 		FlagNum: 10,
 		FlagToSumNum: { a1: [3, 5, 9], a2: [1, 2, 3, 15] },
 		FlagToMonitor: { 9: [ShowFinalWave, 0] },
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/SunShroom.png",
 				"left:667px;top:220px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(12);
 					},
 				}

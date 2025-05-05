@@ -5,7 +5,9 @@
 		window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
 		window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
 
-	if (isReducedMotion) {return;}
+	if (isReducedMotion) {
+		return;
+	}
 
 	const nekoEl = document.createElement("div");
 

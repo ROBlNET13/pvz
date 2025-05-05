@@ -109,14 +109,14 @@ oS.Init(
 		FlagNum: 10,
 		FlagToSumNum: { a1: [45, 48, 63], a2: [45, 48, 83] },
 		FlagToMonitor: { 4: [ShowLargeWave, 0], 9: [ShowFinalWave, 0] },
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(170);
 					},
 				}

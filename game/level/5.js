@@ -4,7 +4,7 @@ oS.Init(
 		ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie],
 		PicArr: (function () {
 			var a = oPotatoMine.prototype;
-				var b = a.PicArr;
+			var b = a.PicArr;
 			return [
 				"images/interface/background1.jpg",
 				"images/interface/crater1.png",
@@ -15,13 +15,13 @@ oS.Init(
 		backgroundImage: "images/interface/background1.jpg",
 		CanSelectCard: 0,
 		LevelName: "1-5 Special Off: Meteor Crater",
-		LvlClearFunc () {
+		LvlClearFunc() {
 			oSym.TimeStep = 10;
 		},
 		LvlEName: 5,
 		LargeWaveFlag: { 10: $("imgFlag1") },
 		StartGameMusic: "LoonSkirmish",
-		LoadAccess (a) {
+		LoadAccess(a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -31,7 +31,7 @@ oS.Init(
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
-					var c = $("DivTeach");
+				var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio("crazydaveshort1");
@@ -137,17 +137,17 @@ oS.Init(
 				}
 			})(0);
 		},
-		StartGame () {
+		StartGame() {
 			SetHidden($("dSunNum"));
 			SetVisible($("tdShovel"), $("dTop"));
 			NewEle("DivTeachBar", "div", 0, 0, EDAll);
 			oP.Monitor(
 				{
 					ar: [0],
-					f (c) {
+					f(c) {
 						var d;
-							var a = oGd.$;
-							var b = oS.Chose;
+						var a = oGd.$;
+						var b = oS.Chose;
 						switch (c) {
 							case 0:
 								innerText(
@@ -227,12 +227,12 @@ oS.Init(
 				},
 				() => {
 					var c = Math.floor(1 + Math.random() * 5);
-						var f = Math.floor(1 + Math.random() * 9);
-						var g = GetX(f) - 55;
-						var e = GetY(c) - 60;
-						var b = c + "_" + f;
-						var a = oP.FlagZombies;
-						var d;
+					var f = Math.floor(1 + Math.random() * 9);
+					var g = GetX(f) - 55;
+					var e = GetY(c) - 60;
+					var b = c + "_" + f;
+					var a = oP.FlagZombies;
+					var d;
 					switch (true) {
 						case a > 3:
 							SetStyle((d = $("imgCrater")), {
@@ -278,14 +278,14 @@ oS.Init(
 		FlagNum: 10,
 		FlagToSumNum: { a1: [3, 5, 9], a2: [1, 2, 3, 10] },
 		FlagToMonitor: { 9: [ShowFinalWave, 0] },
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/PotatoMine.png",
 				"left:587px;top:270px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						GetNewCard(this, oPotatoMine, 6);
 					},
 				}

@@ -33,18 +33,18 @@ oS.Init(
 				2, 2, 2, 2,
 			],
 		},
-		RiddleAutoGrow () {
+		RiddleAutoGrow() {
 			var k = oS.ArP;
-				var f = k.ArC;
-				var j = k.ArR;
-				var e = k.P;
-				var d = oS.PName;
-				var c;
-				var g = f[0];
-				var b = f[1];
-				var i = j[0];
-				var h = j[1];
-				var a;
+			var f = k.ArC;
+			var j = k.ArR;
+			var e = k.P;
+			var d = oS.PName;
+			var c;
+			var g = f[0];
+			var b = f[1];
+			var i = j[0];
+			var h = j[1];
+			var a;
 			if (k.Auto) {
 				while (i <= h) {
 					CustomSpecial(oBrains, i, 0);
@@ -69,7 +69,7 @@ oS.Init(
 				EDAll
 			);
 		},
-		StartGame () {
+		StartGame() {
 			oP.Monitor();
 			BeginCool();
 			SetVisible($("dFlagMeter"), $("dFlagMeterContent"), $("dTop"));
@@ -78,10 +78,10 @@ oS.Init(
 	},
 	0,
 	{
-		AutoSelectCard () {
+		AutoSelectCard() {
 			var c = oS.ArCard;
-				var b = -1;
-				var a = c.length - 1;
+			var b = -1;
+			var a = c.length - 1;
 			while (++b < a) {
 				SelectCard(c[b].prototype.EName);
 			}

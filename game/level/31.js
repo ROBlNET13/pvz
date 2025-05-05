@@ -44,7 +44,7 @@ oS.Init(
 		AudioArr: ["crazydavelong1", "crazydavelong3"],
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
 		StartGameMusic: "Lg_pk",
-		LoadAccess (a) {
+		LoadAccess(a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -54,7 +54,7 @@ oS.Init(
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
-					var c = $("DivTeach");
+				var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio(
@@ -139,14 +139,14 @@ oS.Init(
 		FlagNum: 20,
 		FlagToSumNum: { a1: [3, 3, 7], a2: [1, 2, 3, 8] },
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/star.png",
 				"left:627px;top:325px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						GetNewCard(this, ostar, 32);
 					},
 				}

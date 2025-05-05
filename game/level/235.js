@@ -82,7 +82,7 @@ oS.Init(
 		})(),
 		backgroundImage: "images/interface/backgroundLG.jpg",
 		CanSelectCard: 1,
-		InitLawnMower () {
+		InitLawnMower() {
 			CustomSpecial(oCleaner, 1, -1);
 			CustomSpecial(oCleaner, 2, -1);
 			CustomSpecial(oCleaner, 3, -1);
@@ -136,14 +136,14 @@ oS.Init(
 			7: [ShowLargeWave, 0],
 			11: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(236);
 					},
 				}

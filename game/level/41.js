@@ -44,7 +44,7 @@ oS.Init(
 		],
 		PicArr: (function () {
 			var a = oSeaShroom.prototype;
-				var b = a.PicArr;
+			var b = a.PicArr;
 			return [
 				"images/interface/background5.jpg",
 				"images/interface/Dave.gif",
@@ -67,19 +67,19 @@ oS.Init(
 			"crazydavelong3",
 		],
 		LargeWaveFlag: {},
-		InitLawnMower () {
+		InitLawnMower() {
 			CustomSpecial(oPoolCleaner, 1, -1);
 			CustomSpecial(oPoolCleaner, 2, -1);
 			CustomSpecial(oPoolCleaner, 3, -1);
 			CustomSpecial(oPoolCleaner, 4, -1);
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
-		UserDefinedFlagFunc (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(8, 9, 1, [oWarshipsZombie]);
 		},
 		StartGameMusic: "jiaxing",
-		LoadAccess (a) {
+		LoadAccess(a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -89,7 +89,7 @@ oS.Init(
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
-					var c = $("DivTeach");
+				var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio(
@@ -219,14 +219,14 @@ oS.Init(
 			a2: [1, 2, 3, 10, 4, 5, 6, 15],
 		},
 		FlagToMonitor: {},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/SeaShroom.png",
 				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						GetNewCard(this, oSeaShroom, 42);
 					},
 				}

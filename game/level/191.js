@@ -89,14 +89,14 @@ oS.Init(
 			10: $("imgFlag2"),
 			15: $("imgFlag1"),
 		},
-		InitLawnMower () {
+		InitLawnMower() {
 			CustomSpecial(oPoolCleaner, 1, -1);
 			CustomSpecial(oLawnCleaner, 2, -1);
 			CustomSpecial(oLawnCleaner, 3, -1);
 			CustomSpecial(oPoolCleaner, 4, -1);
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
-		LoadAccess (a) {
+		LoadAccess(a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -106,7 +106,7 @@ oS.Init(
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
-					var c = $("DivTeach");
+				var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio(
@@ -231,14 +231,14 @@ oS.Init(
 			9: [ShowLargeWave, 0],
 			14: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(192);
 					},
 				}

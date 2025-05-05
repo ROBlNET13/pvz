@@ -90,7 +90,7 @@ oS.Init(
 			12: $("imgFlag1"),
 		},
 		Monitor: { f: AppearTombstones, ar: [6, 9, 7] },
-		UserDefinedFlagFunc (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutTomZombie([
 					oZombie,
@@ -98,7 +98,7 @@ oS.Init(
 					oBucketheadZombie,
 				]);
 		},
-		LoadAccess (a) {
+		LoadAccess(a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -108,7 +108,7 @@ oS.Init(
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
-					var c = $("DivTeach");
+				var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio("crazydaveshort1");
@@ -209,14 +209,14 @@ oS.Init(
 			7: [ShowLargeWave, 0],
 			11: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(227);
 					},
 				}

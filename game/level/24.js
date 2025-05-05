@@ -37,7 +37,7 @@ oS.Init(
 		],
 		PicArr: (function () {
 			var a = oJalapeno.prototype;
-				var b = a.PicArr;
+			var b = a.PicArr;
 			return [
 				"images/interface/background3.webp",
 				"images/interface/trophy.png",
@@ -57,7 +57,7 @@ oS.Init(
 			20: $("imgFlag2"),
 			30: $("imgFlag1"),
 		},
-		UserDefinedFlagFunc (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
 		},
@@ -87,14 +87,14 @@ oS.Init(
 			19: [ShowLargeWave, 0],
 			29: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:417px;top:233px;z-index:255",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(25);
 					},
 				}

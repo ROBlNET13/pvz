@@ -111,11 +111,11 @@ oS.Init(
 		Coord: 2,
 		HaveFog: 9,
 		Monitor: { f: AppearTombstones, ar: [5, 9, 13] },
-		UserDefinedFlagFunc (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutTomZombie([oWJY, oEmperor]);
 		},
-		UserDefinedFlagFunc (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(6, 9, 3, [oWJY1, oWarshipsZombie]);
 		},
@@ -126,7 +126,7 @@ oS.Init(
 			12: $("imgFlag2"),
 			16: $("imgFlag1"),
 		},
-		LoadAccess (a) {
+		LoadAccess(a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -136,7 +136,7 @@ oS.Init(
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
-					var c = $("DivTeach");
+				var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio("crazydaveshort1");
@@ -280,14 +280,14 @@ oS.Init(
 			11: [ShowLargeWave, 0],
 			15: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/0.gif",
 				"left:667px;top:330px;clip:rect(auto,auto,237px,auto)",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						GetNewCard(this, oGoldenPrize, 251);
 					},
 				}

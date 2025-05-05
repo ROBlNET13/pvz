@@ -67,76 +67,69 @@ oS.Init(
 			40: $("imgFlag2"),
 			60: $("imgFlag1"),
 		},
-		UserDefinedFlagFunc () {
-			if (oP.FlagZombies >= 25 && oP.FlagZombies <= 27)
-				{oP.SetTimeoutTomZombie([oZombie, oConeheadZombie]);}
-			if (oP.FlagZombies >= 37 && oP.FlagZombies <= 40)
-				{oP.SetTimeoutTomZombie([oFootballZombie]);}
-			if (oP.FlagZombies == oP.FlagNum)
-				{oP.SetTimeoutTomZombie([oJackinTheBoxZombie, oFootballZombie]);}
+		UserDefinedFlagFunc() {
+			if (oP.FlagZombies >= 25 && oP.FlagZombies <= 27) {
+				oP.SetTimeoutTomZombie([oZombie, oConeheadZombie]);
+			}
+			if (oP.FlagZombies >= 37 && oP.FlagZombies <= 40) {
+				oP.SetTimeoutTomZombie([oFootballZombie]);
+			}
+			if (oP.FlagZombies == oP.FlagNum) {
+				oP.SetTimeoutTomZombie([oJackinTheBoxZombie, oFootballZombie]);
+			}
 			if (oP.FlagZombies == 21) {
-				oS.ChangeBG(
-					$("Black_box"),
-					$("BackGround_TF_night"),
-					1,
-					() => {
-						AppearTombstones(4, 9, 8);
-						oP.SetTimeoutTomZombie([oZombie, oConeheadZombie]);
-						(oS.DKind = 0), (oS.AddSunNum = 1);
-					}
-				);
+				oS.ChangeBG($("Black_box"), $("BackGround_TF_night"), 1, () => {
+					AppearTombstones(4, 9, 8);
+					oP.SetTimeoutTomZombie([oZombie, oConeheadZombie]);
+					(oS.DKind = 0), (oS.AddSunNum = 1);
+				});
 			}
 			if (oP.FlagZombies == 41) {
-				oS.ChangeBG(
-					$("White_box"),
-					$("BackGround_Unsodded"),
-					1,
-					() => {
-						($("BackGround_TF_night").style.opacity = 0),
-							(oS.AddSunNum = 5);
-						dag.clear();
-						oS.DKind = 1;
-						for (let i in oGd.$Crater) {
-							if (oGd.$Crater[i] == 100) {
-								oGd.$Crater[i] = false;
-							}
+				oS.ChangeBG($("White_box"), $("BackGround_Unsodded"), 1, () => {
+					($("BackGround_TF_night").style.opacity = 0),
+						(oS.AddSunNum = 5);
+					dag.clear();
+					oS.DKind = 1;
+					for (let i in oGd.$Crater) {
+						if (oGd.$Crater[i] == 100) {
+							oGd.$Crater[i] = false;
 						}
-						oGd.$LF = [0, 0, 1, 1, 1, 0];
-						oGd.$ZF = [0, 1, 1, 1, 1, 1];
-						for (let i = 1; i <= 9; i++) {
-							for (let j = 0; j < 4; j++) {
-								let p = oGd.$[1 + "_" + i + "_" + j];
-								p && p.Die();
-							}
-							for (let j = 0; j < 4; j++) {
-								let p = oGd.$[5 + "_" + i + "_" + j];
-								p && p.Die();
-							}
+					}
+					oGd.$LF = [0, 0, 1, 1, 1, 0];
+					oGd.$ZF = [0, 1, 1, 1, 1, 1];
+					for (let i = 1; i <= 9; i++) {
+						for (let j = 0; j < 4; j++) {
+							let p = oGd.$[1 + "_" + i + "_" + j];
+							p && p.Die();
 						}
-						for (let i = 1; i <= 7; i++) {
-							CustomSpecial(oFlowerPot, 1, i);
-							CustomSpecial(oFlowerPot, 5, i);
+						for (let j = 0; j < 4; j++) {
+							let p = oGd.$[5 + "_" + i + "_" + j];
+							p && p.Die();
 						}
-						for (let j = 11; j >= 1; j--) {
-							for (let i = 1; i <= 5; i++) {
-								dag.add_edge([i, j], [i, Math.max(0, j - 2)]);
-							}
+					}
+					for (let i = 1; i <= 7; i++) {
+						CustomSpecial(oFlowerPot, 1, i);
+						CustomSpecial(oFlowerPot, 5, i);
+					}
+					for (let j = 11; j >= 1; j--) {
+						for (let i = 1; i <= 5; i++) {
+							dag.add_edge([i, j], [i, Math.max(0, j - 2)]);
 						}
-						for (let i in oS.ZName) {
-							let s = oS.ZName[i];
-								let p = s.prototype;
-							p.ArR = [];
-							for (let j = 1; j <= 5; j++) {
-								if (p.CanPass(j, oGd.$ZF[j])) {
-									p.ArR.push(j);
-								}
+					}
+					for (let i in oS.ZName) {
+						let s = oS.ZName[i];
+						let p = s.prototype;
+						p.ArR = [];
+						for (let j = 1; j <= 5; j++) {
+							if (p.CanPass(j, oGd.$ZF[j])) {
+								p.ArR.push(j);
 							}
 						}
 					}
-				);
+				});
 			}
 		},
-		rewrite () {
+		rewrite() {
 			oP.MonPrgs = function () {
 				innerText(
 					ESSunNum,
@@ -144,11 +137,11 @@ oS.Init(
 				),
 					MonitorCard();
 				var u = oP;
-					var j;
-					var i = u.FlagZombies;
-					var s;
-					var t;
-					var f = $User.Visitor;
+				var j;
+				var i = u.FlagZombies;
+				var s;
+				var t;
+				var f = $User.Visitor;
 				!--u.NumZombies &&
 					(i < u.FlagNum
 						? ((u.ReadyFlag = ++i),
@@ -190,13 +183,14 @@ oS.Init(
 								((t = $("dAdventure")),
 								($User.Visitor.Progress = ++s),
 								(t.firstChild.innerHTML = Math.ceil(s / 10)),
-								(t.childNodes[1].innerHTML = (s -= Math.floor(s / 10) * 10)
+								(t.childNodes[1].innerHTML = (s -=
+									Math.floor(s / 10) * 10)
 									? s
 									: s + 1)),
 							PauseGame($("dMenu0"), 1)));
 			};
 		},
-		LoadAccess (start_game) {
+		LoadAccess(start_game) {
 			NewImg(
 				"BackGround_TF_night",
 				"https://s4.gifyu.com/images/background2_TF.jpg",
@@ -235,7 +229,9 @@ oS.Init(
 					oGd.$Crater[i + "_" + 8] =
 					oGd.$Crater[i + "_" + 5] =
 						100;
-				if (i == 5) {continue;}
+				if (i == 5) {
+					continue;
+				}
 				dag.add_edge([i + 1, 2], [i, 2]);
 				dag.add_edge([i + 1, 8], [i, 8]);
 				dag.add_edge([i, 5], [i + 1, 5]);
@@ -248,7 +244,7 @@ oS.Init(
 			oS.rewrite();
 			start_game();
 		},
-		ChangeBG (box, bg, opa, deffuc) {
+		ChangeBG(box, bg, opa, deffuc) {
 			box.style["z-index"] = 250;
 			oSym.addTask(
 				1,
@@ -276,7 +272,7 @@ oS.Init(
 				[0, 0, opa == undefined ? 1 : opa]
 			);
 		},
-		StartGame () {
+		StartGame() {
 			StopMusic();
 			SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
 			oS.InitLawnMower();
@@ -338,14 +334,14 @@ oS.Init(
 			39: [ShowLargeWave, 0],
 			59: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:43.5%;top:220px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(0);
 						PlayAudio("winmusic");
 					},
@@ -360,7 +356,7 @@ oS.Init(
 		},
 	},
 	{
-		AutoProduceSun (a) {
+		AutoProduceSun(a) {
 			if (oS.DKind) {
 				AppearSun(
 					GetX(Math.floor(1 + Math.random() * oS.C)),
@@ -377,7 +373,7 @@ oS.Init(
 		},
 		dag: [],
 		redag: [],
-		init_dag () {
+		init_dag() {
 			dag.add_edge = (u, v) => {
 				(u = JSON.stringify(u) || u.toString()),
 					(v = JSON.stringify(v) || v.toString());
@@ -408,7 +404,7 @@ oS.Init(
 				}
 			};
 		},
-		dag_zombie_init (b) {
+		dag_zombie_init(b) {
 			isNaN(b.AttackedLX)
 				? (b.AttackedLX = b.AttackedLX2)
 				: (b.AttackedLX2 = b.AttackedLX);
@@ -418,28 +414,28 @@ oS.Init(
 			isNaN(b.X) ? (b.X = b.X2) : (b.X2 = b.X);
 			isNaN(b.ZX) ? (b.ZX = b.ZX2) : (b.ZX2 = b.ZX);
 			b.Speed2 != b.OSpeed && (b.Speed2 = b.OSpeed);
-			if (b.init) {return;}
+			if (b.init) {
+				return;
+			}
 			b.init = true;
 		},
-		ctk_arrive_grid (b, task, reduce, tp, x) {
+		ctk_arrive_grid(b, task, reduce, tp, x) {
 			let point = (b.beAttackedPointR - b.beAttackedPointL) * 0.5;
-				let twotrue = 0;
+			let twotrue = 0;
 			let ty = GetY(task[0]);
-				let tx = GetX(task[1]);
+			let tx = GetX(task[1]);
 			let xS = b.Speed / Math.abs(b.Speed || 1);
-				let yS = b.RSpeed / Math.abs(b.RSpeed || 1);
+			let yS = b.RSpeed / Math.abs(b.RSpeed || 1);
 			tp = tp + b.height - b.GetDY();
 			let finaly = (ty - tp) * yS;
-				let finalx = (tx - x) * xS;
+			let finalx = (tx - x) * xS;
 			if (finaly > 0) {
 				(b.Reduce[0] = 0),
 					(b.Ele.style.top = ty - b.height + b.GetDY() + "px"),
 					(b.RSpeed = 0);
 			}
 			if (finalx > 0) {
-				(b.Reduce[1] = 0),
-					(b.AttackedLX -= b.X),
-					(b.AttackedRX -= b.X);
+				(b.Reduce[1] = 0), (b.AttackedLX -= b.X), (b.AttackedRX -= b.X);
 				(b.X = tx - point - b.beAttackedPointL),
 					(b.AttackedLX += b.X),
 					(b.AttackedRX += b.X);
@@ -450,10 +446,10 @@ oS.Init(
 				delete b.Reduce;
 			}
 		},
-		ctk_change_r (b, tp) {
+		ctk_change_r(b, tp) {
 			let tp2 = tp + b.height - b.GetDY();
-				let l = GetR(tp2);
-				let r = !b.WalkDirection ? -5 : 5;
+			let l = GetR(tp2);
+			let r = !b.WalkDirection ? -5 : 5;
 			if (b.R != l) {
 				b.ChangeR({
 					R: b.R,
@@ -467,7 +463,7 @@ oS.Init(
 				b.Ele.style.left = b.X + "px";
 			}
 		},
-		ctk_final_set (b) {
+		ctk_final_set(b) {
 			b.WalkDirection && b.Speed < 0 && (b.Speed = -b.Speed);
 			if (b.WalkDirection && b.Reduce && b.Reduce[1] > 0) {
 				b.Speed > 0 &&
@@ -482,18 +478,20 @@ oS.Init(
 			isNaN(b.X) ? (b.X = b.X2) : (b.X2 = b.X);
 			isNaN(b.ZX) ? (b.ZX = b.ZX2) : (b.ZX2 = b.ZX);
 		},
-		dag_traversal_of () {
+		dag_traversal_of() {
 			for (let _ in $Z) {
 				let Eletop;
-					let b = $Z[_];
-					let r = b.R;
-					let point = (b.beAttackedPointR - b.beAttackedPointL) * 0.5;
-					let c = GetC(b.ZX + point);
-					let to = b.Next_Edge;
-					let now = "[" + r + "," + c + "]";
-					let nowArr = [r, c];
+				let b = $Z[_];
+				let r = b.R;
+				let point = (b.beAttackedPointR - b.beAttackedPointL) * 0.5;
+				let c = GetC(b.ZX + point);
+				let to = b.Next_Edge;
+				let now = "[" + r + "," + c + "]";
+				let nowArr = [r, c];
 				dag_zombie_init(b);
-				if (b.EName == "oZomboni") {continue;}
+				if (b.EName == "oZomboni") {
+					continue;
+				}
 				if (!to && (b.WalkDirection ? redag[now] : dag[now])) {
 					if (b.WalkDirection) {
 						b.Next_Edge = to =
@@ -512,10 +510,10 @@ oS.Init(
 					continue;
 				}
 				let toArr = JSON.parse(to);
-					let Reduce = (b.Reduce = b.Reduce || [
-						nowArr[0] - toArr[0],
-						nowArr[1] - toArr[1],
-					]);
+				let Reduce = (b.Reduce = b.Reduce || [
+					nowArr[0] - toArr[0],
+					nowArr[1] - toArr[1],
+				]);
 				b.Speed =
 					b.Speed2 *
 					Reduce[1] *
@@ -533,29 +531,31 @@ oS.Init(
 				ctk_final_set(b);
 			}
 		},
-		dfs (x, up) {
+		dfs(x, up) {
 			console.log(x);
 			for (let i in dag[x]) {
 				let to = dag[x][i];
-				if (to == up) {continue;}
+				if (to == up) {
+					continue;
+				}
 				dfs(to, x);
 			}
 		},
-		NewURLAudio (b) {
+		NewURLAudio(b) {
 			var a = b.url;
-				var names = b.audioname || a;
+			var names = b.audioname || a;
 			if (oAudio[names]) {
 				return oAudio[names];
 			}
 			var f = document.createElement("audio");
-				var c = b.autoplay;
-				var g = b.loop;
-				var m;
-				var k = b.preload;
-				var l = b.callback;
-				var j = ["audio/mpeg", "audio/ogg"];
-				var e = j.length;
-				var d;
+			var c = b.autoplay;
+			var g = b.loop;
+			var m;
+			var k = b.preload;
+			var l = b.callback;
+			var j = ["audio/mpeg", "audio/ogg"];
+			var e = j.length;
+			var d;
 			while (e--) {
 				(m = document.createElement("source")).type = j[e];
 				(m.src = a), f.appendChild(m);

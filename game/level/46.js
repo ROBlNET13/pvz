@@ -52,7 +52,7 @@ oS.Init(
 		],
 		PicArr: (function () {
 			var a = oStarfruit.prototype;
-				var b = a.PicArr;
+			var b = a.PicArr;
 			return ["images/interface/background5.jpg"];
 		})(),
 		SunNum: 575,
@@ -62,14 +62,14 @@ oS.Init(
 		LevelName: "Level 5-6",
 		LvlEName: 26,
 		LargeWaveFlag: {},
-		InitLawnMower () {
+		InitLawnMower() {
 			CustomSpecial(oPoolCleaner, 1, -1);
 			CustomSpecial(oPoolCleaner, 2, -1);
 			CustomSpecial(oPoolCleaner, 3, -1);
 			CustomSpecial(oPoolCleaner, 4, -1);
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
-		UserDefinedFlagFunc (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(6, 9, 4, [oWarshipsZombie]);
 		},
@@ -91,14 +91,14 @@ oS.Init(
 			a2: [1, 2, 3, 10, 4, 5, 10, 20],
 		},
 		FlagToMonitor: {},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/Starfruit.png",
 				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						GetNewCard(this, oStarfruit, 47);
 					},
 				}

@@ -88,7 +88,7 @@ oS.Init(
 		},
 		DKind: 0,
 		Monitor: { f: AppearTombstones, ar: [5, 9, 11] },
-		UserDefinedFlagFunc (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutTomZombie([oDancingZombie]);
 		},
@@ -124,14 +124,14 @@ oS.Init(
 			9: [ShowLargeWave, 0],
 			14: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(198);
 					},
 				}

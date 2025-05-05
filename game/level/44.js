@@ -49,7 +49,7 @@ oS.Init(
 		],
 		PicArr: (function () {
 			var a = oGarlic.prototype;
-				var b = a.PicArr;
+			var b = a.PicArr;
 			return ["images/interface/background5.jpg"];
 		})(),
 		SunNum: 525,
@@ -59,14 +59,14 @@ oS.Init(
 		LevelName: "Level 5-4",
 		LvlEName: 24,
 		LargeWaveFlag: {},
-		InitLawnMower () {
+		InitLawnMower() {
 			CustomSpecial(oPoolCleaner, 1, -1);
 			CustomSpecial(oPoolCleaner, 2, -1);
 			CustomSpecial(oPoolCleaner, 3, -1);
 			CustomSpecial(oPoolCleaner, 4, -1);
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
-		UserDefinedFlagFunc (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(7, 9, 2, [oWarshipsZombie]);
 		},
@@ -87,14 +87,14 @@ oS.Init(
 			a2: [1, 2, 3, 10, 4, 5, 7, 20],
 		},
 		FlagToMonitor: {},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/Garlic.png",
 				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						GetNewCard(this, oGarlic, 45);
 					},
 				}

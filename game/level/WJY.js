@@ -57,7 +57,7 @@ oS.Init(
 		LvlEName: 9,
 		SunNum: 2e3,
 		coord: 2,
-		InitLawnMower () {},
+		InitLawnMower() {},
 		LargeWaveFlag: {
 			10: $("imgFlag3"),
 			20: $("imgFlag2"),
@@ -88,14 +88,14 @@ oS.Init(
 			19: [ShowLargeWave, 0],
 			29: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/0.gif",
 				"left:667px;top:330px;clip:rect(auto,auto,237px,auto)",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						GetNewCard(this, oGoldenPrize, 0);
 					},
 				}

@@ -86,7 +86,7 @@ oS.Init(
 		PicArr: (function () {
 			return ["images/interface/backgroundX1.jpg"];
 		})(),
-		InitLawnMower () {
+		InitLawnMower() {
 			CustomSpecial(oPoolCleaner, 1, -1);
 			CustomSpecial(oLawnCleaner, 2, -1);
 			CustomSpecial(oLawnCleaner, 3, -1);
@@ -151,14 +151,14 @@ oS.Init(
 			7: [ShowLargeWave, 0],
 			11: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(244);
 					},
 				}

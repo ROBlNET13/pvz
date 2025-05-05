@@ -56,7 +56,7 @@ oS.Init({
 			Arr2: [1, 1, 1],
 		},
 	},
-	RandomGrow (Point, Arr) {
+	RandomGrow(Point, Arr) {
 		Point.sort(() => {
 			return Math.random() - 0.5;
 		});
@@ -74,16 +74,19 @@ oS.Init({
 			Point.length--, Arr.length--;
 		}
 	},
-	RiddleAutoGrow () {
+	RiddleAutoGrow() {
 		var k = oS.ArP;
-			var f = k.ArC;
-			var j = k.ArR;
-			var e = k.P;
-			var d = oS.PName;
-			var Arr = [];
+		var f = k.ArC;
+		var j = k.ArR;
+		var e = k.P;
+		var d = oS.PName;
+		var Arr = [];
 		var SummonRange = function (Arr, l, r) {
-			for (; l <= r; ++l)
-				{for (var j = f[0]; j <= f[1]; ++j) {Arr.push([j, l]);}}
+			for (; l <= r; ++l) {
+				for (var j = f[0]; j <= f[1]; ++j) {
+					Arr.push([j, l]);
+				}
+			}
 		};
 		for (var i = f[0]; i <= f[1]; ++i) {
 			let placedLilypads = CustomSpecial(oILilyPad, 3, i);
@@ -118,7 +121,7 @@ oS.Init({
 			EDAll
 		);
 	},
-	StartGame () {
+	StartGame() {
 		oP.Monitor(), BeginCool();
 		SetVisible($("dFlagMeter"), $("dFlagMeterContent"), $("dTop"));
 		oS.RiddleAutoGrow();

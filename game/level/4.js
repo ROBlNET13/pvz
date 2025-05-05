@@ -11,7 +11,7 @@ oS.Init(
 		LevelName: "Level 1-4",
 		LvlEName: 4,
 		LargeWaveFlag: { 9: $("imgFlag1") },
-		StartGame () {
+		StartGame() {
 			NewEle(
 				"sod3row",
 				"div",
@@ -120,14 +120,14 @@ oS.Init(
 		FlagNum: 9,
 		FlagToSumNum: { a1: [3, 5, 8], a2: [1, 2, 3, 10] },
 		FlagToMonitor: { 8: [ShowFinalWave, 0] },
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/Shovel/ShovelCard.png",
 				"left:827px;top:330px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						GetNewCard(this, oShovel, 5);
 					},
 				}

@@ -83,7 +83,7 @@ oS.Init(
 		LF: [0, 1, 1, 2, 2, 1, 1],
 		StartGameMusic: "WateryGraves",
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
-		LoadAccess (a) {
+		LoadAccess(a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -93,7 +93,7 @@ oS.Init(
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
-					var c = $("DivTeach");
+				var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio(
@@ -226,14 +226,14 @@ oS.Init(
 		FlagNum: 20,
 		FlagToSumNum: { a1: [17, 20, 35], a2: [17, 20, 55] },
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(162);
 					},
 				}

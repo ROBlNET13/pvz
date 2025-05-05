@@ -20,14 +20,14 @@ oS.Init({
 	StartGameMusic: "ChooseYourSeeds",
 	AudioArr: ["ChooseYourSeeds", "pvzs"],
 	backgroundImage: "images/interface/Achievements_Background.png",
-	LoadAccess (a) {
+	LoadAccess(a) {
 		NewImg(
 			"imgSF",
 			"images/interface/BackButton.png",
 			"left:785px;top:530px",
 			EDAll,
 			{
-				onclick () {
+				onclick() {
 					SelectModal(0);
 					SetBlock($("dSurface"), $("iSurfaceBackground"));
 				},
@@ -39,7 +39,7 @@ oS.Init({
 			"left:50px;top:130px",
 			EDAll,
 			{
-				onclick () {
+				onclick() {
 					SelectModal("" + "izombie1" + "");
 				},
 			}
@@ -50,7 +50,7 @@ oS.Init({
 			"left:200px;top:130px",
 			EDAll,
 			{
-				onclick () {
+				onclick() {
 					SelectModal("" + "izombie2" + "");
 				},
 			}
@@ -61,7 +61,7 @@ oS.Init({
 			"left:350px;top:130px;filter:brightness(0.8);opacity:0.55",
 			EDAll,
 			{
-				onclick () {
+				onclick() {
 					SelectModal("" + "izombie3" + "");
 				},
 			}

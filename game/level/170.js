@@ -84,7 +84,7 @@ oS.Init(
 		LF: [0, 1, 1, 2, 2, 1, 1],
 		StartGameMusic: "RigorMormist",
 		LargeWaveFlag: { 5: $("imgFlag3"), 10: $("imgFlag1") },
-		LoadAccess (a) {
+		LoadAccess(a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -94,7 +94,7 @@ oS.Init(
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
-					var c = $("DivTeach");
+				var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio(
@@ -207,14 +207,14 @@ oS.Init(
 		FlagNum: 10,
 		FlagToSumNum: { a1: [49, 52, 67], a2: [49, 52, 87] },
 		FlagToMonitor: { 4: [ShowLargeWave, 0], 9: [ShowFinalWave, 0] },
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(171);
 					},
 				}

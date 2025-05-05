@@ -10,7 +10,7 @@ oS.Init(
 		],
 		PicArr: (function () {
 			var a = oSnowPea.prototype;
-				var b = a.PicArr;
+			var b = a.PicArr;
 			return [
 				"images/interface/background1.jpg",
 				"images/interface/crater1.png",
@@ -35,14 +35,14 @@ oS.Init(
 		FlagNum: 9,
 		FlagToSumNum: { a1: [3, 5, 8], a2: [1, 2, 3, 9] },
 		FlagToMonitor: { 8: [ShowFinalWave, 0] },
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/SnowPea.png",
 				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						GetNewCard(this, oSnowPea, 7);
 					},
 				}

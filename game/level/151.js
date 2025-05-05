@@ -70,7 +70,7 @@ oS.Init(
 		LvlEName: 151,
 		SunNum: 3e3,
 		LargeWaveFlag: { 10: $("imgFlag2") },
-		LoadAccess (a) {
+		LoadAccess(a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -80,7 +80,7 @@ oS.Init(
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
-					var c = $("DivTeach");
+				var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio("crazydaveshort1");
@@ -182,14 +182,14 @@ oS.Init(
 		FlagNum: 10,
 		FlagToSumNum: { a1: [3, 20], a2: [3, 40] },
 		FlagToMonitor: { 9: [ShowFinalWave, 0] },
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(152);
 					},
 				}

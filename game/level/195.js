@@ -91,7 +91,7 @@ oS.Init(
 			10: $("imgFlag2"),
 			15: $("imgFlag1"),
 		},
-		InitLawnMower () {
+		InitLawnMower() {
 			CustomSpecial(oPoolCleaner, 1, -1);
 			CustomSpecial(oLawnCleaner, 2, -1);
 			CustomSpecial(oLawnCleaner, 3, -1);
@@ -136,14 +136,14 @@ oS.Init(
 			9: [ShowLargeWave, 0],
 			14: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(196);
 					},
 				}

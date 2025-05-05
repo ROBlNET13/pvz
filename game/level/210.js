@@ -127,14 +127,14 @@ oS.Init(
 			8: [ShowLargeWave, 0],
 			11: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(211);
 					},
 				}

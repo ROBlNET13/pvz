@@ -68,7 +68,7 @@ oS.Init(
 		PicArr: (function () {
 			return ["images/interface/background5.jpg"];
 		})(),
-		UserDefinedFlagFunc (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(6, 9, 3, [oWarshipsZombie]);
 		},
@@ -83,7 +83,7 @@ oS.Init(
 		Coord: 2,
 		HaveFog: 3,
 		LF: [0, 2, 2, 2, 2, 2, 2],
-		InitLawnMower () {
+		InitLawnMower() {
 			CustomSpecial(oPoolCleaner, 1, -1);
 			CustomSpecial(oPoolCleaner, 2, -1);
 			CustomSpecial(oPoolCleaner, 3, -1);
@@ -123,14 +123,14 @@ oS.Init(
 			7: [ShowLargeWave, 0],
 			11: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						SelectModal(226);
 					},
 				}

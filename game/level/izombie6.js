@@ -23,7 +23,7 @@ oS.Init({
 	CardKind: 1,
 	LevelName: "Me Smash!",
 	StartGameMusic: "Cerebrawl",
-	InitLawnMower () {
+	InitLawnMower() {
 		var a = 6;
 		while (--a) {
 			CustomSpecial(oBrains, a, -1);
@@ -38,18 +38,18 @@ oS.Init({
 			6, 6,
 		],
 	},
-	RiddleAutoGrow () {
+	RiddleAutoGrow() {
 		var k = oS.ArP;
-			var f = k.ArC;
-			var j = k.ArR;
-			var e = k.P;
-			var d = oS.PName;
-			var c;
-			var g = f[0];
-			var b = f[1];
-			var i = j[0];
-			var h = j[1];
-			var a;
+		var f = k.ArC;
+		var j = k.ArR;
+		var e = k.P;
+		var d = oS.PName;
+		var c;
+		var g = f[0];
+		var b = f[1];
+		var i = j[0];
+		var h = j[1];
+		var a;
 		if (k.Auto) {
 			while (i <= h) {
 				CustomSpecial(oBrains, i, 0);
@@ -73,14 +73,14 @@ oS.Init({
 			EDAll
 		);
 	},
-	StartGame () {
+	StartGame() {
 		SetVisible($("dSunNum"));
 		SetBlock($("dTop"));
 		oP.Monitor({
 			ar: [0],
-			f (d) {
+			f(d) {
 				var b = oS.Chose;
-					var a = arguments.callee;
+				var a = arguments.callee;
 				switch (d) {
 					case 0:
 						BeginCool();

@@ -39,12 +39,12 @@ oS.Init(
 			15: $("imgFlag1"),
 		},
 		StaticCard: 0,
-		UserDefinedFlagFunc (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
 		},
 		StartGameMusic: "Zombieboss",
-		StartGame () {
+		StartGame() {
 			StopMusic();
 			PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 			SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
@@ -52,30 +52,26 @@ oS.Init(
 			oS.InitLawnMower();
 			PrepareGrowPlants(() => {
 				oP.Monitor({
-					f () {
+					f() {
 						(function () {
 							var a = ArCard.length;
 							if (a < 10) {
 								var c = oS.PName;
-									var b =
-										oP.FlagZombies < 6
-											? Math.floor(
-													1 + Math.random() * 10
-												) < 4
-												? 1
-												: Math.floor(
-														Math.random() * c.length
-													)
+								var b =
+									oP.FlagZombies < 6
+										? Math.floor(1 + Math.random() * 10) < 4
+											? 1
 											: Math.floor(
-														1 + Math.random() * 10
-												  ) < 3
-												? 0
-												: Math.floor(
-														Math.random() * c.length
-													);
-									var e = c[b];
-									var d = e.prototype;
-									var f = "dCard" + Math.random();
+													Math.random() * c.length
+												)
+										: Math.floor(1 + Math.random() * 10) < 3
+											? 0
+											: Math.floor(
+													Math.random() * c.length
+												);
+								var e = c[b];
+								var d = e.prototype;
+								var f = "dCard" + Math.random();
 								ArCard[a] = { DID: f, PName: e, PixelTop: 600 };
 								NewImg(
 									f,
@@ -83,13 +79,13 @@ oS.Init(
 									"top:600px;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto)",
 									$("dCardList"),
 									{
-										onmouseover (g) {
+										onmouseover(g) {
 											ViewPlantTitle(GetChoseCard(f), g);
 										},
-										onmouseout () {
+										onmouseout() {
 											SetHidden($("dTitle"));
 										},
-										onclick (g) {
+										onclick(g) {
 											ChosePlant(g, oS.ChoseCard, f);
 										},
 									}
@@ -99,8 +95,8 @@ oS.Init(
 						})();
 						(function () {
 							var b = ArCard.length;
-								var a;
-								var c;
+							var a;
+							var c;
 							while (b--) {
 								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
 									($(a.DID).style.top =
@@ -140,14 +136,14 @@ oS.Init(
 			9: [ShowLargeWave, 0],
 			14: [ShowFinalWave, 0],
 		},
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/Oxygen.png",
 				"left:667px;top:330px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						GetNewCard(this, oOxygen, 31);
 					},
 				}
@@ -155,22 +151,22 @@ oS.Init(
 		},
 	},
 	{
-		GetChoseCard (b) {
+		GetChoseCard(b) {
 			var a = ArCard.length;
 			while (a--) {
 				ArCard[a].DID == b && ((oS.ChoseCard = a), (a = 0));
 			}
 			return oS.ChoseCard;
 		},
-		ChosePlant (a, b) {
+		ChosePlant(a, b) {
 			PlayAudio("seedlift");
 			a = window.event || a;
 			var f = ArCard[oS.ChoseCard];
-				var e =
-					a.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-					EElement.scrollLeft;
-				var d = a.clientY + EBody.scrollTop || EElement.scrollTop;
-				var c = f.PName.prototype;
+			var e =
+				a.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
+				EElement.scrollLeft;
+			var d = a.clientY + EBody.scrollTop || EElement.scrollTop;
+			var c = f.PName.prototype;
 			oS.Chose = 1;
 			EditImg(
 				NewImg(
@@ -200,21 +196,21 @@ oS.Init(
 			SetHidden($("dTitle"));
 			GroundOnmousemove = GroundOnmousemove1;
 		},
-		CancelPlant () {
+		CancelPlant() {
 			ClearChild($("MovePlant"), $("MovePlantAlpha"));
 			oS.Chose = 0;
 			SetAlpha($(ArCard[oS.ChoseCard].DID), 100, 1);
 			oS.ChoseCard = "";
 			GroundOnmousemove = function () {};
 		},
-		GrowPlant (l, c, b, f, a) {
+		GrowPlant(l, c, b, f, a) {
 			var j = oS.ChoseCard;
-				var g = ArCard[j];
-				var i = g.PName;
-				var k = i.prototype;
-				var d = g.DID;
-				var e;
-				var h = oGd.$LF[f];
+			var g = ArCard[j];
+			var i = g.PName;
+			var k = i.prototype;
+			var d = g.DID;
+			var e;
+			var h = oGd.$LF[f];
 			k.CanGrow(l, f, a) &&
 				(function () {
 					PlayAudio(
@@ -240,6 +236,6 @@ oS.Init(
 					GroundOnmousemove = function () {};
 				})();
 		},
-		ViewPlantTitle (a) {},
+		ViewPlantTitle(a) {},
 	}
 );

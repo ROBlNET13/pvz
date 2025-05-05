@@ -22,7 +22,7 @@ oS.Init(
 		],
 		PicArr: (function () {
 			var a = oGraveBuster.prototype;
-				var b = a.PicArr;
+			var b = a.PicArr;
 			return [
 				"images/interface/background2.jpg",
 				"images/interface/Tombstones.png",
@@ -39,7 +39,7 @@ oS.Init(
 		LvlEName: 13,
 		LargeWaveFlag: { 10: $("imgFlag1") },
 		Monitor: { f: AppearTombstones, ar: [7, 9, 4] },
-		UserDefinedFlagFunc (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutTomZombie([
 					oZombie,
@@ -60,14 +60,14 @@ oS.Init(
 		FlagNum: 10,
 		FlagToSumNum: { a1: [3, 5, 9], a2: [1, 2, 3, 10] },
 		FlagToMonitor: { 9: [ShowFinalWave, 0] },
-		FlagToEnd () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/GraveBuster.png",
 				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick () {
+					onclick() {
 						GetNewCard(this, oGraveBuster, 14);
 					},
 				}
