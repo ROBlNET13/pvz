@@ -67,19 +67,19 @@ oS.Init(
 			40: $("imgFlag2"),
 			60: $("imgFlag1"),
 		},
-		UserDefinedFlagFunc: function () {
+		UserDefinedFlagFunc () {
 			if (oP.FlagZombies >= 25 && oP.FlagZombies <= 27)
-				oP.SetTimeoutTomZombie([oZombie, oConeheadZombie]);
+				{oP.SetTimeoutTomZombie([oZombie, oConeheadZombie]);}
 			if (oP.FlagZombies >= 37 && oP.FlagZombies <= 40)
-				oP.SetTimeoutTomZombie([oFootballZombie]);
+				{oP.SetTimeoutTomZombie([oFootballZombie]);}
 			if (oP.FlagZombies == oP.FlagNum)
-				oP.SetTimeoutTomZombie([oJackinTheBoxZombie, oFootballZombie]);
+				{oP.SetTimeoutTomZombie([oJackinTheBoxZombie, oFootballZombie]);}
 			if (oP.FlagZombies == 21) {
 				oS.ChangeBG(
 					$("Black_box"),
 					$("BackGround_TF_night"),
 					1,
-					function () {
+					() => {
 						AppearTombstones(4, 9, 8);
 						oP.SetTimeoutTomZombie([oZombie, oConeheadZombie]);
 						(oS.DKind = 0), (oS.AddSunNum = 1);
@@ -91,7 +91,7 @@ oS.Init(
 					$("White_box"),
 					$("BackGround_Unsodded"),
 					1,
-					function () {
+					() => {
 						($("BackGround_TF_night").style.opacity = 0),
 							(oS.AddSunNum = 5);
 						dag.clear();
@@ -123,8 +123,8 @@ oS.Init(
 							}
 						}
 						for (let i in oS.ZName) {
-							let s = oS.ZName[i],
-								p = s.prototype;
+							let s = oS.ZName[i];
+								let p = s.prototype;
 							p.ArR = [];
 							for (let j = 1; j <= 5; j++) {
 								if (p.CanPass(j, oGd.$ZF[j])) {
@@ -136,19 +136,19 @@ oS.Init(
 				);
 			}
 		},
-		rewrite: function () {
+		rewrite () {
 			oP.MonPrgs = function () {
 				innerText(
 					ESSunNum,
 					(oS.SunNum = Math.min(oS.SunNum + oS.AddSunNum, 9990))
 				),
 					MonitorCard();
-				var u = oP,
-					j,
-					i = u.FlagZombies,
-					s,
-					t,
-					f = $User.Visitor;
+				var u = oP;
+					var j;
+					var i = u.FlagZombies;
+					var s;
+					var t;
+					var f = $User.Visitor;
 				!--u.NumZombies &&
 					(i < u.FlagNum
 						? ((u.ReadyFlag = ++i),
@@ -190,14 +190,13 @@ oS.Init(
 								((t = $("dAdventure")),
 								($User.Visitor.Progress = ++s),
 								(t.firstChild.innerHTML = Math.ceil(s / 10)),
-								(t.childNodes[1].innerHTML = (s =
-									s - Math.floor(s / 10) * 10)
+								(t.childNodes[1].innerHTML = (s -= Math.floor(s / 10) * 10)
 									? s
 									: s + 1)),
 							PauseGame($("dMenu0"), 1)));
 			};
 		},
-		LoadAccess: function (start_game) {
+		LoadAccess (start_game) {
 			NewImg(
 				"BackGround_TF_night",
 				"https://s4.gifyu.com/images/background2_TF.jpg",
@@ -224,7 +223,7 @@ oS.Init(
 				0,
 				EDAll
 			);
-			delete oAudio["LevelSong"];
+			delete oAudio.LevelSong;
 			NewURLAudio({
 				url: "audio/Zombieboss.mp3",
 				audioname: "LevelSong",
@@ -236,7 +235,7 @@ oS.Init(
 					oGd.$Crater[i + "_" + 8] =
 					oGd.$Crater[i + "_" + 5] =
 						100;
-				if (i == 5) continue;
+				if (i == 5) {continue;}
 				dag.add_edge([i + 1, 2], [i, 2]);
 				dag.add_edge([i + 1, 8], [i, 8]);
 				dag.add_edge([i, 5], [i + 1, 5]);
@@ -249,7 +248,7 @@ oS.Init(
 			oS.rewrite();
 			start_game();
 		},
-		ChangeBG: function (box, bg, opa, deffuc) {
+		ChangeBG (box, bg, opa, deffuc) {
 			box.style["z-index"] = 250;
 			oSym.addTask(
 				1,
@@ -277,11 +276,11 @@ oS.Init(
 				[0, 0, opa == undefined ? 1 : opa]
 			);
 		},
-		StartGame: function () {
+		StartGame () {
 			StopMusic();
 			SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
 			oS.InitLawnMower();
-			PrepareGrowPlants(function () {
+			PrepareGrowPlants(() => {
 				PlayMusic((oS.LoadMusic = oS.StartGameMusic = "LevelSong"));
 				oP.Monitor(oS.Monitor, oS.UserDefinedFlagFunc);
 				oSym.addTask(
@@ -296,7 +295,7 @@ oS.Init(
 				oS.DKind && AutoProduceSun(25);
 				oSym.addTask(
 					1000,
-					function () {
+					() => {
 						oP.AddZombiesFlag();
 						try {
 							$("imgFlag2").style.left = "65px";
@@ -339,14 +338,14 @@ oS.Init(
 			39: [ShowLargeWave, 0],
 			59: [ShowFinalWave, 0],
 		},
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:43.5%;top:220px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						SelectModal(0);
 						PlayAudio("winmusic");
 					},
@@ -361,7 +360,7 @@ oS.Init(
 		},
 	},
 	{
-		AutoProduceSun: function (a) {
+		AutoProduceSun (a) {
 			if (oS.DKind) {
 				AppearSun(
 					GetX(Math.floor(1 + Math.random() * oS.C)),
@@ -378,7 +377,7 @@ oS.Init(
 		},
 		dag: [],
 		redag: [],
-		init_dag: function () {
+		init_dag () {
 			dag.add_edge = (u, v) => {
 				(u = JSON.stringify(u) || u.toString()),
 					(v = JSON.stringify(v) || v.toString());
@@ -409,7 +408,7 @@ oS.Init(
 				}
 			};
 		},
-		dag_zombie_init: function (b) {
+		dag_zombie_init (b) {
 			isNaN(b.AttackedLX)
 				? (b.AttackedLX = b.AttackedLX2)
 				: (b.AttackedLX2 = b.AttackedLX);
@@ -419,19 +418,19 @@ oS.Init(
 			isNaN(b.X) ? (b.X = b.X2) : (b.X2 = b.X);
 			isNaN(b.ZX) ? (b.ZX = b.ZX2) : (b.ZX2 = b.ZX);
 			b.Speed2 != b.OSpeed && (b.Speed2 = b.OSpeed);
-			if (b.init) return;
+			if (b.init) {return;}
 			b.init = true;
 		},
-		ctk_arrive_grid: function (b, task, reduce, tp, x) {
-			let point = (b.beAttackedPointR - b.beAttackedPointL) * 0.5,
-				twotrue = 0;
-			let ty = GetY(task[0]),
-				tx = GetX(task[1]);
-			let xS = b.Speed / Math.abs(b.Speed || 1),
-				yS = b.RSpeed / Math.abs(b.RSpeed || 1);
+		ctk_arrive_grid (b, task, reduce, tp, x) {
+			let point = (b.beAttackedPointR - b.beAttackedPointL) * 0.5;
+				let twotrue = 0;
+			let ty = GetY(task[0]);
+				let tx = GetX(task[1]);
+			let xS = b.Speed / Math.abs(b.Speed || 1);
+				let yS = b.RSpeed / Math.abs(b.RSpeed || 1);
 			tp = tp + b.height - b.GetDY();
-			let finaly = (ty - tp) * yS,
-				finalx = (tx - x) * xS;
+			let finaly = (ty - tp) * yS;
+				let finalx = (tx - x) * xS;
 			if (finaly > 0) {
 				(b.Reduce[0] = 0),
 					(b.Ele.style.top = ty - b.height + b.GetDY() + "px"),
@@ -439,11 +438,11 @@ oS.Init(
 			}
 			if (finalx > 0) {
 				(b.Reduce[1] = 0),
-					(b.AttackedLX = b.AttackedLX - b.X),
-					(b.AttackedRX = b.AttackedRX - b.X);
+					(b.AttackedLX -= b.X),
+					(b.AttackedRX -= b.X);
 				(b.X = tx - point - b.beAttackedPointL),
-					(b.AttackedLX = b.AttackedLX + b.X),
-					(b.AttackedRX = b.AttackedRX + b.X);
+					(b.AttackedLX += b.X),
+					(b.AttackedRX += b.X);
 				(b.Ele.style.left = b.X + "px"), (b.Speed = 0);
 			}
 			if (b.Reduce[0] == b.Reduce[1] && b.Reduce[0] == 0) {
@@ -451,10 +450,10 @@ oS.Init(
 				delete b.Reduce;
 			}
 		},
-		ctk_change_r: function (b, tp) {
-			let tp2 = tp + b.height - b.GetDY(),
-				l = GetR(tp2),
-				r = !b.WalkDirection ? -5 : 5;
+		ctk_change_r (b, tp) {
+			let tp2 = tp + b.height - b.GetDY();
+				let l = GetR(tp2);
+				let r = !b.WalkDirection ? -5 : 5;
 			if (b.R != l) {
 				b.ChangeR({
 					R: b.R,
@@ -468,7 +467,7 @@ oS.Init(
 				b.Ele.style.left = b.X + "px";
 			}
 		},
-		ctk_final_set: function (b) {
+		ctk_final_set (b) {
 			b.WalkDirection && b.Speed < 0 && (b.Speed = -b.Speed);
 			if (b.WalkDirection && b.Reduce && b.Reduce[1] > 0) {
 				b.Speed > 0 &&
@@ -483,18 +482,18 @@ oS.Init(
 			isNaN(b.X) ? (b.X = b.X2) : (b.X2 = b.X);
 			isNaN(b.ZX) ? (b.ZX = b.ZX2) : (b.ZX2 = b.ZX);
 		},
-		dag_traversal_of: function () {
+		dag_traversal_of () {
 			for (let _ in $Z) {
-				let Eletop,
-					b = $Z[_],
-					r = b.R,
-					point = (b.beAttackedPointR - b.beAttackedPointL) * 0.5,
-					c = GetC(b.ZX + point),
-					to = b.Next_Edge,
-					now = "[" + r + "," + c + "]",
-					nowArr = [r, c];
+				let Eletop;
+					let b = $Z[_];
+					let r = b.R;
+					let point = (b.beAttackedPointR - b.beAttackedPointL) * 0.5;
+					let c = GetC(b.ZX + point);
+					let to = b.Next_Edge;
+					let now = "[" + r + "," + c + "]";
+					let nowArr = [r, c];
 				dag_zombie_init(b);
-				if (b.EName == "oZomboni") continue;
+				if (b.EName == "oZomboni") {continue;}
 				if (!to && (b.WalkDirection ? redag[now] : dag[now])) {
 					if (b.WalkDirection) {
 						b.Next_Edge = to =
@@ -512,8 +511,8 @@ oS.Init(
 					(b.RSpeed = 0), (b.Speed = b.Speed2);
 					continue;
 				}
-				let toArr = JSON.parse(to),
-					Reduce = (b.Reduce = b.Reduce || [
+				let toArr = JSON.parse(to);
+					let Reduce = (b.Reduce = b.Reduce || [
 						nowArr[0] - toArr[0],
 						nowArr[1] - toArr[1],
 					]);
@@ -534,41 +533,41 @@ oS.Init(
 				ctk_final_set(b);
 			}
 		},
-		dfs: function (x, up) {
+		dfs (x, up) {
 			console.log(x);
 			for (let i in dag[x]) {
 				let to = dag[x][i];
-				if (to == up) continue;
+				if (to == up) {continue;}
 				dfs(to, x);
 			}
 		},
-		NewURLAudio: function (b) {
-			var a = b.url,
-				names = b.audioname || a;
+		NewURLAudio (b) {
+			var a = b.url;
+				var names = b.audioname || a;
 			if (oAudio[names]) {
 				return oAudio[names];
 			}
-			var f = document.createElement("audio"),
-				c = b.autoplay,
-				g = b.loop,
-				m,
-				k = b.preload,
-				l = b.callback,
-				j = ["audio/mpeg", "audio/ogg"],
-				e = j.length,
-				d;
+			var f = document.createElement("audio");
+				var c = b.autoplay;
+				var g = b.loop;
+				var m;
+				var k = b.preload;
+				var l = b.callback;
+				var j = ["audio/mpeg", "audio/ogg"];
+				var e = j.length;
+				var d;
 			while (e--) {
 				(m = document.createElement("source")).type = j[e];
 				(m.src = a), f.appendChild(m);
 			}
-			(f.autoplay = c ? true : false),
+			(f.autoplay = !!c),
 				(f.preload =
 					k == undefined ? "auto" : ["auto", "meta", "none"][k]),
 				(f.muted = oS.Silence);
 			g &&
 				f.addEventListener(
 					"ended",
-					function () {
+					() => {
 						f.play();
 					},
 					false

@@ -33,41 +33,41 @@ oS.Init(
 		CanSelectCard: 0,
 		StartGameMusic: "Cerebrawl",
 		SunNum: 0,
-		RiddleAutoGrow: function () {
-			var P = oS.VaseArP,
-				L = P.Left,
-				R = P.Right,
-				GNum = P.GreenNum,
-				VaseList = [],
-				GroundList = [];
+		RiddleAutoGrow () {
+			var P = oS.VaseArP;
+				var L = P.Left;
+				var R = P.Right;
+				var GNum = P.GreenNum;
+				var VaseList = [];
+				var GroundList = [];
 
 			// 生成罐子列表
 			for (var O in P.ZombieP)
-				VaseList.push({
+				{VaseList.push({
 					Type: "Zombie",
 					Value: oS.ZName[P.ZombieP[O]],
-				});
+				});}
 			for (var O in P.PlantP)
-				VaseList.push({ Type: "Plants", Value: oS.PName[P.PlantP[O]] });
+				{VaseList.push({ Type: "Plants", Value: oS.PName[P.PlantP[O]] });}
 			for (var O in P.SunP)
-				VaseList.push({ Type: "SunNum", Value: P.SunP[O] });
+				{VaseList.push({ Type: "SunNum", Value: P.SunP[O] });}
 
 			// 生成格子列表
 			for (; L <= R; ++L)
-				for (var Q = 1; Q <= oS.R; ++Q) GroundList.push([Q, L]);
+				{for (var Q = 1; Q <= oS.R; ++Q) {GroundList.push([Q, L]);}}
 
 			// 打乱两者
-			VaseList.sort(function () {
+			VaseList.sort(() => {
 				return Math.random() - 0.5;
 			});
-			GroundList.sort(function () {
+			GroundList.sort(() => {
 				return Math.random() - 0.5;
 			});
 
 			// 生成罐子
 			while (VaseList.length && GroundList.length) {
-				var Top = VaseList[VaseList.length - 1],
-					Pos = GroundList[GroundList.length - 1];
+				var Top = VaseList[VaseList.length - 1];
+					var Pos = GroundList[GroundList.length - 1];
 
 				oFlowerVase.prototype.SpecialBirth(
 					Pos[0],
@@ -79,14 +79,14 @@ oS.Init(
 				--VaseList.length, --GroundList.length;
 			}
 		},
-		StartGame: function () {
+		StartGame () {
 			oP.Monitor(), SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
 			StopMusic(), PlayMusic((oS.LoadMusic = oS.StartGameMusic));
-			for (var i in ArCard) DoCoolTimer(i, 0);
+			for (var i in ArCard) {DoCoolTimer(i, 0);}
 			var f = function () {
 				// 检测这一部分是否结束
-				if (oFlowerVase.prototype.GetLevelStatus()) oP.FlagToEnd();
-				else oSym.addTask(100, f, []);
+				if (oFlowerVase.prototype.GetLevelStatus()) {oP.FlagToEnd();}
+				else {oSym.addTask(100, f, []);}
 			};
 
 			oS.RiddleAutoGrow(), f(); // f 的调用一定要在生成罐子后面
@@ -103,7 +103,7 @@ oS.Init(
 	},
 	0,
 	{
-		AutoSelectCard: function () {
+		AutoSelectCard () {
 			// 只选择樱桃炸弹
 			SelectCard(oCherryBomb.prototype.EName);
 		},

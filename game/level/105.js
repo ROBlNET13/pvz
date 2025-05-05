@@ -73,7 +73,7 @@ oS.Init(
 		LvlEName: 9,
 		SunNum: 525,
 		coord: 2,
-		InitLawnMower: function () {
+		InitLawnMower () {
 			CustomSpecial(oPoolCleaner, 1, -1);
 			CustomSpecial(oCleaner, 2, -1);
 			CustomSpecial(oCleaner, 3, -1);
@@ -112,14 +112,14 @@ oS.Init(
 			19: [ShowLargeWave, 0],
 			29: [ShowFinalWave, 0],
 		},
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						SelectModal(106);
 					},
 				}

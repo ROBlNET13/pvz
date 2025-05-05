@@ -87,7 +87,7 @@ oS.Init(
 			10: $("imgFlag2"),
 			15: $("imgFlag1"),
 		},
-		InitLawnMower: function () {
+		InitLawnMower () {
 			CustomSpecial(oCleaner, 1, -1);
 			CustomSpecial(oCleaner, 2, -1);
 			CustomSpecial(oCleaner, 3, -1);
@@ -125,14 +125,14 @@ oS.Init(
 			9: [ShowLargeWave, 0],
 			14: [ShowFinalWave, 0],
 		},
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/BigChomper.png",
 				"left:667px;top:330px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						GetNewCard(this, oBigChomper, 191);
 					},
 				}

@@ -74,14 +74,14 @@ oS.Init(
 			19: [ShowLargeWave, 0],
 			29: [ShowFinalWave, 0],
 		},
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/Cactus.png",
 				"left:627px;top:325px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						GetNewCard(this, oCactus, 37);
 					},
 				}

@@ -81,7 +81,7 @@ oS.Init(
 		PicArr: (function () {
 			return ["images/interface/background4.jpg"];
 		})(),
-		UserDefinedFlagFunc: function (a) {
+		UserDefinedFlagFunc (a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(6, 9, 3, [oWarshipsZombie]);
 		},
@@ -141,14 +141,14 @@ oS.Init(
 			8: [ShowLargeWave, 0],
 			11: [ShowFinalWave, 0],
 		},
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						SelectModal(218);
 					},
 				}

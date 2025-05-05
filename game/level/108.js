@@ -70,7 +70,7 @@ oS.Init(
 		LvlEName: 1,
 		SunNum: 350,
 		LargeWaveFlag: { 10: $("imgFlag2"), 20: $("imgFlag1") },
-		InitLawnMower: function () {
+		InitLawnMower () {
 			CustomSpecial(oCleaner, 1, -1);
 			CustomSpecial(oCleaner, 2, -1);
 			CustomSpecial(oCleaner, 4, -1);
@@ -83,7 +83,7 @@ oS.Init(
 			"crazydavelong3",
 		],
 		StartGameMusic: "The Great Wall",
-		LoadAccess: function (a) {
+		LoadAccess (a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -92,8 +92,8 @@ oS.Init(
 			);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
-				var b = arguments.callee,
-					c = $("DivTeach");
+				var b = arguments.callee;
+					var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio(
@@ -103,7 +103,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [1]);
@@ -122,7 +122,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [2]);
@@ -141,7 +141,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [3]);
@@ -160,7 +160,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [4]);
@@ -176,7 +176,7 @@ oS.Init(
 						ClearChild($("DivTeach"));
 						oSym.addTask(
 							5,
-							function () {
+							() => {
 								ClearChild($("dDave"));
 								a(0);
 								StopMusic();
@@ -205,14 +205,14 @@ oS.Init(
 			a2: [1, 2, 3, 8, 4, 5, 6, 15, 7, 8, 9, 25, 48, 60],
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						SelectModal(109);
 					},
 				}

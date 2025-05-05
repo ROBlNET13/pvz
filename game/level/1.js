@@ -3,8 +3,8 @@ oS.Init(
 		PName: [oPeashooter],
 		ZName: [oZombie],
 		PicArr: (function () {
-			var a = oSunFlower.prototype,
-				b = a.PicArr;
+			var a = oSunFlower.prototype;
+				var b = a.PicArr;
 			return [
 				"images/interface/SodRollCap.png",
 				"images/interface/SodRoll.png",
@@ -21,18 +21,18 @@ oS.Init(
 		LevelName: "Level 1-1",
 		LvlEName: 1,
 		AudioArr: ["dirt_rise"],
-		InitLawnMower: function () {
+		InitLawnMower () {
 			CustomSpecial(oLawnCleaner, 3, -1);
 		},
 		LargeWaveFlag: { 5: $("imgFlag1") },
-		StartGame: function () {
+		StartGame () {
 			NewImg(
 				"imgSF",
 				"images/interface/tiaoguo.png",
 				"left:1px;top:75px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						SelectModal(3);
 					},
 				}
@@ -92,9 +92,9 @@ oS.Init(
 							oS.InitLawnMower();
 							oP.Monitor({
 								ar: [0],
-								f: function (k) {
-									var l = oS.C + 1,
-										i = oS.Chose;
+								f (k) {
+									var l = oS.C + 1;
+										var i = oS.Chose;
 									switch (k) {
 										case 0:
 											innerText(
@@ -178,8 +178,8 @@ oS.Init(
 											]);
 											break;
 										default:
-											var j = 0,
-												h = oGd.$;
+											var j = 0;
+												var h = oGd.$;
 											while (--l) {
 												h["3_" + l + "_1"] && ++j;
 											}
@@ -212,14 +212,14 @@ oS.Init(
 		FlagNum: 5,
 		FlagToSumNum: { a1: [3], a2: [1, 2] },
 		FlagToMonitor: { 4: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/SunFlower.png",
 				"left:667px;top:330px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						GetNewCard(this, oSunFlower, 2);
 					},
 				}

@@ -36,7 +36,7 @@ oS.Init(
 		LvlEName: 14,
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
 		Monitor: { f: AppearTombstones, ar: [6, 9, 7] },
-		UserDefinedFlagFunc: function (a) {
+		UserDefinedFlagFunc (a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutTomZombie([
 					oZombie,
@@ -61,14 +61,14 @@ oS.Init(
 			a2: [1, 2, 3, 10, 4, 5, 6, 15],
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						SelectModal(15);
 					},
 				}

@@ -85,21 +85,21 @@ oS.Init(
 		LevelName: "屋顶关测试",
 		LvlEName: 9,
 		Cheat_Mode: 1,
-		StartGame: function () {
+		StartGame () {
 			StopMusic();
 			!oS.MusicMode && PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 			SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
 			oS.InitLawnMower();
-			PrepareGrowPlants(function () {
+			PrepareGrowPlants(() => {
 				oS.MusicMode && PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 
 				oP.Monitor(oS.Monitor, oS.UserDefinedFlagFunc);
-				for (let i in ArCard) DoCoolTimer(i, 0);
+				for (let i in ArCard) {DoCoolTimer(i, 0);}
 
 				AutoProduceSun(25);
 				oSym.addTask(
 					1500,
-					function () {
+					() => {
 						oP.AddZombiesFlag();
 						SetVisible($("dFlagMeterContent"));
 					},
@@ -132,14 +132,14 @@ oS.Init(
 			19: [ShowLargeWave, 0],
 			29: [ShowFinalWave, 0],
 		},
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/interface/ZombieNoteSmall.png",
 				"left:667px;top:220px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						PlayAudio("winmusic");
 						SetHidden($("PointerUD"));
 						SetStyle(this, {

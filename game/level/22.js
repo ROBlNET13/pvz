@@ -33,8 +33,8 @@ oS.Init(
 			oBucketheadZombie,
 		],
 		PicArr: (function () {
-			var a = oThreepeater.prototype,
-				b = a.PicArr;
+			var a = oThreepeater.prototype;
+				var b = a.PicArr;
 			return [
 				"images/interface/background3.webp",
 				b[a.CardGif],
@@ -49,7 +49,7 @@ oS.Init(
 		LevelName: "Level 3-2",
 		LvlEName: 22,
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
-		UserDefinedFlagFunc: function (a) {
+		UserDefinedFlagFunc (a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(6, 9, 3, [
 					oDuckyTubeZombie1,
@@ -78,14 +78,14 @@ oS.Init(
 			a2: [1, 2, 3, 10, 4, 5, 6, 15],
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/Threepeater.png",
 				"left:627px;top:325px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						SelectModal(23);
 					},
 				}

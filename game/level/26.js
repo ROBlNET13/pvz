@@ -34,8 +34,8 @@ oS.Init(
 			oZomboni,
 		],
 		PicArr: (function () {
-			var a = oSpikeweed.prototype,
-				b = a.PicArr;
+			var a = oSpikeweed.prototype;
+				var b = a.PicArr;
 			return [
 				"images/interface/background3.webp",
 				b[a.CardGif],
@@ -54,7 +54,7 @@ oS.Init(
 			20: $("imgFlag2"),
 			30: $("imgFlag1"),
 		},
-		UserDefinedFlagFunc: function (a) {
+		UserDefinedFlagFunc (a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
 		},
@@ -81,14 +81,14 @@ oS.Init(
 			19: [ShowLargeWave, 0],
 			29: [ShowFinalWave, 0],
 		},
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/Spikeweed.png",
 				"left:627px;top:325px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						GetNewCard(this, oSpikeweed, 27);
 					},
 				}

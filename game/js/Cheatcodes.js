@@ -4,8 +4,8 @@ document.addEventListener("keydown", (event) => {
 	keysPressed[event.key] = true;
 	// super fast
 	if (
-		keysPressed["s"] &&
-		keysPressed["f"] &&
+		keysPressed.s &&
+		keysPressed.f &&
 		document.activeElement.nodeName != "TEXTAREA" &&
 		document.activeElement.nodeName != "INPUT"
 	) {
@@ -13,9 +13,9 @@ document.addEventListener("keydown", (event) => {
 	}
 	// balloon
 	if (
-		keysPressed["b"] &&
-		keysPressed["l"] &&
-		keysPressed["n"] &&
+		keysPressed.b &&
+		keysPressed.l &&
+		keysPressed.n &&
 		document.activeElement.nodeName != "TEXTAREA" &&
 		document.activeElement.nodeName != "INPUT"
 	) {
@@ -27,7 +27,7 @@ document.addEventListener("keydown", (event) => {
 	}*/
 	// almanac (handbook)
 	if (
-		keysPressed["k"] &&
+		keysPressed.k &&
 		document.activeElement.nodeName != "TEXTAREA" &&
 		document.activeElement.nodeName != "INPUT"
 	) {
@@ -35,7 +35,7 @@ document.addEventListener("keydown", (event) => {
 	}
 	// sun
 	if (
-		keysPressed["j"] &&
+		keysPressed.j &&
 		document.activeElement.nodeName != "TEXTAREA" &&
 		document.activeElement.nodeName != "INPUT"
 	) {
@@ -48,9 +48,9 @@ document.addEventListener("keydown", (event) => {
 	}
 	// oneko
 	if (
-		keysPressed["c"] &&
-		keysPressed["a"] &&
-		keysPressed["t"] &&
+		keysPressed.c &&
+		keysPressed.a &&
+		keysPressed.t &&
 		document.activeElement.nodeName != "TEXTAREA" &&
 		document.activeElement.nodeName != "INPUT"
 	) {

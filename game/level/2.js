@@ -3,8 +3,8 @@ oS.Init(
 		PName: [oPeashooter, oSunFlower],
 		ZName: [oZombie, oZombie2, oZombie3],
 		PicArr: (function () {
-			var a = oCherryBomb.prototype,
-				b = a.PicArr;
+			var a = oCherryBomb.prototype;
+				var b = a.PicArr;
 			return [
 				"images/interface/SodRollCap.png",
 				"images/interface/SodRoll.png",
@@ -21,20 +21,20 @@ oS.Init(
 		LvlEName: 2,
 		AudioArr: ["dirt_rise"],
 		LargeWaveFlag: { 6: $("imgFlag1") },
-		InitLawnMower: function () {
+		InitLawnMower () {
 			var a = 5;
 			while (--a > 1) {
 				CustomSpecial(oLawnCleaner, a, -1);
 			}
 		},
-		StartGame: function () {
+		StartGame () {
 			NewImg(
 				"imgSF",
 				"images/interface/tiaoguo.png",
 				"left:1px;top:150px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						SelectModal(3);
 					},
 				}
@@ -120,11 +120,11 @@ oS.Init(
 							PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 							oS.InitLawnMower();
 							SetVisible($("dFlagMeter"), $("dTop"));
-							PrepareGrowPlants(function () {
+							PrepareGrowPlants(() => {
 								NewEle("DivTeachBar", "div", 0, 0, EDAll);
 								oP.Monitor({
 									ar: [0],
-									f: function (l) {
+									f (l) {
 										var m = oS.C + 1;
 										switch (l) {
 											case 0:
@@ -145,8 +145,8 @@ oS.Init(
 												);
 												break;
 											case 1:
-												var j = oGd.$,
-													i;
+												var j = oGd.$;
+													var i;
 												for (i in j) {
 													if (
 														j[i].EName ==
@@ -162,7 +162,7 @@ oS.Init(
 															[++l]
 														).addTask(
 															2500,
-															function () {
+															() => {
 																oP.AddZombiesFlag();
 																SetVisible(
 																	$(
@@ -182,9 +182,9 @@ oS.Init(
 												);
 												break;
 											case 2:
-												var j = oGd.$,
-													i,
-													k = 0;
+												var j = oGd.$;
+													var i;
+													var k = 0;
 												for (i in j) {
 													j[i].EName ==
 														"oSunFlower" && ++k;
@@ -202,9 +202,9 @@ oS.Init(
 												);
 												break;
 											default:
-												var j = oGd.$,
-													i,
-													k = 0;
+												var j = oGd.$;
+													var i;
+													var k = 0;
 												for (i in j) {
 													j[i].EName ==
 														"oSunFlower" && ++k;
@@ -256,14 +256,14 @@ oS.Init(
 		FlagNum: 6,
 		FlagToSumNum: { a1: [3, 4], a2: [1, 2, 3] },
 		FlagToMonitor: { 5: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/CherryBomb.png",
 				"left:827px;top:220px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						GetNewCard(this, oCherryBomb, 3);
 					},
 				}

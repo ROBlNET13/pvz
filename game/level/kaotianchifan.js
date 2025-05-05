@@ -54,20 +54,20 @@ oS.Init(
 			30: $("imgFlag2"),
 			40: $("imgFlag1"),
 		},
-		UserDefinedFlagFunc: function (a) {
+		UserDefinedFlagFunc (a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie2]);
 		},
 		StartGameMusic: "GrazeTheRoof2",
-		StartGame: function () {
+		StartGame () {
 			StopMusic();
 			PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 			SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
 			oS.InitLawnMower();
-			PrepareGrowPlants(function () {
+			PrepareGrowPlants(() => {
 				oP.Monitor({
 					ar: [],
-					f: function () {
+					f () {
 						oSym.TimeStep = 4;
 					},
 				});
@@ -75,7 +75,7 @@ oS.Init(
 				AutoProduceSun(25);
 				oSym.addTask(
 					1500,
-					function () {
+					() => {
 						oP.AddZombiesFlag();
 						SetVisible($("dFlagMeterContent"));
 					},
@@ -107,14 +107,14 @@ oS.Init(
 			29: [ShowLargeWave, 0],
 			39: [ShowFinalWave, 0],
 		},
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						SelectModal(0);
 					},
 				}

@@ -63,14 +63,14 @@ oS.Init(
 		LevelName: "Level 5-9",
 		LvlEName: 29,
 		LargeWaveFlag: {},
-		InitLawnMower: function () {
+		InitLawnMower () {
 			CustomSpecial(oPoolCleaner, 1, -1);
 			CustomSpecial(oPoolCleaner, 2, -1);
 			CustomSpecial(oPoolCleaner, 3, -1);
 			CustomSpecial(oPoolCleaner, 4, -1);
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
-		UserDefinedFlagFunc: function (a) {
+		UserDefinedFlagFunc (a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(4, 9, 6, [oWarshipsZombie]);
 		},
@@ -92,14 +92,14 @@ oS.Init(
 			a2: [1, 7, 12, 20, 13, 16, 21, 30],
 		},
 		FlagToMonitor: {},
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/interface/ZombieNoteSmall.png",
 				"left:667px;top:220px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						PlayAudio("winmusic");
 						SetHidden($("PointerUD"));
 						SetStyle(this, {

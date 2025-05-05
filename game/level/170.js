@@ -84,7 +84,7 @@ oS.Init(
 		LF: [0, 1, 1, 2, 2, 1, 1],
 		StartGameMusic: "RigorMormist",
 		LargeWaveFlag: { 5: $("imgFlag3"), 10: $("imgFlag1") },
-		LoadAccess: function (a) {
+		LoadAccess (a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -93,8 +93,8 @@ oS.Init(
 			);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
-				var b = arguments.callee,
-					c = $("DivTeach");
+				var b = arguments.callee;
+					var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio(
@@ -104,7 +104,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							200,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [1]);
@@ -122,7 +122,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							200,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [2]);
@@ -140,7 +140,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							200,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [3]);
@@ -156,7 +156,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							100,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [4]);
@@ -171,7 +171,7 @@ oS.Init(
 						ClearChild($("DivTeach"));
 						oSym.addTask(
 							50,
-							function () {
+							() => {
 								ClearChild($("dDave"));
 								a(0);
 							},
@@ -207,14 +207,14 @@ oS.Init(
 		FlagNum: 10,
 		FlagToSumNum: { a1: [49, 52, 67], a2: [49, 52, 87] },
 		FlagToMonitor: { 4: [ShowLargeWave, 0], 9: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						SelectModal(171);
 					},
 				}

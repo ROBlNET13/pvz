@@ -16,8 +16,8 @@ oS.Init(
 			oPoleVaultingZombie,
 		],
 		PicArr: (function () {
-			var a = oChomper.prototype,
-				b = a.PicArr;
+			var a = oChomper.prototype;
+				var b = a.PicArr;
 			return [
 				"images/interface/background1.jpg",
 				b[a.CardGif],
@@ -44,14 +44,14 @@ oS.Init(
 			a2: [1, 2, 3, 10, 4, 5, 6, 15],
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/Chomper.png",
 				"left:667px;top:220px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						GetNewCard(this, oChomper, 8);
 					},
 				}

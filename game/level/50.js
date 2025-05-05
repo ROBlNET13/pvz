@@ -18,11 +18,11 @@ oS.Init(
 		DKind: 0,
 		LevelName: "5-10 close",
 		LvlEName: "50",
-		InitLawnMower: function () {},
+		InitLawnMower () {},
 		LargeWaveFlag: {},
 		StartGameMusic: "Zombieboss",
 		StaticCard: 0,
-		LoadAccess: function (a) {
+		LoadAccess (a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -31,8 +31,8 @@ oS.Init(
 			);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
-				var b = arguments.callee,
-					c = $("DivTeach");
+				var b = arguments.callee;
+					var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio(
@@ -42,7 +42,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [1]);
@@ -63,7 +63,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [2]);
@@ -81,7 +81,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [3]);
@@ -100,7 +100,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							1,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [4]);
@@ -118,7 +118,7 @@ oS.Init(
 						ClearChild($("DivTeach"));
 						oSym.addTask(
 							5,
-							function () {
+							() => {
 								ClearChild($("dDave"));
 								a(0);
 							},
@@ -127,24 +127,24 @@ oS.Init(
 				}
 			})(0);
 		},
-		UserDefinedFlagFunc: function (a) {
+		UserDefinedFlagFunc (a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(4, 9, 6, [oWarshipsZombie]);
 		},
-		StartGame: function () {
+		StartGame () {
 			StopMusic();
 			PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 			SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
 			SetHidden($("dSunNum"));
 			oS.InitLawnMower();
-			PrepareGrowPlants(function () {
+			PrepareGrowPlants(() => {
 				oP.Monitor({
-					f: function () {
+					f () {
 						(function () {
 							var a = ArCard.length;
 							if (a < 10) {
-								var c = oS.PName,
-									b =
+								var c = oS.PName;
+									var b =
 										oP.FlagZombies < 6
 											? Math.floor(
 													1 + Math.random() * 10
@@ -159,10 +159,10 @@ oS.Init(
 												? 0
 												: Math.floor(
 														Math.random() * c.length
-													),
-									e = c[b],
-									d = e.prototype,
-									f = "dCard" + Math.random();
+													);
+									var e = c[b];
+									var d = e.prototype;
+									var f = "dCard" + Math.random();
 								ArCard[a] = { DID: f, PName: e, PixelTop: 600 };
 								NewImg(
 									f,
@@ -170,13 +170,13 @@ oS.Init(
 									"top:600px;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto)",
 									$("dCardList"),
 									{
-										onmouseover: function (g) {
+										onmouseover (g) {
 											ViewPlantTitle(GetChoseCard(f), g);
 										},
-										onmouseout: function () {
+										onmouseout () {
 											SetHidden($("dTitle"));
 										},
-										onclick: function (g) {
+										onclick (g) {
 											ChosePlant(g, oS.ChoseCard, f);
 										},
 									}
@@ -185,9 +185,9 @@ oS.Init(
 							oSym.addTask(600, arguments.callee, []);
 						})();
 						(function () {
-							var b = ArCard.length,
-								a,
-								c;
+							var b = ArCard.length;
+								var a;
+								var c;
 							while (b--) {
 								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
 									($(a.DID).style.top =
@@ -220,14 +220,14 @@ oS.Init(
 			a2: [1, 2, 12, 20, 13, 16, 21, 30],
 		},
 		FlagToMonitor: {},
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/interface/0.gif",
 				"left:667px;top:330px;clip:rect(auto,auto,237px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						GetNewCard(this, oGoldenPrize, 0);
 					},
 				}
@@ -235,22 +235,22 @@ oS.Init(
 		},
 	},
 	{
-		GetChoseCard: function (b) {
+		GetChoseCard (b) {
 			var a = ArCard.length;
 			while (a--) {
 				ArCard[a].DID == b && ((oS.ChoseCard = a), (a = 0));
 			}
 			return oS.ChoseCard;
 		},
-		ChosePlant: function (a, b) {
+		ChosePlant (a, b) {
 			PlayAudio("seedlift");
 			a = window.event || a;
-			var f = ArCard[oS.ChoseCard],
-				e =
+			var f = ArCard[oS.ChoseCard];
+				var e =
 					a.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-					EElement.scrollLeft,
-				d = a.clientY + EBody.scrollTop || EElement.scrollTop,
-				c = f.PName.prototype;
+					EElement.scrollLeft;
+				var d = a.clientY + EBody.scrollTop || EElement.scrollTop;
+				var c = f.PName.prototype;
 			oS.Chose = 1;
 			EditImg(
 				NewImg(
@@ -280,21 +280,21 @@ oS.Init(
 			SetHidden($("dTitle"));
 			GroundOnmousemove = GroundOnmousemove1;
 		},
-		CancelPlant: function () {
+		CancelPlant () {
 			ClearChild($("MovePlant"), $("MovePlantAlpha"));
 			oS.Chose = 0;
 			SetAlpha($(ArCard[oS.ChoseCard].DID), 100, 1);
 			oS.ChoseCard = "";
 			GroundOnmousemove = function () {};
 		},
-		GrowPlant: function (l, c, b, f, a) {
-			var j = oS.ChoseCard,
-				g = ArCard[j],
-				i = g.PName,
-				k = i.prototype,
-				d = g.DID,
-				e,
-				h = oGd.$LF[f];
+		GrowPlant (l, c, b, f, a) {
+			var j = oS.ChoseCard;
+				var g = ArCard[j];
+				var i = g.PName;
+				var k = i.prototype;
+				var d = g.DID;
+				var e;
+				var h = oGd.$LF[f];
 			k.CanGrow(l, f, a) &&
 				(function () {
 					PlayAudio(
@@ -320,6 +320,6 @@ oS.Init(
 					GroundOnmousemove = function () {};
 				})();
 		},
-		ViewPlantTitle: function (a) {},
+		ViewPlantTitle (a) {},
 	}
 );

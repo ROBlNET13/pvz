@@ -43,8 +43,8 @@ oS.Init(
 			oDuckyTubeZombie1,
 		],
 		PicArr: (function () {
-			var a = oSeaShroom.prototype,
-				b = a.PicArr;
+			var a = oSeaShroom.prototype;
+				var b = a.PicArr;
 			return [
 				"images/interface/background5.jpg",
 				"images/interface/Dave.gif",
@@ -67,19 +67,19 @@ oS.Init(
 			"crazydavelong3",
 		],
 		LargeWaveFlag: {},
-		InitLawnMower: function () {
+		InitLawnMower () {
 			CustomSpecial(oPoolCleaner, 1, -1);
 			CustomSpecial(oPoolCleaner, 2, -1);
 			CustomSpecial(oPoolCleaner, 3, -1);
 			CustomSpecial(oPoolCleaner, 4, -1);
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
-		UserDefinedFlagFunc: function (a) {
+		UserDefinedFlagFunc (a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(8, 9, 1, [oWarshipsZombie]);
 		},
 		StartGameMusic: "jiaxing",
-		LoadAccess: function (a) {
+		LoadAccess (a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -88,8 +88,8 @@ oS.Init(
 			);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
-				var b = arguments.callee,
-					c = $("DivTeach");
+				var b = arguments.callee;
+					var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio(
@@ -99,7 +99,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [1]);
@@ -120,7 +120,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [2]);
@@ -138,7 +138,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [3]);
@@ -157,7 +157,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							1,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [4]);
@@ -178,7 +178,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [5]);
@@ -196,7 +196,7 @@ oS.Init(
 						ClearChild($("DivTeach"));
 						oSym.addTask(
 							5,
-							function () {
+							() => {
 								ClearChild($("dDave"));
 								a(0);
 							},
@@ -219,14 +219,14 @@ oS.Init(
 			a2: [1, 2, 3, 10, 4, 5, 6, 15],
 		},
 		FlagToMonitor: {},
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/SeaShroom.png",
 				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						GetNewCard(this, oSeaShroom, 42);
 					},
 				}

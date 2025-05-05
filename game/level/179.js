@@ -70,7 +70,7 @@ oS.Init(
 		LF: [0, 2, 2, 2, 2, 2, 2],
 		StartGameMusic: "jiaxing",
 		LargeWaveFlag: {},
-		InitLawnMower: function () {
+		InitLawnMower () {
 			CustomSpecial(oPoolCleaner, 1, -1);
 			CustomSpecial(oPoolCleaner, 2, -1);
 			CustomSpecial(oPoolCleaner, 3, -1);
@@ -91,14 +91,14 @@ oS.Init(
 		FlagNum: 10,
 		FlagToSumNum: { a1: [25, 55, 89, 90, 102], a2: [25, 55, 89, 90, 117] },
 		FlagToMonitor: {},
-		FlagToEnd: function () {
+		FlagToEnd () {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick () {
 						SelectModal(180);
 					},
 				}
