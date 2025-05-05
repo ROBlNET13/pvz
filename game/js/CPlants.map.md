@@ -1,0 +1,44 @@
+- `name` -> name
+- `HP` -> plant hp
+- `PKind` -> tlant type
+- `beAttackedPointL` -> left attack boundary position
+- `beAttackedPointR` -> right attack boundary position
+- `CardGif` -> index of card image in PicArr?
+- `StaticGif` -> index of static image in PicArr?
+- `NormalGif` -> index of normal animation in PicArr?
+- `BookHandBack` -> ???
+- `canEat` -> can zombies eat
+- `zIndex` -> layering order
+- `AudioArr` -> array of audio files
+- `coolTime` -> planting cooldown
+- `CanSelect` -> can plant be selected
+- `canTrigger` -> can plant trigger attacks
+- `Stature` -> plant size?
+- `Sleep` -> is plant sleeping
+---
+- `e` -> this (current plant instanece)
+- `k` -> pixelLeft (left pos in pixels)
+- `i` -> temp var to store calc for vertical positioning
+- `l` -> e.prototype (prototype object???)
+- `g` -> pixelTop (top pos in pixels)
+- `b` -> id (plant identifier, formate is "P_[random shit]" i think?)
+- `j` -> zIndex (layering order)
+- `f` -> plant dom element
+- `d` -> x pos parameter
+- `c` -> y pos parameter
+- `h` -> row R parameter
+- `a` -> column C parameter
+- `m` -> ???
+- `n` -> callback or options passed to sonic pregnancy comic birthstyle thing
+---
+- `a` -> grid pos (row_column)
+- `b` -> row param
+- `c` -> ???
+- `d` -> colomn param
+- `e` -> ????????????????????????????????
+---
+- `a` -> id
+- `b` -> damage amount
+- `c` -> damage type
+- `d` -> this (current plant instance)
+- `e` -> ????

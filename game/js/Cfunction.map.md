@@ -1,0 +1,100 @@
+# important shit
+- `ArCard` -> card objects
+- `ArPCard` -> plant cards
+- `ArSun` -> sun objects
+- `$Pn` -> plant shit
+- `$P` -> all plants
+- `$Z` -> all zombies
+- `$` -> get element by ID
+- `NewImg` -> create new image element
+- `NewEle` -> create new element
+- `SetStyle` -> set element style
+- `SetVisible` -> show element
+- `SetBlock` -> set display:block
+- `SetNone` -> set display:none
+- `ClearChild` -> remove element
+- `PlayAudio` -> play sound
+- `$Random` -> used for smth smth url vars for some reason? (eg. if http = "http://aaa.aaa/smth#THIS=WOW", else if https = "https://aaa.aaa/smth?THIS=WOW")
+- `innerText` -> set text content
+- `ShadowPNG` -> shadow image
+- `innerHTML` -> set html content
+- `EDAll`           -> game container
+- `EDPZ`            -> plants and zombies container
+- `EDAlloffsetLeft` -> left offset of main container
+- `EDNewAll`        -> clone of main container
+- `EDNewFlagMeter`  -> clone of flag meter
+- `ESSunNum`        -> sun counter element
+---
+# `$User` -> user info obj (browser indo, system info, probably legacy shit)
+- `b` -> navigator.platform (used for platform detection)
+- `i` -> navigator.userAgent (browser user agent)
+- `f` -> is windows
+- `g` -> is mac
+- `d` -> is x11 (linux)
+- `h` -> is pc
+- `a` -> literally just an empty string????
+- `c` -> is internet explorer
+- `e` -> is ie6
+- `j` -> is protocol http
+---
+# `oSym` -> timer/scheduler obj
+- `Now`      -> current game time
+- `Timer`    -> timer reference
+- `execTask` -> task execution timer reference
+- `TQ`       -> task queue array
+- `NowStep`  -> current time step increment
+- `TimeStep` -> time between steps in ms
+---
+# `oS` -> game settings obj
+- `Version`             -> game version
+- `W`                   -> width
+- `H`                   -> height
+- `C`                   -> no. of columns
+- `B`                   -> b64 decoder function (atob)
+- `LawnMowerX`          -> x position of lawn mowers
+- `Lvl`                 -> current level
+- `GlobalVariables`     -> global variables store
+- `LvlVariables`        -> level-specific variables store
+- `SelfVariables`       -> array of self variables
+- `LvlClearFunc`        -> func ran when level is cleared
+- `PicArr`              -> game images
+- `PName`               -> plant names
+- `ZName`               -> zombie names
+- `backgroundImage`     -> bg image path
+- `LF`                  -> lawn configuration
+- `ZF`                  -> zombie configuration
+- `LargeWaveFlag`       -> large wave flag? idk
+- `StartGameMusic`      -> music to play at game start
+- `ArCard`              -> available cards
+- `SunNum`              -> current sun count
+- `CanSelectCard`       -> if card selection is allowed
+- `DKind`               -> difficulty
+- `StaticCard`          -> is static cards
+- `ShowScroll`          -> show scroll
+- `ProduceSun`          -> is sun production enabled
+- `Coord`               -> coordinate system identifier
+- `AudioArr`            -> audio files
+- `MustAllReady`        -> if all resources must be ready
+- `LoadAccess`          -> no idea
+- `InitLawnMower`       -> initialize lawn mowers
+- `StartGame`           -> start game
+- `ChoseCard`           -> currently chosen card
+- `MPID`                -> no fucking idea, menu pland id or smth maybe?
+- `PicNum`              -> no. of pictures to load
+- `AccessNum`           -> no. of accessed resources
+- `MCID`                -> no fucking idea, its always 0
+- `Chose`               -> no clue
+- `Monitor`             -> monitor
+- `UserDefinedFlagFunc` -> user defined flag function
+- `HaveFog`             -> have fog
+---
+# `oCoord` -> coordinate system obj
+- `ChosePlantX`            -> calculate plant x position
+- `ChosePlantY`            -> calculate plant y position
+- `GetC`                   -> get column from x coordinate
+- `GetR`                   -> get row from y coordinate
+- `GetX`                   -> get x coordinate from column
+- `GetY`                   -> get y coordinate from row
+- `GetY1Y2`                -> get y range from row
+- `GetX1X2`                -> get x range from column
+- `getRowColumnFromPixels` -> convert pixel coordinates to row/column
