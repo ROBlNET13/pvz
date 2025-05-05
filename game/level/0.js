@@ -150,7 +150,9 @@ function runIzlCheck() {
 	let izl = new URLSearchParams(window.location.search).get("izl");
 	if (izl && izl != "") {
 		try {
-			levelDataToLoad = parseClone(decodeURIComponent(izl));
+			izl[0] === "="
+				? (levelDataToLoad = parseCloneTiny(decodeURIComponent(icl)))
+				: (levelDataToLoad = parseClone(decodeURIComponent(izl)));
 		} catch (e) {
 			alert("Failed to load level data from query parameter");
 			// regex away all query params and reload
