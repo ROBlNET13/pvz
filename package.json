@@ -3,8 +3,8 @@
 	"version": "1.0.0",
 	"description": "",
 	"scripts": {
-		"lint": "pnpm eslint . > eslint.log",
-		"fix": "pnpm eslint . --fix > eslint.log"
+		"lint": "eslint .",
+		"fix": "eslint . --fix"
 	},
 	"keywords": [],
 	"author": "",
