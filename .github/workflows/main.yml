@@ -28,6 +28,7 @@ jobs:
 
             - name: Beautify code
               run: |
+                  npm install -ci
                   npm run fix
                   npx prettier --write "**/*.{js,md,html,css,yml}"
 
