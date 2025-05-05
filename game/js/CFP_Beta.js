@@ -127,7 +127,7 @@ function cloneFromPlants(name, sun, screenshot) {
 		let plantRow = $P[keyedDict[i]].R;
 		let plantCol = $P[keyedDict[i]].C;
 		let plantName = Object.getPrototypeOf($P[keyedDict[i]]).EName;
-		let zIndex = $P[keyedDict[i]].zIndex;
+		let { zIndex } = $P[keyedDict[i]];
 		plantDict[keyedDict[i]] = { zIndex, plantRow, plantCol, plantName };
 	}
 	// now turn it into an array of dictionaries
@@ -205,14 +205,18 @@ function untinyifyClone(tinyString) {
 		const [tinyKey, tinyValue] = pair.split("\uE005");
 		const originalKey = REVERSE_TINYIFIER_MAP[tinyKey];
 
-		if (!originalKey) continue; // skip if key not found
+		if (!originalKey) {
+			continue;
+		} // skip if key not found
 
 		let originalValue;
 		if (originalKey === "plants") {
 			originalValue = [];
 			const plantStrings = tinyValue.split("\uE003");
 			for (const plantString of plantStrings) {
-				if (!plantString) continue;
+				if (!plantString) {
+					continue;
+				}
 				const plantObj = {};
 				const plantData = plantString
 					.slice(1, -1) // remove start/end markers \uE001
@@ -260,9 +264,8 @@ function stringifyClone(levelData) {
 		);
 		delete levelData.screenshot;
 		return compressString(JSON.stringify(levelData)) + ";" + screenshot;
-	} else {
-		return compressString(JSON.stringify(levelData));
 	}
+	return compressString(JSON.stringify(levelData));
 }
 function stringifyCloneTiny(levelData) {
 	return "=" + compressString(tinyifyClone(levelData));
@@ -278,9 +281,8 @@ function parseClone(stringifiedData) {
 function parseCloneTiny(stringifiedData) {
 	if (stringifiedData[0] === "=") {
 		return untinyifyClone(decompressString(stringifiedData.slice(1)));
-	} else {
-		throw new Error("Invalid data format");
 	}
+	throw new Error("Invalid data format");
 }
 
 function restoreToPlants(levelData) {
@@ -289,9 +291,9 @@ function restoreToPlants(levelData) {
 
 	for (let i = 0; i < plantArray.length; i++) {
 		let plant = plantArray[i];
-		let plantName = plant.plantName;
-		let plantRow = plant.plantRow;
-		let plantCol = plant.plantCol;
+		let { plantName } = plant;
+		let { plantRow } = plant;
+		let { plantCol } = plant;
 		let placed = CustomSpecial(window[plantName], plantRow, plantCol, 1);
 		placed.plantImage.classList.add("cardboard");
 	}

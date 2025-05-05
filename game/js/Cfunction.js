@@ -1,2023 +1,1992 @@
 var $User = (function () {
-		var b = navigator.platform,
-			i = navigator.userAgent,
-			f = b == "Win32" || b == "Windows",
-			g = b == "Mac68K" || b == "MacPPC" || b == "Macintosh",
-			d = b == "X11" && !f && !g,
-			h = f || g || d,
-			a = "",
-			c = !!(window.attachEvent && !window.opera),
-			e = c && !window.XMLHttpRequest,
-			j = location.protocol.toLowerCase() == "http:" ? 1 : 0;
-		$Random = j ? "#" : "?";
-		innerText = c
-			? function (l, k) {
-					l.innerText = k;
-				}
-			: function (l, k) {
-					l.textContent = k;
-				};
-		e
-			? (document.execCommand("BackgroundImageCache", false, true),
-				(ShadowPNG = ""))
-			: (ShadowPNG = "images/interface/plantshadow32.png");
-		innerHTML = function (element, content) {
-			if (element) {
-				element.innerHTML = content;
+	var b = navigator.platform;
+	var i = navigator.userAgent;
+	var f = b == "Win32" || b == "Windows";
+	var g = b == "Mac68K" || b == "MacPPC" || b == "Macintosh";
+	var d = b == "X11" && !f && !g;
+	var h = f || g || d;
+	var a = "";
+	var c = !!(window.attachEvent && !window.opera);
+	var e = c && !window.XMLHttpRequest;
+	var j = location.protocol.toLowerCase() == "http:" ? 1 : 0;
+	$Random = j ? "#" : "?";
+	innerText = c
+		? function (l, k) {
+				l.innerText = k;
 			}
-		};
-		return {
-			Browser: {
-				IE: c,
-				IE6: e,
-				IE9: c && i.indexOf("MSIE 9.0") > 0,
-				Opera: !!window.opera,
-				WebKit: i.indexOf("AppleWebKit/") > -1,
-				Gecko: i.indexOf("Gecko") > -1 && i.indexOf("KHTML") == -1,
-			},
-			Server: {
-				List: [[]],
-				SpeedURL: "",
-				DataURL: "",
-				SpeedInx: 0,
-				DataInx: 0,
-				ErrNum: 0,
-			},
-			HTML5: (function () {
-				return !!document.createElement("canvas").getContext;
-			})(),
-			System: { Win: f, Mac: g, Unix: d },
-			Client: { PC: h, Mobile: !h },
-			HTTP: j,
-			AuthorWebsite: a,
-			isAuthorWebsite: false,
-			Visitor: {
-				UserName: "",
-				UserAuthority: 0,
-				Progress: 1,
-				SelectServerT: 0,
-				NowStep: 1,
-				TimeStep: 10,
-				SaveLvl: 1,
-				SaveLvlCallBack: null,
-			},
-		};
-	})(),
-	oSym = {
-		Init: function (b, a) {
-			this.Now = 0;
-			this.Timer = this.execTask = null;
-			this.TQ = [{ T: 0, f: b, ar: a || [] }];
-			this.NowStep = 1;
-			this.TimeStep = 10;
-			this.Start();
+		: function (l, k) {
+				l.textContent = k;
+			};
+	e
+		? (document.execCommand("BackgroundImageCache", false, true),
+			(ShadowPNG = ""))
+		: (ShadowPNG = "images/interface/plantshadow32.png");
+	innerHTML = function (element, content) {
+		if (element) {
+			element.innerHTML = content;
+		}
+	};
+	return {
+		Browser: {
+			IE: c,
+			IE6: e,
+			IE9: c && i.indexOf("MSIE 9.0") > 0,
+			Opera: !!window.opera,
+			WebKit: i.indexOf("AppleWebKit/") > -1,
+			Gecko: i.indexOf("Gecko") > -1 && i.indexOf("KHTML") == -1,
 		},
-		Clear: function () {
-			this.TQ.length = 0;
+		Server: {
+			List: [[]],
+			SpeedURL: "",
+			DataURL: "",
+			SpeedInx: 0,
+			DataInx: 0,
+			ErrNum: 0,
 		},
-		Start: function () {
-			if (this.Timer == null) {
-				(function () {
-					var a = oSym;
-					try {
-						a.Now += a.NowStep;
-					} catch (b) {
-						alert("Timeout to quit the game");
-						location.reload();
+		HTML5: (function () {
+			return !!document.createElement("canvas").getContext;
+		})(),
+		System: { Win: f, Mac: g, Unix: d },
+		Client: { PC: h, Mobile: !h },
+		HTTP: j,
+		AuthorWebsite: a,
+		isAuthorWebsite: false,
+		Visitor: {
+			UserName: "",
+			UserAuthority: 0,
+			Progress: 1,
+			SelectServerT: 0,
+			NowStep: 1,
+			TimeStep: 10,
+			SaveLvl: 1,
+			SaveLvlCallBack: null,
+		},
+	};
+})();
+var oSym = {
+	Init(b, a) {
+		this.Now = 0;
+		this.Timer = this.execTask = null;
+		this.TQ = [{ T: 0, f: b, ar: a || [] }];
+		this.NowStep = 1;
+		this.TimeStep = 10;
+		this.Start();
+	},
+	Clear() {
+		this.TQ.length = 0;
+	},
+	Start() {
+		if (this.Timer == null) {
+			(function () {
+				var a = oSym;
+				try {
+					a.Now += a.NowStep;
+				} catch (b) {
+					alert("Timeout to quit the game");
+					location.reload();
+				}
+				a.Timer = setTimeout(arguments.callee, a.TimeStep);
+			})();
+			(function () {
+				var d = oSym;
+				var a = d.TQ;
+				var c = a.length;
+				var b;
+				var e;
+				while (c--) {
+					if (d.Now >= (b = a[c]).T) {
+						try {
+							(e = b.f).apply(e, b.ar);
+						} catch (Reason) {
+							console.error(Reason);
+						}
+						d.removeTask(c);
 					}
-					a.Timer = setTimeout(arguments.callee, a.TimeStep);
-				})();
-				(function () {
-					var d = oSym,
-						a = d.TQ,
-						c = a.length,
-						b,
-						e;
-					while (c--) {
-						if (d.Now >= (b = a[c]).T) {
-							try {
-								(e = b.f).apply(e, b.ar);
-							} catch (Reason) {
-								console.error(Reason);
-							}
-							d.removeTask(c);
+				}
+				d.execTask = setTimeout(arguments.callee, d.TimeStep);
+			})();
+		}
+	},
+	Stop() {
+		clearTimeout(oSym.Timer);
+		clearTimeout(oSym.execTask);
+		oSym.Timer = null;
+		oSym.execTask = null;
+	},
+	addTask(b, c, a) {
+		var d = this.TQ;
+		d[d.length] = { T: this.Now + b, f: c, ar: a };
+		return this;
+	},
+	removeTask(a) {
+		this.TQ.splice(a, 1);
+		return this;
+	},
+};
+var oS = {
+	Version: 5,
+	W: 880,
+	H: 600,
+	C: 9,
+	B: atob,
+	LawnMowerX: 70,
+	Lvl: 0,
+	GlobalVariables: {},
+	LvlVariables: {},
+	SelfVariables: [],
+	LvlClearFunc: null,
+	Init(e, g, b, d) {
+		var c;
+		var a = window;
+		e.LoadMusic
+			? (PlayMusic(e.LoadMusic),
+				NewAudio({ source: "ChooseYourSeeds", loop: true }))
+			: PlayMusic((e.LoadMusic = "ChooseYourSeeds"));
+		if (b != d) {
+			for (c in b) {
+				a[c] != d
+					? ((this.GlobalVariables[c] = a[c]), (a[c] = b[c]))
+					: (this.LvlVariables[c] = a[c] = b[c]);
+			}
+		}
+		ArCard = [];
+		ArPCard = [];
+		ArSun = [];
+		$Pn = [];
+		$Z = [];
+		$P = [];
+		EDAll = $("dAll");
+		EDPZ = $("dPZ");
+		EDAlloffsetLeft = EDAll.offsetLeft;
+		EDNewAll = EDAll.cloneNode(true);
+		EDNewFlagMeter = $("dFlagMeter").cloneNode(true);
+		ESSunNum = $("sSunNum");
+		this.AudioArr = [];
+		this.MustAllReady = true;
+		this.LoadAccess = null;
+		this.InitLawnMower = null;
+		this.StartGame = null;
+		this.ChoseCard = this.MPID = "";
+		this.PicNum = this.AccessNum = this.MCID = this.Chose = 0;
+		this.Monitor = null;
+		this.UserDefinedFlagFunc = null;
+		this.SunNum = d;
+		this.BrainsNum = d;
+		this.HaveFog = 0;
+		for (c in e) {
+			this.SelfVariables.push(c);
+			this[c] = e[c];
+		}
+		$User.isAuthorWebsite &&
+			oS.LevelEName != 0 &&
+			(ClearChild($("JSPVZAjax")),
+			NewEle(
+				"JSPVZAjax",
+				"script",
+				0,
+				{
+					src:
+						$User.Server.DataURL +
+						"asp/SaveUserPosition.asp?l=" +
+						escape(oS.LevelName),
+					type: "text/javascript",
+				},
+				document.body
+			));
+		!this.PicArr && (this.PicArr = []);
+		!this.PName && (this.PName = []);
+		!this.ZName && (this.ZName = []);
+		!this.backgroundImage &&
+			(this.backgroundImage = "images/interface/background1.jpg");
+		!this.LF && (this.LF = [0, 1, 1, 1, 1, 1]);
+		!this.ZF && (this.ZF = this.LF);
+		!this.LargeWaveFlag && (this.LargeWaveFlag = {});
+		!this.StartGameMusic && (this.StartGameMusic = "Grasswalk");
+		this.ArCard = this.CardKind == d ? e.PName : e.ZName;
+		this.SunNum == d && (this.SunNum = 50);
+		this.CanSelectCard == d && (this.CanSelectCard = 1);
+		this.DKind == d && (this.DKind = 1);
+		this.StaticCard == d && (this.StaticCard = 1);
+		this.ShowScroll == d && (this.ShowScroll = true);
+		this.ProduceSun == d && (this.ProduceSun = true);
+		this.Coord == d && (this.Coord = 1);
+		oCoord[this.Coord]();
+		oP.Init(g);
+		oT.Init(this.R);
+		oZ.Init(this.R);
+		oGd.Init();
+		this.LoadTips();
+		this.LoadProgress();
+	},
+	LoadTips() {
+		var b = NewEle(
+			"dTips",
+			"div",
+			"position:absolute;color:#fff;top:450px;width:100%;text-align:center;font-size:16px",
+			"",
+			EDAll
+		);
+		var a = [""];
+		b.innerHTML =
+			'<span style="font-weight:bold"></span><span>' +
+			a[Math.floor(Math.random() * a.length)] +
+			"</span>";
+	},
+	LoadProgress(r, l, a, t, b) {
+		SetVisible($("dFlagMeter"));
+		SetHidden($("imgGQJC"));
+		var p = oS;
+		var j = [];
+		var i = p.PicArr;
+		var k = p.PName;
+		var s = p.ZName;
+		var w = 0;
+		var u = GetX(11);
+		var g = oGd.$LF;
+		var c = oGd.$ZF;
+		var d = oS.R + 1;
+		var x = $("sFlagMeterTitleF");
+		var y = $("dFlagMeterTitle");
+		var e = p.LoadImage;
+		var h = p.CheckImg;
+		var f = p.InitPn;
+		var m;
+		var q;
+		NewImg(
+			0,
+			"images/interface/brain.png",
+			"",
+			($Pn.oBrains = NewEle(0, "div", "position:absolute"))
+		);
+		switch (p.Coord) {
+			case 2:
+				NewImg(
+					0,
+					"images/interface/PoolCleaner.png",
+					"",
+					($Pn.oPoolCleaner = NewEle(0, "div", "position:absolute"))
+				);
+			case 1:
+				NewImg(
+					0,
+					"images/interface/LawnCleaner.png",
+					"",
+					($Pn.oLawnCleaner = NewEle(0, "div", "position:absolute"))
+				);
+				break;
+		}
+		while (r--) {
+			a = (l = k[r].prototype).PicArr.slice(0);
+			Array.prototype.push.apply(i, a);
+			if ($User.HTML5) {
+				t = l.AudioArr;
+				b = t.length;
+				while (b--) {
+					NewAudio({ source: t[b] });
+				}
+			}
+		}
+		for (r in oS.LargeWaveFlag) {
+			s[s.length] = oS.FlagZombie || oFlagZombie;
+			break;
+		}
+		r = s.length;
+		while (r--) {
+			Array.prototype.push.apply(
+				i,
+				(l = (q = s[r]).prototype).PicArr.slice(0)
+			);
+			if ($User.HTML5) {
+				t = l.AudioArr;
+				b = t.length;
+				while (b--) {
+					NewAudio({ source: t[b] });
+				}
+			}
+			l.Init.call(q, u, l, c, d);
+		}
+		p.PicNum = w += i.length;
+		r = i.length;
+		y.setAttribute("title", "");
+		y.style.cursor = "url(images/interface/Pointer.cur),pointer";
+		y.onclick = function () {
+			oS.MustAllReady = false;
+			oS.LoadReady(oS);
+		};
+		while (r--) {
+			e(i[r], h);
+		}
+		r = j.length;
+		oS.LoadAudio();
+	},
+	LoadAudio: $User.HTML5
+		? function () {
+				var b = oS.AudioArr;
+				var a = b.length;
+				while (a--) {
+					NewAudio({ source: b[a] });
+				}
+			}
+		: function () {},
+	InitPn(a) {
+		var b = ($Pn[a[0]] = NewEle(0, "div", "position:absolute"));
+		NewImg(0, ShadowPNG, a[2], b);
+		NewImg(0, a[1], "", b);
+		oS.CheckImg();
+	},
+	LoadImage: $User.Browser.IE
+		? function (b, d, c) {
+				var a = new Image();
+				a.onreadystatechange = function () {
+					a.readyState == "complete" && d(c, 1);
+				};
+				a.onerror = function () {
+					a.onreadystatechange = null;
+					a.title = b;
+					d(c, 0);
+				};
+				a.src = b;
+			}
+		: function (b, d, c) {
+				var a = new Image();
+				a.src = b;
+				a.complete
+					? d(c, 1)
+					: ((a.onload = function () {
+							a.complete && d(c, 1);
+						}),
+						(a.onerror = function () {
+							a.title = b;
+							d(c, 0);
+						}));
+			},
+	LoadScript: $User.Browser.IE
+		? function (f, c, e, a, d) {
+				var b = NewEle(f, "script", 0, { type: "text/javascript" });
+				b.onreadystatechange = function () {
+					(b.readyState == "loaded" || b.readyState == "complete") &&
+						((b.onreadystatechange = null), e(d, 1));
+				};
+				b.onerror = function () {
+					b.onreadystatechange = null;
+					e(d, 0);
+				};
+				b.src = c;
+				a.appendChild(b);
+			}
+		: function (f, c, e, a, d) {
+				var b = NewEle(f, "script", 0, { type: "text/javascript" });
+				b.onload = function () {
+					e(d, 1);
+				};
+				b.onerror = function () {
+					e(d, 0);
+				};
+				b.src = c;
+				a.appendChild(b);
+			},
+	CheckImg(b, a) {
+		var c = oS;
+		if (c.AccessNum > c.PicNum || !c.MustAllReady) {
+			return;
+		}
+		b = 139 - (c.AccessNum++ * 140) / c.PicNum - 11;
+		$("imgFlagHead").style.left = b + "px";
+		$("sFlagMeterTitleF").innerHTML =
+			'<span style="cursor:url(images/interface/Pointer.cur),pointer;font-family:Tahoma;color:#fff">Loading...(' +
+			c.AccessNum +
+			"/" +
+			c.PicNum +
+			")</span>";
+		$("imgFlagMeterFull").style.clip =
+			"rect(0,auto,21px," + (b + 11) + "px)";
+		if (c.AccessNum == c.PicNum) {
+			oS.Lvl == 0;
+			if (c.MustAllReady) {
+				c.LoadReady(c);
+			}
+		}
+	},
+	LoadReady(f) {
+		var c = $("dFlagMeterTitle");
+		if (c.onclick == null) {
+			return;
+		}
+		ClearChild($("dTips"));
+		oSym.NowStep = $User.Visitor.NowStep;
+		oSym.TimeStep = $User.Visitor.TimeStep;
+		c.onclick = null;
+		c.title = null;
+		c.style.cursor = "url(images/interface/Cursor.cur),default";
+		SetHidden($("dFlagMeterContent"), dFlagMeter);
+		$("dFlagMeter").style.top = "490px";
+		//          $("dFlagMeter").style.left = "805px"; // not good
+		//           $("dFlagMeter").style.left = (currentLeft + 15) + "px"; // not good either
+		$("sFlagMeterTitleF").innerHTML = $("dFlagMeterTitleB").innerHTML =
+			f.LevelName;
+		$("imgFlagHead").style.left = "139px";
+		$("imgFlagMeterFull").style.clip = "rect(0,auto,auto,157px)";
+		delete f.PicArr;
+		delete f.Coord;
+		delete f.LF;
+		delete f.ZF;
+		var a = {
+			background: "url(" + f.backgroundImage + ") no-repeat",
+			visibility: "visible",
+		};
+		!f.ShowScroll && (a.left = "-115px");
+		SetStyle($("tGround"), a);
+		$("tGround").innerHTML = oS.GifHTML;
+		var d = function (h) {
+			var i = oS;
+			var g = $User.Visitor;
+			NewImg(
+				"imgGrowSoil",
+				"images/interface/GrowSoil.gif",
+				"visibility:hidden;z-index:50",
+				EDAll
+			);
+			NewImg(
+				"imgGrowSpray",
+				"images/interface/GrowSpray.gif",
+				"visibility:hidden;z-index:50",
+				EDAll
+			);
+			innerText(ESSunNum, i.SunNum);
+			InitPCard();
+			i.ShowScroll
+				? oSym.addTask(
+						h == undefined ? 200 : h,
+						(j) => {
+							ClearChild(j);
+							i.ScrollScreen();
+						},
+						[
+							NewEle(
+								"DivParty",
+								"div",
+								"line-height:50px;color:#FFFFFF;font-size:50px;font-family:Tahoma",
+								{},
+								EDAll
+							),
+						]
+					)
+				: (SetVisible($("dMenu")), AutoSelectCard(), LetsGO());
+		};
+		f.LoadAccess ? f.LoadAccess(d) : d();
+	},
+	ScrollScreen() {
+		(EDAll.scrollLeft += 25) < 500
+			? oSym.addTask(2, arguments.callee, [])
+			: (DisplayZombie(),
+				SetVisible($("dMenu")),
+				oS.CanSelectCard
+					? SetVisible($("dTop"), $("dSelectCard"), $("dCardList"))
+					: (AutoSelectCard(),
+						oSym.addTask(200, oS.ScrollBack, [LetsGO])));
+	},
+	ScrollBack(a) {
+		SetHidden($("dZombie"), $("dSelectCard"), $("dTitle"), $("dCardList"));
+		$("tGround").style.left = "-115px";
+		$("dZombie").innerHTML = "";
+		(function (c) {
+			var b = EDAll.scrollLeft;
+			(b -= 25) > 0
+				? ((EDAll.scrollLeft = b),
+					oSym.addTask(2, arguments.callee, [c]))
+				: ((EDAll.scrollLeft = 0), c());
+		})(a);
+	},
+};
+var oCoord = {
+	1() {
+		oS.R = 5;
+		ChosePlantX = function (a) {
+			return Compare(GetC(a), 1, oS.C, GetX);
+		};
+		ChosePlantY = function (a) {
+			return $SSml(
+				a,
+				[86, 181, 281, 386, 476],
+				[
+					[75, 0],
+					[175, 1],
+					[270, 2],
+					[380, 3],
+					[470, 4],
+					[575, 5],
+				]
+			);
+		};
+		GetC = function (a) {
+			return $SSml(
+				a,
+				[
+					-50, 100, 140, 220, 295, 379, 460, 540, 625, 695, 775, 855,
+					935,
+				],
+				[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+			);
+		};
+		GetR = function (a) {
+			return $SSml(a, [86, 181, 281, 386, 476], [0, 1, 2, 3, 4, 5]);
+		};
+		GetX = function (a) {
+			return $SEql(a, {
+				"-2": -50,
+				"-1": 100,
+				0: 140,
+				1: 187,
+				2: 267,
+				3: 347,
+				4: 427,
+				5: 507,
+				6: 587,
+				7: 667,
+				8: 747,
+				9: 827,
+				10: 865,
+				11: 950,
+			});
+		};
+		GetY = function (a) {
+			return $SEql(a, {
+				0: 75,
+				1: 175,
+				2: 270,
+				3: 380,
+				4: 470,
+				5: 575,
+			});
+		};
+		GetY1Y2 = function (a) {
+			return $SEql(a, {
+				0: [0, 85],
+				1: [86, 180],
+				2: [181, 280],
+				3: [281, 385],
+				4: [386, 475],
+				5: [476, 600],
+			});
+		};
+		GetX1X2 = function (a) {
+			return $SEql(a, {
+				"-2": [-100, -49],
+				"-1": [-50, 99],
+				0: [100, 139],
+				1: [140, 219],
+				2: [220, 294],
+				3: [295, 378],
+				4: [379, 459],
+				5: [460, 539],
+				6: [540, 624],
+				7: [625, 694],
+				8: [695, 774],
+				9: [775, 854],
+				10: [855, 934],
+				11: [950, 1030],
+			});
+		};
+		getRowColumnFromPixels = function (pixelX, pixelY) {
+			let rowWidth = 129;
+			let columnWidth = 170;
+			return [
+				Math.floor(pixelX / rowWidth) + 1,
+				Math.floor(pixelY / columnWidth) + 1,
+			];
+		};
+		!oS.InitLawnMower &&
+			(oS.InitLawnMower = function () {
+				var a = 6;
+				while (--a) {
+					CustomSpecial(oLawnCleaner, a, -1);
+				}
+			});
+		oS.GifHTML = "";
+	},
+	2() {
+		oS.R = 6;
+		ChosePlantX = function (a) {
+			return Compare(GetC(a), 1, oS.C, GetX);
+		};
+		ChosePlantY = function (a) {
+			return $SSml(
+				a,
+				[86, 171, 264, 368, 440, 532],
+				[
+					[75, 0],
+					[161, 1],
+					[254, 2],
+					[358, 3],
+					[430, 4],
+					[524, 5],
+					[593, 6],
+				]
+			);
+		};
+		GetC = function (a) {
+			return $SSml(
+				a,
+				[
+					-50, 100, 140, 220, 295, 379, 460, 540, 625, 695, 775, 855,
+					935,
+				],
+				[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+			);
+		};
+		GetR = function (a) {
+			return $SSml(
+				a,
+				[86, 171, 264, 368, 440, 532],
+				[0, 1, 2, 3, 4, 5, 6]
+			);
+		};
+		GetX = function (a) {
+			return $SEql(a, {
+				"-2": -50,
+				"-1": 100,
+				0: 140,
+				1: 187,
+				2: 267,
+				3: 347,
+				4: 427,
+				5: 507,
+				6: 587,
+				7: 667,
+				8: 747,
+				9: 827,
+				10: 865,
+				11: 950,
+			});
+		};
+		GetY = function (a) {
+			return $SEql(a, {
+				0: 75,
+				1: 165,
+				2: 253,
+				3: 355,
+				4: 430,
+				5: 522,
+				6: 587,
+			});
+		};
+		GetY1Y2 = function (a) {
+			return $SEql(a, {
+				0: [0, 85],
+				1: [86, 170],
+				2: [171, 263],
+				3: [264, 367],
+				4: [368, 439],
+				5: [440, 531],
+				6: [532, 600],
+			});
+		};
+		GetX1X2 = function (a) {
+			return $SEql(a, {
+				"-2": [-100, -49],
+				"-1": [-50, 99],
+				0: [100, 139],
+				1: [140, 219],
+				2: [220, 294],
+				3: [295, 378],
+				4: [379, 459],
+				5: [460, 539],
+				6: [540, 624],
+				7: [625, 694],
+				8: [695, 774],
+				9: [775, 854],
+				10: [855, 934],
+				11: [950, 1030],
+			});
+		};
+		!oS.InitLawnMower &&
+			(oS.InitLawnMower = function () {
+				CustomSpecial(oLawnCleaner, 1, -1);
+				CustomSpecial(oLawnCleaner, 2, -1);
+				CustomSpecial(oPoolCleaner, 3, -1);
+				CustomSpecial(oPoolCleaner, 4, -1);
+				CustomSpecial(oLawnCleaner, 5, -1);
+				CustomSpecial(oLawnCleaner, 6, -1);
+			});
+		oS.GifHTML =
+			'<img style="position:absolute;left:253px;top:278px" src="">';
+		!oS.DKind && oGd.MakeFog();
+	},
+};
+var oP = {
+	Init(a) {
+		var r = this;
+		r.NumZombies = r.FlagZombies = 0;
+		if (a) {
+			var l;
+			for (l in a) {
+				r[l] = a[l];
+			}
+			if (a.AZ) {
+				var k;
+				var b = {};
+				var g;
+				var c;
+				var q;
+				var p;
+				var d;
+				var m = [];
+				var h;
+				var e;
+				var n;
+				r.ArZ = [];
+				h = (k = r.AZ).sort((i, f) => {
+					return i[2] - f[2];
+				}).length;
+				while (h--) {
+					c = (n = k[h])[0];
+					q = n[1];
+					p = n[2];
+					while (q--) {
+						m.push([c, p]);
+					}
+					if ((d = n[3])) {
+						e = d.length;
+						while (e--) {
+							b[(g = d[e])] ? b[g].push(c) : (b[g] = [c]);
 						}
 					}
-					d.execTask = setTimeout(arguments.callee, d.TimeStep);
-				})();
-			}
-		},
-		Stop: function () {
-			clearTimeout(oSym.Timer);
-			clearTimeout(oSym.execTask);
-			oSym.Timer = null;
-			oSym.execTask = null;
-		},
-		addTask: function (b, c, a) {
-			var d = this.TQ;
-			d[d.length] = { T: this.Now + b, f: c, ar: a };
-			return this;
-		},
-		removeTask: function (a) {
-			this.TQ.splice(a, 1);
-			return this;
-		},
-	},
-	oS = {
-		Version: 5,
-		W: 880,
-		H: 600,
-		C: 9,
-		B: atob,
-		LawnMowerX: 70,
-		Lvl: 0,
-		GlobalVariables: {},
-		LvlVariables: {},
-		SelfVariables: [],
-		LvlClearFunc: null,
-		Init: function (e, g, b, d) {
-			var c,
-				a = window;
-			e.LoadMusic
-				? (PlayMusic(e.LoadMusic),
-					NewAudio({ source: "ChooseYourSeeds", loop: true }))
-				: PlayMusic((e.LoadMusic = "ChooseYourSeeds"));
-			if (b != d) {
-				for (c in b) {
-					a[c] != d
-						? ((this.GlobalVariables[c] = a[c]), (a[c] = b[c]))
-						: (this.LvlVariables[c] = a[c] = b[c]);
 				}
+				r.AZ = m;
+				r.MustShowAtFlag = b;
 			}
-			ArCard = [];
-			ArPCard = [];
-			ArSun = [];
-			$Pn = [];
-			$Z = [];
-			$P = [];
-			EDAll = $("dAll");
-			EDPZ = $("dPZ");
-			EDAlloffsetLeft = EDAll.offsetLeft;
-			EDNewAll = EDAll.cloneNode(true);
-			EDNewFlagMeter = $("dFlagMeter").cloneNode(true);
-			ESSunNum = $("sSunNum");
-			this.AudioArr = [];
-			this.MustAllReady = true;
-			this.LoadAccess = null;
-			this.InitLawnMower = null;
-			this.StartGame = null;
-			this.ChoseCard = this.MPID = "";
-			this.PicNum = this.AccessNum = this.MCID = this.Chose = 0;
-			this.Monitor = null;
-			this.UserDefinedFlagFunc = null;
-			this.SunNum = d;
-			this.BrainsNum = d;
-			this.HaveFog = 0;
-			for (c in e) {
-				this.SelfVariables.push(c);
-				this[c] = e[c];
-			}
-			$User.isAuthorWebsite &&
-				oS.LevelEName != 0 &&
-				(ClearChild($("JSPVZAjax")),
-				NewEle(
-					"JSPVZAjax",
-					"script",
-					0,
-					{
-						src:
-							$User.Server.DataURL +
-							"asp/SaveUserPosition.asp?l=" +
-							escape(oS.LevelName),
-						type: "text/javascript",
-					},
-					document.body
-				));
-			!this.PicArr && (this.PicArr = []);
-			!this.PName && (this.PName = []);
-			!this.ZName && (this.ZName = []);
-			!this.backgroundImage &&
-				(this.backgroundImage = "images/interface/background1.jpg");
-			!this.LF && (this.LF = [0, 1, 1, 1, 1, 1]);
-			!this.ZF && (this.ZF = this.LF);
-			!this.LargeWaveFlag && (this.LargeWaveFlag = {});
-			!this.StartGameMusic && (this.StartGameMusic = "Grasswalk");
-			this.ArCard = this.CardKind == d ? e.PName : e.ZName;
-			this.SunNum == d && (this.SunNum = 50);
-			this.CanSelectCard == d && (this.CanSelectCard = 1);
-			this.DKind == d && (this.DKind = 1);
-			this.StaticCard == d && (this.StaticCard = 1);
-			this.ShowScroll == d && (this.ShowScroll = true);
-			this.ProduceSun == d && (this.ProduceSun = true);
-			this.Coord == d && (this.Coord = 1);
-			oCoord[this.Coord]();
-			oP.Init(g);
-			oT.Init(this.R);
-			oZ.Init(this.R);
-			oGd.Init();
-			this.LoadTips();
-			this.LoadProgress();
-		},
-		LoadTips: function () {
-			var b = NewEle(
-					"dTips",
-					"div",
-					"position:absolute;color:#fff;top:450px;width:100%;text-align:center;font-size:16px",
-					"",
-					EDAll
-				),
-				a = [""];
-			b.innerHTML =
-				'<span style="font-weight:bold"></span><span>' +
-				a[Math.floor(Math.random() * a.length)] +
-				"</span>";
-		},
-		LoadProgress: function (r, l, a, t, b) {
-			SetVisible($("dFlagMeter"));
-			SetHidden($("imgGQJC"));
-			var p = oS,
-				j = [],
-				i = p.PicArr,
-				k = p.PName,
-				s = p.ZName,
-				w = 0,
-				u = GetX(11),
-				g = oGd.$LF,
-				c = oGd.$ZF,
-				d = oS.R + 1,
-				x = $("sFlagMeterTitleF"),
-				y = $("dFlagMeterTitle"),
-				e = p.LoadImage,
-				h = p.CheckImg,
-				f = p.InitPn,
-				m,
-				q;
-			NewImg(
-				0,
-				"images/interface/brain.png",
-				"",
-				($Pn.oBrains = NewEle(0, "div", "position:absolute"))
-			);
-			switch (p.Coord) {
-				case 2:
-					NewImg(
-						0,
-						"images/interface/PoolCleaner.png",
-						"",
-						($Pn.oPoolCleaner = NewEle(
-							0,
-							"div",
-							"position:absolute"
-						))
-					);
-				case 1:
-					NewImg(
-						0,
-						"images/interface/LawnCleaner.png",
-						"",
-						($Pn.oLawnCleaner = NewEle(
-							0,
-							"div",
-							"position:absolute"
-						))
-					);
-					break;
-			}
-			while (r--) {
-				a = (l = k[r].prototype).PicArr.slice(0);
-				Array.prototype.push.apply(i, a);
-				if ($User.HTML5) {
-					t = l.AudioArr;
-					b = t.length;
-					while (b--) {
-						NewAudio({ source: t[b] });
-					}
-				}
-			}
-			for (r in oS.LargeWaveFlag) {
-				s[s.length] = oS.FlagZombie || oFlagZombie;
-				break;
-			}
-			r = s.length;
-			while (r--) {
-				Array.prototype.push.apply(
-					i,
-					(l = (q = s[r]).prototype).PicArr.slice(0)
-				);
-				if ($User.HTML5) {
-					t = l.AudioArr;
-					b = t.length;
-					while (b--) {
-						NewAudio({ source: t[b] });
-					}
-				}
-				l.Init.call(q, u, l, c, d);
-			}
-			p.PicNum = w += i.length;
-			r = i.length;
-			y.setAttribute("title", "");
-			y.style.cursor = "url(images/interface/Pointer.cur),pointer";
-			y.onclick = function () {
-				oS.MustAllReady = false;
-				oS.LoadReady(oS);
-			};
-			while (r--) {
-				e(i[r], h);
-			}
-			r = j.length;
-			oS.LoadAudio();
-		},
-		LoadAudio: $User.HTML5
-			? function () {
-					var b = oS.AudioArr,
-						a = b.length;
-					while (a--) {
-						NewAudio({ source: b[a] });
-					}
-				}
-			: function () {},
-		InitPn: function (a) {
-			var b = ($Pn[a[0]] = NewEle(0, "div", "position:absolute"));
-			NewImg(0, ShadowPNG, a[2], b);
-			NewImg(0, a[1], "", b);
-			oS.CheckImg();
-		},
-		LoadImage: $User.Browser.IE
-			? function (b, d, c) {
-					var a = new Image();
-					a.onreadystatechange = function () {
-						a.readyState == "complete" && d(c, 1);
-					};
-					a.onerror = function () {
-						a.onreadystatechange = null;
-						a.title = b;
-						d(c, 0);
-					};
-					a.src = b;
-				}
-			: function (b, d, c) {
-					var a = new Image();
-					a.src = b;
-					a.complete
-						? d(c, 1)
-						: ((a.onload = function () {
-								a.complete && d(c, 1);
-							}),
-							(a.onerror = function () {
-								a.title = b;
-								d(c, 0);
-							}));
-				},
-		LoadScript: $User.Browser.IE
-			? function (f, c, e, a, d) {
-					var b = NewEle(f, "script", 0, { type: "text/javascript" });
-					b.onreadystatechange = function () {
-						(b.readyState == "loaded" ||
-							b.readyState == "complete") &&
-							((b.onreadystatechange = null), e(d, 1));
-					};
-					b.onerror = function () {
-						b.onreadystatechange = null;
-						e(d, 0);
-					};
-					b.src = c;
-					a.appendChild(b);
-				}
-			: function (f, c, e, a, d) {
-					var b = NewEle(f, "script", 0, { type: "text/javascript" });
-					b.onload = function () {
-						e(d, 1);
-					};
-					b.onerror = function () {
-						e(d, 0);
-					};
-					b.src = c;
-					a.appendChild(b);
-				},
-		CheckImg: function (b, a) {
-			var c = oS;
-			if (c.AccessNum > c.PicNum || !c.MustAllReady) {
-				return;
-			}
-			b = 139 - (c.AccessNum++ * 140) / c.PicNum - 11;
-			$("imgFlagHead").style.left = b + "px";
-			$("sFlagMeterTitleF").innerHTML =
-				'<span style="cursor:url(images/interface/Pointer.cur),pointer;font-family:Tahoma;color:#fff">Loading...(' +
-				c.AccessNum +
-				"/" +
-				c.PicNum +
-				")</span>";
-			$("imgFlagMeterFull").style.clip =
-				"rect(0,auto,21px," + (b + 11) + "px)";
-			if (c.AccessNum == c.PicNum) {
-				oS.Lvl == 0;
-				if (c.MustAllReady) {
-					c.LoadReady(c);
-				}
-			}
-		},
-		LoadReady: function (f) {
-			var c = $("dFlagMeterTitle");
-			if (c.onclick == null) {
-				return;
-			}
-			ClearChild($("dTips"));
-			oSym.NowStep = $User.Visitor.NowStep;
-			oSym.TimeStep = $User.Visitor.TimeStep;
-			c.onclick = null;
-			c.title = null;
-			c.style.cursor = "url(images/interface/Cursor.cur),default";
-			SetHidden($("dFlagMeterContent"), dFlagMeter);
-			$("dFlagMeter").style.top = "490px";
-			//          $("dFlagMeter").style.left = "805px"; // not good
-			//           $("dFlagMeter").style.left = (currentLeft + 15) + "px"; // not good either
-			$("sFlagMeterTitleF").innerHTML = $("dFlagMeterTitleB").innerHTML =
-				f.LevelName;
-			$("imgFlagHead").style.left = "139px";
-			$("imgFlagMeterFull").style.clip = "rect(0,auto,auto,157px)";
-			delete f.PicArr;
-			delete f.Coord;
-			delete f.LF;
-			delete f.ZF;
-			var a = {
-				background: "url(" + f.backgroundImage + ") no-repeat",
-				visibility: "visible",
-			};
-			!f.ShowScroll && (a.left = "-115px");
-			SetStyle($("tGround"), a);
-			$("tGround").innerHTML = oS.GifHTML;
-			var d = function (h) {
-				var i = oS,
-					g = $User.Visitor;
-				NewImg(
-					"imgGrowSoil",
-					"images/interface/GrowSoil.gif",
-					"visibility:hidden;z-index:50",
-					EDAll
-				);
-				NewImg(
-					"imgGrowSpray",
-					"images/interface/GrowSpray.gif",
-					"visibility:hidden;z-index:50",
-					EDAll
-				);
-				innerText(ESSunNum, i.SunNum);
-				InitPCard();
-				i.ShowScroll
-					? oSym.addTask(
-							h == undefined ? 200 : h,
-							function (j) {
-								ClearChild(j);
-								i.ScrollScreen();
-							},
-							[
+		}
+		a && a.FlagNum
+			? ((r.FlagHeadStep = Math.floor(140 / (a.FlagNum - 1))),
+				(r.MonPrgs = function () {
+					var u = oP;
+					var j;
+					var i = u.FlagZombies;
+					var s;
+					var t;
+					var f = $User.Visitor;
+					!--u.NumZombies &&
+						(i < u.FlagNum
+							? ((u.ReadyFlag = ++i),
+								oSym.addTask(500, u.FlagPrgs, []))
+							: (u.FlagToEnd(),
+								$User.isAuthorWebsite &&
+									$User.Visitor.UserName != "" &&
+									(ClearChild($("JSPVZAjax")),
+									f.SaveLvl &&
+										NewEle(
+											"JSPVZAjax",
+											"script",
+											0,
+											{},
+											document.body
+										)),
+								f.SaveLvlCallBack &&
+									f.SaveLvlCallBack({
+										UserName: f.UserName,
+										SunNum: oS.SunNum,
+										Lvl: s,
+										T: oSym.Now - oS.StartTime,
+									}),
+								!isNaN(Math.floor(s)) &&
+									((t = $("dAdventure")),
+									($User.Visitor.Progress = ++s),
+									(t.firstChild.innerHTML = Math.ceil(
+										s / 10
+									)),
+									(t.childNodes[1].innerHTML = (s -=
+										Math.floor(s / 10) * 10)
+										? s
+										: s + 1)),
 								NewEle(
-									"DivParty",
+									"DivA",
 									"div",
-									"line-height:50px;color:#FFFFFF;font-size:50px;font-family:Tahoma",
-									{},
+									"position:absolute;width:900px;height:600px;background:#FFF;filter:alpha(opacity=0);opacity:0;z-index:255",
+									0,
 									EDAll
 								),
-							]
-						)
-					: (SetVisible($("dMenu")), AutoSelectCard(), LetsGO());
-			};
-			f.LoadAccess ? f.LoadAccess(d) : d();
-		},
-		ScrollScreen: function () {
-			(EDAll.scrollLeft += 25) < 500
-				? oSym.addTask(2, arguments.callee, [])
-				: (DisplayZombie(),
-					SetVisible($("dMenu")),
-					oS.CanSelectCard
-						? SetVisible(
-								$("dTop"),
-								$("dSelectCard"),
-								$("dCardList")
-							)
-						: (AutoSelectCard(),
-							oSym.addTask(200, oS.ScrollBack, [LetsGO])));
-		},
-		ScrollBack: function (a) {
-			SetHidden(
-				$("dZombie"),
-				$("dSelectCard"),
-				$("dTitle"),
-				$("dCardList")
-			);
-			$("tGround").style.left = "-115px";
-			$("dZombie").innerHTML = "";
-			(function (c) {
-				var b = EDAll.scrollLeft;
-				(b -= 25) > 0
-					? ((EDAll.scrollLeft = b),
-						oSym.addTask(2, arguments.callee, [c]))
-					: ((EDAll.scrollLeft = 0), c());
-			})(a);
-		},
-	},
-	oCoord = {
-		1: function () {
-			oS.R = 5;
-			ChosePlantX = function (a) {
-				return Compare(GetC(a), 1, oS.C, GetX);
-			};
-			ChosePlantY = function (a) {
-				return $SSml(
-					a,
-					[86, 181, 281, 386, 476],
-					[
-						[75, 0],
-						[175, 1],
-						[270, 2],
-						[380, 3],
-						[470, 4],
-						[575, 5],
-					]
-				);
-			};
-			GetC = function (a) {
-				return $SSml(
-					a,
-					[
-						-50, 100, 140, 220, 295, 379, 460, 540, 625, 695, 775,
-						855, 935,
-					],
-					[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-				);
-			};
-			GetR = function (a) {
-				return $SSml(a, [86, 181, 281, 386, 476], [0, 1, 2, 3, 4, 5]);
-			};
-			GetX = function (a) {
-				return $SEql(a, {
-					"-2": -50,
-					"-1": 100,
-					0: 140,
-					1: 187,
-					2: 267,
-					3: 347,
-					4: 427,
-					5: 507,
-					6: 587,
-					7: 667,
-					8: 747,
-					9: 827,
-					10: 865,
-					11: 950,
-				});
-			};
-			GetY = function (a) {
-				return $SEql(a, {
-					0: 75,
-					1: 175,
-					2: 270,
-					3: 380,
-					4: 470,
-					5: 575,
-				});
-			};
-			GetY1Y2 = function (a) {
-				return $SEql(a, {
-					0: [0, 85],
-					1: [86, 180],
-					2: [181, 280],
-					3: [281, 385],
-					4: [386, 475],
-					5: [476, 600],
-				});
-			};
-			GetX1X2 = function (a) {
-				return $SEql(a, {
-					"-2": [-100, -49],
-					"-1": [-50, 99],
-					0: [100, 139],
-					1: [140, 219],
-					2: [220, 294],
-					3: [295, 378],
-					4: [379, 459],
-					5: [460, 539],
-					6: [540, 624],
-					7: [625, 694],
-					8: [695, 774],
-					9: [775, 854],
-					10: [855, 934],
-					11: [950, 1030],
-				});
-			};
-			getRowColumnFromPixels = function (pixelX, pixelY) {
-				let rowWidth = 129;
-				let columnWidth = 170;
-				return [
-					Math.floor(pixelX / rowWidth) + 1,
-					Math.floor(pixelY / columnWidth) + 1,
-				];
-			};
-			!oS.InitLawnMower &&
-				(oS.InitLawnMower = function () {
-					var a = 6;
-					while (--a) {
-						CustomSpecial(oLawnCleaner, a, -1);
+								PauseGame($("dMenu0"), 1)));
+				}))
+			: (r.MonPrgs = function () {});
+		(!a || !a.FlagToEnd) &&
+			(r.FlagToEnd = function () {
+				NewImg(
+					"imgSF",
+					"images/interface/trophy.png",
+					"left:417px;top:233px;z-index:255",
+					EDAll,
+					{
+						onclick() {
+							PlayAudio("winmusic");
+							SelectModal(0);
+							HiddenOptions();
+							SetBlock($("dSurface"), $("iSurfaceBackground"));
+							ShowNameDiv();
+						},
 					}
-				});
-			oS.GifHTML = "";
-		},
-		2: function () {
-			oS.R = 6;
-			ChosePlantX = function (a) {
-				return Compare(GetC(a), 1, oS.C, GetX);
-			};
-			ChosePlantY = function (a) {
-				return $SSml(
-					a,
-					[86, 171, 264, 368, 440, 532],
-					[
-						[75, 0],
-						[161, 1],
-						[254, 2],
-						[358, 3],
-						[430, 4],
-						[524, 5],
-						[593, 6],
-					]
 				);
-			};
-			GetC = function (a) {
-				return $SSml(
-					a,
-					[
-						-50, 100, 140, 220, 295, 379, 460, 540, 625, 695, 775,
-						855, 935,
-					],
-					[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-				);
-			};
-			GetR = function (a) {
-				return $SSml(
-					a,
-					[86, 171, 264, 368, 440, 532],
-					[0, 1, 2, 3, 4, 5, 6]
-				);
-			};
-			GetX = function (a) {
-				return $SEql(a, {
-					"-2": -50,
-					"-1": 100,
-					0: 140,
-					1: 187,
-					2: 267,
-					3: 347,
-					4: 427,
-					5: 507,
-					6: 587,
-					7: 667,
-					8: 747,
-					9: 827,
-					10: 865,
-					11: 950,
-				});
-			};
-			GetY = function (a) {
-				return $SEql(a, {
-					0: 75,
-					1: 165,
-					2: 253,
-					3: 355,
-					4: 430,
-					5: 522,
-					6: 587,
-				});
-			};
-			GetY1Y2 = function (a) {
-				return $SEql(a, {
-					0: [0, 85],
-					1: [86, 170],
-					2: [171, 263],
-					3: [264, 367],
-					4: [368, 439],
-					5: [440, 531],
-					6: [532, 600],
-				});
-			};
-			GetX1X2 = function (a) {
-				return $SEql(a, {
-					"-2": [-100, -49],
-					"-1": [-50, 99],
-					0: [100, 139],
-					1: [140, 219],
-					2: [220, 294],
-					3: [295, 378],
-					4: [379, 459],
-					5: [460, 539],
-					6: [540, 624],
-					7: [625, 694],
-					8: [695, 774],
-					9: [775, 854],
-					10: [855, 934],
-					11: [950, 1030],
-				});
-			};
-			!oS.InitLawnMower &&
-				(oS.InitLawnMower = function () {
-					CustomSpecial(oLawnCleaner, 1, -1);
-					CustomSpecial(oLawnCleaner, 2, -1);
-					CustomSpecial(oPoolCleaner, 3, -1);
-					CustomSpecial(oPoolCleaner, 4, -1);
-					CustomSpecial(oLawnCleaner, 5, -1);
-					CustomSpecial(oLawnCleaner, 6, -1);
-				});
-			oS.GifHTML =
-				'<img style="position:absolute;left:253px;top:278px" src="">';
-			!oS.DKind && oGd.MakeFog();
-		},
+			});
 	},
-	oP = {
-		Init: function (a) {
-			var r = this;
-			r.NumZombies = r.FlagZombies = 0;
-			if (a) {
-				var l;
-				for (l in a) {
-					r[l] = a[l];
-				}
-				if (a.AZ) {
-					var k,
-						b = {},
-						g,
-						c,
-						q,
-						p,
-						d,
-						m = [],
-						h,
-						e,
-						n;
-					r.ArZ = [];
-					h = (k = r.AZ).sort(function (i, f) {
-						return i[2] - f[2];
-					}).length;
-					while (h--) {
-						c = (n = k[h])[0];
-						q = n[1];
-						p = n[2];
-						while (q--) {
-							m.push([c, p]);
-						}
-						if ((d = n[3])) {
-							e = d.length;
-							while (e--) {
-								b[(g = d[e])] ? b[g].push(c) : (b[g] = [c]);
-							}
-						}
-					}
-					r.AZ = m;
-					r.MustShowAtFlag = b;
-				}
+	Balloon() {
+		let balloonId = Math.floor(1 + Math.random() * 1000);
+		function getAnimatedPosition(element) {
+			const computedStyle = getComputedStyle(element);
+			const left = parseFloat(computedStyle.left);
+			const top = parseFloat(computedStyle.top);
+			return { left, top };
+		}
+		let image = NewImg(
+			"",
+			"images/Zombies/Balloon/balloonidle.webp",
+			"position: absolute; display: block; left: 875px; z-index: 0;",
+			$("dPZ")
+		);
+		let styleSheet = document.styleSheets[0];
+		function getRandomY() {
+			let randomY = GetY(Math.floor(1 + Math.random() * oS.R));
+			if (randomY > 430) {
+				return getRandomY();
 			}
-			a && a.FlagNum
-				? ((r.FlagHeadStep = Math.floor(140 / (a.FlagNum - 1))),
-					(r.MonPrgs = function () {
-						var u = oP,
-							j,
-							i = u.FlagZombies,
-							s,
-							t,
-							f = $User.Visitor;
-						!--u.NumZombies &&
-							(i < u.FlagNum
-								? ((u.ReadyFlag = ++i),
-									oSym.addTask(500, u.FlagPrgs, []))
-								: (u.FlagToEnd(),
-									$User.isAuthorWebsite &&
-										$User.Visitor.UserName != "" &&
-										(ClearChild($("JSPVZAjax")),
-										f.SaveLvl &&
-											NewEle(
-												"JSPVZAjax",
-												"script",
-												0,
-												{},
-												document.body
-											)),
-									f.SaveLvlCallBack &&
-										f.SaveLvlCallBack({
-											UserName: f.UserName,
-											SunNum: oS.SunNum,
-											Lvl: s,
-											T: oSym.Now - oS.StartTime,
-										}),
-									!isNaN(Math.floor(s)) &&
-										((t = $("dAdventure")),
-										($User.Visitor.Progress = ++s),
-										(t.firstChild.innerHTML = Math.ceil(
-											s / 10
-										)),
-										(t.childNodes[1].innerHTML = (s =
-											s - Math.floor(s / 10) * 10)
-											? s
-											: s + 1)),
-									NewEle(
-										"DivA",
-										"div",
-										"position:absolute;width:900px;height:600px;background:#FFF;filter:alpha(opacity=0);opacity:0;z-index:255",
-										0,
-										EDAll
-									),
-									PauseGame($("dMenu0"), 1)));
-					}))
-				: (r.MonPrgs = function () {});
-			(!a || !a.FlagToEnd) &&
-				(r.FlagToEnd = function () {
-					NewImg(
-						"imgSF",
-						"images/interface/trophy.png",
-						"left:417px;top:233px;z-index:255",
-						EDAll,
-						{
-							onclick: function () {
-								PlayAudio("winmusic");
-								SelectModal(0);
-								HiddenOptions();
-								SetBlock(
-									$("dSurface"),
-									$("iSurfaceBackground")
-								);
-								ShowNameDiv();
-							},
-						}
-					);
-				});
-		},
-		Balloon: function () {
-			let balloonId = Math.floor(1 + Math.random() * 1000);
-			function getAnimatedPosition(element) {
-				const computedStyle = getComputedStyle(element);
-				const left = parseFloat(computedStyle.left);
-				const top = parseFloat(computedStyle.top);
-				return { left, top };
-			}
-			let image = NewImg(
-				"",
-				"images/Zombies/Balloon/balloonidle.webp",
-				"position: absolute; display: block; left: 875px; z-index: 0;",
-				$("dPZ")
-			);
-			let styleSheet = document.styleSheets[0];
-			function getRandomY() {
-				let randomY = GetY(Math.floor(1 + Math.random() * oS.R));
-				if (randomY > 430) {
-					return getRandomY();
-				} else {
-					return randomY;
-				}
-			}
-			let randomY = getRandomY();
-			styleSheet.insertRule(
-				`
+			return randomY;
+		}
+		let randomY = getRandomY();
+		styleSheet.insertRule(
+			`
               @keyframes moveLeft${balloonId} {
                 from { left: 910px; }
                 to { left: -75px; }
               }
             `,
-				styleSheet.cssRules.length
-			);
+			styleSheet.cssRules.length
+		);
 
-			styleSheet.insertRule(
-				`
+		styleSheet.insertRule(
+			`
               @keyframes bobbing${balloonId} {
                 0%, 100% { top: ${randomY}px; }
                 50% { top: ${randomY + 10}px; }
               }
             `,
-				styleSheet.cssRules.length
-			);
-			image.width = 75;
-			image.onclick = function () {
-				image.onclick = null;
-				image.src = "images/Zombies/Balloon/popped.png";
-				image.style.animationPlayState = "paused";
-				PlayAudio("balloon_pop");
-				setTimeout(function () {
-					image.parentNode.removeChild(image);
-					if ($("dSunNum").style.visibility == "") {
-						AppearSun(
-							GetX(Math.floor(1 + Math.random() * oS.C)),
-							GetY(Math.floor(1 + Math.random() * oS.R)),
-							75,
-							1
-						);
-					}
-				}, 100);
-			};
-			image.style.animation = `moveLeft${balloonId} ${
-				13 * ($User.Visitor.TimeStep / 10)
-			}s linear, bobbing${balloonId} ${
-				2 * ($User.Visitor.TimeStep / 10)
-			}s ease-in-out infinite`;
-			image.style.top = `${randomY}px`;
-			image.style.cursor = "url(images/interface/Pointer.cur),pointer";
-			image.style.zIndex = "999";
-			image.addEventListener("animationend", () => {
+			styleSheet.cssRules.length
+		);
+		image.width = 75;
+		image.onclick = function () {
+			image.onclick = null;
+			image.src = "images/Zombies/Balloon/popped.png";
+			image.style.animationPlayState = "paused";
+			PlayAudio("balloon_pop");
+			setTimeout(() => {
 				image.parentNode.removeChild(image);
-			});
-			PlayAudio("ballooninflate");
-			// console.log(image);
-			// console.log(image.parentElement);
-		},
-		AddZombiesFlag: function (d) {
-			if (
-				Math.floor(Math.random() * 5) == 1 &&
-				$("dSunNum").style.visibility == ""
-			) {
-				oP.Balloon();
-			}
-			var g = oP,
-				c = oS.LargeWaveFlag,
-				e,
-				b = g.FlagHeadStep,
-				a = g.FlagNum;
-			SetVisible($("imgGQJC"), $("dFlagMeterContent"));
-			for (e in c) {
-				Math.floor(e) < a
-					? SetStyle(c[e], {
-							visibility: "visible",
-							left: 150 - (e - 1) * b + "px",
-						})
-					: SetVisible(c[e]);
-			}
-			PlayAudio("awooga");
-			$User.HTML5 &&
-				(function () {
-					oSym.addTask(
-						2e3,
-						function () {
-							[
-								function () {
-									PlayAudio(
-										["groan1", "groan2"][
-											Math.floor(Math.random() * 2)
-										]
-									);
-								},
-								function () {
-									PlayAudio(
-										["groan3", "groan4"][
-											Math.floor(Math.random() * 2)
-										]
-									);
-								},
-								function () {
-									PlayAudio(
-										["groan5", "groan6"][
-											Math.floor(Math.random() * 2)
-										]
-									);
-								},
-								function () {
-									PlayAudio("groan1");
-									oSym.addTask(
-										150,
-										function () {
-											PlayAudio("groan5");
-										},
-										[]
-									);
-								},
-								function () {
-									PlayAudio("groan2");
-									oSym.addTask(
-										150,
-										function () {
-											PlayAudio("groan6");
-										},
-										[]
-									);
-								},
-							][Math.floor(Math.random() * 3)]();
-							oSym.addTask(2e3, arguments.callee, []);
-						},
-						[]
+				if ($("dSunNum").style.visibility == "") {
+					AppearSun(
+						GetX(Math.floor(1 + Math.random() * oS.C)),
+						GetY(Math.floor(1 + Math.random() * oS.R)),
+						75,
+						1
 					);
-				})();
-			g.ReadyFlag = 1;
-			g.FlagPrgs(d);
-		},
-		SelectFlagZombie: function (j, d) {
-			var e = oP,
-				m = e.ArZ,
-				k = e.AZ,
-				s = k.length,
-				q,
-				r,
-				i = [],
-				g = 0,
-				n = oS.LargeWaveFlag[d],
-				c = false,
-				h = !n
-					? 150
-					: (PlayAudio("siren"),
-						(n.style.top = "5px"),
-						--j,
-						(i[g++] = oS.FlagZombie || oFlagZombie),
-						30),
-				p,
-				b,
-				f = e.MustShowAtFlag,
-				a;
-			while (s--) {
-				if ((r = (q = k[s])[1]) > d) {
-					break;
-				} else {
-					m.push(q[0]);
-					--k.length;
-					c = true;
 				}
-			}
-			c &&
-				m.sort(function (t, l) {
-					return t.prototype.Lvl - l.prototype.Lvl;
-				});
-			if ((a = f[d])) {
-				s = a.length;
-				while (s--) {
-					j -= (i[g++] = a[s]).prototype.Lvl;
-				}
-			}
-			b = m[(s = (p = m.length) - 1)].prototype.Lvl;
-			while (j > 0) {
-				if (s && b > j) {
-					while (--s && m[s].prototype.Lvl > j) {}
-					p = s + 1;
-					b = m[s].prototype.Lvl;
-				}
-				j -= (i[g++] = m[Math.floor(Math.random() * p)]).prototype.Lvl;
-			}
-			e.NumZombies += g;
-			e.SetTimeoutZombie(i, h);
-		},
-		SelectFlagZombie1: function (d) {
-			var h = oP,
-				c = [],
-				a = 0,
-				g = h.ArZ,
-				f = oS.LargeWaveFlag[h.FlagZombies],
-				e = h.SumToZombie,
-				b = !f
-					? 150
-					: ((f.style.top = "5px"),
-						--d,
-						(c[a++] = oS.FlagZombie || oFlagZombie),
-						30);
-			while (d > 0) {
-				d -= (c[a++] = g[Math.floor(Math.random() * $SEql(d, e))])
-					.prototype.Lvl;
-			}
-			h.NumZombies += a;
-			h.SetTimeoutZombie(c, b);
-		},
-		SetTimeoutTomZombie: function (c) {
-			var f = [],
-				d = [],
-				e = 0,
-				a = c.length,
-				b,
-				g;
-			for (b in oGd.$Tombstones) {
-				g = b.split("_");
-				d[e] = (f[e] = new c[
-					Math.floor(Math.random() * a)
-				]()).CustomBirth(g[0], g[1], 100);
-				++e;
-			}
-			this.AppearUP(d, f, e);
-		},
-		SetTimeoutWaterZombie: function (j, b, e, h) {
-			var f = oGd.$LF,
-				l = [],
-				c = f.length,
-				m = [],
-				k = [],
-				g = h.length,
-				a,
-				d = b - j + 1;
-			while (--c) {
-				f[c] == 2 && l.push(c);
-			}
-			a = l.length;
-			c = e;
-			while (c--) {
-				k[c] = (m[c] = new h[
-					Math.floor(Math.random() * g)
-				]()).CustomBirth(
-					l[Math.floor(Math.random() * a)],
-					Math.floor(j + Math.random() * d)
-				);
-			}
-			this.AppearUP(k, m, e);
-		},
-		AppearUP: function (a, c, b) {
-			oP.NumZombies += b;
-			asyncInnerHTML(
-				a.join(""),
-				function (h, f) {
-					EDPZ.appendChild(h);
-					var e = f.length,
-						g,
-						d;
-					while (e--) {
-						g = f[e];
-						g.Birth.call(g);
-						SetBlock(g.Ele);
-						oSym.addTask(
-							10,
-							function (l, k, i, j) {
-								k = Math.max(k - j, 0);
-								SetStyle(l, {
-									top: k + "px",
-									clip: "rect(0,auto," + (i += j) + "px,0)",
-								});
-								k &&
-									oSym.addTask(10, arguments.callee, [
-										l,
-										k,
-										i,
-										j,
-									]);
-							},
-							[g.EleBody, (d = g.height), 0, d * 0.1]
-						);
-					}
-				},
-				c
-			);
-		},
-		SetZombie: function (j, b, e, h) {
-			var f = [],
-				l = [],
-				c = f.length,
-				m = [],
-				k = [],
-				g = h.length,
-				a,
-				d = b - j + 1;
-			while (--c) {
-				f[c] == 2 && l.push(c);
-			}
-			a = l.length;
-			c = e;
-			while (c--) {
-				k[c] = (m[c] = new h[
-					Math.floor(Math.random() * g)
-				]()).CustomBirth(
-					l[Math.floor(Math.random() * a)],
-					Math.floor(j + Math.random() * d)
-				);
-			}
-			this.AppearUP1(k, m, e);
-		},
-		AppearUP1: function (a, c, b) {
-			oP.NumZombies += b;
-			asyncInnerHTML(
-				a.join(""),
-				function (h, f) {
-					EDPZ.appendChild(h);
-					var e = f.length,
-						g,
-						d;
-					while (e--) {
-						g = f[e];
-						g.Birth.call(g);
-						SetBlock(g.Ele);
-						oSym.addTask(
-							10,
-							function (l, k, i, j) {
-								k = Math.max(k - j, 0);
-								SetStyle(l, {
-									top: k + "px",
-									clip: "rect(0,auto," + (i += j) + "px,0)",
-								});
-								k &&
-									oSym.addTask(10, arguments.callee, [
-										l,
-										k,
-										i,
-										j,
-									]);
-							},
-							[g.EleBody, (d = g.height), 0, d * 0.1]
-						);
-					}
-				},
-				c
-			);
-		},
-		SetTimeoutZombie: function (b, d) {
-			var f = [],
-				c = [],
-				e = 0,
-				g = 0,
-				a = b.length;
-			while (e < a) {
-				c[e] = (f[e] = new b[e]()).prepareBirth(g);
-				g += d;
-				++e;
-			}
-			asyncInnerHTML(
-				c.join(""),
-				function (k, j) {
-					EDPZ.appendChild(k);
-					var h = j.length;
-					while (h--) {
-						j[h].Birth();
-					}
-				},
-				f
-			);
-		},
-		FlagPrgs: function () {
-			var f = oP,
-				c = f.FlagZombies,
-				e = f.FlagToSumNum,
-				a = 139 - c * f.FlagHeadStep,
-				d = $SSml(c, e.a1, e.a2),
-				b;
-			f.FlagNum > (c = ++f.FlagZombies)
-				? (($("imgFlagHead").style.left = a + "px"),
-					($("imgFlagMeterFull").style.clip =
-						"rect(0,157px,21px," + (a + 11) + "px)"),
-					(b = $SEql(c, f.FlagToMonitor)) &&
-						oSym.addTask(
-							1690,
-							function (g) {
-								!g[1] && (g[0](), (g[1] = 1));
-							},
-							[b]
-						),
-					oSym.addTask(
-						1990,
-						function (g) {
-							var h = oP;
-							h.ReadyFlag == g++ &&
-								((h.ReadyFlag = g), h.FlagPrgs());
-						},
-						[c]
-					))
-				: (($("imgFlagHead").style.left = "-1px"),
-					($("imgFlagMeterFull").style.clip =
-						"rect(0,157px,21px,0)"));
-			f.SelectFlagZombie.call(f, d, c);
-			f.UserDefinedFlagFunc && f.UserDefinedFlagFunc();
-		},
-		Monitor: function (a, b) {
-			a && a.f.apply(a.f, a.ar);
-			oP.UserDefinedFlagFunc = b ? b : null;
+			}, 100);
+		};
+		image.style.animation = `moveLeft${balloonId} ${
+			13 * ($User.Visitor.TimeStep / 10)
+		}s linear, bobbing${balloonId} ${
+			2 * ($User.Visitor.TimeStep / 10)
+		}s ease-in-out infinite`;
+		image.style.top = `${randomY}px`;
+		image.style.cursor = "url(images/interface/Pointer.cur),pointer";
+		image.style.zIndex = "999";
+		image.addEventListener("animationend", () => {
+			image.parentNode.removeChild(image);
+		});
+		PlayAudio("ballooninflate");
+		// console.log(image);
+		// console.log(image.parentElement);
+	},
+	AddZombiesFlag(d) {
+		if (
+			Math.floor(Math.random() * 5) == 1 &&
+			$("dSunNum").style.visibility == ""
+		) {
+			oP.Balloon();
+		}
+		var g = oP;
+		var c = oS.LargeWaveFlag;
+		var e;
+		var b = g.FlagHeadStep;
+		var a = g.FlagNum;
+		SetVisible($("imgGQJC"), $("dFlagMeterContent"));
+		for (e in c) {
+			Math.floor(e) < a
+				? SetStyle(c[e], {
+						visibility: "visible",
+						left: 150 - (e - 1) * b + "px",
+					})
+				: SetVisible(c[e]);
+		}
+		PlayAudio("awooga");
+		$User.HTML5 &&
 			(function () {
-				oZ.traversalOf();
-				oSym.addTask(10, arguments.callee, []);
+				oSym.addTask(
+					2e3,
+					function () {
+						[
+							function () {
+								PlayAudio(
+									["groan1", "groan2"][
+										Math.floor(Math.random() * 2)
+									]
+								);
+							},
+							function () {
+								PlayAudio(
+									["groan3", "groan4"][
+										Math.floor(Math.random() * 2)
+									]
+								);
+							},
+							function () {
+								PlayAudio(
+									["groan5", "groan6"][
+										Math.floor(Math.random() * 2)
+									]
+								);
+							},
+							function () {
+								PlayAudio("groan1");
+								oSym.addTask(
+									150,
+									() => {
+										PlayAudio("groan5");
+									},
+									[]
+								);
+							},
+							function () {
+								PlayAudio("groan2");
+								oSym.addTask(
+									150,
+									() => {
+										PlayAudio("groan6");
+									},
+									[]
+								);
+							},
+						][Math.floor(Math.random() * 3)]();
+						oSym.addTask(2e3, arguments.callee, []);
+					},
+					[]
+				);
 			})();
-		},
+		g.ReadyFlag = 1;
+		g.FlagPrgs(d);
 	},
-	oGd = {
-		Init: function () {
-			this.$ = [];
-			this.$Crater = [];
-			this.$Tombstones = {};
-			this.$Torch = [];
-			this.$Plantern = [];
-			this.$LF = oS.LF;
-			this.$ZF = oS.ZF;
-			this.$Ice = [];
-			this.$JackinTheBox = 0;
-			this.$Balloon = new Array(oS.R + 1);
-			this.$Fog = [];
-		},
-		add: function (c, a, b, d) {
-			(b = (d = this.$)[a]) && b.Die();
-			d[a] = c;
-		},
-		del: function (a) {
-			delete this.$[a.R + "_" + a.C + "_" + a.PKind];
-		},
-		MakeFog: function () {
-			var d = "",
-				g = (tx = ri = cj = 0),
-				c = oGd.$Fog,
-				b,
-				a = 2 * oS.HaveFog + 3,
-				e = (function () {
-					return function (f) {
-						var h = $User.Browser.IE && !$User.Browser.IE9;
-						d +=
-							'<img id="' +
-							f +
-							'" src="images/interface/fog' +
-							Math.floor(Math.random() * 4) +
-							"." +
-							(h ? "gif" : "png") +
-							'" style="left:' +
-							g +
-							"px;top:" +
-							tx +
-							'px">';
-					};
-				})();
-			for (ri = 1, tx = 0; ri < 7; g = 0, ri++) {
-				for (ci = 0; ci <= a; ci++) {
-					e((c[(b = ri + "_" + ci)] = "Fog" + b));
-					g += 35;
-				}
-				tx += 90;
+	SelectFlagZombie(j, d) {
+		var e = oP;
+		var m = e.ArZ;
+		var k = e.AZ;
+		var s = k.length;
+		var q;
+		var r;
+		var i = [];
+		var g = 0;
+		var n = oS.LargeWaveFlag[d];
+		var c = false;
+		var h = !n
+			? 150
+			: (PlayAudio("siren"),
+				(n.style.top = "5px"),
+				--j,
+				(i[g++] = oS.FlagZombie || oFlagZombie),
+				30);
+		var p;
+		var b;
+		var f = e.MustShowAtFlag;
+		var a;
+		while (s--) {
+			if ((r = (q = k[s])[1]) > d) {
+				break;
+			} else {
+				m.push(q[0]);
+				--k.length;
+				c = true;
 			}
-			NewEle("dFog", "div", "", { innerHTML: d }, EDAll);
-		},
-		MoveFogLeft: function (a) {
-			(function (c, d, b, e) {
-				d -= 50;
-				d > b
-					? ((c.style.left = d + "px"),
-						oSym.addTask(5, arguments.callee, [c, d, b, e]))
-					: ((c.style.left = b + "px"), e && e());
-			})($("dFog"), 900, GetX(oS.C - oS.HaveFog) - 30, a);
-		},
-		MoveFogRight: function () {
-			if (arguments.callee.caller.caller == null) {
-				return;
-			}
-			(function (a, b) {
-				(b += 50) < 901
-					? ((a.style.left = b + "px"),
-						oSym.addTask(5, arguments.callee, [a, b]))
-					: (a.style.left = "900px");
-			})($("dFog"), GetX(oS.C - oS.HaveFog) - 3);
-		},
-		GatherFog: function (d, r, x, t, z) {
-			var c = d - x,
-				b = d + x,
-				q = r - t,
-				p = r + t,
-				e = [SetNone, SetBlock][z],
-				w = oS.C,
-				m = oS.R,
-				h = w + 1,
-				g = oS.HaveFog,
-				a = g * 2,
-				k = [],
-				l,
-				j,
-				u,
-				n = function (i) {
-					return (i - w) * 2 + a;
-				},
-				s = function (i) {
-					return (i - w) * 2 + a - 2;
-				};
-			if (c > 0) {
-				l = s(q > 0 ? q + 1 : 1);
-				j = n(p > h ? h : p - 1);
-				do {
-					l > -1 && k.push("Fog" + c + "_" + l);
-				} while (l++ < j);
-			}
-			if (b <= m) {
-				l = s(q > 0 ? q + 1 : 1);
-				j = n(p > h ? h : p - 1);
-				do {
-					l > -1 && k.push("Fog" + b + "_" + l);
-				} while (l++ < j);
-			}
-			++c;
-			--b;
-			l = s(q < 1 ? 1 : q);
-			j = n(p > h ? h : p);
-			u = l;
-			do {
-				do {
-					l > -1 && k.push("Fog" + c + "_" + l);
-				} while (l++ <= j);
-				l = u;
-			} while (c++ < b);
-			for (l = 0; l < k.length; e($(k[l])), l++) {}
-			if (z) {
-				var y = oGd.$Torch,
-					f;
-				for (u in y) {
-					f = $P[y[u]];
-					this.GatherFog(f.R, f.C, 1, 1, 0);
-				}
-			}
-		},
-	},
-	oZ = {
-		Init: function (b) {
-			this.$ = [];
-			this.$R = [];
-			var a;
-			for (a = b; a; this.$[a] = [], this.$R[a--] = []) {}
-		},
-		add: function (b, a) {
-			(a = oZ.$[b.R]).push(b);
-			a.sort(function (d, c) {
-				return d.AttackedLX - c.AttackedLX;
+		}
+		c &&
+			m.sort((t, l) => {
+				return t.prototype.Lvl - l.prototype.Lvl;
 			});
-			a.RefreshTime = oSym.Now;
-		},
-		getZ0: function (b, d) {
-			if (d < 1 || d > oS.R) {
-				return;
+		if ((a = f[d])) {
+			s = a.length;
+			while (s--) {
+				j -= (i[g++] = a[s]).prototype.Lvl;
 			}
-			var c = 0,
-				e = this.$[d],
-				f,
-				a = e.length;
-			while (c < a && (f = e[c++]).AttackedLX <= b) {
-				if (f.PZ && f.HP && f.AttackedRX >= b) {
-					return f;
+		}
+		b = m[(s = (p = m.length) - 1)].prototype.Lvl;
+		while (j > 0) {
+			if (s && b > j) {
+				while (--s && m[s].prototype.Lvl > j) {}
+				p = s + 1;
+				b = m[s].prototype.Lvl;
+			}
+			j -= (i[g++] = m[Math.floor(Math.random() * p)]).prototype.Lvl;
+		}
+		e.NumZombies += g;
+		e.SetTimeoutZombie(i, h);
+	},
+	SelectFlagZombie1(d) {
+		var h = oP;
+		var c = [];
+		var a = 0;
+		var g = h.ArZ;
+		var f = oS.LargeWaveFlag[h.FlagZombies];
+		var e = h.SumToZombie;
+		var b = !f
+			? 150
+			: ((f.style.top = "5px"),
+				--d,
+				(c[a++] = oS.FlagZombie || oFlagZombie),
+				30);
+		while (d > 0) {
+			d -= (c[a++] = g[Math.floor(Math.random() * $SEql(d, e))]).prototype
+				.Lvl;
+		}
+		h.NumZombies += a;
+		h.SetTimeoutZombie(c, b);
+	},
+	SetTimeoutTomZombie(c) {
+		var f = [];
+		var d = [];
+		var e = 0;
+		var a = c.length;
+		var b;
+		var g;
+		for (b in oGd.$Tombstones) {
+			g = b.split("_");
+			d[e] = (f[e] = new c[Math.floor(Math.random() * a)]()).CustomBirth(
+				g[0],
+				g[1],
+				100
+			);
+			++e;
+		}
+		this.AppearUP(d, f, e);
+	},
+	SetTimeoutWaterZombie(j, b, e, h) {
+		var f = oGd.$LF;
+		var l = [];
+		var c = f.length;
+		var m = [];
+		var k = [];
+		var g = h.length;
+		var a;
+		var d = b - j + 1;
+		while (--c) {
+			f[c] == 2 && l.push(c);
+		}
+		a = l.length;
+		c = e;
+		while (c--) {
+			k[c] = (m[c] = new h[Math.floor(Math.random() * g)]()).CustomBirth(
+				l[Math.floor(Math.random() * a)],
+				Math.floor(j + Math.random() * d)
+			);
+		}
+		this.AppearUP(k, m, e);
+	},
+	AppearUP(a, c, b) {
+		oP.NumZombies += b;
+		asyncInnerHTML(
+			a.join(""),
+			(h, f) => {
+				EDPZ.appendChild(h);
+				var e = f.length;
+				var g;
+				var d;
+				while (e--) {
+					g = f[e];
+					g.Birth.call(g);
+					SetBlock(g.Ele);
+					oSym.addTask(
+						10,
+						function (l, k, i, j) {
+							k = Math.max(k - j, 0);
+							SetStyle(l, {
+								top: k + "px",
+								clip: "rect(0,auto," + (i += j) + "px,0)",
+							});
+							k &&
+								oSym.addTask(10, arguments.callee, [
+									l,
+									k,
+									i,
+									j,
+								]);
+						},
+						[g.EleBody, (d = g.height), 0, d * 0.1]
+					);
 				}
-			}
-		},
-		getZ1: function (h, b) {
-			if (b < 1 || b > oS.R) {
-				return;
-			}
-			var d = 0,
-				j = this.$[b],
-				f = this.$R[b],
-				g,
-				c,
-				k,
-				e;
-			(k = j.RefreshTime) == f.RefreshTime
-				? (g = f)
-				: ((g = (this.$R[b] = j.slice(0)).sort(function (l, i) {
-						return i.AttackedRX - l.AttackedRX;
-					})).RefreshTime = k);
-			e = g.length;
-			while (d < e && (c = g[d++]).AttackedRX >= h) {
-				if (c.PZ && c.HP && c.AttackedLX <= h) {
-					return c;
+			},
+			c
+		);
+	},
+	SetZombie(j, b, e, h) {
+		var f = [];
+		var l = [];
+		var c = f.length;
+		var m = [];
+		var k = [];
+		var g = h.length;
+		var a;
+		var d = b - j + 1;
+		while (--c) {
+			f[c] == 2 && l.push(c);
+		}
+		a = l.length;
+		c = e;
+		while (c--) {
+			k[c] = (m[c] = new h[Math.floor(Math.random() * g)]()).CustomBirth(
+				l[Math.floor(Math.random() * a)],
+				Math.floor(j + Math.random() * d)
+			);
+		}
+		this.AppearUP1(k, m, e);
+	},
+	AppearUP1(a, c, b) {
+		oP.NumZombies += b;
+		asyncInnerHTML(
+			a.join(""),
+			(h, f) => {
+				EDPZ.appendChild(h);
+				var e = f.length;
+				var g;
+				var d;
+				while (e--) {
+					g = f[e];
+					g.Birth.call(g);
+					SetBlock(g.Ele);
+					oSym.addTask(
+						10,
+						function (l, k, i, j) {
+							k = Math.max(k - j, 0);
+							SetStyle(l, {
+								top: k + "px",
+								clip: "rect(0,auto," + (i += j) + "px,0)",
+							});
+							k &&
+								oSym.addTask(10, arguments.callee, [
+									l,
+									k,
+									i,
+									j,
+								]);
+						},
+						[g.EleBody, (d = g.height), 0, d * 0.1]
+					);
 				}
-			}
-		},
-		getArZ: function (e, d, b) {
-			var g = 0,
-				l = this.$[b],
-				f = [],
-				k = 0,
-				c,
-				h = l.length,
-				j;
-			while (g < h && (j = (c = l[g++]).AttackedLX) < d) {
-				c.PZ && c.HP && (j > e || c.AttackedRX > e) && (f[k++] = c);
-			}
-			return f;
-		},
-		getRangeLeftZ: function (e, d, b) {
-			if (b < 1 || b > oS.R) {
-				return;
-			}
-			var g = 0,
-				l = this.$[b],
-				f = [],
-				k = 0,
-				c,
-				h = l.length,
-				j;
-			while (g < h && (j = (c = l[g++]).AttackedLX) < d) {
-				if (c.PZ && c.HP && (j > e || c.AttackedRX > e)) {
-					return c;
+			},
+			c
+		);
+	},
+	SetTimeoutZombie(b, d) {
+		var f = [];
+		var c = [];
+		var e = 0;
+		var g = 0;
+		var a = b.length;
+		while (e < a) {
+			c[e] = (f[e] = new b[e]()).prepareBirth(g);
+			g += d;
+			++e;
+		}
+		asyncInnerHTML(
+			c.join(""),
+			(k, j) => {
+				EDPZ.appendChild(k);
+				var h = j.length;
+				while (h--) {
+					j[h].Birth();
 				}
+			},
+			f
+		);
+	},
+	FlagPrgs() {
+		var f = oP;
+		var c = f.FlagZombies;
+		var e = f.FlagToSumNum;
+		var a = 139 - c * f.FlagHeadStep;
+		var d = $SSml(c, e.a1, e.a2);
+		var b;
+		f.FlagNum > (c = ++f.FlagZombies)
+			? (($("imgFlagHead").style.left = a + "px"),
+				($("imgFlagMeterFull").style.clip =
+					"rect(0,157px,21px," + (a + 11) + "px)"),
+				(b = $SEql(c, f.FlagToMonitor)) &&
+					oSym.addTask(
+						1690,
+						(g) => {
+							!g[1] && (g[0](), (g[1] = 1));
+						},
+						[b]
+					),
+				oSym.addTask(
+					1990,
+					(g) => {
+						var h = oP;
+						h.ReadyFlag == g++ && ((h.ReadyFlag = g), h.FlagPrgs());
+					},
+					[c]
+				))
+			: (($("imgFlagHead").style.left = "-1px"),
+				($("imgFlagMeterFull").style.clip = "rect(0,157px,21px,0)"));
+		f.SelectFlagZombie.call(f, d, c);
+		f.UserDefinedFlagFunc && f.UserDefinedFlagFunc();
+	},
+	Monitor(a, b) {
+		a && a.f.apply(a.f, a.ar);
+		oP.UserDefinedFlagFunc = b ? b : null;
+		(function () {
+			oZ.traversalOf();
+			oSym.addTask(10, arguments.callee, []);
+		})();
+	},
+};
+var oGd = {
+	Init() {
+		this.$ = [];
+		this.$Crater = [];
+		this.$Tombstones = {};
+		this.$Torch = [];
+		this.$Plantern = [];
+		this.$LF = oS.LF;
+		this.$ZF = oS.ZF;
+		this.$Ice = [];
+		this.$JackinTheBox = 0;
+		this.$Balloon = new Array(oS.R + 1);
+		this.$Fog = [];
+	},
+	add(c, a, b, d) {
+		(b = (d = this.$)[a]) && b.Die();
+		d[a] = c;
+	},
+	del(a) {
+		delete this.$[a.R + "_" + a.C + "_" + a.PKind];
+	},
+	MakeFog() {
+		var d = "";
+		var g = (tx = ri = cj = 0);
+		var c = oGd.$Fog;
+		var b;
+		var a = 2 * oS.HaveFog + 3;
+		var e = (function () {
+			return function (f) {
+				var h = $User.Browser.IE && !$User.Browser.IE9;
+				d +=
+					'<img id="' +
+					f +
+					'" src="images/interface/fog' +
+					Math.floor(Math.random() * 4) +
+					"." +
+					(h ? "gif" : "png") +
+					'" style="left:' +
+					g +
+					"px;top:" +
+					tx +
+					'px">';
+			};
+		})();
+		for (ri = 1, tx = 0; ri < 7; g = 0, ri++) {
+			for (ci = 0; ci <= a; ci++) {
+				e((c[(b = ri + "_" + ci)] = "Fog" + b));
+				g += 35;
 			}
+			tx += 90;
+		}
+		NewEle("dFog", "div", "", { innerHTML: d }, EDAll);
+	},
+	MoveFogLeft(a) {
+		(function (c, d, b, e) {
+			d -= 50;
+			d > b
+				? ((c.style.left = d + "px"),
+					oSym.addTask(5, arguments.callee, [c, d, b, e]))
+				: ((c.style.left = b + "px"), e && e());
+		})($("dFog"), 900, GetX(oS.C - oS.HaveFog) - 30, a);
+	},
+	MoveFogRight() {
+		if (arguments.callee.caller.caller == null) {
 			return;
-		},
-		moveTo: function (g, f, c) {
-			var b = this.$[f],
-				a = this.$[c],
-				e = b.length,
-				d;
-			while (e--) {
-				(o = b[e]).id == g &&
-					(b.splice(e, 1),
-					(o.R = c),
-					a.push(o),
-					(a.sort(function (i, h) {
-						return i.AttackedLX - h.AttackedLX;
-					}).RefreshTime = b.RefreshTime =
-						oSym.Now),
-					(e = 0));
-			}
-		},
-		traversalOf: function () {
-			var a,
-				b = this.$,
-				j,
-				l = 0,
-				d = 0,
-				k = 1e3,
-				i,
-				h,
-				f = [
-					function (n) {
-						d = 1;
-						k = i;
-					},
-					function (n) {
-						(i = n.AttackedLX) > k && (l = d = 1);
-						k = i;
-					},
-				],
-				e = b.length,
-				m,
-				c,
-				g;
-			(function (r) {
-				var q = (j = b[r]).length,
-					n = arguments.callee,
-					p = oT.$[r],
-					s = oT.$L[r];
-				while (q--) {
-					a = j[q];
-					a.HP &&
-						a.PZ &&
-						a.ZX < 901 &&
-						oT["chkD" + a.WalkDirection](a, r, p, s);
-					!a.HP
-						? (j.splice(q, 1), f[0](a))
-						: f[a.ChkActs(a, r, j, q)](a);
-				}
-				l
-					? ((l = d = 0),
-						j.sort(function (u, t) {
-							return u.AttackedLX - t.AttackedLX;
-						}),
-						(j.RefreshTime = oSym.Now))
-					: d && ((d = 0), (j.RefreshTime = oSym.Now));
-				--r && oSym.addTask(0, n, [r]);
-			})(b.length - 1);
-		},
+		}
+		(function (a, b) {
+			(b += 50) < 901
+				? ((a.style.left = b + "px"),
+					oSym.addTask(5, arguments.callee, [a, b]))
+				: (a.style.left = "900px");
+		})($("dFog"), GetX(oS.C - oS.HaveFog) - 3);
 	},
-	oT = {
-		Init: function (b) {
-			this.$ = [];
-			this.$L = [];
-			for (var a = b; a; ) {
-				this.$[a] = [];
-				this.$L[a--] = [];
+	GatherFog(d, r, x, t, z) {
+		var c = d - x;
+		var b = d + x;
+		var q = r - t;
+		var p = r + t;
+		var e = [SetNone, SetBlock][z];
+		var w = oS.C;
+		var m = oS.R;
+		var h = w + 1;
+		var g = oS.HaveFog;
+		var a = g * 2;
+		var k = [];
+		var l;
+		var j;
+		var u;
+		var n = function (i) {
+			return (i - w) * 2 + a;
+		};
+		var s = function (i) {
+			return (i - w) * 2 + a - 2;
+		};
+		if (c > 0) {
+			l = s(q > 0 ? q + 1 : 1);
+			j = n(p > h ? h : p - 1);
+			do {
+				l > -1 && k.push("Fog" + c + "_" + l);
+			} while (l++ < j);
+		}
+		if (b <= m) {
+			l = s(q > 0 ? q + 1 : 1);
+			j = n(p > h ? h : p - 1);
+			do {
+				l > -1 && k.push("Fog" + b + "_" + l);
+			} while (l++ < j);
+		}
+		++c;
+		--b;
+		l = s(q < 1 ? 1 : q);
+		j = n(p > h ? h : p);
+		u = l;
+		do {
+			do {
+				l > -1 && k.push("Fog" + c + "_" + l);
+			} while (l++ <= j);
+			l = u;
+		} while (c++ < b);
+		for (l = 0; l < k.length; e($(k[l])), l++) {}
+		if (z) {
+			var y = oGd.$Torch;
+			var f;
+			for (u in y) {
+				f = $P[y[u]];
+				this.GatherFog(f.R, f.C, 1, 1, 0);
 			}
-		},
-		add: function (f, c, g) {
-			if (f <= 0 || f > oS.R) {
-				return;
-			}
-			var e = this.$[f],
-				d = c.length,
-				b;
-			while (d--) {
-				b = c[d];
-				e.push([b[0], b[1], b[2], g]);
-			}
-			e.sort(function (i, h) {
-				return h[1] - i[1];
-			});
-			e.RefreshTime = new Date();
-		},
-		chkD0: function (g, e, d, h) {
-			var f = g.AttackedLX,
-				c = 0,
-				b,
-				a;
-			while (c < d.length && (b = d[c])[1] >= f) {
-				(a = $P[b[3]]).canTrigger &&
-					b[0] <= f &&
-					a.TriggerCheck(g, b[2], c);
-				++c;
-			}
-		},
-		chkD1: function (b, e, c, g) {
-			var j = b.AttackedLX,
-				h = b.AttackedRX,
-				f = 0,
-				m,
-				l,
-				d,
-				a,
-				k;
-			(l = c.RefreshTime) == g.RefreshTime
-				? (m = g)
-				: ((m = (this.$L[e] = c.slice(0)).sort(function (n, i) {
-						return n[0] - i[0];
-					})).RefreshTime = l);
-			while (f < m.length && (d = m[f])[0] <= h) {
-				(a = $P[d[3]]).canTrigger &&
-					d[1] >= h &&
-					a.TriggerCheck(b, d[2], f);
-				++f;
-			}
-		},
-		delP: function (e) {
-			var b = e.oTrigger,
-				f = e.id,
-				d,
-				a,
-				c;
-			for (d in b) {
-				for (
-					c = (a = this.$[d]).length;
-					c--;
-					a[c][3] == f && a.splice(c, 1)
-				) {}
-				a.RefreshTime = new Date();
-			}
-		},
-		indexOf: function (j, d) {
-			var f = new RegExp(d + ",", "g"),
-				h = (j.toString() + ",").replace(f, "┢,").replace(/[^,┢]/g, ""),
-				i = 0,
-				g = 0,
-				b = [];
-			for (; (g = h.indexOf("┢", g)) > 0; b.push((g++ - i++ - 2) / 3)) {}
-			return b;
-		},
+		}
 	},
-	asyncInnerHTML = function (d, c, a) {
-		var b = $n("div"),
-			e = document.createDocumentFragment();
-		b.innerHTML = d;
-		(function (g) {
-			var f = arguments.callee;
-			g--
-				? (e.appendChild(b.firstChild),
-					setTimeout(function () {
-						f(g);
-					}, 0))
-				: c(e, a);
-		})(b.childNodes.length);
+};
+var oZ = {
+	Init(b) {
+		this.$ = [];
+		this.$R = [];
+		var a;
+		for (a = b; a; this.$[a] = [], this.$R[a--] = []) {}
 	},
-	WhichMouseButton = function (a) {
-		a = window.event || a;
-		var b = $User.Browser;
-		return !b.Gecko
-			? $SEql(a.button, { 1: 1, 0: b.IE ? 2 : 1, 2: 2, default: 1 })
-			: $SEql(a.which, { 1: 1, 3: 2, default: 1 });
+	add(b, a) {
+		(a = oZ.$[b.R]).push(b);
+		a.sort((d, c) => {
+			return d.AttackedLX - c.AttackedLX;
+		});
+		a.RefreshTime = oSym.Now;
 	},
-	GroundOnmousedown = function (i) {
-		i = window.event || i;
-		var a =
-				((i.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-					EElement.scrollLeft) *
-					10) /
-				9,
-			k = ((i.clientY + EBody.scrollTop || EElement.scrollTop) * 10) / 9,
-			g = ChosePlantX(a),
-			h = ChosePlantY(k),
-			d = g[0],
-			c = h[0],
-			f = h[1],
-			b = g[1],
-			j = GetAP(a, k, f, b);
+	getZ0(b, d) {
+		if (d < 1 || d > oS.R) {
+			return;
+		}
+		var c = 0;
+		var e = this.$[d];
+		var f;
+		var a = e.length;
+		while (c < a && (f = e[c++]).AttackedLX <= b) {
+			if (f.PZ && f.HP && f.AttackedRX >= b) {
+				return f;
+			}
+		}
+	},
+	getZ1(h, b) {
+		if (b < 1 || b > oS.R) {
+			return;
+		}
+		var d = 0;
+		var j = this.$[b];
+		var f = this.$R[b];
+		var g;
+		var c;
+		var k;
+		var e;
+		(k = j.RefreshTime) == f.RefreshTime
+			? (g = f)
+			: ((g = (this.$R[b] = j.slice(0)).sort((l, i) => {
+					return i.AttackedRX - l.AttackedRX;
+				})).RefreshTime = k);
+		e = g.length;
+		while (d < e && (c = g[d++]).AttackedRX >= h) {
+			if (c.PZ && c.HP && c.AttackedLX <= h) {
+				return c;
+			}
+		}
+	},
+	getArZ(e, d, b) {
+		var g = 0;
+		var l = this.$[b];
+		var f = [];
+		var k = 0;
+		var c;
+		var h = l.length;
+		var j;
+		while (g < h && (j = (c = l[g++]).AttackedLX) < d) {
+			c.PZ && c.HP && (j > e || c.AttackedRX > e) && (f[k++] = c);
+		}
+		return f;
+	},
+	getRangeLeftZ(e, d, b) {
+		if (b < 1 || b > oS.R) {
+			return;
+		}
+		var g = 0;
+		var l = this.$[b];
+		var f = [];
+		var k = 0;
+		var c;
+		var h = l.length;
+		var j;
+		while (g < h && (j = (c = l[g++]).AttackedLX) < d) {
+			if (c.PZ && c.HP && (j > e || c.AttackedRX > e)) {
+				return c;
+			}
+		}
+	},
+	moveTo(g, f, c) {
+		var b = this.$[f];
+		var a = this.$[c];
+		var e = b.length;
+		var d;
+		while (e--) {
+			(o = b[e]).id == g &&
+				(b.splice(e, 1),
+				(o.R = c),
+				a.push(o),
+				(a.sort((i, h) => {
+					return i.AttackedLX - h.AttackedLX;
+				}).RefreshTime = b.RefreshTime =
+					oSym.Now),
+				(e = 0));
+		}
+	},
+	traversalOf() {
+		var a;
+		var b = this.$;
+		var j;
+		var l = 0;
+		var d = 0;
+		var k = 1e3;
+		var i;
+		var h;
+		var f = [
+			function (n) {
+				d = 1;
+				k = i;
+			},
+			function (n) {
+				(i = n.AttackedLX) > k && (l = d = 1);
+				k = i;
+			},
+		];
+		var e = b.length;
+		var m;
+		var c;
+		var g;
+		(function (r) {
+			var q = (j = b[r]).length;
+			var n = arguments.callee;
+			var p = oT.$[r];
+			var s = oT.$L[r];
+			while (q--) {
+				a = j[q];
+				a.HP &&
+					a.PZ &&
+					a.ZX < 901 &&
+					oT["chkD" + a.WalkDirection](a, r, p, s);
+				!a.HP ? (j.splice(q, 1), f[0](a)) : f[a.ChkActs(a, r, j, q)](a);
+			}
+			l
+				? ((l = d = 0),
+					j.sort((u, t) => {
+						return u.AttackedLX - t.AttackedLX;
+					}),
+					(j.RefreshTime = oSym.Now))
+				: d && ((d = 0), (j.RefreshTime = oSym.Now));
+			--r && oSym.addTask(0, n, [r]);
+		})(b.length - 1);
+	},
+};
+var oT = {
+	Init(b) {
+		this.$ = [];
+		this.$L = [];
+		for (var a = b; a; ) {
+			this.$[a] = [];
+			this.$L[a--] = [];
+		}
+	},
+	add(f, c, g) {
+		if (f <= 0 || f > oS.R) {
+			return;
+		}
+		var e = this.$[f];
+		var d = c.length;
+		var b;
+		while (d--) {
+			b = c[d];
+			e.push([b[0], b[1], b[2], g]);
+		}
+		e.sort((i, h) => {
+			return h[1] - i[1];
+		});
+		e.RefreshTime = new Date();
+	},
+	chkD0(g, e, d, h) {
+		var f = g.AttackedLX;
+		var c = 0;
+		var b;
+		var a;
+		while (c < d.length && (b = d[c])[1] >= f) {
+			(a = $P[b[3]]).canTrigger &&
+				b[0] <= f &&
+				a.TriggerCheck(g, b[2], c);
+			++c;
+		}
+	},
+	chkD1(b, e, c, g) {
+		var j = b.AttackedLX;
+		var h = b.AttackedRX;
+		var f = 0;
+		var m;
+		var l;
+		var d;
+		var a;
+		var k;
+		(l = c.RefreshTime) == g.RefreshTime
+			? (m = g)
+			: ((m = (this.$L[e] = c.slice(0)).sort((n, i) => {
+					return n[0] - i[0];
+				})).RefreshTime = l);
+		while (f < m.length && (d = m[f])[0] <= h) {
+			(a = $P[d[3]]).canTrigger &&
+				d[1] >= h &&
+				a.TriggerCheck(b, d[2], f);
+			++f;
+		}
+	},
+	delP(e) {
+		var b = e.oTrigger;
+		var f = e.id;
+		var d;
+		var a;
+		var c;
+		for (d in b) {
+			for (
+				c = (a = this.$[d]).length;
+				c--;
+				a[c][3] == f && a.splice(c, 1)
+			) {}
+			a.RefreshTime = new Date();
+		}
+	},
+	indexOf(j, d) {
+		var f = new RegExp(d + ",", "g");
+		var h = (j.toString() + ",").replace(f, "┢,").replace(/[^,┢]/g, "");
+		var i = 0;
+		var g = 0;
+		var b = [];
+		for (; (g = h.indexOf("┢", g)) > 0; b.push((g++ - i++ - 2) / 3)) {}
+		return b;
+	},
+};
+var asyncInnerHTML = function (d, c, a) {
+	var b = $n("div");
+	var e = document.createDocumentFragment();
+	b.innerHTML = d;
+	(function (g) {
+		var f = arguments.callee;
+		g--
+			? (e.appendChild(b.firstChild),
+				setTimeout(() => {
+					f(g);
+				}, 0))
+			: c(e, a);
+	})(b.childNodes.length);
+};
+var WhichMouseButton = function (a) {
+	a = window.event || a;
+	var b = $User.Browser;
+	return !b.Gecko
+		? $SEql(a.button, { 1: 1, 0: b.IE ? 2 : 1, 2: 2, default: 1 })
+		: $SEql(a.which, { 1: 1, 3: 2, default: 1 });
+};
+var GroundOnmousedown = function (i) {
+	i = window.event || i;
+	var a =
+		((i.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
+			EElement.scrollLeft) *
+			10) /
+		9;
+	var k = ((i.clientY + EBody.scrollTop || EElement.scrollTop) * 10) / 9;
+	var g = ChosePlantX(a);
+	var h = ChosePlantY(k);
+	var d = g[0];
+	var c = h[0];
+	var f = h[1];
+	var b = g[1];
+	var j = GetAP(a, k, f, b);
+	switch (oS.Chose) {
+		case 1:
+			WhichMouseButton(i) < 2
+				? GrowPlant(j[0], d, c, f, b)
+				: (PlayAudio("tap"), CancelPlant());
+			break;
+		case -1:
+			WhichMouseButton(i) < 2
+				? (PlayAudio("plant2"), ShovelPlant(j))
+				: (PlayAudio("tap"), CancelShovel());
+	}
+};
+var GetAP = function (a, h, d, c) {
+	var f;
+	var i = oGd.$;
+	var e;
+	var g = [];
+	var b;
+	for (
+		f = 0;
+		f < 4;
+		g.push((e = i[d + "_" + c + "_" + f++])),
+			e &&
+				!(
+					a < e.pixelLeft ||
+					a > e.pixelRight ||
+					h < e.pixelTop ||
+					h > e.pixelBottom
+				) &&
+				(b = e)
+	) {}
+	return [g, b];
+};
+var GroundOnkeydown = function (b) {
+	var a;
+	if ((a = (b || event).keyCode) == 27) {
 		switch (oS.Chose) {
 			case 1:
-				WhichMouseButton(i) < 2
-					? GrowPlant(j[0], d, c, f, b)
-					: (PlayAudio("tap"), CancelPlant());
+				CancelPlant();
 				break;
 			case -1:
-				WhichMouseButton(i) < 2
-					? (PlayAudio("plant2"), ShovelPlant(j))
-					: (PlayAudio("tap"), CancelShovel());
+				CancelShovel();
 		}
-	},
-	GetAP = function (a, h, d, c) {
-		var f,
-			i = oGd.$,
-			e,
-			g = [],
-			b;
-		for (
-			f = 0;
-			f < 4;
-			g.push((e = i[d + "_" + c + "_" + f++])),
-				e &&
-					!(
-						a < e.pixelLeft ||
-						a > e.pixelRight ||
-						h < e.pixelTop ||
-						h > e.pixelBottom
-					) &&
-					(b = e)
-		) {}
-		return [g, b];
-	},
-	GroundOnkeydown = function (b) {
-		var a;
-		if ((a = (b || event).keyCode) == 27) {
-			switch (oS.Chose) {
-				case 1:
-					CancelPlant();
-					break;
-				case -1:
-					CancelShovel();
-			}
-			return false;
-		} else {
-			!oS.Chose && KeyBoardGrowPlant(a);
+		return false;
+	}
+	!oS.Chose && KeyBoardGrowPlant(a);
+};
+var KeyBoardGrowPlant = function (b, a) {
+	a = a || 0;
+	if (b > 47 && b < 58) {
+		switch (a) {
+			case 0:
+				ChosePlant(
+					{ clientX: 450, clientY: 300 },
+					String.fromCharCode(b)
+				);
 		}
-	},
-	KeyBoardGrowPlant = function (b, a) {
-		a = a || 0;
-		if (b > 47 && b < 58) {
-			switch (a) {
-				case 0:
-					ChosePlant(
-						{ clientX: 450, clientY: 300 },
-						String.fromCharCode(b)
-					);
-			}
+	}
+};
+var GroundOnmousemove = function () {};
+var GroundOnmousemove1 = function (j) {
+	j = window.event || j;
+	var d =
+		((j.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
+			EElement.scrollLeft) *
+			10) /
+		9;
+	var b = ((j.clientY + EBody.scrollTop || EElement.scrollTop) * 10) / 9;
+	var k = oS.ChoseCard;
+	var h = ChosePlantX(d);
+	var i = ChosePlantY(b);
+	var f = h[0];
+	var c = i[0];
+	var g = i[1];
+	var a = h[1];
+	var m = GetAP(d, b, g, a);
+	var l = ArCard[k].PName.prototype;
+	SetStyle($("MovePlant"), {
+		left: d - 0.5 * (l.beAttackedPointL + l.beAttackedPointR) + "px",
+		top: b + 20 - l.height + "px",
+	});
+	l.CanGrow(m[0], g, a)
+		? SetStyle($("MovePlantAlpha"), {
+				visibility: "visible",
+				left: f + l.GetDX() + "px",
+				top: c - l.height + l.GetDY(g, a, m[0]) + "px",
+			})
+		: SetHidden($("MovePlantAlpha"));
+};
+var GroundOnmousemove2 = function (k) {
+	k = window.event || k;
+	var d =
+		k.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
+	var b = k.clientY + EBody.scrollTop || EElement.scrollTop;
+	var m = oS.ChoseCard;
+	var h = ChosePlantX(d);
+	var i = ChosePlantY(b);
+	var f = h[0];
+	var c = i[0];
+	var g = i[1];
+	var a = h[1];
+	var n = GetAP(d, b, g, a);
+	var j = n[1];
+	var l = j ? j.id : "";
+	var p = oS.MPID;
+	p != l &&
+		(p && SetAlpha($(p).childNodes[1], 100, 1),
+		(oS.MPID = l) && SetAlpha($(l).childNodes[1], 60, 0.6));
+	SetStyle($("tShovel"), {
+		left: ((d - 15) * 10) / 9 + "px",
+		top: ((b - 16) * 10) / 9 + "px",
+	});
+};
+var DisplayZombie = function () {
+	SetVisible($("bShowHandBook"));
+	/* SetVisible($("bMainMenu")); */
+	var d = oP.AZ.slice(0);
+	var b = d.length;
+	var c;
+	var g;
+	var h = $("dZombie");
+	var f = [];
+	var e = [];
+	var a;
+	while (b--) {
+		d[b][0].prototype.CanDiaplay == 0 && d.splice(b, 1);
+	}
+	c = b = d.length;
+	while (c--) {
+		f.push(Math.floor(150 + Math.random() * 444));
+	}
+	f.sort((j, i) => {
+		return j - i;
+	});
+	while (b) {
+		g = d[(a = Math.floor(Math.random() * b))][0].prototype;
+		g.CanDisplay
+			? (d.splice(a, 1),
+				(e[b--] = g.getHTML(
+					"",
+					Math.floor(50 + Math.random() * 201) - g.width * 0.5,
+					f[b] - g.height,
+					1,
+					"block",
+					"auto",
+					g.GetDTop,
+					g.PicArr[g.StandGif]
+				)))
+			: --b;
+	}
+	asyncInnerHTML(e.join(""), (i) => {
+		h.appendChild(i);
+	});
+};
+var AutoSelectCard = function () {
+	var c = oS.ArCard;
+	var b = -1;
+	var a = c.length;
+	while (++b < a) {
+		SelectCard(c[b].prototype.EName);
+	}
+};
+var InitPCard = function () {
+	var d = "";
+	var f;
+	var e = oS.ArCard;
+	var a = e.length;
+	var b = 0;
+	var c;
+	while (b < a) {
+		f = e[b];
+		c = f.prototype;
+		if (!c.CanSelect) {
+			++b;
+			continue;
 		}
-	},
-	GroundOnmousemove = function () {},
-	GroundOnmousemove1 = function (j) {
-		j = window.event || j;
-		var d =
-				((j.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-					EElement.scrollLeft) *
-					10) /
-				9,
-			b = ((j.clientY + EBody.scrollTop || EElement.scrollTop) * 10) / 9,
-			k = oS.ChoseCard,
-			h = ChosePlantX(d),
-			i = ChosePlantY(b),
-			f = h[0],
-			c = i[0],
-			g = i[1],
-			a = h[1],
-			m = GetAP(d, b, g, a);
-		var l = ArCard[k].PName.prototype;
-		SetStyle($("MovePlant"), {
-			left: d - 0.5 * (l.beAttackedPointL + l.beAttackedPointR) + "px",
-			top: b + 20 - l.height + "px",
-		});
-		l.CanGrow(m[0], g, a)
-			? SetStyle($("MovePlantAlpha"), {
-					visibility: "visible",
-					left: f + l.GetDX() + "px",
-					top: c - l.height + l.GetDY(g, a, m[0]) + "px",
-				})
-			: SetHidden($("MovePlantAlpha"));
-	},
-	GroundOnmousemove2 = function (k) {
-		k = window.event || k;
-		var d =
-				k.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-				EElement.scrollLeft,
-			b = k.clientY + EBody.scrollTop || EElement.scrollTop,
-			m = oS.ChoseCard,
-			h = ChosePlantX(d),
-			i = ChosePlantY(b),
-			f = h[0],
-			c = i[0],
-			g = i[1],
-			a = h[1],
-			n = GetAP(d, b, g, a);
-		var j = n[1],
-			l = j ? j.id : "",
-			p = oS.MPID;
-		p != l &&
-			(p && SetAlpha($(p).childNodes[1], 100, 1),
-			(oS.MPID = l) && SetAlpha($(l).childNodes[1], 60, 0.6));
-		SetStyle($("tShovel"), {
-			left: ((d - 15) * 10) / 9 + "px",
-			top: ((b - 16) * 10) / 9 + "px",
-		});
-	},
-	DisplayZombie = function () {
-		SetVisible($("bShowHandBook"));
-		/* SetVisible($("bMainMenu")); */
-		var d = oP.AZ.slice(0),
-			b = d.length,
-			c,
-			g,
-			h = $("dZombie"),
-			f = [],
-			e = [],
-			a;
-		while (b--) {
-			d[b][0].prototype.CanDiaplay == 0 && d.splice(b, 1);
-		}
-		c = b = d.length;
-		while (c--) {
-			f.push(Math.floor(150 + Math.random() * 444));
-		}
-		f.sort(function (j, i) {
-			return j - i;
-		});
-		while (b) {
-			g = d[(a = Math.floor(Math.random() * b))][0].prototype;
-			g.CanDisplay
-				? (d.splice(a, 1),
-					(e[b--] = g.getHTML(
-						"",
-						Math.floor(50 + Math.random() * 201) - g.width * 0.5,
-						f[b] - g.height,
-						1,
-						"block",
-						"auto",
-						g.GetDTop,
-						g.PicArr[g.StandGif]
-					)))
-				: --b;
-		}
-		asyncInnerHTML(e.join(""), function (i) {
-			h.appendChild(i);
-		});
-	},
-	AutoSelectCard = function () {
-		var c = oS.ArCard,
-			b = -1,
-			a = c.length;
-		while (++b < a) {
-			SelectCard(c[b].prototype.EName);
-		}
-	},
-	InitPCard = function () {
-		var d = "",
-			f,
-			e = oS.ArCard,
-			a = e.length,
-			b = 0,
-			c;
-		while (b < a) {
-			f = e[b];
-			c = f.prototype;
-			if (!c.CanSelect) {
-				++b;
-				continue;
-			}
-			ArPCard[(EName = c.EName)] = { Select: 0, PName: f };
-			d +=
-				'<div class="span1" id="Card' +
-				EName +
-				'" onmouseout="SetHidden($(\'dTitle\'))" onmousemove="ViewCardTitle(' +
-				EName +
-				',event)" onclick="SelectCard(\'' +
-				EName +
-				'\')"><img src="' +
-				c.PicArr[0] +
-				'"><span class="span2">' +
-				c.SunNum +
-				"</span></div>";
-			b++ % 6 == 5 && (d += "<br>");
-		}
-		$("dPCard").innerHTML = d;
-	},
-	InitHandBookPCard = function () {
-		PlayAudio("gravebutton");
-		var d = "",
-			g,
-			f,
-			e = [
-				oPeashooter,
-				oSunFlower,
-				oCherryBomb,
-				oWallNut,
-				oPotatoMine,
-				oSnowPea,
-				oChomper,
-				oRepeater,
-				oPuffShroom,
-				oSunShroom,
-				oFumeShroom,
-				oGraveBuster,
-				oHypnoShroom,
-				oScaredyShroom,
-				oIceShroom,
-				oDoomShroom,
-				oLilyPad,
-				oSquash,
-				oThreepeater,
-				oTangleKlep,
-				oJalapeno,
-				oSpikeweed,
-				oTorchwood,
-				oTallNut,
-				oCactus,
-				oPlantern,
-				oSplitPea,
-				oStarfruit,
-				oPumpkinHead,
-				oFlowerPot,
-				oCoffeeBean,
-				oGarlic,
-				oSeaShroom,
-				oOxygen,
-				ostar,
-				oTTS,
-				oGun,
-				oSeaAnemone,
-				oGatlingPea,
-				oGloomShroom,
-				oTwinSunflower,
-				oSpikerock,
-				oTenManNut,
-				oSnowRepeater,
-				oCattail,
-				oLotusRoot,
-				oIceFumeShroom,
-				oLaserBean,
-				oBigChomper,
-				oFlamesMushroom,
-				oBalloon,
-			],
-			a = e.length,
-			b = 0,
-			c;
-		while (b < a) {
-			g = e[b];
-			c = g.prototype;
-			f = c.EName;
-			d +=
-				'<div class="span1" onclick="ViewProducePlant(' +
-				f +
-				')"><img src="' +
-				c.PicArr[0] +
-				'"><div class="span2">' +
-				c.SunNum +
-				"</div></div>";
-			b++ % 6 == 5 && (d += "<br>");
-		}
-		$("dHandBookPCard").innerHTML = d;
-		ViewProducePlant(e[0]);
-		$("dHandBookPZ").className = "WindowFrame Almanac_PlantBack";
-		SetVisible($("dHandBookPZ"));
-		SetNone($("dHandBookZ"));
-		SetBlock($("dHandBookP"));
-	},
-	InitHandBookZCard = function () {
-		PlayAudio("gravebutton");
-		var d = "",
-			g,
-			f,
-			e = [
-				oZombie,
-				oConeheadZombie,
-				oPoleVaultingZombie,
-				oBucketheadZombie,
-				oFlagZombie,
-				oNewspaperZombie,
-				oScreenDoorZombie,
-				oFootballZombie,
-				oHeiFootballZombie,
-				oDancingZombie,
-				oBackupDancer,
-				oDuckyTubeZombie1,
-				oSnorkelZombie,
-				oZomboni,
-				oDolphinRiderZombie,
-				oBalloonZombie,
-				oJackinTheBoxZombie,
-				oImp,
-				oCZombie,
-				oCConeheadZombie,
-				oCBucketheadZombie,
-				oEunZombie,
-				othugZombie,
-				oZZ,
-				oEmperor,
-				oCXZombie,
-				oXBZombie,
-				oJX,
-				oJY,
-				oLGBOSS,
-				oWarshipsZombie,
-				oSubZombie,
-				oWJY,
-				oMustacheZombie,
-				oTrashZombie,
-				oLionDanceZombie,
-			],
-			a = e.length,
-			b = 0,
-			c;
-		while (b < a) {
-			g = e[b];
-			c = g.prototype;
-			f = c.EName;
-			d +=
-				'<div class="span1" onclick="ViewProduceZombie(' +
-				f +
-				')"><img src="' +
-				c.PicArr[0] +
-				'"><div class="span2">' +
-				c.SunNum +
-				"</div></div>";
-			b++;
-		}
-		$("dHandBookZCard").innerHTML = d;
-		ViewProduceZombie(e[0]);
-		$("dHandBookPZ").className = "WindowFrame Almanac_ZombieBack";
-		SetVisible($("dHandBookPZ"));
-		SetNone($("dHandBookP"));
-		SetBlock($("dHandBookZ"));
-	};
+		ArPCard[(EName = c.EName)] = { Select: 0, PName: f };
+		d +=
+			'<div class="span1" id="Card' +
+			EName +
+			'" onmouseout="SetHidden($(\'dTitle\'))" onmousemove="ViewCardTitle(' +
+			EName +
+			',event)" onclick="SelectCard(\'' +
+			EName +
+			'\')"><img src="' +
+			c.PicArr[0] +
+			'"><span class="span2">' +
+			c.SunNum +
+			"</span></div>";
+		b++ % 6 == 5 && (d += "<br>");
+	}
+	$("dPCard").innerHTML = d;
+};
+var InitHandBookPCard = function () {
+	PlayAudio("gravebutton");
+	var d = "";
+	var g;
+	var f;
+	var e = [
+		oPeashooter,
+		oSunFlower,
+		oCherryBomb,
+		oWallNut,
+		oPotatoMine,
+		oSnowPea,
+		oChomper,
+		oRepeater,
+		oPuffShroom,
+		oSunShroom,
+		oFumeShroom,
+		oGraveBuster,
+		oHypnoShroom,
+		oScaredyShroom,
+		oIceShroom,
+		oDoomShroom,
+		oLilyPad,
+		oSquash,
+		oThreepeater,
+		oTangleKlep,
+		oJalapeno,
+		oSpikeweed,
+		oTorchwood,
+		oTallNut,
+		oCactus,
+		oPlantern,
+		oSplitPea,
+		oStarfruit,
+		oPumpkinHead,
+		oFlowerPot,
+		oCoffeeBean,
+		oGarlic,
+		oSeaShroom,
+		oOxygen,
+		ostar,
+		oTTS,
+		oGun,
+		oSeaAnemone,
+		oGatlingPea,
+		oGloomShroom,
+		oTwinSunflower,
+		oSpikerock,
+		oTenManNut,
+		oSnowRepeater,
+		oCattail,
+		oLotusRoot,
+		oIceFumeShroom,
+		oLaserBean,
+		oBigChomper,
+		oFlamesMushroom,
+		oBalloon,
+	];
+	var a = e.length;
+	var b = 0;
+	var c;
+	while (b < a) {
+		g = e[b];
+		c = g.prototype;
+		f = c.EName;
+		d +=
+			'<div class="span1" onclick="ViewProducePlant(' +
+			f +
+			')"><img src="' +
+			c.PicArr[0] +
+			'"><div class="span2">' +
+			c.SunNum +
+			"</div></div>";
+		b++ % 6 == 5 && (d += "<br>");
+	}
+	$("dHandBookPCard").innerHTML = d;
+	ViewProducePlant(e[0]);
+	$("dHandBookPZ").className = "WindowFrame Almanac_PlantBack";
+	SetVisible($("dHandBookPZ"));
+	SetNone($("dHandBookZ"));
+	SetBlock($("dHandBookP"));
+};
+var InitHandBookZCard = function () {
+	PlayAudio("gravebutton");
+	var d = "";
+	var g;
+	var f;
+	var e = [
+		oZombie,
+		oConeheadZombie,
+		oPoleVaultingZombie,
+		oBucketheadZombie,
+		oFlagZombie,
+		oNewspaperZombie,
+		oScreenDoorZombie,
+		oFootballZombie,
+		oHeiFootballZombie,
+		oDancingZombie,
+		oBackupDancer,
+		oDuckyTubeZombie1,
+		oSnorkelZombie,
+		oZomboni,
+		oDolphinRiderZombie,
+		oBalloonZombie,
+		oJackinTheBoxZombie,
+		oImp,
+		oCZombie,
+		oCConeheadZombie,
+		oCBucketheadZombie,
+		oEunZombie,
+		othugZombie,
+		oZZ,
+		oEmperor,
+		oCXZombie,
+		oXBZombie,
+		oJX,
+		oJY,
+		oLGBOSS,
+		oWarshipsZombie,
+		oSubZombie,
+		oWJY,
+		oMustacheZombie,
+		oTrashZombie,
+		oLionDanceZombie,
+	];
+	var a = e.length;
+	var b = 0;
+	var c;
+	while (b < a) {
+		g = e[b];
+		c = g.prototype;
+		f = c.EName;
+		d +=
+			'<div class="span1" onclick="ViewProduceZombie(' +
+			f +
+			')"><img src="' +
+			c.PicArr[0] +
+			'"><div class="span2">' +
+			c.SunNum +
+			"</div></div>";
+		b++;
+	}
+	$("dHandBookZCard").innerHTML = d;
+	ViewProduceZombie(e[0]);
+	$("dHandBookPZ").className = "WindowFrame Almanac_ZombieBack";
+	SetVisible($("dHandBookPZ"));
+	SetNone($("dHandBookP"));
+	SetBlock($("dHandBookZ"));
+};
 var lastB;
 (ViewProducePlant = function (b) {
 	if (lastB !== b) {
@@ -2051,8 +2020,8 @@ var lastB;
 	}),
 	(ViewCardTitle = function (b, c) {
 		c = c || window.event;
-		var f = $("dTitle"),
-			a = b.prototype;
+		var f = $("dTitle");
+		var a = b.prototype;
 		f.innerHTML =
 			a.CName +
 			"<br>cooldown: " +
@@ -2091,22 +2060,20 @@ var lastB;
 	}),
 	(SelectCard = function (c) {
 		PlayAudio("tap");
-		var h = $("Card" + c).childNodes,
-			f = h[0],
-			b = ArPCard[c],
-			i = b.PName.prototype,
-			g,
-			a,
-			j,
-			e = $("btnOK");
+		var h = $("Card" + c).childNodes;
+		var f = h[0];
+		var b = ArPCard[c];
+		var i = b.PName.prototype;
+		var g;
+		var a;
+		var j;
+		var e = $("btnOK");
 		if (!b.Select) {
 			if (!(ArPCard.SelNum |= 0)) {
 				e.disabled = "";
 				e.style.color = "#FC6";
-			} else {
-				if (ArPCard.SelNum > 9) {
-					return;
-				}
+			} else if (ArPCard.SelNum > 9) {
+				return;
 			}
 			++ArPCard.SelNum;
 			b.Select = 1;
@@ -2116,7 +2083,7 @@ var lastB;
 					"div",
 					"",
 					{
-						onclick: function () {
+						onclick() {
 							SelectCard(c);
 						},
 					},
@@ -2135,8 +2102,8 @@ var lastB;
 		}
 	}),
 	(ResetSelectCard = function () {
-		var b,
-			a = $("btnOK");
+		var b;
+		var a = $("btnOK");
 		for (b in ArPCard) {
 			ArPCard[b].Select && SelectCard(b);
 		}
@@ -2144,16 +2111,16 @@ var lastB;
 		a.style.color = "#888";
 	}),
 	(LetsGO = function () {
-		var e = $("dCardList"),
-			g = 0,
-			k = e.childNodes.length,
-			f,
-			h,
-			l,
-			c,
-			j,
-			a,
-			b = document.body;
+		var e = $("dCardList");
+		var g = 0;
+		var k = e.childNodes.length;
+		var f;
+		var h;
+		var l;
+		var c;
+		var j;
+		var a;
+		var b = document.body;
 		SetStyle($("dTop"), { left: "105px", top: 0 });
 		e.style.left = 0;
 		SetVisible(e);
@@ -2196,13 +2163,13 @@ var lastB;
 				NewMusic((oS.LoadMusic = oS.StartGameMusic));
 				SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
 				oS.InitLawnMower();
-				PrepareGrowPlants(function () {
+				PrepareGrowPlants(() => {
 					oP.Monitor(oS.Monitor, oS.UserDefinedFlagFunc);
 					BeginCool();
 					oS.DKind && AutoProduceSun(50);
 					oSym.addTask(
 						1500,
-						function () {
+						() => {
 							oP.AddZombiesFlag();
 							SetVisible($("dFlagMeterContent"));
 						},
@@ -2214,10 +2181,10 @@ var lastB;
 		oS.StartTime = oSym.Now;
 	}),
 	(ViewPlantTitle = function (b) {
-		var f = $("dTitle"),
-			e = ArCard[b],
-			c = e.PName.prototype,
-			a = c.CName;
+		var f = $("dTitle");
+		var e = ArCard[b];
+		var c = e.PName.prototype;
+		var a = c.CName;
 		!oS.CardKind &&
 			((a += "<br>cooldown: " + c.coolTime + "s<br>" + c.Tooltip),
 			!e.CDReady &&
@@ -2228,11 +2195,11 @@ var lastB;
 		SetStyle(f, { top: 60 * b + "px", left: EDAlloffsetLeft + 100 + "px" });
 	}),
 	(BeginCool = function () {
-		var b = ArCard.length,
-			c,
-			d,
-			a,
-			e;
+		var b = ArCard.length;
+		var c;
+		var d;
+		var a;
+		var e;
 		while (b--) {
 			a = (c = (d = ArCard[b]).PName.prototype).coolTime;
 			e = c.SunNum;
@@ -2254,11 +2221,11 @@ var lastB;
 		}
 	}),
 	(ImmediatelyCool = function () {
-		var b = ArCard.length,
-			c,
-			d,
-			a,
-			e;
+		var b = ArCard.length;
+		var c;
+		var d;
+		var a;
+		var e;
 		while (b--) {
 			a = (c = (d = ArCard[b]).PName.prototype).coolTime;
 			e = c.SunNum;
@@ -2268,9 +2235,9 @@ var lastB;
 		}
 	}),
 	(MonitorCard = function (d) {
-		var b = ArCard.length,
-			c,
-			a = Number(ESSunNum.innerHTML);
+		var b = ArCard.length;
+		var c;
+		var a = Number(ESSunNum.innerHTML);
 		a != oS.SunNum && (oS.SunNum = Math.min(a, oS.SunNum));
 		if (oS.Chose < 1) {
 			while (b--) {
@@ -2331,13 +2298,13 @@ var lastB;
 		PlayAudio("seedlift");
 		h = window.event || h;
 		var b =
-				h.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-				EElement.scrollLeft,
-			a = h.clientY + EBody.scrollTop || EElement.scrollTop,
-			j = g.PName.prototype,
-			e = ArCard.length,
-			f,
-			c = j.PicArr;
+			h.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
+			EElement.scrollLeft;
+		var a = h.clientY + EBody.scrollTop || EElement.scrollTop;
+		var j = g.PName.prototype;
+		var e = ArCard.length;
+		var f;
+		var c = j.PicArr;
 		oS.Chose = 1;
 		!oS.CardKind
 			? EditImg(
@@ -2395,8 +2362,8 @@ var lastB;
 	}),
 	(ShovelPlant = function (a) {
 		PlayAudio("plant2");
-		var b = a[0],
-			c = a[1];
+		var b = a[0];
+		var c = a[1];
 		c && (c.PKind || !(b[1] || b[2])) && (c.Die(), (oS.MPID = ""));
 		CancelShovel();
 	}),
@@ -2430,13 +2397,13 @@ var lastB;
 		window.event ? (event.cancelBubble = true) : a.stopPropagation();
 	}),
 	(GrowPlant = function (l, d, c, e, b) {
-		var j = oS.ChoseCard,
-			f = ArCard[j],
-			h = f.PName,
-			k = h.prototype,
-			i = k.coolTime,
-			a,
-			g = oGd.$LF[e];
+		var j = oS.ChoseCard;
+		var f = ArCard[j];
+		var h = f.PName;
+		var k = h.prototype;
+		var i = k.coolTime;
+		var a;
+		var g = oGd.$LF[e];
 
 		// Check if the plant can grow at the selected location
 		if (k.CanGrow(l, e, b)) {
@@ -2452,7 +2419,7 @@ var lastB;
 				? new h().Birth(d, c, e, b, l)
 				: asyncInnerHTML(
 						(a = new h()).CustomBirth(e, b, 0, "auto"),
-						function (n, m) {
+						(n, m) => {
 							EDPZ.appendChild(n);
 							m.Birth();
 						},
@@ -2529,13 +2496,13 @@ var lastB;
 	oSym.addTask(Math.floor(9 + Math.random() * 3) * 100, AutoProduceSun, [a]);
 }),
 	(AppearSun = function (h, f, e, a) {
-		var b,
-			d,
-			g = "Sun" + Math.random(),
-			c =
-				"cursor:url(images/interface/Pointer.cur),pointer;z-index:25;left:" +
-				h +
-				"px;";
+		var b;
+		var d;
+		var g = "Sun" + Math.random();
+		var c =
+			"cursor:url(images/interface/Pointer.cur),pointer;z-index:25;left:" +
+			h +
+			"px;";
 		switch (e) {
 			case 25:
 				c += "width:78px;height:78px";
@@ -2558,8 +2525,8 @@ var lastB;
 					function (q, p, n, j, l, k, m, i) {
 						if (ArSun[q] && ArSun[q].C) {
 							SetStyle($(q), {
-								left: (p = p + j * k) + "px",
-								top: (n = n + Number(l[0])) + "px",
+								left: (p += j * k) + "px",
+								top: (n += Number(l[0])) + "px",
 							});
 							l.shift();
 							--m;
@@ -2591,7 +2558,7 @@ var lastB;
 				oSym.addTask(800, DisappearSun, [g], 3));
 		ArSun[g] = { id: g, N: e, C: 1, left: h, top: d };
 		NewImg(g, "images/interface/Sun.webp", c, EDAll, {
-			onclick: function () {
+			onclick() {
 				ClickSun(this.id);
 			},
 		});
@@ -2616,14 +2583,14 @@ var lastB;
 		a && a.C && ((a.C = 0), oSym.addTask(0, MoveClickSun, [b]));
 	}),
 	(MoveClickSun = function (b) {
-		var a = 15,
-			c = ArSun[b],
-			e = 85,
-			i = -20,
-			d = c.left,
-			h = c.top,
-			g = Math.round((d - e) / a),
-			f = Math.round((h - i) / a);
+		var a = 15;
+		var c = ArSun[b];
+		var e = 85;
+		var i = -20;
+		var d = c.left;
+		var h = c.top;
+		var g = Math.round((d - e) / a);
+		var f = Math.round((h - i) / a);
 		(function (k, l, n, s, m, r, j, q, p) {
 			(m -= q) > n
 				? (SetStyle($(k), { left: m + "px", top: (r -= p) + "px" }),
@@ -2654,7 +2621,8 @@ var lastB;
 		})(b, c, e, i, d, h, 1, g, f);
 	}),
 	(AutoClickSun = function () {
-		var a, b;
+		var a;
+		var b;
 		for (b in ArSun) {
 			ArSun[b].C && ClickSun(b);
 		}
@@ -2680,7 +2648,7 @@ var lastB;
 					? oSym.addTask(4, arguments.callee, [b, c, d])
 					: (oSym.addTask(
 							460,
-							function () {
+							() => {
 								ClearChild($("LargeWave"));
 							},
 							[]
@@ -2710,19 +2678,15 @@ var lastB;
 					});
 					c > 252
 						? oSym.addTask(4, arguments.callee, [c, e, d])
-						: oSym.addTask(
-								d,
-								function () {
-									ClearChild($("FinalWave"));
-								},
-								[]
-							);
+						: oSym.addTask(d, () => {
+								ClearChild($("FinalWave"));
+							}, []);
 				},
 				[756, 213, b]
 			);
 		};
 		oP.FlagNum in oS.LargeWaveFlag
-			? ShowLargeWave(function () {
+			? ShowLargeWave(() => {
 					oSym.addTask(560, a, [150]);
 				})
 			: a(500);
@@ -2748,7 +2712,7 @@ var lastB;
 					? oSym.addTask(4, arguments.callee, [b, c, d])
 					: (oSym.addTask(
 							460,
-							function () {
+							() => {
 								ClearChild($("ShowBOSS"));
 							},
 							[]
@@ -2766,7 +2730,7 @@ var lastB;
 			"width:900px;height:600px;z-index:255",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(oS.Lvl);
 				},
 			}
@@ -2787,16 +2751,16 @@ var lastB;
 			PlayAudio("readysetplant");
 			oSym.addTask(
 				60,
-				function (d, c) {
+				(d, c) => {
 					var e = d.style;
 					e.backgroundPosition = "0 -108px";
 					oSym.addTask(
 						40,
-						function (g, h, f) {
+						(g, h, f) => {
 							h.backgroundPosition = "0 -216px";
 							oSym.addTask(
 								100,
-								function (j, i) {
+								(j, i) => {
 									ClearChild(j);
 									i();
 								},
@@ -2882,31 +2846,27 @@ var lastB;
 		);
 	}),
 	(getCookie1 = function (b, g) {
-		var d = document.cookie,
-			f = d.split(";"),
-			c = f.length,
-			a,
-			e,
-			h;
+		var d = document.cookie;
+		var f = d.split(";");
+		var c = f.length;
+		var a;
+		var e;
+		var h;
 		while (c--) {
 			h = (a = f[c]).split("=");
 			if (h[0].replace(" ", "") == b) {
 				if ((e = h.length) == 2) {
 					return unescape(h[1]);
-				} else {
-					h.shift();
-					h = h.join("=").split("&");
-					if (g == undefined) {
-						return unescape(h);
-					} else {
-						e = h.length;
-						while (e--) {
-							if (
-								(a = h[e].split("="))[0].replace(" ", "") == g
-							) {
-								return unescape(a[1]);
-							}
-						}
+				}
+				h.shift();
+				h = h.join("=").split("&");
+				if (g == undefined) {
+					return unescape(h);
+				}
+				e = h.length;
+				while (e--) {
+					if ((a = h[e].split("="))[0].replace(" ", "") == g) {
+						return unescape(a[1]);
 					}
 				}
 			}
@@ -2940,8 +2900,8 @@ var lastB;
 (ShowNameDiv = function () {
 	oSym.Start();
 	(function (c) {
-		var b = c[0],
-			d = 3;
+		var b = c[0];
+		var d = 3;
 		c.shift();
 		while (d--) {
 			SetStyle(($("dNameDiv" + d).style.top = b[d] + "px"));
@@ -2961,12 +2921,12 @@ var lastB;
 		$User.isAuthorWebsite ? PlayAudio("tap") : GotoAuthorWebsite("");
 	}),
 	(CheckLogin = function () {
-		var c = $("txtName").value,
-			e = $("txtPass").value,
-			a = /^\w{3,10}$/,
-			b = /^[\u4e00-\u9fa5\w]{3,10}$/,
-			d = /^\w{3,20}$/;
-		return (a.exec(c) || b.exec(c)) && d.exec(e) ? true : false;
+		var c = $("txtName").value;
+		var e = $("txtPass").value;
+		var a = /^\w{3,10}$/;
+		var b = /^[\u4e00-\u9fa5\w]{3,10}$/;
+		var d = /^\w{3,20}$/;
+		return !!((a.exec(c) || b.exec(c)) && d.exec(e));
 	}),
 	(SelectModal = function (g) {
 		HiddenLevel();
@@ -2976,11 +2936,11 @@ var lastB;
 		PausedAudioArr = [];
 		g == undefined && (g = $User.Visitor.Progress);
 		oS.LvlClearFunc && oS.LvlClearFunc();
-		var b = oS.GlobalVariables,
-			c = oS.LvlVariables,
-			e = oS.SelfVariables,
-			a = window,
-			d;
+		var b = oS.GlobalVariables;
+		var c = oS.LvlVariables;
+		var e = oS.SelfVariables;
+		var a = window;
+		var d;
 		for (d in b) {
 			a[d] = b[d];
 		}
@@ -3012,20 +2972,19 @@ var lastB;
 	}),
 	(GotoAuthorWebsite = function () {
 		window.open("https://github.com/ROBlNET13/pvz");
-		return;
 	}),
 	(InitGame = function () {
 		var e = NewEle(
-				"dServer",
-				"div",
-				"position:absolute;line-height:28px;left:706px;top:245px;width:700px;height:100px;font-size:16px;color:#040;font-family:Tahoma;font-weight:bold;z-index:2;display:none",
-				0,
-				$("dAll")
-			),
-			c = $User.Server,
-			b = c.List,
-			a = $("dProcess"),
-			floor = oS.B;
+			"dServer",
+			"div",
+			"position:absolute;line-height:28px;left:706px;top:245px;width:700px;height:100px;font-size:16px;color:#040;font-family:Tahoma;font-weight:bold;z-index:2;display:none",
+			0,
+			$("dAll")
+		);
+		var c = $User.Server;
+		var b = c.List;
+		var a = $("dProcess");
+		var floor = oS.B;
 		!$("dText1") &&
 			a.insertBefore(
 				NewEle(
@@ -3045,14 +3004,14 @@ var lastB;
 	}),
 	(LoadLvl = function (e, c) {
 		oSym.Timer && oSym.Stop();
-		var b = oSym.Now == c,
-			d = $User,
-			a = d.Visitor;
+		var b = oSym.Now == c;
+		var d = $User;
+		var a = d.Visitor;
 		oS.CenterContent && ((e == 0 && b) || e != 0) && (oS.DisplayAD = true);
 		e = e || 0;
 		$("dServer") && e != 0 && SetNone($("dServer"));
 		oSym.Init(
-			function (g, f) {
+			(g, f) => {
 				(f = $("JSPVZ")) && ClearChild(f);
 				NewEle(
 					"JSPVZ",
@@ -3071,18 +3030,18 @@ var lastB;
             "html/2-1" + (e && !isNaN(e) ? "-" + e : "") + ".htm"; */
 	}),
 	(AppearTombstones = function (n, e, m) {
-		var r = oGd.$Tombstones,
-			k = [],
-			h = oS.R + 1,
-			b,
-			d = 0,
-			q,
-			a,
-			g,
-			f,
-			s = oGd.$,
-			l,
-			p;
+		var r = oGd.$Tombstones;
+		var k = [];
+		var h = oS.R + 1;
+		var b;
+		var d = 0;
+		var q;
+		var a;
+		var g;
+		var f;
+		var s = oGd.$;
+		var l;
+		var p;
 		while (--h) {
 			g = e;
 			while (g >= n) {
@@ -3256,8 +3215,8 @@ var lastB;
 		return document.createElement(a);
 	}),
 	(ClearChild = function () {
-		var a = arguments.length,
-			c;
+		var a = arguments.length;
+		var c;
 		while (a--) {
 			try {
 				c = arguments[a];
@@ -3300,8 +3259,8 @@ var lastB;
 				c.style.opacity = a;
 			}),
 	(SetStyle = function (d, b) {
-		var c = d.style,
-			a;
+		var c = d.style;
+		var a;
 		for (a in b) {
 			c[a] = b[a];
 		}
@@ -3401,7 +3360,7 @@ var lastB;
 		return a[b];
 	}),
 	($SEql = function (c, b, a) {
-		return c in b ? b[c] : b["default"];
+		return c in b ? b[c] : b.default;
 	});
 ($SSml = function (d, c, a) {
 	var b = 0;
@@ -3426,14 +3385,14 @@ var lastB;
 		return a[b];
 	}),
 	(ImgSpriter = function (h, c, e, f, g) {
-		var b = e[f],
-			d = b[2],
-			a = $(h);
+		var b = e[f];
+		var d = b[2];
+		var a = $(h);
 		a &&
 			((a.style.backgroundPosition = b[0]),
 			oSym.addTask(
 				b[1],
-				function (j) {
+				(j) => {
 					j > -1 ? ImgSpriter(h, c, e, j, g) : g(h, c);
 				},
 				[d]
@@ -3485,21 +3444,21 @@ var lastB;
 				$("oEmbed").innerHTML = "";
 			}),
 	(StartAdventure = function (d) {
-		var c = $("ZombieHand"),
-			b = $("dAdventure"),
-			a = NewImg(
-				"",
-				"images/interface/ZombieHand.png",
-				"position:absolute;left:0",
-				c
-			);
+		var c = $("ZombieHand");
+		var b = $("dAdventure");
+		var a = NewImg(
+			"",
+			"images/interface/ZombieHand.png",
+			"position:absolute;left:0",
+			c
+		);
 		b.onclick = b.onmouseover = b.onmouseout = null;
 		SetBlock(c);
 		StopMusic();
 		PlayAudio("losemusic");
 		oSym.addTask(
 			120,
-			function () {
+			() => {
 				PlayAudio("evillaugh");
 			},
 			[]
@@ -3559,21 +3518,21 @@ var lastB;
 				if (oAudio[a]) {
 					return;
 				}
-				var f = document.createElement("audio"),
-					c = b.autoplay,
-					g = b.loop,
-					m,
-					h = { mp3: "audio/mpeg" },
-					k = b.preload,
-					l = b.callback,
-					j = ["mp3"],
-					e = j.length,
-					d;
-				f.autoplay = c ? true : false;
+				var f = document.createElement("audio");
+				var c = b.autoplay;
+				var g = b.loop;
+				var m;
+				var h = { mp3: "audio/mpeg" };
+				var k = b.preload;
+				var l = b.callback;
+				var j = ["mp3"];
+				var e = j.length;
+				var d;
+				f.autoplay = !!c;
 				g &&
 					f.addEventListener(
 						"ended",
-						function () {
+						() => {
 							f.play();
 						},
 						false
@@ -3657,7 +3616,8 @@ var lastB;
 		: function () {}),
 	(AllAudioPaused = $User.HTML5
 		? function () {
-				var a, b;
+				var a;
+				var b;
 				for (a in oAudio) {
 					b = oAudio[a];
 					!(b.paused || b.ended) &&
@@ -3701,18 +3661,20 @@ var lastB;
 			}),
 	(AppearCard = function (h, f, e, a, t) {
 		// x, y, 植物id, 移动卡槽类型, 消失时间（默认 15s）
-		var b,
-			d,
-			g = "dCard" + Math.random(),
-			c =
-				"opacity:1;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto);left:" +
-				h +
-				"px;top:-1000",
-			t = t || 1500;
+		var b;
+		var d;
+		var g = "dCard" + Math.random();
+		var c =
+			"opacity:1;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto);left:" +
+			h +
+			"px;top:-1000";
+		var t = t || 1500;
 
-		if (a) (d = 0), oSym.addTask(1, MoveDropCard, [g, f, t]);
+		if (a) {
+			(d = 0), oSym.addTask(1, MoveDropCard, [g, f, t]);
+		}
 		// 从天而降，反之抛物线掉落
-		else
+		else {
 			(d = f - 15 - 20),
 				(c += ";top:" + d + "px"),
 				oSym.addTask(1, DisappearCard, [g, t]),
@@ -3721,8 +3683,8 @@ var lastB;
 					function (q, p, n, j, l, k, m, i) {
 						if (ArCard[q] && $(q)) {
 							SetStyle($(q), {
-								left: (p = p + j * k) + "px",
-								top: (n = n + Number(l[0])) + "px",
+								left: (p += j * k) + "px",
+								top: (n += Number(l[0])) + "px",
 							});
 							l.shift();
 							--m;
@@ -3750,7 +3712,8 @@ var lastB;
 						8,
 						2,
 					]
-				); // 开始记时，确定抛物线，与阳光部分相似故压缩
+				);
+		} // 开始记时，确定抛物线，与阳光部分相似故压缩
 
 		ArCard[g] = {
 			DID: g,
@@ -3764,10 +3727,10 @@ var lastB;
 		}; // 生成卡片数据，是否被点击过
 		NewImg(g, e.prototype.PicArr[e.prototype.CardGif], c, $("dCardList"), {
 			// 生成卡片 ele
-			onclick: function (g) {
-				var self = this,
-					style = self.style,
-					id = self.id;
+			onclick(g) {
+				var self = this;
+				var { style } = self;
+				var { id } = self;
 				ClearChild($("MovePlant"), $("MovePlantAlpha")),
 					CancelPlant(),
 					style && (style.opacity = 0.5),
@@ -3778,8 +3741,8 @@ var lastB;
 	}),
 	(MoveDropCard = function (c, b, t) {
 		// 掉落目标
-		var a = ArCard[c],
-			ele = $(c);
+		var a = ArCard[c];
+		var ele = $(c);
 		a &&
 			ele &&
 			(!a.HasChosen && a.top < b - 52
@@ -3788,26 +3751,26 @@ var lastB;
 				: DisappearCard(c, t));
 	}),
 	(DisappearCard = function (d, r) {
-		var q = 5,
-			e = $(d),
-			f = function (t) {
-				switch (true) {
-					case !ArCard[d] || !e:
-						return; // 卡片已经消失，不做处理
-					case oS.Chose == 1 && oS.ChoseCard == d:
-						break; // 选中
-					case t > 500:
-						e.style.opacity = 1;
-						break; // 未到闪烁时间
-					case t > 0:
-						e.style.opacity = [1, 0.5][Math.ceil(t / 50) % 2];
-						break; // 闪烁
-					default:
-						delete ArCard[d], ClearChild(e);
-						return;
-				}
-				(e = $(d)), oSym.addTask(q, arguments.callee, [t - q]);
-			};
+		var q = 5;
+		var e = $(d);
+		var f = function (t) {
+			switch (true) {
+				case !ArCard[d] || !e:
+					return; // 卡片已经消失，不做处理
+				case oS.Chose == 1 && oS.ChoseCard == d:
+					break; // 选中
+				case t > 500:
+					e.style.opacity = 1;
+					break; // 未到闪烁时间
+				case t > 0:
+					e.style.opacity = [1, 0.5][Math.ceil(t / 50) % 2];
+					break; // 闪烁
+				default:
+					delete ArCard[d], ClearChild(e);
+					return;
+			}
+			(e = $(d)), oSym.addTask(q, arguments.callee, [t - q]);
+		};
 		f(r);
 	});
 

@@ -11,7 +11,7 @@ oS.Init(
 		LevelName: "Level 1-4",
 		LvlEName: 4,
 		LargeWaveFlag: { 9: $("imgFlag1") },
-		StartGame: function () {
+		StartGame() {
 			NewEle(
 				"sod3row",
 				"div",
@@ -92,14 +92,14 @@ oS.Init(
 							StopMusic();
 							PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 							oS.InitLawnMower();
-							PrepareGrowPlants(function () {
+							PrepareGrowPlants(() => {
 								oP.Monitor();
 								BeginCool();
 								SetVisible($("dFlagMeter"), $("dTop"));
 								AutoProduceSun(25);
 								oSym.addTask(
 									1500,
-									function () {
+									() => {
 										oP.AddZombiesFlag();
 										SetVisible($("dFlagMeterContent"));
 									},
@@ -120,14 +120,14 @@ oS.Init(
 		FlagNum: 9,
 		FlagToSumNum: { a1: [3, 5, 8], a2: [1, 2, 3, 10] },
 		FlagToMonitor: { 8: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/Shovel/ShovelCard.png",
 				"left:827px;top:330px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick() {
 						GetNewCard(this, oShovel, 5);
 					},
 				}

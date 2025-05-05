@@ -1,7 +1,7 @@
 oS.Init({
 	PicArr: (function () {
-		var b = 32,
-			a = "images/interface/";
+		var b = 32;
+		var a = "images/interface/";
 		return [
 			ShadowPNG,
 			a + "Sun.gif",
@@ -105,7 +105,7 @@ oS.Init({
 		"crazydavelong3",
 	],
 	backgroundImage: "images/interface/Logo.png",
-	LoadAccess: function (a) {
+	LoadAccess(a) {
 		NewEle(
 			0,
 			"div",
@@ -120,8 +120,8 @@ oS.Init({
 		// document.getElementById("changelog").style.display="block";
 		NewAudio({ source: "evillaugh" });
 		(function () {
-			var b = $("JSProcess"),
-				c = $("dProcess2");
+			var b = $("JSProcess");
+			var c = $("dProcess2");
 			b
 				? ($User.Browser.IE
 						? (b.onreadystatechange = function () {

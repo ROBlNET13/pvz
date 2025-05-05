@@ -71,14 +71,14 @@ oS.Init(
 		LF: [0, 2, 2, 2, 2, 2, 2],
 		StartGameMusic: "jiaxing",
 		LargeWaveFlag: {},
-		InitLawnMower: function () {
+		InitLawnMower() {
 			CustomSpecial(oPoolCleaner, 1, -1);
 			CustomSpecial(oPoolCleaner, 2, -1);
 			CustomSpecial(oPoolCleaner, 3, -1);
 			CustomSpecial(oPoolCleaner, 4, -1);
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
-		UserDefinedFlagFunc: function (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(4, 9, 6, [oDuckyTubeZombie2]);
 		},
@@ -97,14 +97,14 @@ oS.Init(
 		FlagNum: 10,
 		FlagToSumNum: { a1: [40, 74, 76, 92], a2: [40, 74, 76, 112] },
 		FlagToMonitor: {},
-		FlagToEnd: function () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick() {
 						SelectModal(177);
 					},
 				}

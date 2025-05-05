@@ -81,7 +81,7 @@ oS.Init(
 		LF: [0, 3, 3, 3, 3, 3, 3],
 		StartGameMusic: "The Great Wall",
 		LargeWaveFlag: { 5: $("imgFlag3"), 10: $("imgFlag1") },
-		InitLawnMower: function () {
+		InitLawnMower() {
 			CustomSpecial(oCleaner, 1, -1);
 			CustomSpecial(oCleaner, 2, -1);
 			CustomSpecial(oCleaner, 3, -1);
@@ -114,14 +114,14 @@ oS.Init(
 			a2: [24, 48, 77, 92, 112, 113, 135],
 		},
 		FlagToMonitor: { 4: [ShowLargeWave, 0], 9: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick() {
 						SelectModal(184);
 					},
 				}

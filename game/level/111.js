@@ -62,7 +62,7 @@ oS.Init(
 		SunNum: 850,
 		DKind: 0,
 		LargeWaveFlag: { 20: $("imgFlag2"), 30: $("imgFlag1") },
-		InitLawnMower: function () {
+		InitLawnMower() {
 			CustomSpecial(oCleaner, 1, -1);
 			CustomSpecial(oCleaner, 3, -1);
 			CustomSpecial(oCleaner, 5, -1);
@@ -83,14 +83,14 @@ oS.Init(
 			a2: [1, 3, 3, 8, 4, 5, 13, 15, 18, 1, 24, 25, 48],
 		},
 		FlagToMonitor: { 19: [ShowLargeWave, 0], 29: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/trophy.png",
 				"left:260px;top:233px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick() {
 						SelectModal(112);
 					},
 				}

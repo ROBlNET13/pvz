@@ -25,7 +25,7 @@ oS.Init(
 		LargeWaveFlag: { 10: $("imgFlag2"), 20: $("imgFlag1") },
 		StartGameMusic: "LoonSkirmish",
 		StaticCard: 0,
-		LoadAccess: function (a) {
+		LoadAccess(a) {
 			NewImg(
 				"dDave",
 				"images/interface/Dave.gif",
@@ -34,15 +34,15 @@ oS.Init(
 			);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
-				var b = arguments.callee,
-					c = $("DivTeach");
+				var b = arguments.callee;
+				var c = $("DivTeach");
 				switch (d) {
 					case 0:
 						PlayAudio("crazydaveshort1");
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							1,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [1]);
@@ -63,7 +63,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [2]);
@@ -84,7 +84,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [3]);
@@ -105,7 +105,7 @@ oS.Init(
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							2,
-							function () {
+							() => {
 								$("dDave").src = "images/interface/Dave.gif";
 								c.onclick = function () {
 									oSym.addTask(10, b, [4]);
@@ -123,7 +123,7 @@ oS.Init(
 						ClearChild($("DivTeach"));
 						oSym.addTask(
 							5,
-							function () {
+							() => {
 								ClearChild($("dDave"));
 								a(0);
 							},
@@ -132,7 +132,7 @@ oS.Init(
 				}
 			})(0);
 		},
-		StartGame: function () {
+		StartGame() {
 			NewEle(
 				0,
 				"div",
@@ -144,17 +144,17 @@ oS.Init(
 			PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 			SetHidden($("dSunNum"));
 			oS.InitLawnMower();
-			PrepareGrowPlants(function () {
+			PrepareGrowPlants(() => {
 				oP.Monitor({
-					f: function () {
+					f() {
 						(function () {
 							var a = ArCard.length;
 							if (a < 10) {
-								var c = [ostar1],
-									b = Math.floor(Math.random() * c.length),
-									e = c[b],
-									d = e.prototype,
-									f = "dCard" + Math.random();
+								var c = [ostar1];
+								var b = Math.floor(Math.random() * c.length);
+								var e = c[b];
+								var d = e.prototype;
+								var f = "dCard" + Math.random();
 								ArCard[a] = { DID: f, PName: e, PixelTop: 600 };
 								NewImg(
 									f,
@@ -162,13 +162,13 @@ oS.Init(
 									"top:600px;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto)",
 									$("dCardList"),
 									{
-										onmouseover: function (g) {
+										onmouseover(g) {
 											ViewPlantTitle(GetChoseCard(f), g);
 										},
-										onmouseout: function () {
+										onmouseout() {
 											SetHidden($("dTitle"));
 										},
-										onclick: function (g) {
+										onclick(g) {
 											ChosePlant(g, oS.ChoseCard, f);
 										},
 									}
@@ -177,9 +177,9 @@ oS.Init(
 							oSym.addTask(500, arguments.callee, []);
 						})();
 						(function () {
-							var b = ArCard.length,
-								a,
-								c;
+							var b = ArCard.length;
+							var a;
+							var c;
 							while (b--) {
 								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
 									($(a.DID).style.top =
@@ -213,14 +213,14 @@ oS.Init(
 			a2: [4, 7, 12, 20, 13, 16, 21, 40],
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/SeaAnemone.png",
 				"left:627px;top:325px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick() {
 						GetNewCard(this, oSeaAnemone, 36);
 					},
 				}
@@ -234,20 +234,20 @@ oS.Init(
 		},
 	},
 	{
-		GetChoseCard: function (b) {
+		GetChoseCard(b) {
 			var a = ArCard.length;
 			while (a--) {
 				ArCard[a].DID == b && ((oS.ChoseCard = a), (a = 0));
 			}
 			return oS.ChoseCard;
 		},
-		ChosePlant: function (a, b) {
+		ChosePlant(a, b) {
 			PlayAudio("seedlift");
 			a = window.event || a;
-			var f = ArCard[oS.ChoseCard],
-				e = a.clientX + EBody.scrollLeft || EElement.scrollLeft,
-				d = a.clientY + EBody.scrollTop || EElement.scrollTop,
-				c = f.PName.prototype;
+			var f = ArCard[oS.ChoseCard];
+			var e = a.clientX + EBody.scrollLeft || EElement.scrollLeft;
+			var d = a.clientY + EBody.scrollTop || EElement.scrollTop;
+			var c = f.PName.prototype;
 			oS.Chose = 1;
 			EditImg(
 				NewImg(
@@ -277,14 +277,14 @@ oS.Init(
 			SetHidden($("dTitle"));
 			GroundOnmousemove = GroundOnmousemove1;
 		},
-		CancelPlant: function () {
+		CancelPlant() {
 			ClearChild($("MovePlant"), $("MovePlantAlpha"));
 			oS.Chose = 0;
 			SetAlpha($(ArCard[oS.ChoseCard].DID), 100, 1);
 			oS.ChoseCard = "";
 			GroundOnmousemove = function () {};
 		},
-		GrowPlant: function (l, c, b, f, a) {
+		GrowPlant(l, c, b, f, a) {
 			var j = $("DivTeachBar");
 			j && j.parentNode.removeChild(j);
 			if (c > 347) {
@@ -294,12 +294,12 @@ oS.Init(
 				);
 				return false;
 			}
-			var i = oS.ChoseCard,
-				g = ArCard[i],
-				h = g.PName,
-				k = h.prototype,
-				d = g.DID,
-				e;
+			var i = oS.ChoseCard;
+			var g = ArCard[i];
+			var h = g.PName;
+			var k = h.prototype;
+			var d = g.DID;
+			var e;
 			new h().Birth(c, b, f, a, l);
 			ClearChild($("MovePlant"), $("MovePlantAlpha"));
 			$("dCardList").removeChild((e = $(d)));
@@ -309,6 +309,6 @@ oS.Init(
 			oS.Chose = 0;
 			GroundOnmousemove = function () {};
 		},
-		ViewPlantTitle: function (a) {},
+		ViewPlantTitle(a) {},
 	}
 );

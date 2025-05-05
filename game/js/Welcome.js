@@ -6,7 +6,7 @@ Bye = function () {
 	startrun(0);
 	function startrun(target) {
 		clearInterval(timer);
-		timer = setInterval(function () {
+		timer = setInterval(() => {
 			if (target > alpha) {
 				speed = 2;
 			} else {
@@ -15,7 +15,7 @@ Bye = function () {
 			if (alpha == target) {
 				clearInterval(timer);
 			} else {
-				alpha = alpha + speed;
+				alpha += speed;
 				/* run.style.filter = "alpha(opacity=" + alpha + ")";
         run.style.opacity = alpha / 100; */
 			}
@@ -26,7 +26,7 @@ document.onreadystatechange = subSomething;
 function subSomething() {
 	if (document.readyState == "complete") {
 		Bye();
-		setTimeout(function () {
+		setTimeout(() => {
 			SetNone($("preloader"), $("status"));
 		}, 2e3);
 	}

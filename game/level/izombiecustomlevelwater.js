@@ -236,7 +236,7 @@ oS.Init({
 		"images/interface/trophy.png",
 		"images/interface/Stripe.png",
 	],
-	backgroundImage: backgroundImage,
+	backgroundImage,
 	Coord: 2,
 	DKind: 0,
 	LF: levelDataToLoad.lfValue,
@@ -259,7 +259,7 @@ oS.Init({
 			Arr2: [],
 		},
 	},
-	RandomGrow: function (Point, Arr) {
+	RandomGrow(Point, Arr) {
 		/*Point.sort(function () {
             return Math.random() - 0.5;
         });
@@ -276,16 +276,19 @@ oS.Init({
                 Point.length--,
                 Arr.length--;*/
 	},
-	RiddleAutoGrow: function () {
-		var k = oS.ArP,
-			f = k.ArC,
-			j = k.ArR,
-			e = k.P,
-			d = oS.PName,
-			Arr = [];
+	RiddleAutoGrow() {
+		var k = oS.ArP;
+		var f = k.ArC;
+		var j = k.ArR;
+		var e = k.P;
+		var d = oS.PName;
+		var Arr = [];
 		var SummonRange = function (Arr, l, r) {
-			for (; l <= r; ++l)
-				for (var j = f[0]; j <= f[1]; ++j) Arr.push([j, l]);
+			for (; l <= r; ++l) {
+				for (var j = f[0]; j <= f[1]; ++j) {
+					Arr.push([j, l]);
+				}
+			}
 		};
 		/*for (var i = f[0]; i <= f[1]; ++i)
             CustomSpecial(oILilyPad, 3, i), CustomSpecial(oLilyPad, 4, i); // 荷叶*/
@@ -295,7 +298,9 @@ oS.Init({
 			oS.RandomGrow(Arr, e.Arr1),
 			oS.RandomGrow(Arr, e.Arr); // 处理剩余的植物
 		SummonRange(Arr, 1, 6), oS.RandomGrow(Arr, e.Arr2); // 处理南瓜头
-		for (var i = j[0]; i <= j[1]; ++i) CustomSpecial(oBrains, i, 0); // 脑子
+		for (var i = j[0]; i <= j[1]; ++i) {
+			CustomSpecial(oBrains, i, 0);
+		} // 脑子
 		NewImg(
 			"iStripe",
 			"images/interface/Stripe.png",
@@ -305,7 +310,7 @@ oS.Init({
 			EDAll
 		);
 	},
-	StartGame: function () {
+	StartGame() {
 		restoreToPlants(levelDataToLoad); // load the plants
 		// clear all query parameters from the url without reloadng
 		window.history.pushState({}, document.title, window.location.pathname);

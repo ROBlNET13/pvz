@@ -26,8 +26,8 @@ oS.Init(
 			oBackupDancer,
 		],
 		PicArr: (function () {
-			var a = oIceShroom.prototype,
-				b = a.PicArr;
+			var a = oIceShroom.prototype;
+			var b = a.PicArr;
 			return [
 				"images/interface/background2.jpg",
 				"images/interface/Tombstones.png",
@@ -43,7 +43,7 @@ oS.Init(
 		LvlEName: 18,
 		LargeWaveFlag: { 10: $("imgFlag1") },
 		Monitor: { f: AppearTombstones, ar: [6, 9, 7] },
-		UserDefinedFlagFunc: function (a) {
+		UserDefinedFlagFunc(a) {
 			oP.FlagNum == oP.FlagZombies &&
 				oP.SetTimeoutTomZombie([
 					oZombie,
@@ -64,14 +64,14 @@ oS.Init(
 		FlagNum: 10,
 		FlagToSumNum: { a1: [3, 5, 9], a2: [1, 2, 3, 15] },
 		FlagToMonitor: { 9: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/DoomShroom.png",
 				"left:587px;top:270px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick() {
 						SelectModal(0);
 					},
 				}

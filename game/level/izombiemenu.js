@@ -27,14 +27,14 @@ oS.Init({
 	StartGameMusic: "Cerebrawl",
 	AudioArr: ["Cerebrawl", "pvzs"],
 	backgroundImage: "images/interface/IZombie_Background.png",
-	LoadAccess: function (a) {
+	LoadAccess(a) {
 		NewImg(
 			"imgSF",
 			"images/interface/BackButton.png",
 			"left:785px;top:530px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(0);
 					SetBlock($("dSurface"), $("iSurfaceBackground"));
 				},
@@ -46,7 +46,7 @@ oS.Init({
 			"left:50px;top:130px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal("" + "izombie1" + "");
 				},
 			}
@@ -57,7 +57,7 @@ oS.Init({
 			"left:200px;top:130px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal("" + "izombie2" + "");
 				},
 			}
@@ -68,7 +68,7 @@ oS.Init({
 			"left:350px;top:130px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal("" + "izombie3" + "");
 				},
 			}
@@ -79,7 +79,7 @@ oS.Init({
 			"left:500px;top:130px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal("" + "izombie4" + "");
 				},
 			}
@@ -90,7 +90,7 @@ oS.Init({
 			"left:650;top:130",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal("" + "izombie5" + "");
 				},
 			}
@@ -101,7 +101,7 @@ oS.Init({
 			"left:50;top:270",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal("" + "izombie6" + "");
 				},
 			}
@@ -112,7 +112,7 @@ oS.Init({
 			"left:200px;top:270px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal("" + "izombie7" + "");
 				},
 			}
@@ -123,7 +123,7 @@ oS.Init({
 			"left:350px;top:270px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal("" + "izombie8" + "");
 				},
 			}
@@ -134,7 +134,7 @@ oS.Init({
 			"left:500px;top:270px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal("" + "izombie9" + "");
 				},
 			}
@@ -145,7 +145,7 @@ oS.Init({
 			"left:650px;top:270px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal("" + "izombie10" + "");
 				},
 			}
@@ -156,7 +156,7 @@ oS.Init({
 			"left:50;top:410",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal("" + "izombieleveleditor" + "");
 				},
 			}
@@ -167,7 +167,7 @@ oS.Init({
 			"left:200px;top:410px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal("" + "izombiecustommenu" + "");
 				},
 			}

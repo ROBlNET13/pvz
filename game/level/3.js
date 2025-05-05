@@ -3,8 +3,8 @@ oS.Init(
 		PName: [oPeashooter, oSunFlower, oCherryBomb],
 		ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie],
 		PicArr: (function () {
-			var a = oWallNut.prototype,
-				b = a.PicArr;
+			var a = oWallNut.prototype;
+			var b = a.PicArr;
 			return [
 				"images/interface/background1unsodded2.jpg",
 				b[a.CardGif],
@@ -17,24 +17,24 @@ oS.Init(
 		LevelName: "Level 1-3",
 		LvlEName: 3,
 		LargeWaveFlag: { 8: $("imgFlag1") },
-		InitLawnMower: function () {
+		InitLawnMower() {
 			var a = 5;
 			while (--a > 1) {
 				CustomSpecial(oLawnCleaner, a, -1);
 			}
 		},
-		StartGame: function () {
+		StartGame() {
 			StopMusic();
 			PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 			SetVisible($("dFlagMeter"), $("dTop"));
 			oS.InitLawnMower();
-			PrepareGrowPlants(function () {
+			PrepareGrowPlants(() => {
 				oP.Monitor();
 				BeginCool();
 				AutoProduceSun(25);
 				oSym.addTask(
 					1500,
-					function () {
+					() => {
 						oP.AddZombiesFlag();
 						SetVisible($("dFlagMeterContent"));
 					},
@@ -53,14 +53,14 @@ oS.Init(
 		FlagNum: 8,
 		FlagToSumNum: { a1: [3, 5, 7], a2: [1, 2, 3, 6] },
 		FlagToMonitor: { 7: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/WallNut.png",
 				"left:827px;top:330px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick() {
 						GetNewCard(this, oWallNut, 4);
 					},
 				}

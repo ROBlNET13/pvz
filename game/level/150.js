@@ -27,14 +27,14 @@ oS.Init({
 	StartGameMusic: "plantsgarden",
 	AudioArr: ["plantsgarden", "pvzs"],
 	backgroundImage: "images/interface/TA.png",
-	LoadAccess: function (a) {
+	LoadAccess(a) {
 		NewImg(
 			"imgSF",
 			"images/interface/TAUI1.png",
 			"left:740px;top:360px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(0);
 					SetBlock($("dSurface"), $("iSurfaceBackground"));
 				},
@@ -46,7 +46,7 @@ oS.Init({
 			"left:380px;top:330px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(151);
 				},
 			}
@@ -57,7 +57,7 @@ oS.Init({
 			"left:700px;top:130px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(160);
 				},
 			}
@@ -68,7 +68,7 @@ oS.Init({
 			"left:700px;top:160px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(170);
 				},
 			}
@@ -79,7 +79,7 @@ oS.Init({
 			"left:700px;top:190px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(180);
 				},
 			}
@@ -90,7 +90,7 @@ oS.Init({
 			"left:700px;top:220px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(190);
 				},
 			}
@@ -101,7 +101,7 @@ oS.Init({
 			"left:700px;top:250px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(200);
 				},
 			}
@@ -112,7 +112,7 @@ oS.Init({
 			"left:700px;top:280px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(210);
 				},
 			}
@@ -123,7 +123,7 @@ oS.Init({
 			"left:700px;top:310px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(220);
 				},
 			}
@@ -134,7 +134,7 @@ oS.Init({
 			"left:700px;top:340px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(230);
 				},
 			}
@@ -145,7 +145,7 @@ oS.Init({
 			"left:700px;top:370px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(240);
 				},
 			}
@@ -156,7 +156,7 @@ oS.Init({
 			"left:700px;top:400px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(250);
 				},
 			}
@@ -167,7 +167,7 @@ oS.Init({
 			"left:790px;top:20px",
 			EDAll,
 			{
-				onclick: function () {
+				onclick() {
 					SelectModal(252);
 				},
 			}

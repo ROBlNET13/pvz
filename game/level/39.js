@@ -83,14 +83,14 @@ oS.Init(
 			29: [ShowLargeWave, 0],
 			49: [ShowFinalWave, 0],
 		},
-		FlagToEnd: function () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/interface/ZombieNoteSmall.png",
 				"left:667px;top:220px",
 				EDAll,
 				{
-					onclick: function () {
+					onclick() {
 						PlayAudio("winmusic");
 						SetHidden($("PointerUD"));
 						SetStyle(this, {

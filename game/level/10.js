@@ -28,23 +28,23 @@ oS.Init(
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
 		StaticCard: 0,
 		StartGameMusic: "Zombieboss",
-		StartGame: function () {
+		StartGame() {
 			StopMusic();
 			PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 			SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
 			SetHidden($("dSunNum"));
 			oS.InitLawnMower();
-			PrepareGrowPlants(function () {
+			PrepareGrowPlants(() => {
 				oP.Monitor({
-					f: function () {
+					f() {
 						(function () {
 							var a = ArCard.length;
 							if (a < 10) {
-								var c = oS.PName,
-									b = Math.floor(Math.random() * c.length),
-									e = c[b],
-									d = e.prototype,
-									f = "dCard" + Math.random();
+								var c = oS.PName;
+								var b = Math.floor(Math.random() * c.length);
+								var e = c[b];
+								var d = e.prototype;
+								var f = "dCard" + Math.random();
 								ArCard[a] = { DID: f, PName: e, PixelTop: 600 };
 								NewImg(
 									f,
@@ -52,13 +52,13 @@ oS.Init(
 									"top:600px;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto)",
 									$("dCardList"),
 									{
-										onmouseover: function (g) {
+										onmouseover(g) {
 											ViewPlantTitle(GetChoseCard(f), g);
 										},
-										onmouseout: function () {
+										onmouseout() {
 											SetHidden($("dTitle"));
 										},
-										onclick: function (g) {
+										onclick(g) {
 											ChosePlant(g, oS.ChoseCard, f);
 										},
 									}
@@ -67,9 +67,9 @@ oS.Init(
 							oSym.addTask(600, arguments.callee, []);
 						})();
 						(function () {
-							var b = ArCard.length,
-								a,
-								c;
+							var b = ArCard.length;
+							var a;
+							var c;
 							while (b--) {
 								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
 									($(a.DID).style.top =
@@ -100,14 +100,14 @@ oS.Init(
 			a2: [1, 2, 3, 10, 4, 5, 6, 15, 7, 8, 9, 25, 48, 60],
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
-		FlagToEnd: function () {
+		FlagToEnd() {
 			NewImg(
 				"imgSF",
 				"images/Card/Plants/PuffShroom.png",
 				"left:667px;top:330px;clip:rect(auto,auto,60px,auto)",
 				EDAll,
 				{
-					onclick: function () {
+					onclick() {
 						GetNewCard(this, oPuffShroom, 11);
 					},
 				}
@@ -115,7 +115,7 @@ oS.Init(
 		},
 	},
 	{
-		GetChoseCard: function (b) {
+		GetChoseCard(b) {
 			if (oS.Chose) {
 				return;
 			}
@@ -125,15 +125,15 @@ oS.Init(
 			}
 			return oS.ChoseCard;
 		},
-		ChosePlant: function (a, b) {
+		ChosePlant(a, b) {
 			PlayAudio("seedlift");
 			a = window.event || a;
-			var f = ArCard[oS.ChoseCard],
-				e =
-					a.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-					EElement.scrollLeft,
-				d = a.clientY + EBody.scrollTop || EElement.scrollTop,
-				c = f.PName.prototype;
+			var f = ArCard[oS.ChoseCard];
+			var e =
+				a.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
+				EElement.scrollLeft;
+			var d = a.clientY + EBody.scrollTop || EElement.scrollTop;
+			var c = f.PName.prototype;
 			oS.Chose = 1;
 			EditImg(
 				NewImg(
@@ -163,21 +163,21 @@ oS.Init(
 			SetHidden($("dTitle"));
 			GroundOnmousemove = GroundOnmousemove1;
 		},
-		CancelPlant: function () {
+		CancelPlant() {
 			ClearChild($("MovePlant"), $("MovePlantAlpha"));
 			oS.Chose = 0;
 			SetAlpha($(ArCard[oS.ChoseCard].DID), 100, 1);
 			oS.ChoseCard = "";
 			GroundOnmousemove = function () {};
 		},
-		GrowPlant: function (l, c, b, f, a) {
-			var j = oS.ChoseCard,
-				g = ArCard[j],
-				i = g.PName,
-				k = i.prototype,
-				d = g.DID,
-				e,
-				h = oGd.$LF[f];
+		GrowPlant(l, c, b, f, a) {
+			var j = oS.ChoseCard;
+			var g = ArCard[j];
+			var i = g.PName;
+			var k = i.prototype;
+			var d = g.DID;
+			var e;
+			var h = oGd.$LF[f];
 			k.CanGrow(l, f, a) &&
 				(function () {
 					PlayAudio(
@@ -203,9 +203,9 @@ oS.Init(
 					GroundOnmousemove = function () {};
 				})();
 		},
-		ViewPlantTitle: function (a) {
-			var c = $("dTitle"),
-				b = ArCard[a].PName.prototype;
+		ViewPlantTitle(a) {
+			var c = $("dTitle");
+			var b = ArCard[a].PName.prototype;
 			c.innerHTML = b.CName + "<br>" + b.Tooltip;
 			SetStyle(c, { top: 60 * a + "px", left: "100px" });
 		},
