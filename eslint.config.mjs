@@ -34,7 +34,7 @@ export default [
 			"no-useless-concat": "error",
 			"no-useless-return": "error",
 
-			complexity: ["warn", 10],
+			complexity: ["warn", 15],
 			// "max-lines-per-function": ["warn", 75],
 			// "max-depth": ["warn", 4],
 			// "max-params": ["warn", 5],
