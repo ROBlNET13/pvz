@@ -865,9 +865,11 @@ styleSheet.insertRule(`
 styleSheet.insertRule(`
   @keyframes bobbing${balloonId} {
     0%, 100% { top: ${randomY}px; }
-    50% { top: ${randomY + 6}px; }
+    50% { top: ${randomY + 10}px; }
   }
-`, styleSheet.cssRules.length);
+`,
+			styleSheet.cssRules.length
+		);
 		image.width =  93;
 		image.onclick = function () {
 			image.onclick = null;
@@ -888,7 +890,7 @@ styleSheet.insertRule(`
 				}
 				setTimeout(() => {
 					SetStyle(image, {
-						transition: "opacity 0.4s ease", 
+						transition: "opacity 0.2s ease", 
 						opacity: 0, 
 					});
 					setTimeout(() => {
