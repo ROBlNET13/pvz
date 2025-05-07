@@ -62,6 +62,8 @@ oS.Init({
 			//     a + "TowerEntrance.png",
 			a + "Tombstone_mounds.png",
 			a + "Tombstones.png",
+			"images/Zombies/Balloon/popped.png",
+			"images/Zombies/Balloon/balloonidle.png",
 		];
 	})(),
 	LevelName: "Game initial interface",
