@@ -3116,7 +3116,7 @@ var lastB;
 		$("dMenu0").onclick = null;
 		!a && SetBlock($("dSurface"), $("dPause"));
 	}),
-	(ClickMenu = function () {
+	(ClickMenu = function (b, a) {
 		oSym.Timer &&
 			(AllAudioPaused(),
 			PlayAudio("pause"),
@@ -3124,6 +3124,7 @@ var lastB;
 			SetBlock($("dSurface")),
 			innerText($("dMenu0"), "Speed"),
 			ShowOptions());
+			document.getElementById("sOptionsMenu").textContent="Back To Game";
 		if (ArCard[oS.ChoseCard] && ArCard[oS.ChoseCard].DID != null) {
 			CancelPlant();
 		}
@@ -3183,6 +3184,7 @@ var lastB;
 		SetNone($("dRiddleSmallContainer"));
 	}),
 	(ShowOptions = function () {
+		document.getElementById("sOptionsMenu").textContent="Ok",
 		PlayAudio(oS.Lvl ? "gravebutton" : "tap");
 		SetBlock($("dOptionsMenuback"), $("dOptionsMenu"));
 	}),
