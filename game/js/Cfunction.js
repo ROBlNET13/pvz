@@ -226,14 +226,15 @@ var oS = {
 			"",
 			EDAll
 		);
-		var a = ["Some zombies wear hats, strong hats.",
+		var a = [
+			"Some zombies wear hats, strong hats.",
 			"Clicking on Balloonatics gives you extra sun! Get ready for those little suckers at the start of every wave!",
-"There have been rumors about \"Alien Balloons\" wandering around Neighborville and their \"Green Glow\", but I personally dont believe them.",
-"Did you know that Dolphin Riders ride on a dolphin? Pretty self-explanatory. But what if I told you that the dolphin is also a zombie?",
-"The Laser Bean can see your dreams.",
-"Did you know that the Balloonatic face was made at 3AM? It doesn't really matter though, hes cute regardless (and silly)",
-"Sunflowers produce sun.",
-"Peashooters shoot peas",
+			'There have been rumors about "Alien Balloons" wandering around Neighborville and their "Green Glow", but I personally dont believe them.',
+			"Did you know that Dolphin Riders ride on a dolphin? Pretty self-explanatory. But what if I told you that the dolphin is also a zombie?",
+			"The Laser Bean can see your dreams.",
+			"Did you know that the Balloonatic face was made at 3AM? It doesn't really matter though, hes cute regardless (and silly)",
+			"Sunflowers produce sun.",
+			"Peashooters shoot peas",
 		];
 		b.innerHTML =
 			'<span style="font-weight:bold"></span><span>' +
