@@ -837,7 +837,7 @@ var oP = {
 		}
 		let image = NewImg(
 			"",
-			"images/Zombies/Balloon/balloonidle.webp",
+			"images/Zombies/Balloon/balloonidle.png",
 			"position: absolute; display: block; left: 875px; z-index: 0;",
 			$("dPZ")
 		);
@@ -865,17 +865,19 @@ styleSheet.insertRule(`
 styleSheet.insertRule(`
   @keyframes bobbing${balloonId} {
     0%, 100% { top: ${randomY}px; }
-    50% { top: ${randomY + 10}px; }
+    50% { top: ${randomY + 6}px; }
   }
 `, styleSheet.cssRules.length);
-		image.width = 75;
+		image.width =  93;
 		image.onclick = function () {
 			image.onclick = null;
 			image.src = "images/Zombies/Balloon/popped.png";
 			image.style.animationPlayState = "paused";
-			PlayAudio("balloon_pop");
+			SetStyle(image, {
+				pointerEvents: "none"
+			});
 			setTimeout(() => {
-				image.parentNode.removeChild(image);
+				PlayAudio("balloon_pop");
 				if ($("dSunNum").style.visibility == "") {
 					AppearSun(
 						GetX(Math.floor(1 + Math.random() * oS.C)),
@@ -884,7 +886,16 @@ styleSheet.insertRule(`
 						1
 					);
 				}
-			}, 100);
+				setTimeout(() => {
+					SetStyle(image, {
+						transition: "opacity 0.4s ease", 
+						opacity: 0, 
+					});
+					setTimeout(() => {
+						image.parentNode.removeChild(image);
+					}, 400); 
+				}, 2500);
+			}, 300);
 		};
 		image.style.animation = `moveLeft${balloonId} ${
 			13 * ($User.Visitor.TimeStep / 10)

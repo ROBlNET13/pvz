@@ -3862,7 +3862,7 @@ var oBalloon = InheritO(CPlants, {
 	HP: 1,
 	PicArr: [
 		"images/Card/Plants/BalloonGoober.png",
-		"images/Zombies/Balloon/balloonalmanac.png",
+		"images/Zombies/Balloon/0.png",
 		"images/Zombies/Balloon/popped.png",
 	],
 	Tooltip: "goober",
