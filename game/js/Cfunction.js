@@ -841,34 +841,33 @@ var oP = {
 			"position: absolute; display: block; left: 875px; z-index: 0;",
 			$("dPZ")
 		);
-		let styleSheet = document.styleSheets[0];
-		function getRandomY() {
-			let randomY = GetY(Math.floor(1 + Math.random() * oS.R));
-			if (randomY > 430) {
-				return getRandomY();
-			}
-			return randomY;
-		}
-		let randomY = getRandomY();
-		styleSheet.insertRule(
-			`
-              @keyframes moveLeft${balloonId} {
-                from { left: 910px; }
-                to { left: -75px; }
-              }
-            `,
-			styleSheet.cssRules.length
-		);
+		let dynamicStyle = document.createElement('style');
+document.head.appendChild(dynamicStyle); 
+let styleSheet = dynamicStyle.sheet; 
 
-		styleSheet.insertRule(
-			`
-              @keyframes bobbing${balloonId} {
-                0%, 100% { top: ${randomY}px; }
-                50% { top: ${randomY + 10}px; }
-              }
-            `,
-			styleSheet.cssRules.length
-		);
+function getRandomY() {
+    let randomY = GetY(Math.floor(1 + Math.random() * oS.R));
+    if (randomY > 430) {
+        return getRandomY();
+    }
+    return randomY;
+}
+
+let randomY = getRandomY();
+
+styleSheet.insertRule(`
+  @keyframes moveLeft${balloonId} {
+    from { left: 910px; }
+    to { left: -75px; }
+  }
+`, styleSheet.cssRules.length);
+
+styleSheet.insertRule(`
+  @keyframes bobbing${balloonId} {
+    0%, 100% { top: ${randomY}px; }
+    50% { top: ${randomY + 10}px; }
+  }
+`, styleSheet.cssRules.length);
 		image.width = 75;
 		image.onclick = function () {
 			image.onclick = null;
