@@ -3124,7 +3124,7 @@ var lastB;
 			SetBlock($("dSurface")),
 			innerText($("dMenu0"), "Speed"),
 			ShowOptions());
-			document.getElementById("sOptionsMenu").textContent="Back To Game";
+		document.getElementById("sOptionsMenu").textContent = "Back To Game";
 		if (ArCard[oS.ChoseCard] && ArCard[oS.ChoseCard].DID != null) {
 			CancelPlant();
 		}
@@ -3184,8 +3184,8 @@ var lastB;
 		SetNone($("dRiddleSmallContainer"));
 	}),
 	(ShowOptions = function () {
-		document.getElementById("sOptionsMenu").textContent="Ok",
-		PlayAudio(oS.Lvl ? "gravebutton" : "tap");
+		(document.getElementById("sOptionsMenu").textContent = "Ok"),
+			PlayAudio(oS.Lvl ? "gravebutton" : "tap");
 		SetBlock($("dOptionsMenuback"), $("dOptionsMenu"));
 	}),
 	(HiddenOptions = function () {
