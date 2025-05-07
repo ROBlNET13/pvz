@@ -841,33 +841,39 @@ var oP = {
 			"position: absolute; display: block; left: 875px; z-index: 0;",
 			$("dPZ")
 		);
-		let dynamicStyle = document.createElement('style');
-document.head.appendChild(dynamicStyle); 
-let styleSheet = dynamicStyle.sheet; 
+		let dynamicStyle = document.createElement("style");
+		document.head.appendChild(dynamicStyle);
+		let styleSheet = dynamicStyle.sheet;
 
-function getRandomY() {
-    let randomY = GetY(Math.floor(1 + Math.random() * oS.R));
-    if (randomY > 430) {
-        return getRandomY();
-    }
-    return randomY;
-}
+		function getRandomY() {
+			let randomY = GetY(Math.floor(1 + Math.random() * oS.R));
+			if (randomY > 430) {
+				return getRandomY();
+			}
+			return randomY;
+		}
 
-let randomY = getRandomY();
+		let randomY = getRandomY();
 
-styleSheet.insertRule(`
+		styleSheet.insertRule(
+			`
   @keyframes moveLeft${balloonId} {
     from { left: 910px; }
     to { left: -75px; }
   }
-`, styleSheet.cssRules.length);
+`,
+			styleSheet.cssRules.length
+		);
 
-styleSheet.insertRule(`
+		styleSheet.insertRule(
+			`
   @keyframes bobbing${balloonId} {
     0%, 100% { top: ${randomY}px; }
     50% { top: ${randomY + 10}px; }
   }
-`, styleSheet.cssRules.length);
+`,
+			styleSheet.cssRules.length
+		);
 		image.width = 75;
 		image.onclick = function () {
 			image.onclick = null;
