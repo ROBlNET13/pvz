@@ -2575,12 +2575,12 @@ var oSunFlower = InheritO(CPlants, {
 		var b = c.childNodes[1];
 		a
 			? SetStyle(b, {
-					clip: "rect(74px,auto,auto,auto)",
-					top: "-74px",
+				transition: "filter 0.4s ease",
+					filter: "saturate(1.2) brightness(1.1) contrast(1.1)",
 				})
 			: SetStyle(b, {
-					clip: "rect(auto,auto,74px,auto)",
-					top: 0,
+				transition: "filter 0.2s ease",
+					filter: "saturate(1) brightness(1) contrast(1)",
 				});
 	},
 	PrivateBirth(a) {
@@ -2589,7 +2589,7 @@ var oSunFlower = InheritO(CPlants, {
 					500,
 					function (d, c, b) {
 						$P[d] &&
-							(a.ChangePosition($(d), 0),
+							(a.ChangePosition($(d), 1),
 							oSym.addTask(
 								100,
 								(h, g, f, e) => {
@@ -2601,7 +2601,7 @@ var oSunFlower = InheritO(CPlants, {
 											0
 										),
 										oSym.addTask(
-											100,
+											50,
 											(i) => {
 												$P[i] &&
 													a.ChangePosition($(i), 0);
