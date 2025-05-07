@@ -2575,11 +2575,11 @@ var oSunFlower = InheritO(CPlants, {
 		var b = c.childNodes[1];
 		a
 			? SetStyle(b, {
-				transition: "filter 0.4s ease",
+					transition: "filter 0.4s ease",
 					filter: "saturate(1.2) brightness(1.1) contrast(1.1)",
 				})
 			: SetStyle(b, {
-				transition: "filter 0.2s ease",
+					transition: "filter 0.2s ease",
 					filter: "saturate(1) brightness(1) contrast(1)",
 				});
 	},
