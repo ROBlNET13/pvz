@@ -3140,14 +3140,11 @@ var lastB;
 	}),
 	(OptionsMenuDown = function (b, a) {
 		b.className = "OptionsMenuButtonDown";
-		a.style.flexWrap = "nowrap";
-		a.style.flexDirection = "column";
+		a.style.paddingTop = "2px";
 	}),
 	(OptionsMenuUP = function (b, a) {
 		b.className = "OptionsMenuButton";
-		a.style.lineHeight = "100px";
-		a.style.flexWrap = "";
-		a.style.flexDirection = "";
+		a.style.paddingTop = "0px";
 	}),
 	(ShowSpeed = function () {
 		var b = oSym;

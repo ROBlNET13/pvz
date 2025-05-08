@@ -107,6 +107,10 @@
 	align-items: center;
 	justify-content: space-around;
 }
+
+.OptionsMenuButtonSpan:hover {
+	color: #01e901 !important;
+}
 .hidden {
 	display: none;
 }
