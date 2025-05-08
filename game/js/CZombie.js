@@ -814,13 +814,16 @@ var CZombies = (function (b, a) {
 							f.CSS_fliph;
 					}
 				: function (f, d, e, c) {
-						if (c == 1) {
-							d.style.filter = "brightness(1)";
-						} else {
-							d.style.filter =
-								"brightness(" + (c / 0.75 + 0.65) + ")";
-						}
-					},
+					const currentFilter = d.style.filter || "";
+					const withoutBrightness = currentFilter.replace(/brightness\([^)]+\)\s*/g, "").trim();
+					if (c === 1) {
+						d.style.filter = `${withoutBrightness} brightness(1)`.trim();
+					} else {
+						const newBrightness = c / 0.75 + 0.65;
+						d.style.filter = `${withoutBrightness} brightness(${newBrightness})`.trim();
+					}
+				}
+				
 		}),
 		a
 	);
