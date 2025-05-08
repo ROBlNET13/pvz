@@ -178,11 +178,15 @@ var oS = {
 		var savedAutoSun = localStorage.getItem("JSPVZAutoSun");
 		if (savedAutoSun !== null) {
 			this.AutoSun = parseInt(savedAutoSun);
-			if (this.AutoSun) AutoClickSun();
+			if (this.AutoSun) {
+				AutoClickSun();
+			}
 		}
 
 		var checkbox = document.getElementById("cAutoSun");
-		if (checkbox) checkbox.checked = !!this.AutoSun;
+		if (checkbox) {
+			checkbox.checked = !!this.AutoSun;
+		}
 
 		for (c in e) {
 			this.SelfVariables.push(c);
@@ -2832,59 +2836,61 @@ var lastB;
 		plant.Birth(GetX(d), GetY(b), b, d, [], a);
 		return plant;
 	}),
-	CheckAutoSun = function (a) {
+	(CheckAutoSun = function (a) {
 		var b = a.checked ? 1 : 0;
 		if (b != oS.AutoSun) {
 			oS.AutoSun = b;
 			localStorage.setItem("JSPVZAutoSun", b);
-			if (b) AutoClickSun();
+			if (b) {
+				AutoClickSun();
+			}
 		}
-	};
-	
-	(GetNewCard = function (a, b, c) {
-		StopMusic();
-		PlayAudioLegacy("winmusic");
-		oSym.Clear();
-		SetStyle(a, {
-			left: "350px",
-			top: "131px",
-			width: "200px",
-			height: "240px",
-			clip: "rect(0,auto,120px,0)",
-			cursor: "url(images/interface/Cursor.cur),default",
-		}).onclick = null;
-		oSym.Init(
-			function (d, e) {
-				++d < 100
-					? (SetAlpha(e, d, d * 0.01),
-						oSym.addTask(4, arguments.callee, [d, e]))
-					: (function () {
-							StopAudio("winmusic");
-							PlayAudio("plantsgarden", true);
-							SetHidden(EDAll, $("dTop"));
-							var f = b.prototype;
-							$("iNewPlantCard").src = f.PicArr[f.CardGif];
-							$("iNewPlantCard").style.width = 100 + "px";
-							$("iNewPlantCard").style.height = 120 + "px";
-							//                          $("iNewPlantCard").style.marginTop =
-							//                              180 - f.height + "px";
-							innerText($("dNewPlantName"), f.CName);
-							$("dNewPlantTooltip").innerHTML = f.Tooltip;
-							$("btnNextLevel").onclick = function () {
-								StopAudio("plantsgarden");
-								SetHidden($("bMainMenu"));
-								SelectModal(c);
-							};
-							SetStyle($("dNewPlant"), {
-								visibility: "visible",
-								zIndex: 255,
-							});
-							SetVisible($("bMainMenu"));
-						})();
-			},
-			[0, $("DivA")]
-		);
-	}),
+	});
+
+(GetNewCard = function (a, b, c) {
+	StopMusic();
+	PlayAudioLegacy("winmusic");
+	oSym.Clear();
+	SetStyle(a, {
+		left: "350px",
+		top: "131px",
+		width: "200px",
+		height: "240px",
+		clip: "rect(0,auto,120px,0)",
+		cursor: "url(images/interface/Cursor.cur),default",
+	}).onclick = null;
+	oSym.Init(
+		function (d, e) {
+			++d < 100
+				? (SetAlpha(e, d, d * 0.01),
+					oSym.addTask(4, arguments.callee, [d, e]))
+				: (function () {
+						StopAudio("winmusic");
+						PlayAudio("plantsgarden", true);
+						SetHidden(EDAll, $("dTop"));
+						var f = b.prototype;
+						$("iNewPlantCard").src = f.PicArr[f.CardGif];
+						$("iNewPlantCard").style.width = 100 + "px";
+						$("iNewPlantCard").style.height = 120 + "px";
+						//                          $("iNewPlantCard").style.marginTop =
+						//                              180 - f.height + "px";
+						innerText($("dNewPlantName"), f.CName);
+						$("dNewPlantTooltip").innerHTML = f.Tooltip;
+						$("btnNextLevel").onclick = function () {
+							StopAudio("plantsgarden");
+							SetHidden($("bMainMenu"));
+							SelectModal(c);
+						};
+						SetStyle($("dNewPlant"), {
+							visibility: "visible",
+							zIndex: 255,
+						});
+						SetVisible($("bMainMenu"));
+					})();
+		},
+		[0, $("DivA")]
+	);
+}),
 	(getCookie1 = function (b, g) {
 		var d = document.cookie;
 		var f = d.split(";");
