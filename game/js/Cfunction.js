@@ -135,6 +135,7 @@ var oS = {
 	LvlVariables: {},
 	SelfVariables: [],
 	LvlClearFunc: null,
+	AutoSun: 0,
 	Init(e, g, b, d) {
 		var c;
 		var a = window;
@@ -173,6 +174,16 @@ var oS = {
 		this.SunNum = d;
 		this.BrainsNum = d;
 		this.HaveFog = 0;
+
+		var savedAutoSun = localStorage.getItem("JSPVZAutoSun");
+		if (savedAutoSun !== null) {
+			this.AutoSun = parseInt(savedAutoSun);
+			if (this.AutoSun) AutoClickSun();
+		}
+
+		var checkbox = document.getElementById("cAutoSun");
+		if (checkbox) checkbox.checked = !!this.AutoSun;
+
 		for (c in e) {
 			this.SelfVariables.push(c);
 			this[c] = e[c];
@@ -2821,11 +2832,15 @@ var lastB;
 		plant.Birth(GetX(d), GetY(b), b, d, [], a);
 		return plant;
 	}),
-	(CheckAutoSun = function (a) {
+	CheckAutoSun = function (a) {
 		var b = a.checked ? 1 : 0;
-		b != oS.AutoSun &&
-			(addCookie("JSPVZAutoSun", (oS.AutoSun = b)), b && AutoClickSun());
-	}),
+		if (b != oS.AutoSun) {
+			oS.AutoSun = b;
+			localStorage.setItem("JSPVZAutoSun", b);
+			if (b) AutoClickSun();
+		}
+	};
+	
 	(GetNewCard = function (a, b, c) {
 		StopMusic();
 		PlayAudioLegacy("winmusic");
