@@ -388,7 +388,8 @@ var oS = {
 		? function (f, c, e, a, d) {
 				var b = NewEle(f, "script", 0, { type: "text/javascript" });
 				b.onreadystatechange = function () {
-					(b.readyState === "loaded" || b.readyState === "complete") &&
+					(b.readyState === "loaded" ||
+						b.readyState === "complete") &&
 						((b.onreadystatechange = null), e(d, 1));
 				};
 				b.onerror = function () {
@@ -1310,7 +1311,8 @@ var oP = {
 					1990,
 					(g) => {
 						var h = oP;
-						h.ReadyFlag === g++ && ((h.ReadyFlag = g), h.FlagPrgs());
+						h.ReadyFlag === g++ &&
+							((h.ReadyFlag = g), h.FlagPrgs());
 					},
 					[c]
 				))
@@ -3090,7 +3092,9 @@ var lastB;
 		var b = oSym.Now === c;
 		var d = $User;
 		var a = d.Visitor;
-		oS.CenterContent && ((e === 0 && b) || e !== 0) && (oS.DisplayAD = true);
+		oS.CenterContent &&
+			((e === 0 && b) || e !== 0) &&
+			(oS.DisplayAD = true);
 		e = e || 0;
 		$("dServer") && e !== 0 && SetNone($("dServer"));
 		oSym.Init(
