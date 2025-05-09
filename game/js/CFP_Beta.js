@@ -18,6 +18,8 @@ const TINYIFIER_MAP = {
 	plantName: 9,
 	plantRow: 10,
 	zIndex: 11,
+	eleLeft: 12,
+	eleTop: 13
 };
 
 // the compression stuff assumes that pako is loaded
@@ -126,9 +128,11 @@ function cloneFromPlants(name, sun, screenshot) {
 	for (let i = 0; i < keyedDict.length; i++) {
 		let plantRow = $P[keyedDict[i]].R;
 		let plantCol = $P[keyedDict[i]].C;
+		let eleLeft = parseInt($P[keyedDict[i]].ele.style.left);
+		let eleTop = parseInt($P[keyedDict[i]].ele.style.top);
 		let plantName = Object.getPrototypeOf($P[keyedDict[i]]).EName;
 		let { zIndex } = $P[keyedDict[i]];
-		plantDict[keyedDict[i]] = { zIndex, plantRow, plantCol, plantName };
+		plantDict[keyedDict[i]] = { zIndex, plantRow, plantCol, plantName, eleLeft, eleTop };
 	}
 	// now turn it into an array of dictionaries
 	let plantArray = Object.values(plantDict);

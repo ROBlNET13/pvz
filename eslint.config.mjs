@@ -14,12 +14,12 @@ export default [
 		rules: {
 			"one-var": ["error", "never"],
 			curly: ["error", "all"],
-			eqeqeq: ["error", "always", { null: "ignore" }], // allow == null
+			eqeqeq: ["warn", "always", { null: "ignore" }],
 			// "no-var": "error",
 			// "prefer-const": "error",
 			"object-shorthand": "error",
 			// "prefer-template": "error",
-			"prefer-destructuring": ["error", { object: true, array: true }],
+			// "prefer-destructuring": ["error", { object: true, array: true }],
 			"prefer-spread": "error",
 			"prefer-rest-params": "error",
 			"no-sequences": "error",
