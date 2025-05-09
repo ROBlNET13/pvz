@@ -779,3 +779,27 @@ td {
 .cardboard {
 	filter: url("#cardboard");
 }
+
+/*.balloonIdleSheet {
+	background-image: url(images/Zombies/Balloon/balloonidle.png);
+	background-repeat: no-repeat;
+	
+}
+
+.balloonPopSheet {
+	background-image: url(images/Zombies/Balloon/popped.png);
+	background-repeat: no-repeat;
+	animation: spritesheet 0.84s steps(21) forwards;
+}*/
+
+@keyframes spritesheetIdle {
+	to {
+		background-position-x: -4620px; /* -(width_of_one_frame * number_of_frames) */
+	}
+}
+
+@keyframes spritesheetPop {
+    to {
+        background-position-x: -3234px; /* -(width_of_one_frame * number_of_frames) */
+    }
+}

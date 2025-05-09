@@ -853,21 +853,20 @@ var oP = {
 	},
 	Balloon() {
 		let balloonId = Math.floor(1 + Math.random() * 1000);
+		let endMode = "endOfAnimation";
+
 		function getAnimatedPosition(element) {
 			const computedStyle = getComputedStyle(element);
 			const left = parseFloat(computedStyle.left);
 			const top = parseFloat(computedStyle.top);
 			return { left, top };
 		}
-		let image = NewImg(
-			"",
-			"images/Zombies/Balloon/balloonidle.png",
-			"position: absolute; display: block; left: 875px; z-index: 0;",
-			$("dPZ")
-		);
-		let dynamicStyle = document.createElement("style");
-		document.head.appendChild(dynamicStyle);
-		let styleSheet = dynamicStyle.sheet;
+
+		if (!oP.balloonStyleSheet) {
+			let dynamicStyle = document.createElement("style");
+			document.head.appendChild(dynamicStyle);
+			oP.balloonStyleSheet = dynamicStyle.sheet;
+		}
 
 		function getRandomY() {
 			let randomY = GetY(Math.floor(1 + Math.random() * oS.R));
@@ -879,36 +878,86 @@ var oP = {
 
 		let randomY = getRandomY();
 
-		styleSheet.insertRule(
+		oP.balloonStyleSheet.insertRule(
 			`
-  @keyframes moveLeft${balloonId} {
-    from { left: 910px; }
-    to { left: -75px; }
-  }
-`,
-			styleSheet.cssRules.length
+			@keyframes moveLeft${balloonId} {
+				from { left: 910px; }
+				to { left: -75px; }
+			}
+		`,
+			oP.balloonStyleSheet.cssRules.length
 		);
 
-		styleSheet.insertRule(
+		oP.balloonStyleSheet.insertRule(
 			`
-  @keyframes bobbing${balloonId} {
-    0%, 100% { top: ${randomY}px; }
-    50% { top: ${randomY + 10}px; }
-  }
-`,
-			styleSheet.cssRules.length
+			@keyframes bobbing${balloonId} {
+				0%, 100% { top: ${randomY}px; }
+				50% { top: ${randomY + 10}px; }
+			}
+		`,
+			oP.balloonStyleSheet.cssRules.length
 		);
-		image.width = 93;
+
+		let image = document.createElement("div");
+		image.style = `
+			background-image: url(images/Zombies/Balloon/balloonidle.png);
+			position: absolute; 
+			display: block;
+			left: 875px;
+			top: ${randomY}px;
+			z-index: 999;
+			width: 154px;
+			height: 181px;
+			scale: 0.6038961039;
+			cursor: url(images/interface/Pointer.cur),pointer;
+			animation: spritesheetIdle ${$User.Visitor.TimeStep / 10}s steps(30) infinite, moveLeft${balloonId} ${
+				13 * ($User.Visitor.TimeStep / 10)
+			}s linear, bobbing${balloonId} ${
+				2 * ($User.Visitor.TimeStep / 10)
+			}s ease-in-out infinite;`;
+
+		$("dPZ").appendChild(image);
+
 		image.onclick = function () {
 			image.onclick = null;
-			image.src = "images/Zombies/Balloon/popped.png";
-			image.style.animationPlayState = "paused";
-			SetStyle(image, {
-				pointerEvents: "none",
+			image.style = `
+				background-image: url(images/Zombies/Balloon/popped.png);
+				position: absolute;
+				display: block;
+				left: ${getAnimatedPosition(image).left}px;
+				top: ${randomY}px;
+				z-index: 999;
+				width: 154px;
+				height: 181px;
+				scale: 0.6038961039;
+				pointer-events: none;
+				animation: spritesheetPop ${$User.Visitor.TimeStep / 10}s 1 normal forwards steps(21);
+			`;
+
+			image.addEventListener("animationend", () => {
+				if (endMode === "endOfAnimation") {
+					image.style = `
+						background-image: url(images/Zombies/Balloon/popped.png);
+						background-position-x: -3080px;
+						position: absolute;
+						display: block;
+						left: ${getAnimatedPosition(image).left}px;
+						top: ${randomY}px;
+						z-index: 999;
+						width: 154px;
+						height: 181px;
+						scale: 0.6038961039;
+						pointer-events: none;
+					`;
+					endMode = "remove";
+				} else {
+					image.parentNode.removeChild(image);
+				}
 			});
+
 			setTimeout(() => {
 				PlayAudio("balloon_pop");
-				if ($("dSunNum").style.visibility == "") {
+				if ($("dSunNum").style.visibility === "") {
 					AppearSun(
 						GetX(Math.floor(1 + Math.random() * oS.C)),
 						GetY(Math.floor(1 + Math.random() * oS.R)),
@@ -927,20 +976,8 @@ var oP = {
 				}, 2500);
 			}, 300);
 		};
-		image.style.animation = `moveLeft${balloonId} ${
-			13 * ($User.Visitor.TimeStep / 10)
-		}s linear, bobbing${balloonId} ${
-			2 * ($User.Visitor.TimeStep / 10)
-		}s ease-in-out infinite`;
-		image.style.top = `${randomY}px`;
-		image.style.cursor = "url(images/interface/Pointer.cur),pointer";
-		image.style.zIndex = "999";
-		image.addEventListener("animationend", () => {
-			image.parentNode.removeChild(image);
-		});
+
 		PlayAudio("ballooninflate");
-		// console.log(image);
-		// console.log(image.parentElement);
 	},
 	AddZombiesFlag(d) {
 		if (
