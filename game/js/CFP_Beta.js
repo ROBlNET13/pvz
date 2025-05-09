@@ -130,17 +130,21 @@ function cloneFromPlants(name, sun, includeXY, screenshot) {
 		let plantCol = $P[keyedDict[i]].C;
 		let plantName = Object.getPrototypeOf($P[keyedDict[i]]).EName;
 		let { zIndex } = $P[keyedDict[i]];
-		
+
 		plantDict[keyedDict[i]] = {
 			zIndex,
 			plantRow,
 			plantCol,
 			plantName,
 		};
-		
+
 		if (includeXY) {
-			plantDict[keyedDict[i]].eleLeft = parseInt($P[keyedDict[i]].ele.style.left);
-			plantDict[keyedDict[i]].eleTop = parseInt($P[keyedDict[i]].ele.style.top);
+			plantDict[keyedDict[i]].eleLeft = parseInt(
+				$P[keyedDict[i]].ele.style.left
+			);
+			plantDict[keyedDict[i]].eleTop = parseInt(
+				$P[keyedDict[i]].ele.style.top
+			);
 		}
 	}
 	// now turn it into an array of dictionaries
