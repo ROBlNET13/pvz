@@ -40,7 +40,7 @@ oS.Init(
 		LargeWaveFlag: { 10: $("imgFlag1") },
 		Monitor: { f: AppearTombstones, ar: [7, 9, 4] },
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum == oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie]);
 		},
 		StartGameMusic: "Moongrains",
 		LoadAccess(a) {

@@ -2,8 +2,10 @@
 name: Bug report
 about: Create a report to help us improve PVZM
 title: ""
-labels: ""
-assignees: ""
+labels: "bug"
+assignees:
+	- ClaytonTDM
+	- ROBlNET13
 ---
 
 **Describe the bug**

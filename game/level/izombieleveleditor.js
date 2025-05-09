@@ -235,7 +235,7 @@
 										)) != null &&
 										l.length <= 50
 									) {
-										if (l.length == 0) {
+										if (l.length === 0) {
 											l = "My I, Zombie Level";
 										}
 										($("btnClickSave").innerHTML =

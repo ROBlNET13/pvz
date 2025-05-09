@@ -149,7 +149,7 @@ oS.Init(
 												var i;
 												for (i in j) {
 													if (
-														j[i].EName ==
+														j[i].EName ===
 														"oSunFlower"
 													) {
 														innerText(
@@ -186,7 +186,7 @@ oS.Init(
 												var i;
 												var k = 0;
 												for (i in j) {
-													j[i].EName ==
+													j[i].EName ===
 														"oSunFlower" && ++k;
 												}
 												k > 1 &&
@@ -206,7 +206,7 @@ oS.Init(
 												var i;
 												var k = 0;
 												for (i in j) {
-													j[i].EName ==
+													j[i].EName ===
 														"oSunFlower" && ++k;
 												}
 												k > 2

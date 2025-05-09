@@ -127,7 +127,7 @@ oS.Init({
 			b
 				? ($User.Browser.IE
 						? (b.onreadystatechange = function () {
-								b.readyState == "loaded" && ClearChild(b);
+								b.readyState === "loaded" && ClearChild(b);
 							})
 						: (b.onload = function () {
 								ClearChild(b);
@@ -150,7 +150,7 @@ startInterval2();
 function runIzlCheck() {
 	// check if the izl query parameter is set
 	let izl = new URLSearchParams(window.location.search).get("izl");
-	if (izl && izl != "") {
+	if (izl && izl !== "") {
 		try {
 			izl[0] === "="
 				? (levelDataToLoad = parseCloneTiny(decodeURIComponent(icl)))

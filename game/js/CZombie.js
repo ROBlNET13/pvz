@@ -129,7 +129,7 @@ var CZombies = (function (b, a) {
 								self._TMP_ELEBODY.src = canvas.src;
 								canvas.src = "";
 							}
-							if (last != self._TMP_ELEBODY.src) {
+							if (last !== self._TMP_ELEBODY.src) {
 								ctx.clearRect(
 									0,
 									0,
@@ -151,9 +151,9 @@ var CZombies = (function (b, a) {
 									: self.HeadPosition[0];
 							for (var i of self._Butter_Img_) {
 								if (
-									position.x !=
+									position.x !==
 										Number.parseInt(i.style.left) ||
-									position.y != Number.parseInt(i.style.top)
+									position.y !== Number.parseInt(i.style.top)
 								) {
 									i.style.left = position.x + delta[0] + "px";
 									i.style.top = position.y + delta[1] + "px";
@@ -210,7 +210,7 @@ var CZombies = (function (b, a) {
 						NewImg(
 							"butter_" + self.id + img,
 							img,
-							(self.FangXiang == "GoRight"
+							(self.FangXiang === "GoRight"
 								? "transform:rotateY(180deg);"
 								: "") +
 								`position:absolute;left:${
@@ -237,7 +237,7 @@ var CZombies = (function (b, a) {
 				);
 			},
 			CanPass(d, c) {
-				return c && c != 2;
+				return c && c !== 2;
 			},
 			CanGrow(d, c, e) {
 				return this.CanPass(c, oGd.$LF[c]) && e > oS.ArP.ArC[1];
@@ -321,7 +321,7 @@ var CZombies = (function (b, a) {
 							left: d.X + "px",
 							top:
 								(d.pixelTop =
-									j == undefined
+									j === undefined
 										? GetY(q) - d.height + d.GetDY()
 										: j) + "px",
 							zIndex: (d.zIndex = 3 * q + 1),
@@ -526,7 +526,7 @@ var CZombies = (function (b, a) {
 						(j, i) => {
 							var k = $Z[j];
 							k &&
-								k.FreeSlowTime == i &&
+								k.FreeSlowTime === i &&
 								((k.FreeSlowTime = 0),
 								(k.Attack = 100),
 								k.Speed && (k.Speed = k.OSpeed));
@@ -543,7 +543,7 @@ var CZombies = (function (b, a) {
 						ClearChild(e);
 						var h = $Z[g];
 						h &&
-							h.FreeFreezeTime == f &&
+							h.FreeFreezeTime === f &&
 							((h.FreeFreezeTime = 0),
 							(h.Attack = 50),
 							!h.FreeSetbodyTime &&
@@ -554,7 +554,7 @@ var CZombies = (function (b, a) {
 								(j, i) => {
 									var k = $Z[j];
 									k &&
-										k.FreeSlowTime == i &&
+										k.FreeSlowTime === i &&
 										((k.FreeSlowTime = 0),
 										(k.Attack = 100),
 										!k.FreeSetbodyTime &&
@@ -700,7 +700,7 @@ var CZombies = (function (b, a) {
 				d &&
 					d.beAttacked &&
 					d.AttackedLX < 900 &&
-					d.Altitude == 1 &&
+					d.Altitude === 1 &&
 					(e.AttackZombie(d.id), !d.isAttacking && d.AttackZombie(c));
 			},
 			JudgeAttackH() {
@@ -708,7 +708,7 @@ var CZombies = (function (b, a) {
 				var d = oZ.getZ0(e.ZX, e.R);
 				var f = e.id;
 				var c;
-				d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1
+				d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude === 1
 					? !e.isAttacking
 						? ((e.isAttacking = 1),
 							(e.EleBody.src = e.PicArr[e.AttackGif]),
@@ -882,7 +882,7 @@ var OrnNoneZombies = (function () {
 		getSnowPea(f, c, g) {
 			var e = f.FreeSlowTime;
 			var b = oSym.Now + 1e3;
-			e == 0
+			e === 0
 				? (f.PlaySlowballAudio(),
 					(f.Speed = 0.5 * f.OSpeed),
 					(f.Attack = 50))
@@ -894,7 +894,7 @@ var OrnNoneZombies = (function () {
 					(h, d) => {
 						var i = $Z[h];
 						i &&
-							i.FreeSlowTime == d &&
+							i.FreeSlowTime === d &&
 							((i.FreeSlowTime = 0),
 							(i.Attack = 100),
 							i.Speed && (i.Speed = i.OSpeed));
@@ -969,7 +969,7 @@ var oBackupDancer = InheritO(OrnNoneZombies, {
 				(h, g) => {
 					var i = $Z[h];
 					i &&
-						i.FreeSlowTime == g &&
+						i.FreeSlowTime === g &&
 						((i.FreeSlowTime = 0), (i.Attack = 100));
 				},
 				[d, b]
@@ -983,7 +983,7 @@ var oBackupDancer = InheritO(OrnNoneZombies, {
 				ClearChild(c);
 				var f = $Z[e];
 				f &&
-					f.FreeFreezeTime == d &&
+					f.FreeFreezeTime === d &&
 					((f.FreeFreezeTime = 0),
 					(f.Attack = 50),
 					!f.FreeSetbodyTime && f.isAttacking && f.JudgeAttack(),
@@ -992,7 +992,7 @@ var oBackupDancer = InheritO(OrnNoneZombies, {
 						(h, g) => {
 							var i = $Z[h];
 							i &&
-								i.FreeSlowTime == g &&
+								i.FreeSlowTime === g &&
 								((i.FreeSlowTime = 0), (i.Attack = 100));
 						},
 						[e, (f.FreeSlowTime = oSym.Now + 1500)]
@@ -1117,14 +1117,14 @@ var oBackupDancer = InheritO(OrnNoneZombies, {
 		}
 		var a = b.Speed;
 		switch (true) {
-			case (b.FreeFreezeTime || b.FreeSetbodyTime) == 1:
+			case (b.FreeFreezeTime || b.FreeSetbodyTime) === 1:
 				a && (b.Speed = 0);
 				break;
 			case b.FreeSlowTime > 0:
-				a != 1.75 && (b.Speed = 1.75);
+				a !== 1.75 && (b.Speed = 1.75);
 				break;
 			default:
-				a != 3.5 && (b.Speed = 3.5);
+				a !== 3.5 && (b.Speed = 3.5);
 		}
 	},
 });
@@ -1285,7 +1285,7 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 			if ((c = g[d]) && (b = c[0]) && (e = $Z[b]) && e.beAttacked) {
 				if (a > 0) {
 					switch (true) {
-						case (e.FreeFreezeTime || e.FreeSetbodyTime) == 1:
+						case (e.FreeFreezeTime || e.FreeSetbodyTime) === 1:
 							e.Speed = 0;
 							break;
 						case e.FreeSlowTime > 0:
@@ -1338,7 +1338,7 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 		d.EleBody = a.childNodes[1];
 		s > 0 &&
 			(e = i[s]) &&
-			e != 2 &&
+			e !== 2 &&
 			(f[0] = [
 				"",
 				s,
@@ -1353,7 +1353,7 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 			]);
 		n <= oS.R &&
 			(e = i[n]) &&
-			e != 2 &&
+			e !== 2 &&
 			(f[2] = [
 				"",
 				n,
@@ -1474,11 +1474,11 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 		var a = g.OSpeed;
 		var f = [];
 		switch (true) {
-			case (g.isAttacking || g.FreeFreezeTime || g.FreeSetbodyTime) == 1:
+			case (g.isAttacking || g.FreeFreezeTime || g.FreeSetbodyTime) === 1:
 				a = 0;
 				break;
 			case g.FreeSlowTime > 0:
-				a != 1.75 && (a = 1.75);
+				a !== 1.75 && (a = 1.75);
 		}
 		while (d--) {
 			if ((c = h[d]) && (b = c[0]) && (e = $Z[b]) && e.beAttacked) {
@@ -1486,21 +1486,21 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 				switch (true) {
 					case (e.isAttacking ||
 						e.FreeFreezeTime ||
-						e.FreeSetbodyTime) == 1:
+						e.FreeSetbodyTime) === 1:
 						a = 0;
 						break;
 					case e.FreeSlowTime > 0:
-						a != 1.75 && (a = 1.75);
+						a !== 1.75 && (a = 1.75);
 				}
 			}
 		}
-		if (a != g.DZMSpeed) {
+		if (a !== g.DZMSpeed) {
 			g.DZMSpeed = a;
 			d = f.length;
 			while (d--) {
-				(e = f[d]).Speed != a && (e.Speed = a);
+				(e = f[d]).Speed !== a && (e.Speed = a);
 			}
-			g.Speed != a && (g.Speed = a);
+			g.Speed !== a && (g.Speed = a);
 		}
 	},
 	AttackZombie(a) {
@@ -1952,7 +1952,7 @@ var oIDancingZombie = InheritO(OrnNoneZombies, {
 			if ((c = g[d]) && (b = c[0]) && (e = $Z[b]) && e.beAttacked) {
 				if (a > 0) {
 					switch (true) {
-						case (e.FreeFreezeTime || e.FreeSetbodyTime) == 1:
+						case (e.FreeFreezeTime || e.FreeSetbodyTime) === 1:
 							e.Speed = 0;
 							break;
 						case e.FreeSlowTime > 0:
@@ -2005,7 +2005,7 @@ var oIDancingZombie = InheritO(OrnNoneZombies, {
 		d.EleBody = a.childNodes[1];
 		s > 0 &&
 			(e = i[s]) &&
-			e != 2 &&
+			e !== 2 &&
 			(f[0] = [
 				"",
 				s,
@@ -2020,7 +2020,7 @@ var oIDancingZombie = InheritO(OrnNoneZombies, {
 			]);
 		n <= oS.R &&
 			(e = i[n]) &&
-			e != 2 &&
+			e !== 2 &&
 			(f[2] = [
 				"",
 				n,
@@ -2141,11 +2141,11 @@ var oIDancingZombie = InheritO(OrnNoneZombies, {
 		var a = g.OSpeed;
 		var f = [];
 		switch (true) {
-			case (g.isAttacking || g.FreeFreezeTime || g.FreeSetbodyTime) == 1:
+			case (g.isAttacking || g.FreeFreezeTime || g.FreeSetbodyTime) === 1:
 				a = 0;
 				break;
 			case g.FreeSlowTime > 0:
-				a != 1.75 && (a = 1.75);
+				a !== 1.75 && (a = 1.75);
 		}
 		while (d--) {
 			if ((c = h[d]) && (b = c[0]) && (e = $Z[b]) && e.beAttacked) {
@@ -2153,21 +2153,21 @@ var oIDancingZombie = InheritO(OrnNoneZombies, {
 				switch (true) {
 					case (e.isAttacking ||
 						e.FreeFreezeTime ||
-						e.FreeSetbodyTime) == 1:
+						e.FreeSetbodyTime) === 1:
 						a = 0;
 						break;
 					case e.FreeSlowTime > 0:
-						a != 1.75 && (a = 1.75);
+						a !== 1.75 && (a = 1.75);
 				}
 			}
 		}
-		if (a != g.DZMSpeed) {
+		if (a !== g.DZMSpeed) {
 			g.DZMSpeed = a;
 			d = f.length;
 			while (d--) {
-				(e = f[d]).Speed != a && (e.Speed = a);
+				(e = f[d]).Speed !== a && (e.Speed = a);
 			}
-			g.Speed != a && (g.Speed = a);
+			g.Speed !== a && (g.Speed = a);
 		}
 	},
 	AttackZombie(a) {
@@ -3045,7 +3045,7 @@ var oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 				a = 2;
 				a > -1;
 				(p = h[d + f + "_" + a--]) &&
-				(p.EName != "oBrains"
+				(p.EName !== "oBrains"
 					? p.AttackedRX >= e &&
 						p.AttackedLX < b &&
 						p.canEat &&
@@ -3254,7 +3254,7 @@ var oIPoleVaultingZombie = InheritO(OrnNoneZombies, {
 				a = 2;
 				a > -1;
 				(p = h[d + f + "_" + a--]) &&
-				(p.EName != "oBrains"
+				(p.EName !== "oBrains"
 					? p.AttackedRX >= e &&
 						p.AttackedLX < b &&
 						p.canEat &&
@@ -3595,7 +3595,7 @@ var oNewspaperZombie = InheritO(OrnIIZombies, {
 				e.getFireball(e, b, a);
 				break;
 			default:
-				!i && j == -1 && e.PlayNormalballAudio();
+				!i && j === -1 && e.PlayNormalballAudio();
 		}
 		SetAlpha(e.EleBody, 50, 0.5);
 		oSym.addTask(
@@ -3624,7 +3624,7 @@ var oNewspaperZombie = InheritO(OrnIIZombies, {
 		var c = a.length;
 		var h;
 		while (c--) {
-			(h = a[c]) != this && h.getFirePeaSputtering();
+			(h = a[c]) !== this && h.getFirePeaSputtering();
 		}
 		(f.HP -= b) < f.BreakPoint
 			? ((f.getFirePea = OrnNoneZombies.prototype.getFirePea),
@@ -3650,7 +3650,7 @@ var oNewspaperZombie = InheritO(OrnIIZombies, {
 				));
 	},
 	getHit0(c, a, b) {
-		b == c.WalkDirection
+		b === c.WalkDirection
 			? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1),
 				c.SetAlpha(c, c.EleBody, 50, 0.5),
 				oSym.addTask(
@@ -3844,7 +3844,7 @@ var oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea(c, a, b) {
 		PlayAudio(
-			b == c.WalkDirection
+			b === c.WalkDirection
 				? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
 				: "splat" + Math.floor(1 + Math.random() * 3)
 		);
@@ -3857,14 +3857,14 @@ var oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	},
 	getPea(c, a, b) {
 		PlayAudio(
-			b == c.WalkDirection
+			b === c.WalkDirection
 				? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
 				: "splat" + Math.floor(1 + Math.random() * 3)
 		);
 		c.getHit0(c, a, b);
 	},
 	getHit0(c, a, b) {
-		b == c.WalkDirection
+		b === c.WalkDirection
 			? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1),
 				c.SetAlpha(c, c.EleBody, 50, 0.5),
 				oSym.addTask(
@@ -3916,17 +3916,17 @@ var oScreenDoorZombie = InheritO(oNewspaperZombie, {
 					e.getHit));
 	},
 	getFireball(c, a, b) {
-		b != c.WalkDirection
+		b !== c.WalkDirection
 			? ((c.FreeSlowTime = 0),
 				(c.Attack = 100),
-				c.Speed != c.OSpeed
+				c.Speed !== c.OSpeed
 					? (c.PlayNormalballAudio(), (c.Speed = c.OSpeed))
 					: c.PlayFireballAudio())
 			: c.PlayNormalballAudio();
 	},
 	getSputtering() {},
 	getSlow(d, a, c, b, e) {
-		b != d.WalkDirection || e != -1
+		b !== d.WalkDirection || e !== -1
 			? CZombies.prototype.getSlow(d, a, c)
 			: d.PlayNormalballAudio();
 	},
@@ -3970,7 +3970,7 @@ var oIScreenDoorZombie = InheritO(oNewspaperZombie, {
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea(c, a, b) {
 		PlayAudio(
-			b == c.WalkDirection
+			b === c.WalkDirection
 				? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
 				: "splat" + Math.floor(1 + Math.random() * 3)
 		);
@@ -3983,14 +3983,14 @@ var oIScreenDoorZombie = InheritO(oNewspaperZombie, {
 	},
 	getPea(c, a, b) {
 		PlayAudio(
-			b == c.WalkDirection
+			b === c.WalkDirection
 				? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]
 				: "splat" + Math.floor(1 + Math.random() * 3)
 		);
 		c.getHit0(c, a, b);
 	},
 	getHit0(c, a, b) {
-		b == c.WalkDirection
+		b === c.WalkDirection
 			? (c.CheckOrnHP(c, c.id, c.OrnHP, a, c.PicArr, c.isAttacking, 1),
 				c.SetAlpha(c, c.EleBody, 50, 0.5),
 				oSym.addTask(
@@ -4042,17 +4042,17 @@ var oIScreenDoorZombie = InheritO(oNewspaperZombie, {
 					e.getHit));
 	},
 	getFireball(c, a, b) {
-		b != c.WalkDirection
+		b !== c.WalkDirection
 			? ((c.FreeSlowTime = 0),
 				(c.Attack = 100),
-				c.Speed != c.OSpeed
+				c.Speed !== c.OSpeed
 					? (c.PlayNormalballAudio(), (c.Speed = c.OSpeed))
 					: c.PlayFireballAudio())
 			: c.PlayNormalballAudio();
 	},
 	getSputtering() {},
 	getSlow(d, a, c, b, e) {
-		b != d.WalkDirection || e != -1
+		b !== d.WalkDirection || e !== -1
 			? CZombies.prototype.getSlow(d, a, c)
 			: d.PlayNormalballAudio();
 	},
@@ -4091,7 +4091,7 @@ var oAquaticZombie = InheritO(OrnNoneZombies, {
 	WalkGif0: 2,
 	WalkGif1: 3,
 	CanPass(b, a) {
-		return a == 2;
+		return a === 2;
 	},
 	BirthCallBack(g) {
 		var e = g.delayT;
@@ -4551,7 +4551,7 @@ var oAquaticZombie = InheritO(OrnNoneZombies, {
 	WalkGif0: 2,
 	WalkGif1: 3,
 	CanPass(b, a) {
-		return a == 2;
+		return a === 2;
 	},
 	BirthCallBack(g) {
 		var e = g.delayT;
@@ -6273,7 +6273,7 @@ var oDolphinRiderZombie = InheritO(oAquaticZombie, {
 				a = 2;
 				a > -1;
 				(p = g[d + e + "_" + a--]) &&
-				(p.EName != "oBrains"
+				(p.EName !== "oBrains"
 					? p.AttackedRX >= b &&
 						p.AttackedLX < b &&
 						((a = -1),
@@ -6530,7 +6530,7 @@ var oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 			var d = oZ.getZ0(e.ZX, e.R);
 			var f = e.id;
 			var c;
-			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1
+			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude === 1
 				? !e.isAttacking
 					? ((e.isAttacking = 1),
 						(e.EleBody.src = e.PicArr[e.AttackGif]),
@@ -6770,7 +6770,7 @@ var oIJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 			var d = oZ.getZ0(e.ZX, e.R);
 			var f = e.id;
 			var c;
-			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude == 1
+			d && d.beAttacked && d.AttackedLX < oS.W && d.Altitude === 1
 				? !e.isAttacking
 					? ((e.isAttacking = 1),
 						(e.EleBody.src = e.PicArr[e.AttackGif]),
@@ -6999,13 +6999,13 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 						var k = oGd.$Balloon;
 						var h = j.R;
 						j && ((j.FreeSetbodyTime = 0), SetBlock(g));
-						k[h] == undefined ? (k[h] = 1) : ++k[h];
+						k[h] === undefined ? (k[h] = 1) : ++k[h];
 						PlayAudio("ballooninflate");
 					},
 					[c, a]
 				)
 			: (SetBlock(a),
-				f[b] == undefined ? (f[b] = 1) : ++f[b],
+				f[b] === undefined ? (f[b] = 1) : ++f[b],
 				PlayAudio("ballooninflate"));
 	},
 	ChkActs(f, d, g, c) {
@@ -7087,7 +7087,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 			(d, c) => {
 				var e = $Z[d];
 				e &&
-					e.FreeSlowTime == c &&
+					e.FreeSlowTime === c &&
 					((e.FreeSlowTime = 0),
 					(e.Attack = 100),
 					(e.Speed = e.OSpeed));
@@ -7201,14 +7201,14 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 						[c, a, b]
 					)
 				: (SetBlock(a),
-					f[b] == undefined ? (f[b] = 1) : ++f[b],
+					f[b] === undefined ? (f[b] = 1) : ++f[b],
 					PlayAudio("ballooninflate"));
 		},
 		ChkActs(f, d, g, c) {
 			var b;
 			var a;
 			var e;
-			if (f.Altitude == 3 && f.AttackedRX < GetX(1)) {
+			if (f.Altitude === 3 && f.AttackedRX < GetX(1)) {
 				// 气球掉落
 				f.Drop();
 				return 1;
@@ -7293,7 +7293,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 				(d, c) => {
 					var e = $Z[d];
 					e &&
-						e.FreeSlowTime == c &&
+						e.FreeSlowTime === c &&
 						((e.FreeSlowTime = 0),
 						(e.Attack = 100),
 						(e.Speed = e.OSpeed));
@@ -7330,7 +7330,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 			this.DisappearDie();
 		},
 		getDispelled() {
-			if (this.Altitude != 3 || this.AttackedRX < GetX(0)) {
+			if (this.Altitude !== 3 || this.AttackedRX < GetX(0)) {
 				return;
 			}
 			this.ChkActs = function () {
@@ -7357,7 +7357,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 			})(this.id);
 		},
 		getFirePeaSputtering() {
-			this.Altitude == 1 && this.getHit0(this, 13);
+			this.Altitude === 1 && this.getHit0(this, 13);
 		},
 		prepareBirth: oZomboni.prototype.prepareBirth,
 	}));
@@ -7405,13 +7405,13 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 						var k = oGd.$Balloon;
 						var h = j.R;
 						j && ((j.FreeSetbodyTime = 0), SetBlock(g));
-						k[h] == undefined ? (k[h] = 1) : ++k[h];
+						k[h] === undefined ? (k[h] = 1) : ++k[h];
 						PlayAudio("ballooninflate");
 					},
 					[c, a]
 				)
 			: (SetBlock(a),
-				f[b] == undefined ? (f[b] = 1) : ++f[b],
+				f[b] === undefined ? (f[b] = 1) : ++f[b],
 				PlayAudio("ballooninflate"));
 	},
 	ChkActs(f, d, g, c) {
@@ -7492,7 +7492,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 			(d, c) => {
 				var e = $Z[d];
 				e &&
-					e.FreeSlowTime == c &&
+					e.FreeSlowTime === c &&
 					((e.FreeSlowTime = 0),
 					(e.Attack = 100),
 					(e.Speed = e.OSpeed));
@@ -7713,7 +7713,7 @@ oCBucketheadZombie = InheritO(
 				a = 2;
 				a > -1;
 				(p = h[d + f + "_" + a--]) &&
-				(p.EName != "oBrains"
+				(p.EName !== "oBrains"
 					? p.AttackedRX >= e &&
 						p.AttackedLX < b &&
 						p.canEat &&
@@ -7930,7 +7930,7 @@ oCBucketheadZombie = InheritO(
 					e.getFireball(e, b, a);
 					break;
 				default:
-					!i && j == -1 && e.PlayNormalballAudio();
+					!i && j === -1 && e.PlayNormalballAudio();
 			}
 			SetAlpha(e.EleBody, 50, 0.5);
 			oSym.addTask(
@@ -7959,7 +7959,7 @@ oCBucketheadZombie = InheritO(
 			var c = a.length;
 			var h;
 			while (c--) {
-				(h = a[c]) != this && h.getFirePeaSputtering();
+				(h = a[c]) !== this && h.getFirePeaSputtering();
 			}
 			(f.HP -= b) < f.BreakPoint
 				? ((f.getFirePea = OrnNoneZombies.prototype.getFirePea),
@@ -7993,7 +7993,7 @@ oCBucketheadZombie = InheritO(
 					));
 		},
 		getHit0(c, a, b) {
-			b == c.WalkDirection
+			b === c.WalkDirection
 				? (c.CheckOrnHP(
 						c,
 						c.id,
@@ -8740,7 +8740,7 @@ oCBucketheadZombie = InheritO(
 							FreeFreezeTime: 0,
 							FreeSlowTime: 0,
 							CanPass(d, c) {
-								return c && c != 2;
+								return c && c !== 2;
 							},
 							CanGrow(d, c, e) {
 								return (
@@ -8851,7 +8851,7 @@ oCBucketheadZombie = InheritO(
 											left: d.X + "px",
 											top:
 												(d.pixelTop =
-													j == undefined
+													j === undefined
 														? GetY(q) -
 															d.height +
 															d.GetDY()
@@ -9074,7 +9074,7 @@ oCBucketheadZombie = InheritO(
 										(j, i) => {
 											var k = $Z[j];
 											k &&
-												k.FreeSlowTime == i &&
+												k.FreeSlowTime === i &&
 												((k.FreeSlowTime = 0),
 												(k.Attack = 100),
 												k.Speed &&
@@ -9092,7 +9092,7 @@ oCBucketheadZombie = InheritO(
 										ClearChild(e);
 										var h = $Z[g];
 										h &&
-											h.FreeFreezeTime == f &&
+											h.FreeFreezeTime === f &&
 											((h.FreeFreezeTime = 0),
 											(h.Attack = 50),
 											!h.FreeSetbodyTime &&
@@ -9104,7 +9104,7 @@ oCBucketheadZombie = InheritO(
 												(j, i) => {
 													var k = $Z[j];
 													k &&
-														k.FreeSlowTime == i &&
+														k.FreeSlowTime === i &&
 														((k.FreeSlowTime = 0),
 														(k.Attack = 100),
 														!k.FreeSetbodyTime &&
@@ -9267,7 +9267,7 @@ oCBucketheadZombie = InheritO(
 								d &&
 									d.beAttacked &&
 									d.AttackedLX < 900 &&
-									d.Altitude == 1 &&
+									d.Altitude === 1 &&
 									(e.AttackZombie(d.id),
 									!d.isAttacking && d.AttackZombie(c));
 							},
@@ -9279,7 +9279,7 @@ oCBucketheadZombie = InheritO(
 								d &&
 								d.beAttacked &&
 								d.AttackedLX < oS.W &&
-								d.Altitude == 1
+								d.Altitude === 1
 									? !e.isAttacking
 										? ((e.isAttacking = 1),
 											(e.EleBody.src =
@@ -9464,7 +9464,7 @@ oCBucketheadZombie = InheritO(
 						getSnowPea(f, c, g) {
 							var e = f.FreeSlowTime;
 							var b = oSym.Now + 1000;
-							e == 0
+							e === 0
 								? (f.PlaySlowballAudio(),
 									(f.Speed = 0.5 * f.OSpeed),
 									(f.Attack = 50))
@@ -9476,7 +9476,7 @@ oCBucketheadZombie = InheritO(
 									(h, d) => {
 										var i = $Z[h];
 										i &&
-											i.FreeSlowTime == d &&
+											i.FreeSlowTime === d &&
 											((i.FreeSlowTime = 0),
 											(i.Attack = 100),
 											i.Speed && (i.Speed = i.OSpeed));
@@ -9551,7 +9551,7 @@ oCBucketheadZombie = InheritO(
 								(h, g) => {
 									var i = $Z[h];
 									i &&
-										i.FreeSlowTime == g &&
+										i.FreeSlowTime === g &&
 										((i.FreeSlowTime = 0),
 										(i.Attack = 100));
 								},
@@ -9566,7 +9566,7 @@ oCBucketheadZombie = InheritO(
 								ClearChild(c);
 								var f = $Z[e];
 								f &&
-									f.FreeFreezeTime == d &&
+									f.FreeFreezeTime === d &&
 									((f.FreeFreezeTime = 0),
 									(f.Attack = 50),
 									!f.FreeSetbodyTime &&
@@ -9577,7 +9577,7 @@ oCBucketheadZombie = InheritO(
 										(h, g) => {
 											var i = $Z[h];
 											i &&
-												i.FreeSlowTime == g &&
+												i.FreeSlowTime === g &&
 												((i.FreeSlowTime = 0),
 												(i.Attack = 100));
 										},
@@ -9720,14 +9720,14 @@ oCBucketheadZombie = InheritO(
 						}
 						var a = b.Speed;
 						switch (true) {
-							case (b.FreeFreezeTime || b.FreeSetbodyTime) == 1:
+							case (b.FreeFreezeTime || b.FreeSetbodyTime) === 1:
 								a && (b.Speed = 0);
 								break;
 							case b.FreeSlowTime > 0:
-								a != 1.75 && (b.Speed = 1.75);
+								a !== 1.75 && (b.Speed = 1.75);
 								break;
 							default:
-								a != 3.5 && (b.Speed = 3.5);
+								a !== 3.5 && (b.Speed = 3.5);
 						}
 					},
 				});
@@ -9898,7 +9898,7 @@ oCBucketheadZombie = InheritO(
 								if (a > 0) {
 									switch (true) {
 										case (e.FreeFreezeTime ||
-											e.FreeSetbodyTime) == 1:
+											e.FreeSetbodyTime) === 1:
 											e.Speed = 0;
 											break;
 										case e.FreeSlowTime > 0:
@@ -9952,7 +9952,7 @@ oCBucketheadZombie = InheritO(
 						d.EleBody = a.childNodes[1];
 						s > 0 &&
 							(e = i[s]) &&
-							e != 2 &&
+							e !== 2 &&
 							(f[0] = [
 								"",
 								s,
@@ -9967,7 +9967,7 @@ oCBucketheadZombie = InheritO(
 							]);
 						n <= oS.R &&
 							(e = i[n]) &&
-							e != 2 &&
+							e !== 2 &&
 							(f[2] = [
 								"",
 								n,
@@ -10111,11 +10111,11 @@ oCBucketheadZombie = InheritO(
 						switch (true) {
 							case (g.isAttacking ||
 								g.FreeFreezeTime ||
-								g.FreeSetbodyTime) == 1:
+								g.FreeSetbodyTime) === 1:
 								a = 0;
 								break;
 							case g.FreeSlowTime > 0:
-								a != 1.75 && (a = 1.75);
+								a !== 1.75 && (a = 1.75);
 						}
 						while (d--) {
 							if (
@@ -10128,21 +10128,21 @@ oCBucketheadZombie = InheritO(
 								switch (true) {
 									case (e.isAttacking ||
 										e.FreeFreezeTime ||
-										e.FreeSetbodyTime) == 1:
+										e.FreeSetbodyTime) === 1:
 										a = 0;
 										break;
 									case e.FreeSlowTime > 0:
-										a != 1.75 && (a = 1.75);
+										a !== 1.75 && (a = 1.75);
 								}
 							}
 						}
-						if (a != g.DZMSpeed) {
+						if (a !== g.DZMSpeed) {
 							g.DZMSpeed = a;
 							d = f.length;
 							while (d--) {
-								(e = f[d]).Speed != a && (e.Speed = a);
+								(e = f[d]).Speed !== a && (e.Speed = a);
 							}
-							g.Speed != a && (g.Speed = a);
+							g.Speed !== a && (g.Speed = a);
 						}
 					},
 					AttackZombie(a) {
@@ -10773,7 +10773,7 @@ oCBucketheadZombie = InheritO(
 								a = 2;
 								a > -1;
 								(p = h[d + f + "_" + a--]) &&
-								(p.EName != "oBrains"
+								(p.EName !== "oBrains"
 									? p.AttackedRX >= e &&
 										p.AttackedLX < b &&
 										p.canEat &&
@@ -11033,7 +11033,7 @@ oCBucketheadZombie = InheritO(
 								e.getFireball(e, b, a);
 								break;
 							default:
-								!i && j == -1 && e.PlayNormalballAudio();
+								!i && j === -1 && e.PlayNormalballAudio();
 						}
 						SetAlpha(e.EleBody, 50, 0.5);
 						oSym.addTask(
@@ -11062,7 +11062,7 @@ oCBucketheadZombie = InheritO(
 						var c = a.length;
 						var h;
 						while (c--) {
-							(h = a[c]) != this && h.getFirePeaSputtering();
+							(h = a[c]) !== this && h.getFirePeaSputtering();
 						}
 						(f.HP -= b) < f.BreakPoint
 							? ((f.getFirePea =
@@ -11100,7 +11100,7 @@ oCBucketheadZombie = InheritO(
 								));
 					},
 					getHit0(c, a, b) {
-						b == c.WalkDirection
+						b === c.WalkDirection
 							? (c.CheckOrnHP(
 									c,
 									c.id,
@@ -11339,7 +11339,7 @@ oCBucketheadZombie = InheritO(
 					GoingDie: CZombies.prototype.GoingDie,
 					getFirePea(c, a, b) {
 						PlayAudio(
-							b == c.WalkDirection
+							b === c.WalkDirection
 								? ["shieldhit", "shieldhit2"][
 										Math.floor(Math.random() * 2)
 									]
@@ -11358,7 +11358,7 @@ oCBucketheadZombie = InheritO(
 					},
 					getPea(c, a, b) {
 						PlayAudio(
-							b == c.WalkDirection
+							b === c.WalkDirection
 								? ["shieldhit", "shieldhit2"][
 										Math.floor(Math.random() * 2)
 									]
@@ -11367,7 +11367,7 @@ oCBucketheadZombie = InheritO(
 						c.getHit0(c, a, b);
 					},
 					getHit0(c, a, b) {
-						b == c.WalkDirection
+						b === c.WalkDirection
 							? (c.CheckOrnHP(
 									c,
 									c.id,
@@ -11430,10 +11430,10 @@ oCBucketheadZombie = InheritO(
 									e.getHit));
 					},
 					getFireball(c, a, b) {
-						b != c.WalkDirection
+						b !== c.WalkDirection
 							? ((c.FreeSlowTime = 0),
 								(c.Attack = 100),
-								c.Speed != c.OSpeed
+								c.Speed !== c.OSpeed
 									? (c.PlayNormalballAudio(),
 										(c.Speed = c.OSpeed))
 									: c.PlayFireballAudio())
@@ -11441,7 +11441,7 @@ oCBucketheadZombie = InheritO(
 					},
 					getSputtering() {},
 					getSlow(d, a, c, b, e) {
-						b != d.WalkDirection || e != -1
+						b !== d.WalkDirection || e !== -1
 							? CZombies.prototype.getSlow(d, a, c)
 							: d.PlayNormalballAudio();
 					},
@@ -11454,7 +11454,7 @@ oCBucketheadZombie = InheritO(
 					WalkGif0: 2,
 					WalkGif1: 3,
 					CanPass(b, a) {
-						return a == 2;
+						return a === 2;
 					},
 					BirthCallBack(g) {
 						var e = g.delayT;
@@ -13017,7 +13017,7 @@ oCBucketheadZombie = InheritO(
 								a = 2;
 								a > -1;
 								(p = g[d + e + "_" + a--]) &&
-								(p.EName != "oBrains"
+								(p.EName !== "oBrains"
 									? p.AttackedRX >= b &&
 										p.AttackedLX < b &&
 										((a = -1),
@@ -13290,7 +13290,7 @@ oCBucketheadZombie = InheritO(
 							d &&
 							d.beAttacked &&
 							d.AttackedLX < oS.W &&
-							d.Altitude == 1
+							d.Altitude === 1
 								? !e.isAttacking
 									? ((e.isAttacking = 1),
 										(e.EleBody.src = e.PicArr[e.AttackGif]),
@@ -13581,14 +13581,14 @@ oCBucketheadZombie = InheritO(
 									[c, a, b]
 								)
 							: (SetBlock(a),
-								f[b] == undefined ? (f[b] = 1) : ++f[b],
+								f[b] === undefined ? (f[b] = 1) : ++f[b],
 								PlayAudio("ballooninflate"));
 					},
 					ChkActs(f, d, g, c) {
 						var b;
 						var a;
 						var e;
-						if (f.Altitude == 3 && f.AttackedRX < GetX(1)) {
+						if (f.Altitude === 3 && f.AttackedRX < GetX(1)) {
 							// 气球掉落
 							f.Drop();
 							return 1;
@@ -13678,7 +13678,7 @@ oCBucketheadZombie = InheritO(
 							(d, c) => {
 								var e = $Z[d];
 								e &&
-									e.FreeSlowTime == c &&
+									e.FreeSlowTime === c &&
 									((e.FreeSlowTime = 0),
 									(e.Attack = 100),
 									(e.Speed = e.OSpeed));
@@ -13715,7 +13715,7 @@ oCBucketheadZombie = InheritO(
 						this.DisappearDie();
 					},
 					getDispelled() {
-						if (this.Altitude != 3 || this.AttackedRX < GetX(0)) {
+						if (this.Altitude !== 3 || this.AttackedRX < GetX(0)) {
 							return;
 						}
 						this.ChkActs = function () {
@@ -13742,7 +13742,7 @@ oCBucketheadZombie = InheritO(
 						})(this.id);
 					},
 					getFirePeaSputtering() {
-						this.Altitude == 1 && this.getHit0(this, 13);
+						this.Altitude === 1 && this.getHit0(this, 13);
 					},
 					prepareBirth: oZomboni.prototype.prepareBirth,
 				});
@@ -13925,7 +13925,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 	},
 	ChkActs(f, d, g, c) {
 		// 到了左边自己钻出来
-		if (f.Altitude == 0 && f.AttackedRX < GetX(1) - 40) {
+		if (f.Altitude === 0 && f.AttackedRX < GetX(1) - 40) {
 			return f.Go_Up(f, 1), 1;
 		}
 
@@ -14181,7 +14181,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 	},
 	ChkActs(f, d, g, c) {
 		// 到了左边自己钻出来
-		if (f.Altitude == 0 && f.AttackedRX < GetX(1) - 40) {
+		if (f.Altitude === 0 && f.AttackedRX < GetX(1) - 40) {
 			return f.Go_Up(f, 1), 1;
 		}
 
@@ -14431,8 +14431,8 @@ oPeaZombie = InheritO(oZombie, {
 						a.X + a.width
 					);
 					if (
-						plant.R == a.R &&
-						plant.Altitude == 1 &&
+						plant.R === a.R &&
+						plant.Altitude === 1 &&
 						plant.AttackedLX < a.X + a.width
 					) {
 						plantTarget = plant;
@@ -14483,7 +14483,7 @@ oPeaZombie = InheritO(oZombie, {
 
 				if (
 					targetPlant &&
-					targetPlant.Altitude == 1 &&
+					targetPlant.Altitude === 1 &&
 					targetPlant.id === g
 				) {
 					// Check if the target is still valid

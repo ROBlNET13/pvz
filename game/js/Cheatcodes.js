@@ -6,8 +6,8 @@ document.addEventListener("keydown", (event) => {
 	if (
 		keysPressed.s &&
 		keysPressed.f &&
-		document.activeElement.nodeName != "TEXTAREA" &&
-		document.activeElement.nodeName != "INPUT"
+		document.activeElement.nodeName !== "TEXTAREA" &&
+		document.activeElement.nodeName !== "INPUT"
 	) {
 		CSpeed(1000, 10, 1000);
 	}
@@ -16,8 +16,8 @@ document.addEventListener("keydown", (event) => {
 		keysPressed.b &&
 		keysPressed.l &&
 		keysPressed.n &&
-		document.activeElement.nodeName != "TEXTAREA" &&
-		document.activeElement.nodeName != "INPUT"
+		document.activeElement.nodeName !== "TEXTAREA" &&
+		document.activeElement.nodeName !== "INPUT"
 	) {
 		oP.Balloon();
 	}
@@ -28,16 +28,16 @@ document.addEventListener("keydown", (event) => {
 	// almanac (handbook)
 	if (
 		keysPressed.k &&
-		document.activeElement.nodeName != "TEXTAREA" &&
-		document.activeElement.nodeName != "INPUT"
+		document.activeElement.nodeName !== "TEXTAREA" &&
+		document.activeElement.nodeName !== "INPUT"
 	) {
 		ViewHandBook();
 	}
 	// sun
 	if (
 		keysPressed.j &&
-		document.activeElement.nodeName != "TEXTAREA" &&
-		document.activeElement.nodeName != "INPUT"
+		document.activeElement.nodeName !== "TEXTAREA" &&
+		document.activeElement.nodeName !== "INPUT"
 	) {
 		AppearSun(
 			GetX(Math.floor(1 + Math.random() * oS.C)),
@@ -51,8 +51,8 @@ document.addEventListener("keydown", (event) => {
 		keysPressed.c &&
 		keysPressed.a &&
 		keysPressed.t &&
-		document.activeElement.nodeName != "TEXTAREA" &&
-		document.activeElement.nodeName != "INPUT"
+		document.activeElement.nodeName !== "TEXTAREA" &&
+		document.activeElement.nodeName !== "INPUT"
 	) {
 		// remove .hidden from #oneko
 		document.getElementById("oneko").classList.remove("hidden");

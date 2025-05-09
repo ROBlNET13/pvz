@@ -76,7 +76,7 @@ oS.Init(
 			40: $("imgFlag1"),
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum == oP.FlagZombies &&
+			oP.FlagNum === oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(5, 9, 4, [
 					oDuckyTubeZombie1,
 					oDuckyTubeZombie2,
@@ -198,7 +198,7 @@ oS.Init(
 								l.shift();
 								--m;
 								m > 0 &&
-									(l.length == 0 && (l = [8, 16, 24, 32]),
+									(l.length === 0 && (l = [8, 16, 24, 32]),
 									oSym.addTask(i, arguments.callee, [
 										q,
 										p,
@@ -272,7 +272,7 @@ oS.Init(
 				switch (true) {
 					case !ArCard[d] || !e:
 						return; // 卡片已经消失，不做处理
-					case oS.Chose == 1 && oS.ChoseCard == d:
+					case oS.Chose === 1 && oS.ChoseCard === d:
 						break; // 选中
 					case t > 500:
 						e.style.opacity = 1;
@@ -297,10 +297,10 @@ oS.Init(
 			var a;
 			var g = oGd.$LF[e];
 			var o = f.Kind;
-			var s = k.name == "Plants";
+			var s = k.name === "Plants";
 			k.CanGrow(l, e, b) &&
 				(PlayAudio(
-					g != 2
+					g !== 2
 						? "plant" + Math.floor(1 + Math.random() * 2)
 						: "plant_water"
 				),
@@ -318,7 +318,7 @@ oS.Init(
 					: (innerText(ESSunNum, (oS.SunNum -= k.SunNum)),
 						i && ((f.CDReady = 0), DoCoolTimer(j, k.coolTime))),
 				oSym.addTask(20, SetHidden, [
-					SetStyle(g != 2 ? $("imgGrowSoil") : $("imgGrowSpray"), {
+					SetStyle(g !== 2 ? $("imgGrowSoil") : $("imgGrowSpray"), {
 						left: d - 30 + "px",
 						top: c - 30 + "px",
 						zIndex: 3 * e + 1,

@@ -89,7 +89,7 @@ oS.Init(
 		DKind: 0,
 		Monitor: { f: AppearTombstones, ar: [5, 9, 11] },
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum == oP.FlagZombies &&
+			oP.FlagNum === oP.FlagZombies &&
 				oP.SetTimeoutTomZombie([oDancingZombie]);
 		},
 	},

@@ -54,7 +54,7 @@ oS.Init(
 				(function () {
 					var b = 0;
 					for (v in $P) {
-						$P[v].EName == "oSunFlower" && ++b;
+						$P[v].EName === "oSunFlower" && ++b;
 					}
 					b > 17
 						? oSym.addTask(200, arguments.callee, [])
@@ -86,7 +86,7 @@ oS.Init(
 			(function () {
 				var a = 0;
 				for (v in $P) {
-					$P[v].EName == "oSunFlower" && ++a;
+					$P[v].EName === "oSunFlower" && ++a;
 				}
 				a > 9
 					? NewImg(

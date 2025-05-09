@@ -69,7 +69,7 @@ oS.Init(
 			return ["images/interface/background5.jpg"];
 		})(),
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum == oP.FlagZombies &&
+			oP.FlagNum === oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(6, 9, 3, [oWarshipsZombie]);
 		},
 		backgroundImage: "images/interface/background5.jpg",

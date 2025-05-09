@@ -1,14 +1,14 @@
 var $User = (function () {
 	var b = navigator.platform;
 	var i = navigator.userAgent;
-	var f = b == "Win32" || b == "Windows";
-	var g = b == "Mac68K" || b == "MacPPC" || b == "Macintosh";
-	var d = b == "X11" && !f && !g;
+	var f = b === "Win32" || b === "Windows";
+	var g = b === "Mac68K" || b === "MacPPC" || b === "Macintosh";
+	var d = b === "X11" && !f && !g;
 	var h = f || g || d;
 	var a = "";
 	var c = !!(window.attachEvent && !window.opera);
 	var e = c && !window.XMLHttpRequest;
-	var j = location.protocol.toLowerCase() == "http:" ? 1 : 0;
+	var j = location.protocol.toLowerCase() === "http:" ? 1 : 0;
 	$Random = j ? "#" : "?";
 	innerText = c
 		? function (l, k) {
@@ -33,7 +33,7 @@ var $User = (function () {
 			IE9: c && i.indexOf("MSIE 9.0") > 0,
 			Opera: !!window.opera,
 			WebKit: i.indexOf("AppleWebKit/") > -1,
-			Gecko: i.indexOf("Gecko") > -1 && i.indexOf("KHTML") == -1,
+			Gecko: i.indexOf("Gecko") > -1 && i.indexOf("KHTML") === -1,
 		},
 		Server: {
 			List: [[]],
@@ -143,9 +143,9 @@ var oS = {
 			? (PlayMusic(e.LoadMusic),
 				NewAudio({ source: "ChooseYourSeeds", loop: true }))
 			: PlayMusic((e.LoadMusic = "ChooseYourSeeds"));
-		if (b != d) {
+		if (b !== d) {
 			for (c in b) {
-				a[c] != d
+				a[c] !== d
 					? ((this.GlobalVariables[c] = a[c]), (a[c] = b[c]))
 					: (this.LvlVariables[c] = a[c] = b[c]);
 			}
@@ -193,7 +193,7 @@ var oS = {
 			this[c] = e[c];
 		}
 		$User.isAuthorWebsite &&
-			oS.LevelEName != 0 &&
+			oS.LevelEName !== 0 &&
 			(ClearChild($("JSPVZAjax")),
 			NewEle(
 				"JSPVZAjax",
@@ -217,14 +217,14 @@ var oS = {
 		!this.ZF && (this.ZF = this.LF);
 		!this.LargeWaveFlag && (this.LargeWaveFlag = {});
 		!this.StartGameMusic && (this.StartGameMusic = "Grasswalk");
-		this.ArCard = this.CardKind == d ? e.PName : e.ZName;
-		this.SunNum == d && (this.SunNum = 50);
-		this.CanSelectCard == d && (this.CanSelectCard = 1);
-		this.DKind == d && (this.DKind = 1);
-		this.StaticCard == d && (this.StaticCard = 1);
-		this.ShowScroll == d && (this.ShowScroll = true);
-		this.ProduceSun == d && (this.ProduceSun = true);
-		this.Coord == d && (this.Coord = 1);
+		this.ArCard = this.CardKind === d ? e.PName : e.ZName;
+		this.SunNum === d && (this.SunNum = 50);
+		this.CanSelectCard === d && (this.CanSelectCard = 1);
+		this.DKind === d && (this.DKind = 1);
+		this.StaticCard === d && (this.StaticCard = 1);
+		this.ShowScroll === d && (this.ShowScroll = true);
+		this.ProduceSun === d && (this.ProduceSun = true);
+		this.Coord === d && (this.Coord = 1);
 		oCoord[this.Coord]();
 		oP.Init(g);
 		oT.Init(this.R);
@@ -362,7 +362,7 @@ var oS = {
 		? function (b, d, c) {
 				var a = new Image();
 				a.onreadystatechange = function () {
-					a.readyState == "complete" && d(c, 1);
+					a.readyState === "complete" && d(c, 1);
 				};
 				a.onerror = function () {
 					a.onreadystatechange = null;
@@ -388,7 +388,7 @@ var oS = {
 		? function (f, c, e, a, d) {
 				var b = NewEle(f, "script", 0, { type: "text/javascript" });
 				b.onreadystatechange = function () {
-					(b.readyState == "loaded" || b.readyState == "complete") &&
+					(b.readyState === "loaded" || b.readyState === "complete") &&
 						((b.onreadystatechange = null), e(d, 1));
 				};
 				b.onerror = function () {
@@ -424,8 +424,8 @@ var oS = {
 			")</span>";
 		$("imgFlagMeterFull").style.clip =
 			"rect(0,auto,21px," + (b + 11) + "px)";
-		if (c.AccessNum == c.PicNum) {
-			oS.Lvl == 0;
+		if (c.AccessNum === c.PicNum) {
+			oS.Lvl === 0;
 			if (c.MustAllReady) {
 				c.LoadReady(c);
 			}
@@ -480,7 +480,7 @@ var oS = {
 			InitPCard();
 			i.ShowScroll
 				? oSym.addTask(
-						h == undefined ? 200 : h,
+						h === undefined ? 200 : h,
 						(j) => {
 							ClearChild(j);
 							i.ScrollScreen();
@@ -795,7 +795,7 @@ var oP = {
 								oSym.addTask(500, u.FlagPrgs, []))
 							: (u.FlagToEnd(),
 								$User.isAuthorWebsite &&
-									$User.Visitor.UserName != "" &&
+									$User.Visitor.UserName !== "" &&
 									(ClearChild($("JSPVZAjax")),
 									f.SaveLvl &&
 										NewEle(
@@ -981,8 +981,8 @@ var oP = {
 	},
 	AddZombiesFlag(d) {
 		if (
-			Math.floor(Math.random() * 5) == 1 &&
-			$("dSunNum").style.visibility == ""
+			Math.floor(Math.random() * 5) === 1 &&
+			$("dSunNum").style.visibility === ""
 		) {
 			oP.Balloon();
 		}
@@ -1158,7 +1158,7 @@ var oP = {
 		var a;
 		var d = b - j + 1;
 		while (--c) {
-			f[c] == 2 && l.push(c);
+			f[c] === 2 && l.push(c);
 		}
 		a = l.length;
 		c = e;
@@ -1216,7 +1216,7 @@ var oP = {
 		var a;
 		var d = b - j + 1;
 		while (--c) {
-			f[c] == 2 && l.push(c);
+			f[c] === 2 && l.push(c);
 		}
 		a = l.length;
 		c = e;
@@ -1310,7 +1310,7 @@ var oP = {
 					1990,
 					(g) => {
 						var h = oP;
-						h.ReadyFlag == g++ && ((h.ReadyFlag = g), h.FlagPrgs());
+						h.ReadyFlag === g++ && ((h.ReadyFlag = g), h.FlagPrgs());
 					},
 					[c]
 				))
@@ -1497,7 +1497,7 @@ var oZ = {
 		var c;
 		var k;
 		var e;
-		(k = j.RefreshTime) == f.RefreshTime
+		(k = j.RefreshTime) === f.RefreshTime
 			? (g = f)
 			: ((g = (this.$R[b] = j.slice(0)).sort((l, i) => {
 					return i.AttackedRX - l.AttackedRX;
@@ -1545,7 +1545,7 @@ var oZ = {
 		var e = b.length;
 		var d;
 		while (e--) {
-			(o = b[e]).id == g &&
+			(o = b[e]).id === g &&
 				(b.splice(e, 1),
 				(o.R = c),
 				a.push(o),
@@ -1649,7 +1649,7 @@ var oT = {
 		var d;
 		var a;
 		var k;
-		(l = c.RefreshTime) == g.RefreshTime
+		(l = c.RefreshTime) === g.RefreshTime
 			? (m = g)
 			: ((m = (this.$L[e] = c.slice(0)).sort((n, i) => {
 					return n[0] - i[0];
@@ -1671,7 +1671,7 @@ var oT = {
 			for (
 				c = (a = this.$[d]).length;
 				c--;
-				a[c][3] == f && a.splice(c, 1)
+				a[c][3] === f && a.splice(c, 1)
 			) {}
 			a.RefreshTime = new Date();
 		}
@@ -1757,7 +1757,7 @@ var GetAP = function (a, h, d, c) {
 };
 var GroundOnkeydown = function (b) {
 	var a;
-	if ((a = (b || event).keyCode) == 27) {
+	if ((a = (b || event).keyCode) === 27) {
 		switch (oS.Chose) {
 			case 1:
 				CancelPlant();
@@ -1827,7 +1827,7 @@ var GroundOnmousemove2 = function (k) {
 	var j = n[1];
 	var l = j ? j.id : "";
 	var p = oS.MPID;
-	p != l &&
+	p !== l &&
 		(p && SetAlpha($(p).childNodes[1], 100, 1),
 		(oS.MPID = l) && SetAlpha($(l).childNodes[1], 60, 0.6));
 	SetStyle($("tShovel"), {
@@ -1847,7 +1847,7 @@ var DisplayZombie = function () {
 	var e = [];
 	var a;
 	while (b--) {
-		d[b][0].prototype.CanDiaplay == 0 && d.splice(b, 1);
+		d[b][0].prototype.CanDiaplay === 0 && d.splice(b, 1);
 	}
 	c = b = d.length;
 	while (c--) {
@@ -1911,7 +1911,7 @@ var InitPCard = function () {
 			'"><span class="span2">' +
 			c.SunNum +
 			"</span></div>";
-		b++ % 6 == 5 && (d += "<br>");
+		b++ % 6 === 5 && (d += "<br>");
 	}
 	$("dPCard").innerHTML = d;
 };
@@ -1988,7 +1988,7 @@ var InitHandBookPCard = function () {
 			'"><div class="span2">' +
 			c.SunNum +
 			"</div></div>";
-		b++ % 6 == 5 && (d += "<br>");
+		b++ % 6 === 5 && (d += "<br>");
 	}
 	$("dHandBookPCard").innerHTML = d;
 	ViewProducePlant(e[0]);
@@ -2315,7 +2315,7 @@ var lastB;
 		var b = ArCard.length;
 		var c;
 		var a = Number(ESSunNum.innerHTML);
-		a != oS.SunNum && (oS.SunNum = Math.min(a, oS.SunNum));
+		a !== oS.SunNum && (oS.SunNum = Math.min(a, oS.SunNum));
 		if (oS.Chose < 1) {
 			while (b--) {
 				(c = (d = ArCard[b]).PName.prototype).SunNum > oS.SunNum
@@ -2486,7 +2486,7 @@ var lastB;
 		if (k.CanGrow(l, e, b)) {
 			// Play planting audio based on soil type
 			PlayAudio(
-				g != 2
+				g !== 2
 					? "plant" + Math.floor(1 + Math.random() * 2)
 					: "plant_water"
 			);
@@ -2511,7 +2511,7 @@ var lastB;
 
 			// Show planting animation
 			oSym.addTask(20, SetHidden, [
-				SetStyle(g != 2 ? $("imgGrowSoil") : $("imgGrowSpray"), {
+				SetStyle(g !== 2 ? $("imgGrowSoil") : $("imgGrowSpray"), {
 					left: d - 30 + "px",
 					top: c - 30 + "px",
 					zIndex: 3 * e + 1,
@@ -2608,7 +2608,7 @@ var lastB;
 							l.shift();
 							--m;
 							m > 0 &&
-								(l.length == 0 && (l = [8, 16, 24, 32]),
+								(l.length === 0 && (l = [8, 16, 24, 32]),
 								oSym.addTask(i, arguments.callee, [
 									q,
 									p,
@@ -2683,7 +2683,7 @@ var lastB;
 						p,
 					]))
 				: (SetStyle($(k), { left: n + "px", top: s + "px" }),
-					Number(ESSunNum.innerHTML) != oS.SunNum &&
+					Number(ESSunNum.innerHTML) !== oS.SunNum &&
 						(oS.SunNum = Math.min(
 							Number(ESSunNum.innerHTML),
 							oS.SunNum
@@ -2875,7 +2875,7 @@ var lastB;
 	}),
 	(CheckAutoSun = function (a) {
 		var b = a.checked ? 1 : 0;
-		if (b != oS.AutoSun) {
+		if (b !== oS.AutoSun) {
 			oS.AutoSun = b;
 			localStorage.setItem("JSPVZAutoSun", b);
 			if (b) {
@@ -2937,18 +2937,18 @@ var lastB;
 		var h;
 		while (c--) {
 			h = (a = f[c]).split("=");
-			if (h[0].replace(" ", "") == b) {
-				if ((e = h.length) == 2) {
+			if (h[0].replace(" ", "") === b) {
+				if ((e = h.length) === 2) {
 					return unescape(h[1]);
 				}
 				h.shift();
 				h = h.join("=").split("&");
-				if (g == undefined) {
+				if (g === undefined) {
 					return unescape(h);
 				}
 				e = h.length;
 				while (e--) {
-					if ((a = h[e].split("="))[0].replace(" ", "") == g) {
+					if ((a = h[e].split("="))[0].replace(" ", "") === g) {
 						return unescape(a[1]);
 					}
 				}
@@ -3017,7 +3017,7 @@ var lastB;
 		HiddenRiddleGame(1);
 		StopMusic();
 		PausedAudioArr = [];
-		g == undefined && (g = $User.Visitor.Progress);
+		g === undefined && (g = $User.Visitor.Progress);
 		oS.LvlClearFunc && oS.LvlClearFunc();
 		var b = oS.GlobalVariables;
 		var c = oS.LvlVariables;
@@ -3087,12 +3087,12 @@ var lastB;
 	}),
 	(LoadLvl = function (e, c) {
 		oSym.Timer && oSym.Stop();
-		var b = oSym.Now == c;
+		var b = oSym.Now === c;
 		var d = $User;
 		var a = d.Visitor;
-		oS.CenterContent && ((e == 0 && b) || e != 0) && (oS.DisplayAD = true);
+		oS.CenterContent && ((e === 0 && b) || e !== 0) && (oS.DisplayAD = true);
 		e = e || 0;
-		$("dServer") && e != 0 && SetNone($("dServer"));
+		$("dServer") && e !== 0 && SetNone($("dServer"));
 		oSym.Init(
 			(g, f) => {
 				(f = $("JSPVZ")) && ClearChild(f);
@@ -3504,7 +3504,7 @@ var lastB;
 			if (new RegExp("(" + a + ")").test(b)) {
 				b = b.replace(
 					RegExp.$1,
-					RegExp.$1.length == 1
+					RegExp.$1.length === 1
 						? c[a]
 						: ("00" + c[a]).substr(("" + c[a]).length)
 				);
@@ -3628,7 +3628,7 @@ var lastB;
 					f.appendChild(m);
 				}
 				f.preload =
-					k == undefined ? "auto" : ["auto", "meta", "none"][k];
+					k === undefined ? "auto" : ["auto", "meta", "none"][k];
 				f.muted = oS.Silence;
 				l && f.addEventListener("canplaythrough", l, false);
 				return (oAudio[a] = f);
@@ -3734,13 +3734,13 @@ var lastB;
 	(CheckSilence = $User.HTML5
 		? function (a) {
 				var b = a.checked ? 1 : 0;
-				b != oS.Silence &&
+				b !== oS.Silence &&
 					(addCookie("JSPVZSilence", (oS.Silence = b)),
 					b ? AllAudioMuted() : AllAudioMuteCanceled());
 			}
 		: function (a) {
 				var b = a.checked ? 1 : 0;
-				b != oS.Silence &&
+				b !== oS.Silence &&
 					(addCookie("JSPVZSilence", (oS.Silence = b)),
 					b ? PauseMusic() : NewMusic(oS.StartGameMusic));
 			}),
@@ -3774,7 +3774,7 @@ var lastB;
 							l.shift();
 							--m;
 							m > 0 &&
-								(l.length == 0 && (l = [8, 16, 24, 32]),
+								(l.length === 0 && (l = [8, 16, 24, 32]),
 								oSym.addTask(i, arguments.callee, [
 									q,
 									p,
@@ -3842,7 +3842,7 @@ var lastB;
 			switch (true) {
 				case !ArCard[d] || !e:
 					return; // 卡片已经消失，不做处理
-				case oS.Chose == 1 && oS.ChoseCard == d:
+				case oS.Chose === 1 && oS.ChoseCard === d:
 					break; // 选中
 				case t > 500:
 					e.style.opacity = 1;

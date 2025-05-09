@@ -74,24 +74,24 @@ oS.Init(
 			if (oP.FlagZombies >= 37 && oP.FlagZombies <= 40) {
 				oP.SetTimeoutTomZombie([oFootballZombie]);
 			}
-			if (oP.FlagZombies == oP.FlagNum) {
+			if (oP.FlagZombies === oP.FlagNum) {
 				oP.SetTimeoutTomZombie([oJackinTheBoxZombie, oFootballZombie]);
 			}
-			if (oP.FlagZombies == 21) {
+			if (oP.FlagZombies === 21) {
 				oS.ChangeBG($("Black_box"), $("BackGround_TF_night"), 1, () => {
 					AppearTombstones(4, 9, 8);
 					oP.SetTimeoutTomZombie([oZombie, oConeheadZombie]);
 					(oS.DKind = 0), (oS.AddSunNum = 1);
 				});
 			}
-			if (oP.FlagZombies == 41) {
+			if (oP.FlagZombies === 41) {
 				oS.ChangeBG($("White_box"), $("BackGround_Unsodded"), 1, () => {
 					($("BackGround_TF_night").style.opacity = 0),
 						(oS.AddSunNum = 5);
 					dag.clear();
 					oS.DKind = 1;
 					for (let i in oGd.$Crater) {
-						if (oGd.$Crater[i] == 100) {
+						if (oGd.$Crater[i] === 100) {
 							oGd.$Crater[i] = false;
 						}
 					}
@@ -155,7 +155,7 @@ oS.Init(
 							),
 							u.FlagToEnd(),
 							$User.isAuthorWebsite &&
-								$User.Visitor.UserName != "游客" &&
+								$User.Visitor.UserName !== "游客" &&
 								(ClearChild($("JSPVZAjax")),
 								f.SaveLvl &&
 									NewEle(
@@ -229,7 +229,7 @@ oS.Init(
 					oGd.$Crater[i + "_" + 8] =
 					oGd.$Crater[i + "_" + 5] =
 						100;
-				if (i == 5) {
+				if (i === 5) {
 					continue;
 				}
 				dag.add_edge([i + 1, 2], [i, 2]);
@@ -250,7 +250,7 @@ oS.Init(
 				1,
 				function (index, kind, alpha) {
 					box.style.opacity = Math.max(0, Math.min(1, index || 0));
-					if (index <= 1 && kind == 0) {
+					if (index <= 1 && kind === 0) {
 						oSym.addTask(1, arguments.callee, [
 							index + 0.01,
 							kind,
@@ -269,7 +269,7 @@ oS.Init(
 						box.style["z-index"] = -255;
 					}
 				},
-				[0, 0, opa == undefined ? 1 : opa]
+				[0, 0, opa === undefined ? 1 : opa]
 			);
 		},
 		StartGame() {
@@ -413,7 +413,7 @@ oS.Init(
 				: (b.AttackedRX2 = b.AttackedRX);
 			isNaN(b.X) ? (b.X = b.X2) : (b.X2 = b.X);
 			isNaN(b.ZX) ? (b.ZX = b.ZX2) : (b.ZX2 = b.ZX);
-			b.Speed2 != b.OSpeed && (b.Speed2 = b.OSpeed);
+			b.Speed2 !== b.OSpeed && (b.Speed2 = b.OSpeed);
 			if (b.init) {
 				return;
 			}
@@ -441,7 +441,7 @@ oS.Init(
 					(b.AttackedRX += b.X);
 				(b.Ele.style.left = b.X + "px"), (b.Speed = 0);
 			}
-			if (b.Reduce[0] == b.Reduce[1] && b.Reduce[0] == 0) {
+			if (b.Reduce[0] === b.Reduce[1] && b.Reduce[0] === 0) {
 				delete b.Next_Edge;
 				delete b.Reduce;
 			}
@@ -450,7 +450,7 @@ oS.Init(
 			let tp2 = tp + b.height - b.GetDY();
 			let l = GetR(tp2);
 			let r = !b.WalkDirection ? -5 : 5;
-			if (b.R != l) {
+			if (b.R !== l) {
 				b.ChangeR({
 					R: b.R,
 					ar: [l],
@@ -489,7 +489,7 @@ oS.Init(
 				let now = "[" + r + "," + c + "]";
 				let nowArr = [r, c];
 				dag_zombie_init(b);
-				if (b.EName == "oZomboni") {
+				if (b.EName === "oZomboni") {
 					continue;
 				}
 				if (!to && (b.WalkDirection ? redag[now] : dag[now])) {
@@ -535,7 +535,7 @@ oS.Init(
 			console.log(x);
 			for (let i in dag[x]) {
 				let to = dag[x][i];
-				if (to == up) {
+				if (to === up) {
 					continue;
 				}
 				dfs(to, x);
@@ -562,7 +562,7 @@ oS.Init(
 			}
 			(f.autoplay = !!c),
 				(f.preload =
-					k == undefined ? "auto" : ["auto", "meta", "none"][k]),
+					k === undefined ? "auto" : ["auto", "meta", "none"][k]),
 				(f.muted = oS.Silence);
 			g &&
 				f.addEventListener(

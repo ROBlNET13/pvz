@@ -12,7 +12,7 @@ Bye = function () {
 			} else {
 				speed = -2;
 			}
-			if (alpha == target) {
+			if (alpha === target) {
 				clearInterval(timer);
 			} else {
 				alpha += speed;
@@ -24,7 +24,7 @@ Bye = function () {
 };
 document.onreadystatechange = subSomething;
 function subSomething() {
-	if (document.readyState == "complete") {
+	if (document.readyState === "complete") {
 		Bye();
 		setTimeout(() => {
 			SetNone($("preloader"), $("status"));

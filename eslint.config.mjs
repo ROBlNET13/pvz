@@ -1,5 +1,6 @@
 import js from "@eslint/js";
 import globals from "globals";
+import eqeqeFix from "eslint-plugin-eqeqeq-fix";
 
 export default [
 	{
@@ -11,10 +12,17 @@ export default [
 				...globals.browser,
 			},
 		},
+		plugins: {
+			"eqeqeq-fix": eqeqeFix,
+			"autofix": {
+				 
+				extends: ["plugin:eqeqeq-fix/recommended"],
+			},
+		},
 		rules: {
 			"one-var": ["error", "never"],
 			curly: ["error", "all"],
-			eqeqeq: ["warn", "always", { null: "ignore" }],
+			"eqeqeq-fix/eqeqeq": ["error", "smart"],
 			// "no-var": "error",
 			// "prefer-const": "error",
 			"object-shorthand": "error",
@@ -54,3 +62,4 @@ export default [
 		},
 	},
 ];
+

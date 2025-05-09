@@ -237,7 +237,7 @@ oS.Init(
 		GetChoseCard(b) {
 			var a = ArCard.length;
 			while (a--) {
-				ArCard[a].DID == b && ((oS.ChoseCard = a), (a = 0));
+				ArCard[a].DID === b && ((oS.ChoseCard = a), (a = 0));
 			}
 			return oS.ChoseCard;
 		},

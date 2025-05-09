@@ -57,7 +57,7 @@ oS.Init(
 			30: $("imgFlag1"),
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum == oP.FlagZombies &&
+			oP.FlagNum === oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
 		},
 		StartGameMusic: "WateryGraves",

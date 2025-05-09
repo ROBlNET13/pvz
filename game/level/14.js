@@ -37,7 +37,7 @@ oS.Init(
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
 		Monitor: { f: AppearTombstones, ar: [6, 9, 7] },
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum == oP.FlagZombies &&
+			oP.FlagNum === oP.FlagZombies &&
 				oP.SetTimeoutTomZombie([
 					oZombie,
 					oConeheadZombie,

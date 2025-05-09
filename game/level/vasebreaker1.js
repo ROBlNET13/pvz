@@ -69,7 +69,7 @@ oS.Init(
 				oFlowerVase.prototype.SpecialBirth(
 					Pos[0],
 					Pos[1],
-					Top.Type == "Plants" ? GNum-- > 0 : 0,
+					Top.Type === "Plants" ? GNum-- > 0 : 0,
 					Top
 				); // 生成罐子
 

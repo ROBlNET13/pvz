@@ -71,7 +71,7 @@ oS.Init(
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum == oP.FlagZombies &&
+			oP.FlagNum === oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(8, 9, 1, [oWarshipsZombie]);
 		},
 		StartGameMusic: "jiaxing",

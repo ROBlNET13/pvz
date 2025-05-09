@@ -98,7 +98,7 @@ oS.Init(
 						ar: [],
 					},
 					(a) => {
-						oP.FlagNum == oP.FlagZombies &&
+						oP.FlagNum === oP.FlagZombies &&
 							oP.SetTimeoutTomZombie([
 								oZombie,
 								oConeheadZombie,
@@ -145,7 +145,7 @@ oS.Init(
 		GetChoseCard(b) {
 			var a = ArCard.length;
 			while (a--) {
-				ArCard[a].DID == b && ((oS.ChoseCard = a), (a = 0));
+				ArCard[a].DID === b && ((oS.ChoseCard = a), (a = 0));
 			}
 			return oS.ChoseCard;
 		},
@@ -205,7 +205,7 @@ oS.Init(
 			k.CanGrow(l, f, a) &&
 				(function () {
 					PlayAudio(
-						h != 2
+						h !== 2
 							? "plant" + Math.floor(1 + Math.random() * 2)
 							: "plant_water"
 					);

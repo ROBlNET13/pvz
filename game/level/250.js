@@ -112,11 +112,11 @@ oS.Init(
 		HaveFog: 9,
 		Monitor: { f: AppearTombstones, ar: [5, 9, 13] },
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum == oP.FlagZombies &&
+			oP.FlagNum === oP.FlagZombies &&
 				oP.SetTimeoutTomZombie([oWJY, oEmperor]);
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum == oP.FlagZombies &&
+			oP.FlagNum === oP.FlagZombies &&
 				oP.SetTimeoutWaterZombie(6, 9, 3, [oWJY1, oWarshipsZombie]);
 		},
 		StartGameMusic: "Zombieboss",
