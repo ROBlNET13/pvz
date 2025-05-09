@@ -108,7 +108,7 @@ async function fileToLevelData() {
 	); // i hate this and want to fix it but its 4 am and i need to sleep. fuck text encoding
 }
 
-function cloneFromPlants(name, sun, screenshot) {
+function cloneFromPlants(name, sun, includeXY, screenshot) {
 	name = name
 		.replaceAll(/\uE000/g, "")
 		.replaceAll(/\uE001/g, "")
@@ -128,18 +128,20 @@ function cloneFromPlants(name, sun, screenshot) {
 	for (let i = 0; i < keyedDict.length; i++) {
 		let plantRow = $P[keyedDict[i]].R;
 		let plantCol = $P[keyedDict[i]].C;
-		let eleLeft = parseInt($P[keyedDict[i]].ele.style.left);
-		let eleTop = parseInt($P[keyedDict[i]].ele.style.top);
 		let plantName = Object.getPrototypeOf($P[keyedDict[i]]).EName;
 		let { zIndex } = $P[keyedDict[i]];
+		
 		plantDict[keyedDict[i]] = {
 			zIndex,
 			plantRow,
 			plantCol,
 			plantName,
-			eleLeft,
-			eleTop,
 		};
+		
+		if (includeXY) {
+			plantDict[keyedDict[i]].eleLeft = parseInt($P[keyedDict[i]].ele.style.left);
+			plantDict[keyedDict[i]].eleTop = parseInt($P[keyedDict[i]].ele.style.top);
+		}
 	}
 	// now turn it into an array of dictionaries
 	let plantArray = Object.values(plantDict);
