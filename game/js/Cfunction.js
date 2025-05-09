@@ -79,7 +79,8 @@ var oSym = {
 	},
 	// start the symbol object's timers
 	Start() {
-		if (this.Timer == null) { // only start if not already started
+		if (this.Timer == null) {
+			// only start if not already started
 			// timer to advance the current time
 			(function () {
 				var a = oSym;
@@ -98,8 +99,10 @@ var oSym = {
 				var c = a.length;
 				var b; // current task
 				var e; // task function
-				while (c--) { // iterate through tasks in reverse
-					if (d.Now >= (b = a[c]).T) { // if task time is due
+				while (c--) {
+					// iterate through tasks in reverse
+					if (d.Now >= (b = a[c]).T) {
+						// if task time is due
 						try {
 							(e = b.f).apply(e, b.ar); // execute task function with arguments
 						} catch (Reason) {
