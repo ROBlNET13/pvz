@@ -4,8 +4,8 @@ about: Create a report to help us improve PVZM
 title: ""
 labels: "bug"
 assignees:
-	- ClaytonTDM
-	- ROBlNET13
+  - ClaytonTDM
+  - ROBlNET13
 ---
 
 **Describe the bug**
