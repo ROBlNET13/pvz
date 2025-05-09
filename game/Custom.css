@@ -799,7 +799,7 @@ td {
 }
 
 @keyframes spritesheetPop {
-    to {
-        background-position-x: -3234px; /* -(width_of_one_frame * number_of_frames) */
-    }
+	to {
+		background-position-x: -3234px; /* -(width_of_one_frame * number_of_frames) */
+	}
 }

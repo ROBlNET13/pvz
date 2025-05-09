@@ -2597,7 +2597,9 @@ var oSunFlower = InheritO(CPlants, {
 				500,
 				function produceSun(plantId, x, y) {
 					// Check if the plant still exists
-					if (!$P[plantId]) return;
+					if (!$P[plantId]) {
+						return;
+					}
 
 					// Highlight the sunflower
 					a.ChangePosition($(plantId), 1);
@@ -2605,7 +2607,9 @@ var oSunFlower = InheritO(CPlants, {
 					oSym.addTask(
 						100,
 						(id, posX, posY, callback) => {
-							if (!$P[id]) return;
+							if (!$P[id]) {
+								return;
+							}
 
 							// Produce sun at a slightly randomized position
 							const randomX = Math.floor(
