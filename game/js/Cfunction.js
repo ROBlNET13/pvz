@@ -64,62 +64,71 @@ var $User = (function () {
 	};
 })();
 var oSym = {
+	// initialize the symbol object
 	Init(b, a) {
-		this.Now = 0;
-		this.Timer = this.execTask = null;
-		this.TQ = [{ T: 0, f: b, ar: a || [] }];
-		this.NowStep = 1;
-		this.TimeStep = 10;
-		this.Start();
+		this.Now = 0; // current time
+		this.Timer = this.execTask = null; // timer and task execution variables
+		this.TQ = [{ T: 0, f: b, ar: a || [] }]; // task queue, initialized with the first task
+		this.NowStep = 1; // time step for advancing current time
+		this.TimeStep = 10; // time interval for timers
+		this.Start(); // start the symbol object's timers
 	},
+	// clear all tasks from the queue
 	Clear() {
 		this.TQ.length = 0;
 	},
+	// start the symbol object's timers
 	Start() {
-		if (this.Timer == null) {
+		if (this.Timer == null) { // only start if not already started
+			// timer to advance the current time
 			(function () {
 				var a = oSym;
 				try {
-					a.Now += a.NowStep;
+					a.Now += a.NowStep; // increment current time
 				} catch (b) {
-					alert("Timeout to quit the game");
-					location.reload();
+					alert("Timeout to quit the game"); // error handling for timeout
+					location.reload(); // reload the page
 				}
-				a.Timer = setTimeout(arguments.callee, a.TimeStep);
+				a.Timer = setTimeout(arguments.callee, a.TimeStep); // set next timeout
 			})();
+			// timer to execute tasks from the queue
 			(function () {
 				var d = oSym;
-				var a = d.TQ;
+				var a = d.TQ; // task queue
 				var c = a.length;
-				var b;
-				var e;
-				while (c--) {
-					if (d.Now >= (b = a[c]).T) {
+				var b; // current task
+				var e; // task function
+				while (c--) { // iterate through tasks in reverse
+					if (d.Now >= (b = a[c]).T) { // if task time is due
 						try {
-							(e = b.f).apply(e, b.ar);
+							(e = b.f).apply(e, b.ar); // execute task function with arguments
 						} catch (Reason) {
-							console.error(Reason);
+							console.error(Reason); // log any errors during task execution
 						}
-						d.removeTask(c);
+						d.removeTask(c); // remove executed task from queue
 					}
 				}
-				d.execTask = setTimeout(arguments.callee, d.TimeStep);
+				d.execTask = setTimeout(arguments.callee, d.TimeStep); // set next timeout for task execution
 			})();
 		}
 	},
+	// stop the symbol object's timers
 	Stop() {
-		clearTimeout(oSym.Timer);
-		clearTimeout(oSym.execTask);
-		oSym.Timer = null;
-		oSym.execTask = null;
+		clearTimeout(oSym.Timer); // clear current time timer
+		clearTimeout(oSym.execTask); // clear task execution timer
+		oSym.Timer = null; // reset timer variable
+		oSym.execTask = null; // reset task execution variable
 	},
+	// add a new task to the queue
 	addTask(b, c, a) {
 		var d = this.TQ;
+		// add task with its scheduled time (Now + delay), function, and arguments
 		d[d.length] = { T: this.Now + b, f: c, ar: a };
 		return this;
 	},
+	// remove a task from the queue by its index
 	removeTask(a) {
-		this.TQ.splice(a, 1);
+		this.TQ.splice(a, 1); // remove task at the given index
 		return this;
 	},
 };
