@@ -580,11 +580,8 @@ td.HandBookZombie {
 }
 
 .BigLevel {
-	float: left;
-	color: #fc6;
-	font-size: 12px;
-	width: 100%;
-	height: 35px;
+	width: 45%;
+	height: 37px;
 }
 
 .OptionsMenuButton,
@@ -597,7 +594,7 @@ td.HandBookZombie {
 	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 360px;
 	height: 100px;
-	margin-left: 26px;
+	margin-left: 29px;
 	display: inline;
 	color: #0f0;
 }
@@ -970,9 +967,8 @@ td.HandBookZombie {
 	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 113;
 	height: 41;
-	background: #404364;
+	background: #5a5d78;
 	color: #00f500;
-	font-weight: bold;
 	font-size: 14pt;
 	font-family: Tahoma;
 	margin-top: 25px;

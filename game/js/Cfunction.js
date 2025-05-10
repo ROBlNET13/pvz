@@ -3271,7 +3271,7 @@ var lastB;
 		SetNone($("dRiddleSmallContainer"));
 	}),
 	(ShowOptions = function () {
-		(document.getElementById("sOptionsMenu").textContent = "Ok"),
+		(document.getElementById("sOptionsMenu").textContent = "OK"),
 			PlayAudio(oS.Lvl ? "gravebutton" : "tap");
 		SetBlock($("dOptionsMenuback"), $("dOptionsMenu"));
 	}),
