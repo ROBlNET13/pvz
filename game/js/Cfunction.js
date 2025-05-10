@@ -2894,6 +2894,7 @@ var lastB;
 		return plant;
 	}),
 	(CheckAutoSun = function (a) {
+		PlayAudio("buttonclick");
 		var b = a.checked ? 1 : 0;
 		if (b !== oS.AutoSun) {
 			oS.AutoSun = b;
