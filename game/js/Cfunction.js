@@ -867,20 +867,20 @@ var oP = {
 	Balloon() {
 		let balloonId = Math.floor(1 + Math.random() * 1000);
 		let endMode = "endOfAnimation";
-
+	
 		function getAnimatedPosition(element) {
 			const computedStyle = getComputedStyle(element);
 			const left = parseFloat(computedStyle.left);
 			const top = parseFloat(computedStyle.top);
 			return { left, top };
 		}
-
+	
 		if (!oP.balloonStyleSheet) {
 			let dynamicStyle = document.createElement("style");
 			document.head.appendChild(dynamicStyle);
 			oP.balloonStyleSheet = dynamicStyle.sheet;
 		}
-
+	
 		function getRandomY() {
 			let randomY = GetY(Math.floor(1 + Math.random() * oS.R));
 			if (randomY > 430) {
@@ -888,33 +888,30 @@ var oP = {
 			}
 			return randomY;
 		}
-
+	
 		let randomY = getRandomY();
+		let timeStep = oSym.TimeStep;
+		const timeInSec = (ms) => ms / 100;
+		const toTicks = (ms) => Math.round(ms / timeStep);
 
-		oP.balloonStyleSheet.insertRule(
-			`
+		oP.balloonStyleSheet.insertRule(`
 			@keyframes moveLeft${balloonId} {
 				from { left: 910px; }
 				to { left: -75px; }
 			}
-		`,
-			oP.balloonStyleSheet.cssRules.length
-		);
-
-		oP.balloonStyleSheet.insertRule(
-			`
+		`, oP.balloonStyleSheet.cssRules.length);
+	
+		oP.balloonStyleSheet.insertRule(`
 			@keyframes bobbing${balloonId} {
 				0%, 100% { top: ${randomY}px; }
 				50% { top: ${randomY + 10}px; }
 			}
-		`,
-			oP.balloonStyleSheet.cssRules.length
-		);
-
+		`, oP.balloonStyleSheet.cssRules.length);
+	
 		let image = document.createElement("div");
 		image.style = `
 			background-image: url(images/Zombies/Balloon/balloonidle.png);
-			position: absolute; 
+			position: absolute;
 			display: block;
 			left: 875px;
 			top: ${randomY}px;
@@ -923,14 +920,14 @@ var oP = {
 			height: 181px;
 			scale: 0.6038961039;
 			cursor: url(images/interface/Pointer.cur),pointer;
-			animation: spritesheetIdle ${$User.Visitor.TimeStep / 10}s steps(30) infinite, moveLeft${balloonId} ${
-				13 * ($User.Visitor.TimeStep / 10)
-			}s linear, bobbing${balloonId} ${
-				2 * ($User.Visitor.TimeStep / 10)
-			}s ease-in-out infinite;`;
-
+			animation: 
+				spritesheetIdle ${timeInSec(timeStep * 10)}s steps(30) infinite, 
+				moveLeft${balloonId} ${timeInSec(timeStep * 130)}s linear, 
+				bobbing${balloonId} ${timeInSec(timeStep * 20)}s ease-in-out infinite;
+		`;
+	
 		$("dPZ").appendChild(image);
-
+	
 		image.onclick = function () {
 			image.onclick = null;
 			image.style = `
@@ -944,9 +941,9 @@ var oP = {
 				height: 181px;
 				scale: 0.6038961039;
 				pointer-events: none;
-				animation: spritesheetPop ${$User.Visitor.TimeStep / 10}s 1 normal forwards steps(21);
+				animation: spritesheetPop ${timeInSec(timeStep * 10)}s 1 normal forwards steps(21);
 			`;
-
+	
 			image.addEventListener("animationend", () => {
 				if (endMode === "endOfAnimation") {
 					image.style = `
@@ -967,9 +964,10 @@ var oP = {
 					image.parentNode.removeChild(image);
 				}
 			});
-
-			setTimeout(() => {
+	
+			oSym.addTask(toTicks(300), function () {
 				PlayAudio("balloon_pop");
+	
 				if ($("dSunNum").style.visibility === "") {
 					AppearSun(
 						GetX(Math.floor(1 + Math.random() * oS.C)),
@@ -978,20 +976,22 @@ var oP = {
 						1
 					);
 				}
-				setTimeout(() => {
+	
+				oSym.addTask(toTicks(2500), function () {
 					SetStyle(image, {
 						transition: "opacity 0.2s ease",
 						opacity: 0,
 					});
-					setTimeout(() => {
+	
+					oSym.addTask(toTicks(400), function () {
 						image.parentNode.removeChild(image);
-					}, 400);
-				}, 2500);
-			}, 300);
+					});
+				});
+			});
 		};
-
+	
 		PlayAudio("ballooninflate");
-	},
+	},	
 	AddZombiesFlag(d) {
 		if (
 			Math.floor(Math.random() * 5) === 1 &&
