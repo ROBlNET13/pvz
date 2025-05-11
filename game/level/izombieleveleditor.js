@@ -197,7 +197,7 @@
 											l = "My I, Zombie Level";
 										}
 										($("btnClickSave").innerHTML = "Saving.."), ($("btnClickSave").disabled = "disabled"); // 按钮样式
-										// Ajax("asp/ImZombieCreateGame.asp", "post", "mapkind=" + oS.MapKind + "&SNum=" + f + "&T=" + escape(l) + "&C=" + escape(m), function(c){eval(c)}); // 发送请求
+										// ajax("asp/ImZombieCreateGame.asp", "post", "mapkind=" + oS.MapKind + "&SNum=" + f + "&T=" + escape(l) + "&C=" + escape(m), function(c){eval(c)}); // 发送请求
 										$("btnClickSave").innerHTML = "Saved!";
 										let levelDataElement = document.createElement("input");
 										levelDataElement.type = "search"; // just for a clear button
@@ -239,7 +239,7 @@
 										closeButton.setAttribute("value", "EXIT");
 										closeButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
 										closeButton.style.top = "60%";
-										closeButton.style.left = "calc(50% - 120px)"; // "calc(33.333% - 56.5px)";
+										closeButton.style.left = "calc(33.333% - 56.5px)"; // "calc(50% - 120px)";
 										closeButton.onclick = function () {
 											$("dAll").style.zIndex = "";
 											let oldLv = oS.Lvl;
@@ -249,33 +249,6 @@
 										};
 										closeButton.style.zIndex = "1000";
 
-										let uploadButton = document.createElement("input");
-										uploadButton.setAttribute("type", "button");
-										uploadButton.setAttribute("value", "UPLOAD");
-										uploadButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
-										uploadButton.style.top = "60%";
-										uploadButton.style.left = "calc(50% - 56.5px)";
-										uploadButton.onclick = function () {
-											// nothing for now
-										};
-										uploadButton.style.zIndex = "1000";
-										uploadButton.style.display = "none"; // hide for now
-
-										let downloadButton = document.createElement("input");
-										downloadButton.setAttribute("type", "button");
-										downloadButton.setAttribute("value", "DOWNLOAD");
-										downloadButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
-										downloadButton.style.top = "60%";
-										downloadButton.style.left = "calc(50% + 5px)"; // "calc(66.666% - 56.5px)";
-										downloadButton.onclick = function () {
-											downloadBytesAsFile(compressStringAsBytes(tinyifyClone(cloneFromPlants(l, f))), l + ".izl2");
-										};
-										downloadButton.style.zIndex = "1000";
-
-										// put in #dAll
-										$("dAll").appendChild(closeButton);
-										$("dAll").appendChild(uploadButton);
-										$("dAll").appendChild(downloadButton);
 										let coverElement = document.createElement("div");
 										coverElement.style.position = "absolute";
 										coverElement.style.left = "0";
@@ -299,6 +272,159 @@
 										titleElement.style.zIndex = "1000";
 										$("dAll").appendChild(titleElement);
 										$("dAll").style.zIndex = "10000";
+
+										let uploadButton = document.createElement("input");
+										uploadButton.setAttribute("type", "button");
+										uploadButton.setAttribute("value", "UPLOAD");
+										uploadButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
+										uploadButton.style.top = "60%";
+										uploadButton.style.left = "calc(50% - 56.5px)";
+										uploadButton.onclick = function () {
+											closeButton.style.display = "none";
+											uploadButton.style.display = "none";
+											downloadButton.style.display = "none";
+											levelDataElement.style.display = "none";
+											copyButtonElement.style.display = "none";
+											titleElement.innerText = "Saving...";
+											const author = prompt("Author name:");
+											const newLevelData = compressStringAsBytes(tinyifyClone(cloneFromPlants(l, f, true)));
+											titleElement.innerText = "Configuring...";
+											let serverConfig;
+											fetch("http://localhost:3000/api/config")
+												.then((response) => {
+													if (!response.ok) {
+														throw new Error("Failed to get server configuration");
+													}
+													return response.json();
+												})
+												.then((config) => {
+													serverConfig = config;
+													let turnstileToken;
+													let container;
+													if (serverConfig.turnstileEnabled) {
+														container = document.createElement("div");
+														container.style.position = "absolute";
+														container.style.left = "50%";
+														container.style.top = "50%";
+														container.style.transform = "translate(-50%, -50%)";
+														container.style.zIndex = "1000";
+														container.id = "turnstile-container";
+
+														window.turnstile.render(container, {
+															sitekey: config.turnstileSiteKey,
+															callback(token) {
+																turnstileToken = token;
+															},
+														});
+													}
+													titleElement.innerText = "Please complete the verification";
+													$("dAll").appendChild(container);
+
+													// function to wait for turnstile token if enabled
+													function waitForTurnstileToken() {
+														return new Promise((resolve) => {
+															if (!serverConfig.turnstileEnabled) {
+																resolve(null);
+																return;
+															}
+
+															const checkToken = () => {
+																if (turnstileToken) {
+																	resolve(turnstileToken);
+																} else {
+																	setTimeout(checkToken, 500);
+																}
+															};
+															checkToken();
+														});
+													}
+
+													// wait for turnstile token or proceed immediately if disabled
+													waitForTurnstileToken().then((token) => {
+														titleElement.innerText = "Uploading...";
+
+														// prepare query parameters
+														const queryParams = new URLSearchParams();
+														queryParams.append("author", author || "Anonymous");
+														if (token) {
+															queryParams.append("turnstileResponse", token);
+														}
+
+														// upload level data as octet-stream
+														fetch(`http://localhost:3000/api/levels?${queryParams.toString()}`, {
+															method: "POST",
+															headers: {
+																"Content-Type": "application/octet-stream",
+															},
+															body: newLevelData,
+														})
+															.then((response) => {
+																if (!response.ok) {
+																	return response.json().then((data) => {
+																		throw new Error(data.error || "Failed to upload level");
+																	});
+																}
+																return response.json();
+															})
+															.then((data) => {
+																console.log("Level uploaded successfully:", data);
+																titleElement.innerText = `Level uploaded successfully! ID: ${data.id}`;
+
+																// show close button again
+																closeButton.style.display = "";
+																closeButton.style.top = "75%";
+																closeButton.style.top = "50%";
+																closeButton.style.left = "50%";
+																closeButton.style.transform = "translate(-50%, -50%)";
+															})
+															.catch((error) => {
+																console.error("Error uploading level:", error);
+																titleElement.innerText = `Upload failed: ${error.message}`;
+
+																// show close button again
+																closeButton.style.display = "";
+															})
+															.finally(() => {
+																// remove turnstile container if it exists
+																const turnstileContainer = document.getElementById("turnstile-container");
+																if (turnstileContainer) {
+																	turnstileContainer.remove();
+																}
+															});
+													});
+												})
+												.catch((error) => {
+													console.error("Error fetching server configuration:", error);
+													titleElement.innerText = "Failed to load server configuration";
+
+													setTimeout(() => {
+														closeButton.style.display = "";
+														uploadButton.style.display = "";
+														downloadButton.style.display = "";
+														levelDataElement.style.display = "";
+														copyButtonElement.style.display = "";
+														titleElement.innerText = "Here's your level data - keep this somewhere safe!";
+													}, 3000);
+												});
+										};
+										uploadButton.style.zIndex = "1000";
+										// uploadButton.style.display = "none"; // hide for now
+
+										let downloadButton = document.createElement("input");
+										downloadButton.setAttribute("type", "button");
+										downloadButton.setAttribute("value", "DOWNLOAD");
+										downloadButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
+										downloadButton.style.top = "60%";
+										downloadButton.style.left = "calc(66.666% - 56.5px)"; // "calc(50% + 5px)";
+										downloadButton.onclick = function () {
+											downloadBytesAsFile(compressStringAsBytes(tinyifyClone(cloneFromPlants(l, f))), l + ".izl2");
+										};
+										downloadButton.style.zIndex = "1000";
+
+										// put in #dAll
+										$("dAll").appendChild(closeButton);
+										$("dAll").appendChild(uploadButton);
+										$("dAll").appendChild(downloadButton);
 									}
 								},
 							},
