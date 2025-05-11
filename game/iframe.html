@@ -311,73 +311,97 @@
 								<div>
 									<input type="checkbox" id="cAutoSun" value="1" onchange="CheckAutoSun(this)" />
 									<label for="cAutoSun" id="lAutoSun">
-										Auto Collect<img src="images/interface/icon_sun.png" alt="Sun" style="width: 1.35em; vertical-align: middle" />
+										Auto Collect<img src="images/interface/icon_sun.png" alt="Sun" style="width: 1.35em; vertical-align: middle; margin-left: 5px;" />
 									</label>
 								</div>
 								<div>
 									<input type="checkbox" id="cSilence" value="1" onchange="PlayAudio('buttonclick')" />
 									<label for="cSilence" id="lSilence">
-										Mute Audio<img src="images/interface/icon_musicnote.png" alt="🔇" style="width: 1.35em; vertical-align: middle" />
+										Mute Audio<img src="images/interface/icon_musicnote.png" alt="🔇" style="width: 1.35em; vertical-align: middle; margin-left: 18.5px;" />
 									</label>
 								</div>
 							</div>
 						</div>
-						<div class="BigLevel button" onclick="ShowLevel()">
-							Levels<span style="display: inline-block; width: 0; overflow: visible">
-								<img
-									src="images/interface/icon_sword.png"
-									alt="🎮"
-									style="width: 1em; vertical-align: middle; margin-left: -0.1em; pointer-events: none"
-								/>
-							</span>
-						</div>
+						<div class="BigLevel button" onclick="ShowLevel()">Levels</div>
 
-						<div class="BigLevel button" onclick="ShowSpeed()">
-							Speed
-							<span style="display: inline-block; width: 0; overflow: visible">
-								<img
-									src="images/interface/icon_speed.png"
-									alt="⌛"
-									style="width: 1em; vertical-align: middle; margin-left: -0.1em; pointer-events: none"
-								/>
-							</span>
-						</div>
+						<img
+							src="images/interface/icon_sword.png"
+							alt="🎮"
+							style="
+								width: 1.5rem;
+								vertical-align: middle;
+								pointer-events: none;
+								height: 1.5rem;
+								margin-top: -33px;
+								margin-left: calc(50% - 4rem);
+							"
+						/>
 
-						<div class="BigLevel button" onclick="ViewHandBook()">
-							Almanac
-							<span style="display: inline-block; width: 0; overflow: visible">
-								<img
-									src="images/interface/icon_plant.png"
-									alt="📖"
-									style="width: 1em; vertical-align: middle; margin-left: -0.1em; pointer-events: none"
-								/>
-							</span>
-						</div>
+						<div class="BigLevel button" onclick="ShowSpeed()">Speed</div>
+
+						<img
+							src="images/interface/icon_speed.png"
+							alt="⌛"
+							style="
+								width: 1.5rem;
+								vertical-align: middle;
+								pointer-events: none;
+								height: 1.5rem;
+								margin-top: -33px;
+								margin-left: calc(50% - 4rem);
+							"
+						/>
+
+						<div class="BigLevel button almanacButton" onclick="ViewHandBook()">Almanac</div>
+
+						<img
+							src="images/interface/icon_plant.png"
+							alt="📖"
+							style="
+								width: 1.5rem;
+								vertical-align: middle;
+								pointer-events: none;
+								height: 1.5rem;
+								margin-top: -33px;
+								margin-left: calc(50% - 4rem);
+							"
+						/>
 
 						<div class="trophy" onclick="SelectModal('achievements')" style="display: none"></div>
-						<div class="BigLevel button" onclick="SelectModal(oS.Lvl)">
-							Restart<span style="display: inline-block; width: 0; overflow: visible">
-								<img
-									src="images/interface/icon_exclamation.png"
-									alt="🔁"
-									style="width: 1em; vertical-align: middle; margin-left: -0.1em; pointer-events: none"
-								/>
-							</span>
-						</div>
+						<div class="BigLevel button" onclick="SelectModal(oS.Lvl)">Restart</div>
+
+						<img
+							src="images/interface/icon_exclamation.png"
+							alt="🔁"
+							style="
+								width: 1.5rem;
+								vertical-align: middle;
+								pointer-events: none;
+								height: 1.5rem;
+								margin-top: -33px;
+								margin-left: calc(50% - 4rem);
+							"
+						/>
 
 						<div
 							class="BigLevel button"
 							onclick="let oldLv = oS.Lvl;SelectModal(0);SetBlock($('dSurface'),$('iSurfaceBackground'));oS.Lvl = oldLv;"
 						>
 							Home
-							<span style="display: inline-block; width: 0; overflow: visible">
-								<img
-									src="images/interface/icon_house.png"
-									alt="🏠"
-									style="width: 1em; vertical-align: middle; margin-left: -0.1em; pointer-events: none"
-								/>
-							</span>
 						</div>
+
+						<img
+							src="images/interface/icon_house.png"
+							alt="🏠"
+							style="
+								width: 1.5rem;
+								vertical-align: middle;
+								pointer-events: none;
+								height: 1.5rem;
+								margin-top: -33px;
+								margin-left: calc(50% - 4rem);
+							"
+						/>
 						<div
 							class="OptionsMenuButton"
 							style="margin-top: 10px"

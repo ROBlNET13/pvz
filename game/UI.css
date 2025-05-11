@@ -522,8 +522,8 @@ td.HandBookZombie {
 	text-align: center;
 	left: 244px;
 	top: 60px;
-	width: 412px;
-	height: 483px;
+	width: 423px;
+	height: 498px;
 	display: none;
 	background: url(images/interface/OptionsMenuback32.png) no-repeat;
 	_background: url(images/interface/OptionsMenuback32.png) no-repeat;
@@ -1782,7 +1782,7 @@ dd.yellow {
 #dOptionsMenu {
 	line-height: 30px;
 	position: absolute;
-	width: 100%;
+	width: 98.5%;
 	height: 100%;
 	display: none;
 	/*	font-weight: bold; */
