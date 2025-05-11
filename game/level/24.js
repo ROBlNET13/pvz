@@ -38,12 +38,7 @@ oS.Init(
 		PicArr: (function () {
 			var a = oJalapeno.prototype;
 			var b = a.PicArr;
-			return [
-				"images/interface/background3.webp",
-				"images/interface/trophy.png",
-				b[a.CardGif],
-				b[a.NormalGif],
-			];
+			return ["images/interface/background3.webp", "images/interface/trophy.png", b[a.CardGif], b[a.NormalGif]];
 		})(),
 		Coord: 2,
 		SunNum: 50,
@@ -58,8 +53,7 @@ oS.Init(
 			30: $("imgFlag1"),
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
 		},
 		StartGameMusic: "WateryGraves",
 	},
@@ -88,17 +82,11 @@ oS.Init(
 			29: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:417px;top:233px;z-index:255",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(25);
-					},
-				}
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:417px;top:233px;z-index:255", EDAll, {
+				onclick() {
+					SelectModal(25);
+				},
+			});
 		},
 	}
 );

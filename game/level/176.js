@@ -50,16 +50,7 @@ oS.Init(
 			oIceFumeShroom,
 			oLaserBean,
 		],
-		ZName: [
-			oDuckyTubeZombie1,
-			oDuckyTubeZombie2,
-			oDuckyTubeZombie3,
-			oDuckyTubeZombie4,
-			oDolphinRiderZombie,
-			oSubZombie,
-			oSnorkelZombie,
-			oWarshipsZombie,
-		],
+		ZName: [oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3, oDuckyTubeZombie4, oDolphinRiderZombie, oSubZombie, oSnorkelZombie, oWarshipsZombie],
 		PicArr: (function () {
 			return ["images/interface/background5.jpg"];
 		})(),
@@ -79,8 +70,7 @@ oS.Init(
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutWaterZombie(4, 9, 6, [oDuckyTubeZombie2]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(4, 9, 6, [oDuckyTubeZombie2]);
 		},
 	},
 	{
@@ -98,23 +88,12 @@ oS.Init(
 		FlagToSumNum: { a1: [40, 74, 76, 92], a2: [40, 74, 76, 112] },
 		FlagToMonitor: {},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(177);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(177);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

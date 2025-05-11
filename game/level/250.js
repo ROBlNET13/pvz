@@ -112,12 +112,10 @@ oS.Init(
 		HaveFog: 9,
 		Monitor: { f: AppearTombstones, ar: [5, 9, 13] },
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutTomZombie([oWJY, oEmperor]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutTomZombie([oWJY, oEmperor]);
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutWaterZombie(6, 9, 3, [oWJY1, oWarshipsZombie]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(6, 9, 3, [oWJY1, oWarshipsZombie]);
 		},
 		StartGameMusic: "Zombieboss",
 		LargeWaveFlag: {
@@ -127,12 +125,7 @@ oS.Init(
 			16: $("imgFlag1"),
 		},
 		LoadAccess(a) {
-			NewImg(
-				"dDave",
-				"images/interface/Dave.gif",
-				"left:0;top:81px",
-				EDAll
-			);
+			NewImg("dDave", "images/interface/Dave.gif", "left:0;top:81px", EDAll);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
@@ -154,9 +147,7 @@ oS.Init(
 						innerText(c, "咳咳，我们已经到达这座塔的顶峰了");
 						break;
 					case 1:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -172,9 +163,7 @@ oS.Init(
 						innerText(c, "你最好边打边默念：我不会输");
 						break;
 					case 2:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -190,9 +179,7 @@ oS.Init(
 						innerText(c, "尽管这是徒劳的祈祷");
 						break;
 					case 3:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -281,17 +268,11 @@ oS.Init(
 			15: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/0.gif",
-				"left:667px;top:330px;clip:rect(auto,auto,237px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oGoldenPrize, 251);
-					},
-				}
-			);
+			NewImg("imgSF", "images/interface/0.gif", "left:667px;top:330px;clip:rect(auto,auto,237px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oGoldenPrize, 251);
+				},
+			});
 		},
 	}
 );

@@ -15,18 +15,12 @@ oS.Init({
 	AudioArr: ["Cerebrawl", "pvzs"],
 	backgroundImage: "images/interface/IZombie_Background.png",
 	LoadAccess(a) {
-		NewImg(
-			"imgSF",
-			"images/interface/BackButton.png",
-			"left:785px;top:530px",
-			EDAll,
-			{
-				onclick() {
-					SelectModal(0);
-					SetBlock($("dSurface"), $("iSurfaceBackground"));
-				},
-			}
-		);
+		NewImg("imgSF", "images/interface/BackButton.png", "left:785px;top:530px", EDAll, {
+			onclick() {
+				SelectModal(0);
+				SetBlock($("dSurface"), $("iSurfaceBackground"));
+			},
+		});
 		// native code from now on
 		let inputDataElement = document.createElement("input");
 		inputDataElement.type = "search"; // just for a clear button
@@ -67,10 +61,7 @@ oS.Init({
 			inputDataElement.value = "Loading...";
 			// decode the input value
 			try {
-				levelDataToLoad =
-					levelData[0] === "="
-						? parseCloneTiny(levelData)
-						: parseClone(levelData);
+				levelDataToLoad = levelData[0] === "=" ? parseCloneTiny(levelData) : parseClone(levelData);
 			} catch (e) {
 				inputDataElement.value = "Invalid level data!";
 				inputDataElement.disabled = false;

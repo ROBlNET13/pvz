@@ -50,15 +50,7 @@ oS.Init(
 			oIceFumeShroom,
 			oLaserBean,
 		],
-		ZName: [
-			oDuckyTubeZombie1,
-			oDuckyTubeZombie2,
-			oDuckyTubeZombie3,
-			oDuckyTubeZombie4,
-			oDolphinRiderZombie,
-			oSubZombie,
-			oSnorkelZombie,
-		],
+		ZName: [oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3, oDuckyTubeZombie4, oDolphinRiderZombie, oSubZombie, oSnorkelZombie],
 		PicArr: (function () {
 			return ["images/interface/background5.jpg"];
 		})(),
@@ -92,23 +84,12 @@ oS.Init(
 		FlagToSumNum: { a1: [20, 50, 84, 85, 102], a2: [20, 50, 84, 85, 117] },
 		FlagToMonitor: {},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(179);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(179);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

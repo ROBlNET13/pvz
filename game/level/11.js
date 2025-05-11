@@ -1,16 +1,6 @@
 oS.Init(
 	{
-		PName: [
-			oPeashooter,
-			oSunFlower,
-			oCherryBomb,
-			oWallNut,
-			oPotatoMine,
-			oSnowPea,
-			oChomper,
-			oRepeater,
-			oPuffShroom,
-		],
+		PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom],
 		ZName: [oZombie, oZombie2, oZombie3, oNewspaperZombie],
 		PicArr: (function () {
 			var a = oSunShroom.prototype;
@@ -31,12 +21,7 @@ oS.Init(
 		SunNum: 50,
 		LevelName: "Level 2-1",
 		LvlEName: 11,
-		AudioArr: [
-			"crazydaveshort1",
-			"crazydavelong1",
-			"crazydavelong2",
-			"crazydavelong3",
-		],
+		AudioArr: ["crazydaveshort1", "crazydavelong1", "crazydavelong2", "crazydavelong3"],
 		LargeWaveFlag: { 10: $("imgFlag1") },
 		Monitor: { f: AppearTombstones, ar: [7, 9, 4] },
 		UserDefinedFlagFunc(a) {
@@ -44,12 +29,7 @@ oS.Init(
 		},
 		StartGameMusic: "Moongrains",
 		LoadAccess(a) {
-			NewImg(
-				"dDave",
-				"images/interface/Dave.gif",
-				"left:0;top:81px",
-				EDAll
-			);
+			NewImg("dDave", "images/interface/Dave.gif", "left:0;top:81px", EDAll);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
@@ -68,15 +48,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"Good evening," + $User.Visitor.UserName + "。"
-						);
+						innerText(c, "Good evening," + $User.Visitor.UserName + "。");
 						break;
 					case 1:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -89,15 +64,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"Clicking on those zombies won't weaken the offensive, will it?"
-						);
+						innerText(c, "Clicking on those zombies won't weaken the offensive, will it?");
 						break;
 					case 2:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -110,15 +80,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"You'll notice that fighting zombies at night is different from daytime."
-						);
+						innerText(c, "You'll notice that fighting zombies at night is different from daytime.");
 						break;
 					case 3:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -131,15 +96,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"First, you can't get sunlight from the sky."
-						);
+						innerText(c, "First, you can't get sunlight from the sky.");
 						break;
 					case 4:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -152,15 +112,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"But you can still get sunlight through sunflowers."
-						);
+						innerText(c, "But you can still get sunlight through sunflowers.");
 						break;
 					case 5:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -173,15 +128,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"And you're lucky, you got little squirt mushrooms."
-						);
+						innerText(c, "And you're lucky, you got little squirt mushrooms.");
 						break;
 					case 6:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -194,10 +144,7 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"Plant as many of these mushrooms as you can and you'll get through."
-						);
+						innerText(c, "Plant as many of these mushrooms as you can and you'll get through.");
 						break;
 					case 7:
 						$("dDave").src = "images/interface/Dave2.gif";
@@ -225,23 +172,12 @@ oS.Init(
 		FlagToSumNum: { a1: [3, 5, 9], a2: [1, 2, 3, 15] },
 		FlagToMonitor: { 9: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/SunShroom.png",
-				"left:667px;top:220px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(12);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/SunShroom.png", "left:667px;top:220px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					SelectModal(12);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

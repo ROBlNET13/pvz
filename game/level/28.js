@@ -25,23 +25,11 @@ oS.Init(
 			oSpikeweed,
 			oTorchwood,
 		],
-		ZName: [
-			oZombie,
-			oZombie2,
-			oDuckyTubeZombie1,
-			oDuckyTubeZombie2,
-			oDuckyTubeZombie3,
-			oConeheadZombie,
-			oDolphinRiderZombie,
-		],
+		ZName: [oZombie, oZombie2, oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3, oConeheadZombie, oDolphinRiderZombie],
 		PicArr: (function () {
 			var a = oTallNut.prototype;
 			var b = a.PicArr;
-			return [
-				"images/interface/background3.webp",
-				b[a.CardGif],
-				b[a.NormalGif],
-			];
+			return ["images/interface/background3.webp", b[a.CardGif], b[a.NormalGif]];
 		})(),
 		Coord: 2,
 		SunNum: 50,
@@ -52,8 +40,7 @@ oS.Init(
 		LvlEName: 28,
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
 		},
 		StartGameMusic: "WateryGraves",
 	},
@@ -75,23 +62,12 @@ oS.Init(
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/TallNut.png",
-				"left:627px;top:325px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oTallNut, 29);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:290px;left:636px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/TallNut.png", "left:627px;top:325px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oTallNut, 29);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:290px;left:636px", EDAll);
 		},
 	}
 );

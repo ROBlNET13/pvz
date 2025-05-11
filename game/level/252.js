@@ -1,18 +1,8 @@
 oS.Init(
 	{
-		PName: [
-			oTenManNut,
-			oBigChomper,
-			oSnowRepeater,
-			oSpikeweed,
-			oLaserBean,
-			oFlamesMushroom,
-		],
+		PName: [oTenManNut, oBigChomper, oSnowRepeater, oSpikeweed, oLaserBean, oFlamesMushroom],
 		ZName: [oWJY, oEmperor, oLionDanceZombie],
-		PicArr: [
-			"images/interface/background2.jpg",
-			"images/interface/trophy.png",
-		],
+		PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png"],
 		backgroundImage: "images/interface/background2.jpg",
 		CanSelectCard: 0,
 		LevelName: "常青之塔 101层",
@@ -68,9 +58,7 @@ oS.Init(
 							var a;
 							var c;
 							while (b--) {
-								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
-									($(a.DID).style.top =
-										(a.PixelTop = c - 1) + "px");
+								(c = (a = ArCard[b]).PixelTop) > 60 * b && ($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
 							}
 							oSym.addTask(5, arguments.callee, []);
 						})();
@@ -99,17 +87,11 @@ oS.Init(
 			29: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/0.gif",
-				"left:667px;top:330px;clip:rect(auto,auto,237px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oGoldenPrize, 150);
-					},
-				}
-			);
+			NewImg("imgSF", "images/interface/0.gif", "left:667px;top:330px;clip:rect(auto,auto,237px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oGoldenPrize, 150);
+				},
+			});
 		},
 	},
 	{
@@ -127,9 +109,7 @@ oS.Init(
 			PlayAudio("seedlift");
 			a = window.event || a;
 			var f = ArCard[oS.ChoseCard];
-			var e =
-				a.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-				EElement.scrollLeft;
+			var e = a.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
 			var d = a.clientY + EBody.scrollTop || EElement.scrollTop;
 			var c = f.PName.prototype;
 			oS.Chose = 1;
@@ -137,14 +117,7 @@ oS.Init(
 				NewImg(
 					"MovePlant",
 					c.PicArr[c.StaticGif],
-					"left:" +
-						e -
-						0.5 * (c.beAttackedPointL + c.beAttackedPointR) +
-						"px;top:" +
-						d +
-						20 -
-						c.height +
-						"px;z-index:254",
+					"left:" + e - 0.5 * (c.beAttackedPointL + c.beAttackedPointR) + "px;top:" + d + 20 - c.height + "px;z-index:254",
 					EDAll
 				).cloneNode(false),
 				"MovePlantAlpha",
@@ -178,11 +151,7 @@ oS.Init(
 			var h = oGd.$LF[f];
 			k.CanGrow(l, f, a) &&
 				(function () {
-					PlayAudio(
-						h !== 2
-							? "plant" + Math.floor(1 + Math.random() * 2)
-							: "plant_water"
-					);
+					PlayAudio(h !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water");
 					new i().Birth(c, b, f, a, l);
 					oSym.addTask(20, SetNone, [
 						SetStyle($("imgGrowSoil"), {

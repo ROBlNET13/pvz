@@ -32,13 +32,7 @@ oS.Init(
 			oTenManNut,
 			oSeaAnemone,
 		],
-		ZName: [
-			oZombie,
-			oZombie2,
-			oConeheadZombie,
-			oCXZombie,
-			oJackinTheBoxZombie,
-		],
+		ZName: [oZombie, oZombie2, oConeheadZombie, oCXZombie, oJackinTheBoxZombie],
 		PicArr: (function () {
 			return ["images/interface/backgroundLG.jpg"];
 		})(),
@@ -75,23 +69,12 @@ oS.Init(
 			29: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/Cactus.png",
-				"left:627px;top:325px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oCactus, 37);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:290px;left:636px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/Cactus.png", "left:627px;top:325px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oCactus, 37);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:290px;left:636px", EDAll);
 		},
 	}
 );

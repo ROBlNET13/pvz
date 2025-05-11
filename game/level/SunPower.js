@@ -1,14 +1,6 @@
 oS.Init(
 	{
-		PName: [
-			oCherryBomb,
-			oJalapeno,
-			oPotatoMine,
-			oGarlic,
-			oWallNut,
-			oSquash,
-			oThreepeater,
-		],
+		PName: [oCherryBomb, oJalapeno, oPotatoMine, oGarlic, oWallNut, oSquash, oThreepeater],
 		ZName: [oPoleVaultingZombie, oZombie],
 		ShowScroll: true,
 		SunNum: 325,
@@ -28,13 +20,7 @@ oS.Init(
 		StartGameMusic: "LoonSkirmish",
 		StartGame() {
 			oS.SunFlowerNum = 0;
-			NewEle(
-				"DivTeach",
-				"div",
-				0,
-				{ innerHTML: "Don't let the zombies eat your sunflowers!" },
-				EDAll
-			);
+			NewEle("DivTeach", "div", 0, { innerHTML: "Don't let the zombies eat your sunflowers!" }, EDAll);
 			var a;
 			for (a = 1; a < 7; a++) {
 				CustomSpecial(oSunFlower, 1, a);
@@ -56,9 +42,7 @@ oS.Init(
 					for (v in $P) {
 						$P[v].EName === "oSunFlower" && ++b;
 					}
-					b > 17
-						? oSym.addTask(200, arguments.callee, [])
-						: GameOver("Level Failed, <br>Please try again!");
+					b > 17 ? oSym.addTask(200, arguments.callee, []) : GameOver("Level Failed, <br>Please try again!");
 				})();
 				BeginCool();
 				oS.DKind && AutoProduceSun(25);
@@ -89,24 +73,15 @@ oS.Init(
 					$P[v].EName === "oSunFlower" && ++a;
 				}
 				a > 9
-					? NewImg(
-							"imgSF",
-							"images/interface/trophy.png",
-							"left:417px;top:233px;z-index:256",
-							EDAll,
-							{
-								onclick() {
-									PlayAudio("winmusic");
-									SelectModal(0);
-									HiddenOptions();
-									SetBlock(
-										$("dSurface"),
-										$("iSurfaceBackground")
-									);
-									ShowNameDiv();
-								},
-							}
-						)
+					? NewImg("imgSF", "images/interface/trophy.png", "left:417px;top:233px;z-index:256", EDAll, {
+							onclick() {
+								PlayAudio("winmusic");
+								SelectModal(0);
+								HiddenOptions();
+								SetBlock($("dSurface"), $("iSurfaceBackground"));
+								ShowNameDiv();
+							},
+						})
 					: GameOver("条件失败<br>请再接再厉!");
 			})();
 		},

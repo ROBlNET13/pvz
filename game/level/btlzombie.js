@@ -1,18 +1,8 @@
 oS.Init(
 	{
 		PName: [oLilyPad, oPeashooter, oCherryBomb, oWallNut],
-		ZName: [
-			oSmallZombie,
-			oSmallFlagZombie,
-			oSmallDuckyTubeZombie1,
-			oSmallConeheadZombie,
-			oSmallFootballZombie,
-			oSmallSnorkelZombie,
-		],
-		PicArr: [
-			"images/interface/background3.webp",
-			"images/interface/trophy.png",
-		],
+		ZName: [oSmallZombie, oSmallFlagZombie, oSmallDuckyTubeZombie1, oSmallConeheadZombie, oSmallFootballZombie, oSmallSnorkelZombie],
+		PicArr: ["images/interface/background3.webp", "images/interface/trophy.png"],
 		Coord: 2,
 		LF: [0, 1, 1, 2, 2, 1, 1],
 		backgroundImage: "images/interface/background3.webp",
@@ -26,8 +16,7 @@ oS.Init(
 		},
 		StaticCard: 0,
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
 		},
 		StartGameMusic: "LoonSkirmish",
 		StartGame() {
@@ -47,14 +36,10 @@ oS.Init(
 									oP.FlagZombies < 6
 										? Math.floor(1 + Math.random() * 10) < 4
 											? 1
-											: Math.floor(
-													Math.random() * c.length
-												)
+											: Math.floor(Math.random() * c.length)
 										: Math.floor(1 + Math.random() * 10) < 3
 											? 0
-											: Math.floor(
-													Math.random() * c.length
-												);
+											: Math.floor(Math.random() * c.length);
 								var e = c[b];
 								var d = e.prototype;
 								var f = "dCard" + Math.random();
@@ -84,9 +69,7 @@ oS.Init(
 							var a;
 							var c;
 							while (b--) {
-								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
-									($(a.DID).style.top =
-										(a.PixelTop = c - 1) + "px");
+								(c = (a = ArCard[b]).PixelTop) > 60 * b && ($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
 							}
 							oSym.addTask(5, arguments.callee, []);
 						})();
@@ -117,23 +100,12 @@ oS.Init(
 			14: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:667px;top:220px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(0);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:667px;top:220px", EDAll, {
+				onclick() {
+					SelectModal(0);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	},
 	{
@@ -148,9 +120,7 @@ oS.Init(
 			PlayAudio("seedlift");
 			a = window.event || a;
 			var f = ArCard[oS.ChoseCard];
-			var e =
-				a.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-				EElement.scrollLeft;
+			var e = a.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
 			var d = a.clientY + EBody.scrollTop || EElement.scrollTop;
 			var c = f.PName.prototype;
 			oS.Chose = 1;
@@ -158,14 +128,7 @@ oS.Init(
 				NewImg(
 					"MovePlant",
 					c.PicArr[c.StaticGif],
-					"left:" +
-						e -
-						0.5 * (c.beAttackedPointL + c.beAttackedPointR) +
-						"px;top:" +
-						d +
-						20 -
-						c.height +
-						"px;z-index:254",
+					"left:" + e - 0.5 * (c.beAttackedPointL + c.beAttackedPointR) + "px;top:" + d + 20 - c.height + "px;z-index:254",
 					EDAll
 				).cloneNode(false),
 				"MovePlantAlpha",
@@ -199,11 +162,7 @@ oS.Init(
 			var h = oGd.$LF[f];
 			k.CanGrow(l, f, a) &&
 				(function () {
-					PlayAudio(
-						h !== 2
-							? "plant" + Math.floor(1 + Math.random() * 2)
-							: "plant_water"
-					);
+					PlayAudio(h !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water");
 					new i().Birth(c, b, f, a, l);
 					oSym.addTask(20, SetNone, [
 						SetStyle($("imgGrowSoil"), {

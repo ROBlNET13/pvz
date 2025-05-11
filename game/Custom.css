@@ -817,8 +817,7 @@ input[type="checkbox"] {
 	margin: 0 4px 0 0;
 	vertical-align: middle;
 
-	background: url("images/interface/options_checkbox0.png") center center
-		no-repeat;
+	background: url("images/interface/options_checkbox0.png") center center no-repeat;
 	background-size: contain;
 
 	cursor: url(images/interface/Pointer.cur), pointer !important;
@@ -828,8 +827,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-	background: url("images/interface/options_checkbox1.png") center center
-		no-repeat;
+	background: url("images/interface/options_checkbox1.png") center center no-repeat;
 	background-size: contain;
 }
 #lAutoSun,

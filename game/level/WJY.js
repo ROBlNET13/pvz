@@ -37,18 +37,7 @@ oS.Init(
 			oIceFumeShroom,
 			oLaserBean,
 		],
-		ZName: [
-			oCZombie,
-			oCZombie2,
-			oCZombie3,
-			oCBucketheadZombie,
-			oDuckyTubeZombie1,
-			oCSnorkelZombie,
-			oScreenDoorZombie,
-			oDuckyTubeZombie2,
-			oWJY,
-			oWJY1,
-		],
+		ZName: [oCZombie, oCZombie2, oCZombie3, oCBucketheadZombie, oDuckyTubeZombie1, oCSnorkelZombie, oScreenDoorZombie, oDuckyTubeZombie2, oWJY, oWJY1],
 		PicArr: ["images/interface/backgroundX1.jpg"],
 		LF: [0, 2, 3, 3, 2, 2, 0],
 		backgroundImage: "images/interface/backgroundX1.jpg",
@@ -89,17 +78,11 @@ oS.Init(
 			29: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/0.gif",
-				"left:667px;top:330px;clip:rect(auto,auto,237px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oGoldenPrize, 0);
-					},
-				}
-			);
+			NewImg("imgSF", "images/interface/0.gif", "left:667px;top:330px;clip:rect(auto,auto,237px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oGoldenPrize, 0);
+				},
+			});
 		},
 	}
 );

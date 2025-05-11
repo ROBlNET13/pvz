@@ -51,16 +51,7 @@ oS.Init(
 			oBigChomper,
 			oFlamesMushroom,
 		],
-		ZName: [
-			oCZombie,
-			oCZombie2,
-			oCZombie3,
-			oCConeheadZombie,
-			oBalloonZombie,
-			oCFootballZombie,
-			oCPoleVaultingZombie,
-			othugZombie,
-		],
+		ZName: [oCZombie, oCZombie2, oCZombie3, oCConeheadZombie, oBalloonZombie, oCFootballZombie, oCPoleVaultingZombie, othugZombie],
 		PicArr: ["images/interface/backgroundX3.jpg"],
 		LF: [0, 3, 3, 0, 3, 3, 0],
 		ZF: [0, 3, 3, 0, 3, 3, 0],
@@ -76,29 +67,17 @@ oS.Init(
 			CustomSpecial(oCleaner, 4, -1);
 			CustomSpecial(oCleaner, 5, -1);
 		},
-		AudioArr: [
-			"crazydaveshort2",
-			"crazydavelong1",
-			"crazydavelong2",
-			"crazydavelong3",
-		],
+		AudioArr: ["crazydaveshort2", "crazydavelong1", "crazydavelong2", "crazydavelong3"],
 		StartGameMusic: "The Great Wall",
 		LoadAccess(a) {
-			NewImg(
-				"dDave",
-				"images/interface/Dave.gif",
-				"left:0;top:81px",
-				EDAll
-			);
+			NewImg("dDave", "images/interface/Dave.gif", "left:0;top:81px", EDAll);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -111,13 +90,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">We are getting closer and closer to King Qins lair, arent we?</span>';
+						c.innerHTML = '<span style="font-size:22px">We are getting closer and closer to King Qins lair, arent we?</span>';
 						break;
 					case 1:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -130,13 +106,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">We have encountered the level of the stone ground in the middle before.,</span>';
+						c.innerHTML = '<span style="font-size:22px">We have encountered the level of the stone ground in the middle before.,</span>';
 						break;
 					case 2:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -149,13 +122,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">CanWhat kind of crooked way is this!t even grow on it!</span>';
+						c.innerHTML = '<span style="font-size:22px">CanWhat kind of crooked way is this!t even grow on it!</span>';
 						break;
 					case 3:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -168,8 +138,7 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">What kind of crooked way is this!</span>';
+						c.innerHTML = '<span style="font-size:22px">What kind of crooked way is this!</span>';
 						break;
 					case 4:
 						$("dDave").src = "images/interface/Dave2.gif";
@@ -206,23 +175,12 @@ oS.Init(
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(109);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(109);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

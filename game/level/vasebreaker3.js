@@ -1,29 +1,9 @@
 // VaseKiller3
 oS.Init(
 	{
-		PName: [
-			oCherryBomb,
-			oSeedRepeater2,
-			oSeedSnowPea,
-			oSeedWallNut,
-			oSeedSquash,
-			oSeedHypnoShroom,
-		],
-		ZName: [
-			oZombie,
-			oZombie2,
-			oZombie3,
-			oBucketheadZombie,
-			oDancingZombie,
-			oJackinTheBoxZombie,
-			oBackupDancer,
-		],
-		PicArr: [
-			"images/interface/background2.jpg",
-			"images/interface/trophy.png",
-			"images/interface/PointerDown.gif",
-			"images/interface/Stripe.png",
-		],
+		PName: [oCherryBomb, oSeedRepeater2, oSeedSnowPea, oSeedWallNut, oSeedSquash, oSeedHypnoShroom],
+		ZName: [oZombie, oZombie2, oZombie3, oBucketheadZombie, oDancingZombie, oJackinTheBoxZombie, oBackupDancer],
+		PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/PointerDown.gif", "images/interface/Stripe.png"],
 		backgroundImage: "images/interface/background2.jpg",
 		DKind: 0,
 		ShowScroll: false,
@@ -75,12 +55,7 @@ oS.Init(
 				var Top = VaseList[VaseList.length - 1];
 				var Pos = GroundList[GroundList.length - 1];
 
-				oFlowerVase.prototype.SpecialBirth(
-					Pos[0],
-					Pos[1],
-					Top.Type === "Plants" ? GNum-- > 0 : 0,
-					Top
-				); // 生成罐子
+				oFlowerVase.prototype.SpecialBirth(Pos[0], Pos[1], Top.Type === "Plants" ? GNum-- > 0 : 0, Top); // 生成罐子
 
 				--VaseList.length, --GroundList.length;
 			}

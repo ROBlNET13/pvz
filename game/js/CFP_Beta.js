@@ -43,9 +43,7 @@ function compressBytes(input) {
 }
 
 function decompressString(compressedBase64) {
-	const compressed = Uint8Array.from(atob(compressedBase64), (c) =>
-		c.charCodeAt(0)
-	);
+	const compressed = Uint8Array.from(atob(compressedBase64), (c) => c.charCodeAt(0));
 	const decompressed = pako.inflate(compressed);
 	const decompressedString = new TextDecoder().decode(decompressed);
 	return decompressedString;
@@ -100,12 +98,7 @@ async function openAndLoadFileAsBytes() {
 }
 
 async function fileToLevelData() {
-	return (
-		"=" +
-		compressString(
-			decompressStringFromBytes(await openAndLoadFileAsBytes())
-		)
-	); // i hate this and want to fix it but its 4 am and i need to sleep. fuck text encoding
+	return "=" + compressString(decompressStringFromBytes(await openAndLoadFileAsBytes())); // i hate this and want to fix it but its 4 am and i need to sleep. fuck text encoding
 }
 
 function cloneFromPlants(name, sun, includeXY, screenshot) {
@@ -139,12 +132,8 @@ function cloneFromPlants(name, sun, includeXY, screenshot) {
 		};
 
 		if (includeXY) {
-			plantDict[keyedDict[i]].eleLeft = parseInt(
-				$P[keyedDict[i]].ele.style.left
-			);
-			plantDict[keyedDict[i]].eleTop = parseInt(
-				$P[keyedDict[i]].ele.style.top
-			);
+			plantDict[keyedDict[i]].eleLeft = parseInt($P[keyedDict[i]].ele.style.left);
+			plantDict[keyedDict[i]].eleTop = parseInt($P[keyedDict[i]].ele.style.top);
 		}
 	}
 	// now turn it into an array of dictionaries
@@ -186,9 +175,7 @@ function tinyifyClone(clone) {
 					let innerVal = "\uE001"; // marker for object start/end
 					let innerArr = [];
 					for (const [innerKey, innerValue] of Object.entries(obj)) {
-						innerArr.push(
-							TINYIFIER_MAP[innerKey] + "\uE004" + innerValue
-						);
+						innerArr.push(TINYIFIER_MAP[innerKey] + "\uE004" + innerValue);
 					}
 					innerVal += innerArr.join("\uE002");
 					innerVal += "\uE001"; // marker for object start/end
@@ -212,9 +199,7 @@ function tinyifyClone(clone) {
 }
 
 function untinyifyClone(tinyString) {
-	const REVERSE_TINYIFIER_MAP = Object.fromEntries(
-		Object.entries(TINYIFIER_MAP).map(([key, value]) => [value, key])
-	);
+	const REVERSE_TINYIFIER_MAP = Object.fromEntries(Object.entries(TINYIFIER_MAP).map(([key, value]) => [value, key]));
 	let originalClone = {};
 	const pairs = tinyString.split("\uE006");
 
@@ -239,21 +224,12 @@ function untinyifyClone(tinyString) {
 					.slice(1, -1) // remove start/end markers \uE001
 					.split("\uE002");
 				for (const plantPair of plantData) {
-					const [plantTinyKey, plantValueStr] =
-						plantPair.split("\uE004");
-					const plantOriginalKey =
-						REVERSE_TINYIFIER_MAP[plantTinyKey];
+					const [plantTinyKey, plantValueStr] = plantPair.split("\uE004");
+					const plantOriginalKey = REVERSE_TINYIFIER_MAP[plantTinyKey];
 					if (plantOriginalKey) {
 						// convert numeric values back to numbers
-						if (
-							["zIndex", "plantRow", "plantCol"].includes(
-								plantOriginalKey
-							)
-						) {
-							plantObj[plantOriginalKey] = parseInt(
-								plantValueStr,
-								10
-							);
+						if (["zIndex", "plantRow", "plantCol"].includes(plantOriginalKey)) {
+							plantObj[plantOriginalKey] = parseInt(plantValueStr, 10);
 						} else {
 							plantObj[plantOriginalKey] = plantValueStr;
 						}
@@ -275,10 +251,7 @@ function untinyifyClone(tinyString) {
 
 function stringifyClone(levelData) {
 	if (levelData.screenshot) {
-		let screenshot = levelData.screenshot.replace(
-			"data:image/webp;base64,",
-			""
-		);
+		let screenshot = levelData.screenshot.replace("data:image/webp;base64,", "");
 		delete levelData.screenshot;
 		return compressString(JSON.stringify(levelData)) + ";" + screenshot;
 	}

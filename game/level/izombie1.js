@@ -1,11 +1,7 @@
 oS.Init({
 	PName: [oPeashooter, oSunFlower, oSnowPea, oSquash],
 	ZName: [oIZombie, oIBucketheadZombie, oIFootballZombie],
-	PicArr: [
-		"images/interface/background2.jpg",
-		"images/interface/trophy.png",
-		"images/interface/Stripe.png",
-	],
+	PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
 	backgroundImage: "images/interface/background2.jpg",
 	ShowScroll: false,
 	SunNum: 150,
@@ -43,11 +39,7 @@ oS.Init({
 			while (i <= h) {
 				CustomSpecial(oBrains, i, 0);
 				for (a = g; a <= b; a++) {
-					let placed = CustomSpecial(
-						d[e[(c = Math.floor(Math.random() * e.length))]],
-						i,
-						a
-					);
+					let placed = CustomSpecial(d[e[(c = Math.floor(Math.random() * e.length))]], i, a);
 					console.log(placed);
 					placed.plantImage.classList.add("cardboard");
 					e.splice(c, 1);
@@ -55,12 +47,7 @@ oS.Init({
 				++i;
 			}
 		}
-		NewImg(
-			"iStripe",
-			"images/interface/Stripe.png",
-			"left:" + (GetX1X2(5)[0] - 11) + "px;top:65px",
-			EDAll
-		);
+		NewImg("iStripe", "images/interface/Stripe.png", "left:" + (GetX1X2(5)[0] - 11) + "px;top:65px", EDAll);
 	},
 	StartGame() {
 		SetVisible($("dSunNum"));

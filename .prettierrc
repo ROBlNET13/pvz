@@ -9,7 +9,7 @@
 	"experimentalTernaries": false,
 	"htmlWhitespaceSensitivity": "css",
 	"insertPragma": false,
-	"printWidth": 80,
+	"printWidth": 160,
 	"proseWrap": "preserve",
 	"quoteProps": "as-needed",
 	"semi": true,

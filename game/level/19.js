@@ -18,16 +18,7 @@ oS.Init(
 			oIceShroom,
 			oDoomShroom,
 		],
-		ZName: [
-			oZombie,
-			oZombie2,
-			oZombie3,
-			oConeheadZombie,
-			oDancingZombie,
-			oScreenDoorZombie,
-			oBackupDancer,
-			oBucketheadZombie,
-		],
+		ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oDancingZombie, oScreenDoorZombie, oBackupDancer, oBucketheadZombie],
 		PicArr: [
 			"images/interface/background2.jpg",
 			"images/interface/Tombstones.png",
@@ -44,12 +35,7 @@ oS.Init(
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
 		Monitor: { f: AppearTombstones, ar: [5, 9, 11] },
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutTomZombie([
-					oZombie,
-					oConeheadZombie,
-					oBucketheadZombie,
-				]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie, oBucketheadZombie]);
 		},
 		StartGameMusic: "Moongrains",
 	},
@@ -69,32 +55,21 @@ oS.Init(
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/ZombieNoteSmall.png",
-				"left:667px;top:220px",
-				EDAll,
-				{
-					onclick() {
-						SetHidden($("PointerUD"));
-						SetStyle(this, {
-							width: "613px",
-							height: "399px",
-							left: "193px",
-							top: "100px",
-						}).src = "images/interface/ZombieNote2.png";
-						this.onclick = function () {
-							SelectModal(20);
-						};
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/ZombieNoteSmall.png", "left:667px;top:220px", EDAll, {
+				onclick() {
+					SetHidden($("PointerUD"));
+					SetStyle(this, {
+						width: "613px",
+						height: "399px",
+						left: "193px",
+						top: "100px",
+					}).src = "images/interface/ZombieNote2.png";
+					this.onclick = function () {
+						SelectModal(20);
+					};
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

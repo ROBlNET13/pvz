@@ -1,18 +1,6 @@
 oS.Init(
 	{
-		PName: [
-			oPeashooter,
-			oSunFlower,
-			oCherryBomb,
-			oWallNut,
-			oPotatoMine,
-			oSnowPea,
-			oChomper,
-			oRepeater,
-			oPuffShroom,
-			oSunShroom,
-			oFumeShroom,
-		],
+		PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oSunShroom, oFumeShroom],
 		ZName: [oZombie, oZombie2, oZombie3, oScreenDoorZombie],
 		PicArr: (function () {
 			var a = oFumeShroom.prototype;
@@ -33,12 +21,7 @@ oS.Init(
 		LvlEName: 15,
 		LargeWaveFlag: { 10: $("imgFlag1") },
 		LoadAccess(a) {
-			NewImg(
-				"dDave",
-				"images/interface/Dave.gif",
-				"left:0;top:81px",
-				EDAll
-			);
+			NewImg("dDave", "images/interface/Dave.gif", "left:0;top:81px", EDAll);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
@@ -57,15 +40,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"Dude, have you ever imagined you being alone in a cemetery one night?"
-						);
+						innerText(c, "Dude, have you ever imagined you being alone in a cemetery one night?");
 						break;
 					case 1:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -78,15 +56,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"Of course, there have to be zombies in the cemetery."
-						);
+						innerText(c, "Of course, there have to be zombies in the cemetery.");
 						break;
 					case 2:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -99,15 +72,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"Don't relax too much, zombies will pop out of tombstones at any time! ."
-						);
+						innerText(c, "Don't relax too much, zombies will pop out of tombstones at any time! .");
 						break;
 					case 3:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -160,23 +128,12 @@ oS.Init(
 		FlagToSumNum: { a1: [3, 5, 9], a2: [1, 2, 3, 10] },
 		FlagToMonitor: { 9: [ShowLargeWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/HypnoShroom.png",
-				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oHypnoShroom, 16);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:490px;left:836px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/HypnoShroom.png", "left:827px;top:525px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oHypnoShroom, 16);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll);
 		},
 	}
 );

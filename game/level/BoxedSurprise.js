@@ -20,12 +20,7 @@ oS.Init(
 			oBigChomper,
 			oFlamesMushroom,
 		],
-		ZName: [
-			oZombie,
-			oConeheadZombie,
-			oJackinTheBoxZombie,
-			oScreenDoorZombie,
-		],
+		ZName: [oZombie, oConeheadZombie, oJackinTheBoxZombie, oScreenDoorZombie],
 		PicArr: ["images/interface/background2.jpg"],
 		backgroundImage: "images/interface/background2.jpg",
 		CanSelectCard: 1,
@@ -58,23 +53,12 @@ oS.Init(
 			29: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(0);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(0);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

@@ -2,10 +2,7 @@ oS.Init(
 	{
 		PName: [oRepeater, oFumeShroom],
 		ZName: [oZombie, oPoleVaultingZombie],
-		PicArr: [
-			"images/interface/background2.jpg",
-			"images/interface/trophy.png",
-		],
+		PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png"],
 		backgroundImage: "images/interface/background2.jpg",
 		CanSelectCard: 0,
 		DKind: 0,
@@ -65,9 +62,7 @@ oS.Init(
 							var a;
 							var c;
 							while (b--) {
-								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
-									($(a.DID).style.top =
-										(a.PixelTop = c - 1) + "px");
+								(c = (a = ArCard[b]).PixelTop) > 60 * b && ($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
 							}
 							oSym.addTask(5, arguments.callee, []);
 						})();
@@ -91,23 +86,12 @@ oS.Init(
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:667px;top:220px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(0);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:667px;top:220px", EDAll, {
+				onclick() {
+					SelectModal(0);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	},
 	{
@@ -133,14 +117,7 @@ oS.Init(
 				NewImg(
 					"MovePlant",
 					c.PicArr[c.StaticGif],
-					"left:" +
-						e -
-						0.5 * (c.beAttackedPointL + c.beAttackedPointR) +
-						"px;top:" +
-						d +
-						20 -
-						c.height +
-						"px;z-index:254",
+					"left:" + e - 0.5 * (c.beAttackedPointL + c.beAttackedPointR) + "px;top:" + d + 20 - c.height + "px;z-index:254",
 					EDAll
 				).cloneNode(false),
 				"MovePlantAlpha",
@@ -168,10 +145,7 @@ oS.Init(
 			var j = $("DivTeachBar");
 			j && j.parentNode.removeChild(j);
 			if (c > 347) {
-				innerText(
-					NewEle("DivTeachBar", "div", "line-height:40px", 0, EDAll),
-					"Place your plant to the left of the line"
-				);
+				innerText(NewEle("DivTeachBar", "div", "line-height:40px", 0, EDAll), "Place your plant to the left of the line");
 				return false;
 			}
 			var i = oS.ChoseCard;

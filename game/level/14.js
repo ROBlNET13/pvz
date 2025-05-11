@@ -1,33 +1,8 @@
 oS.Init(
 	{
-		PName: [
-			oPeashooter,
-			oSunFlower,
-			oCherryBomb,
-			oWallNut,
-			oPotatoMine,
-			oSnowPea,
-			oChomper,
-			oRepeater,
-			oPuffShroom,
-			oSunShroom,
-			oFumeShroom,
-			oGraveBuster,
-		],
-		ZName: [
-			oZombie,
-			oZombie2,
-			oZombie3,
-			oConeheadZombie,
-			oScreenDoorZombie,
-			oPoleVaultingZombie,
-		],
-		PicArr: [
-			"images/interface/background2.jpg",
-			"images/interface/trophy.png",
-			"images/interface/Tombstones.png",
-			"images/interface/Tombstone_mounds.png",
-		],
+		PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oSunShroom, oFumeShroom, oGraveBuster],
+		ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oScreenDoorZombie, oPoleVaultingZombie],
+		PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Tombstones.png", "images/interface/Tombstone_mounds.png"],
 		backgroundImage: "images/interface/background2.jpg",
 		CanSelectCard: 1,
 		DKind: 0,
@@ -37,12 +12,7 @@ oS.Init(
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
 		Monitor: { f: AppearTombstones, ar: [6, 9, 7] },
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutTomZombie([
-					oZombie,
-					oConeheadZombie,
-					oBucketheadZombie,
-				]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie, oBucketheadZombie]);
 		},
 		StartGameMusic: "Moongrains",
 	},
@@ -62,23 +32,12 @@ oS.Init(
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(15);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:490px;left:836px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:827px;top:525px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					SelectModal(15);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll);
 		},
 	}
 );
