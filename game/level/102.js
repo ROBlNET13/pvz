@@ -51,16 +51,7 @@ oS.Init(
 			oBigChomper,
 			oFlamesMushroom,
 		],
-		ZName: [
-			oCZombie,
-			oCZombie2,
-			oCZombie3,
-			oCConeheadZombie,
-			oCBucketheadZombie,
-			othugZombie,
-			oEunZombie,
-			oZZ,
-		],
+		ZName: [oCZombie, oCZombie2, oCZombie3, oCConeheadZombie, oCBucketheadZombie, othugZombie, oEunZombie, oZZ],
 		PicArr: (function () {
 			var a = oSquash.prototype;
 			var b = a.PicArr;
@@ -80,12 +71,7 @@ oS.Init(
 		LevelName: "Night falls",
 		LvlEName: 21,
 		DKind: 0,
-		AudioArr: [
-			"crazydaveshort2",
-			"crazydavelong1",
-			"crazydavelong2",
-			"crazydavelong3",
-		],
+		AudioArr: ["crazydaveshort2", "crazydavelong1", "crazydavelong2", "crazydavelong3"],
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
 		InitLawnMower() {
 			CustomSpecial(oCleaner, 1, -1);
@@ -97,21 +83,14 @@ oS.Init(
 		LoadMusic: "MyScrapbook",
 		StartGameMusic: "The Great Wall1",
 		LoadAccess(a) {
-			NewImg(
-				"dDave",
-				"images/interface/Dave.gif",
-				"left:0;top:81px",
-				EDAll
-			);
+			NewImg("dDave", "images/interface/Dave.gif", "left:0;top:81px", EDAll);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -124,13 +103,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">Ah! The night view of the Great Wall of China is also good.</span>';
+						c.innerHTML = '<span style="font-size:22px">Ah! The night view of the Great Wall of China is also good.</span>';
 						break;
 					case 1:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -143,13 +119,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">However, the zombies dont have time to appreciate the beauty</span>';
+						c.innerHTML = '<span style="font-size:22px">However, the zombies dont have time to appreciate the beauty</span>';
 						break;
 					case 2:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -162,8 +135,7 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">Here...And Sadako!</span>';
+						c.innerHTML = '<span style="font-size:22px">Here...And Sadako!</span>';
 						break;
 					case 3:
 						PlayAudio("crazydaveshort2");
@@ -179,8 +151,7 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">Good luck.</span>';
+						c.innerHTML = '<span style="font-size:22px">Good luck.</span>';
 						break;
 					case 4:
 						$("dDave").src = "images/interface/Dave2.gif";
@@ -217,23 +188,12 @@ oS.Init(
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(103);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(103);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

@@ -26,17 +26,11 @@ oS.Init(
 		},
 		LargeWaveFlag: { 5: $("imgFlag1") },
 		StartGame() {
-			NewImg(
-				"imgSF",
-				"images/interface/tiaoguo.png",
-				"left:1px;top:75px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(3);
-					},
-				}
-			);
+			NewImg("imgSF", "images/interface/tiaoguo.png", "left:1px;top:75px", EDAll, {
+				onclick() {
+					SelectModal(3);
+				},
+			});
 			StopMusic();
 			PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 			NewEle(
@@ -46,18 +40,8 @@ oS.Init(
 				0,
 				EDPZ
 			);
-			NewImg(
-				"SodRoll_1",
-				"images/interface/SodRoll.png",
-				"left:112px;top:244px;z-index:1",
-				EDPZ
-			);
-			NewImg(
-				"SodRollCap_1",
-				"images/interface/SodRollCap.png",
-				"left:17px;top:322px;z-index:1",
-				EDPZ
-			);
+			NewImg("SodRoll_1", "images/interface/SodRoll.png", "left:112px;top:244px;z-index:1", EDPZ);
+			NewImg("SodRollCap_1", "images/interface/SodRollCap.png", "left:17px;top:322px;z-index:1", EDPZ);
 			PlayAudio("dirt_rise");
 			(function (e, h, b, d, c, g, a, f) {
 				e += 15;
@@ -76,16 +60,7 @@ oS.Init(
 					top: ++a + "px",
 				});
 				e < 990
-					? oSym.addTask(3, arguments.callee, [
-							e,
-							h,
-							b,
-							d,
-							c,
-							g,
-							a,
-							f,
-						])
+					? oSym.addTask(3, arguments.callee, [e, h, b, d, c, g, a, f])
 					: (ClearChild($("SodRoll_1"), $("SodRollCap_1")),
 						(function () {
 							NewEle("DivTeachBar", "div", 0, 0, EDAll);
@@ -97,85 +72,44 @@ oS.Init(
 									var i = oS.Chose;
 									switch (k) {
 										case 0:
-											innerText(
-												$("DivTeachBar"),
-												"Click on a seed packet to pick it up!"
-											);
-											NewImg(
-												"PointerUD",
-												"images/interface/PointerUP.gif",
-												"top:60px;left:50px",
-												EDAll
-											);
-											oSym.addTask(10, arguments.callee, [
-												++k,
-											]);
+											innerText($("DivTeachBar"), "Click on a seed packet to pick it up!");
+											NewImg("PointerUD", "images/interface/PointerUP.gif", "top:60px;left:50px", EDAll);
+											oSym.addTask(10, arguments.callee, [++k]);
 											break;
 										case 1:
 											i > 0 &&
-												(innerText(
-													$("DivTeachBar"),
-													"Click on the grass to plant your seed!"
-												),
-												EditImg(
-													$("PointerUD"),
-													"",
-													"images/interface/PointerDown.gif",
-													{
-														left: "170px",
-														top: "270px",
-													}
-												),
+												(innerText($("DivTeachBar"), "Click on the grass to plant your seed!"),
+												EditImg($("PointerUD"), "", "images/interface/PointerDown.gif", {
+													left: "170px",
+													top: "270px",
+												}),
 												++k);
-											oSym.addTask(10, arguments.callee, [
-												k,
-											]);
+											oSym.addTask(10, arguments.callee, [k]);
 											break;
 										case 2:
 											var h = oGd.$;
 											while (--l) {
 												if (h["3_" + l + "_1"]) {
 													SetHidden($("PointerUD"));
-													innerText(
-														$("DivTeachBar"),
-														"Click on falling sun to collect it!"
-													);
+													innerText($("DivTeachBar"), "Click on falling sun to collect it!");
 													AutoProduceSun(25);
-													oSym.addTask(
-														10,
-														arguments.callee,
-														[++k]
-													);
+													oSym.addTask(10, arguments.callee, [++k]);
 													return;
 												}
 											}
-											!i &&
-												(ClearChild($("PointerUD")),
-												(k = 0));
-											oSym.addTask(10, arguments.callee, [
-												k,
-											]);
+											!i && (ClearChild($("PointerUD")), (k = 0));
+											oSym.addTask(10, arguments.callee, [k]);
 											break;
 										case 3:
 											oS.SunNum > 99 &&
-												(innerText(
-													$("DivTeachBar"),
-													"Click on the peashooter to plant  one!"
-												),
-												EditImg(
-													$("PointerUD"),
-													"",
-													"images/interface/PointerUP.gif",
-													{
-														left: "50px",
-														top: "60px",
-														visibility: "visible",
-													}
-												),
+												(innerText($("DivTeachBar"), "Click on the peashooter to plant  one!"),
+												EditImg($("PointerUD"), "", "images/interface/PointerUP.gif", {
+													left: "50px",
+													top: "60px",
+													visibility: "visible",
+												}),
 												++k);
-											oSym.addTask(10, arguments.callee, [
-												k,
-											]);
+											oSym.addTask(10, arguments.callee, [k]);
 											break;
 										default:
 											var j = 0;
@@ -185,19 +119,10 @@ oS.Init(
 											}
 											j > 0
 												? (SetHidden($("PointerUD")),
-													innerText(
-														$("DivTeachBar"),
-														"Don't let the zombies reach your house!"
-													),
+													innerText($("DivTeachBar"), "Don't let the zombies reach your house!"),
 													oP.AddZombiesFlag(),
-													oSym.addTask(500, SetNone, [
-														$("DivTeachBar"),
-													]))
-												: oSym.addTask(
-														10,
-														arguments.callee,
-														[4]
-													);
+													oSym.addTask(500, SetNone, [$("DivTeachBar")]))
+												: oSym.addTask(10, arguments.callee, [4]);
 									}
 								},
 							});
@@ -213,17 +138,11 @@ oS.Init(
 		FlagToSumNum: { a1: [3], a2: [1, 2] },
 		FlagToMonitor: { 4: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/SunFlower.png",
-				"left:667px;top:330px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oSunFlower, 2);
-					},
-				}
-			);
+			NewImg("imgSF", "images/Card/Plants/SunFlower.png", "left:667px;top:330px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oSunFlower, 2);
+				},
+			});
 			EditImg($("PointerUD"), 0, "images/interface/PointerDown.gif", {
 				left: "676px",
 				top: "295px",

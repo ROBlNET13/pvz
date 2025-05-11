@@ -145,29 +145,14 @@ for (let i = 0; i < levelDataToLoad.plants.length; i++) {
 	}
 }
 // if lfValue is [0, 1, 1, 2, 2, 1, 1], then we use background4, otherwise background2
-backgroundImage =
-	levelDataToLoad.lfValue[3] === 2
-		? "images/interface/background4.jpg"
-		: "images/interface/background2.jpg";
+backgroundImage = levelDataToLoad.lfValue[3] === 2 ? "images/interface/background4.jpg" : "images/interface/background2.jpg";
 // if its [0, 1, 1, 2, 2, 1, 1], then we use 6 brains, otherwise 5
 brainsNum = levelDataToLoad.lfValue[3] === 2 ? 6 : 5;
 
 oS.Init({
 	PName: pNameValue,
-	ZName: [
-		oIImp,
-		oIConeheadZombie,
-		oIPoleVaultingZombie,
-		oIBucketheadZombie,
-		oIFootballZombie,
-		oIJackinTheBoxZombie,
-		oIScreenDoorZombie,
-	],
-	PicArr: [
-		backgroundImage,
-		"images/interface/trophy.png",
-		"images/interface/Stripe.png",
-	],
+	ZName: [oIImp, oIConeheadZombie, oIPoleVaultingZombie, oIBucketheadZombie, oIFootballZombie, oIJackinTheBoxZombie, oIScreenDoorZombie],
+	PicArr: [backgroundImage, "images/interface/trophy.png", "images/interface/Stripe.png"],
 	LF: levelDataToLoad.lfValue,
 	backgroundImage,
 	ShowScroll: false,
@@ -217,14 +202,7 @@ oS.Init({
 				++i;
 			}
 		}
-		NewImg(
-			"iStripe",
-			"images/interface/Stripe.png",
-			"left:" +
-				(GetX1X2(levelDataToLoad.stripeCol)[0] - 11) +
-				"px;top:65px",
-			EDAll
-		);
+		NewImg("iStripe", "images/interface/Stripe.png", "left:" + (GetX1X2(levelDataToLoad.stripeCol)[0] - 11) + "px;top:65px", EDAll);
 	},
 	StartGame() {
 		restoreToPlants(levelDataToLoad); // load the plants

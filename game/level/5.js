@@ -5,12 +5,7 @@ oS.Init(
 		PicArr: (function () {
 			var a = oPotatoMine.prototype;
 			var b = a.PicArr;
-			return [
-				"images/interface/background1.jpg",
-				"images/interface/crater1.png",
-				b[a.CardGif],
-				b[a.NormalGif],
-			];
+			return ["images/interface/background1.jpg", "images/interface/crater1.png", b[a.CardGif], b[a.NormalGif]];
 		})(),
 		backgroundImage: "images/interface/background1.jpg",
 		CanSelectCard: 0,
@@ -22,12 +17,7 @@ oS.Init(
 		LargeWaveFlag: { 10: $("imgFlag1") },
 		StartGameMusic: "LoonSkirmish",
 		LoadAccess(a) {
-			NewImg(
-				"dDave",
-				"images/interface/Dave.gif",
-				"left:0;top:81px",
-				EDAll
-			);
+			NewImg("dDave", "images/interface/Dave.gif", "left:0;top:81px", EDAll);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
@@ -46,15 +36,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"Neighbors, we managed to fight off some zombies after all the hard work! congratulations"
-						);
+						innerText(c, "Neighbors, we managed to fight off some zombies after all the hard work! congratulations");
 						break;
 					case 1:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -70,9 +55,7 @@ oS.Init(
 						innerText(c, "Now, I have a surprise for you.");
 						break;
 					case 2:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -88,9 +71,7 @@ oS.Init(
 						innerText(c, "But first, you must clean your lawn.");
 						break;
 					case 3:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -106,9 +87,7 @@ oS.Init(
 						innerText(c, "Dig out those plants with your shovel!");
 						break;
 					case 4:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -150,59 +129,27 @@ oS.Init(
 						var b = oS.Chose;
 						switch (c) {
 							case 0:
-								innerText(
-									$("DivTeachBar"),
-									"Click on the shovel to pick it up!"
-								);
-								NewImg(
-									"PointerUD",
-									"images/interface/PointerUP.gif",
-									"top:36px;left:250px",
-									EDAll
-								);
+								innerText($("DivTeachBar"), "Click on the shovel to pick it up!");
+								NewImg("PointerUD", "images/interface/PointerUP.gif", "top:36px;left:250px", EDAll);
 								oSym.addTask(10, arguments.callee, [++c]);
 								break;
 							case 1:
-								b < 0 &&
-									(innerText(
-										$("DivTeachBar"),
-										"Click on a plant to remove it!"
-									),
-									++c);
+								b < 0 && (innerText($("DivTeachBar"), "Click on a plant to remove it!"), ++c);
 								oSym.addTask(10, arguments.callee, [c]);
 								break;
 							case 2:
 								!(a["2_6_1"] && a["3_8_1"] && a["4_7_1"])
-									? (innerText(
-											$("DivTeachBar"),
-											"Keep digging until your lawn is clear of plants!"
-										),
-										++c)
-									: b > -1 &&
-										(innerText(
-											$("DivTeachBar"),
-											"Click on those plants to remove them!"
-										),
-										(c = 1));
+									? (innerText($("DivTeachBar"), "Keep digging until your lawn is clear of plants!"), ++c)
+									: b > -1 && (innerText($("DivTeachBar"), "Click on those plants to remove them!"), (c = 1));
 								oSym.addTask(10, arguments.callee, [c]);
 								break;
 							default:
 								!(a["2_6_1"] || a["3_8_1"] || a["4_7_1"])
 									? (function () {
-											SetHidden(
-												$("DivTeachBar"),
-												$("PointerUD")
-											);
-											SetVisible(
-												$("dSunNum"),
-												$("dFlagMeter"),
-												$("dTop")
-											);
+											SetHidden($("DivTeachBar"), $("PointerUD"));
+											SetVisible($("dSunNum"), $("dFlagMeter"), $("dTop"));
 											StopMusic();
-											PlayMusic(
-												(oS.LoadMusic =
-													oS.StartGameMusic)
-											);
+											PlayMusic((oS.LoadMusic = oS.StartGameMusic));
 											oS.InitLawnMower();
 											PrepareGrowPlants(() => {
 												BeginCool();
@@ -211,11 +158,7 @@ oS.Init(
 													2e3,
 													() => {
 														oP.AddZombiesFlag();
-														SetVisible(
-															$(
-																"dFlagMeterContent"
-															)
-														);
+														SetVisible($("dFlagMeterContent"));
 													},
 													[]
 												);
@@ -246,17 +189,10 @@ oS.Init(
 							(d = oGd.$[b + "_1"]) && d.Die();
 							break;
 						case a > 2:
-							NewImg(
-								"imgCrater",
-								"images/interface/crater1.png",
-								"left:" +
-									g +
-									"px;top:" +
-									e +
-									"px;z-index:" +
-									3 * c,
-								EDAll
-							).setAttribute("S", b);
+							NewImg("imgCrater", "images/interface/crater1.png", "left:" + g + "px;top:" + e + "px;z-index:" + 3 * c, EDAll).setAttribute(
+								"S",
+								b
+							);
 							(d = oGd.$[b + "_1"]) && d.Die();
 							oGd.$Crater[b] = 2;
 					}
@@ -279,23 +215,12 @@ oS.Init(
 		FlagToSumNum: { a1: [3, 5, 9], a2: [1, 2, 3, 10] },
 		FlagToMonitor: { 9: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/PotatoMine.png",
-				"left:587px;top:270px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oPotatoMine, 6);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:235px;left:596px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/PotatoMine.png", "left:587px;top:270px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oPotatoMine, 6);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:235px;left:596px", EDAll);
 		},
 	}
 );

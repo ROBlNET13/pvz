@@ -1,28 +1,11 @@
 oS.Init(
 	{
-		PName: [
-			oPeashooter,
-			oSunFlower,
-			oCherryBomb,
-			oWallNut,
-			oPotatoMine,
-			oSnowPea,
-		],
-		ZName: [
-			oZombie,
-			oZombie2,
-			oZombie3,
-			oConeheadZombie,
-			oPoleVaultingZombie,
-		],
+		PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea],
+		ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oPoleVaultingZombie],
 		PicArr: (function () {
 			var a = oChomper.prototype;
 			var b = a.PicArr;
-			return [
-				"images/interface/background1.jpg",
-				b[a.CardGif],
-				b[a.NormalGif],
-			];
+			return ["images/interface/background1.jpg", b[a.CardGif], b[a.NormalGif]];
 		})(),
 		backgroundImage: "images/interface/background1.jpg",
 		CanSelectCard: 0,
@@ -45,23 +28,12 @@ oS.Init(
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/Chomper.png",
-				"left:667px;top:220px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oChomper, 8);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/Chomper.png", "left:667px;top:220px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oChomper, 8);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

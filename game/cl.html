@@ -10,65 +10,43 @@
 			document.addEventListener("DOMContentLoaded", () => {
 				const commitList = document.createElement("ul");
 				document.body.appendChild(commitList);
-				const apiUrl =
-					"https://api.github.com/repos/roblnet13/pvz/commits";
+				const apiUrl = "https://api.github.com/repos/roblnet13/pvz/commits";
 				fetch(apiUrl)
 					.then((response) => response.json())
 					.then((commits) => {
 						commits.forEach((commit) => {
-							if (
-								commit.commit.author.name !==
-									"github-actions" &&
-								commit.commit.message !== "v"
-							) {
+							if (commit.commit.author.name !== "github-actions" && commit.commit.message !== "v") {
 								const listItem = document.createElement("li");
 								const itemText = document.createElement("pre");
 								const itemLink = document.createElement("a");
 								itemLink.href = commit.html_url;
 								itemLink.target = "_blank";
 								const authorName = commit.commit.author.name;
-								let committerName =
-									commit.commit.committer.name;
+								let committerName = commit.commit.committer.name;
 								const committerLogin = commit.committer.login;
 								const commitMessage = commit.commit.message;
 								const coAuthors = [];
 								if (committerName === "GitHub Action") {
 									committerName = "actions-user";
 								}
-								const coAuthorRegex =
-									/Co-authored-by: ([^<]+) <[^>]+>/g;
+								const coAuthorRegex = /Co-authored-by: ([^<]+) <[^>]+>/g;
 								let match;
-								while (
-									(match =
-										coAuthorRegex.exec(commitMessage)) !==
-									null
-								) {
+								while ((match = coAuthorRegex.exec(commitMessage)) !== null) {
 									coAuthors.push(match[1]);
 								}
-								if (
-									committerName !== authorName &&
-									!(
-										committerName === "GitHub" &&
-										committerLogin === "web-flow"
-									)
-								) {
+								if (committerName !== authorName && !(committerName === "GitHub" && committerLogin === "web-flow")) {
 									coAuthors.push(committerName);
 								}
 								let allAuthors;
 								if (coAuthors.length === 1) {
 									allAuthors = `${authorName} and ${coAuthors[0]}`;
 								} else if (coAuthors.length > 1) {
-									allAuthors = `${authorName}, ${coAuthors
-										.slice(0, -1)
-										.join(", ")} and ${
-										coAuthors[coAuthors.length - 1]
-									}`;
+									allAuthors = `${authorName}, ${coAuthors.slice(0, -1).join(", ")} and ${coAuthors[coAuthors.length - 1]}`;
 								} else {
 									allAuthors = authorName;
 								}
 								itemText.innerHTML = `<b>${allAuthors}</b>: `;
-								itemText.innerText +=
-									commitMessage.split("\n")[0];
+								itemText.innerText += commitMessage.split("\n")[0];
 								commitList.appendChild(listItem);
 								itemLink.appendChild(itemText);
 								listItem.appendChild(itemLink);

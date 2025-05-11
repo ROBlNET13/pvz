@@ -89,8 +89,7 @@ oS.Init(
 		DKind: 0,
 		Monitor: { f: AppearTombstones, ar: [5, 9, 11] },
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutTomZombie([oDancingZombie]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutTomZombie([oDancingZombie]);
 		},
 	},
 	{
@@ -125,23 +124,12 @@ oS.Init(
 			14: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(197);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(197);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

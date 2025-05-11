@@ -11,16 +11,10 @@ oS.Init({
 	AudioArr: ["pvzs"],
 	backgroundImage: "images/interface/TAWIN.png",
 	LoadAccess(a) {
-		NewImg(
-			"imgSF",
-			"images/interface/TAUI1.png",
-			"left:380px;top:360px",
-			EDAll,
-			{
-				onclick() {
-					SelectModal(150);
-				},
-			}
-		);
+		NewImg("imgSF", "images/interface/TAUI1.png", "left:380px;top:360px", EDAll, {
+			onclick() {
+				SelectModal(150);
+			},
+		});
 	},
 });

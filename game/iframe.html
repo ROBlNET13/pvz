@@ -3,15 +3,10 @@
 		<link rel="stylesheet" href="Custom.css" />
 		<meta http-equiv="X-Frame-Options" content="DENY" />
 		<title>Plants vs. Zombies MODDED Official</title>
-		<link
-			rel="icon"
-			href="https://roblnet13.github.io/pvz/game/images/gameicon2.png"
-			type="image/png"
-		/>
+		<link rel="icon" href="https://roblnet13.github.io/pvz/game/images/gameicon2.png" type="image/png" />
 		<script>
 			window.addEventListener("beforeunload", function (e) {
-				var confirmationMessage =
-					"Are you sure you want to leave? Progress does not save and any progress will be lost.";
+				var confirmationMessage = "Are you sure you want to leave? Progress does not save and any progress will be lost.";
 				e.returnValue = confirmationMessage; // For most browsers
 				return confirmationMessage; // For some older browsers
 			});
@@ -21,48 +16,26 @@
 		<!-- compression library for izombie lvl saving -->
 		<script src="js/Custom.js" defer></script>
 		<script src="js/Cheatcodes.js" defer></script>
-		<meta
-			property="og:title"
-			content="Play Plants vs Zombies Modded Online"
-		/>
+		<meta property="og:title" content="Play Plants vs Zombies Modded Online" />
 		<meta
 			property="og:description"
 			content="Play Plants vs Zombies Modded here for Free - A tower defense game created by PopCap Games and released on May 5, 2009. Click to Play now! Mod by ROBLNET13 on Github."
 		/>
-		<meta
-			property="og:url"
-			content="https://roblnet13.github.io/pvz/game/iframe.html"
-		/>
+		<meta property="og:url" content="https://roblnet13.github.io/pvz/game/iframe.html" />
 		<meta property="og:site_name" content="ROBLNET13" />
-		<meta
-			property="og:image"
-			content="https://roblnet13.github.io/pvz/game/images/gamethumbnail4.png"
-		/>
+		<meta property="og:image" content="https://roblnet13.github.io/pvz/game/images/gamethumbnail5.png" />
 		<meta property="og:image:alt" content="Plants vs. Zombies MODDED" />
 		<meta property="og:image:type" content="image/png" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="theme-color" content="#ff2200" />
-		<meta
-			name="twitter:title"
-			content="Play Plants vs. Zombies Modded Online"
-		/>
-		<meta
-			name="twitter:description"
-			content="Play Plants vs. Zombie Modded here for Free - Mod by ROBLNET13 on Github."
-		/>
-		<meta
-			name="twitter:image"
-			content="https://roblnet13.github.io/pvz/game/images/gamethumbnail4.png"
-		/>
+		<meta name="twitter:title" content="Play Plants vs. Zombies Modded Online" />
+		<meta name="twitter:description" content="Play Plants vs. Zombie Modded here for Free - Mod by ROBLNET13 on Github." />
+		<meta name="twitter:image" content="https://roblnet13.github.io/pvz/game/images/gamethumbnail5.png" />
 		<link rel="stylesheet" href="UI.css" />
 		<!-- REMOVE THIS SCRIPT AFTER REFACTOR IS DONE -->
 		<script>
 			function replaceSingleFontTag(fontElement) {
-				if (
-					!fontElement ||
-					!fontElement.parentNode ||
-					fontElement.tagName !== "FONT"
-				) {
+				if (!fontElement || !fontElement.parentNode || fontElement.tagName !== "FONT") {
 					return;
 				}
 
@@ -107,9 +80,7 @@
 					}
 				});
 				if (replacedCount > 0) {
-					console.log(
-						`Replaced ${replacedCount} initially present <font> tag(s).`
-					);
+					console.log(`Replaced ${replacedCount} initially present <font> tag(s).`);
 				} else {
 					console.log("No initial <font> tags found to replace.");
 				}
@@ -119,29 +90,16 @@
 				for (const mutation of mutationsList) {
 					if (mutation.type === "childList") {
 						mutation.addedNodes.forEach((node) => {
-							if (
-								node.nodeType === Node.ELEMENT_NODE &&
-								node.tagName === "FONT"
-							) {
+							if (node.nodeType === Node.ELEMENT_NODE && node.tagName === "FONT") {
 								replaceSingleFontTag(node);
-							} else if (
-								node.nodeType === Node.ELEMENT_NODE &&
-								node.querySelectorAll
-							) {
-								const nestedFonts =
-									node.querySelectorAll("font");
+							} else if (node.nodeType === Node.ELEMENT_NODE && node.querySelectorAll) {
+								const nestedFonts = node.querySelectorAll("font");
 								nestedFonts.forEach(replaceSingleFontTag);
 							}
 						});
 					} else if (mutation.type === "attributes") {
-						if (
-							mutation.target.nodeType === Node.ELEMENT_NODE &&
-							mutation.target.tagName === "FONT"
-						) {
-							console.log(
-								`Attribute '${mutation.attributeName}' changed on:`,
-								mutation.target
-							);
+						if (mutation.target.nodeType === Node.ELEMENT_NODE && mutation.target.tagName === "FONT") {
+							console.log(`Attribute '${mutation.attributeName}' changed on:`, mutation.target);
 							replaceSingleFontTag(mutation.target);
 						}
 					}
@@ -163,42 +121,24 @@
 
 				observer.observe(document.body, config);
 
-				console.log(
-					"MutationObserver started, watching for new <font> tags and attribute changes."
-				);
+				console.log("MutationObserver started, watching for new <font> tags and attribute changes.");
 			}
 
-			document.addEventListener(
-				"DOMContentLoaded",
-				initializeFontReplacement
-			);
+			document.addEventListener("DOMContentLoaded", initializeFontReplacement);
 		</script>
 	</head>
 
-	<body
-		id="dBody"
-		topmargin="0"
-		leftmargin="0"
-		oncontextmenu="return false"
-		ondragstart="return false"
-		onselectstart="return false"
-	>
+	<body id="dBody" topmargin="0" leftmargin="0" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 		<div id="stolen-warning" style="display: none">
 			<div class="stolen-warning-content">
 				<h2>⚠️ Different Website Warning ⚠️</h2>
-				<p style="font-size: 1.2em">
-					You're playing this game on a different website!
-				</p>
+				<p style="font-size: 1.2em">You're playing this game on a different website!</p>
 				<p style="font-size: 1.2em">The official website is:</p>
-				<a href="https://roblnet13.github.io/pvz"
-					>ROBLNET13.GITHUB.IO/PVZ</a
-				>
+				<a href="https://roblnet13.github.io/pvz">ROBLNET13.GITHUB.IO/PVZ</a>
 				<div class="note-box">
 					<p style="font-size: 1em; color: #666">
-						Note: If someone linked you here, this warning might
-						appear by mistake. That's normal! But if you found this
-						through a different website, they might have copied the
-						game without permission.
+						Note: If someone linked you here, this warning might appear by mistake. That's normal! But if you found this through a different
+						website, they might have copied the game without permission.
 					</p>
 				</div>
 				<p style="font-size: 1.2em">To be safe, you can:</p>
@@ -209,35 +149,23 @@
 					onclick="window.top.location.href='https://roblnet13.github.io/pvz'; return false;"
 					>Play on the Official Website!</a
 				>
-				<button
-					class="small-button"
-					onclick="document.getElementById('stolen-warning').style.display='none'"
-				>
-					Continue Here
-				</button>
+				<button class="small-button" onclick="document.getElementById('stolen-warning').style.display='none'">Continue Here</button>
 			</div>
 		</div>
 		<script>
 			(function checkSite() {
 				// First check referrer - if it exists and is official site, we're good
-				if (
-					document.referrer &&
-					(document.referrer.includes("roblnet13.github.io") ||
-						document.referrer.includes("github.com"))
-				) {
+				if (document.referrer && (document.referrer.includes("roblnet13.github.io") || document.referrer.includes("github.com"))) {
 					return; // Exit early if referrer is from official site
 				}
 
 				// Otherwise check current URL only if referrer is empty/missing
 				var currentUrl = window.location.href;
-				var isOfficialSite =
-					!document.referrer &&
-					currentUrl.includes("roblnet13.github.io");
+				var isOfficialSite = !document.referrer && currentUrl.includes("roblnet13.github.io");
 
 				// Show warning if neither check passed
 				if (!isOfficialSite) {
-					document.getElementById("stolen-warning").style.display =
-						"flex";
+					document.getElementById("stolen-warning").style.display = "flex";
 				}
 			})();
 		</script>
@@ -265,42 +193,14 @@
 				<div id="sFlagMeterTitleF"></div>
 			</div>
 			<div id="dFlagMeterContent">
-				<img
-					id="imgFlagMeterEmpty"
-					src="images/interface/FlagMeterEmpty.png"
-				/>
-				<img
-					id="imgFlagMeterFull"
-					src="images/interface/FlagMeterFull.png"
-				/>
-				<img
-					class="flag"
-					id="imgFlag1"
-					src="images/interface/FlagMeterParts2.png"
-				/>
-				<img
-					class="flag"
-					id="imgFlag2"
-					src="images/interface/FlagMeterParts2.png"
-				/>
-				<img
-					class="flag"
-					id="imgFlag3"
-					src="images/interface/FlagMeterParts2.png"
-				/>
-				<img
-					class="flag"
-					id="imgFlag4"
-					src="images/interface/FlagMeterParts2.png"
-				/>
-				<img
-					id="imgGQJC"
-					src="images/interface/FlagMeterLevelProgress.png"
-				/>
-				<img
-					id="imgFlagHead"
-					src="images/interface/FlagMeterParts1.png"
-				/>
+				<img id="imgFlagMeterEmpty" src="images/interface/FlagMeterEmpty.png" />
+				<img id="imgFlagMeterFull" src="images/interface/FlagMeterFull.png" />
+				<img class="flag" id="imgFlag1" src="images/interface/FlagMeterParts2.png" />
+				<img class="flag" id="imgFlag2" src="images/interface/FlagMeterParts2.png" />
+				<img class="flag" id="imgFlag3" src="images/interface/FlagMeterParts2.png" />
+				<img class="flag" id="imgFlag4" src="images/interface/FlagMeterParts2.png" />
+				<img id="imgGQJC" src="images/interface/FlagMeterLevelProgress.png" />
+				<img id="imgFlagHead" src="images/interface/FlagMeterParts1.png" />
 			</div>
 		</div>
 		<div id="dSurface" class="WindowFrame">
@@ -320,31 +220,13 @@
 										k: "SetNone($('dSurface'));PlayAudio('tap')",
 									},
 								];
-							for (var i = 0; i <= 2; i++)
-								s +=
-									'<area href="javascript:;" shape="rect" coords="' +
-									ar[i].c +
-									'" onclick="' +
-									ar[i].k +
-									'">';
+							for (var i = 0; i <= 2; i++) s += '<area href="javascript:;" shape="rect" coords="' + ar[i].c + '" onclick="' + ar[i].k + '">';
 							document.write(s);
 						})();
 					</script>
 				</map>
-				<img
-					src="images/interface/Surface.jpg"
-					usemap="#FPMap0"
-					border="0"
-				/>
-				<div
-					style="
-						position: absolute;
-						width: 350px;
-						height: 150px;
-						left: 468px;
-						top: 82px;
-					"
-				></div>
+				<img src="images/interface/Surface.jpg" usemap="#FPMap0" border="0" />
+				<div style="position: absolute; width: 350px; height: 150px; left: 468px; top: 82px"></div>
 				<div
 					class="adventure0"
 					id="dAdventure"
@@ -352,30 +234,14 @@
 					onmouseout="this.style.backgroundPosition='top'"
 					onclick="StartAdventure()"
 				></div>
-				<div
-					style="
-						position: absolute;
-						width: 318px;
-						height: 136px;
-						left: 476px;
-						top: 208px;
-					"
-				></div>
+				<div style="position: absolute; width: 318px; height: 136px; left: 476px; top: 208px"></div>
 				<div
 					class="mini"
 					onmouseover="this.style.backgroundPosition='bottom';"
 					onmouseout="this.style.backgroundPosition='top'"
 					onclick="ShowMiniGame()"
 				></div>
-				<div
-					style="
-						position: absolute;
-						width: 289px;
-						height: 127px;
-						left: 480px;
-						top: 307px;
-					"
-				></div>
+				<div style="position: absolute; width: 289px; height: 127px; left: 480px; top: 307px"></div>
 				<div
 					class="riddle"
 					onmouseover="this.style.backgroundPosition='bottom';"
@@ -409,64 +275,32 @@
 				</div>
 			</div>
 			<div id="dPause">
-				<table
-					border="0"
-					width="434"
-					cellspacing="0"
-					cellpadding="0"
-					height="484"
-				>
+				<table border="0" width="434" cellspacing="0" cellpadding="0" height="484">
 					<tr>
 						<td width="107" height="142" valign="bottom">
-							<img
-								border="0"
-								src="images/interface/dialog_topleft.png"
-								width="423"
-								height="401"
-							/>
+							<img border="0" src="images/interface/dialog_topleft.png" width="423" height="401" />
 						</td>
 					</tr>
 				</table>
 				<div class="list">
-					<div
-						class="hidden"
-						onclick="SetNone($('dSurface'),$('dPause'))"
-					></div>
+					<div class="hidden" onclick="SetNone($('dSurface'),$('dPause'))"></div>
 					<div id="dPauseAD"></div>
 				</div>
-				<div class="button" onclick="ResetGame($('dMenu0'))">
-					Back To Game
-				</div>
+				<div class="button" onclick="ResetGame($('dMenu0'))">Back To Game</div>
 			</div>
 			<div id="dZombieFail">
-				<table
-					border="0"
-					width="434"
-					cellspacing="0"
-					cellpadding="0"
-					height="484"
-				>
+				<table border="0" width="434" cellspacing="0" cellpadding="0" height="484">
 					<tr>
 						<td width="107" height="142" valign="bottom">
-							<img
-								border="0"
-								src="images/interface/dialog_topleft.png"
-								width="423"
-								height="401"
-							/>
+							<img border="0" src="images/interface/dialog_topleft.png" width="423" height="401" />
 						</td>
 					</tr>
 				</table>
 				<div class="list">
-					<div
-						class="hidden"
-						onclick="SetNone($('dSurface'),$('dZombieFail'))"
-					></div>
+					<div class="hidden" onclick="SetNone($('dSurface'),$('dZombieFail'))"></div>
 					<div id="dZombieFailAD"></div>
 				</div>
-				<div class="button" onclick="ResetGame($('dMenu0'))">
-					Back To Game
-				</div>
+				<div class="button" onclick="ResetGame($('dMenu0'))">Back To Game</div>
 			</div>
 			<div id="dSurfaceBack">
 				<div id="dHelp" onclick="HiddenHelp()"></div>
@@ -538,11 +372,7 @@
 							onmousedown="OptionsMenuDown(this,$('sOptionsMenu'))"
 							onmouseup="OptionsMenuUP(this,$('sOptionsMenu'));HiddenOptions();CheckAutoSun($('cAutoSun'));CheckSilence($('cSilence'))"
 						>
-							<span
-								id="sOptionsMenu"
-								class="OptionsMenuButtonSpan"
-								>Back To Game</span
-							>
+							<span id="sOptionsMenu" class="OptionsMenuButtonSpan">Back To Game</span>
 						</div>
 					</div>
 					<script>
@@ -562,21 +392,13 @@
 								var s = "",
 									startlvl = BLvl * 10;
 								do {
-									s +=
-										'<span class="lvl" onclick="SelectModal(' +
-										(startlvl + SLvl1) +
-										')">Level ' +
-										ArLvl[SLvl1] +
-										".</span>";
+									s += '<span class="lvl" onclick="SelectModal(' + (startlvl + SLvl1) + ')">Level ' + ArLvl[SLvl1] + ".</span>";
 								} while (SLvl1++ < SLvl2);
 								document.write(s);
 							};
 					</script>
 				</div>
-				<div
-					id="dAdvSmallContainer"
-					class="Challenge_Background TitleSmallContainer"
-				>
+				<div id="dAdvSmallContainer" class="Challenge_Background TitleSmallContainer">
 					<div id="dAdvSmallTitle">Level Selection</div>
 					<div class="list">
 						<div class="title">Day</div>
@@ -589,13 +411,7 @@
 								width="366"
 								height="61"
 							/>
-							<img
-								class="img2"
-								border="0"
-								src="images/interface/Almanac_ZombieWindow2.png"
-								width="76"
-								height="76"
-							/>
+							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
 						</div>
 						<div class="lvl2">
 							<script>
@@ -608,22 +424,13 @@
 						<div class="icon">
 							<img
 								class="img1"
-								style="
-									clip: rect(0, 183px, auto, 122px);
-									left: -106px;
-								"
+								style="clip: rect(0, 183px, auto, 122px); left: -106px"
 								border="0"
 								src="images/interface/Almanac_Ground.png"
 								width="366"
 								height="61"
 							/>
-							<img
-								class="img2"
-								border="0"
-								src="images/interface/Almanac_ZombieWindow2.png"
-								width="76"
-								height="76"
-							/>
+							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
 						</div>
 						<div class="lvl2">
 							<script>
@@ -636,22 +443,13 @@
 						<div class="icon">
 							<img
 								class="img1"
-								style="
-									clip: rect(0, 305px, auto, 244px);
-									left: -228px;
-								"
+								style="clip: rect(0, 305px, auto, 244px); left: -228px"
 								border="0"
 								src="images/interface/Almanac_Ground.png"
 								width="366"
 								height="61"
 							/>
-							<img
-								class="img2"
-								border="0"
-								src="images/interface/Almanac_ZombieWindow2.png"
-								width="76"
-								height="76"
-							/>
+							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
 						</div>
 						<div class="lvl2">
 							<script>
@@ -664,22 +462,13 @@
 						<div class="icon">
 							<img
 								class="img1"
-								style="
-									clip: rect(0, 244px, auto, 183px);
-									left: -167px;
-								"
+								style="clip: rect(0, 244px, auto, 183px); left: -167px"
 								border="0"
 								src="images/interface/Almanac_Ground.png"
 								width="366"
 								height="61"
 							/>
-							<img
-								class="img2"
-								border="0"
-								src="images/interface/Almanac_ZombieWindow2.png"
-								width="76"
-								height="76"
-							/>
+							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
 						</div>
 						<div class="lvl2">
 							<script>
@@ -698,13 +487,7 @@
 								width="366"
 								height="61"
 							/>
-							<img
-								class="img2"
-								border="0"
-								src="images/interface/Almanac_ZombieWindow2.png"
-								width="76"
-								height="76"
-							/>
+							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
 						</div>
 						<div class="lvl2">
 							<script>
@@ -721,19 +504,10 @@
 						Close
 					</div>
 				</div>
-				<div
-					id="dMiniSmallContainer"
-					class="Challenge_Background TitleSmallContainer"
-				>
-					<div id="dMiniSmallTitle">
-						China Pavilion - Dave's China Trip
-					</div>
+				<div id="dMiniSmallContainer" class="Challenge_Background TitleSmallContainer">
+					<div id="dMiniSmallTitle">China Pavilion - Dave's China Trip</div>
 					<div id="dMini0">
-						<table
-							cellspacing="10"
-							width="100%"
-							style="color: #2a2a5a"
-						>
+						<table cellspacing="10" width="100%" style="color: #2a2a5a">
 							<script>
 								(function () {
 									var ar = [
@@ -798,9 +572,7 @@
 											'"></div><div class="list">' +
 											ar[n + 1] +
 											"</div></td>";
-										(i + 1) % 5 == 0
-											? ((s += "</tr>"), (i = 0))
-											: ++i;
+										(i + 1) % 5 == 0 ? ((s += "</tr>"), (i = 0)) : ++i;
 									}
 									if (i != 0) {
 										while (--i) s += "<td>　</td>";
@@ -821,15 +593,9 @@
 					</div>
 				</div>
 			</div>
-			<div
-				id="dRiddleSmallContainer"
-				class="Challenge_Background TitleSmallContainer"
-			>
+			<div id="dRiddleSmallContainer" class="Challenge_Background TitleSmallContainer">
 				<div id="dMiniSmallTitle">Mini-Games</div>
-				<div
-					id="dMini0"
-					style="overflow-y: auto; height: 477px; width: 890px"
-				>
+				<div id="dMini0" style="overflow-y: auto; height: 477px; width: 890px">
 					<table cellspacing="10" width="100%" style="color: #2a2a5a">
 						<script>
 							(function () {
@@ -899,9 +665,7 @@
 											'"></div><div class="list">' +
 											ar[n + 1] +
 											"</div></td>";
-										(i + 1) % 5 == 0
-											? ((s += "</tr>"), (i = 0))
-											: ++i;
+										(i + 1) % 5 == 0 ? ((s += "</tr>"), (i = 0)) : ++i;
 									} else {
 										s +=
 											'<td height="139" valign="top" onclick="SelectModal(\'' +
@@ -911,9 +675,7 @@
 											'"></div><div class="list">' +
 											ar[n + 1] +
 											"</div></td>";
-										(i + 1) % 5 == 0
-											? ((s += "</tr>"), (i = 0))
-											: ++i;
+										(i + 1) % 5 == 0 ? ((s += "</tr>"), (i = 0)) : ++i;
 									}
 								}
 								if (i != 0) {
@@ -946,71 +708,30 @@
 				</div>
 				<!--对战界面已作废，无特殊请勿乱动-->
 				<div id="dRiddle1">
-					<div
-						style="
-							position: relative;
-							width: 94%;
-							font-size: 12px;
-							margin-top: 10px;
-							margin-left: auto;
-							margin-right: auto;
-							color: #000;
-						"
-					>
-						<button
-							class="jhp"
-							style="height: 23px"
-							onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(0)"
-						>
-							all games
-						</button>
-						<button
-							class="jhp"
-							style="height: 23px"
-							onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(1)"
-						>
-							I created
-						</button>
-						<button
-							class="jhp"
-							style="height: 23px"
-							onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(2)"
-						>
-							i played</button
-						>&nbsp;&nbsp;&nbsp;
-						<input type="text" id="tRiddleID" size="1" /><button
+					<div style="position: relative; width: 94%; font-size: 12px; margin-top: 10px; margin-left: auto; margin-right: auto; color: #000">
+						<button class="jhp" style="height: 23px" onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(0)">all games</button>
+						<button class="jhp" style="height: 23px" onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(1)">I created</button>
+						<button class="jhp" style="height: 23px" onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(2)">i played</button
+						>&nbsp;&nbsp;&nbsp; <input type="text" id="tRiddleID" size="1" /><button
 							class="jhp"
 							style="height: 23px"
 							onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(3,$('tRiddleID').value)"
 						>
 							Serial number query</button
-						>&nbsp;&nbsp;&nbsp;
-						<input
-							type="text"
-							id="tRiddleUserName"
-							size="3"
-						/><button
+						>&nbsp;&nbsp;&nbsp; <input type="text" id="tRiddleUserName" size="3" /><button
 							class="jhp"
 							style="height: 23px"
 							onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(4,$('tRiddleUserName').value)"
 						>
 							Created by query</button
-						>&nbsp;&nbsp;&nbsp;
-						<input type="text" id="tRiddleTitle" size="3" /><button
+						>&nbsp;&nbsp;&nbsp; <input type="text" id="tRiddleTitle" size="3" /><button
 							class="jhp"
 							style="height: 23px"
 							onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(5,$('tRiddleTitle').value)"
 						>
 							Title query
 						</button>
-						<div
-							style="
-								border: 1px solid #000;
-								height: 440px;
-								width: 100%;
-								background: #fafafa;
-							"
-						>
+						<div style="border: 1px solid #000; height: 440px; width: 100%; background: #fafafa">
 							<iframe
 								name="fRiddleAlreadyCreateGame"
 								id="fRiddleAlreadyCreateGame"
@@ -1068,15 +789,7 @@
 				<div class="title"></div>
 				<div id="dPCard"></div>
 				<div class="bTitle">
-					<input
-						class="button"
-						onclick="ResetSelectCard()"
-						type="button"
-						value="Clear"
-						name="btnReset"
-						id="btnReset"
-						style="color: #fc6"
-					/>
+					<input class="button" onclick="ResetSelectCard()" type="button" value="Clear" name="btnReset" id="btnReset" style="color: #fc6" />
 					<input
 						class="button"
 						onclick="oS.ScrollBack(LetsGO)"
@@ -1094,63 +807,28 @@
 					<span id="sSunNum"></span>
 				</div>
 				<div id="tdShovel">
-					<img
-						id="imgShovel"
-						src="images/interface/Shovel/0.gif"
-						onmousedown="ChoseShovel(event)"
-					/>
+					<img id="imgShovel" src="images/interface/Shovel/0.gif" onmousedown="ChoseShovel(event)" />
 				</div>
 			</div>
 			<div id="dPZ"></div>
 		</div>
 		<div id="dMenu">
-			<div id="dMenu0" class="Menu" onclick="ClickMenu();ShowSpeed()">
-				Speed
-			</div>
+			<div id="dMenu0" class="Menu" onclick="ClickMenu();ShowSpeed()">Speed</div>
 			<div id="dMenu1" class="Menu" onclick="ClickMenu()">Menu</div>
 		</div>
 		<div id="dHandBook" class="WindowFrame">
 			<div class="title">Suburban Almanac - Index</div>
 			<div class="content">
 				<div>
-					<img
-						border="0"
-						src="images/Plants/SunFlower/SunFlower1.gif"
-						width="73"
-						height="74"
-					/><br />
-					<input
-						class="button"
-						type="button"
-						value="View Plants"
-						name="btnViewPlant"
-						id="btnViewPlant"
-						onclick="InitHandBookPCard()"
-					/>
+					<img border="0" src="images/Plants/SunFlower/SunFlower1.gif" width="73" height="74" /><br />
+					<input class="button" type="button" value="View Plants" name="btnViewPlant" id="btnViewPlant" onclick="InitHandBookPCard()" />
 				</div>
 				<div style="left: 50%; padding-top: 95px">
-					<img
-						border="0"
-						src="images/Zombies/Zombie/1.gif"
-						width="149"
-						height="130"
-					/><br />
-					<input
-						class="button"
-						type="button"
-						value="View Zombies"
-						name="btnViewZombie"
-						id="btnViewZombie"
-						onclick="InitHandBookZCard()"
-					/>
+					<img border="0" src="images/Zombies/Zombie/1.gif" width="149" height="130" /><br />
+					<input class="button" type="button" value="View Zombies" name="btnViewZombie" id="btnViewZombie" onclick="InitHandBookZCard()" />
 				</div>
 			</div>
-			<div
-				class="close"
-				onmouseover="this.style.backgroundPosition='bottom'"
-				onmouseout="this.style.backgroundPosition='top'"
-				onclick="CloseHandBook()"
-			>
+			<div class="close" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="CloseHandBook()">
 				Close&nbsp;
 			</div>
 		</div>
@@ -1164,10 +842,7 @@
 					<div id="dHandBookPlantName"></div>
 					<div id="dProducePlant"></div>
 					<div class="cost_cool">
-						<span class="cost">Cost: </span
-						><span id="spSunNum"></span
-						><span class="cool">Recharge: </span
-						><span id="spCoolTime"></span>
+						<span class="cost">Cost: </span><span id="spSunNum"></span><span class="cool">Recharge: </span><span id="spCoolTime"></span>
 					</div>
 				</div>
 			</div>
@@ -1219,21 +894,10 @@
 			>
 				Main Menu&nbsp;
 			</div>
-			<input
-				type="button"
-				value="NEXT LEVEL!"
-				name="btnNextLevel"
-				id="btnNextLevel"
-			/>
+			<input type="button" value="NEXT LEVEL!" name="btnNextLevel" id="btnNextLevel" />
 		</div>
 		<div id="dProcess">
-			<input
-				class="button"
-				type="button"
-				value="Close"
-				onclick="SetHidden($('dProcess'))"
-				style="margin-top: 330px"
-			/>
+			<input class="button" type="button" value="Close" onclick="SetHidden($('dProcess'))" style="margin-top: 330px" />
 			<script>
 				document.write(
 					'<a style="margin-left:50px;cursor:url(images/interface/Pointer.cur),pointer;color:#FF0;font-size:15px;text-decoration:none;font-weight:bold;display:none" target="_blank" ></a>'
@@ -1241,14 +905,8 @@
 			</script>
 		</div>
 		<div id="dSpeedContainer">
-			<div class="title">
-				At the request of players, the game speed adjustment function is
-				especially introduced
-			</div>
-			<div
-				class="dSpeed"
-				title="Click on a speed to select soft acceleration"
-			>
+			<div class="title">At the request of players, the game speed adjustment function is especially introduced</div>
+			<div class="dSpeed" title="Click on a speed to select soft acceleration">
 				<div class="dS1">Click on the corresponding speed</div>
 				<div class="dS2">
 					<div onclick="CSpeed(1,20,.5)">1/2<br /><br />┕━</div>
@@ -1258,50 +916,29 @@
 					<div onclick="CSpeed(5,5,10)">10<br /><br />━┛</div>
 				</div>
 			</div>
-			<div class="nowspeed">
-				Current game speed:<span id="dDisplaySpeed">1</span>
-			</div>
+			<div class="nowspeed">Current game speed:<span id="dDisplaySpeed">1</span></div>
 			<div class="content">
-				<span>&nbsp;&nbsp;&nbsp; Speed Continue</span>: Ideally, the
-				speed adjustment provided by the game is
-				<font color="#FFFF00">1/2 speed - 10 times speed</font>. But the
-				speed Continue effect is related to your browser and computer.
-				For example, IE6 browser can't be expected to be 10 times faster
-				on a good computer.<br />&nbsp;&nbsp;&nbsp; After the speed
-				adjustment, the visual visual of the screen may feel a bit
-				sluggish, and at high speeds, some browsers may not be able to
-				accelerate or can only accelerate for a short time and then slow
-				down.<br />&nbsp;&nbsp;&nbsp;
+				<span>&nbsp;&nbsp;&nbsp; Speed Continue</span>: Ideally, the speed adjustment provided by the game is
+				<font color="#FFFF00">1/2 speed - 10 times speed</font>. But the speed Continue effect is related to your browser and computer. For example, IE6
+				browser can't be expected to be 10 times faster on a good computer.<br />&nbsp;&nbsp;&nbsp; After the speed adjustment, the visual visual of the
+				screen may feel a bit sluggish, and at high speeds, some browsers may not be able to accelerate or can only accelerate for a short time and then
+				slow down.<br />&nbsp;&nbsp;&nbsp;
 				<span style="color: #ff0"
-					>Finally, it is strongly recommended to use: Chrome,
-					FireFox, Brave, so that you can experience the feeling of a
-					machine gun with a peashooter!<br />&nbsp;&nbsp;&nbsp;
+					>Finally, it is strongly recommended to use: Chrome, FireFox, Brave, so that you can experience the feeling of a machine gun with a
+					peashooter!<br />&nbsp;&nbsp;&nbsp;
 				</span>
 			</div>
 			<br />
 			<div>
-				<input
-					type="button"
-					value="Resume"
-					onclick="HiddenSpeed()"
-				/>&nbsp;&nbsp;
-				<input
-					type="button"
-					value="Reset Speed"
-					onclick="CSpeed(1,10,1)"
-				/>
+				<input type="button" value="Resume" onclick="HiddenSpeed()" />&nbsp;&nbsp;
+				<input type="button" value="Reset Speed" onclick="CSpeed(1,10,1)" />
 			</div>
 		</div>
 		<script>
 			$User.Client.PC && $User.HTTP
-				? ((oS.AutoSun = Math.floor(getCookie("JSPVZAutoSun"))) &&
-						($("cAutoSun").checked = true),
-					(oS.Silence = Math.floor(getCookie("JSPVZSilence"))) &&
-						($("cSilence").checked = true))
-				: ((oS.AutoSun = 1),
-					($("cAutoSun").checked = true),
-					(oS.Silence = 0),
-					($("cSilence").checked = false));
+				? ((oS.AutoSun = Math.floor(getCookie("JSPVZAutoSun"))) && ($("cAutoSun").checked = true),
+					(oS.Silence = Math.floor(getCookie("JSPVZSilence"))) && ($("cSilence").checked = true))
+				: ((oS.AutoSun = 1), ($("cAutoSun").checked = true), (oS.Silence = 0), ($("cSilence").checked = false));
 			InitGame();
 		</script>
 		<script src="js/CPlants.js"></script>
@@ -1309,28 +946,10 @@
 		<script src="js/CFP_Beta.js"></script>
 		<!-- izombie lvl saving stuffs -->
 		<!--本网页来自江南游戏 || pvzweb.usa3v.net-->
-		<button
-			id="changelog"
-			style="
-				z-index: 99999;
-				position: relative;
-				margin-top: 544px;
-				left: 50%;
-				margin-left: -400px;
-				display: none;
-			"
-		>
-			Changelog
-		</button>
+		<button id="changelog" style="z-index: 99999; position: relative; margin-top: 544px; left: 50%; margin-left: -400px; display: none">Changelog</button>
 		<svg style="width: 0; height: 0">
 			<defs>
-				<filter
-					id="cardboard"
-					x="-50%"
-					y="-50%"
-					width="200%"
-					height="200%"
-				>
+				<filter id="cardboard" x="-50%" y="-50%" width="200%" height="200%">
 					<feColorMatrix
 						type="matrix"
 						values="
@@ -1342,10 +961,7 @@
 						result="coloredImage"
 					></feColorMatrix>
 
-					<feComponentTransfer
-						in="coloredImage"
-						result="brightenedImage"
-					>
+					<feComponentTransfer in="coloredImage" result="brightenedImage">
 						<feFuncR type="linear" slope="0.9"></feFuncR>
 						<feFuncG type="linear" slope="0.9"></feFuncG>
 						<feFuncB type="linear" slope="0.9"></feFuncB>
@@ -1376,13 +992,7 @@
 						in="SourceGraphic"
 						result="fullSepia"
 					/>
-					<feBlend
-						in="brightenedImage"
-						in2="fullSepia"
-						mode="normal"
-						result="sepiaBlended"
-						style="mix-blend-mode: lighten"
-					></feBlend>
+					<feBlend in="brightenedImage" in2="fullSepia" mode="normal" result="sepiaBlended" style="mix-blend-mode: lighten"></feBlend>
 
 					<feColorMatrix
 						type="matrix"
@@ -1395,66 +1005,27 @@
 						in="SourceGraphic"
 						result="coloredImage"
 					></feColorMatrix>
-					<feComponentTransfer
-						in="coloredImage"
-						result="processedImage"
-					>
+					<feComponentTransfer in="coloredImage" result="processedImage">
 						<feFuncR type="linear" slope="0.9"></feFuncR>
 						<feFuncG type="linear" slope="0.9"></feFuncG>
 						<feFuncB type="linear" slope="0.9"></feFuncB>
 						<feFuncA type="identity"></feFuncA>
 					</feComponentTransfer>
 
-					<feGaussianBlur
-						in="SourceAlpha"
-						stdDeviation="0"
-						result="blur1"
-					/>
+					<feGaussianBlur in="SourceAlpha" stdDeviation="0" result="blur1" />
 					<feOffset dx="-2" dy="-2" in="blur1" result="offsetBlur1" />
-					<feFlood
-						flood-color="rgb(171, 135, 107)"
-						result="shadowColor1"
-					/>
-					<feComposite
-						in="shadowColor1"
-						in2="offsetBlur1"
-						operator="in"
-						result="shadow1"
-					/>
+					<feFlood flood-color="rgb(171, 135, 107)" result="shadowColor1" />
+					<feComposite in="shadowColor1" in2="offsetBlur1" operator="in" result="shadow1" />
 
-					<feGaussianBlur
-						in="SourceAlpha"
-						stdDeviation="0"
-						result="blur2"
-					/>
+					<feGaussianBlur in="SourceAlpha" stdDeviation="0" result="blur2" />
 					<feOffset dx="4" dy="4" in="blur3" result="offsetBlur3" />
-					<feFlood
-						flood-color="rgb(122, 86, 58)"
-						result="shadowColor3"
-					/>
-					<feComposite
-						in="shadowColor3"
-						in2="offsetBlur3"
-						operator="in"
-						result="shadow3"
-					/>
+					<feFlood flood-color="rgb(122, 86, 58)" result="shadowColor3" />
+					<feComposite in="shadowColor3" in2="offsetBlur3" operator="in" result="shadow3" />
 
-					<feGaussianBlur
-						in="SourceAlpha"
-						stdDeviation="0"
-						result="blur3"
-					/>
+					<feGaussianBlur in="SourceAlpha" stdDeviation="0" result="blur3" />
 					<feOffset dx="2" dy="2" in="blur2" result="offsetBlur2" />
-					<feFlood
-						flood-color="rgb(171, 135, 107)"
-						result="shadowColor2"
-					/>
-					<feComposite
-						in="shadowColor2"
-						in2="offsetBlur2"
-						operator="in"
-						result="shadow2"
-					/>
+					<feFlood flood-color="rgb(171, 135, 107)" result="shadowColor2" />
+					<feComposite in="shadowColor2" in2="offsetBlur2" operator="in" result="shadow2" />
 
 					<feMerge>
 						<feMergeNode in="shadow1" />
@@ -1466,16 +1037,7 @@
 			</defs>
 		</svg>
 		<!-- 100% privacy-first analytics -->
-		<script
-			data-collect-dnt="true"
-			async
-			src="https://scripts.simpleanalyticscdn.com/latest.js"
-		></script>
-		<noscript
-			><img
-				src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true"
-				alt=""
-				referrerpolicy="no-referrer-when-downgrade"
-		/></noscript>
+		<script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+		<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
 	</body>
 </html>

@@ -55,10 +55,7 @@
 			oSpikerock,
 		],
 		ZName: [oZombie],
-		PicArr: [
-			"images/interface/background2.jpg",
-			"images/interface/trophy.png",
-		],
+		PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png"],
 		backgroundImage: "images/interface/background2.jpg",
 		BrainsNum: 5,
 		ProduceSun: false,
@@ -82,22 +79,14 @@
 		},
 		ArP: { ArC: [1, 4], ArR: [1, 5] },
 		LoadAccess(a) {
-			!oS.LvlVar
-				? (oS.LvlVar = { ScrollScreen: oS.ScrollScreen })
-				: (oS.LvlVar.ScrollScreen = oS.ScrollScreen); // 关卡数据
+			!oS.LvlVar ? (oS.LvlVar = { ScrollScreen: oS.ScrollScreen }) : (oS.LvlVar.ScrollScreen = oS.ScrollScreen); // 关卡数据
 			$("tGround").style.left = "-115px";
 			oS.ScrollScreen = function () {
 				// 移动重写
 				$("tGround").style.left = 0;
 				ClearChild($("dButton1"), $("dButton2"));
 				(function () {
-					(EDAll.scrollLeft += 25) < 500
-						? oSym.addTask(2, arguments.callee, [])
-						: SetVisible(
-								$("dMenu"),
-								$("dSelectCard"),
-								$("dCardList")
-							);
+					(EDAll.scrollLeft += 25) < 500 ? oSym.addTask(2, arguments.callee, []) : SetVisible($("dMenu"), $("dSelectCard"), $("dCardList"));
 				})();
 			};
 			a(0);
@@ -106,22 +95,11 @@
 			oP.Monitor({
 				ar: [],
 				f() {
-					var a = NewEle(
-						"DivTeach",
-						"div",
-						"line-height:40px;font-size:14px;top:380px",
-						0,
-						EDAll
-					); // 选择阵型列数
+					var a = NewEle("DivTeach", "div", "line-height:40px;font-size:14px;top:380px", 0, EDAll); // 选择阵型列数
 					var b = function (c) {
 						ClearChild($("DivTeach")), ImmediatelyCool(); // 取消冻结全部植物
 						SetVisible($("tdShovel"), $("dFlagMeter")); // 显示铲子
-						NewImg(
-							"iStripe",
-							"images/interface/Stripe.png",
-							"left:" + (GetX1X2(c)[0] - 11) + "px;top:65px",
-							EDAll
-						); // 生成线
+						NewImg("iStripe", "images/interface/Stripe.png", "left:" + (GetX1X2(c)[0] - 11) + "px;top:65px", EDAll); // 生成线
 						NewEle(
 							"btnClickSave",
 							"button",
@@ -191,41 +169,21 @@
 
 									for (k in g) {
 										if (g.hasOwnProperty(k)) {
-											(z =
-												(i = k.split("_"))[0] +
-												i[1] +
-												$SEql(g[k].EName, j)),
-												(m = z + m),
-												(r = Math.max(r, i[1]));
+											(z = (i = k.split("_"))[0] + i[1] + $SEql(g[k].EName, j)), (m = z + m), (r = Math.max(r, i[1]));
 										}
 									} // 生成植物数据，采用倒叙生成
 
 									if ($P.length < h * d * (4 / 5)) {
-										if (
-											!confirm(
-												"The amount of plants is less than 80% of the set range. Do you want to continue?"
-											)
-										) {
+										if (!confirm("The amount of plants is less than 80% of the set range. Do you want to continue?")) {
 											return;
 										}
 									}
 
-									if (
-										(f = prompt(
-											"Please enter the amount of sunlight, range 50-9990.",
-											"150"
-										)) == null
-									) {
+									if ((f = prompt("Please enter the amount of sunlight, range 50-9990.", "150")) == null) {
 										return;
 									} // 用户未输入, 返回
-									if (
-										isNaN((f = Number(f))) ||
-										f < 50 ||
-										f > 9990
-									) {
-										return alert(
-											"Please enter a number in the range 50-9990!"
-										);
+									if (isNaN((f = Number(f))) || f < 50 || f > 9990) {
+										return alert("Please enter a number in the range 50-9990!");
 									} // 输入阳光
 
 									if (
@@ -238,142 +196,79 @@
 										if (l.length === 0) {
 											l = "My I, Zombie Level";
 										}
-										($("btnClickSave").innerHTML =
-											"Saving.."),
-											($("btnClickSave").disabled =
-												"disabled"); // 按钮样式
+										($("btnClickSave").innerHTML = "Saving.."), ($("btnClickSave").disabled = "disabled"); // 按钮样式
 										// Ajax("asp/ImZombieCreateGame.asp", "post", "mapkind=" + oS.MapKind + "&SNum=" + f + "&T=" + escape(l) + "&C=" + escape(m), function(c){eval(c)}); // 发送请求
 										$("btnClickSave").innerHTML = "Saved!";
-										let levelDataElement =
-											document.createElement("input");
+										let levelDataElement = document.createElement("input");
 										levelDataElement.type = "search"; // just for a clear button
-										levelDataElement.placeholder =
-											"Level data here...";
+										levelDataElement.placeholder = "Level data here...";
 										levelDataElement.readOnly = true;
-										levelDataElement.style.position =
-											"absolute";
+										levelDataElement.style.position = "absolute";
 										levelDataElement.style.left = "50%";
 										levelDataElement.style.top = "50%";
-										levelDataElement.style.transform =
-											"translate(-50%, -50%)";
+										levelDataElement.style.transform = "translate(-50%, -50%)";
 										levelDataElement.style.width = "50%";
 										levelDataElement.style.padding = "7px";
-										levelDataElement.style.borderStyle =
-											"solid";
-										levelDataElement.style.borderRadius =
-											"10px";
-										levelDataElement.style.fontSize =
-											"large";
+										levelDataElement.style.borderStyle = "solid";
+										levelDataElement.style.borderRadius = "10px";
+										levelDataElement.style.fontSize = "large";
 										levelDataElement.style.zIndex = "1000";
-										levelDataElement.value =
-											stringifyCloneTiny(
-												cloneFromPlants(l, f)
-											);
+										levelDataElement.value = stringifyCloneTiny(cloneFromPlants(l, f));
 										$("dAll").appendChild(levelDataElement);
-										const copyButtonElement =
-											document.createElement("button");
-										copyButtonElement.style.position =
-											"absolute";
-										copyButtonElement.style.left =
-											"calc(75% - 19.5px)";
+										const copyButtonElement = document.createElement("button");
+										copyButtonElement.style.position = "absolute";
+										copyButtonElement.style.left = "calc(75% - 19.5px)";
 										copyButtonElement.style.top = "50%";
-										copyButtonElement.style.transform =
-											"translate(-50%, -50%)";
+										copyButtonElement.style.transform = "translate(-50%, -50%)";
 										copyButtonElement.style.width = "35px";
 										copyButtonElement.style.height = "34px";
-										copyButtonElement.style.cursor =
-											"url(images/interface/Pointer.cur),pointer";
-										copyButtonElement.style.backgroundColor =
-											"#fff";
-										copyButtonElement.style.borderStyle =
-											"hidden";
-										copyButtonElement.style.borderRadius =
-											"0px 10px 10px 0px";
+										copyButtonElement.style.cursor = "url(images/interface/Pointer.cur),pointer";
+										copyButtonElement.style.backgroundColor = "#fff";
+										copyButtonElement.style.borderStyle = "hidden";
+										copyButtonElement.style.borderRadius = "0px 10px 10px 0px";
 										copyButtonElement.style.zIndex = "1000";
 										copyButtonElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M0 0h24v24H0z" stroke="none"/><path d="M7 9.667A2.667 2.667 0 0 1 9.667 7h8.666A2.667 2.667 0 0 1 21 9.667v8.666A2.667 2.667 0 0 1 18.333 21H9.667A2.667 2.667 0 0 1 7 18.333z"/><path d="M4.012 16.737A2 2 0 0 1 3 15V5c0-1.1.9-2 2-2h10c.75 0 1.158.385 1.5 1"/></svg>`;
-										copyButtonElement.onclick =
-											function () {
-												levelDataElement.select();
-												levelDataElement.setSelectionRange(
-													0,
-													99999
-												); // for mobile
-												navigator.clipboard.writeText(
-													levelDataElement.value
-												);
-											};
-										$("dAll").appendChild(
-											copyButtonElement
-										);
-										let closeButton =
-											document.createElement("input");
-										closeButton.setAttribute(
-											"type",
-											"button"
-										);
-										closeButton.setAttribute(
-											"value",
-											"EXIT"
-										);
+										copyButtonElement.onclick = function () {
+											levelDataElement.select();
+											levelDataElement.setSelectionRange(0, 99999); // for mobile
+											navigator.clipboard.writeText(levelDataElement.value);
+										};
+										$("dAll").appendChild(copyButtonElement);
+										let closeButton = document.createElement("input");
+										closeButton.setAttribute("type", "button");
+										closeButton.setAttribute("value", "EXIT");
 										closeButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
 										closeButton.style.top = "60%";
-										closeButton.style.left =
-											"calc(50% - 120px)"; // "calc(33.333% - 56.5px)";
+										closeButton.style.left = "calc(50% - 120px)"; // "calc(33.333% - 56.5px)";
 										closeButton.onclick = function () {
 											$("dAll").style.zIndex = "";
 											let oldLv = oS.Lvl;
 											SelectModal(0);
-											SetBlock(
-												$("dSurface"),
-												$("iSurfaceBackground")
-											);
+											SetBlock($("dSurface"), $("iSurfaceBackground"));
 											oS.Lvl = oldLv;
 										};
 										closeButton.style.zIndex = "1000";
 
-										let uploadButton =
-											document.createElement("input");
-										uploadButton.setAttribute(
-											"type",
-											"button"
-										);
-										uploadButton.setAttribute(
-											"value",
-											"UPLOAD"
-										);
+										let uploadButton = document.createElement("input");
+										uploadButton.setAttribute("type", "button");
+										uploadButton.setAttribute("value", "UPLOAD");
 										uploadButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
 										uploadButton.style.top = "60%";
-										uploadButton.style.left =
-											"calc(50% - 56.5px)";
+										uploadButton.style.left = "calc(50% - 56.5px)";
 										uploadButton.onclick = function () {
 											// nothing for now
 										};
 										uploadButton.style.zIndex = "1000";
 										uploadButton.style.display = "none"; // hide for now
 
-										let downloadButton =
-											document.createElement("input");
-										downloadButton.setAttribute(
-											"type",
-											"button"
-										);
-										downloadButton.setAttribute(
-											"value",
-											"DOWNLOAD"
-										);
+										let downloadButton = document.createElement("input");
+										downloadButton.setAttribute("type", "button");
+										downloadButton.setAttribute("value", "DOWNLOAD");
 										downloadButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
 										downloadButton.style.top = "60%";
-										downloadButton.style.left =
-											"calc(50% + 5px)"; // "calc(66.666% - 56.5px)";
+										downloadButton.style.left = "calc(50% + 5px)"; // "calc(66.666% - 56.5px)";
 										downloadButton.onclick = function () {
-											downloadBytesAsFile(
-												compressStringAsBytes(
-													tinyifyClone(
-														cloneFromPlants(l, f)
-													)
-												),
-												l + ".izl2"
-											);
+											downloadBytesAsFile(compressStringAsBytes(tinyifyClone(cloneFromPlants(l, f))), l + ".izl2");
 										};
 										downloadButton.style.zIndex = "1000";
 
@@ -381,32 +276,24 @@
 										$("dAll").appendChild(closeButton);
 										$("dAll").appendChild(uploadButton);
 										$("dAll").appendChild(downloadButton);
-										let coverElement =
-											document.createElement("div");
-										coverElement.style.position =
-											"absolute";
+										let coverElement = document.createElement("div");
+										coverElement.style.position = "absolute";
 										coverElement.style.left = "0";
 										coverElement.style.top = "0";
 										coverElement.style.width = "100%";
 										coverElement.style.height = "100%";
-										coverElement.style.backgroundColor =
-											"rgba(0, 0, 0, 0.75)";
+										coverElement.style.backgroundColor = "rgba(0, 0, 0, 0.75)";
 										coverElement.style.zIndex = "999";
 										$("dAll").appendChild(coverElement);
-										let titleElement =
-											document.createElement("div");
-										titleElement.style.position =
-											"absolute";
+										let titleElement = document.createElement("div");
+										titleElement.style.position = "absolute";
 										titleElement.style.left = "50%";
 										titleElement.style.top = "30%";
-										titleElement.style.transform =
-											"translate(-50%, -50%)";
+										titleElement.style.transform = "translate(-50%, -50%)";
 										titleElement.style.width = "40%";
 										titleElement.style.height = "40px";
-										titleElement.innerText =
-											"Here's your level data - keep this somewhere safe!";
-										titleElement.style.fontSize =
-											"xx-large";
+										titleElement.innerText = "Here's your level data - keep this somewhere safe!";
+										titleElement.style.fontSize = "xx-large";
 										titleElement.style.textAlign = "center";
 										titleElement.style.color = "white";
 										titleElement.style.zIndex = "1000";
@@ -540,23 +427,12 @@
 		FlagToSumNum: { a1: [19], a2: [1, 2] },
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(0);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:198px;left:269px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(0);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:198px;left:269px", EDAll);
 		},
 	};
 	var oWin = {
@@ -601,18 +477,9 @@
 				$FJ(oSys, {
 					PicArr: [],
 					LoadAccess() {
-						!oS.LvlVar
-							? (oS.LvlVar = { ScrollScreen: oS.ScrollScreen })
-							: (oS.LvlVar.ScrollScreen = oS.ScrollScreen); // 关卡数据
+						!oS.LvlVar ? (oS.LvlVar = { ScrollScreen: oS.ScrollScreen }) : (oS.LvlVar.ScrollScreen = oS.ScrollScreen); // 关卡数据
 
-						NewEle(
-							"dChosePanel",
-							"div",
-							"display:block;position:absolute;left:0px;top:0px",
-							0,
-							EDAll,
-							{ class: "Almanac_ZombieBack" }
-						);
+						NewEle("dChosePanel", "div", "display:block;position:absolute;left:0px;top:0px", 0, EDAll, { class: "Almanac_ZombieBack" });
 						NewEle(
 							"dChoseTitle",
 							"div",
@@ -658,8 +525,7 @@
 							"div",
 							"text-align:center;line-height:60px;font-size:30px;font-weight:bold;font-family:黑体;color:#fff;position:relative;top:15px;",
 							{
-								innerHTML:
-									'Night<br><font style="font-size:20px">Click here to select this mode</font>',
+								innerHTML: 'Night<br><font style="font-size:20px">Click here to select this mode</font>',
 							},
 							$("dGrassDiv")
 						);
@@ -680,8 +546,7 @@
 							"div",
 							"text-align:center;line-height:60px;font-size:30px;font-weight:bold;font-family:黑体;color:#fff;position:relative;top:15px;",
 							{
-								innerHTML:
-									'Night Pool<br><font style="font-size:20px">Click here to select this mode</font>',
+								innerHTML: 'Night Pool<br><font style="font-size:20px">Click here to select this mode</font>',
 							},
 							$("dPoolDiv")
 						);
@@ -745,10 +610,7 @@
 					],
 					Coord: 2,
 					LF: [0, 1, 1, 2, 2, 1, 1], // 泳池样式
-					PicArr: [
-						"images/interface/background4.jpg",
-						"images/interface/trophy.png",
-					],
+					PicArr: ["images/interface/background4.jpg", "images/interface/trophy.png"],
 					backgroundImage: "images/interface/background4.jpg",
 					LevelName: "I, Zombie Level Editor - Night Pool",
 					BrainsNum: 6,

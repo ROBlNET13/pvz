@@ -1,27 +1,8 @@
 oS.Init(
 	{
-		PName: [
-			oPumpkinHead,
-			oCattail,
-			oSnowRepeater,
-			oTangleKlep,
-			oSeaShroom,
-			oLilyPad,
-			oLilyPad1,
-		],
-		ZName: [
-			oDuckyTubeZombie2,
-			oDuckyTubeZombie3,
-			oDuckyTubeZombie4,
-			oDuckyTubeZombie1,
-			oDolphinRiderZombie,
-			oSubZombie,
-			oSnorkelZombie,
-		],
-		PicArr: [
-			"images/interface/background5.jpg",
-			"images/interface/trophy.png",
-		],
+		PName: [oPumpkinHead, oCattail, oSnowRepeater, oTangleKlep, oSeaShroom, oLilyPad, oLilyPad1],
+		ZName: [oDuckyTubeZombie2, oDuckyTubeZombie3, oDuckyTubeZombie4, oDuckyTubeZombie1, oDolphinRiderZombie, oSubZombie, oSnorkelZombie],
+		PicArr: ["images/interface/background5.jpg", "images/interface/trophy.png"],
 		LF: [0, 2, 2, 2, 2, 2],
 		backgroundImage: "images/interface/background5.jpg",
 		CanSelectCard: 0,
@@ -37,8 +18,7 @@ oS.Init(
 		},
 		StaticCard: 0,
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutWaterZombie(6, 9, 3, [oWarshipsZombie]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(6, 9, 3, [oWarshipsZombie]);
 		},
 		StartGameMusic: "jiaxing",
 		StartGame() {
@@ -84,9 +64,7 @@ oS.Init(
 							var a;
 							var c;
 							while (b--) {
-								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
-									($(a.DID).style.top =
-										(a.PixelTop = c - 1) + "px");
+								(c = (a = ArCard[b]).PixelTop) > 60 * b && ($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
 							}
 							oSym.addTask(5, arguments.callee, []);
 						})();
@@ -115,23 +93,12 @@ oS.Init(
 		},
 		FlagToMonitor: {},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/LotusRoot.png",
-				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oLotusRoot, 46);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:490px;left:836px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/LotusRoot.png", "left:827px;top:525px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oLotusRoot, 46);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll);
 		},
 	},
 	{
@@ -149,9 +116,7 @@ oS.Init(
 			PlayAudio("seedlift");
 			a = window.event || a;
 			var f = ArCard[oS.ChoseCard];
-			var e =
-				a.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-				EElement.scrollLeft;
+			var e = a.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
 			var d = a.clientY + EBody.scrollTop || EElement.scrollTop;
 			var c = f.PName.prototype;
 			oS.Chose = 1;
@@ -159,14 +124,7 @@ oS.Init(
 				NewImg(
 					"MovePlant",
 					c.PicArr[c.StaticGif],
-					"left:" +
-						e -
-						0.5 * (c.beAttackedPointL + c.beAttackedPointR) +
-						"px;top:" +
-						d +
-						20 -
-						c.height +
-						"px;z-index:254",
+					"left:" + e - 0.5 * (c.beAttackedPointL + c.beAttackedPointR) + "px;top:" + d + 20 - c.height + "px;z-index:254",
 					EDAll
 				).cloneNode(false),
 				"MovePlantAlpha",
@@ -200,11 +158,7 @@ oS.Init(
 			var h = oGd.$LF[f];
 			k.CanGrow(l, f, a) &&
 				(function () {
-					PlayAudio(
-						h !== 2
-							? "plant" + Math.floor(1 + Math.random() * 2)
-							: "plant_water"
-					);
+					PlayAudio(h !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water");
 					new i().Birth(c, b, f, a, l);
 					oSym.addTask(20, SetNone, [
 						SetStyle($("imgGrowSoil"), {

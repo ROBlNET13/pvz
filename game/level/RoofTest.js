@@ -73,11 +73,7 @@ oS.Init(
 			oBalloonZombie,
 			oImp,
 		],
-		PicArr: [
-			"images/interface/background5.jpg",
-			"images/interface/ZombieNoteSmall.png",
-			"images/interface/ZombieNote1.png",
-		],
+		PicArr: ["images/interface/background5.jpg", "images/interface/ZombieNoteSmall.png", "images/interface/ZombieNote1.png"],
 		backgroundImage: "images/interface/background5.jpg",
 		CanSelectCard: 1,
 		Coord: 3,
@@ -135,33 +131,22 @@ oS.Init(
 			29: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/ZombieNoteSmall.png",
-				"left:667px;top:220px",
-				EDAll,
-				{
-					onclick() {
-						PlayAudio("winmusic");
-						SetHidden($("PointerUD"));
-						SetStyle(this, {
-							width: "613px",
-							height: "399px",
-							left: "193px",
-							top: "100px",
-						}).src = "images/interface/ZombieNote1.png";
-						this.onclick = function () {
-							SelectModal(10);
-						};
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/ZombieNoteSmall.png", "left:667px;top:220px", EDAll, {
+				onclick() {
+					PlayAudio("winmusic");
+					SetHidden($("PointerUD"));
+					SetStyle(this, {
+						width: "613px",
+						height: "399px",
+						left: "193px",
+						top: "100px",
+					}).src = "images/interface/ZombieNote1.png";
+					this.onclick = function () {
+						SelectModal(10);
+					};
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

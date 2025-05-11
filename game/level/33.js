@@ -29,14 +29,7 @@ oS.Init(
 			ostar,
 			oTTS,
 		],
-		ZName: [
-			oZombie,
-			oZombie2,
-			oConeheadZombie,
-			oCXZombie,
-			oBucketheadZombie,
-			oXBZombie,
-		],
+		ZName: [oZombie, oZombie2, oConeheadZombie, oCXZombie, oBucketheadZombie, oXBZombie],
 		PicArr: (function () {
 			return ["images/interface/backgroundLG.jpg"];
 		})(),
@@ -76,23 +69,12 @@ oS.Init(
 			39: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/Gun.png",
-				"left:627px;top:325px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oGun, 34);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:290px;left:636px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/Gun.png", "left:627px;top:325px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oGun, 34);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:290px;left:636px", EDAll);
 		},
 	}
 );

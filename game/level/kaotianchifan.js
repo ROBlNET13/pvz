@@ -24,22 +24,9 @@ oS.Init(
 			oBigChomper,
 			oFlamesMushroom,
 		],
-		ZName: [
-			oZombie,
-			oZombie2,
-			oZombie3,
-			oDuckyTubeZombie1,
-			oScreenDoorZombie,
-			oNewspaperZombie,
-			oDolphinRiderZombie,
-			oPoleVaultingZombie,
-			oSnorkelZombie,
-		],
+		ZName: [oZombie, oZombie2, oZombie3, oDuckyTubeZombie1, oScreenDoorZombie, oNewspaperZombie, oDolphinRiderZombie, oPoleVaultingZombie, oSnorkelZombie],
 		PicArr: (function () {
-			return [
-				"images/interface/background3.webp",
-				"images/interface/trophy.png",
-			];
+			return ["images/interface/background3.webp", "images/interface/trophy.png"];
 		})(),
 		Coord: 2,
 		SunNum: 2500,
@@ -55,8 +42,7 @@ oS.Init(
 			40: $("imgFlag1"),
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie2]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie2]);
 		},
 		StartGameMusic: "GrazeTheRoof2",
 		StartGame() {
@@ -108,23 +94,12 @@ oS.Init(
 			39: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(0);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(0);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

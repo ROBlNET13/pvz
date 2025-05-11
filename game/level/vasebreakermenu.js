@@ -28,117 +28,57 @@ oS.Init({
 	AudioArr: ["Cerebrawl", "pvzs"],
 	backgroundImage: "images/interface/Vasebreaker_Background.png",
 	LoadAccess(a) {
-		NewImg(
-			"imgSF",
-			"images/interface/BackButton.png",
-			"left:785px;top:530px",
-			EDAll,
-			{
-				onclick() {
-					SelectModal(0);
-					SetBlock($("dSurface"), $("iSurfaceBackground"));
-				},
-			}
-		);
-		NewImg(
-			"imgSF",
-			"images/interface/vasebreaker1.png",
-			"left:50px;top:130px",
-			EDAll,
-			{
-				onclick() {
-					SelectModal("" + "vasebreaker1" + "");
-				},
-			}
-		);
-		NewImg(
-			"imgSF",
-			"images/interface/vasebreaker2.png",
-			"left:200px;top:130px",
-			EDAll,
-			{
-				onclick() {
-					SelectModal("" + "vasebreaker2" + "");
-				},
-			}
-		);
-		NewImg(
-			"imgSF",
-			"images/interface/vasebreaker3.png",
-			"left:350px;top:130px",
-			EDAll,
-			{
-				onclick() {
-					SelectModal("" + "vasebreaker3" + "");
-				},
-			}
-		);
-		NewImg(
-			"imgSF",
-			"images/interface/vasebreaker4.png",
-			"left:500px;top:130px",
-			EDAll,
-			{
-				onclick() {
-					SelectModal("" + "vasebreaker4" + "");
-				},
-			}
-		);
-		NewImg(
-			"imgSF",
-			"images/interface/vasebreaker5.png",
-			"left:650;top:130",
-			EDAll,
-			{
-				onclick() {
-					SelectModal("" + "vasebreaker5" + "");
-				},
-			}
-		);
-		NewImg(
-			"imgSF",
-			"images/interface/vasebreaker6.png",
-			"left:50;top:270",
-			EDAll,
-			{
-				onclick() {
-					SelectModal("" + "vasebreaker6" + "");
-				},
-			}
-		);
-		NewImg(
-			"imgSF",
-			"images/interface/vasebreaker7.png",
-			"left:200px;top:270px",
-			EDAll,
-			{
-				onclick() {
-					SelectModal("" + "vasebreaker7" + "");
-				},
-			}
-		);
-		NewImg(
-			"imgSF",
-			"images/interface/vasebreaker8.png",
-			"left:350px;top:270px",
-			EDAll,
-			{
-				onclick() {
-					SelectModal("" + "vasebreaker8" + "");
-				},
-			}
-		);
-		NewImg(
-			"imgSF",
-			"images/interface/vasebreaker9.png",
-			"left:500px;top:270px",
-			EDAll,
-			{
-				onclick() {
-					SelectModal("" + "vasebreaker9" + "");
-				},
-			}
-		);
+		NewImg("imgSF", "images/interface/BackButton.png", "left:785px;top:530px", EDAll, {
+			onclick() {
+				SelectModal(0);
+				SetBlock($("dSurface"), $("iSurfaceBackground"));
+			},
+		});
+		NewImg("imgSF", "images/interface/vasebreaker1.png", "left:50px;top:130px", EDAll, {
+			onclick() {
+				SelectModal("" + "vasebreaker1" + "");
+			},
+		});
+		NewImg("imgSF", "images/interface/vasebreaker2.png", "left:200px;top:130px", EDAll, {
+			onclick() {
+				SelectModal("" + "vasebreaker2" + "");
+			},
+		});
+		NewImg("imgSF", "images/interface/vasebreaker3.png", "left:350px;top:130px", EDAll, {
+			onclick() {
+				SelectModal("" + "vasebreaker3" + "");
+			},
+		});
+		NewImg("imgSF", "images/interface/vasebreaker4.png", "left:500px;top:130px", EDAll, {
+			onclick() {
+				SelectModal("" + "vasebreaker4" + "");
+			},
+		});
+		NewImg("imgSF", "images/interface/vasebreaker5.png", "left:650;top:130", EDAll, {
+			onclick() {
+				SelectModal("" + "vasebreaker5" + "");
+			},
+		});
+		NewImg("imgSF", "images/interface/vasebreaker6.png", "left:50;top:270", EDAll, {
+			onclick() {
+				SelectModal("" + "vasebreaker6" + "");
+			},
+		});
+		NewImg("imgSF", "images/interface/vasebreaker7.png", "left:200px;top:270px", EDAll, {
+			onclick() {
+				SelectModal("" + "vasebreaker7" + "");
+			},
+		});
+		NewImg("imgSF", "images/interface/vasebreaker8.png", "left:350px;top:270px", EDAll, {
+			onclick() {
+				SelectModal("" + "vasebreaker8" + "");
+			},
+		});
+		NewImg("imgSF", "images/interface/vasebreaker9.png", "left:500px;top:270px", EDAll, {
+			onclick() {
+				SelectModal("" + "vasebreaker9" + "");
+			},
+		});
 		/*
     NewImg(
       "imgSF",

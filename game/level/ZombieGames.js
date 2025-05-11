@@ -46,13 +46,7 @@ oS.Init(
 			oBigChomper,
 			oFlamesMushroom,
 		],
-		ZName: [
-			oZombie,
-			oPoleVaultingZombie,
-			oHeiFootballZombie,
-			oFootballZombie,
-			oDolphinRiderZombie,
-		],
+		ZName: [oZombie, oPoleVaultingZombie, oHeiFootballZombie, oFootballZombie, oDolphinRiderZombie],
 		PicArr: ["images/interface/background3.webp"],
 		backgroundImage: "images/interface/background3.webp",
 		CanSelectCard: 1,
@@ -76,23 +70,12 @@ oS.Init(
 		FlagToSumNum: { a1: [3, 5, 9], a2: [3, 4, 5, 10] },
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(0);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(0);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

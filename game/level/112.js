@@ -1,17 +1,7 @@
 oS.Init(
 	{
 		PName: [oGatlingPea, oFlowerPot, oIceShroom],
-		ZName: [
-			oCZombie,
-			oCZombie2,
-			oCZombie3,
-			oCBucketheadZombie,
-			oEunZombie,
-			oCConeheadZombie,
-			othugZombie,
-			oZZ,
-			oEmperor,
-		],
+		ZName: [oCZombie, oCZombie2, oCZombie3, oCBucketheadZombie, oEunZombie, oCConeheadZombie, othugZombie, oZZ, oEmperor],
 		PicArr: ["images/interface/backgroundX4.jpg"],
 		LF: [0, 3, 0, 3, 0, 3, 0],
 		ZF: [0, 3, 0, 3, 0, 3, 0],
@@ -22,29 +12,17 @@ oS.Init(
 		LvlEName: "40",
 		InitLawnMower() {},
 		LargeWaveFlag: { 15: $("imgFlag2"), 25: $("imgFlag1") },
-		AudioArr: [
-			"crazydaveshort2",
-			"crazydavelong1",
-			"crazydavelong2",
-			"crazydavelong3",
-		],
+		AudioArr: ["crazydaveshort2", "crazydavelong1", "crazydavelong2", "crazydavelong3"],
 		StartGameMusic: "Zombieboss",
 		LoadAccess(a) {
-			NewImg(
-				"dDave",
-				"images/interface/Dave.gif",
-				"left:0;top:81px",
-				EDAll
-			);
+			NewImg("dDave", "images/interface/Dave.gif", "left:0;top:81px", EDAll);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -57,13 +35,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">我感觉我们从一开始就步入了危险之中</span>';
+						c.innerHTML = '<span style="font-size:22px">我感觉我们从一开始就步入了危险之中</span>';
 						break;
 					case 1:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -76,13 +51,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">这里不是真的中国，</span>';
+						c.innerHTML = '<span style="font-size:22px">这里不是真的中国，</span>';
 						break;
 					case 2:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -95,13 +67,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">而是僵尸们和我们的一场游戏</span>';
+						c.innerHTML = '<span style="font-size:22px">而是僵尸们和我们的一场游戏</span>';
 						break;
 					case 3:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -114,13 +83,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">我预感到他要来了，</span>';
+						c.innerHTML = '<span style="font-size:22px">我预感到他要来了，</span>';
 						break;
 					case 4:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -133,13 +99,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">秦始皇僵尸!!!</span>';
+						c.innerHTML = '<span style="font-size:22px">秦始皇僵尸!!!</span>';
 						break;
 					case 5:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -152,8 +115,7 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">多种些机枪拆了他吧，我要回去!</span>';
+						c.innerHTML = '<span style="font-size:22px">多种些机枪拆了他吧，我要回去!</span>';
 						break;
 					case 6:
 						$("dDave").src = "images/interface/Dave2.gif";
@@ -189,14 +151,10 @@ oS.Init(
 									oP.FlagZombies < 6
 										? Math.floor(1 + Math.random() * 10) < 4
 											? 1
-											: Math.floor(
-													Math.random() * c.length
-												)
+											: Math.floor(Math.random() * c.length)
 										: Math.floor(1 + Math.random() * 10) < 3
 											? 0
-											: Math.floor(
-													Math.random() * c.length
-												);
+											: Math.floor(Math.random() * c.length);
 								var e = c[b];
 								var d = e.prototype;
 								var f = "dCard" + Math.random();
@@ -226,9 +184,7 @@ oS.Init(
 							var a;
 							var c;
 							while (b--) {
-								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
-									($(a.DID).style.top =
-										(a.PixelTop = c - 1) + "px");
+								(c = (a = ArCard[b]).PixelTop) > 60 * b && ($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
 							}
 							oSym.addTask(5, arguments.callee, []);
 						})();
@@ -256,17 +212,11 @@ oS.Init(
 		FlagToSumNum: { a1: [1, 5, 10, 13, 15], a2: [1, 5, 10, 15, 20, 25] },
 		FlagToMonitor: { 14: [ShowLargeWave, 0], 24: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/0.gif",
-				"left:667px;top:330px;clip:rect(auto,auto,237px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oGoldenPrize, 0);
-					},
-				}
-			);
+			NewImg("imgSF", "images/interface/0.gif", "left:667px;top:330px;clip:rect(auto,auto,237px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oGoldenPrize, 0);
+				},
+			});
 		},
 	},
 	{
@@ -281,9 +231,7 @@ oS.Init(
 			PlayAudio("seedlift");
 			a = window.event || a;
 			var f = ArCard[oS.ChoseCard];
-			var e =
-				a.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-				EElement.scrollLeft;
+			var e = a.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
 			var d = a.clientY + EBody.scrollTop || EElement.scrollTop;
 			var c = f.PName.prototype;
 			oS.Chose = 1;
@@ -291,14 +239,7 @@ oS.Init(
 				NewImg(
 					"MovePlant",
 					c.PicArr[c.StaticGif],
-					"left:" +
-						e -
-						0.5 * (c.beAttackedPointL + c.beAttackedPointR) +
-						"px;top:" +
-						d +
-						20 -
-						c.height +
-						"px;z-index:254",
+					"left:" + e - 0.5 * (c.beAttackedPointL + c.beAttackedPointR) + "px;top:" + d + 20 - c.height + "px;z-index:254",
 					EDAll
 				).cloneNode(false),
 				"MovePlantAlpha",
@@ -332,11 +273,7 @@ oS.Init(
 			var h = oGd.$LF[f];
 			k.CanGrow(l, f, a) &&
 				(function () {
-					PlayAudio(
-						h !== 2
-							? "plant" + Math.floor(1 + Math.random() * 2)
-							: "plant_water"
-					);
+					PlayAudio(h !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water");
 					new i().Birth(c, b, f, a, l);
 					oSym.addTask(20, SetNone, [
 						SetStyle($("imgGrowSoil"), {
