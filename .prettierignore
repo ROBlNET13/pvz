@@ -1,3 +1,4 @@
 game/js/pako.js
 game/js/html2canvas.js
 .github/workflows
+pnpm-lock.yaml
