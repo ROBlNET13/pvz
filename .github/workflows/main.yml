@@ -78,7 +78,9 @@ jobs:
           run: |
             find . -type f -name "*.js" -not -path "./node_modules/*" | while read file; do
               file_basename=$(basename "$file")
-              terser "$file" --compress --mangle --source-map "url='$file_basename.map',includeSources=true" --output "$file"
+              file_dirname=$(dirname "$file")
+              map_filename="$file_dirname/$file_basename.map"
+              terser "$file" --compress --mangle --source-map "base='$file_dirname',url='$file_basename.map',filename='$map_filename',includeSources=true" -o "$file"
             done
         
         - name: Minify CSS files
