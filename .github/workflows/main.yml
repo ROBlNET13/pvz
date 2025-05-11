@@ -54,20 +54,52 @@ jobs:
                   git push
 
     deploy:
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-        runs-on: ubuntu-latest
-        needs: version-file-and-lint
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-            - name: Setup Pages
-              uses: actions/configure-pages@v4
-            - name: Upload artifact
-              uses: actions/upload-pages-artifact@v3
-              with:
-                  path: "."
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v4
+      environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }}
+      runs-on: ubuntu-latest
+      needs: version-file-and-lint
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+        
+        - name: Setup Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: "lts/*"
+        
+        - name: Install minification tools
+          run: |
+            npm install -g terser uglify-js clean-css-cli html-minifier
+        
+        - name: Minify JavaScript files
+          run: |
+            find . -type f -name "*.js" -not -path "./node_modules/*" | while read file; do
+              terser "$file" --compress --mangle --source-map "url='$(basename "$file").map'" --output "$file.min"
+              mv "$file.min" "$file"
+            done
+        
+        - name: Minify CSS files
+          run: |
+            find . -type f -name "*.css" -not -path "./node_modules/*" | while read file; do
+              cleancss -o "$file" --source-map --source-map-inline-sources "$file"
+            done
+        
+        - name: Minify HTML files
+          run: |
+            find . -type f -name "*.html" -not -path "./node_modules/*" | while read file; do
+              html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true -o "$file.min" "$file"
+              mv "$file.min" "$file"
+            done
+        
+        - name: Setup Pages
+          uses: actions/configure-pages@v4
+        
+        - name: Upload artifact
+          uses: actions/upload-pages-artifact@v3
+          with:
+            path: "."
+        
+        - name: Deploy to GitHub Pages
+          id: deployment
+          uses: actions/deploy-pages@v4
