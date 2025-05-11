@@ -77,7 +77,7 @@ jobs:
         - name: Minify JavaScript files
           run: |
             find . -type f -name "*.js" -not -path "./node_modules/*" | while read file; do
-              terser "$file" --compress --mangle --source-map "url='$(basename "$file").min.map'" --output "$file.min"
+              terser "$file" --compress --mangle --source-map "content='$file',url='$(basename "$file").min.map'" --output "$file.min"
               mv "$file.min" "$file"
             done
         
