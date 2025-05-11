@@ -136,10 +136,7 @@ oS.Init({
 						ClearChild(this);
 					}),
 					(b.src = "" + Math.random()))
-				: console.log(
-						"Version",
-						oS.Version
-					) /*$("").innerHTML = 4/* oS.Version */;
+				: console.log("Version", oS.Version) /*$("").innerHTML = 4/* oS.Version */;
 		})();
 		$("dServer") && SetBlock($("dServer"));
 	},
@@ -152,19 +149,13 @@ function runIzlCheck() {
 	let izl = new URLSearchParams(window.location.search).get("izl");
 	if (izl && izl !== "") {
 		try {
-			izl[0] === "="
-				? (levelDataToLoad = parseCloneTiny(decodeURIComponent(icl)))
-				: (levelDataToLoad = parseClone(decodeURIComponent(izl)));
+			izl[0] === "=" ? (levelDataToLoad = parseCloneTiny(decodeURIComponent(icl))) : (levelDataToLoad = parseClone(decodeURIComponent(izl)));
 		} catch (e) {
 			alert("Failed to load level data from query parameter");
 			// regex away all query params and reload
 			window.location.search = "";
 			// push to history so that the user can go back
-			window.history.pushState(
-				{},
-				document.title,
-				window.location.pathname
-			);
+			window.history.pushState({}, document.title, window.location.pathname);
 			document.location.reload();
 			return;
 		}

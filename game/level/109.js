@@ -71,29 +71,17 @@ oS.Init(
 			CustomSpecial(oCleaner, 4, -1);
 			CustomSpecial(oCleaner, 5, -1);
 		},
-		AudioArr: [
-			"crazydaveshort2",
-			"crazydavelong1",
-			"crazydavelong2",
-			"crazydavelong3",
-		],
+		AudioArr: ["crazydaveshort2", "crazydavelong1", "crazydavelong2", "crazydavelong3"],
 		StartGameMusic: "The Great Wall",
 		LoadAccess(a) {
-			NewImg(
-				"dDave",
-				"images/interface/Dave.gif",
-				"left:0;top:81px",
-				EDAll
-			);
+			NewImg("dDave", "images/interface/Dave.gif", "left:0;top:81px", EDAll);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -106,13 +94,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">I enjoyed skating when I was a kid, the feeling of moving fast on the ice</span>';
+						c.innerHTML = '<span style="font-size:22px">I enjoyed skating when I was a kid, the feeling of moving fast on the ice</span>';
 						break;
 					case 1:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -125,13 +110,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">But there is no ice here, only oil!</span>';
+						c.innerHTML = '<span style="font-size:22px">But there is no ice here, only oil!</span>';
 						break;
 					case 2:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -148,9 +130,7 @@ oS.Init(
 							'<span style="font-size:22px">And its not me, itI enjoyed skating when I was a kid, the feeling of moving fast on the ices the zombies!</span>';
 						break;
 					case 3:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -163,13 +143,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">Put more traps to block them, such as the gargoyles and potato mines</span>';
+						c.innerHTML = '<span style="font-size:22px">Put more traps to block them, such as the gargoyles and potato mines</span>';
 						break;
 					case 4:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -182,8 +159,7 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">And a little secret, wood cant stand fire!</span>';
+						c.innerHTML = '<span style="font-size:22px">And a little secret, wood cant stand fire!</span>';
 						break;
 					case 5:
 						$("dDave").src = "images/interface/Dave2.gif";
@@ -220,23 +196,12 @@ oS.Init(
 			29: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(110);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(110);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

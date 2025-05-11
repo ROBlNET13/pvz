@@ -1,11 +1,7 @@
 oS.Init({
 	PName: [oPeashooter, oSunFlower, oFumeShroom, oWallNut, oSnowPea],
 	ZName: [oIZombie, oIBucketheadZombie, oIJackinTheBoxZombie],
-	PicArr: [
-		"images/interface/background2.jpg",
-		"images/interface/trophy.png",
-		"images/interface/Stripe.png",
-	],
+	PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
 	backgroundImage: "images/interface/background2.jpg",
 	ShowScroll: false,
 	SunNum: 150,
@@ -45,23 +41,14 @@ oS.Init({
 				let wallnutPlaced = CustomSpecial(oWallNut, i, 4);
 				wallnutPlaced.plantImage.classList.add("cardboard");
 				for (a = g; a <= b; a++) {
-					let placed = CustomSpecial(
-						d[e[(c = Math.floor(Math.random() * e.length))]],
-						i,
-						a
-					);
+					let placed = CustomSpecial(d[e[(c = Math.floor(Math.random() * e.length))]], i, a);
 					e.splice(c, 1);
 					placed.plantImage.classList.add("cardboard");
 				}
 				++i;
 			}
 		}
-		NewImg(
-			"iStripe",
-			"images/interface/Stripe.png",
-			"left:" + (GetX1X2(5)[0] - 11) + "px;top:65px",
-			EDAll
-		);
+		NewImg("iStripe", "images/interface/Stripe.png", "left:" + (GetX1X2(5)[0] - 11) + "px;top:65px", EDAll);
 	},
 	StartGame() {
 		oP.Monitor();

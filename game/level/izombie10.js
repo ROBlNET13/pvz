@@ -3,17 +3,7 @@
 	关卡植物: 5大喷 3南瓜 3魅惑 4土豆 8小向 4三线 3机枪 3仙人掌 10荷叶
 */
 oS.Init({
-	PName: [
-		oFumeShroom,
-		oPumpkinHead,
-		oHypnoShroom,
-		oPotatoMine,
-		oSunFlower,
-		oThreepeater,
-		oGatlingPea,
-		oCactus,
-		oILilyPad,
-	],
+	PName: [oFumeShroom, oPumpkinHead, oHypnoShroom, oPotatoMine, oSunFlower, oThreepeater, oGatlingPea, oCactus, oILilyPad],
 	ZName: [
 		oIZombie,
 		oIConeheadZombie,
@@ -25,11 +15,7 @@ oS.Init({
 		oIPoleVaultingZombie,
 		oIBalloonZombie,
 	],
-	PicArr: [
-		"images/interface/background4.jpg",
-		"images/interface/trophy.png",
-		"images/interface/Stripe.png",
-	],
+	PicArr: ["images/interface/background4.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
 	backgroundImage: "images/interface/background4.jpg",
 	Coord: 2,
 	DKind: 0,
@@ -48,10 +34,7 @@ oS.Init({
 		ArR: [1, 6],
 		Auto: 1,
 		P: {
-			Arr: [
-				7, 7, 7, 0, 0, 0, 0, 0, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5,
-				5, 5, 6, 6, 6,
-			],
+			Arr: [7, 7, 7, 0, 0, 0, 0, 0, 2, 2, 2, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6],
 			Arr1: [3, 3, 3, 3],
 			Arr2: [1, 1, 1],
 		},
@@ -64,12 +47,7 @@ oS.Init({
 			return Math.random() - 0.5;
 		});
 		while (Point.length && Arr.length) {
-			let placed = CustomSpecial(
-				oS.PName[Arr[Arr.length - 1]],
-				Point[Point.length - 1][1],
-				Point[Point.length - 1][0],
-				1
-			);
+			let placed = CustomSpecial(oS.PName[Arr[Arr.length - 1]], Point[Point.length - 1][1], Point[Point.length - 1][0], 1);
 			placed.plantImage.classList.add("cardboard");
 			Point.length--, Arr.length--;
 		}
@@ -114,12 +92,7 @@ oS.Init({
 			CustomSpecial(oBrains, i, 0);
 		}
 
-		NewImg(
-			"iStripe",
-			"images/interface/Stripe.png",
-			"left:" + (GetX1X2(6)[0] - 11) + "px;top:65px",
-			EDAll
-		);
+		NewImg("iStripe", "images/interface/Stripe.png", "left:" + (GetX1X2(6)[0] - 11) + "px;top:65px", EDAll);
 	},
 	StartGame() {
 		oP.Monitor(), BeginCool();

@@ -2,10 +2,7 @@ oS.Init(
 	{
 		PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut],
 		ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie],
-		PicArr: [
-			"images/interface/background1unsodded2.jpg",
-			"images/interface/background1.jpg",
-		],
+		PicArr: ["images/interface/background1unsodded2.jpg", "images/interface/background1.jpg"],
 		backgroundImage: "images/interface/background1unsodded2.jpg",
 		CanSelectCard: 0,
 		LevelName: "Level 1-4",
@@ -19,30 +16,10 @@ oS.Init(
 				0,
 				EDPZ
 			);
-			NewImg(
-				"SodRoll_1",
-				"images/interface/SodRoll.png",
-				"left:122px;top:48px;z-index:1",
-				EDPZ
-			);
-			NewImg(
-				"SodRollCap_1",
-				"images/interface/SodRollCap.png",
-				"left:117px;top:131px;z-index:1",
-				EDPZ
-			);
-			NewImg(
-				"SodRoll_2",
-				"images/interface/SodRoll.png",
-				"left:122px;top:428px;z-index:1",
-				EDPZ
-			);
-			NewImg(
-				"SodRollCap_2",
-				"images/interface/SodRollCap.png",
-				"left:117px;top:511px;z-index:1",
-				EDPZ
-			);
+			NewImg("SodRoll_1", "images/interface/SodRoll.png", "left:122px;top:48px;z-index:1", EDPZ);
+			NewImg("SodRollCap_1", "images/interface/SodRollCap.png", "left:117px;top:131px;z-index:1", EDPZ);
+			NewImg("SodRoll_2", "images/interface/SodRoll.png", "left:122px;top:428px;z-index:1", EDPZ);
+			NewImg("SodRollCap_2", "images/interface/SodRollCap.png", "left:117px;top:511px;z-index:1", EDPZ);
 			PlayAudio("dirt_rise");
 			(function (e, h, b, d, c, g, a, f) {
 				e += 15;
@@ -72,22 +49,8 @@ oS.Init(
 					top: ++f + "px",
 				});
 				e < 990
-					? oSym.addTask(3, arguments.callee, [
-							e,
-							h,
-							b,
-							d,
-							c,
-							g,
-							a,
-							f,
-						])
-					: (ClearChild(
-							$("SodRoll_1"),
-							$("SodRoll_2"),
-							$("SodRollCap_1"),
-							$("SodRollCap_2")
-						),
+					? oSym.addTask(3, arguments.callee, [e, h, b, d, c, g, a, f])
+					: (ClearChild($("SodRoll_1"), $("SodRoll_2"), $("SodRollCap_1"), $("SodRollCap_2")),
 						(function () {
 							StopMusic();
 							PlayMusic((oS.LoadMusic = oS.StartGameMusic));
@@ -121,23 +84,12 @@ oS.Init(
 		FlagToSumNum: { a1: [3, 5, 8], a2: [1, 2, 3, 10] },
 		FlagToMonitor: { 8: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/Shovel/ShovelCard.png",
-				"left:827px;top:330px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oShovel, 5);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:295px;left:836px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/Shovel/ShovelCard.png", "left:827px;top:330px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oShovel, 5);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:295px;left:836px", EDAll);
 		},
 	}
 );

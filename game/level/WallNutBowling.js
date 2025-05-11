@@ -14,10 +14,7 @@ oS.Init(
 			oBucketheadZombie,
 			oPoleVaultingZombie,
 		],
-		PicArr: [
-			"images/interface/background1.jpg",
-			"images/interface/Stripe.png",
-		],
+		PicArr: ["images/interface/background1.jpg", "images/interface/Stripe.png"],
 		backgroundImage: "images/interface/background1.jpg",
 		LF: [0, 1, 1, 1, 1, 1],
 		CanSelectCard: 0,
@@ -49,15 +46,7 @@ oS.Init(
 						(function () {
 							var a = ArCard.length;
 							if (a < 10) {
-								var c = [
-									oNutBowling,
-									oNutBowling,
-									oNutBowling,
-									oNutBowling,
-									oNutBowling,
-									oBoomNutBowling,
-									oHugeNutBowling,
-								];
+								var c = [oNutBowling, oNutBowling, oNutBowling, oNutBowling, oNutBowling, oBoomNutBowling, oHugeNutBowling];
 								var b = Math.floor(Math.random() * c.length);
 								var e = c[b];
 								var d = e.prototype;
@@ -88,9 +77,7 @@ oS.Init(
 							var a;
 							var c;
 							while (b--) {
-								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
-									($(a.DID).style.top =
-										(a.PixelTop = c - 1) + "px");
+								(c = (a = ArCard[b]).PixelTop) > 60 * b && ($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
 							}
 							oSym.addTask(5, arguments.callee, []);
 						})();
@@ -125,23 +112,12 @@ oS.Init(
 			29: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(0);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:198px;left:269px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(0);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:198px;left:269px", EDAll);
 		},
 	},
 	{
@@ -167,14 +143,7 @@ oS.Init(
 				NewImg(
 					"MovePlant",
 					c.PicArr[c.StaticGif],
-					"left:" +
-						e -
-						0.5 * (c.beAttackedPointL + c.beAttackedPointR) +
-						"px;top:" +
-						d +
-						20 -
-						c.height +
-						"px;z-index:254",
+					"left:" + e - 0.5 * (c.beAttackedPointL + c.beAttackedPointR) + "px;top:" + d + 20 - c.height + "px;z-index:254",
 					EDAll
 				).cloneNode(false),
 				"MovePlantAlpha",
@@ -202,10 +171,7 @@ oS.Init(
 			var j = $("DivTeachBar");
 			j && j.parentNode.removeChild(j);
 			if (c > 347) {
-				innerText(
-					NewEle("DivTeachBar", "div", 0, EDAll),
-					"Place your wall-nut to the left of the bowling line"
-				);
+				innerText(NewEle("DivTeachBar", "div", 0, EDAll), "Place your wall-nut to the left of the bowling line");
 				return false;
 			}
 			var i = oS.ChoseCard;

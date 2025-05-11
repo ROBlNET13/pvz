@@ -73,23 +73,12 @@ oS.Init(
 			44: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/TwinSunflower.png",
-				"left:627px;top:325px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oTwinSunflower, 0);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:290px;left:636px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/TwinSunflower.png", "left:627px;top:325px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oTwinSunflower, 0);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:290px;left:636px", EDAll);
 		},
 	}
 );

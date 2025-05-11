@@ -36,12 +36,7 @@ oS.Init(
 			oTwinSunflower,
 			oSnowRepeater,
 		],
-		ZName: [
-			oDuckyTubeZombie2,
-			oDuckyTubeZombie3,
-			oDuckyTubeZombie4,
-			oDuckyTubeZombie1,
-		],
+		ZName: [oDuckyTubeZombie2, oDuckyTubeZombie3, oDuckyTubeZombie4, oDuckyTubeZombie1],
 		PicArr: (function () {
 			var a = oSeaShroom.prototype;
 			var b = a.PicArr;
@@ -60,12 +55,7 @@ oS.Init(
 		CanSelectCard: 1,
 		LevelName: "Level 5-1",
 		LvlEName: 21,
-		AudioArr: [
-			"crazydaveshort2",
-			"crazydavelong1",
-			"crazydavelong2",
-			"crazydavelong3",
-		],
+		AudioArr: ["crazydaveshort2", "crazydavelong1", "crazydavelong2", "crazydavelong3"],
 		LargeWaveFlag: {},
 		InitLawnMower() {
 			CustomSpecial(oPoolCleaner, 1, -1);
@@ -75,26 +65,18 @@ oS.Init(
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutWaterZombie(8, 9, 1, [oWarshipsZombie]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(8, 9, 1, [oWarshipsZombie]);
 		},
 		StartGameMusic: "jiaxing",
 		LoadAccess(a) {
-			NewImg(
-				"dDave",
-				"images/interface/Dave.gif",
-				"left:0;top:81px",
-				EDAll
-			);
+			NewImg("dDave", "images/interface/Dave.gif", "left:0;top:81px", EDAll);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -107,15 +89,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"We finally escaped from the Dragon Palace, the famous land of fish and rice: Jiaxing"
-						);
+						innerText(c, "We finally escaped from the Dragon Palace, the famous land of fish and rice: Jiaxing");
 						break;
 					case 1:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -131,9 +108,7 @@ oS.Init(
 						innerText(c, "A small town in Xincheng.");
 						break;
 					case 2:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -146,10 +121,7 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"Look at the beautiful bridges and the food there"
-						);
+						innerText(c, "Look at the beautiful bridges and the food there");
 						break;
 					case 3:
 						PlayAudio("crazydaveshort2");
@@ -165,15 +137,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"However, the author zombie also seems to be stationed here with troops"
-						);
+						innerText(c, "However, the author zombie also seems to be stationed here with troops");
 						break;
 					case 4:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -186,10 +153,7 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"Good luck~ I went to eat Li Minsheng fried buns"
-						);
+						innerText(c, "Good luck~ I went to eat Li Minsheng fried buns");
 						break;
 					case 5:
 						$("dDave").src = "images/interface/Dave2.gif";
@@ -220,23 +184,12 @@ oS.Init(
 		},
 		FlagToMonitor: {},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/SeaShroom.png",
-				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oSeaShroom, 42);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:490px;left:836px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/SeaShroom.png", "left:827px;top:525px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oSeaShroom, 42);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll);
 		},
 	}
 );

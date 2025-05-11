@@ -37,13 +37,7 @@ oS.Init(
 			oSnowRepeater,
 			oSeaShroom,
 		],
-		ZName: [
-			oDuckyTubeZombie2,
-			oDuckyTubeZombie3,
-			oDuckyTubeZombie4,
-			oDuckyTubeZombie1,
-			oSnorkelZombie,
-		],
+		ZName: [oDuckyTubeZombie2, oDuckyTubeZombie3, oDuckyTubeZombie4, oDuckyTubeZombie1, oSnorkelZombie],
 		PicArr: (function () {
 			var a = oCattail.prototype;
 			var b = a.PicArr;
@@ -71,8 +65,7 @@ oS.Init(
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutWaterZombie(8, 9, 1, [oWarshipsZombie]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(8, 9, 1, [oWarshipsZombie]);
 		},
 		StartGameMusic: "jiaxing",
 	},
@@ -91,23 +84,12 @@ oS.Init(
 		},
 		FlagToMonitor: {},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/Ling.png",
-				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oCattail, 43);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:490px;left:836px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/Ling.png", "left:827px;top:525px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oCattail, 43);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll);
 		},
 	}
 );

@@ -1,21 +1,8 @@
 oS.Init(
 	{
 		PName: [oStarfruit],
-		ZName: [
-			oZombie,
-			oZombie2,
-			oConeheadZombie,
-			oCXZombie,
-			oBucketheadZombie,
-			oXBZombie,
-			oJX,
-			oJackinTheBoxZombie,
-			oHeiFootballZombie,
-		],
-		PicArr: [
-			"images/interface/backgroundLG.jpg",
-			"images/interface/Stripe.png",
-		],
+		ZName: [oZombie, oZombie2, oConeheadZombie, oCXZombie, oBucketheadZombie, oXBZombie, oJX, oJackinTheBoxZombie, oHeiFootballZombie],
+		PicArr: ["images/interface/backgroundLG.jpg", "images/interface/Stripe.png"],
 		backgroundImage: "images/interface/backgroundLG.jpg",
 		LF: [0, 3, 3, 3, 3, 3],
 		CanSelectCard: 0,
@@ -26,12 +13,7 @@ oS.Init(
 		StartGameMusic: "LoonSkirmish",
 		StaticCard: 0,
 		LoadAccess(a) {
-			NewImg(
-				"dDave",
-				"images/interface/Dave.gif",
-				"left:0;top:81px",
-				EDAll
-			);
+			NewImg("dDave", "images/interface/Dave.gif", "left:0;top:81px", EDAll);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
@@ -50,15 +32,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"I still remember the fun of playing petanque with Peter as a kid"
-						);
+						innerText(c, "I still remember the fun of playing petanque with Peter as a kid");
 						break;
 					case 1:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -71,15 +48,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"Now Peter's not in this damn place, come and play with me~"
-						);
+						innerText(c, "Now Peter's not in this damn place, come and play with me~");
 						break;
 					case 2:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -92,15 +64,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"However, this time we are not rolling balls, but starfish! ."
-						);
+						innerText(c, "However, this time we are not rolling balls, but starfish! .");
 						break;
 					case 3:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -113,10 +80,7 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"I believe this is a very fun thing to do!"
-						);
+						innerText(c, "I believe this is a very fun thing to do!");
 						break;
 					case 4:
 						$("dDave").src = "images/interface/Dave2.gif";
@@ -181,9 +145,7 @@ oS.Init(
 							var a;
 							var c;
 							while (b--) {
-								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
-									($(a.DID).style.top =
-										(a.PixelTop = c - 1) + "px");
+								(c = (a = ArCard[b]).PixelTop) > 60 * b && ($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
 							}
 							oSym.addTask(5, arguments.callee, []);
 						})();
@@ -214,23 +176,12 @@ oS.Init(
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/SeaAnemone.png",
-				"left:627px;top:325px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oSeaAnemone, 36);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:290px;left:636px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/SeaAnemone.png", "left:627px;top:325px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oSeaAnemone, 36);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:290px;left:636px", EDAll);
 		},
 	},
 	{
@@ -253,14 +204,7 @@ oS.Init(
 				NewImg(
 					"MovePlant",
 					c.PicArr[c.StaticGif],
-					"left:" +
-						e -
-						0.5 * (c.beAttackedPointL + c.beAttackedPointR) +
-						"px;top:" +
-						d +
-						20 -
-						c.height +
-						"px;z-index:254",
+					"left:" + e - 0.5 * (c.beAttackedPointL + c.beAttackedPointR) + "px;top:" + d + 20 - c.height + "px;z-index:254",
 					EDAll
 				).cloneNode(false),
 				"MovePlantAlpha",
@@ -288,10 +232,7 @@ oS.Init(
 			var j = $("DivTeachBar");
 			j && j.parentNode.removeChild(j);
 			if (c > 347) {
-				innerHTML(
-					NewEle("DivTeachBar", "div", 0, EDAll),
-					"Place your sea starfruit to the left of the rolling line"
-				);
+				innerHTML(NewEle("DivTeachBar", "div", 0, EDAll), "Place your sea starfruit to the left of the rolling line");
 				return false;
 			}
 			var i = oS.ChoseCard;

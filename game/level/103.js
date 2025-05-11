@@ -51,18 +51,7 @@ oS.Init(
 			oBigChomper,
 			oFlamesMushroom,
 		],
-		ZName: [
-			oCZombie,
-			oCZombie2,
-			oCZombie3,
-			oCConeheadZombie,
-			oCBucketheadZombie,
-			othugZombie,
-			oEunZombie,
-			oZZ,
-			oCFootballZombie,
-			oImp,
-		],
+		ZName: [oCZombie, oCZombie2, oCZombie3, oCConeheadZombie, oCBucketheadZombie, othugZombie, oEunZombie, oZZ, oCFootballZombie, oImp],
 		PicArr: (function () {
 			var a = oSquash.prototype;
 			var b = a.PicArr;
@@ -82,12 +71,7 @@ oS.Init(
 		LevelName: "Stand out",
 		LvlEName: 21,
 		DKind: 0,
-		AudioArr: [
-			"crazydaveshort2",
-			"crazydavelong1",
-			"crazydavelong2",
-			"crazydavelong3",
-		],
+		AudioArr: ["crazydaveshort2", "crazydavelong1", "crazydavelong2", "crazydavelong3"],
 		LargeWaveFlag: {
 			10: $("imgFlag3"),
 			20: $("imgFlag2"),
@@ -103,21 +87,14 @@ oS.Init(
 		LoadMusic: "MyScrapbook",
 		StartGameMusic: "The Great Wall1",
 		LoadAccess(a) {
-			NewImg(
-				"dDave",
-				"images/interface/Dave.gif",
-				"left:0;top:81px",
-				EDAll
-			);
+			NewImg("dDave", "images/interface/Dave.gif", "left:0;top:81px", EDAll);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -130,13 +107,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">The situation seems very bad.</span>';
+						c.innerHTML = '<span style="font-size:22px">The situation seems very bad.</span>';
 						break;
 					case 1:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -149,13 +123,10 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">The ancient zombies actually invited reinforcements</span>';
+						c.innerHTML = '<span style="font-size:22px">The ancient zombies actually invited reinforcements</span>';
 						break;
 					case 2:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -168,8 +139,7 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">Well, you must have guessed who they were</span>';
+						c.innerHTML = '<span style="font-size:22px">Well, you must have guessed who they were</span>';
 						break;
 					case 3:
 						PlayAudio("crazydaveshort2");
@@ -185,8 +155,7 @@ oS.Init(
 							},
 							[]
 						);
-						c.innerHTML =
-							'<span style="font-size:22px">After the victory, we can go to the second leg of our trip to China!</span>';
+						c.innerHTML = '<span style="font-size:22px">After the victory, we can go to the second leg of our trip to China!</span>';
 						break;
 					case 4:
 						$("dDave").src = "images/interface/Dave2.gif";
@@ -229,33 +198,22 @@ oS.Init(
 			29: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/ZombieNoteSmall.png",
-				"left:667px;top:220px",
-				EDAll,
-				{
-					onclick() {
-						PlayAudio("winmusic");
-						SetHidden($("PointerUD"));
-						SetStyle(this, {
-							width: "613px",
-							height: "399px",
-							left: "193px",
-							top: "100px",
-						}).src = "images/interface/ZombieNoteW.png";
-						this.onclick = function () {
-							SelectModal(104);
-						};
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/ZombieNoteSmall.png", "left:667px;top:220px", EDAll, {
+				onclick() {
+					PlayAudio("winmusic");
+					SetHidden($("PointerUD"));
+					SetStyle(this, {
+						width: "613px",
+						height: "399px",
+						left: "193px",
+						top: "100px",
+					}).src = "images/interface/ZombieNoteW.png";
+					this.onclick = function () {
+						SelectModal(104);
+					};
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

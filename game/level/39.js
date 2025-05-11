@@ -35,15 +35,7 @@ oS.Init(
 			oGatlingPea,
 			oTwinSunflower,
 		],
-		ZName: [
-			oZombie,
-			oConeheadZombie,
-			oJackinTheBoxZombie,
-			oXBZombie,
-			oJY,
-			oCXZombie,
-			oJX,
-		],
+		ZName: [oZombie, oConeheadZombie, oJackinTheBoxZombie, oXBZombie, oJY, oCXZombie, oJX],
 		PicArr: (function () {
 			return ["images/interface/backgroundLG.jpg"];
 		})(),
@@ -84,33 +76,22 @@ oS.Init(
 			49: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/ZombieNoteSmall.png",
-				"left:667px;top:220px",
-				EDAll,
-				{
-					onclick() {
-						PlayAudio("winmusic");
-						SetHidden($("PointerUD"));
-						SetStyle(this, {
-							width: "613px",
-							height: "399px",
-							left: "193px",
-							top: "100px",
-						}).src = "images/interface/ZombieNoteLG.png";
-						this.onclick = function () {
-							SelectModal(40);
-						};
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/ZombieNoteSmall.png", "left:667px;top:220px", EDAll, {
+				onclick() {
+					PlayAudio("winmusic");
+					SetHidden($("PointerUD"));
+					SetStyle(this, {
+						width: "613px",
+						height: "399px",
+						left: "193px",
+						top: "100px",
+					}).src = "images/interface/ZombieNoteLG.png";
+					this.onclick = function () {
+						SelectModal(40);
+					};
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

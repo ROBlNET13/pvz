@@ -128,23 +128,12 @@ oS.Init(
 			11: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(211);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(211);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

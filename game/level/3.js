@@ -5,11 +5,7 @@ oS.Init(
 		PicArr: (function () {
 			var a = oWallNut.prototype;
 			var b = a.PicArr;
-			return [
-				"images/interface/background1unsodded2.jpg",
-				b[a.CardGif],
-				b[a.NormalGif],
-			];
+			return ["images/interface/background1unsodded2.jpg", b[a.CardGif], b[a.NormalGif]];
 		})(),
 		backgroundImage: "images/interface/background1unsodded2.jpg",
 		LF: [0, 0, 1, 1, 1, 0],
@@ -54,23 +50,12 @@ oS.Init(
 		FlagToSumNum: { a1: [3, 5, 7], a2: [1, 2, 3, 6] },
 		FlagToMonitor: { 7: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/WallNut.png",
-				"left:827px;top:330px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oWallNut, 4);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:295px;left:836px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/WallNut.png", "left:827px;top:330px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oWallNut, 4);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:295px;left:836px", EDAll);
 		},
 	}
 );

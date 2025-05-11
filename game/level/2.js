@@ -28,17 +28,11 @@ oS.Init(
 			}
 		},
 		StartGame() {
-			NewImg(
-				"imgSF",
-				"images/interface/tiaoguo.png",
-				"left:1px;top:150px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(3);
-					},
-				}
-			);
+			NewImg("imgSF", "images/interface/tiaoguo.png", "left:1px;top:150px", EDAll, {
+				onclick() {
+					SelectModal(3);
+				},
+			});
 			NewEle(
 				"sod3row",
 				"div",
@@ -46,30 +40,10 @@ oS.Init(
 				0,
 				EDPZ
 			);
-			NewImg(
-				"SodRoll_1",
-				"images/interface/SodRoll.png",
-				"left:136px;top:128px;z-index:1",
-				EDPZ
-			);
-			NewImg(
-				"SodRollCap_1",
-				"images/interface/SodRollCap.png",
-				"left:131px;top:211px;z-index:1",
-				EDPZ
-			);
-			NewImg(
-				"SodRoll_2",
-				"images/interface/SodRoll.png",
-				"left:136px;top:348px;z-index:1",
-				EDPZ
-			);
-			NewImg(
-				"SodRollCap_2",
-				"images/interface/SodRollCap.png",
-				"left:131px;top:431px;z-index:1",
-				EDPZ
-			);
+			NewImg("SodRoll_1", "images/interface/SodRoll.png", "left:136px;top:128px;z-index:1", EDPZ);
+			NewImg("SodRollCap_1", "images/interface/SodRollCap.png", "left:131px;top:211px;z-index:1", EDPZ);
+			NewImg("SodRoll_2", "images/interface/SodRoll.png", "left:136px;top:348px;z-index:1", EDPZ);
+			NewImg("SodRollCap_2", "images/interface/SodRollCap.png", "left:131px;top:431px;z-index:1", EDPZ);
 			PlayAudio("dirt_rise");
 			(function (e, h, b, d, c, g, a, f) {
 				e += 15;
@@ -99,22 +73,8 @@ oS.Init(
 					top: ++f + "px",
 				});
 				e < 990
-					? oSym.addTask(3, arguments.callee, [
-							e,
-							h,
-							b,
-							d,
-							c,
-							g,
-							a,
-							f,
-						])
-					: (ClearChild(
-							$("SodRoll_1"),
-							$("SodRoll_2"),
-							$("SodRollCap_1"),
-							$("SodRollCap_2")
-						),
+					? oSym.addTask(3, arguments.callee, [e, h, b, d, c, g, a, f])
+					: (ClearChild($("SodRoll_1"), $("SodRoll_2"), $("SodRollCap_1"), $("SodRollCap_2")),
 						(function () {
 							StopMusic();
 							PlayMusic((oS.LoadMusic = oS.StartGameMusic));
@@ -128,66 +88,35 @@ oS.Init(
 										var m = oS.C + 1;
 										switch (l) {
 											case 0:
-												innerText(
-													$("DivTeachBar"),
-													"Sunflowers are an extremely important plant!"
-												);
-												NewImg(
-													"PointerUD",
-													"images/interface/PointerUP.gif",
-													"top:120px;left:50px",
-													EDAll
-												);
-												oSym.addTask(
-													10,
-													arguments.callee,
-													[++l]
-												);
+												innerText($("DivTeachBar"), "Sunflowers are an extremely important plant!");
+												NewImg("PointerUD", "images/interface/PointerUP.gif", "top:120px;left:50px", EDAll);
+												oSym.addTask(10, arguments.callee, [++l]);
 												break;
 											case 1:
 												var j = oGd.$;
 												var i;
 												for (i in j) {
-													if (
-														j[i].EName ===
-														"oSunFlower"
-													) {
-														innerText(
-															$("DivTeachBar"),
-															"Try to plant at least 3 of them!"
-														);
-														oSym.addTask(
-															10,
-															arguments.callee,
-															[++l]
-														).addTask(
+													if (j[i].EName === "oSunFlower") {
+														innerText($("DivTeachBar"), "Try to plant at least 3 of them!");
+														oSym.addTask(10, arguments.callee, [++l]).addTask(
 															2500,
 															() => {
 																oP.AddZombiesFlag();
-																SetVisible(
-																	$(
-																		"dFlagMeterContent"
-																	)
-																);
+																SetVisible($("dFlagMeterContent"));
 															},
 															[]
 														);
 														return;
 													}
 												}
-												oSym.addTask(
-													10,
-													arguments.callee,
-													[l]
-												);
+												oSym.addTask(10, arguments.callee, [l]);
 												break;
 											case 2:
 												var j = oGd.$;
 												var i;
 												var k = 0;
 												for (i in j) {
-													j[i].EName ===
-														"oSunFlower" && ++k;
+													j[i].EName === "oSunFlower" && ++k;
 												}
 												k > 1 &&
 													(innerHTML(
@@ -195,47 +124,26 @@ oS.Init(
 														"Planting at least 3 sunflowers improves your<br>chances of surviving a zombie attack!"
 													),
 													++l);
-												oSym.addTask(
-													10,
-													arguments.callee,
-													[l]
-												);
+												oSym.addTask(10, arguments.callee, [l]);
 												break;
 											default:
 												var j = oGd.$;
 												var i;
 												var k = 0;
 												for (i in j) {
-													j[i].EName ===
-														"oSunFlower" && ++k;
+													j[i].EName === "oSunFlower" && ++k;
 												}
 												k > 2
 													? (innerHTML(
 															$("DivTeachBar"),
 															"Planting sunflowers will improve your<br>chances of surviving the zombie attack!"
 														),
-														SetStyle(
-															$("PointerUD"),
-															{
-																left: "50px",
-																top: "60px",
-															}
-														),
-														oSym.addTask(
-															500,
-															SetNone,
-															[
-																$("PointerUD"),
-																$(
-																	"DivTeachBar"
-																),
-															]
-														))
-													: oSym.addTask(
-															10,
-															arguments.callee,
-															[3]
-														);
+														SetStyle($("PointerUD"), {
+															left: "50px",
+															top: "60px",
+														}),
+														oSym.addTask(500, SetNone, [$("PointerUD"), $("DivTeachBar")]))
+													: oSym.addTask(10, arguments.callee, [3]);
 										}
 										return l;
 									},
@@ -257,17 +165,11 @@ oS.Init(
 		FlagToSumNum: { a1: [3, 4], a2: [1, 2, 3] },
 		FlagToMonitor: { 5: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/CherryBomb.png",
-				"left:827px;top:220px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oCherryBomb, 3);
-					},
-				}
-			);
+			NewImg("imgSF", "images/Card/Plants/CherryBomb.png", "left:827px;top:220px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oCherryBomb, 3);
+				},
+			});
 			EditImg($("PointerUD"), 0, "images/interface/PointerDown.gif", {
 				left: "836px",
 				top: "185px",

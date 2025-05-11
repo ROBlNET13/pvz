@@ -39,14 +39,7 @@ oS.Init(
 			oCattail,
 			oPumpkinHead,
 		],
-		ZName: [
-			oDuckyTubeZombie2,
-			oDuckyTubeZombie3,
-			oDuckyTubeZombie4,
-			oDuckyTubeZombie1,
-			oDolphinRiderZombie,
-			oSubZombie,
-		],
+		ZName: [oDuckyTubeZombie2, oDuckyTubeZombie3, oDuckyTubeZombie4, oDuckyTubeZombie1, oDolphinRiderZombie, oSubZombie],
 		PicArr: (function () {
 			var a = oGarlic.prototype;
 			var b = a.PicArr;
@@ -67,8 +60,7 @@ oS.Init(
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutWaterZombie(7, 9, 2, [oWarshipsZombie]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(7, 9, 2, [oWarshipsZombie]);
 		},
 		StartGameMusic: "jiaxing",
 	},
@@ -88,23 +80,12 @@ oS.Init(
 		},
 		FlagToMonitor: {},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/Garlic.png",
-				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oGarlic, 45);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:490px;left:836px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/Garlic.png", "left:827px;top:525px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oGarlic, 45);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll);
 		},
 	}
 );

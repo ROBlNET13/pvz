@@ -39,11 +39,7 @@ oS.Init(
 			oPoleVaultingZombie,
 			oZomboni,
 		],
-		PicArr: [
-			"images/interface/background3.webp",
-			"images/interface/ZombieNoteSmall.png",
-			"images/interface/ZombieNote3.png",
-		],
+		PicArr: ["images/interface/background3.webp", "images/interface/ZombieNoteSmall.png", "images/interface/ZombieNote3.png"],
 		Coord: 2,
 		SunNum: 50,
 		LF: [0, 1, 1, 2, 2, 1, 1],
@@ -57,8 +53,7 @@ oS.Init(
 			30: $("imgFlag1"),
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(6, 9, 3, [oDuckyTubeZombie1]);
 		},
 		StartGameMusic: "WateryGraves",
 	},
@@ -87,33 +82,22 @@ oS.Init(
 			29: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/ZombieNoteSmall.png",
-				"left:667px;top:220px",
-				EDAll,
-				{
-					onclick() {
-						PlayAudio("winmusic");
-						SetHidden($("PointerUD"));
-						SetStyle(this, {
-							width: "613px",
-							height: "399px",
-							left: "193px",
-							top: "100px",
-						}).src = "images/interface/ZombieNote3.png";
-						this.onclick = function () {
-							SelectModal(30);
-						};
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/ZombieNoteSmall.png", "left:667px;top:220px", EDAll, {
+				onclick() {
+					PlayAudio("winmusic");
+					SetHidden($("PointerUD"));
+					SetStyle(this, {
+						width: "613px",
+						height: "399px",
+						left: "193px",
+						top: "100px",
+					}).src = "images/interface/ZombieNote3.png";
+					this.onclick = function () {
+						SelectModal(30);
+					};
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

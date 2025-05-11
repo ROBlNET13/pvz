@@ -15,20 +15,8 @@ oS.Init({
 		oStarfruit,
 		oHypnoShroom,
 	],
-	ZName: [
-		oIImp,
-		oIConeheadZombie,
-		oIPoleVaultingZombie,
-		oIBucketheadZombie,
-		oIFootballZombie,
-		oIDiggerZombie,
-		oIScreenDoorZombie,
-	],
-	PicArr: [
-		"images/interface/background2.jpg",
-		"images/interface/trophy.png",
-		"images/interface/Stripe.png",
-	],
+	ZName: [oIImp, oIConeheadZombie, oIPoleVaultingZombie, oIBucketheadZombie, oIFootballZombie, oIDiggerZombie, oIScreenDoorZombie],
+	PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png", "images/interface/Stripe.png"],
 	backgroundImage: "images/interface/background2.jpg",
 	ShowScroll: false,
 	DKind: 0,
@@ -48,10 +36,7 @@ oS.Init({
 		ArC: [1, 6],
 		ArR: [1, 5],
 		Auto: 1,
-		P: [
-			0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 5, 6,
-			7, 8, 9, 10, 11, 11, 12, 13,
-		],
+		P: [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 5, 6, 7, 8, 9, 10, 11, 11, 12, 13],
 	},
 	RiddleAutoGrow() {
 		var k = oS.ArP;
@@ -69,11 +54,7 @@ oS.Init({
 			while (i <= h) {
 				CustomSpecial(oBrains, i, 0);
 				for (a = g; a <= b; a++) {
-					let placed = CustomSpecial(
-						d[e[(c = Math.floor(Math.random() * e.length))]],
-						i,
-						a
-					);
+					let placed = CustomSpecial(d[e[(c = Math.floor(Math.random() * e.length))]], i, a);
 					console.log(placed);
 					placed.plantImage.classList.add("cardboard");
 					e.splice(c, 1);
@@ -81,12 +62,7 @@ oS.Init({
 				++i;
 			}
 		}
-		NewImg(
-			"iStripe",
-			"images/interface/Stripe.png",
-			"left:" + (GetX1X2(7)[0] - 11) + "px;top:65px",
-			EDAll
-		);
+		NewImg("iStripe", "images/interface/Stripe.png", "left:" + (GetX1X2(7)[0] - 11) + "px;top:65px", EDAll);
 	},
 	StartGame() {
 		SetVisible($("dSunNum"));

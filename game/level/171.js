@@ -98,23 +98,12 @@ oS.Init(
 		FlagToSumNum: { a1: [54, 57, 72], a2: [54, 57, 92] },
 		FlagToMonitor: { 4: [ShowLargeWave, 0], 9: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(172);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(172);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

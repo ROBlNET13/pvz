@@ -1,25 +1,7 @@
 oS.Init(
 	{
-		PName: [
-			oPeashooter,
-			oSunFlower,
-			oCherryBomb,
-			oWallNut,
-			oPotatoMine,
-			oSnowPea,
-			oChomper,
-			oRepeater,
-			oPuffShroom,
-			oSunShroom,
-		],
-		ZName: [
-			oZombie,
-			oZombie2,
-			oZombie3,
-			oConeheadZombie,
-			oNewspaperZombie,
-			oBucketheadZombie,
-		],
+		PName: [oPeashooter, oSunFlower, oCherryBomb, oWallNut, oPotatoMine, oSnowPea, oChomper, oRepeater, oPuffShroom, oSunShroom],
+		ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oNewspaperZombie, oBucketheadZombie],
 		PicArr: (function () {
 			var a = oFumeShroom.prototype;
 			var b = a.PicArr;
@@ -40,12 +22,7 @@ oS.Init(
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
 		Monitor: { f: AppearTombstones, ar: [7, 9, 4] },
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutTomZombie([
-					oZombie,
-					oConeheadZombie,
-					oBucketheadZombie,
-				]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie, oBucketheadZombie]);
 		},
 		StartGameMusic: "Moongrains",
 	},
@@ -65,23 +42,12 @@ oS.Init(
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/FumeShroom.png",
-				"left:587px;top:270px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(13);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:235px;left:596px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/FumeShroom.png", "left:587px;top:270px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					SelectModal(13);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:235px;left:596px", EDAll);
 		},
 	}
 );

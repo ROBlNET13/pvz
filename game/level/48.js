@@ -43,14 +43,7 @@ oS.Init(
 			oStarfruit,
 			oCoffeeBean,
 		],
-		ZName: [
-			oDuckyTubeZombie2,
-			oDuckyTubeZombie3,
-			oDuckyTubeZombie4,
-			oDolphinRiderZombie,
-			oSubZombie,
-			oSnorkelZombie,
-		],
+		ZName: [oDuckyTubeZombie2, oDuckyTubeZombie3, oDuckyTubeZombie4, oDolphinRiderZombie, oSubZombie, oSnorkelZombie],
 		PicArr: (function () {
 			var a = oGloomShroom.prototype;
 			var b = a.PicArr;
@@ -71,8 +64,7 @@ oS.Init(
 			CustomSpecial(oPoolCleaner, 5, -1);
 		},
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutWaterZombie(5, 9, 5, [oWarshipsZombie]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(5, 9, 5, [oWarshipsZombie]);
 		},
 		StartGameMusic: "jiaxing",
 	},
@@ -92,23 +84,12 @@ oS.Init(
 		},
 		FlagToMonitor: {},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/GloomShroom.png",
-				"left:827px;top:525px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oGloomShroom, 49);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:490px;left:836px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/GloomShroom.png", "left:827px;top:525px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oGloomShroom, 49);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:490px;left:836px", EDAll);
 		},
 	}
 );

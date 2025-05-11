@@ -115,23 +115,12 @@ oS.Init(
 		},
 		FlagToMonitor: { 4: [ShowLargeWave, 0], 9: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(184);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(184);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

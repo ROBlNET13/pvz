@@ -139,17 +139,11 @@ oS.Init(
 			11: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/FlamesMushroom.png",
-				"left:667px;top:330px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oFlamesMushroom, 216);
-					},
-				}
-			);
+			NewImg("imgSF", "images/Card/Plants/FlamesMushroom.png", "left:667px;top:330px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oFlamesMushroom, 216);
+				},
+			});
 			EditImg($("PointerUD"), 0, "images/interface/PointerDown.gif", {
 				left: "676px",
 				top: "295px",

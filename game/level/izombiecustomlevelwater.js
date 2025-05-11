@@ -211,10 +211,7 @@ for (let i = 0; i < levelDataToLoad.plants.length; i++) {
 	}
 }
 // if lfValue is [0, 1, 1, 2, 2, 1, 1], then we use background4, otherwise background2
-backgroundImage =
-	levelDataToLoad.lfValue[3] === 2
-		? "images/interface/background4.jpg"
-		: "images/interface/background2.jpg";
+backgroundImage = levelDataToLoad.lfValue[3] === 2 ? "images/interface/background4.jpg" : "images/interface/background2.jpg";
 // if its [0, 1, 1, 2, 2, 1, 1], then we use 6 brains, otherwise 5
 brainsNum = levelDataToLoad.lfValue[3] === 2 ? 6 : 5;
 
@@ -231,11 +228,7 @@ oS.Init({
 		oIPoleVaultingZombie,
 		oIBalloonZombie,
 	],
-	PicArr: [
-		backgroundImage,
-		"images/interface/trophy.png",
-		"images/interface/Stripe.png",
-	],
+	PicArr: [backgroundImage, "images/interface/trophy.png", "images/interface/Stripe.png"],
 	backgroundImage,
 	Coord: 2,
 	DKind: 0,
@@ -293,22 +286,12 @@ oS.Init({
 		/*for (var i = f[0]; i <= f[1]; ++i)
             CustomSpecial(oILilyPad, 3, i), CustomSpecial(oLilyPad, 4, i); // 荷叶*/
 		SummonRange(Arr, 3, 4), oS.RandomGrow(Arr, e.Arr); // 处理泳池的植物
-		SummonRange(Arr, 1, 2),
-			SummonRange(Arr, 5, 6),
-			oS.RandomGrow(Arr, e.Arr1),
-			oS.RandomGrow(Arr, e.Arr); // 处理剩余的植物
+		SummonRange(Arr, 1, 2), SummonRange(Arr, 5, 6), oS.RandomGrow(Arr, e.Arr1), oS.RandomGrow(Arr, e.Arr); // 处理剩余的植物
 		SummonRange(Arr, 1, 6), oS.RandomGrow(Arr, e.Arr2); // 处理南瓜头
 		for (var i = j[0]; i <= j[1]; ++i) {
 			CustomSpecial(oBrains, i, 0);
 		} // 脑子
-		NewImg(
-			"iStripe",
-			"images/interface/Stripe.png",
-			"left:" +
-				(GetX1X2(levelDataToLoad.stripeCol)[0] - 11) +
-				"px;top:65px",
-			EDAll
-		);
+		NewImg("iStripe", "images/interface/Stripe.png", "left:" + (GetX1X2(levelDataToLoad.stripeCol)[0] - 11) + "px;top:65px", EDAll);
 	},
 	StartGame() {
 		restoreToPlants(levelDataToLoad); // load the plants

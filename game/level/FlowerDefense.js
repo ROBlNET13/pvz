@@ -86,8 +86,7 @@ oS.Init(
 			}
 			if (oP.FlagZombies === 41) {
 				oS.ChangeBG($("White_box"), $("BackGround_Unsodded"), 1, () => {
-					($("BackGround_TF_night").style.opacity = 0),
-						(oS.AddSunNum = 5);
+					($("BackGround_TF_night").style.opacity = 0), (oS.AddSunNum = 5);
 					dag.clear();
 					oS.DKind = 1;
 					for (let i in oGd.$Crater) {
@@ -131,11 +130,7 @@ oS.Init(
 		},
 		rewrite() {
 			oP.MonPrgs = function () {
-				innerText(
-					ESSunNum,
-					(oS.SunNum = Math.min(oS.SunNum + oS.AddSunNum, 9990))
-				),
-					MonitorCard();
+				innerText(ESSunNum, (oS.SunNum = Math.min(oS.SunNum + oS.AddSunNum, 9990))), MonitorCard();
 				var u = oP;
 				var j;
 				var i = u.FlagZombies;
@@ -144,8 +139,7 @@ oS.Init(
 				var f = $User.Visitor;
 				!--u.NumZombies &&
 					(i < u.FlagNum
-						? ((u.ReadyFlag = ++i),
-							oSym.addTask(500, u.FlagPrgs, []))
+						? ((u.ReadyFlag = ++i), oSym.addTask(500, u.FlagPrgs, []))
 						: (NewEle(
 								"DivA",
 								"div",
@@ -163,11 +157,7 @@ oS.Init(
 										"script",
 										0,
 										{
-											src:
-												"asp/UserSave.asp?Lvl=" +
-												(s = oS.LvlEName) +
-												"&T=" +
-												(oSym.Now - oS.StartTime),
+											src: "asp/UserSave.asp?Lvl=" + (s = oS.LvlEName) + "&T=" + (oSym.Now - oS.StartTime),
 											type: "text/javascript",
 										},
 										document.body
@@ -183,40 +173,15 @@ oS.Init(
 								((t = $("dAdventure")),
 								($User.Visitor.Progress = ++s),
 								(t.firstChild.innerHTML = Math.ceil(s / 10)),
-								(t.childNodes[1].innerHTML = (s -=
-									Math.floor(s / 10) * 10)
-									? s
-									: s + 1)),
+								(t.childNodes[1].innerHTML = (s -= Math.floor(s / 10) * 10) ? s : s + 1)),
 							PauseGame($("dMenu0"), 1)));
 			};
 		},
 		LoadAccess(start_game) {
-			NewImg(
-				"BackGround_TF_night",
-				"https://s4.gifyu.com/images/background2_TF.jpg",
-				"opacity:0;left:-115",
-				EDAll
-			);
-			NewImg(
-				"BackGround_Unsodded",
-				"images/interface/background1unsodded2.jpg",
-				"opacity:0;left:-115",
-				EDAll
-			);
-			NewEle(
-				"White_box",
-				"div",
-				"position:absolute;width:900px;height:600px;background:#FFF;filter:alpha(opacity=0);opacity:0;z-index:-255",
-				0,
-				EDAll
-			);
-			NewEle(
-				"Black_box",
-				"div",
-				"position:absolute;width:900px;height:600px;background:#000;filter:alpha(opacity=0);opacity:0;z-index:-255",
-				0,
-				EDAll
-			);
+			NewImg("BackGround_TF_night", "https://s4.gifyu.com/images/background2_TF.jpg", "opacity:0;left:-115", EDAll);
+			NewImg("BackGround_Unsodded", "images/interface/background1unsodded2.jpg", "opacity:0;left:-115", EDAll);
+			NewEle("White_box", "div", "position:absolute;width:900px;height:600px;background:#FFF;filter:alpha(opacity=0);opacity:0;z-index:-255", 0, EDAll);
+			NewEle("Black_box", "div", "position:absolute;width:900px;height:600px;background:#000;filter:alpha(opacity=0);opacity:0;z-index:-255", 0, EDAll);
 			delete oAudio.LevelSong;
 			NewURLAudio({
 				url: "audio/Zombieboss.mp3",
@@ -225,10 +190,7 @@ oS.Init(
 			});
 			init_dag();
 			for (let i = 5; i >= 1; i--) {
-				oGd.$Crater[i + "_" + 2] =
-					oGd.$Crater[i + "_" + 8] =
-					oGd.$Crater[i + "_" + 5] =
-						100;
+				oGd.$Crater[i + "_" + 2] = oGd.$Crater[i + "_" + 8] = oGd.$Crater[i + "_" + 5] = 100;
 				if (i === 5) {
 					continue;
 				}
@@ -251,19 +213,11 @@ oS.Init(
 				function (index, kind, alpha) {
 					box.style.opacity = Math.max(0, Math.min(1, index || 0));
 					if (index <= 1 && kind === 0) {
-						oSym.addTask(1, arguments.callee, [
-							index + 0.01,
-							kind,
-							alpha,
-						]);
+						oSym.addTask(1, arguments.callee, [index + 0.01, kind, alpha]);
 					} else if (index >= 0) {
 						!kind && (bg.style.opacity = alpha);
 						!kind && deffuc && deffuc();
-						oSym.addTask(1, arguments.callee, [
-							index - 0.01,
-							1,
-							alpha,
-						]);
+						oSym.addTask(1, arguments.callee, [index - 0.01, 1, alpha]);
 					} else {
 						box.style.opacity = 0;
 						box.style["z-index"] = -255;
@@ -320,14 +274,8 @@ oS.Init(
 		],
 		FlagNum: 60,
 		FlagToSumNum: {
-			a1: [
-				3, 6, 9, 13, 15, 19, 20, 21, 23, 26, 28, 32, 34, 37, 39, 40, 41,
-				42, 43, 45, 48, 52, 58, 59,
-			],
-			a2: [
-				4, 8, 12, 20, 30, 50, 150, 160, 14, 20, 27, 36, 43, 50, 56, 200,
-				50, 10, 15, 25, 39, 50, 60, 70, 120,
-			],
+			a1: [3, 6, 9, 13, 15, 19, 20, 21, 23, 26, 28, 32, 34, 37, 39, 40, 41, 42, 43, 45, 48, 52, 58, 59],
+			a2: [4, 8, 12, 20, 30, 50, 150, 160, 14, 20, 27, 36, 43, 50, 56, 200, 50, 10, 15, 25, 39, 50, 60, 70, 120],
 		},
 		FlagToMonitor: {
 			19: [ShowLargeWave, 0],
@@ -335,48 +283,27 @@ oS.Init(
 			59: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:43.5%;top:220px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(0);
-						PlayAudio("winmusic");
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:51%",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:43.5%;top:220px", EDAll, {
+				onclick() {
+					SelectModal(0);
+					PlayAudio("winmusic");
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:51%", EDAll);
 		},
 	},
 	{
 		AutoProduceSun(a) {
 			if (oS.DKind) {
-				AppearSun(
-					GetX(Math.floor(1 + Math.random() * oS.C)),
-					GetY(Math.floor(1 + Math.random() * oS.R)),
-					a,
-					1
-				);
+				AppearSun(GetX(Math.floor(1 + Math.random() * oS.C)), GetY(Math.floor(1 + Math.random() * oS.R)), a, 1);
 			}
-			oSym.addTask(
-				Math.floor(9 + Math.random() * 3) * 100,
-				AutoProduceSun,
-				[a]
-			);
+			oSym.addTask(Math.floor(9 + Math.random() * 3) * 100, AutoProduceSun, [a]);
 		},
 		dag: [],
 		redag: [],
 		init_dag() {
 			dag.add_edge = (u, v) => {
-				(u = JSON.stringify(u) || u.toString()),
-					(v = JSON.stringify(v) || v.toString());
+				(u = JSON.stringify(u) || u.toString()), (v = JSON.stringify(v) || v.toString());
 				if (Array.isArray(dag[u])) {
 					dag[u].push(v);
 				} else {
@@ -395,22 +322,15 @@ oS.Init(
 					}
 				}
 				for (let i in redag) {
-					if (
-						Array.isArray(redag[i]) &&
-						Array.isArray(JSON.parse(i))
-					) {
+					if (Array.isArray(redag[i]) && Array.isArray(JSON.parse(i))) {
 						delete redag[i];
 					}
 				}
 			};
 		},
 		dag_zombie_init(b) {
-			isNaN(b.AttackedLX)
-				? (b.AttackedLX = b.AttackedLX2)
-				: (b.AttackedLX2 = b.AttackedLX);
-			isNaN(b.AttackedRX)
-				? (b.AttackedRX = b.AttackedRX2)
-				: (b.AttackedRX2 = b.AttackedRX);
+			isNaN(b.AttackedLX) ? (b.AttackedLX = b.AttackedLX2) : (b.AttackedLX2 = b.AttackedLX);
+			isNaN(b.AttackedRX) ? (b.AttackedRX = b.AttackedRX2) : (b.AttackedRX2 = b.AttackedRX);
 			isNaN(b.X) ? (b.X = b.X2) : (b.X2 = b.X);
 			isNaN(b.ZX) ? (b.ZX = b.ZX2) : (b.ZX2 = b.ZX);
 			b.Speed2 !== b.OSpeed && (b.Speed2 = b.OSpeed);
@@ -430,15 +350,11 @@ oS.Init(
 			let finaly = (ty - tp) * yS;
 			let finalx = (tx - x) * xS;
 			if (finaly > 0) {
-				(b.Reduce[0] = 0),
-					(b.Ele.style.top = ty - b.height + b.GetDY() + "px"),
-					(b.RSpeed = 0);
+				(b.Reduce[0] = 0), (b.Ele.style.top = ty - b.height + b.GetDY() + "px"), (b.RSpeed = 0);
 			}
 			if (finalx > 0) {
 				(b.Reduce[1] = 0), (b.AttackedLX -= b.X), (b.AttackedRX -= b.X);
-				(b.X = tx - point - b.beAttackedPointL),
-					(b.AttackedLX += b.X),
-					(b.AttackedRX += b.X);
+				(b.X = tx - point - b.beAttackedPointL), (b.AttackedLX += b.X), (b.AttackedRX += b.X);
 				(b.Ele.style.left = b.X + "px"), (b.Speed = 0);
 			}
 			if (b.Reduce[0] === b.Reduce[1] && b.Reduce[0] === 0) {
@@ -456,25 +372,17 @@ oS.Init(
 					ar: [l],
 					CustomTop: tp,
 				});
-				(b.ZX -= r),
-					(b.AttackedLX -= r),
-					(b.AttackedRX -= r),
-					(b.X -= r);
+				(b.ZX -= r), (b.AttackedLX -= r), (b.AttackedRX -= r), (b.X -= r);
 				b.Ele.style.left = b.X + "px";
 			}
 		},
 		ctk_final_set(b) {
 			b.WalkDirection && b.Speed < 0 && (b.Speed = -b.Speed);
 			if (b.WalkDirection && b.Reduce && b.Reduce[1] > 0) {
-				b.Speed > 0 &&
-					(b.Speed *= -b.Reduce[1] / Math.abs(b.Reduce[1] || 0));
+				b.Speed > 0 && (b.Speed *= -b.Reduce[1] / Math.abs(b.Reduce[1] || 0));
 			}
-			isNaN(b.AttackedLX)
-				? (b.AttackedLX = b.AttackedLX2)
-				: (b.AttackedLX2 = b.AttackedLX);
-			isNaN(b.AttackedRX)
-				? (b.AttackedRX = b.AttackedRX2)
-				: (b.AttackedRX2 = b.AttackedRX);
+			isNaN(b.AttackedLX) ? (b.AttackedLX = b.AttackedLX2) : (b.AttackedLX2 = b.AttackedLX);
+			isNaN(b.AttackedRX) ? (b.AttackedRX = b.AttackedRX2) : (b.AttackedRX2 = b.AttackedRX);
 			isNaN(b.X) ? (b.X = b.X2) : (b.X2 = b.X);
 			isNaN(b.ZX) ? (b.ZX = b.ZX2) : (b.ZX2 = b.ZX);
 		},
@@ -494,15 +402,9 @@ oS.Init(
 				}
 				if (!to && (b.WalkDirection ? redag[now] : dag[now])) {
 					if (b.WalkDirection) {
-						b.Next_Edge = to =
-							redag[now][
-								Math.floor(Math.random() * redag[now].length)
-							];
+						b.Next_Edge = to = redag[now][Math.floor(Math.random() * redag[now].length)];
 					} else {
-						b.Next_Edge = to =
-							dag[now][
-								Math.floor(Math.random() * dag[now].length)
-							];
+						b.Next_Edge = to = dag[now][Math.floor(Math.random() * dag[now].length)];
 					}
 				}
 				if (!to) {
@@ -510,22 +412,10 @@ oS.Init(
 					continue;
 				}
 				let toArr = JSON.parse(to);
-				let Reduce = (b.Reduce = b.Reduce || [
-					nowArr[0] - toArr[0],
-					nowArr[1] - toArr[1],
-				]);
-				b.Speed =
-					b.Speed2 *
-					Reduce[1] *
-					(!!b.FreeSlowTime * 0.5 || 1) *
-					!b.FreeFreezeTime;
-				b.RSpeed =
-					b.Speed2 *
-					Reduce[0] *
-					(!!b.FreeSlowTime * 0.5 || 1) *
-					!b.FreeFreezeTime;
-				(Eletop = Number(b.Ele.style.top.split("px")[0]) - b.RSpeed),
-					(b.Ele.style.top = Eletop + "px");
+				let Reduce = (b.Reduce = b.Reduce || [nowArr[0] - toArr[0], nowArr[1] - toArr[1]]);
+				b.Speed = b.Speed2 * Reduce[1] * (!!b.FreeSlowTime * 0.5 || 1) * !b.FreeFreezeTime;
+				b.RSpeed = b.Speed2 * Reduce[0] * (!!b.FreeSlowTime * 0.5 || 1) * !b.FreeFreezeTime;
+				(Eletop = Number(b.Ele.style.top.split("px")[0]) - b.RSpeed), (b.Ele.style.top = Eletop + "px");
 				ctk_arrive_grid(b, toArr, Reduce, Eletop, b.ZX + point);
 				ctk_change_r(b, Eletop);
 				ctk_final_set(b);
@@ -560,10 +450,7 @@ oS.Init(
 				(m = document.createElement("source")).type = j[e];
 				(m.src = a), f.appendChild(m);
 			}
-			(f.autoplay = !!c),
-				(f.preload =
-					k === undefined ? "auto" : ["auto", "meta", "none"][k]),
-				(f.muted = oS.Silence);
+			(f.autoplay = !!c), (f.preload = k === undefined ? "auto" : ["auto", "meta", "none"][k]), (f.muted = oS.Silence);
 			g &&
 				f.addEventListener(
 					"ended",

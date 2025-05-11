@@ -1,17 +1,8 @@
 oS.Init(
 	{
 		PName: [oHypnoShroom],
-		ZName: [
-			oZombie,
-			oConeheadZombie,
-			oDancingZombie,
-			oFootballZombie,
-			oHeiFootballZombie,
-		],
-		PicArr: [
-			"images/interface/background2.jpg",
-			"images/interface/trophy.png",
-		],
+		ZName: [oZombie, oConeheadZombie, oDancingZombie, oFootballZombie, oHeiFootballZombie],
+		PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png"],
 		backgroundImage: "images/interface/background2.jpg",
 		CanSelectCard: 0,
 		DKind: 0,
@@ -66,9 +57,7 @@ oS.Init(
 							var a;
 							var c;
 							while (b--) {
-								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
-									($(a.DID).style.top =
-										(a.PixelTop = c - 1) + "px");
+								(c = (a = ArCard[b]).PixelTop) > 60 * b && ($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
 							}
 							oSym.addTask(5, arguments.callee, []);
 						})();
@@ -94,23 +83,12 @@ oS.Init(
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(0);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:198px;left:269px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(0);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:198px;left:269px", EDAll);
 		},
 	},
 	{
@@ -132,14 +110,7 @@ oS.Init(
 				NewImg(
 					"MovePlant",
 					c.PicArr[c.StaticGif],
-					"left:" +
-						e -
-						0.5 * (c.beAttackedPointL + c.beAttackedPointR) +
-						"px;top:" +
-						d +
-						20 -
-						c.height +
-						"px;z-index:254",
+					"left:" + e - 0.5 * (c.beAttackedPointL + c.beAttackedPointR) + "px;top:" + d + 20 - c.height + "px;z-index:254",
 					EDAll
 				).cloneNode(false),
 				"MovePlantAlpha",

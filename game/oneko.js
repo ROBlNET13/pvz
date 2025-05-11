@@ -2,8 +2,7 @@
 
 (function oneko() {
 	const isReducedMotion =
-		window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-		window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+		window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
 
 	if (isReducedMotion) {
 		return;
@@ -135,9 +134,7 @@
 
 	function setSprite(name, frame) {
 		const sprite = spriteSets[name][frame % spriteSets[name].length];
-		nekoEl.style.backgroundPosition = `${sprite[0] * 32}px ${
-			sprite[1] * 32
-		}px`;
+		nekoEl.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
 	}
 
 	function resetIdleAnimation() {
@@ -149,11 +146,7 @@
 		idleTime += 1;
 
 		// every ~ 20 seconds
-		if (
-			idleTime > 10 &&
-			Math.floor(Math.random() * 200) === 0 &&
-			idleAnimation == null
-		) {
+		if (idleTime > 10 && Math.floor(Math.random() * 200) === 0 && idleAnimation == null) {
 			let avalibleIdleAnimations = ["sleeping", "scratchSelf"];
 			if (nekoPosX < 32) {
 				avalibleIdleAnimations.push("scratchWallW");
@@ -167,10 +160,7 @@
 			if (nekoPosY > window.innerHeight - 32) {
 				avalibleIdleAnimations.push("scratchWallS");
 			}
-			idleAnimation =
-				avalibleIdleAnimations[
-					Math.floor(Math.random() * avalibleIdleAnimations.length)
-				];
+			idleAnimation = avalibleIdleAnimations[Math.floor(Math.random() * avalibleIdleAnimations.length)];
 		}
 
 		switch (idleAnimation) {
@@ -204,8 +194,7 @@
 	function explodeHearts() {
 		const parent = nekoEl.parentElement;
 		const rect = nekoEl.getBoundingClientRect();
-		const scrollLeft =
-			window.scrollX || document.documentElement.scrollLeft;
+		const scrollLeft = window.scrollX || document.documentElement.scrollLeft;
 		const scrollTop = window.scrollY || document.documentElement.scrollTop;
 		const centerX = rect.left + rect.width / 2 + scrollLeft;
 		const centerY = rect.top + rect.height / 2 + scrollTop;
@@ -218,9 +207,7 @@
 			const offsetY = (Math.random() - 0.5) * 50;
 			heart.style.left = `${centerX + offsetX - 16}px`;
 			heart.style.top = `${centerY + offsetY - 16}px`;
-			heart.style.transform = `translate(-50%, -50%) rotate(${
-				Math.random() * 360
-			}deg) scale(0.75)`;
+			heart.style.transform = `translate(-50%, -50%) rotate(${Math.random() * 360}deg) scale(0.75)`;
 			parent.appendChild(heart);
 
 			setTimeout(() => {

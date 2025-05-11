@@ -23,23 +23,11 @@ oS.Init(
 			oTangleKlep,
 			oJalapeno,
 		],
-		ZName: [
-			oZombie,
-			oZombie2,
-			oZombie3,
-			oDuckyTubeZombie1,
-			oDuckyTubeZombie2,
-			oConeheadZombie,
-			oZomboni,
-		],
+		ZName: [oZombie, oZombie2, oZombie3, oDuckyTubeZombie1, oDuckyTubeZombie2, oConeheadZombie, oZomboni],
 		PicArr: (function () {
 			var a = oSpikeweed.prototype;
 			var b = a.PicArr;
-			return [
-				"images/interface/background3.webp",
-				b[a.CardGif],
-				b[a.NormalGif],
-			];
+			return ["images/interface/background3.webp", b[a.CardGif], b[a.NormalGif]];
 		})(),
 		Coord: 2,
 		SunNum: 375,
@@ -53,12 +41,7 @@ oS.Init(
 		},
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
 		LoadAccess(a) {
-			NewImg(
-				"dDave",
-				"images/interface/Dave.gif",
-				"left:0;top:81px",
-				EDAll
-			);
+			NewImg("dDave", "images/interface/Dave.gif", "left:0;top:81px", EDAll);
 			NewEle("DivTeach", "div", 0, 0, EDAll);
 			(function (d) {
 				var b = arguments.callee;
@@ -77,15 +60,10 @@ oS.Init(
 							},
 							[]
 						);
-						innerText(
-							c,
-							"Have you ever thought that zombies can also practice a pair of fast feet?"
-						);
+						innerText(c, "Have you ever thought that zombies can also practice a pair of fast feet?");
 						break;
 					case 1:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -101,9 +79,7 @@ oS.Init(
 						innerText(c, "What a terrible thing that is!");
 						break;
 					case 2:
-						PlayAudio(
-							"crazydavelong" + Math.floor(1 + Math.random() * 3)
-						);
+						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -176,23 +152,12 @@ oS.Init(
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/trophy.png",
-				"left:260px;top:233px",
-				EDAll,
-				{
-					onclick() {
-						SelectModal(26);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:185px;left:676px",
-				EDAll
-			);
+			NewImg("imgSF", "images/interface/trophy.png", "left:260px;top:233px", EDAll, {
+				onclick() {
+					SelectModal(26);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
 		},
 	}
 );

@@ -1,24 +1,7 @@
 oS.Init(
 	{
-		PName: [
-			oFlowerPot,
-			oCFlowerPot,
-			oJalapeno,
-			oRepeater,
-			oThreepeater,
-			oTenManNut,
-			oBigChomper,
-		],
-		ZName: [
-			oCZombie,
-			oCZombie2,
-			oCZombie3,
-			oCConeheadZombie,
-			oCBucketheadZombie,
-			othugZombie,
-			oEunZombie,
-			oZZ,
-		],
+		PName: [oFlowerPot, oCFlowerPot, oJalapeno, oRepeater, oThreepeater, oTenManNut, oBigChomper],
+		ZName: [oCZombie, oCZombie2, oCZombie3, oCConeheadZombie, oCBucketheadZombie, othugZombie, oEunZombie, oZZ],
 		PicArr: ["images/interface/backgroundwall.jpg"],
 		backgroundImage: "images/interface/backgroundwall.jpg",
 		LF: [0, 3, 3, 3, 3, 3, 3],
@@ -58,14 +41,10 @@ oS.Init(
 									oP.FlagZombies < 6
 										? Math.floor(1 + Math.random() * 10) < 4
 											? 1
-											: Math.floor(
-													Math.random() * c.length
-												)
+											: Math.floor(Math.random() * c.length)
 										: Math.floor(1 + Math.random() * 10) < 3
 											? 0
-											: Math.floor(
-													Math.random() * c.length
-												);
+											: Math.floor(Math.random() * c.length);
 								var e = c[b];
 								var d = e.prototype;
 								var f = "dCard" + Math.random();
@@ -95,9 +74,7 @@ oS.Init(
 							var a;
 							var c;
 							while (b--) {
-								(c = (a = ArCard[b]).PixelTop) > 60 * b &&
-									($(a.DID).style.top =
-										(a.PixelTop = c - 1) + "px");
+								(c = (a = ArCard[b]).PixelTop) > 60 * b && ($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
 							}
 							oSym.addTask(5, arguments.callee, []);
 						})();
@@ -132,17 +109,11 @@ oS.Init(
 			39: [ShowFinalWave, 0],
 		},
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/interface/0.gif",
-				"left:667px;top:330px;clip:rect(auto,auto,237px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oGoldenPrize, 0);
-					},
-				}
-			);
+			NewImg("imgSF", "images/interface/0.gif", "left:667px;top:330px;clip:rect(auto,auto,237px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oGoldenPrize, 0);
+				},
+			});
 		},
 	},
 	{
@@ -157,9 +128,7 @@ oS.Init(
 			PlayAudio("seedlift");
 			a = window.event || a;
 			var f = ArCard[oS.ChoseCard];
-			var e =
-				a.clientX - EDAlloffsetLeft + EBody.scrollLeft ||
-				EElement.scrollLeft;
+			var e = a.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
 			var d = a.clientY + EBody.scrollTop || EElement.scrollTop;
 			var c = f.PName.prototype;
 			oS.Chose = 1;
@@ -167,14 +136,7 @@ oS.Init(
 				NewImg(
 					"MovePlant",
 					c.PicArr[c.StaticGif],
-					"left:" +
-						e -
-						0.5 * (c.beAttackedPointL + c.beAttackedPointR) +
-						"px;top:" +
-						d +
-						20 -
-						c.height +
-						"px;z-index:254",
+					"left:" + e - 0.5 * (c.beAttackedPointL + c.beAttackedPointR) + "px;top:" + d + 20 - c.height + "px;z-index:254",
 					EDAll
 				).cloneNode(false),
 				"MovePlantAlpha",
@@ -208,11 +170,7 @@ oS.Init(
 			var h = oGd.$LF[f];
 			k.CanGrow(l, f, a) &&
 				(function () {
-					PlayAudio(
-						h !== 2
-							? "plant" + Math.floor(1 + Math.random() * 2)
-							: "plant_water"
-					);
+					PlayAudio(h !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water");
 					new i().Birth(c, b, f, a, l);
 					oSym.addTask(20, SetNone, [
 						SetStyle($("imgGrowSoil"), {

@@ -16,14 +16,7 @@ oS.Init(
 			oHypnoShroom,
 			oScaredyShroom,
 		],
-		ZName: [
-			oZombie,
-			oZombie2,
-			oZombie3,
-			oConeheadZombie,
-			oScreenDoorZombie,
-			oFootballZombie,
-		],
+		ZName: [oZombie, oZombie2, oZombie3, oConeheadZombie, oScreenDoorZombie, oFootballZombie],
 		PicArr: (function () {
 			var a = oIceShroom.prototype;
 			var b = a.PicArr;
@@ -44,12 +37,7 @@ oS.Init(
 		LargeWaveFlag: { 10: $("imgFlag3"), 20: $("imgFlag1") },
 		Monitor: { f: AppearTombstones, ar: [5, 9, 11] },
 		UserDefinedFlagFunc(a) {
-			oP.FlagNum === oP.FlagZombies &&
-				oP.SetTimeoutTomZombie([
-					oZombie,
-					oConeheadZombie,
-					oBucketheadZombie,
-				]);
+			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutTomZombie([oZombie, oConeheadZombie, oBucketheadZombie]);
 		},
 		StartGameMusic: "Moongrains",
 	},
@@ -69,23 +57,12 @@ oS.Init(
 		},
 		FlagToMonitor: { 9: [ShowLargeWave, 0], 19: [ShowFinalWave, 0] },
 		FlagToEnd() {
-			NewImg(
-				"imgSF",
-				"images/Card/Plants/IceShroom.png",
-				"left:587px;top:270px;clip:rect(auto,auto,60px,auto)",
-				EDAll,
-				{
-					onclick() {
-						GetNewCard(this, oIceShroom, 18);
-					},
-				}
-			);
-			NewImg(
-				"PointerUD",
-				"images/interface/PointerDown.gif",
-				"top:235px;left:596px",
-				EDAll
-			);
+			NewImg("imgSF", "images/Card/Plants/IceShroom.png", "left:587px;top:270px;clip:rect(auto,auto,60px,auto)", EDAll, {
+				onclick() {
+					GetNewCard(this, oIceShroom, 18);
+				},
+			});
+			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:235px;left:596px", EDAll);
 		},
 	}
 );
