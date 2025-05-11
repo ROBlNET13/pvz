@@ -474,7 +474,7 @@
 					<div id="dOptionsMenu">
 						<div class="OMd0">
 							<div class="OMd1">
-								<div style="text-align: right;">
+								<div style="text-align: right">
 									<label for="cAutoSun" id="lAutoSun"
 										>☀️ Auto Collect</label
 									>
@@ -485,7 +485,7 @@
 										onchange="CheckAutoSun(this)"
 									/>
 								</div>
-								<div style="text-align: right;">
+								<div style="text-align: right">
 									<label for="cSilence" id="lSilence"
 										>🔇 Mute Audio</label
 									>
@@ -1288,12 +1288,12 @@
 			$User.Client.PC && $User.HTTP
 				? ((oS.AutoSun = Math.floor(getCookie("JSPVZAutoSun"))) &&
 						($("cAutoSun").checked = true),
-				  (oS.Silence = Math.floor(getCookie("JSPVZSilence"))) &&
+					(oS.Silence = Math.floor(getCookie("JSPVZSilence"))) &&
 						($("cSilence").checked = true))
 				: ((oS.AutoSun = 1),
-				  ($("cAutoSun").checked = true),
-				  (oS.Silence = 0),
-				  ($("cSilence").checked = false));
+					($("cAutoSun").checked = true),
+					(oS.Silence = 0),
+					($("cSilence").checked = false));
 			InitGame();
 		</script>
 		<script src="js/CPlants.js"></script>
