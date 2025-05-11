@@ -2972,7 +2972,7 @@ var oBalloon = InheritO(CPlants, {
 	PicArr: ["images/Card/Plants/BalloonGoober.png", "images/Zombies/Balloon/0.png", "images/Zombies/Balloon/popped.png"],
 	Tooltip: "goober",
 	Produce:
-		'<font color="#28325A">Balloonatics have a chance to spawn every wave. Popping them produces 75 sun</font>.</font><br><p>Toughness: <font color="CC241D">low</font></p> ">:3" says the Balloonatic, ">:3" says the Balloonatic, again.',
+		'<font color="#28325A">Balloonatics have a chance to spawn every wave. Popping them produces 75 sun</font>.</font><br><p>Toughness: <font color="CC241D">low</font></p> ">:3" says the Balloonatic. ">:3" says the Balloonatic, again.',
 	CanGrow(c, b, f) {
 		var a = b + "_" + f;
 		var d = c[1];
