@@ -890,7 +890,7 @@ input[type="checkbox"]:checked {
 	 background-size: 100% 100%;
 	 line-height: 1.65;
 }
-.title {
+.leveltitle {
 		font-family: "houseofterrormedium" !important;
 	text-align: center;
 	font-size: 31px !important;
