@@ -876,19 +876,19 @@ input[type="checkbox"]:checked {
 		1px 1px 0px rgb(92 97 111),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
 	background: url(images/interface/Button_veryshort.png) no-repeat;
-  background-size: 100% 100%;
+	background-size: 100% 100%;
 	font-size: 22.5px;
 	height: 35px;
 	width: 40px;
-	text-align: center
+	text-align: center;
 }
 #dAdvSmallContainer .lvl:hover {
 	color: #01e901 !important;
 }
 #dAdvSmallContainer .lvl:active {
 	background: url(images/interface/Button_veryshort_down.png) no-repeat;
-	 background-size: 100% 100%;
-	 line-height: 1.65;
+	background-size: 100% 100%;
+	line-height: 1.65;
 }
 .leveltitle {
 		font-family: "houseofterrormedium" !important;
@@ -903,21 +903,21 @@ input[type="checkbox"]:checked {
 		-2px -2px 0px #000000,
 		-2px 0px 0px #000000,
 		-2px 2px 0px #000000 !important;
-		font-weight: normal !important;
+	font-weight: normal !important;
 }
 
 .day-text {
-	color: #9ee69e !important
+	color: #9ee69e !important;
 }
 .night-text {
-	color: #9ebce6 !important
+	color: #9ebce6 !important;
 }
 .pool-text {
-	color: #9ee6e4 !important
+	color: #9ee6e4 !important;
 }
 .dragonpalace-text {
-	color: #9ee6c3 !important
+	color: #9ee6c3 !important;
 }
 .watertown-text {
-	color: #9ee6e6 !important
+	color: #9ee6e6 !important;
 }
