@@ -7948,7 +7948,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		AudioArr: ["LaserBean"],
 		Tooltip: "Fires a high-powered laser at an entire row of zombies",
 		Produce:
-			'<font color="#28325A">Laser Beans fire down a lane, hitting all zombies ahead of it.</font><p>Range: <font color="#CC241D">all zombies in a lane</font><p>After a laser eye surgery had gone horribly right, Laser Bean gained a sense of purpose and a new-found affinity for competitive staring contests.',
+			'<font color="#28325A">Laser Beans fire down a lane, hitting all zombies ahead of it.</font><p>Damage: <font color="#CC241D">normal, penetrates an entire lane</font><br>Range: <font color="#CC241D">all zombies in a lane</font><p>After a laser eye surgery had gone horribly right, Laser Bean gained a sense of purpose and a new-found affinity for competitive staring contests.',
 		CheckLoop(b, c) {
 			var a = this.id;
 			this.NormalAttack(b);

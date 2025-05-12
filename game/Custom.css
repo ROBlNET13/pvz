@@ -88,6 +88,7 @@
 	display: none !important;
 }
 .menu,
+.lvl,
 .BigLevel,
 #lAutoSun,
 #lSilence,
@@ -868,4 +869,55 @@ input[type="checkbox"]:checked {
 }
 #dOptionsMenu .OMd0 {
 	margin-left: -45px;
+}
+#dAdvSmallContainer .lvl {
+	color: #00c400 !important;
+	text-shadow:
+		1px 1px 0px rgb(92 97 111),
+		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
+	background: url(images/interface/Button_veryshort.png) no-repeat;
+  background-size: 100% 100%;
+	font-size: 22.5px;
+	height: 35px;
+	width: 40px;
+	text-align: center
+}
+#dAdvSmallContainer .lvl:hover {
+	color: #01e901 !important;
+}
+#dAdvSmallContainer .lvl:active {
+	background: url(images/interface/Button_veryshort_down.png) no-repeat;
+	 background-size: 100% 100%;
+	 line-height: 1.65;
+}
+.title {
+		font-family: "houseofterrormedium" !important;
+	text-align: center;
+	font-size: 31px !important;
+	text-shadow:
+		0px 2px 0px #000000,
+		2px 2px 0px #000000,
+		2px 0px 0px #000000,
+		2px -2px 0px #000000,
+		0px -2px 0px #000000,
+		-2px -2px 0px #000000,
+		-2px 0px 0px #000000,
+		-2px 2px 0px #000000 !important;
+		font-weight: normal !important;
+}
+
+.day-text {
+	color: #9ee69e !important
+}
+.night-text {
+	color: #9ebce6 !important
+}
+.pool-text {
+	color: #9ee6e4 !important
+}
+.dragonpalace-text {
+	color: #9ee6c3 !important
+}
+.watertown-text {
+	color: #9ee6e6 !important
 }
