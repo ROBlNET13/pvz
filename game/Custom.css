@@ -890,7 +890,9 @@ input[type="checkbox"]:checked {
 	background-size: 100% 100%;
 	line-height: 1.65;
 }
-.leveltitle {
+
+.day-text {
+	color: #9ee69e !important;
 	font-family: "houseofterrormedium" !important;
 	text-align: center;
 	font-size: 31px !important;
@@ -905,19 +907,67 @@ input[type="checkbox"]:checked {
 		-2px 2px 0px #000000 !important;
 	font-weight: normal !important;
 }
-
-.day-text {
-	color: #9ee69e !important;
-}
 .night-text {
 	color: #9ebce6 !important;
+	font-family: "houseofterrormedium" !important;
+	text-align: center;
+	font-size: 31px !important;
+	text-shadow:
+		0px 2px 0px #000000,
+		2px 2px 0px #000000,
+		2px 0px 0px #000000,
+		2px -2px 0px #000000,
+		0px -2px 0px #000000,
+		-2px -2px 0px #000000,
+		-2px 0px 0px #000000,
+		-2px 2px 0px #000000 !important;
+	font-weight: normal !important;
 }
 .pool-text {
 	color: #9ee6e4 !important;
+	font-family: "houseofterrormedium" !important;
+	text-align: center;
+	font-size: 31px !important;
+	text-shadow:
+		0px 2px 0px #000000,
+		2px 2px 0px #000000,
+		2px 0px 0px #000000,
+		2px -2px 0px #000000,
+		0px -2px 0px #000000,
+		-2px -2px 0px #000000,
+		-2px 0px 0px #000000,
+		-2px 2px 0px #000000 !important;
+	font-weight: normal !important;
 }
 .dragonpalace-text {
 	color: #9ee6c3 !important;
+	font-family: "houseofterrormedium" !important;
+	text-align: center;
+	font-size: 31px !important;
+	text-shadow:
+		0px 2px 0px #000000,
+		2px 2px 0px #000000,
+		2px 0px 0px #000000,
+		2px -2px 0px #000000,
+		0px -2px 0px #000000,
+		-2px -2px 0px #000000,
+		-2px 0px 0px #000000,
+		-2px 2px 0px #000000 !important;
+	font-weight: normal !important;
 }
 .watertown-text {
 	color: #9ee6e6 !important;
+	font-family: "houseofterrormedium" !important;
+	text-align: center;
+	font-size: 31px !important;
+	text-shadow:
+		0px 2px 0px #000000,
+		2px 2px 0px #000000,
+		2px 0px 0px #000000,
+		2px -2px 0px #000000,
+		0px -2px 0px #000000,
+		-2px -2px 0px #000000,
+		-2px 0px 0px #000000,
+		-2px 2px 0px #000000 !important;
+	font-weight: normal !important;
 }
