@@ -867,6 +867,14 @@ input[type="checkbox"]:checked {
 	background-size: 100% 100%;
 	line-height: 1.49;
 }
+.BigLevel:active + img {
+	transform: translateY(1.5px);
+}
+
+.BigLevel:active + img[src="images/interface/icon_house.png"] {
+	transform: translateY(1px);
+}
+
 #dOptionsMenu .OMd0 {
 	margin-left: -45px;
 }
