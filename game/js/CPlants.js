@@ -1978,7 +1978,7 @@ var oSunFlower = InheritO(CPlants, {
 
 							// Produce sun at a slightly randomized position
 							const randomX = Math.floor(posX + Math.random() * 41);
-							AppearSun(randomX, posY, 50, 0);
+							AppearSun(randomX, posY, 25, 0);
 
 							// Reset sunflower appearance
 							oSym.addTask(
@@ -2113,8 +2113,8 @@ BirthStyle: function (c, e, b, a) {
 					oSym.addTask(
 						100,
 						(k, h, g, j, i) => {
-							AppearSun(Math.floor(h + Math.random() * 21), j, 50, 0),
-								AppearSun(Math.floor(g + Math.random() * 21), j, 50, 0),
+							AppearSun(Math.floor(h + Math.random() * 21), j, 25, 0),
+								AppearSun(Math.floor(g + Math.random() * 21), j, 25, 0),
 								oSym.addTask(
 									100,
 									(l) => {

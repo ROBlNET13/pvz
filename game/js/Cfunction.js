@@ -2018,7 +2018,7 @@ var lastB;
 				PrepareGrowPlants(() => {
 					oP.Monitor(oS.Monitor, oS.UserDefinedFlagFunc);
 					BeginCool();
-					oS.DKind && AutoProduceSun(50);
+					oS.DKind && AutoProduceSun(25);
 					oSym.addTask(
 						1500,
 						() => {
