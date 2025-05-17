@@ -1,15 +1,21 @@
 oS.Init(
 	{
-		PName: [oLilyPad, oSnowRepeater, oCattail, oStarfruit, oLilyPad1],
+		PName: [oLilyPad, oSnowRepeater, oCattail, oStarfruit, oTangleKlep, oThreepeater],
 		ZName: [oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3, oDuckyTubeZombie4, oDolphinRiderZombie, oSubZombie, oSnorkelZombie, oWJY1],
 		PicArr: ["images/interface/background5.jpg"],
 		backgroundImage: "images/interface/background5.jpg",
 		LF: [0, 2, 2, 2, 2, 2],
 		CanSelectCard: 0,
 		DKind: 0,
-		LevelName: "5-10 close",
+		LevelName: "5-10",
 		LvlEName: "50",
-		InitLawnMower() {},
+		InitLawnMower() {
+			CustomSpecial(oPoolCleaner, 1, -1);
+			CustomSpecial(oPoolCleaner, 2, -1);
+			CustomSpecial(oPoolCleaner, 3, -1);
+			CustomSpecial(oPoolCleaner, 4, -1);
+			CustomSpecial(oPoolCleaner, 5, -1);
+		},
 		LargeWaveFlag: {},
 		StartGameMusic: "Zombieboss",
 		StaticCard: 0,
@@ -109,53 +115,71 @@ oS.Init(
 			oS.InitLawnMower();
 			PrepareGrowPlants(() => {
 				oP.Monitor({
-					f() {
-						(function () {
-							var a = ArCard.length;
-							if (a < 10) {
-								var c = oS.PName;
-								var b =
-									oP.FlagZombies < 6
-										? Math.floor(1 + Math.random() * 10) < 4
-											? 1
-											: Math.floor(Math.random() * c.length)
-										: Math.floor(1 + Math.random() * 10) < 3
-											? 0
-											: Math.floor(Math.random() * c.length);
-								var e = c[b];
-								var d = e.prototype;
-								var f = "dCard" + Math.random();
-								ArCard[a] = { DID: f, PName: e, PixelTop: 600 };
-								NewImg(
-									f,
-									d.PicArr[d.CardGif],
-									"top:600px;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto)",
-									$("dCardList"),
-									{
-										onmouseover(g) {
-											ViewPlantTitle(GetChoseCard(f), g);
-										},
-										onmouseout() {
-											SetHidden($("dTitle"));
-										},
-										onclick(g) {
-											ChosePlant(g, oS.ChoseCard, f);
-										},
-									}
-								);
-							}
-							oSym.addTask(600, arguments.callee, []);
-						})();
-						(function () {
-							var b = ArCard.length;
-							var a;
-							var c;
-							while (b--) {
-								(c = (a = ArCard[b]).PixelTop) > 60 * b && ($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
-							}
-							oSym.addTask(5, arguments.callee, []);
-						})();
+				f() {
+	(function () {
+		var a = ArCard.length;
+		if (a < 10) {
+			var c = oS.PName;
+			var e;
+
+			if ((a + 1) % 3 === 0) {
+				// Always oLilyPad every 3rd card
+				e = oLilyPad;
+			} else {
+				// 10% chance to get oLilyPad anyway 🪷
+				if (Math.random() < 0.1) {
+					e = oLilyPad;
+				} else {
+					// Pick from the rest: indexes 1–5
+					var b =
+						oP.FlagZombies < 6
+							? Math.floor(1 + Math.random() * 10) < 4
+								? 2
+								: Math.floor(Math.random() * 5) + 1
+							: Math.floor(1 + Math.random() * 10) < 3
+								? 1
+								: Math.floor(Math.random() * 5) + 1;
+					e = c[b];
+				}
+			}
+
+			var d = e.prototype;
+			var f = "dCard" + Math.random();
+			ArCard[a] = { DID: f, PName: e, PixelTop: 600 };
+			NewImg(
+				f,
+				d.PicArr[d.CardGif],
+				"top:600px;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto)",
+				$("dCardList"),
+				{
+					onmouseover(g) {
+						ViewPlantTitle(GetChoseCard(f), g);
 					},
+					onmouseout() {
+						SetHidden($("dTitle"));
+					},
+					onclick(g) {
+						ChosePlant(g, oS.ChoseCard, f);
+					},
+				}
+			);
+		}
+		oSym.addTask(600, arguments.callee, []);
+	})();
+
+	(function () {
+		var b = ArCard.length;
+		var a;
+		var c;
+		while (b--) {
+			(c = (a = ArCard[b]).PixelTop) > 60 * b &&
+				($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
+		}
+		oSym.addTask(5, arguments.callee, []);
+	})();
+},
+
+
 					ar: [],
 				});
 				oP.AddZombiesFlag();
@@ -170,14 +194,14 @@ oS.Init(
 			[oDuckyTubeZombie3, 1, 10],
 			[oDuckyTubeZombie4, 1, 10],
 			[oDolphinRiderZombie, 2, 10],
-			[oSubZombie, 3, 20],
+			[oSubZombie, 1, 10],
 			[oSnorkelZombie, 3, 9],
-			[oWJY1, 3, 25, [25]],
+			[oWJY1, 1, 15, [15]],
 		],
-		FlagNum: 25,
+		FlagNum: 15,
 		FlagToSumNum: {
-			a1: [3, 5, 9, 10, 13, 15, 19, 30],
-			a2: [1, 2, 12, 20, 13, 16, 21, 30],
+			a1: [3, 5, 9, 10, 13, 15],
+			a2: [1, 2, 12, 10, 13, 15],
 		},
 		FlagToMonitor: {},
 		FlagToEnd() {

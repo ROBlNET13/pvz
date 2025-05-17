@@ -8028,9 +8028,9 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 	})),
 	(oGoldenPrize = InheritO(CPlants, {
 		EName: "oGoldenPrize",
-		CName: "Sunflower Golden Trophy",
+		CName: "Golden Trophy",
 		PicArr: ["images/interface/0.gif", "images/interface/0.gif"],
-		Tooltip: "Ta daa!",
+		Tooltip: "You win!",
 	})),
 	(oShovel = InheritO(CPlants, {
 		EName: "oShovel",
