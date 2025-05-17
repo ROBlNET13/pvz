@@ -14,7 +14,7 @@ The developers/modders of this web game **do not** claim ownership of any assets
 
 **Hosting this fangame without proper attribution violates the CC BY-NC-ND license terms for the original contributions. We actively monitor for unauthorized use and will contact sites and potentially hosting platforms to address these violations.**
 
-### If requested by an official source, we will promptly take down this GitHub repo and the GitHub pages site. You may contact us at [clay.891@proton.me](mailto:clay.891@proton.me) and we will promptly remove this repo and all forks owned by us.
+### If requested by an official source, we will promptly take down this GitHub repo and the GitHub pages site.
 
 ---
 
