@@ -279,6 +279,7 @@
 										uploadButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
 										uploadButton.style.top = "60%";
 										uploadButton.style.left = "calc(50% - 56.5px)";
+										uploadButton.style.display = "none";
 										uploadButton.onclick = function () {
 											closeButton.style.display = "none";
 											uploadButton.style.display = "none";
