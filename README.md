@@ -1,6 +1,6 @@
 # Plants vs. Zombies MODDED<img src="https://roblnet13.github.io/pvz/img/128x128.png" align="right">
 
-###### By ROBlNET13 & ClaytonTDM
+###### By ROBlNET13
 
 An improved version of the original Plants vs. Zombies web game by LonelyStar and JiangNan Game development company.
 
