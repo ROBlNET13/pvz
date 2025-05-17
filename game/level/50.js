@@ -115,70 +115,68 @@ oS.Init(
 			oS.InitLawnMower();
 			PrepareGrowPlants(() => {
 				oP.Monitor({
-				f() {
-	(function () {
-		var a = ArCard.length;
-		if (a < 10) {
-			var c = oS.PName;
-			var e;
+					f() {
+						(function () {
+							var a = ArCard.length;
+							if (a < 10) {
+								var c = oS.PName;
+								var e;
 
-			if ((a + 1) % 3 === 0) {
-				// Always oLilyPad every 3rd card
-				e = oLilyPad;
-			} else {
-				// 10% chance to get oLilyPad anyway 🪷
-				if (Math.random() < 0.1) {
-					e = oLilyPad;
-				} else {
-					// Pick from the rest: indexes 1–5
-					var b =
-						oP.FlagZombies < 6
-							? Math.floor(1 + Math.random() * 10) < 4
-								? 2
-								: Math.floor(Math.random() * 5) + 1
-							: Math.floor(1 + Math.random() * 10) < 3
-								? 1
-								: Math.floor(Math.random() * 5) + 1;
-					e = c[b];
-				}
-			}
+								if ((a + 1) % 3 === 0) {
+									// Always oLilyPad every 3rd card
+									e = oLilyPad;
+								} else {
+									// 10% chance to get oLilyPad anyway 🪷
+									if (Math.random() < 0.1) {
+										e = oLilyPad;
+									} else {
+										// Pick from the rest: indexes 1–5
+										var b =
+											oP.FlagZombies < 6
+												? Math.floor(1 + Math.random() * 10) < 4
+													? 2
+													: Math.floor(Math.random() * 5) + 1
+												: Math.floor(1 + Math.random() * 10) < 3
+													? 1
+													: Math.floor(Math.random() * 5) + 1;
+										e = c[b];
+									}
+								}
 
-			var d = e.prototype;
-			var f = "dCard" + Math.random();
-			ArCard[a] = { DID: f, PName: e, PixelTop: 600 };
-			NewImg(
-				f,
-				d.PicArr[d.CardGif],
-				"top:600px;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto)",
-				$("dCardList"),
-				{
-					onmouseover(g) {
-						ViewPlantTitle(GetChoseCard(f), g);
+								var d = e.prototype;
+								var f = "dCard" + Math.random();
+								ArCard[a] = { DID: f, PName: e, PixelTop: 600 };
+								NewImg(
+									f,
+									d.PicArr[d.CardGif],
+									"top:600px;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto)",
+									$("dCardList"),
+									{
+										onmouseover(g) {
+											ViewPlantTitle(GetChoseCard(f), g);
+										},
+										onmouseout() {
+											SetHidden($("dTitle"));
+										},
+										onclick(g) {
+											ChosePlant(g, oS.ChoseCard, f);
+										},
+									}
+								);
+							}
+							oSym.addTask(600, arguments.callee, []);
+						})();
+
+						(function () {
+							var b = ArCard.length;
+							var a;
+							var c;
+							while (b--) {
+								(c = (a = ArCard[b]).PixelTop) > 60 * b && ($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
+							}
+							oSym.addTask(5, arguments.callee, []);
+						})();
 					},
-					onmouseout() {
-						SetHidden($("dTitle"));
-					},
-					onclick(g) {
-						ChosePlant(g, oS.ChoseCard, f);
-					},
-				}
-			);
-		}
-		oSym.addTask(600, arguments.callee, []);
-	})();
-
-	(function () {
-		var b = ArCard.length;
-		var a;
-		var c;
-		while (b--) {
-			(c = (a = ArCard[b]).PixelTop) > 60 * b &&
-				($(a.DID).style.top = (a.PixelTop = c - 1) + "px");
-		}
-		oSym.addTask(5, arguments.callee, []);
-	})();
-},
-
 
 					ar: [],
 				});

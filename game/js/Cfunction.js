@@ -1575,44 +1575,44 @@ var GetAP = function (a, h, d, c) {
 	return [g, b];
 };
 var GroundOnkeydown = function (b) {
-    var a = b || window.event;
+	var a = b || window.event;
 
-    if (a.key === "Escape") {
-        switch (oS.Chose) {
-            case 1:
-                CancelPlant();
-                break;
-            case -1:
-                CancelShovel();
-                break;
-        }
-        return false;
-    }
+	if (a.key === "Escape") {
+		switch (oS.Chose) {
+			case 1:
+				CancelPlant();
+				break;
+			case -1:
+				CancelShovel();
+				break;
+		}
+		return false;
+	}
 
-    if (!oS.Chose) {
-        KeyBoardGrowPlant(a);
-    }
+	if (!oS.Chose) {
+		KeyBoardGrowPlant(a);
+	}
 };
 
 var KeyBoardGrowPlant = function (e, a) {
-    a = a || 0;
-    let plantIndex = -1;
+	a = a || 0;
+	let plantIndex = -1;
 
-    // Handle top row numbers (Digit0–Digit9)
-    if (/^Digit[0-9]$/.test(e.code)) {
-        plantIndex = parseInt(e.code.replace("Digit", ""));
-    }
+	// Handle top row numbers (Digit0–Digit9)
+	if (/^Digit[0-9]$/.test(e.code)) {
+		plantIndex = parseInt(e.code.replace("Digit", ""));
+	}
 
-    // Handle numpad numbers (Numpad0–Numpad9)
-    else if (/^Numpad[0-9]$/.test(e.code)) {
-        plantIndex = parseInt(e.code.replace("Numpad", ""));
-    }
+	// Handle numpad numbers (Numpad0–Numpad9)
+	else if (/^Numpad[0-9]$/.test(e.code)) {
+		plantIndex = parseInt(e.code.replace("Numpad", ""));
+	}
 
-    if (plantIndex !== -1 && a === 0) {
-        // Adjust so 0 = slot 9 (10th slot), 1–9 = slot 0–8
-        plantIndex = plantIndex === 0 ? 9 : plantIndex - 1;
-        ChosePlant({ clientX: 450, clientY: 300 }, plantIndex.toString());
-    }
+	if (plantIndex !== -1 && a === 0) {
+		// Adjust so 0 = slot 9 (10th slot), 1–9 = slot 0–8
+		plantIndex = plantIndex === 0 ? 9 : plantIndex - 1;
+		ChosePlant({ clientX: 450, clientY: 300 }, plantIndex.toString());
+	}
 };
 
 var GroundOnmousemove = function () {};
