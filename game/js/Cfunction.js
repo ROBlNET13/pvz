@@ -29,8 +29,8 @@ var $User = (function () {
 			IE6: e,
 			IE9: c && i.indexOf("MSIE 9.0") > 0,
 			Opera: !!window.opera,
-			WebKit: i.indexOf("AppleWebKit/") > -1,
-			Gecko: i.indexOf("Gecko") > -1 && i.indexOf("KHTML") === -1,
+			WebKit: i.includes("AppleWebKit/"),
+			Gecko: i.includes("Gecko") && !i.includes("KHTML"),
 		},
 		Server: {
 			List: [[]],

@@ -1550,7 +1550,7 @@ var oThreepeater = InheritO(oPeashooter, {
 			}
 		}
 		if (oS.CardKind !== 1) {
-			let downBullet = f.BulletEle[f.BulletEle.length - 1];
+			let downBullet = f.BulletEle.at(-1);
 			let upBullet = f.BulletEle[f.BulletEle.length - 3];
 			try {
 				downBullet.style.animation = "threepeaterDown 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards";

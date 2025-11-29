@@ -5,7 +5,7 @@
 		NPool: 黑夜泳池
 		DReversal: 水路反转
 	*/
-	var IZMode = oS.NowLevel != null ? oS.NowLevel : "ChoseMode"; // 读取当前关卡模式
+	var IZMode = oS.NowLevel ?? "ChoseMode"; // 读取当前关卡模式
 	var Change_Level = function (ModeName) {
 		(oS.NowLevel = ModeName), SelectModal(oS.Lvl), (oS.NowLevel = ModeName);
 	}; // 以特定模式重新载入本关
@@ -168,7 +168,7 @@
 									};
 
 									for (k in g) {
-										if (g.hasOwnProperty(k)) {
+										if (Object.hasOwn(g, k)) {
 											(z = (i = k.split("_"))[0] + i[1] + $SEql(g[k].EName, j)), (m = z + m), (r = Math.max(r, i[1]));
 										}
 									} // 生成植物数据，采用倒叙生成

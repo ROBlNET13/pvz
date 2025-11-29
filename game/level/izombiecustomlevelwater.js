@@ -10,11 +10,11 @@ if (typeof levelDataToLoad === "undefined") {
 	}
 	// make sure it has the right keys
 	if (
-		!levelDataToLoad.hasOwnProperty("plants") ||
-		!levelDataToLoad.hasOwnProperty("music") ||
-		!levelDataToLoad.hasOwnProperty("sun") ||
-		!levelDataToLoad.hasOwnProperty("lfValue") ||
-		!levelDataToLoad.hasOwnProperty("stripeCol")
+		!Object.hasOwn(levelDataToLoad, "plants") ||
+		!Object.hasOwn(levelDataToLoad, "music") ||
+		!Object.hasOwn(levelDataToLoad, "sun") ||
+		!Object.hasOwn(levelDataToLoad, "lfValue") ||
+		!Object.hasOwn(levelDataToLoad, "stripeCol")
 	) {
 		/* alert("Invalid level data!");
 		SelectModal(0); */

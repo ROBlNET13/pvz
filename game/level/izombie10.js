@@ -47,7 +47,7 @@ oS.Init({
 			return Math.random() - 0.5;
 		});
 		while (Point.length && Arr.length) {
-			let placed = CustomSpecial(oS.PName[Arr[Arr.length - 1]], Point[Point.length - 1][1], Point[Point.length - 1][0], 1);
+			let placed = CustomSpecial(oS.PName[Arr.at(-1)], Point.at(-1)[1], Point.at(-1)[0], 1);
 			placed.plantImage.classList.add("cardboard");
 			Point.length--, Arr.length--;
 		}

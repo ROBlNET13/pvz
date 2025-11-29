@@ -52,8 +52,8 @@ oS.Init(
 
 			// 生成罐子
 			while (VaseList.length && GroundList.length) {
-				var Top = VaseList[VaseList.length - 1];
-				var Pos = GroundList[GroundList.length - 1];
+				var Top = VaseList.at(-1);
+				var Pos = GroundList.at(-1);
 
 				oFlowerVase.prototype.SpecialBirth(Pos[0], Pos[1], Top.Type === "Plants" ? GNum-- > 0 : 0, Top); // 生成罐子
 

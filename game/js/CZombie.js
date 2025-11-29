@@ -11812,7 +11812,7 @@ oPeaZombie = InheritO(oZombie, {
 		console.log("oPeaZombie ID:", a.id, "Checking $P for plants (keys starting with 'P_').");
 
 		for (var plantId in oP) {
-			if (oP.hasOwnProperty(plantId) && plantId.startsWith("P_")) {
+			if (Object.hasOwn(oP, plantId) && plantId.startsWith("P_")) {
 				var plant = oP[plantId];
 				console.log("  Found Plant ID:", plantId, "Object:", plant);
 				// Now try to access the properties we need

@@ -26,7 +26,7 @@ const TINYIFIER_MAP = {
 function compressString(input) {
 	const inputUTF8 = new TextEncoder().encode(input);
 	const compressed = pako.deflate(inputUTF8);
-	const compressedBase64 = btoa(String.fromCharCode.apply(null, compressed));
+	const compressedBase64 = btoa(String.fromCharCode(...compressed));
 	return compressedBase64.replaceAll("=", "");
 }
 
@@ -38,7 +38,7 @@ function compressStringAsBytes(input) {
 
 function compressBytes(input) {
 	const compressed = pako.deflate(input);
-	const compressedBase64 = btoa(String.fromCharCode.apply(null, compressed));
+	const compressedBase64 = btoa(String.fromCharCode(...compressed));
 	return compressedBase64.replaceAll("=", "");
 }
 
