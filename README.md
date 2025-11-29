@@ -16,6 +16,8 @@ The developers/modders of this web game **do not** claim ownership of any assets
 
 ### If requested by an official source, we will promptly take down this GitHub repo and the GitHub pages site.
 
+You may email an official complaint to [pvzm.legal@clay.rip](mailto:pvzm.legal@clay.rip).
+
 ---
 
 ###### Plants vs. Zombies: MODDED © 2025 by ROBlNET13 is licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en). This license applies only to original code/content created by the modding team. All Plants vs. Zombies intellectual property remains the exclusive property of PopCap Games and Electronic Arts (EA).
