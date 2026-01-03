@@ -1,4 +1,4 @@
-# Plants vs. Zombies MODDED<img src="https://roblnet13.github.io/pvz/img/128x128.png" align="right">
+# Plants vs. Zombies MODDED<img src="https://pvzm.net/img/128x128.png" align="right">
 
 ###### By ROBlNET13
 
@@ -6,7 +6,7 @@ An improved version of the original Plants vs. Zombies web game by LonelyStar an
 
 This version contains new content such as improved music, Balloonatic, Vasebreaker, I, Zombie, and more.
 
-### To get started playing the newest version, head over to our [**ad-free** site!](https://roblnet13.github.io/pvz)
+### To get started playing the newest version, head over to our [**ad-free** site!](https://pvzm.net)
 
 ## Legal Info
 
@@ -16,7 +16,7 @@ The developers/modders of this web game **do not** claim ownership of any assets
 
 ### If requested by an official source, we will promptly take down this GitHub repo and the GitHub pages site.
 
-You may email an official complaint to [pvzm.legal@clay.rip](mailto:pvzm.legal@clay.rip).
+You may email an official complaint to [contact@pvzm.net](mailto:contact@pvzm.net).
 
 ---
 
