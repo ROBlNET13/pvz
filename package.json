@@ -3,18 +3,24 @@
 	"version": "1.0.0",
 	"description": "",
 	"scripts": {
+		"build": "node scripts/build.mjs",
 		"lint": "eslint .",
-		"fix": "eslint . --fix"
+		"fix": "eslint . --fix",
+		"deploy": "npm run build && wrangler deploy"
 	},
 	"keywords": [],
 	"author": "",
-	"license": "ISC",
+	"license": "CC-BY-NC-ND-4.0",
 	"packageManager": "pnpm@10.10.0",
 	"devDependencies": {
 		"@eslint/js": "^9.26.0",
+		"clean-css": "^5.3.3",
 		"eslint": "^9.26.0",
 		"eslint-plugin-eqeqeq-fix": "^1.0.3",
 		"globals": "^16.0.0",
-		"prettier": "^3.5.3"
+		"html-minifier-terser": "^7.2.0",
+		"prettier": "^3.5.3",
+		"terser": "^5.31.6",
+		"wrangler": "^4.54.0"
 	}
 }
