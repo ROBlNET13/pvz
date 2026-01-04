@@ -8,11 +8,11 @@ on:
 
 permissions:
     contents: write
-  deployments: write
+    deployments: write
 
 concurrency:
   group: "cloudflare-pages"
-    cancel-in-progress: false
+  cancel-in-progress: false
 
 jobs:
     version-file-and-lint:
