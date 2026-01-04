@@ -3311,7 +3311,9 @@ var lastB;
 				try {
 					a.currentTime = 0;
 				} catch (c) {}
-				a.pause();
+				try {
+					a.pause();
+				} catch (c) {}
 			}
 		: function () {}),
 	(AllAudioPaused = $User.HTML5
