@@ -14,7 +14,7 @@
 			"512": "img/512x512.png"
 		},
 		"default_title": "Click to open the popup",
-		"default_popup": "game/iframe.html"
+		"default_popup": "game/index.html"
 	},
 	"offline_enabled": true,
 	"description": "Play Plant vs. Zombies MODDED Official as a Chrome extension - Also can Play without Internet, try it now!",
@@ -27,6 +27,6 @@
 		"sandbox": "sandbox allow-scripts allow-pointer-lock; script-src 'self' 'unsafe-eval' blob: 'unsafe-inline'; object-src 'self' 'unsafe-eval' blob: 'unsafe-inline';child-src 'self' 'unsafe-eval' blob: 'unsafe-inline' ; worker-src 'self' 'unsafe-eval' blob: 'unsafe-inline'; script-src-elem 'self' 'unsafe-eval' blob: 'unsafe-inline'"
 	},
 	"sandbox": {
-		"pages": ["game/iframe.html"]
+		"pages": ["game/index.html"]
 	}
 }
