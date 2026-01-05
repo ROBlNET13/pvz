@@ -3,17 +3,14 @@ const dSurface = document.getElementById("dSurface");
 async function PreloadMenu(menuId) {
 	// fetch menu/html/{menuId}.html and menu/js/{menuId}.js, return nothing and do nothing with it
 	await Promise.all([
-		fetch(`menu/html/${menuId}.html`).then(response => response.text()),
-		fetch(`menu/js/${menuId}.js`).then(response => response.text())
+		fetch(`menu/html/${menuId}.html`).then((response) => response.text()),
+		fetch(`menu/js/${menuId}.js`).then((response) => response.text()),
 	]);
 }
 
 async function LoadMenu(menuId, background) {
 	// fetch menu/html/{menuId}.html and menu/js/{menuId}.js. run the js code after injecting the html into the #dSurface element.
-	const [htmlResponse, jsResponse] = await Promise.all([
-		fetch(`menu/html/${menuId}.html`),
-		fetch(`menu/js/${menuId}.js`)
-	]);
+	const [htmlResponse, jsResponse] = await Promise.all([fetch(`menu/html/${menuId}.html`), fetch(`menu/js/${menuId}.js`)]);
 
 	const html = await htmlResponse.text();
 	const js = await jsResponse.text();
