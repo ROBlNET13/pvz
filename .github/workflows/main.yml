@@ -88,7 +88,7 @@ jobs:
         - name: Minify HTML files
           run: |
             find . -type f -name "*.html" -not -path "./node_modules/*" | while read file; do
-              html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true -o "$file.min" "$file"
+              html-minifier --collapse-whitespace --remove-comments --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --minify-css true --minify-js true -o "$file.min" "$file"
               mv "$file.min" "$file"
             done
 
