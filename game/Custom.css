@@ -328,6 +328,7 @@
 		0px 0px 1px #000;
 	color: #00d100;
 	font-size: 33px;
+	-webkit-text-stroke: #39384d87 0.5px
 }
 .menu {
 	font-weight: normal !important;
