@@ -3645,7 +3645,7 @@ var oIDuckyTubeZombie1 = InheritO(oAquaticZombie, {
 });
 var oWarshipsZombie = InheritO(oDuckyTubeZombie1, {
 	EName: "oWarshipsZombie",
-	CName:  "Zombie Warship",
+	CName: "Zombie Warship",
 	HP: "5000",
 	OSpeed: 0.1,
 	Speed: 0.1,
@@ -4316,7 +4316,7 @@ var oSubZombie = InheritO(oSnorkelZombie, {
 	width: 464,
 	height: 364,
 	beAttackedPointL: 140,
-	beAttackedPointR:	 290,
+	beAttackedPointR: 290,
 	BookHandBack: "Pool",
 	BookHandPosition: "12% 60%",
 	Produce:

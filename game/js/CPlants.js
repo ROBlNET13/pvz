@@ -43,54 +43,60 @@ var CPlants = NewO({
 		return this.height;
 	},
 	Birth(d, c, h, a, m, n) {
-    var e = this;
-    var k = d + e.GetDX();
-    var i = c + e.GetDY(h, a, m);
-    var l = e.prototype;
-    var g = i - e.height;
-    var b = (e.id = "P_" + Math.random());
-    var j = (e.zIndex += 3 * h);
-    var f = NewEle(0, "div", "position:absolute");
+		var e = this;
+		var k = d + e.GetDX();
+		var i = c + e.GetDY(h, a, m);
+		var l = e.prototype;
+		var g = i - e.height;
+		var b = (e.id = "P_" + Math.random());
+		var j = (e.zIndex += 3 * h);
+		var f = NewEle(0, "div", "position:absolute");
 
-    var isOnLilyPad = false;
-    for (var pID in $P) {
-        var p = $P[pID];
-        if (p && p.R == h && p.C == a && p.EName == "oLilyPad") {
-            isOnLilyPad = true;
-            break; 
-        }
-    }
+		var isOnLilyPad = false;
+		for (var pID in $P) {
+			var p = $P[pID];
+			if (p && p.R === h && p.C === a && p.EName === "oLilyPad") {
+				isOnLilyPad = true;
+				break;
+			}
+		}
 
-    var isWaterRow = (oGd.$LF[h] == 2);
-    var isBlacklisted = (e.EName == "oPoolCleaner");
+		var isWaterRow = oGd.$LF[h] === 2;
+		var isBlacklisted = e.EName === "oPoolCleaner";
 
-    if ((isOnLilyPad || isWaterRow) && !isBlacklisted) {
-        f.className += " floatingPlant";
-    }
+		if ((isOnLilyPad || isWaterRow) && !isBlacklisted) {
+			f.className += " floatingPlant";
+		}
 
-    NewImg(0, ShadowPNG, e.getShadow(e), f);
-    e.plantImage = NewImg(0, e.PicArr[e.NormalGif], "", f);
+		NewImg(0, ShadowPNG, e.getShadow(e), f);
+		e.plantImage = NewImg(0, e.PicArr[e.NormalGif], "", f);
 
-    e.ele = f;
-    e.pixelLeft = k;
-    e.pixelRight = k + e.width;
-    e.pixelTop = g;
-    e.pixelBottom = g + e.GetDBottom();
-    e.opacity = 1;
-    e.InitTrigger(e, b, (e.R = h), (e.C = a), (e.AttackedLX = k + e.beAttackedPointL), (e.AttackedRX = k + e.beAttackedPointR));
-    
-    $P[b] = e;
-    $P.length += 1;
+		e.ele = f;
+		e.pixelLeft = k;
+		e.pixelRight = k + e.width;
+		e.pixelTop = g;
+		e.pixelBottom = g + e.GetDBottom();
+		e.opacity = 1;
+		e.InitTrigger(e, b, (e.R = h), (e.C = a), (e.AttackedLX = k + e.beAttackedPointL), (e.AttackedRX = k + e.beAttackedPointR));
 
-    e.BirthStyle(e, b, f, {
-        left: k + "px",
-        top: g + "px",
-        zIndex: j,
-    }, n);
+		$P[b] = e;
+		$P.length += 1;
 
-    oGd.add(e, h + "_" + a + "_" + e.PKind);
-    e.PrivateBirth(e, n);
-},
+		e.BirthStyle(
+			e,
+			b,
+			f,
+			{
+				left: k + "px",
+				top: g + "px",
+				zIndex: j,
+			},
+			n
+		);
+
+		oGd.add(e, h + "_" + a + "_" + e.PKind);
+		e.PrivateBirth(e, n);
+	},
 	getShadow(a) {
 		return "left:" + (a.width * 0.5 - 48) + "px;top:" + (a.height - 22) + "px";
 	},
@@ -2302,7 +2308,7 @@ var oFlowerPot = InheritO(CPlants, {
 	beAttackedPointR: 52,
 	SunNum: 25,
 	BookHandBack: "Roof",
-//	HP: 1e3,
+	//	HP: 1e3,
 	BookHandPosition: "49% 67%",
 	PicArr: ["images/Card/Plants/FlowerPot.png", "images/Plants/FlowerPot/0.gif", "images/Plants/FlowerPot/FlowerPot.gif"],
 	PKind: 0,
@@ -3998,7 +4004,12 @@ var oSpikeweed = InheritO(CPlants, {
 	Stature: -1,
 	canEat: 0,
 	BookHandPosition: "50% 78%",
-	PicArr: ["images/Card/Plants/Spikeweed.png", "images/Plants/Spikeweed/0.png", "images/Plants/Spikeweed/Spikeweed.webp", "images/Plants/Spikeweed/SpikeweedAttack.webp"],
+	PicArr: [
+		"images/Card/Plants/Spikeweed.png",
+		"images/Plants/Spikeweed/0.png",
+		"images/Plants/Spikeweed/Spikeweed.webp",
+		"images/Plants/Spikeweed/SpikeweedAttack.webp",
+	],
 	Attack: 20,
 	ArZ: {},
 	Tooltip: "Pops tires and hurts zombies that step on it",
@@ -4027,27 +4038,31 @@ var oSpikeweed = InheritO(CPlants, {
 		}
 	},
 	NormalAttack(b, a) {
-        var c = $Z[b];
-        c.getHit2(c, this.Attack, 0);
+		var c = $Z[b];
+		c.getHit2(c, this.Attack, 0);
 
-        var id = this.id;
-        var ele = $(id);
+		var id = this.id;
+		var ele = $(id);
 
-        ele.childNodes[1].src = this.PicArr[3]; 
+		ele.childNodes[1].src = this.PicArr[3];
 
-        this.AttackState = (this.AttackState || 0) + 1;
+		this.AttackState = (this.AttackState || 0) + 1;
 
-        oSym.addTask(60, function(plantId) {
-            var p = $P[plantId];
-            if (p) {
-                 p.AttackState--;
-                 if (p.AttackState <= 0) {
-                     p.AttackState = 0;
-                     $(plantId).childNodes[1].src = p.PicArr[2]; 
-                 }
-            }
-        }, [id]);
-    },
+		oSym.addTask(
+			60,
+			(plantId) => {
+				var p = $P[plantId];
+				if (p) {
+					p.AttackState--;
+					if (p.AttackState <= 0) {
+						p.AttackState = 0;
+						$(plantId).childNodes[1].src = p.PicArr[2];
+					}
+				}
+			},
+			[id]
+		);
+	},
 	GetDY(b, c, a) {
 		return -2;
 	},

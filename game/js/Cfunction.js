@@ -1890,7 +1890,7 @@ var lastB;
 		innerText($("spSunNum"), a.SunNum);
 		innerText($("spCoolTime"), a.coolTime + "s");
 		$("pPlantBack").style.background = "url('images/interface/Almanac_Ground" + a.BookHandBack + ".jpg')";
-	//	$("pPlantBack").style.backgroundPosition = -200 * a.BookHandBack + "px 0";
+		//	$("pPlantBack").style.backgroundPosition = -200 * a.BookHandBack + "px 0";
 	}
 }),
 	(ViewProduceZombie = function (b) {

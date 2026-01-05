@@ -952,7 +952,7 @@ td.HandBookZombie {
 	color: rgb(40, 50, 90);
 	font-size: 16px;
 	box-sizing: border-box;
-    padding-left: 15px;
+	padding-left: 15px;
 }
 
 #btnViewPlant {
@@ -1016,8 +1016,8 @@ td.HandBookZombie {
 	background: url(images/interface/Almanac_IndexButton.png);
 	text-align: right;
 	box-sizing: border-box;
-    padding-right: 21px;
-    padding-top: 1px;
+	padding-right: 21px;
+	padding-top: 1px;
 }
 
 #dHandBookPZ .dButton .button2 {
@@ -1058,7 +1058,7 @@ td.HandBookZombie {
 
 #dHandBookP .list {
 	width: 45%;
-/*	background: url(images/interface/Almanac_PlantCard.png) no-repeat 20px 10px; */
+	/*	background: url(images/interface/Almanac_PlantCard.png) no-repeat 20px 10px; */
 }
 
 #dHandBookP .list .cost_cool {
@@ -1175,10 +1175,10 @@ td.HandBookZombie {
 	background: url(images/interface/Almanac_PlantCard.png) no-repeat 20px 10px;
 	position: relative;
 	z-index: 256;
-    text-align: center;
-    left: 55%;
-    height: 497px;
-    top: 71px;
+	text-align: center;
+	left: 55%;
+	height: 497px;
+	top: 71px;
 }
 
 #dProducePlant::-webkit-scrollbar {
@@ -1233,7 +1233,7 @@ td.HandBookZombie {
 
 #dHandBookZ .list {
 	width: 42%;
-/*	background: url(images/interface/Almanac_ZombieCard.png) no-repeat 10px 8px; */
+	/*	background: url(images/interface/Almanac_ZombieCard.png) no-repeat 10px 8px; */
 }
 
 #pZombieCard {
@@ -1241,10 +1241,10 @@ td.HandBookZombie {
 	background: url(images/interface/Almanac_ZombieCard.png) no-repeat 10px 8px;
 	position: relative;
 	z-index: 256;
-    text-align: center;
-    left: 55%;
-    height: 497px;
-    top: 71px;
+	text-align: center;
+	left: 55%;
+	height: 497px;
+	top: 71px;
 }
 
 #dHandBookZCard {
@@ -1288,11 +1288,11 @@ td.HandBookZombie {
 }
 
 #pHandBookZombie {
-    height: 200px;
+	height: 200px;
 	width: 75%;
 	position: relative;
 	top: -10px;
-    left: 20px;
+	left: 20px;
 	margin-top: 50px;
 	background-repeat: no-repeat;
 	background-position: 50% 70%;
