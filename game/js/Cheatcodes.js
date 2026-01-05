@@ -23,10 +23,10 @@ document.addEventListener("keydown", (event) => {
 		AppearSun(GetX(Math.floor(1 + Math.random() * oS.C)), GetY(Math.floor(1 + Math.random() * oS.R)), 25, 1);
 	}
 	// oneko
-	if (keysPressed.c && keysPressed.a && keysPressed.t && document.activeElement.nodeName !== "TEXTAREA" && document.activeElement.nodeName !== "INPUT") {
+	/*if (keysPressed.c && keysPressed.a && keysPressed.t && document.activeElement.nodeName !== "TEXTAREA" && document.activeElement.nodeName !== "INPUT") {
 		// remove .hidden from #oneko
 		document.getElementById("oneko").classList.remove("hidden");
-	}
+	}*/
 });
 
 document.addEventListener("keyup", (event) => {

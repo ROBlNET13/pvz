@@ -5,9 +5,10 @@ var CZombies = (function (b, a) {
 			HP: 270,
 			Lvl: 1,
 			NormalGif: 2,
+			AlmanacGif: 9,
 			CardGif: 0,
 			StaticGif: 1,
-			BookHandBack: 0,
+			BookHandBack: "Day",
 			AudioArr: [],
 			CanSelect: 1,
 			CanDisplay: 1,
@@ -706,6 +707,7 @@ var oBackupDancer = InheritO(OrnNoneZombies, {
 	beAttackedPointR: 95,
 	Speed: 3.5,
 	OSpeed: 3.5,
+	BookHandPosition: "60% 77.5%",
 	PicArr: (function () {
 		var a = "images/Zombies/BackupDancer/";
 		return [
@@ -902,7 +904,6 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 	beAttackedPointR: 85,
 	width: 184,
 	height: 176,
-	BookHandPosition: "70% 70%",
 	AudioArr: ["dancer"],
 	OSpeed: 7.2,
 	Speed: 7.2,
@@ -935,6 +936,7 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 			);
 		};
 	})(),
+	BookHandPosition: "86% 72%",
 	PicArr: (function () {
 		var d = "images/Zombies/DancingZombie/";
 		var c = $User.Browser.IE6 ? "_8" : "";
@@ -2052,6 +2054,7 @@ var oZombie = InheritO(OrnNoneZombies, {
 			height: 40,
 		},
 	],
+	BookHandPosition: "35% 70%",
 	PicArr: (function () {
 		var a = "images/Zombies/Zombie/";
 		return [
@@ -2137,6 +2140,7 @@ var oFlagZombie = InheritO(oZombie, {
 	OSpeed: 2.2,
 	Speed: 2.2,
 	beAttackedPointR: 101,
+	AlmanacGif: 1,
 	Produce:
 		'旗帜僵尸标志着即将来袭的一大堆僵尸"流"。<p>韧性：<font color="#CC241D">低</font></p>毫无疑问，摇旗僵尸喜爱脑髓。但在私下里他也迷恋旗帜。也许是因为旗帜上也画有脑子吧，这很难说。',
 });
@@ -2180,6 +2184,7 @@ var oConeheadZombie = InheritO(OrnIZombies, {
 	Lvl: 2,
 	SunNum: 75,
 	StandGif: 11,
+	AlmanacGif: 11,
 	HeadPosition: [
 		{
 			x: 82,
@@ -2194,6 +2199,7 @@ var oConeheadZombie = InheritO(OrnIZombies, {
 			height: 40,
 		},
 	],
+	BookHandPosition: "35% 70%",
 	PicArr: (function () {
 		var b = "images/Zombies/ConeheadZombie/";
 		var a = "images/Zombies/Zombie/";
@@ -2290,6 +2296,7 @@ var oLionDanceZombie = InheritO(oConeheadZombie, {
 			height: 40,
 		},
 	],
+	BookHandPosition: "100% 70%",
 	PicArr: (function () {
 		var b = "images/Zombies/LionDanceZombie/";
 		var a = "images/Zombies/LionDanceZombie/";
@@ -2391,6 +2398,7 @@ var oFootballZombie = InheritO(oConeheadZombie, {
 	PlayNormalballAudio() {
 		PlayAudio("plastichit");
 	},
+	BookHandPosition: "71% 70%",
 	PicArr: (function () {
 		var a = "images/Zombies/FootballZombie/";
 		return [
@@ -2465,6 +2473,7 @@ var oHeiFootballZombie = InheritO(oFootballZombie, {
 	Speed: 3.3,
 	beAttackedPointL: 40,
 	beAttackedPointR: 134,
+	BookHandPosition: "68% 69%",
 	PicArr: (function () {
 		var a = "images/Zombies/HeiFootballZombie/";
 		return [
@@ -2518,6 +2527,7 @@ var oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	beAttackedPointL: 215,
 	beAttackedPointR: 260,
 	StandGif: 13,
+	AlmanacGif: 13,
 	GetDX() {
 		return -238;
 	},
@@ -2526,6 +2536,7 @@ var oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 	},
 	Lvl: 2,
 	SunNum: 75,
+	BookHandPosition: "120% 135%",
 	PicArr: (function () {
 		var a = "images/Zombies/PoleVaultingZombie/";
 		return [
@@ -2950,11 +2961,13 @@ var oNewspaperZombie = InheritO(OrnIIZombies, {
 	Lvl: 2,
 	LostPaperGif: 13,
 	StandGif: 14,
+	AlmanacGif: 14,
 	width: 216,
 	height: 164,
 	beAttackedPointL: 60,
 	beAttackedPointR: 130,
 	LostPaperSpeed: 4.8,
+	BookHandPosition: "73% 78%",
 	PicArr: (function () {
 		var a = "images/Zombies/NewspaperZombie/";
 		return [
@@ -3177,10 +3190,12 @@ var oScreenDoorZombie = InheritO(oNewspaperZombie, {
 	Lvl: 3,
 	SunNum: 100,
 	StandGif: 13,
+	AlmanacGif: 13,
 	width: 166,
 	height: 144,
 	beAttackedPointL: 60,
 	beAttackedPointR: 116,
+	BookHandPosition: "43.5% 90%",
 	PicArr: (function () {
 		var a = "images/Zombies/ScreenDoorZombie/";
 		var b = "images/Zombies/Zombie/";
@@ -3587,6 +3602,8 @@ var oDuckyTubeZombie1 = InheritO(oAquaticZombie, {
 	},
 	Produce:
 		'鸭子救生圈能让僵尸能浮在水面上。<p>韧性：<font color="#CC241D">低</font><br>只在水池Level出现</font></p>只有特定的僵尸才能成为救生圈僵尸。并不是每个僵尸都能胜任的。有些救生圈有点漏气，但他们没能注意到，所以他们离开并放弃了对脑子的渴求。',
+	AlmanacGif: 1,
+	BookHandPosition: "34% 81%",
 	PicArr: (function () {
 		var a = "images/Zombies/DuckyTubeZombie1/";
 		return [
@@ -3628,7 +3645,7 @@ var oIDuckyTubeZombie1 = InheritO(oAquaticZombie, {
 });
 var oWarshipsZombie = InheritO(oDuckyTubeZombie1, {
 	EName: "oWarshipsZombie",
-	CName: "Warships Zombie",
+	CName:  "Zombie Warship",
 	HP: "5000",
 	OSpeed: 0.1,
 	Speed: 0.1,
@@ -3637,7 +3654,8 @@ var oWarshipsZombie = InheritO(oDuckyTubeZombie1, {
 	beAttackedPointL: 140,
 	beAttackedPointR: 290,
 	Attack: 550,
-	BookHandBack: 4.9,
+	BookHandBack: "Water",
+	BookHandPosition: "0% 80%",
 	getShadow(a) {
 		return "display:none";
 	},
@@ -4023,6 +4041,7 @@ var oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	OSpeed: 3.2,
 	Speed: 3.2,
 	Altitude: 1,
+	AlmanacGif: 4,
 	BirthCallBack(g) {
 		var e = g.delayT;
 		var c = g.id;
@@ -4092,6 +4111,7 @@ var oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	getShadow(a) {
 		return "left:" + a.beAttackedPointL + "px;top:" + (a.height - 45) + "px";
 	},
+	BookHandPosition: "68% 15px",
 	PicArr: (function () {
 		var a = "images/Zombies/SnorkelZombie/";
 		return [
@@ -4296,8 +4316,9 @@ var oSubZombie = InheritO(oSnorkelZombie, {
 	width: 464,
 	height: 364,
 	beAttackedPointL: 140,
-	beAttackedPointR: 290,
-	BookHandBack: 4.9,
+	beAttackedPointR:	 290,
+	BookHandBack: "Pool",
+	BookHandPosition: "12% 60%",
 	Produce:
 		'强劲有力的机械潜水艇，可以在水中躲过大多数攻击。<p>韧性：<font color="#CC241D">极高</font><br>特点：<font color="#CC241D">潜入水底以避免遭到攻击<br>只在水池Level出现</font></p>这是由作者僵尸亲自打造的无敌潜水艇,不要妄想击碎他，他的猛烈进攻，只会让你的植物死得更快!。',
 	PicArr: (function () {
@@ -4582,6 +4603,7 @@ var oZomboni = (function () {
 		HP: 1350,
 		Lvl: 3,
 		StandGif: 2,
+		AlmanacGif: 2,
 		DieGif: 6,
 		BoomDieGif: 7,
 		BookHandPosition: "40% 35%",
@@ -4601,6 +4623,8 @@ var oZomboni = (function () {
 		Attack: 50,
 		Produce:
 			'冰车僵尸运用冰雪，碾过你的植物。<p>韧性：<font color="#CC241D">高</font><br>特点：<font color="#CC241D">碾压植物，留下条冰道</font></p>经常被误以为是在驾驶着冰车的僵尸，但事实上冰车僵尸是种完全不同的生物形式，他与太空兽人联系更紧密而不是僵尸。',
+		BookHandBack: "Ice",
+		BookHandPosition: "32% 52%",
 		PicArr: (function () {
 			var b = "images/Zombies/Zomboni/";
 			return [
@@ -5152,6 +5176,8 @@ var oDolphinRiderZombie = InheritO(oAquaticZombie, {
 	SunNum: 350,
 	OSpeed: 3.2,
 	Speed: 3.2,
+	AlmanacGif: 4,
+	BookHandPosition: "36% 82%",
 	PicArr: (function () {
 		var a = "images/Zombies/DolphinRiderZombie/";
 		return [
@@ -5341,6 +5367,7 @@ var oImp = InheritO(OrnNoneZombies, {
 	StandGif: 9,
 	OSpeed: 1.4,
 	Speed: 1.4,
+	BookHandPosition: "35% 85%",
 	PicArr: (function () {
 		var a = "images/Zombies/Imp/";
 		return [
@@ -5394,6 +5421,7 @@ var oJX = InheritO(OrnNoneZombies, {
 	OSpeed: 1.2,
 	Speed: 1.4,
 	Attack: 120,
+	BookHandPosition: "33% 82%",
 	PicArr: (function () {
 		var a = "images/Zombies/JX/";
 		return [
@@ -5427,6 +5455,7 @@ var oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	beAttackedPointR: 170,
 	StandGif: 5,
 	NormalGif: 6,
+	AlmanacGif: 5,
 	DieGif: 3,
 	BoomDieGif: 4,
 	HeadGif: 11,
@@ -5437,6 +5466,7 @@ var oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	Speed: 3.6,
 	Produce:
 		'这种僵尸带着个会爆炸的潘多拉盒子。</p><p>韧性：<font color="#CC241D">中</font><br>速度：<font color="#CC241D">快</font><br>特点：<font color="#CC241D">打开玩偶匣会爆炸</font><br>弱点：<font color="#CC241D">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
+	BookHandPosition: "6px 80%",
 	AudioArr: ["jackinthebox", "explosion"],
 	PicArr: (function () {
 		var a = "images/Zombies/JackinTheBoxZombie/";
@@ -5836,6 +5866,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 	CName: "Balloon Zombie",
 	OrnHP: 10,
 	StandGif: 2,
+	AlmanacGif: 2,
 	CardGif: 0,
 	SunNum: 100,
 	width: 207,
@@ -5851,7 +5882,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 		return "left:" + (c.beAttackedPointL - 0) + "px;top:" + (c.height - 22) + "px";
 	},
 	AudioArr: ["ballooninflate", "balloon_pop"],
-	BookHandPosition: "80% 80%",
+	BookHandPosition: "85px 40px",
 	PicArr: (function () {
 		var a = "images/Zombies/BalloonZombie/";
 		return [
@@ -6232,6 +6263,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 	CName: "Fish Thrower Imp",
 	OrnHP: 1,
 	HP: 1,
+	BookHandPosition: "125% 58px",
 	PicArr: (function () {
 		var a = "images/Zombies/JY/";
 		return [
@@ -6391,6 +6423,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 		EName: "oCZombie",
 		CName: "Commoner Zombie",
 		StandGif: 9,
+		BookHandPosition: "35% 80%",
 		PicArr: (function () {
 			var a = "images/Zombies/wall/Zombie/";
 			return [
@@ -6436,7 +6469,8 @@ oCConeheadZombie = InheritO(OrnIZombies, {
 	Lvl: 2,
 	SunNum: 75,
 	StandGif: 11,
-
+	AlmanacGif: 11,
+	BookHandPosition: "35% 80%",
 	PicArr: (function () {
 		var b = "images/Zombies/wall/ConeheadZombie/";
 		var a = "images/Zombies/wall/Zombie/";
@@ -6494,6 +6528,7 @@ oCBucketheadZombie = InheritO(
 	HP: 550,
 	width: 348,
 	height: 218,
+	AlmanacGif: 13,
 	OSpeed: 1.5,
 	Speed: 1.5,
 	beAttackedPointL: 215,
@@ -6508,6 +6543,7 @@ oCBucketheadZombie = InheritO(
 	},
 	Lvl: 2,
 	SunNum: 75,
+	BookHandPosition: "-85px -25px",
 	PicArr: (function () {
 		var a = "images/Zombies/wall/thugZombie/";
 		return [
@@ -6665,6 +6701,7 @@ oCBucketheadZombie = InheritO(
 		beAttackedPointR: 130,
 		Speed: 1.5,
 		LostPaperSpeed: 1.5,
+		BookHandPosition: "50% 80%",
 		PicArr: (function () {
 			var a = "images/Zombies/wall/EunZombie/";
 			return [
@@ -6891,6 +6928,7 @@ oCBucketheadZombie = InheritO(
 	getShadow(a) {
 		return "display:none";
 	},
+	BookHandPosition: "35% 15px",
 	PicArr: (function () {
 		var a = "images/Zombies/wall/ZZ/";
 		return [
@@ -6920,6 +6958,7 @@ oCBucketheadZombie = InheritO(
 		OSpeed: 1,
 		Speed: 1,
 		Attack: 3600,
+		BookHandPosition: "25% 45%",
 		PlayNormalballAudio() {
 			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 		},
@@ -6951,6 +6990,7 @@ oCBucketheadZombie = InheritO(
 		Speed: 0.3,
 		Attack: 550,
 		LostPaperSpeed: 1.5,
+		AlmanacGif: 14,
 		PicArr: (function () {
 			var a = "images/Zombies/WJY/";
 			return [
@@ -7009,6 +7049,7 @@ oCBucketheadZombie = InheritO(
 		StandGif: 9,
 		OSpeed: 3.2,
 		Speed: 3.2,
+		BookHandPosition: "57% 91%",
 		PicArr: (function () {
 			var a = "images/Zombies/XB/";
 			return [
@@ -7038,6 +7079,7 @@ oCBucketheadZombie = InheritO(
 		height: 164,
 		beAttackedPointL: 60,
 		beAttackedPointR: 130,
+		BookHandPosition: "85% 77%",
 		PicArr: (function () {
 			var a = "images/Zombies/CX/";
 			return [
@@ -7117,6 +7159,7 @@ oCBucketheadZombie = InheritO(
 			height: 377,
 			beAttackedPointL: 140,
 			beAttackedPointR: 300,
+			BookHandPosition: "0% 39%",
 			Produce:
 				'东海龙王拥有无限延长的身躯，带领僵尸大军突破你的阵型。<p>韧性：<font color="#CC241D">不死之身</font><br>技能：<font color="#CC241D">无限身躯，碾压植物</font></p>僵王博士所研制的新一代水下作战机器。博士花了近一年的功夫，从龙王的排水系统到每一个菱角，都进行了细致的打磨加强。此刻这位僵尸天才正沉浸于机器完成的喜悦中。',
 			PicArr: (function () {
@@ -7370,7 +7413,7 @@ oCBucketheadZombie = InheritO(
 							CardGif: 0,
 							StaticGif: 1,
 							StandGif: 2,
-							BookHandBack: 0,
+							BookHandBack: "Day",
 							AudioArr: [],
 							CanSelect: 1,
 							CanDisplay: 1,
@@ -9715,6 +9758,7 @@ oCBucketheadZombie = InheritO(
 					OSpeed: 3.2,
 					Speed: 3.2,
 					Altitude: 1,
+					AlmanacGif: 4,
 					Produce:
 						'潜水僵尸可以在水下前行。<p>韧性：<font color="#CC241D">低</font><br>特点：<font color="#CC241D">潜泳以避免遭到攻击<br>只在水池关卡出现</font></p>僵尸不呼吸。他们不需要空气。那么为什么潜水僵尸需要一套潜水装置来潜水呢？<br>答案：同行的压力。',
 					JumpTime: 40,

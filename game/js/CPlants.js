@@ -6,7 +6,8 @@ var CPlants = NewO({
 	CardGif: 0,
 	StaticGif: 1,
 	NormalGif: 2,
-	BookHandBack: 0,
+	AlmanacGif: 2,
+	BookHandBack: "Day",
 	canEat: 1,
 	zIndex: 0,
 	AudioArr: [],
@@ -42,42 +43,54 @@ var CPlants = NewO({
 		return this.height;
 	},
 	Birth(d, c, h, a, m, n) {
-		var e = this;
-		var k = d + e.GetDX();
-		var i = c + e.GetDY(h, a, m);
-		var l = e.prototype;
-		var g = i - e.height;
-		var b = (e.id = "P_" + Math.random());
-		var j = (e.zIndex += 3 * h);
-		var f = NewEle(0, "div", "position:absolute");
+    var e = this;
+    var k = d + e.GetDX();
+    var i = c + e.GetDY(h, a, m);
+    var l = e.prototype;
+    var g = i - e.height;
+    var b = (e.id = "P_" + Math.random());
+    var j = (e.zIndex += 3 * h);
+    var f = NewEle(0, "div", "position:absolute");
 
-		NewImg(0, ShadowPNG, e.getShadow(e), f);
-		e.plantImage = NewImg(0, e.PicArr[e.NormalGif], "", f);
+    var isOnLilyPad = false;
+    for (var pID in $P) {
+        var p = $P[pID];
+        if (p && p.R == h && p.C == a && p.EName == "oLilyPad") {
+            isOnLilyPad = true;
+            break; 
+        }
+    }
 
-		e.ele = f;
+    var isWaterRow = (oGd.$LF[h] == 2);
+    var isBlacklisted = (e.EName == "oPoolCleaner");
 
-		e.pixelLeft = k;
-		e.pixelRight = k + e.width;
-		e.pixelTop = g;
-		e.pixelBottom = g + e.GetDBottom();
-		e.opacity = 1;
-		e.InitTrigger(e, b, (e.R = h), (e.C = a), (e.AttackedLX = k + e.beAttackedPointL), (e.AttackedRX = k + e.beAttackedPointR));
-		$P[b] = e;
-		$P.length += 1;
-		e.BirthStyle(
-			e,
-			b,
-			f,
-			{
-				left: k + "px",
-				top: g + "px",
-				zIndex: j,
-			},
-			n
-		);
-		oGd.add(e, h + "_" + a + "_" + e.PKind);
-		e.PrivateBirth(e, n);
-	},
+    if ((isOnLilyPad || isWaterRow) && !isBlacklisted) {
+        f.className += " floatingPlant";
+    }
+
+    NewImg(0, ShadowPNG, e.getShadow(e), f);
+    e.plantImage = NewImg(0, e.PicArr[e.NormalGif], "", f);
+
+    e.ele = f;
+    e.pixelLeft = k;
+    e.pixelRight = k + e.width;
+    e.pixelTop = g;
+    e.pixelBottom = g + e.GetDBottom();
+    e.opacity = 1;
+    e.InitTrigger(e, b, (e.R = h), (e.C = a), (e.AttackedLX = k + e.beAttackedPointL), (e.AttackedRX = k + e.beAttackedPointR));
+    
+    $P[b] = e;
+    $P.length += 1;
+
+    e.BirthStyle(e, b, f, {
+        left: k + "px",
+        top: g + "px",
+        zIndex: j,
+    }, n);
+
+    oGd.add(e, h + "_" + a + "_" + e.PKind);
+    e.PrivateBirth(e, n);
+},
 	getShadow(a) {
 		return "left:" + (a.width * 0.5 - 48) + "px;top:" + (a.height - 22) + "px";
 	},
@@ -178,8 +191,9 @@ var oGraveBuster = InheritO(CPlants, {
 	height: 106,
 	beAttackedPointR: 70,
 	SunNum: 75,
-	BookHandBack: 2.5,
+	BookHandBack: "Night",
 	canEat: 0,
+	BookHandPosition: "48% 97%",
 	PicArr: ["images/Card/Plants/GraveBuster.png", "images/Plants/GraveBuster/0.gif", "images/Plants/GraveBuster/GraveBuster.gif" + $Random + Math.random()],
 	AudioArr: ["gravebusterchomp"],
 	CanGrow(b, a, d) {
@@ -404,6 +418,7 @@ var oStarfruit = InheritO(CPlants, {
 	GetDY(b, c, a) {
 		return a[0] ? -17 : -10;
 	},
+	BookHandPosition: "47.5% 69%",
 	PicArr: ["images/Card/Plants/Starfruit.png", "images/Plants/Starfruit/0.gif", "images/Plants/Starfruit/Starfruit.gif", "images/Plants/Starfruit/Star.gif"],
 	Tooltip: "Shoots stars in 5 directions",
 	Produce:
@@ -954,7 +969,7 @@ var oPeashooter = InheritO(CPlants, {
 	],
 	Tooltip: "Shoots peas at the enemy",
 	Produce:
-		'<font color="#28325A">Pea shooters are your first line of defense. They shoot peas at attacking zombies.</font><p>Damage: <font color="#CC241D">normal</font></p>How can a single plant grow and shoot so many peas so quickly? Peashooter says, "Hard work, commitment, and a healthy, well-balanced breakfast of sunlight and high-fiber carbon dioxide make it all possible." ',
+		'<font color="#28325A">Peashooters are your first line of defense. They shoot peas at attacking zombies.</font><p>Damage: <font color="#CC241D">normal</font></p>How can a single plant grow and shoot so many peas so quickly? Peashooter says, "Hard work, commitment, and a healthy, well-balanced breakfast of sunlight and high-fiber carbon dioxide make it all possible." ',
 	PrivateBirth(a) {
 		a.BulletEle = NewImg(0, a.PicArr[3], "left:" + (a.AttackedLX - 40) + "px;top:" + (a.pixelTop + 3) + "px;visibility:hidden;z-index:" + (a.zIndex + 2));
 	},
@@ -1085,11 +1100,12 @@ var oLotusRoot = InheritO(oPeashooter, {
 	height: 114,
 	beAttackedPointR: 70,
 	SunNum: 250,
-	BookHandBack: 4.9,
+	BookHandBack: "Pool",
 	coolTime: 25,
 	getShadow(a) {
 		return "display:none";
 	},
+	BookHandPosition: "58% 75%",
 	PicArr: [
 		"images/Card/Plants/LotusRoot.png",
 		"images/Plants/LotusRoot/0.gif",
@@ -1506,6 +1522,7 @@ var oThreepeater = InheritO(oPeashooter, {
 	height: 80,
 	beAttackedPointR: 53,
 	SunNum: 325,
+	BookHandPosition: "50% 60%",
 	PicArr: [
 		"images/Card/Plants/Threepeater.png",
 		"images/Plants/Threepeater/0.gif",
@@ -1729,6 +1746,7 @@ var oGatlingPea = InheritO(oPeashooter, {
 	height: 84,
 	beAttackedPointR: 68,
 	SunNum: 250,
+	BookHandPosition: "51% 57%",
 	PicArr: [
 		"images/Card/Plants/GatlingPea.png",
 		"images/Plants/GatlingPea/0.gif",
@@ -1780,6 +1798,7 @@ var oSplitPea = InheritO(oPeashooter, {
 	height: 72,
 	beAttackedPointR: 72,
 	SunNum: 125,
+	BookHandPosition: "46% 62%",
 	PicArr: [
 		"images/Card/Plants/SplitPea.png",
 		"images/Plants/SplitPea/0.gif",
@@ -2062,6 +2081,7 @@ var oTwinSunflower = InheritO(oSunFlower, {
 	height: 84,
 	beAttackedPointR: 63,
 	SunNum: 150,
+	BookHandPosition: "49% 60%",
 	PicArr: [
 		"images/Card/Plants/TwinSunflower.png",
 		"images/Plants/TwinSunflower/0.gif",
@@ -2143,6 +2163,7 @@ var oPumpkinHead = InheritO(CPlants, {
 	HP: 4e3,
 	coolTime: 30,
 	zIndex: 1,
+	BookHandPosition: "50% 76%",
 	PicArr: [
 		"images/Card/Plants/PumpkinHead.png",
 		"images/Plants/PumpkinHead/0.gif",
@@ -2280,8 +2301,9 @@ var oFlowerPot = InheritO(CPlants, {
 	height: 68,
 	beAttackedPointR: 52,
 	SunNum: 25,
-	BookHandBack: 6,
-	HP: 1e3,
+	BookHandBack: "Roof",
+//	HP: 1e3,
+	BookHandPosition: "49% 67%",
 	PicArr: ["images/Card/Plants/FlowerPot.png", "images/Plants/FlowerPot/0.gif", "images/Plants/FlowerPot/FlowerPot.gif"],
 	PKind: 0,
 	Stature: -1,
@@ -2305,7 +2327,7 @@ var oCFlowerPot = InheritO(oFlowerPot, {
 	Produce: "Allows plants to be planted on tiled terrain.</font></p>Celadon flower pot, no introduction needed",
 });
 var oLilyPad = InheritO(oFlowerPot, {
-	BookHandBack: 4.9,
+	BookHandBack: "Pool",
 	Stature: -1,
 	EName: "oLilyPad",
 	CName: "LilyPad",
@@ -2313,9 +2335,10 @@ var oLilyPad = InheritO(oFlowerPot, {
 	height: 58,
 	beAttackedPointR: 59,
 	//     HP: 1e3,
+	BookHandPosition: "50% 82.5%",
 	PicArr: ["images/Card/Plants/LilyPad.png", "images/Plants/LilyPad/0.gif", "images/Plants/LilyPad/LilyPad.gif"],
 	getShadow(a) {
-		return "left:-8px;top:25px";
+		return "display: none;";
 	},
 	CanGrow(c, b, d) {
 		var a = b + "_" + d;
@@ -2326,7 +2349,7 @@ var oLilyPad = InheritO(oFlowerPot, {
 		'<font color="#28325A">Lily pads let you plant non-aquatic plants on top of them.</font><p>Special: <font color="#CC241D">non-aquatic plants can be planted on top of it</font><br><font color="#0ca1db">Must be planted in water</font></p>Lily Pad never complains. Lily Pad never wants to know what\'s going on. Put a plant on top of Lily Pad, he won\'t say a thing. Does he have startling opinions or shocking secrets? Nobody knows. Lily Pad keeps it all inside.',
 });
 var oSeedLilyPad = InheritO(oFlowerPot, {
-	BookHandBack: 4.9,
+	BookHandBack: "Pool",
 	Stature: -1,
 	EName: "oSeedLilyPad",
 	CName: "LilyPad",
@@ -2347,7 +2370,7 @@ var oSeedLilyPad = InheritO(oFlowerPot, {
 		'Lilypads allow you to grow non-aquatic plants on top of them。<p>Features:<font color="#CC241D">Non-aquatic plants can be planted on it<br>Must be planted on water</font></p>Lilypad never complains, it never wants to know what happened</font><br> Plant a plant on it and it wont say anything.</font><br>，Does it have any surprising ideas or terrible secrets?？</font><br>Lotus Ye buries all these inside of her heart。',
 });
 var oILilyPad = InheritO(oFlowerPot, {
-	BookHandBack: 4.9,
+	BookHandBack: "Pool",
 	Stature: -2,
 	EName: "oILilyPad",
 	CName: "LilyPad",
@@ -2391,6 +2414,7 @@ var oPotatoMine = InheritO(CPlants, {
 				? !(e < 1 || e > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || c[1])
 				: c[0] && !c[1];
 	},
+	BookHandPosition: "50% 70%",
 	PicArr: [
 		"images/Card/Plants/PotatoMine.png",
 		"images/Plants/PotatoMine/0.gif",
@@ -2713,6 +2737,7 @@ var oTorchwood = InheritO(CPlants, {
 	height: 83,
 	beAttackedPointR: 53,
 	SunNum: 175,
+	BookHandPosition: "49% 60%",
 	PicArr: [
 		"images/Card/Plants/Torchwood.png",
 		"images/Plants/Torchwood/0.gif",
@@ -2969,8 +2994,9 @@ var oBalloon = InheritO(CPlants, {
 	SunNum: "+75",
 	coolTime: "Wave",
 	HP: 1,
+	AlmanacGif: 1,
 	PicArr: ["images/Card/Plants/BalloonGoober.png", "images/Zombies/Balloon/0.png", "images/Zombies/Balloon/popped.png"],
-	Tooltip: "goober",
+	Tooltip: "Drops sun when popped",
 	Produce:
 		'<font color="#28325A">Balloonatics have a chance to spawn every wave. Popping them produces 75 sun</font>.</font><br><p>Toughness: <font color="CC241D">low</font></p> ">:3" says the Balloonatic. ">:3" says the Balloonatic, again.',
 	CanGrow(c, b, f) {
@@ -3011,7 +3037,7 @@ var oCattail = InheritO(oPeashooter, {
 	coolTime: 50,
 	AttackGif: 5,
 	Attack: 20,
-	BookHandBack: 4.9,
+	BookHandBack: "Pool",
 	getTriggerRange(a, b, c) {
 		return [[0, oS.W, 0]];
 	},
@@ -3031,6 +3057,7 @@ var oCattail = InheritO(oPeashooter, {
 	getShadow(a) {
 		return "display:none";
 	},
+	BookHandPosition: "50% 105%",
 	AudioArr: ["CabbageAttack1", "CabbageAttack2"],
 	PicArr: (function () {
 		var a = "images/Plants/Cattail/";
@@ -3301,7 +3328,7 @@ var oLing = InheritO(oWallNut, {
 	height: 72,
 	beAttackedPointL: 15,
 	beAttackedPointR: 80,
-	BookHandBack: 4.9,
+	BookHandBack: "Pool",
 	HP: 1e4,
 	getShadow(a) {
 		return "display:none";
@@ -3556,6 +3583,8 @@ var oTallNut = InheritO(oWallNut, {
 	SunNum: 125,
 	HP: 8e3,
 	coolTime: 24.5,
+	Stature: 1,
+	BookHandPosition: "50% 75%",
 	PicArr: [
 		"images/Card/Plants/TallNut.png",
 		"images/Plants/TallNut/0.gif",
@@ -3580,7 +3609,6 @@ var oTallNut = InheritO(oWallNut, {
 					? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
 					: c[0] && !d;
 	},
-	Stature: 1,
 	getHurt(e, b, a) {
 		var c = this;
 		var d = $(c.id).childNodes[1];
@@ -3650,11 +3678,12 @@ var oTenManNut = InheritO(CPlants, {
 	HP: 11e3,
 	Stature: 1,
 	canEat: 1,
+	BookHandPosition: "52% 114%",
 	PicArr: ["images/Card/Plants/TenManNut.png", "images/Plants/TenManNut/0.gif", "images/Plants/TenManNut/Spikeweed.gif"],
 	Attack: 40,
 	ArZ: {},
 	Tooltip: "Damages zombies that eat it",
-	// cool comment!
+	Stature: 1,
 	Produce:
 		'<font color="#28325A">Vine-nuts are heavy-duty wall plants that can\'t be vaulted over and also damage zombies.</font><p>Damage: <font color="#CC241D">normal</font><br>Toughness: <font color="#CC241D">very high</font><p>Vine-Nut started as a plain Tall-Nut but became entangled in some wild jungle vines. Now, when zombies bite, thorny vines lash out, slowing them down. It\'s not just a nut, it\'s a vengeful nut!',
 	getHurt(f, c, b) {
@@ -3724,6 +3753,7 @@ var oCherryBomb = InheritO(CPlants, {
 	beAttackedPointR: 92,
 	SunNum: 150,
 	coolTime: 20,
+	AlmanacGif: 1,
 	PicArr: [
 		"images/Card/Plants/CherryBomb.png",
 		"images/Plants/CherryBomb/0.gif",
@@ -3845,6 +3875,7 @@ var oJalapeno = InheritO(oCherryBomb, {
 	height: 89,
 	SunNum: 125,
 	beAttackedPointR: 48,
+	BookHandPosition: "50% 64%",
 	PicArr: [
 		"images/Card/Plants/Jalapeno.png",
 		"images/Plants/Jalapeno/0.gif",
@@ -3960,13 +3991,14 @@ var oSpikeweed = InheritO(CPlants, {
 	EName: "oSpikeweed",
 	CName: "Spikeweed",
 	width: 85,
-	height: 35,
+	height: 48,
 	beAttackedPointL: 10,
 	beAttackedPointR: 75,
 	SunNum: 100,
 	Stature: -1,
 	canEat: 0,
-	PicArr: ["images/Card/Plants/Spikeweed.png", "images/Plants/Spikeweed/0.gif", "images/Plants/Spikeweed/Spikeweed.gif"],
+	BookHandPosition: "50% 78%",
+	PicArr: ["images/Card/Plants/Spikeweed.png", "images/Plants/Spikeweed/0.png", "images/Plants/Spikeweed/Spikeweed.webp", "images/Plants/Spikeweed/SpikeweedAttack.webp"],
 	Attack: 20,
 	ArZ: {},
 	Tooltip: "Pops tires and hurts zombies that step on it",
@@ -3995,9 +4027,27 @@ var oSpikeweed = InheritO(CPlants, {
 		}
 	},
 	NormalAttack(b, a) {
-		var c = $Z[b];
-		c.getHit2(c, this.Attack, 0);
-	},
+        var c = $Z[b];
+        c.getHit2(c, this.Attack, 0);
+
+        var id = this.id;
+        var ele = $(id);
+
+        ele.childNodes[1].src = this.PicArr[3]; 
+
+        this.AttackState = (this.AttackState || 0) + 1;
+
+        oSym.addTask(60, function(plantId) {
+            var p = $P[plantId];
+            if (p) {
+                 p.AttackState--;
+                 if (p.AttackState <= 0) {
+                     p.AttackState = 0;
+                     $(plantId).childNodes[1].src = p.PicArr[2]; 
+                 }
+            }
+        }, [id]);
+    },
 	GetDY(b, c, a) {
 		return -2;
 	},
@@ -4044,7 +4094,7 @@ var oSeedSpikeweed = InheritO(CPlants, {
 	SunNum: 0,
 	Stature: -1,
 	canEat: 0,
-	PicArr: ["images/Card/Plants/Spikeweed.png", "images/Plants/Spikeweed/0.gif", "images/Plants/Spikeweed/Spikeweed.gif"],
+	PicArr: ["images/Card/Plants/Spikeweed.png", "images/Plants/Spikeweed/0.png", "images/Plants/Spikeweed/Spikeweed.webp"],
 	Attack: 20,
 	ArZ: {},
 	Tooltip: "Pops tires and hurts zombies that step on it",
@@ -4120,6 +4170,7 @@ var oSpikerock = InheritO(oSpikeweed, {
 	beAttackedPointL: 10,
 	beAttackedPointR: 74,
 	SunNum: 125,
+	BookHandPosition: "49% 80%",
 	PicArr: [
 		"images/Card/Plants/Spikerock.png",
 		"images/Plants/Spikerock/0.gif",
@@ -4169,6 +4220,7 @@ var oGarlic = InheritO(CPlants, {
 	beAttackedPointR: 40,
 	SunNum: 50,
 	HP: 400,
+	BookHandPosition: "49% 67%",
 	PicArr: [
 		"images/Card/Plants/Garlic.png",
 		"images/Plants/Garlic/0.gif",
@@ -4278,6 +4330,7 @@ var oSquash = InheritO(CPlants, {
 	height: 226,
 	beAttackedPointR: 67,
 	SunNum: 50,
+	BookHandPosition: "50% 180%",
 	PicArr: [
 		"images/Card/Plants/Squash.png",
 		"images/Plants/Squash/0.gif",
@@ -4428,6 +4481,7 @@ var oChomper = InheritO(CPlants, {
 	height: 114,
 	beAttackedPointR: 70,
 	SunNum: 150,
+	BookHandPosition: "56% 54%",
 	AudioArr: ["bigchomp"],
 	PicArr: [
 		"images/Card/Plants/Chomper.png",
@@ -4573,6 +4627,7 @@ var oBigChomper = InheritO(oChomper, {
 	EName: "oBigChomper",
 	CName: "Super Chomper",
 	coolTime: 15,
+	BookHandPosition: "56% 54%",
 	PicArr: [
 		"images/Card/Plants/BigChomper.png",
 		"images/Plants/BigChomper/0.gif",
@@ -4637,9 +4692,10 @@ var oFumeShroom = InheritO(CPlants, {
 	height: 88,
 	beAttackedPointR: 80,
 	SunNum: 75,
-	BookHandBack: 2.5,
+	BookHandBack: "Night",
 	SleepGif: 3,
 	night: true,
+	BookHandPosition: "53% 60%",
 	PicArr: [
 		"images/Card/Plants/FumeShroom.png",
 		"images/Plants/FumeShroom/0.gif",
@@ -4732,7 +4788,7 @@ var oSeedFumeShroom = InheritO(CPlants, {
 	height: 88,
 	beAttackedPointR: 80,
 	SunNum: 0,
-	BookHandBack: 2.5,
+	BookHandBack: "Night",
 	SleepGif: 3,
 	night: true,
 	PicArr: [
@@ -4895,6 +4951,7 @@ var oCoffeeBean = InheritO(CPlants, {
 	SunNum: 75,
 	PKind: 3,
 	canEat: 0,
+	BookHandPosition: "50% 95%",
 	PicArr: [
 		"images/Card/Plants/CoffeeBean.png",
 		"images/Plants/CoffeeBean/0.gif",
@@ -4949,6 +5006,7 @@ var oGloomShroom = InheritO(oFumeShroom, {
 	height: 81,
 	beAttackedPointR: 92,
 	SunNum: 150,
+	BookHandPosition: "47% 60%",
 	PicArr: [
 		"images/Card/Plants/GloomShroom.png",
 		"images/Plants/GloomShroom/0.gif",
@@ -5173,6 +5231,7 @@ var oPuffShroom = InheritO(oFumeShroom, {
 	beAttackedPointR: 25,
 	SunNum: 0,
 	Stature: -1,
+	BookHandPosition: "49% 60%",
 	PicArr: [
 		"images/Card/Plants/PuffShroom.png",
 		"images/Plants/PuffShroom/0.gif",
@@ -5324,6 +5383,7 @@ var oScaredyShroom = InheritO(oFumeShroom, {
 	Cry: 0,
 	ArZ: [],
 	Attacking: 0,
+	BookHandPosition: "46% 47%",
 	PicArr: [
 		"images/Card/Plants/ScaredyShroom.png",
 		"images/Plants/ScaredyShroom/0.gif",
@@ -5570,6 +5630,7 @@ var oHypnoShroom = InheritO(oFumeShroom, {
 	SunNum: 75,
 	coolTime: 30,
 	HP: 0,
+	BookHandPosition: "48% 61%",
 	PicArr: [
 		"images/Card/Plants/HypnoShroom.png",
 		"images/Plants/HypnoShroom/0.gif",
@@ -5642,6 +5703,7 @@ var oIceShroom = InheritO(oFumeShroom, {
 	beAttackedPointR: 63,
 	SunNum: 75,
 	coolTime: 50,
+	BookHandPosition: "48% 60%",
 	PicArr: [
 		"images/Card/Plants/IceShroom.png",
 		"images/Plants/IceShroom/0.gif",
@@ -5788,6 +5850,8 @@ var oSunShroom = InheritO(oFumeShroom, {
 	SunNum: 25,
 	Stature: -1,
 	Status: 0,
+	AlmanacGif: 4,
+	BookHandPosition: "49% 58%",
 	PicArr: [
 		"images/Card/Plants/SunShroom.png",
 		"images/Plants/SunShroom/0.gif",
@@ -5865,7 +5929,9 @@ var oDoomShroom = InheritO(oFumeShroom, {
 	beAttackedPointR: 80,
 	coolTime: 50,
 	SunNum: 125,
+	AlmanacGif: 1,
 	AudioArr: ["doomshroom"],
+	BookHandPosition: "48% 58%",
 	PicArr: [
 		"images/Card/Plants/DoomShroom.png",
 		"images/Plants/DoomShroom/0.gif",
@@ -6274,7 +6340,8 @@ var oTangleKlep = InheritO(CPlants, {
 	beAttackedPointR: 80,
 	coolTime: 30,
 	SunNum: 25,
-	BookHandBack: 4.9,
+	BookHandBack: "Pool",
+	BookHandPosition: "50% 85%",
 	GetDY(b, c, a) {
 		return 5;
 	},
@@ -6406,7 +6473,7 @@ var oSeedTangleKelp = InheritO(CPlants, {
 	beAttackedPointR: 80,
 	coolTime: 30,
 	SunNum: 0,
-	BookHandBack: 4.9,
+	BookHandBack: "Pool",
 	GetDY(b, c, a) {
 		return 5;
 	},
@@ -6537,11 +6604,12 @@ var oSeaShroom = InheritO(oPuffShroom, {
 	beAttackedPointL: 10,
 	beAttackedPointR: 40,
 	coolTime: 30,
-	BookHandBack: 4.9,
+	BookHandBack: "NightPool",
 	Sleep: 0,
 	getShadow(a) {
 		return "display:none";
 	},
+	BookHandPosition: "49% 90%",
 	PicArr: [
 		"images/Card/Plants/SeaShroom.png",
 		"images/Plants/SeaShroom/0.gif",
@@ -6576,7 +6644,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 	beAttackedPointL: 10,
 	beAttackedPointR: 40,
 	coolTime: 30,
-	BookHandBack: 4.9,
+	BookHandBack: "Pool",
 	Sleep: 0,
 	getShadow(a) {
 		return "display:none";
@@ -6615,8 +6683,9 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 	SunNum: 125,
 	beAttackedPointL: 10,
 	beAttackedPointR: 80,
-	AudioArr: ["plantgrow"],
 	Status: 0,
+	BookHandPosition: "51% -89%",
+	AudioArr: ["plantgrow"],
 	PicArr: (function () {
 		return [
 			"images/Card/Plants/Cactus.png",
@@ -7165,7 +7234,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		beAttackedPointR: 53,
 		SunNum: 25,
 		HP: 300,
-		BookHandBack: 3.5,
+		BookHandBack: "Undersea",
 		coolTime: 7.5,
 		PicArr: ["images/Card/Plants/Oxygen.png", "images/Plants/Oxygen/0.gif", "images/Plants/Oxygen/Oxygen.gif"],
 		Tooltip: "Oxygen provides algae to plants on the ground",
@@ -7211,7 +7280,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		beAttackedPointR: 80,
 		SunNum: 200,
 		HP: 4e3,
-		BookHandBack: 2.5,
+		BookHandBack: "Night",
 		coolTime: 30,
 		PicArr: [
 			"images/Card/Plants/FlamesMushroom.png",
@@ -7267,7 +7336,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		beAttackedPointR: 52,
 		SunNum: 0,
 		canEat: 0,
-		BookHandBack: 5,
+		BookHandBack: "Undersea",
 		PicArr: ["images/Card/Plants/Oxygen.png", "images/Plants/Oxygen/0.gif", "images/Plants/Oxygen/Oxygen1.gif"],
 		PKind: 0,
 		Stature: -1,
@@ -7296,8 +7365,9 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		beAttackedPointL: 105,
 		beAttackedPointR: 145,
 		canEat: 1,
-		BookHandBack: 2.5,
+		BookHandBack: "Night",
 		SunNum: 25,
+		BookHandPosition: "50% 20%",
 		PicArr: ["images/Card/Plants/Plantern.png", "images/Plants/Plantern/0.gif", "images/Plants/Plantern/Plantern.gif"],
 		Tooltip: "Lights up an area, letting you see through fog",
 		Produce:
@@ -7331,7 +7401,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		beAttackedPointL: 105,
 		beAttackedPointR: 145,
 		coolTime: 30,
-		BookHandBack: 2,
+		BookHandBack: "Night",
 		SunNum: 0,
 		PicArr: ["images/Card/Plants/Plantern.png", "images/Plants/Plantern/0.gif", "images/Plants/Plantern/Plantern.gif", "images/Plants/Plantern/light.gif"],
 		Tooltip: "照亮一片区域, 让玩家可以看穿战场迷雾",
@@ -7368,10 +7438,12 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		SunNum: 75,
 		HP: 4e3,
 		canEat: 0,
-		BookHandBack: 3.5,
+		BookHandBack: "Undersea",
 		Tooltip: "Sea Starfruit rolls and destroys any obstacles in its way",
 		Produce:
 			'<font color="#28325A">Sea Starfruits roll and ricochet on any obstacles in their way.</font><p>Damage: <font color="#CC241D">medium</font><br>Range: <font color="#CC241D">all zombies that it hits</font><br>Special: <font color="#CC241D">ricochets when it hits an obstacle</font></p>Sea Starfruit always has a charming smile. No one knows the secret of him not feeling dizzy despite always spinning in circles. Some say the reason being him looking at one fixed point cross-eyed.',
+		AlmanacGif: 1,
+		BookHandPosition: "50% 85%",
 		PicArr: ["images/Card/Plants/star.png", "images/Plants/star/0.gif", "images/Plants/star/starRoll.gif"],
 		AudioArr: ["bowling", "bowlingimpact", "bowlingimpact2"],
 		CanAttack: 1,
@@ -7475,7 +7547,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		coolTime: 50,
 		HP: 0,
 		canEat: 0,
-		BookHandBack: 3,
+		BookHandBack: "Undersea",
 		Stature: 1,
 		PicArr: ["images/Card/Plants/star.png", "images/Plants/star/0.gif", "images/Plants/star/starRoll.gif"],
 		Tooltip: "",
@@ -7518,8 +7590,9 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		height: 100,
 		beAttackedPointL: 15,
 		beAttackedPointR: 25,
-		BookHandBack: 3.5,
+		BookHandBack: "Undersea",
 		SunNum: 25,
+		BookHandPosition: "49% 72%",
 		PicArr: [
 			"images/Card/Plants/gun.png",
 			"images/Plants/gun/0.gif",
@@ -7632,8 +7705,9 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		beAttackedPointR: 63,
 		SunNum: 300,
 		coolTime: 15,
-		BookHandBack: 3.5,
+		BookHandBack: "Undersea",
 		AudioArr: ["SeaAnemone"],
+		BookHandPosition: "48.5% 60%",
 		PicArr: [
 			"images/Card/Plants/SeaAnemone.png",
 			"images/Plants/SeaAnemone/0.gif",
@@ -7738,11 +7812,12 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		beAttackedPointR: 55,
 		beAttackedPointR: 80,
 		SunNum: 50,
-		BookHandBack: 3.5,
+		BookHandBack: "Undersea",
 		GetDY(b, c, a) {
 			return 5;
 		},
 		NormalGif: 1,
+		BookHandPosition: "50% 150%",
 		AudioArr: ["TTS"],
 		PicArr: [
 			"images/Card/Plants/TTS.png",
@@ -7856,7 +7931,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		height: 148,
 		beAttackedPointR: 50,
 		SunNum: 50,
-		BookHandBack: 2.5,
+		BookHandBack: "Night",
 		AudioArr: ["Magneticmu"],
 		PicArr: [
 			"images/Card/Plants/MagneticmuShroom.png",
@@ -7937,6 +8012,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		SunNum: 250,
 		coolTime: 30,
 		HP: 4e3,
+		BookHandPosition: "-18.5% 65%",
 		PicArr: [
 			"images/Card/Plants/LaserBean.png",
 			"images/Plants/LaserPea/0.gif",
@@ -8418,7 +8494,7 @@ oMagnetShroom = InheritO(CPlants, {
 	height: 90,
 	target: -1,
 	SunNum: 100,
-	BookHandBack: 2,
+	BookHandBack: "Night",
 	SleepGif: 3,
 	cd: 15,
 	cotcd: 1000,

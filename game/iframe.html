@@ -411,8 +411,8 @@
 								class="img1"
 								style="clip: rect(0, 61px, auto, 0); left: 16px"
 								border="0"
-								src="images/interface/Almanac_Ground.png"
-								width="366"
+								src="images/interface/Almanac_GroundDay.jpg"
+								width="61"
 								height="61"
 							/>
 							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
@@ -428,10 +428,10 @@
 						<div class="icon">
 							<img
 								class="img1"
-								style="clip: rect(0, 183px, auto, 122px); left: -106px"
+								style="clip: rect(0, 61px, auto, 0); left: 16px"
 								border="0"
-								src="images/interface/Almanac_Ground.png"
-								width="366"
+								src="images/interface/Almanac_GroundNight.jpg"
+								width="61"
 								height="61"
 							/>
 							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
@@ -447,10 +447,10 @@
 						<div class="icon">
 							<img
 								class="img1"
-								style="clip: rect(0, 305px, auto, 244px); left: -228px"
+								style="clip: rect(0, 61px, auto, 0); left: 16px"
 								border="0"
-								src="images/interface/Almanac_Ground.png"
-								width="366"
+								src="images/interface/Almanac_GroundPool.jpg"
+								width="61"
 								height="61"
 							/>
 							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
@@ -466,10 +466,10 @@
 						<div class="icon">
 							<img
 								class="img1"
-								style="clip: rect(0, 244px, auto, 183px); left: -167px"
+								style="clip: rect(0, 61px, auto, 0); left: 16px"
 								border="0"
-								src="images/interface/Almanac_Ground.png"
-								width="366"
+								src="images/interface/Almanac_GroundUndersea.jpg"
+								width="61"
 								height="61"
 							/>
 							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
@@ -488,7 +488,7 @@
 								style="clip: rect(0, 61px, auto, 0); left: 16px"
 								border="0"
 								src="images/interface/jiaxing.png"
-								width="366"
+								width="61"
 								height="61"
 							/>
 							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
@@ -505,7 +505,7 @@
 						onmouseout="this.style.backgroundPosition='top'"
 						onclick="HiddenLevel()"
 					>
-						Close
+						CLOSE
 					</div>
 				</div>
 				<div id="dMiniSmallContainer" class="Challenge_Background TitleSmallContainer">
@@ -592,7 +592,7 @@
 							onmouseout="this.style.backgroundPosition='top'"
 							onclick="HiddenMiniGame()"
 						>
-							Close
+							CLOSE
 						</div>
 					</div>
 				</div>
@@ -696,7 +696,7 @@
 						onmouseout="this.style.backgroundPosition='top'"
 						onclick="HiddenMiniGame()"
 					>
-						Close
+						CLOSE
 					</div>
 				</div>
 				<!--单机界面已作废，无特殊请勿乱动-->
@@ -773,7 +773,7 @@
 					onmouseout="this.style.backgroundPosition='top'"
 					onclick="HiddenRiddleGame()"
 				>
-					Close&nbsp;
+					CLOSE
 				</div>
 			</div>
 		</div>
@@ -824,16 +824,16 @@
 			<div class="title">Suburban Almanac - Index</div>
 			<div class="content">
 				<div>
-					<img border="0" src="images/Plants/SunFlower/SunFlower1.gif" width="73" height="74" /><br />
+					<img border="0" src="images/Plants/SunFlower/SunFlower1.gif" width="73" height="74" style="position: relative; left: 10px;" /><br />
 					<input class="button" type="button" value="View Plants" name="btnViewPlant" id="btnViewPlant" onclick="InitHandBookPCard()" />
 				</div>
 				<div style="left: 50%; padding-top: 95px">
-					<img border="0" src="images/Zombies/Zombie/1.gif" width="149" height="130" /><br />
+					<img border="0" src="images/Zombies/Zombie/1.gif" width="149" height="130" style="position: relative; right: 40px;" /><br />
 					<input class="button" type="button" value="View Zombies" name="btnViewZombie" id="btnViewZombie" onclick="InitHandBookZCard()" />
 				</div>
 			</div>
 			<div class="close" onmouseover="this.style.backgroundPosition='bottom'" onmouseout="this.style.backgroundPosition='top'" onclick="CloseHandBook()">
-				Close&nbsp;
+				CLOSE
 			</div>
 		</div>
 		<div id="dHandBookPZ" class="Almanac_PlantBack WindowFrame">
@@ -841,6 +841,7 @@
 				<div class="title">Suburban Almanac - Plants</div>
 				<div id="dHandBookPCard"></div>
 				<div id="pPlantBack"></div>
+				<div id="pPlantCard"></div>
 				<div class="list">
 					<div id="pHandBookPlant"></div>
 					<div id="dHandBookPlantName"></div>
@@ -854,6 +855,7 @@
 				<div class="title">Suburban Almanac - Zombies</div>
 				<div id="dHandBookZCard"></div>
 				<div id="pZombieBack"></div>
+				<div id="pZombieCard"></div>
 				<div class="list">
 					<div id="pHandBookZombie"></div>
 					<div id="dHandBookZombieName"></div>
@@ -867,7 +869,7 @@
 					onmouseout="this.style.backgroundPosition='top'"
 					onclick="ReturnHandBookInx()"
 				>
-					Almanac Index
+					ALMANAC INDEX
 				</div>
 				<div
 					class="button2"
@@ -875,7 +877,7 @@
 					onmouseout="this.style.backgroundPosition='top'"
 					onclick="CloseHandBook()"
 				>
-					Close&nbsp;
+					CLOSE
 				</div>
 			</div>
 		</div>
@@ -899,7 +901,7 @@
 				onclick="oldLv=oS.Lvl;SelectModal(0);SetBlock($('dSurface'),$('iSurfaceBackground'));oS.Lvl=oldLv;document.querySelector('#btnNextLevel').click();"
 				style="visibility: none; background-position: center top"
 			>
-				Main Menu&nbsp;
+				MAIN MENU
 			</div>
 			<input type="button" value="NEXT LEVEL!" name="btnNextLevel" id="btnNextLevel" />
 		</div>

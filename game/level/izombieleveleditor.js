@@ -619,7 +619,7 @@
 						NewEle(
 							"dBack",
 							"div",
-							"position:absolute;width:89px;height:26px;top:564px;left:700px;background-position:center top;background:url(images/interface/Almanac_CloseButton.png);cursor:url(images/interface/Pointer.cur),pointer;text-align:center;line-height:26px;color:#000080;font-size:12px;",
+							"position:absolute;width:89px;height:26px;top:564px;left:700px;background-position:center top;background:url(images/interface/Almanac_CloseButton.png);cursor:url(images/interface/Pointer.cur),pointer;text-align:center;line-height:26px;color:rgb(40, 50, 90);font-size:12px;",
 							{
 								onmouseover() {
 									this.style.backgroundPosition = "bottom";

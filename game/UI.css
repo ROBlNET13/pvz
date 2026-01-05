@@ -1,7 +1,7 @@
 ﻿/* briannetod.ttf */
 @font-face {
 	font-family: "briannetod";
-	src: url("fonts/briannetod.ttf");
+	src: url("fonts/briannetod2.ttf");
 }
 /* dwarventodcraft.ttf */
 @font-face {
@@ -750,7 +750,7 @@ td.HandBookZombie {
 	z-index: 201;
 	line-height: 26px;
 	background: url(images/interface/Almanac_CloseButton.png);
-	color: #000080;
+	color: rgb(40, 50, 90);
 	font-size: 14px;
 }
 
@@ -898,7 +898,7 @@ td.HandBookZombie {
 	position: absolute;
 	z-index: 255;
 	width: 900px;
-	background: url(images/interface/Almanac_IndexBack.jpg) no-repeat;
+	background: url(images/interface/Almanac_IndexBack.png) no-repeat;
 }
 
 #dHandBook .title {
@@ -934,17 +934,25 @@ td.HandBookZombie {
 	font-family: Tahoma;
 }
 
-#dHandBook .close {
-	margin-top: 20px;
-	margin-left: 670px;
-	text-align: center;
+#dHandBook .close,
+#dHandBookPZ .dButton .button2,
+#dRiddleClose,
+#dMini1 .button,
+#dMini0 .button,
+#dAdvSmallContainer .button,
+#dHandBookPZ .dButton .button2 {
+	margin-top: 55px;
+	margin-left: 770px;
+	text-align: left !important;
 	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 89px;
 	height: 26px;
 	line-height: 26px;
 	background: url(images/interface/Almanac_CloseButton.png);
-	color: #000080;
-	font-size: 14px;
+	color: rgb(40, 50, 90);
+	font-size: 16px;
+	box-sizing: border-box;
+    padding-left: 15px;
 }
 
 #btnViewPlant {
@@ -998,20 +1006,22 @@ td.HandBookZombie {
 	cursor: url(images/interface/Pointer.cur), pointer;
 	height: 26px;
 	line-height: 26px;
-	color: #000080;
-	font-size: 14px;
+	color: rgb(40, 50, 90);
+	font-size: 16px;
 }
 
 #dHandBookPZ .dButton .button1 {
 	left: 30px;
 	width: 164px;
 	background: url(images/interface/Almanac_IndexButton.png);
+	text-align: right;
+	box-sizing: border-box;
+    padding-right: 21px;
+    padding-top: 1px;
 }
 
 #dHandBookPZ .dButton .button2 {
-	left: 670px;
-	width: 89px;
-	background: url(images/interface/Almanac_CloseButton.png);
+	margin-top: -1px !important;
 }
 
 #dHandBookP {
@@ -1030,12 +1040,11 @@ td.HandBookZombie {
 	text-align: center;
 	font-size: 20px;
 	font-family: Tahoma;
-	font-weight: bold;
 }
 
 #dHandBookP .title {
 	line-height: 90px;
-	color: #ceaa31;
+	color: #d59f2b;
 }
 
 #dHandBookP .list,
@@ -1049,7 +1058,7 @@ td.HandBookZombie {
 
 #dHandBookP .list {
 	width: 45%;
-	background: url(images/interface/Almanac_PlantCard.png) no-repeat 20px 10px;
+//*	background: url(images/interface/Almanac_PlantCard.png) no-repeat 20px 10px; */
 }
 
 #dHandBookP .list .cost_cool {
@@ -1116,14 +1125,15 @@ td.HandBookZombie {
 #pPlantBack,
 #pZombieBack {
 	position: absolute;
-	width: 250px;
-	height: 250px;
-	background: url("images/interface/Almanac_Ground.png") no-repeat;
+	width: 200px;
+	height: 200px;
+	background-size: 100% 100% !important;
+	background: url("images/interface/Almanac_GroundDay.jpg");
 }
 
 #pPlantBack {
-	left: 518px;
-	top: 84px;
+	left: 577px;
+	top: 101px;
 }
 
 #pHandBookPlant {
@@ -1136,6 +1146,8 @@ td.HandBookZombie {
 #dHandBookPlantName {
 	width: 92.5%;
 	height: 60px;
+	position: relative;
+	z-index: 257;
 	text-align: center;
 	line-height: 60px;
 	font-size: 40px;
@@ -1148,12 +1160,25 @@ td.HandBookZombie {
 	margin-right: auto;
 	width: 62%;
 	height: 210px;
+	position: relative;
+	z-index: 257;
 	text-align: left;
 	font-size: 15px;
 	line-height: 16px;
 	/*	font-family: Tahoma; */
 	overflow-y: auto;
 	color: #8f431b;
+}
+
+#pPlantCard {
+	width: 45%;
+	background: url(images/interface/Almanac_PlantCard.png) no-repeat 20px 10px;
+	position: relative;
+	z-index: 256;
+    text-align: center;
+    left: 55%;
+    height: 497px;
+    top: 71px;
 }
 
 #dProducePlant::-webkit-scrollbar {
@@ -1202,13 +1227,24 @@ td.HandBookZombie {
 }
 
 #dHandBookZ .title {
-	line-height: 90px;
-	color: #0f0;
+	line-height: 91px;
+	color: #00c400;
 }
 
 #dHandBookZ .list {
 	width: 42%;
+/*	background: url(images/interface/Almanac_ZombieCard.png) no-repeat 10px 8px; */
+}
+
+#pZombieCard {
+	width: 42%;
 	background: url(images/interface/Almanac_ZombieCard.png) no-repeat 10px 8px;
+	position: relative;
+	z-index: 256;
+    text-align: center;
+    left: 55%;
+    height: 497px;
+    top: 71px;
 }
 
 #dHandBookZCard {
@@ -1247,13 +1283,17 @@ td.HandBookZombie {
 }
 
 #pZombieBack {
-	left: 512px;
+	left: 569px;
 	top: 111px;
 }
 
 #pHandBookZombie {
-	width: 90%;
-	height: 250px;
+    height: 200px;
+	width: 75%;
+	position: relative;
+	top: -10px;
+    left: 20px;
+	margin-top: 50px;
 	background-repeat: no-repeat;
 	background-position: 50% 70%;
 }
@@ -1261,8 +1301,10 @@ td.HandBookZombie {
 #dHandBookZombieName {
 	width: 95%;
 	height: 60px;
+	position: relative;
+	z-index: 257;
 	text-align: center;
-	line-height: 60px;
+	line-height: 64px;
 	font-size: 30px;
 	color: #000;
 	font-family: Tahoma;
@@ -1273,6 +1315,8 @@ td.HandBookZombie {
 	margin-right: auto;
 	width: 69%;
 	height: 150px;
+	position: relative;
+	z-index: 257;
 	text-align: left;
 	font-size: 15px;
 	line-height: 16px;
@@ -1896,7 +1940,7 @@ dd.yellow {
 	margin-left: 0;
 	width: 450px;
 	height: 600px;
-	background: url(images/interface/Almanac_IndexBack.jpg) no-repeat left top;
+	background: url(images/interface/Almanac_IndexBack.png) no-repeat left top;
 }
 
 #dRiddleInx .inx1 {
@@ -1906,7 +1950,7 @@ dd.yellow {
 	margin-left: 0;
 	width: 450px;
 	height: 600px;
-	background: url(images/interface/Almanac_IndexBack.jpg) no-repeat right top;
+	background: url(images/interface/Almanac_IndexBack.png) no-repeat right top;
 }
 
 #dRiddleInx1 {
@@ -1945,7 +1989,7 @@ dd.yellow {
 	margin-left: -110px;
 	width: 221px;
 	height: 310px;
-	background: url(images/interface/Almanac_IndexBack.jpg) no-repeat left top;
+	background: url(images/interface/Almanac_IndexBack.png) no-repeat left top;
 }
 
 #dRiddleInx1 .inx11 {
@@ -1955,7 +1999,7 @@ dd.yellow {
 	margin-left: -110px;
 	width: 221px;
 	height: 310px;
-	background: url(images/interface/Almanac_IndexBack.jpg) no-repeat right top;
+	background: url(images/interface/Almanac_IndexBack.png) no-repeat right top;
 }
 
 #dRiddle0 td,
@@ -1993,7 +2037,7 @@ dd.yellow {
 	height: 26px;
 	line-height: 26px;
 	background: url(images/interface/Almanac_IndexButton.png);
-	color: #000080;
+	color: rgb(40, 50, 90);
 	font-size: 16px;
 }
 
@@ -2011,16 +2055,7 @@ dd.yellow {
 #dMini0 .button,
 #dAdvSmallContainer .button {
 	position: absolute;
-	left: 650px;
-	top: 564px;
-	text-align: center;
-	cursor: url(images/interface/Pointer.cur), pointer;
-	width: 89px;
-	height: 26px;
-	line-height: 26px;
-	background: url(images/interface/Almanac_CloseButton.png);
-	color: #000080;
-	font-size: 16px;
+	top: 512px;
 }
 
 #dRiddle1 .list {

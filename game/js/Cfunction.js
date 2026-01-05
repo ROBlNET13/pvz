@@ -1883,22 +1883,23 @@ var lastB;
 		lastB = b;
 		var a = b.prototype;
 		PlayAudio("tap");
-		$("pHandBookPlant").style.backgroundImage = "url(" + a.PicArr[a.StaticGif] + ")";
-		$("pHandBookPlant").style.backgroundPosition = "50% " + (60 + a.height / 4) + "%";
+		$("pHandBookPlant").style.backgroundImage = "url(" + a.PicArr[a.AlmanacGif] + ")";
+		$("pHandBookPlant").style.backgroundPosition = a.BookHandPosition || "50% " + (45 + a.height / 4) + "%";
 		$("dProducePlant").innerHTML = a.Produce;
 		innerText($("dHandBookPlantName"), a.CName);
 		innerText($("spSunNum"), a.SunNum);
 		innerText($("spCoolTime"), a.coolTime + "s");
-		$("pPlantBack").style.backgroundPosition = -200 * a.BookHandBack + "px 0";
+		$("pPlantBack").style.background = "url('images/interface/Almanac_Ground" + a.BookHandBack + ".jpg')";
+	//	$("pPlantBack").style.backgroundPosition = -200 * a.BookHandBack + "px 0";
 	}
 }),
 	(ViewProduceZombie = function (b) {
 		PlayAudio("tap");
 		var a = b.prototype;
-		$("pHandBookZombie").style.background = "url(" + a.PicArr[a.StaticGif] + ") no-repeat scroll " + a.BookHandPosition;
+		$("pHandBookZombie").style.background = "url(" + a.PicArr[a.AlmanacGif] + ") no-repeat scroll " + a.BookHandPosition;
 		$("dProduceZombie").innerHTML = a.Produce;
 		innerText($("dHandBookZombieName"), a.CName);
-		$("pZombieBack").style.backgroundPosition = -200 * a.BookHandBack + "px 0";
+		$("pZombieBack").style.background = "url('images/interface/Almanac_Ground" + a.BookHandBack + ".jpg')";
 	}),
 	(ViewCardTitle = function (b, c) {
 		c = c || window.event;

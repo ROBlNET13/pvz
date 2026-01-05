@@ -1,7 +1,7 @@
 /* briannetod.ttf */
 @font-face {
 	font-family: "briannetod";
-	src: url("fonts/briannetod.ttf");
+	src: url("fonts/briannetod2.ttf");
 }
 /* dwarventodcraft.ttf */
 @font-face {
@@ -60,18 +60,18 @@
 	visibility: hidden;
 	position: absolute;
 	left: 770px;
-	top: 20px;
+	top: 17px;
 	text-align: center;
 	cursor: url(images/interface/Pointer.cur), pointer;
-	width: 109px;
-	height: 29px;
+	width: 89px;
+	height: 26px;
 	z-index: 201;
 	line-height: 26px;
 	background: url(images/interface/Almanac_BlankButton.png) no-repeat;
-	background-size: cover;
-	color: #000080;
+	color: rgb(40, 50, 90);
 	font-size: 14px;
-	padding-top: 3px;
+	box-sizing: border-box;
+    padding-top: 1px;
 }
 .span2 {
 	text-shadow: 1px 1px 2px #ffffff;
@@ -126,7 +126,7 @@
 	color: #d0932b !important;
 }
 #dHandBookZombieName {
-	color: #06bd00 !important;
+	color: #00c400 !important;
 	text-shadow:
 		1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
@@ -140,7 +140,7 @@
 }
 #btnViewZombie {
 	width: 155px !important;
-	color: #06bd00 !important;
+	color: #00c400 !important;
 	text-shadow:
 		1px 1px 0px rgba(255, 255, 255, 0.1),
 		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
@@ -151,6 +151,11 @@
 	/* -webkit-text-stroke: 0.2px rgb(0 0 0 / 27%) !important; */
 	margin-left: -10px !important;
 	margin-top: 4px;
+}
+
+.cost_cool {
+	position: relative;
+	z-index: 257;
 }
 
 .Menu {
@@ -194,7 +199,7 @@
 #dNewPlantTooltip {
 	font-size: 19px !important;
 	margin-top: -14px;
-	color: #000080 !important;
+	color: rgb(40, 50, 90) !important;
 	/* unbold */
 	font-weight: normal !important;
 }
@@ -202,7 +207,7 @@
 	color: #d0932b !important;
 	text-shadow:
 		1px 1px 0px rgba(255, 255, 255, 0.1),
-		-1px -1.5px 0px rgba(0, 0, 0, 0.7) !important;
+		-1px -0.5px 0px rgba(0, 0, 0, 0.7) !important;
 
 	/* text-shadow: #2e293e -1px -2px, #2e293e -2px 0px, #37354b 1px -2px,
         #757692 2px 0px, #757692 1px 2px, #757692 2px 2px !important; */
@@ -229,8 +234,8 @@
 #dMiniSmallTitle,
 #dAdvSmallTitle,
 #dChoseTitle {
-	margin-top: -6px;
-	font-size: 30px;
+	margin-top: -8px;
+	font-size: 28px;
 	/*	-webkit-text-stroke: 1px #ceaa31; */
 	font-weight: lighter;
 	text-shadow:
@@ -316,10 +321,13 @@
 #dHandBookZ > div.title,
 #dNewPlantTitle {
 	text-shadow:
-		0px 0px 3px #000,
-		0px 0px 3px #000;
+		0px 0px 2px #000,
+		0px 0px 3px #00000069,
+		0px 0px 3px #00000069,
+		0px 0px 2px #000,
+		0px 0px 1px #000;
 	color: #00d100;
-	font-size: 35px;
+	font-size: 33px;
 }
 .menu {
 	font-weight: normal !important;
@@ -796,6 +804,18 @@ td {
 	animation: spritesheet 0.84s steps(21) forwards;
 }*/
 
+@keyframes floatingPlant {
+	0% {
+		transform: translatey(1px);
+	}
+	50% {
+		transform: translatey(-4px);
+	}
+	100% {
+		transform: translatey(1px);
+	}
+}
+
 @keyframes spritesheetIdle {
 	to {
 		background-position-x: -4620px; /* -(width_of_one_frame * number_of_frames) */
@@ -806,6 +826,10 @@ td {
 	to {
 		background-position-x: -3234px; /* -(width_of_one_frame * number_of_frames) */
 	}
+}
+
+.floatingPlant {
+	animation: floatingPlant 3s alternate infinite ease-in-out;
 }
 
 input[type="checkbox"] {
