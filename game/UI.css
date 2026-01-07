@@ -884,13 +884,14 @@ td.HandBookZombie {
 #dMenu {
 	visibility: hidden;
 	position: absolute;
-	top: 0;
+	top: 3;
 	left: 50%;
-	margin-left: 227px;
+	margin-left: 185px;
 	cursor: url(images/interface/Pointer.cur), pointer;
 	width: 226px;
 	height: 41px;
 	z-index: 254;
+	
 }
 
 #dHandBook {
