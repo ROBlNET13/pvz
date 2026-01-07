@@ -148,7 +148,7 @@ var oS = {
 	Init(e, g, b, d) {
 		var c;
 		var a = window;
-		e.LoadMusic ? (PlayMusic(e.LoadMusic), NewAudio({ source: "ChooseYourSeeds", loop: true })) : PlayMusic((e.LoadMusic = "ChooseYourSeeds"));
+		e.LoadMusic ? (PlayMusic(e.LoadMusic, e.MusicEnabled), NewAudio({ source: "ChooseYourSeeds", loop: true })) : PlayMusic((e.LoadMusic = "ChooseYourSeeds"));
 		if (b !== d) {
 			for (c in b) {
 				a[c] !== d ? ((this.GlobalVariables[c] = a[c]), (a[c] = b[c])) : (this.LvlVariables[c] = a[c] = b[c]);
@@ -2638,7 +2638,7 @@ var lastB;
 		document.cookie = a + "=0;";
 	}),
 	(WordUTF8 =
-		'<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><span id="commit" style="position: absolute;color: #ffffff0f;bottom: 0;user-select: none;"></span><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:url(images/interface/Pointer.cur),pointer" onclick="PlayAudio(\'gravebutton\');StopMusic();PlayMusic(oS.LoadMusic);SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'));ShowNameDiv();sa_event(\'clickstart0js\')"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:url(images/interface/Pointer.cur),pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:url(images/interface/Pointer.cur),pointer;z-index:300" onclick="SetVisible($(\'dProcess\'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>');
+		'<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><span id="commit" style="position: absolute;color: #ffffff0f;bottom: 0;user-select: none;"></span><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:url(images/interface/Pointer.cur),pointer" onclick="PlayAudio(\'gravebutton\');PlayMusic(oS.LoadMusic);SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'));ShowNameDiv();sa_event(\'clickstart0js\')"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:url(images/interface/Pointer.cur),pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:url(images/interface/Pointer.cur),pointer;z-index:300" onclick="SetVisible($(\'dProcess\'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>');
 
 (ShowNameDiv = function () {
 	oSym.Start();
@@ -3251,9 +3251,10 @@ var lastB;
 			}
 		: function () {}),
 	(PlayMusic = $User.HTML5
-		? function (b) {
+		? function (b, enabled) {
 				var a = oAudio[b];
-				if (a) {
+				if (enabled == true || enabled == undefined) {
+					if (a) {
 					try {
 						a.currentTime = 0;
 					} catch (c) {}
@@ -3261,6 +3262,7 @@ var lastB;
 				} else {
 					NewMusic(b);
 					oAudio[b].play();
+				}
 				}
 			}
 		: function (a) {
