@@ -148,7 +148,9 @@ var oS = {
 	Init(e, g, b, d) {
 		var c;
 		var a = window;
-		e.LoadMusic ? (PlayMusic(e.LoadMusic, e.MusicEnabled), NewAudio({ source: "ChooseYourSeeds", loop: true })) : PlayMusic((e.LoadMusic = "ChooseYourSeeds"));
+		e.LoadMusic
+			? (PlayMusic(e.LoadMusic, e.MusicEnabled), NewAudio({ source: "ChooseYourSeeds", loop: true }))
+			: PlayMusic((e.LoadMusic = "ChooseYourSeeds"));
 		if (b !== d) {
 			for (c in b) {
 				a[c] !== d ? ((this.GlobalVariables[c] = a[c]), (a[c] = b[c])) : (this.LvlVariables[c] = a[c] = b[c]);
@@ -3253,16 +3255,16 @@ var lastB;
 	(PlayMusic = $User.HTML5
 		? function (b, enabled) {
 				var a = oAudio[b];
-				if (enabled == true || enabled == undefined) {
+				if (enabled === true || enabled === undefined) {
 					if (a) {
-					try {
-						a.currentTime = 0;
-					} catch (c) {}
-					a.play();
-				} else {
-					NewMusic(b);
-					oAudio[b].play();
-				}
+						try {
+							a.currentTime = 0;
+						} catch (c) {}
+						a.play();
+					} else {
+						NewMusic(b);
+						oAudio[b].play();
+					}
 				}
 			}
 		: function (a) {
