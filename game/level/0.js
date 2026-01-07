@@ -70,7 +70,6 @@ oS.Init({
 	LevelEName: 0,
 	ShowScroll: 1,
 	LoadMusic: "MyScrapbook",
-	StartGameMusic: "MyScrapbook",
 	AudioArr: [
 		"losemusic",
 		"winmusic",
