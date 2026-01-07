@@ -149,6 +149,9 @@ var oS = {
 		var c;
 		var a = window;
 		e.LoadMusic ? (PlayMusic(e.LoadMusic), NewAudio({ source: "ChooseYourSeeds", loop: true })) : PlayMusic((e.LoadMusic = "ChooseYourSeeds"));
+		e.LoadMusic
+			? (PlayMusic(e.LoadMusic, e.MusicEnabled), NewAudio({ source: "ChooseYourSeeds", loop: true }))
+			: PlayMusic((e.LoadMusic = "ChooseYourSeeds"));
 		if (b !== d) {
 			for (c in b) {
 				a[c] !== d ? ((this.GlobalVariables[c] = a[c]), (a[c] = b[c])) : (this.LvlVariables[c] = a[c] = b[c]);
