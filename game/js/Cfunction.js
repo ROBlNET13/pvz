@@ -2096,7 +2096,7 @@ var SelectCard = function (name, retry) {
 						SelectCard(name);
 					},
 				},
-					cardList
+				cardList
 			);
 			NewImg(0, imgEle.src, "width:100px;height:120px", newCard);
 			innerText(NewEle("sSunNum" + name, "span", 0, 0, newCard), proto.SunNum);

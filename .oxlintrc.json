@@ -1,51 +1,38 @@
 {
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [],
-  "categories": {
-    "correctness": "off"
-  },
-  "env": {
-    "builtin": true
-  },
-  "overrides": [
-    {
-      "files": [
-        "**/*.{js,mjs,cjs}"
-      ],
-      "rules": {
-        "curly": [
-          "error",
-          "all"
-        ],
-        "eqeqeq-fix/eqeqeq": [
-          "error",
-          "smart"
-        ],
-        "prefer-spread": "error",
-        "prefer-rest-params": "error",
-        "no-sequences": "error",
-        "no-nested-ternary": "error",
-        "no-unneeded-ternary": "error",
-        "no-else-return": "error",
-        "operator-assignment": "error",
-        "no-useless-rename": "error",
-        "no-useless-computed-key": "error",
-        "no-useless-concat": "error",
-        "no-useless-return": "error",
-        "complexity": [
-          "warn",
-          15
-        ],
-        "prefer-object-spread": "warn",
-        "no-lonely-if": "warn",
-        "no-extra-boolean-cast": "warn"
-      },
-      "jsPlugins": [
-        "eslint-plugin-eqeqeq-fix"
-      ],
-      "env": {
-        "browser": true
-      }
-    }
-  ]
+	"$schema": "./node_modules/oxlint/configuration_schema.json",
+	"plugins": [],
+	"categories": {
+		"correctness": "off"
+	},
+	"env": {
+		"builtin": true
+	},
+	"overrides": [
+		{
+			"files": ["**/*.{js,mjs,cjs}"],
+			"rules": {
+				"curly": ["error", "all"],
+				"eqeqeq-fix/eqeqeq": ["error", "smart"],
+				"prefer-spread": "error",
+				"prefer-rest-params": "error",
+				"no-sequences": "error",
+				"no-nested-ternary": "error",
+				"no-unneeded-ternary": "error",
+				"no-else-return": "error",
+				"operator-assignment": "error",
+				"no-useless-rename": "error",
+				"no-useless-computed-key": "error",
+				"no-useless-concat": "error",
+				"no-useless-return": "error",
+				"complexity": ["warn", 15],
+				"prefer-object-spread": "warn",
+				"no-lonely-if": "warn",
+				"no-extra-boolean-cast": "warn"
+			},
+			"jsPlugins": ["eslint-plugin-eqeqeq-fix"],
+			"env": {
+				"browser": true
+			}
+		}
+	]
 }
