@@ -1020,6 +1020,20 @@ td.HandBookZombie {
 	padding-top: 1px;
 }
 
+.button1 {
+	width: 164px;
+	background: url(images/interface/Almanac_IndexButton.png);
+	text-align: right;
+	box-sizing: border-box;
+	padding-right: 21px;
+	padding-top: 1px;
+	height: 26px;
+	line-height: 26px;
+	color: rgb(40, 50, 90);
+	font-size: 16px;
+	cursor: url(images/interface/Pointer.cur), pointer;
+}
+
 #dHandBookPZ .dButton .button2 {
 	margin-top: -1px !important;
 }
@@ -1352,12 +1366,14 @@ td.HandBookZombie {
 #dNewPlant {
 	visibility: hidden;
 	position: absolute;
-	top: 0;
+	top: -30px;
 	left: 50%;
-	margin-left: -450px;
+	margin-left: -445px;
 	width: 900px;
-	height: 600px;
-	background: url(images/interface/AwardScreen_Back.jpg) no-repeat;
+	height: 603px;
+	background: url(images/interface/AwardScreen_Back.jpg) no-repeat center center;
+	background-size: 100% 100%;
+	transform: scale(0.9);
 }
 
 #dNewPlant .card {

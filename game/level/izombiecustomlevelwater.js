@@ -21,174 +21,161 @@ if (typeof levelDataToLoad === "undefined") {
 		levelDataToLoad = {
 			lfValue: [0, 1, 1, 2, 2, 1, 1],
 			music: "Cerebrawl",
-			name: "lol",
+			name: "Error",
 			plants: [
 				{
-					zIndex: 6,
-					plantRow: 2,
-					plantCol: 1,
-					plantName: "oWallNut",
-				},
-				{
-					zIndex: 9,
-					plantRow: 3,
-					plantCol: 1,
-					plantName: "oLilyPad",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
-					plantCol: 1,
-					plantName: "oLilyPad",
-				},
-				{
-					zIndex: 9,
-					plantRow: 3,
-					plantCol: 1,
-					plantName: "oWallNut",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
-					plantCol: 1,
-					plantName: "oWallNut",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
-					plantCol: 2,
-					plantName: "oLilyPad",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
 					plantCol: 2,
 					plantName: "oWallNut",
+					plantRow: 1,
+					zIndex: 3,
 				},
 				{
-					zIndex: 6,
+					plantCol: 1,
+					plantName: "oWallNut",
+					plantRow: 1,
+					zIndex: 3,
+				},
+				{
+					plantCol: 1,
+					plantName: "oLilyPad",
+					plantRow: 3,
+					zIndex: 9,
+				},
+				{
+					plantCol: 1,
+					plantName: "oLilyPad",
+					plantRow: 4,
+					zIndex: 12,
+				},
+				{
+					plantCol: 1,
+					plantName: "oWallNut",
 					plantRow: 2,
+					zIndex: 6,
+				},
+				{
+					plantCol: 1,
+					plantName: "oWallNut",
+					plantRow: 3,
+					zIndex: 9,
+				},
+				{
+					plantCol: 2,
+					plantName: "oLilyPad",
+					plantRow: 3,
+					zIndex: 9,
+				},
+				{
+					plantCol: 2,
+					plantName: "oWallNut",
+					plantRow: 3,
+					zIndex: 9,
+				},
+				{
+					plantCol: 1,
+					plantName: "oWallNut",
+					plantRow: 4,
+					zIndex: 12,
+				},
+				{
+					plantCol: 1,
+					plantName: "oWallNut",
+					plantRow: 5,
+					zIndex: 15,
+				},
+				{
+					plantCol: 2,
+					plantName: "oWallNut",
+					plantRow: 5,
+					zIndex: 15,
+				},
+				{
 					plantCol: 4,
 					plantName: "oWallNut",
+					plantRow: 5,
+					zIndex: 15,
 				},
 				{
-					zIndex: 6,
-					plantRow: 2,
+					plantCol: 4,
+					plantName: "oLilyPad",
+					plantRow: 4,
+					zIndex: 12,
+				},
+				{
+					plantCol: 4,
+					plantName: "oLilyPad",
+					plantRow: 3,
+					zIndex: 9,
+				},
+				{
+					plantCol: 4,
+					plantName: "oWallNut",
+					plantRow: 4,
+					zIndex: 12,
+				},
+				{
+					plantCol: 4,
+					plantName: "oWallNut",
+					plantRow: 3,
+					zIndex: 9,
+				},
+				{
+					plantCol: 5,
+					plantName: "oLilyPad",
+					plantRow: 3,
+					zIndex: 9,
+				},
+				{
 					plantCol: 5,
 					plantName: "oWallNut",
-				},
-				{
-					zIndex: 6,
-					plantRow: 2,
-					plantCol: 6,
-					plantName: "oWallNut",
-				},
-				{
-					zIndex: 9,
 					plantRow: 3,
-					plantCol: 4,
-					plantName: "oLilyPad",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
-					plantCol: 4,
-					plantName: "oLilyPad",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
-					plantCol: 6,
-					plantName: "oLilyPad",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
-					plantCol: 5,
-					plantName: "oLilyPad",
-				},
-				{
 					zIndex: 9,
-					plantRow: 3,
-					plantCol: 6,
+				},
+				{
+					plantCol: 7,
+					plantName: "oWallNut",
+					plantRow: 5,
+					zIndex: 15,
+				},
+				{
+					plantCol: 7,
 					plantName: "oLilyPad",
+					plantRow: 4,
+					zIndex: 12,
 				},
 				{
-					zIndex: 9,
+					plantCol: 7,
+					plantName: "oLilyPad",
 					plantRow: 3,
-					plantCol: 4,
-					plantName: "oWallNut",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
-					plantCol: 4,
-					plantName: "oWallNut",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
-					plantCol: 5,
-					plantName: "oWallNut",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
-					plantCol: 6,
-					plantName: "oWallNut",
-				},
-				{
 					zIndex: 9,
-					plantRow: 3,
-					plantCol: 6,
-					plantName: "oWallNut",
 				},
 				{
-					zIndex: 6,
-					plantRow: 2,
-					plantCol: 8,
-					plantName: "oWallNut",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
 					plantCol: 8,
 					plantName: "oLilyPad",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
-					plantCol: 9,
-					plantName: "oLilyPad",
-				},
-				{
-					zIndex: 9,
 					plantRow: 3,
-					plantCol: 8,
-					plantName: "oLilyPad",
-				},
-				{
 					zIndex: 9,
+				},
+				{
+					plantCol: 7,
+					plantName: "oWallNut",
+					plantRow: 4,
+					zIndex: 12,
+				},
+				{
+					plantCol: 7,
+					plantName: "oWallNut",
 					plantRow: 3,
-					plantCol: 8,
-					plantName: "oWallNut",
+					zIndex: 9,
 				},
 				{
-					zIndex: 12,
-					plantRow: 4,
 					plantCol: 8,
 					plantName: "oWallNut",
-				},
-				{
-					zIndex: 12,
-					plantRow: 4,
-					plantCol: 9,
-					plantName: "oWallNut",
+					plantRow: 3,
+					zIndex: 9,
 				},
 			],
-			screenshot: "",
-			stripeCol: 49,
-			sun: 49,
+			stripeCol: 9,
+			sun: 0,
 		};
 	}
 	// make sure the keys are the right types
@@ -285,9 +272,9 @@ oS.Init({
 		};
 		/*for (var i = f[0]; i <= f[1]; ++i)
             CustomSpecial(oILilyPad, 3, i), CustomSpecial(oLilyPad, 4, i); // 荷叶*/
-		SummonRange(Arr, 3, 4), oS.RandomGrow(Arr, e.Arr); // 处理泳池的植物
-		SummonRange(Arr, 1, 2), SummonRange(Arr, 5, 6), oS.RandomGrow(Arr, e.Arr1), oS.RandomGrow(Arr, e.Arr); // 处理剩余的植物
-		SummonRange(Arr, 1, 6), oS.RandomGrow(Arr, e.Arr2); // 处理南瓜头
+		(SummonRange(Arr, 3, 4), oS.RandomGrow(Arr, e.Arr)); // 处理泳池的植物
+		(SummonRange(Arr, 1, 2), SummonRange(Arr, 5, 6), oS.RandomGrow(Arr, e.Arr1), oS.RandomGrow(Arr, e.Arr)); // 处理剩余的植物
+		(SummonRange(Arr, 1, 6), oS.RandomGrow(Arr, e.Arr2)); // 处理南瓜头
 		for (var i = j[0]; i <= j[1]; ++i) {
 			CustomSpecial(oBrains, i, 0);
 		} // 脑子
@@ -297,7 +284,7 @@ oS.Init({
 		restoreToPlants(levelDataToLoad); // load the plants
 		// clear all query parameters from the url without reloadng
 		window.history.pushState({}, document.title, window.location.pathname);
-		oP.Monitor(), BeginCool();
+		(oP.Monitor(), BeginCool());
 		SetVisible($("dFlagMeter"), $("dFlagMeterContent"), $("dTop"));
 		oS.RiddleAutoGrow();
 	},

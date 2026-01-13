@@ -91,7 +91,12 @@ oS.Init({
 		});
 		NewImg("imgSF", "images/interface/izombieload.png", "left:200px;top:410px", EDAll, {
 			onclick() {
-				SelectModal("" + "izombiecustommenu" + "");
+				// SelectModal("" + "izombiecustommenu" + "");
+				LoadMenu("izombieonline", "images/interface/IZombie_Background.png");
+				PlayAudio("tap");
+			},
+			onmouseover() {
+				PreloadMenu("izombieonline");
 			},
 		});
 	},

@@ -143,28 +143,3 @@ oS.Init({
 });
 $("ZombieHand").style.display = "none";
 StopAudio("jackinthebox");
-startInterval2();
-function runIzlCheck() {
-	// check if the izl query parameter is set
-	let izl = new URLSearchParams(window.location.search).get("izl");
-	if (izl && izl !== "") {
-		try {
-			izl[0] === "=" ? (levelDataToLoad = parseCloneTiny(decodeURIComponent(icl))) : (levelDataToLoad = parseClone(decodeURIComponent(izl)));
-		} catch (e) {
-			alert("Failed to load level data from query parameter");
-			// regex away all query params and reload
-			window.location.search = "";
-			// push to history so that the user can go back
-			window.history.pushState({}, document.title, window.location.pathname);
-			document.location.reload();
-			return;
-		}
-		// load the izombiecustomlevel level
-		if (levelDataToLoad.lfValue[3] === 2) {
-			SelectModal("izombiecustomlevelwater");
-		} else {
-			SelectModal("izombiecustomlevelnormal");
-		}
-	}
-}
-runIzlCheck();

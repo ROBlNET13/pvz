@@ -1,52 +1,61 @@
+/* eslint-disable complexity */
 var $User = (function () {
-	var b = navigator.platform;
-	var i = navigator.userAgent;
-	var f = b === "Win32" || b === "Windows";
-	var g = b === "Mac68K" || b === "MacPPC" || b === "Macintosh";
-	var d = b === "X11" && !f && !g;
-	var h = f || g || d;
-	var a = "";
-	var c = !!(window.attachEvent && !window.opera);
-	var e = c && !window.XMLHttpRequest;
-	var j = location.protocol.toLowerCase() === "http:" ? 1 : 0;
-	$Random = j ? "#" : "?";
-	innerText = c
-		? function (l, k) {
-				l.innerText = k;
+	const platform = navigator.platform;
+	const userAgent = navigator.userAgent;
+	const isWin = platform === "Win32" || platform === "Windows";
+	const isMac = platform === "Mac68K" || platform === "MacPPC" || platform === "Macintosh";
+	const isUnix = platform === "X11" && !isWin && !isMac;
+	const isPC = isWin || isMac || isUnix;
+
+	const isIE = !!(window.attachEvent && !window.opera);
+	const isIE6 = isIE && !window.XMLHttpRequest;
+	const isHTTP = location.protocol.toLowerCase() === "http:" ? 1 : 0;
+
+	// Global Random Helper
+	$Random = isHTTP ? "#" : "?";
+
+	// Text setting helper based on browser capability
+	innerText = isIE
+		? function (element, text) {
+				element.innerText = text;
 			}
-		: function (l, k) {
-				l.textContent = k;
+		: function (element, text) {
+				element.textContent = text;
 			};
-	e ? (document.execCommand("BackgroundImageCache", false, true), (ShadowPNG = "")) : (ShadowPNG = "images/interface/plantshadow32.png");
+
+	// PNG fix for IE6
+	if (isIE6) {
+		document.execCommand("BackgroundImageCache", false, true);
+		ShadowPNG = "";
+	} else {
+		ShadowPNG = "images/interface/plantshadow32.png";
+	}
+
 	innerHTML = function (element, content) {
 		if (element) {
 			element.innerHTML = content;
 		}
 	};
+
 	return {
 		Browser: {
-			IE: c,
-			IE6: e,
-			IE9: c && i.indexOf("MSIE 9.0") > 0,
+			IE: isIE,
+			IE6: isIE6,
+			IE9: isIE && userAgent.indexOf("MSIE 9.0") > 0,
 			Opera: !!window.opera,
-			WebKit: i.includes("AppleWebKit/"),
-			Gecko: i.includes("Gecko") && !i.includes("KHTML"),
+			WebKit: userAgent.includes("AppleWebKit/"),
+			Gecko: userAgent.includes("Gecko") && !userAgent.includes("KHTML"),
 		},
 		Server: {
-			List: [[]],
-			SpeedURL: "",
-			DataURL: "",
-			SpeedInx: 0,
-			DataInx: 0,
-			ErrNum: 0,
+			URL: "https://backend.pvzm.net",
 		},
 		HTML5: (function () {
 			return !!document.createElement("canvas").getContext;
 		})(),
-		System: { Win: f, Mac: g, Unix: d },
-		Client: { PC: h, Mobile: !h },
-		HTTP: j,
-		AuthorWebsite: a,
+		System: { Win: isWin, Mac: isMac, Unix: isUnix },
+		Client: { PC: isPC, Mobile: !isPC },
+		HTTP: isHTTP,
+		AuthorWebsite: "",
 		isAuthorWebsite: false,
 		Visitor: {
 			UserName: "",
@@ -60,83 +69,90 @@ var $User = (function () {
 		},
 	};
 })();
+
 var oSym = {
-	// initialize the symbol object
-	Init(b, a) {
-		this.Now = 0; // current time
-		this.Timer = this.execTask = null; // timer and task execution variables
-		this.TQ = [{ T: 0, f: b, ar: a || [] }]; // task queue, initialized with the first task
-		this.NowStep = 1; // time step for advancing current time
-		this.TimeStep = 10; // time interval for timers
-		this.Start(); // start the symbol object's timers
+	// Initialize the symbol object
+	Init(callback, args) {
+		this.Now = 0; // Current time
+		this.Timer = null;
+		this.execTask = null;
+		// Task Queue: { Time, Function, Arguments }
+		this.TQ = [{ T: 0, f: callback, ar: args || [] }];
+		this.NowStep = 1; // Time increment step
+		this.TimeStep = 10; // Real-time ms per step
+		this.Start();
 	},
-	// clear all tasks from the queue
+	// Clear all tasks
 	Clear() {
 		this.TQ.length = 0;
 	},
-	// start the symbol object's timers
+	// Start timers
 	Start() {
 		if (this.Timer == null) {
-			// only start if not already started
-			// timer to advance the current time
-			(function () {
-				var a = oSym;
+			// Timer 1: Advance internal game time (Now)
+			(function stepTime() {
 				try {
-					a.Now += a.NowStep; // increment current time
-				} catch (b) {
-					alert("Timeout to quit the game"); // error handling for timeout
-					location.reload(); // reload the page
+					oSym.Now += oSym.NowStep;
+				} catch (e) {
+					alert("Timeout to quit the game");
+					location.reload();
 				}
-				a.Timer = setTimeout(arguments.callee, a.TimeStep); // set next timeout
+				oSym.Timer = setTimeout(stepTime, oSym.TimeStep);
 			})();
-			// timer to execute tasks from the queue
-			(function () {
-				var d = oSym;
-				var a = d.TQ; // task queue
-				var c = a.length;
-				var b; // current task
-				var e; // task function
-				while (c--) {
-					// iterate through tasks in reverse
-					if (d.Now >= (b = a[c]).T) {
-						// if task time is due
+
+			// Timer 2: Execute tasks based on game time
+			(function runTasks() {
+				const sym = oSym;
+				const queue = sym.TQ;
+				let len = queue.length;
+				let task, func;
+
+				// Iterate backwards to allow safe removal
+				while (len--) {
+					task = queue[len];
+					if (sym.Now >= task.T) {
 						try {
-							(e = b.f).apply(e, b.ar); // execute task function with arguments
-						} catch (Reason) {
-							console.error(Reason); // log any errors during task execution
+							func = task.f;
+							func.apply(func, task.ar);
+						} catch (err) {
+							console.error(err);
 						}
-						d.removeTask(c); // remove executed task from queue
+						sym.removeTask(len);
 					}
 				}
-				d.execTask = setTimeout(arguments.callee, d.TimeStep); // set next timeout for task execution
+				sym.execTask = setTimeout(runTasks, sym.TimeStep);
 			})();
 		}
 	},
-	// stop the symbol object's timers
+	// Stop timers
 	Stop() {
-		clearTimeout(oSym.Timer); // clear current time timer
-		clearTimeout(oSym.execTask); // clear task execution timer
-		oSym.Timer = null; // reset timer variable
-		oSym.execTask = null; // reset task execution variable
+		clearTimeout(oSym.Timer);
+		clearTimeout(oSym.execTask);
+		oSym.Timer = null;
+		oSym.execTask = null;
 	},
-	// add a new task to the queue
-	addTask(b, c, a) {
-		var d = this.TQ;
-		// add task with its scheduled time (Now + delay), function, and arguments
-		d[d.length] = { T: this.Now + b, f: c, ar: a };
+	// Add task to queue
+	addTask(delay, func, args) {
+		const queue = this.TQ;
+		queue[queue.length] = {
+			T: this.Now + delay,
+			f: func,
+			ar: args,
+		};
 		return this;
 	},
-	// remove a task from the queue by its index
-	removeTask(a) {
-		this.TQ.splice(a, 1); // remove task at the given index
+	// Remove task by index
+	removeTask(index) {
+		this.TQ.splice(index, 1);
 		return this;
 	},
 };
+
 var oS = {
 	Version: 5,
 	W: 880,
 	H: 600,
-	C: 9,
+	C: 9, // Columns
 	B: atob,
 	LawnMowerX: 70,
 	Lvl: 0,
@@ -145,27 +161,47 @@ var oS = {
 	SelfVariables: [],
 	LvlClearFunc: null,
 	AutoSun: 0,
-	Init(e, g, b, d) {
-		var c;
-		var a = window;
-		e.LoadMusic ? (PlayMusic(e.LoadMusic), NewAudio({ source: "ChooseYourSeeds", loop: true })) : PlayMusic((e.LoadMusic = "ChooseYourSeeds"));
-		if (b !== d) {
-			for (c in b) {
-				a[c] !== d ? ((this.GlobalVariables[c] = a[c]), (a[c] = b[c])) : (this.LvlVariables[c] = a[c] = b[c]);
+
+	// Initialize Level
+	Init(config, prototypeData, savedData, sunNum) {
+		const win = window;
+
+		// Handle Music
+		if (config.LoadMusic) {
+			PlayMusic(config.LoadMusic);
+			NewAudio({ source: "ChooseYourSeeds", loop: true });
+		} else {
+			PlayMusic((config.LoadMusic = "ChooseYourSeeds"));
+		}
+
+		// Restore/Save Variables
+		if (savedData !== sunNum) {
+			for (let key in savedData) {
+				if (win[key] !== sunNum) {
+					this.GlobalVariables[key] = win[key];
+					win[key] = savedData[key];
+				} else {
+					this.LvlVariables[key] = win[key] = savedData[key];
+				}
 			}
 		}
+
+		// Reset Global Lists
 		ArCard = [];
 		ArPCard = [];
 		ArSun = [];
 		$Pn = [];
 		$Z = [];
 		$P = [];
+
+		// DOM Element setup
 		EDAll = $("dAll");
 		EDPZ = $("dPZ");
 		EDAlloffsetLeft = EDAll.offsetLeft;
 		EDNewAll = EDAll.cloneNode(true);
 		EDNewFlagMeter = $("dFlagMeter").cloneNode(true);
 		ESSunNum = $("sSunNum");
+
 		this.AudioArr = [];
 		this.MustAllReady = true;
 		this.LoadAccess = null;
@@ -175,30 +211,32 @@ var oS = {
 		this.PicNum = this.AccessNum = this.MCID = this.Chose = 0;
 		this.Monitor = null;
 		this.UserDefinedFlagFunc = null;
-		this.SunNum = d;
-		this.BrainsNum = d;
+		this.SunNum = sunNum;
+		this.BrainsNum = sunNum; // Logic implies sunNum is passed as argument d
 		this.HaveFog = 0;
 
-		var savedAutoSun = localStorage.getItem("JSPVZAutoSun");
+		// AutoSun Logic
+		const savedAutoSun = localStorage.getItem("JSPVZAutoSun");
 		if (savedAutoSun !== null) {
 			this.AutoSun = parseInt(savedAutoSun);
 			if (this.AutoSun) {
 				AutoClickSun();
 			}
 		}
-
-		var checkbox = document.getElementById("cAutoSun");
+		const checkbox = document.getElementById("cAutoSun");
 		if (checkbox) {
 			checkbox.checked = !!this.AutoSun;
 		}
 
-		for (c in e) {
-			this.SelfVariables.push(c);
-			this[c] = e[c];
+		// Load Config into this object
+		for (let key in config) {
+			this.SelfVariables.push(key);
+			this[key] = config[key];
 		}
-		$User.isAuthorWebsite &&
-			oS.LevelEName !== 0 &&
-			(ClearChild($("JSPVZAjax")),
+
+		// Save Position Logic
+		if ($User.isAuthorWebsite && oS.LevelEName !== 0) {
+			ClearChild($("JSPVZAjax"));
 			NewEle(
 				"JSPVZAjax",
 				"script",
@@ -208,25 +246,32 @@ var oS = {
 					type: "text/javascript",
 				},
 				document.body
-			));
-		!this.PicArr && (this.PicArr = []);
-		!this.PName && (this.PName = []);
-		!this.ZName && (this.ZName = []);
-		!this.backgroundImage && (this.backgroundImage = "images/interface/background1.jpg");
-		!this.LF && (this.LF = [0, 1, 1, 1, 1, 1]);
-		!this.ZF && (this.ZF = this.LF);
-		!this.LargeWaveFlag && (this.LargeWaveFlag = {});
-		!this.StartGameMusic && (this.StartGameMusic = "Grasswalk");
-		this.ArCard = this.CardKind === d ? e.PName : e.ZName;
-		this.SunNum === d && (this.SunNum = 50);
-		this.CanSelectCard === d && (this.CanSelectCard = 1);
-		this.DKind === d && (this.DKind = 1);
-		this.StaticCard === d && (this.StaticCard = 1);
-		this.ShowScroll === d && (this.ShowScroll = true);
-		this.ProduceSun === d && (this.ProduceSun = true);
-		this.Coord === d && (this.Coord = 1);
+			);
+		}
+
+		// Defaults
+		if (!this.PicArr) this.PicArr = [];
+		if (!this.PName) this.PName = [];
+		if (!this.ZName) this.ZName = [];
+		if (!this.backgroundImage) this.backgroundImage = "images/interface/background1.jpg";
+		if (!this.LF) this.LF = [0, 1, 1, 1, 1, 1]; // Lane types
+		if (!this.ZF) this.ZF = this.LF; // Zombie spawn lanes
+		if (!this.LargeWaveFlag) this.LargeWaveFlag = {};
+		if (!this.StartGameMusic) this.StartGameMusic = "Grasswalk";
+
+		this.ArCard = this.CardKind === sunNum ? config.PName : config.ZName;
+
+		if (this.SunNum === sunNum) this.SunNum = 50;
+		if (this.CanSelectCard === sunNum) this.CanSelectCard = 1;
+		if (this.DKind === sunNum) this.DKind = 1;
+		if (this.StaticCard === sunNum) this.StaticCard = 1;
+		if (this.ShowScroll === sunNum) this.ShowScroll = true;
+		if (this.ProduceSun === sunNum) this.ProduceSun = true;
+		if (this.Coord === sunNum) this.Coord = 1;
+
+		// Initialize Systems
 		oCoord[this.Coord]();
-		oP.Init(g);
+		oP.Init(prototypeData);
 		oT.Init(this.R);
 		oZ.Init(this.R);
 		oGd.Init();
@@ -234,8 +279,8 @@ var oS = {
 		this.LoadProgress();
 	},
 	LoadTips() {
-		var b = NewEle("dTips", "div", "position:absolute;color:#fff;top:450px;width:100%;text-align:center;font-size:16px", "", EDAll);
-		var a = [
+		const tipsDiv = NewEle("dTips", "div", "position:absolute;color:#fff;top:450px;width:100%;text-align:center;font-size:16px", "", EDAll);
+		const tips = [
 			"Some zombies wear hats, strong hats.",
 			"Clicking on Balloonatics gives you extra sun! Get ready for those little suckers at the start of every wave!",
 			'There have been rumors about "Alien Balloons" wandering around Neighborville and their "Green Glow", but I personally dont believe them.',
@@ -245,238 +290,272 @@ var oS = {
 			"Sunflowers produce sun.",
 			"Peashooters shoot peas",
 		];
-		b.innerHTML = '<span style="font-weight:bold"></span><span>' + a[Math.floor(Math.random() * a.length)] + "</span>";
+		tipsDiv.innerHTML = `<span style="font-weight:bold"></span><span>${tips[Math.floor(Math.random() * tips.length)]}</span>`;
 	},
 	LoadProgress(r, l, a, t, b) {
 		SetVisible($("dFlagMeter"));
 		SetHidden($("imgGQJC"));
-		var p = oS;
-		var j = [];
-		var i = p.PicArr;
-		var k = p.PName;
-		var s = p.ZName;
-		var w = 0;
-		var u = GetX(11);
-		var g = oGd.$LF;
-		var c = oGd.$ZF;
-		var d = oS.R + 1;
-		var x = $("sFlagMeterTitleF");
-		var y = $("dFlagMeterTitle");
-		var e = p.LoadImage;
-		var h = p.CheckImg;
-		var f = p.InitPn;
-		var m;
-		var q;
+
+		const self = oS;
+		const picArr = self.PicArr;
+		const pNames = self.PName;
+		const zNames = self.ZName;
+		const backgroundWidth = GetX(11);
+		const zLanes = oGd.$ZF;
+		const maxR = oS.R + 1;
+		const titleDiv = $("dFlagMeterTitle");
+
+		// Brain and Cleaner Elements
 		NewImg(0, "images/interface/brain.png", "", ($Pn.oBrains = NewEle(0, "div", "position:absolute")));
-		switch (p.Coord) {
+		switch (self.Coord) {
 			case 2:
 				NewImg(0, "images/interface/PoolCleaner.png", "", ($Pn.oPoolCleaner = NewEle(0, "div", "position:absolute")));
+			// fallthrough
 			case 1:
 				NewImg(0, "images/interface/LawnCleaner.png", "", ($Pn.oLawnCleaner = NewEle(0, "div", "position:absolute")));
 				break;
 		}
-		while (r--) {
-			a = (l = k[r].prototype).PicArr.slice(0);
-			Array.prototype.push.apply(i, a);
+
+		// Load Plant Resources
+		let i = pNames.length;
+		while (i--) {
+			let proto = pNames[i].prototype;
+			Array.prototype.push.apply(picArr, proto.PicArr.slice(0));
 			if ($User.HTML5) {
-				t = l.AudioArr;
-				b = t.length;
-				while (b--) {
-					NewAudio({ source: t[b] });
+				let audioArr = proto.AudioArr;
+				let audioLen = audioArr.length;
+				while (audioLen--) {
+					NewAudio({ source: audioArr[audioLen] });
 				}
 			}
 		}
-		for (r in oS.LargeWaveFlag) {
-			s[s.length] = oS.FlagZombie || oFlagZombie;
+
+		// Ensure Flag Zombie exists for large waves
+		for (let flag in oS.LargeWaveFlag) {
+			zNames[zNames.length] = oS.FlagZombie || oFlagZombie;
 			break;
 		}
-		r = s.length;
-		while (r--) {
-			Array.prototype.push.apply(i, (l = (q = s[r]).prototype).PicArr.slice(0));
+
+		// Load Zombie Resources and Init
+		let j = zNames.length;
+		while (j--) {
+			let zombieClass = zNames[j];
+			let proto = zombieClass.prototype;
+			Array.prototype.push.apply(picArr, proto.PicArr.slice(0));
 			if ($User.HTML5) {
-				t = l.AudioArr;
-				b = t.length;
-				while (b--) {
-					NewAudio({ source: t[b] });
+				let audioArr = proto.AudioArr;
+				let audioLen = audioArr.length;
+				while (audioLen--) {
+					NewAudio({ source: audioArr[audioLen] });
 				}
 			}
-			l.Init.call(q, u, l, c, d);
+			proto.Init.call(zombieClass, backgroundWidth, proto, zLanes, maxR);
 		}
-		p.PicNum = w += i.length;
-		r = i.length;
-		y.setAttribute("title", "");
-		y.style.cursor = "url(images/interface/Pointer.cur),pointer";
-		y.onclick = function () {
+
+		self.PicNum = picArr.length;
+		let k = picArr.length;
+
+		// Setup Start Click
+		titleDiv.setAttribute("title", "");
+		titleDiv.style.cursor = "url(images/interface/Pointer.cur),pointer";
+		titleDiv.onclick = function () {
 			oS.MustAllReady = false;
 			oS.LoadReady(oS);
 		};
-		while (r--) {
-			e(i[r], h);
+
+		// Preload Images
+		while (k--) {
+			self.LoadImage(picArr[k], self.CheckImg);
 		}
-		r = j.length;
+
 		oS.LoadAudio();
 	},
 	LoadAudio: $User.HTML5
 		? function () {
-				var b = oS.AudioArr;
-				var a = b.length;
-				while (a--) {
-					NewAudio({ source: b[a] });
+				let i = oS.AudioArr.length;
+				while (i--) {
+					NewAudio({ source: oS.AudioArr[i] });
 				}
 			}
 		: function () {},
-	InitPn(a) {
-		var b = ($Pn[a[0]] = NewEle(0, "div", "position:absolute"));
-		NewImg(0, ShadowPNG, a[2], b);
-		NewImg(0, a[1], "", b);
+	InitPn(arr) {
+		const ele = ($Pn[arr[0]] = NewEle(0, "div", "position:absolute"));
+		NewImg(0, ShadowPNG, arr[2], ele);
+		NewImg(0, arr[1], "", ele);
 		oS.CheckImg();
 	},
 	LoadImage: $User.Browser.IE
-		? function (b, d, c) {
-				var a = new Image();
-				a.onreadystatechange = function () {
-					a.readyState === "complete" && d(c, 1);
+		? function (src, callback, args) {
+				const img = new Image();
+				img.onreadystatechange = function () {
+					if (img.readyState === "complete") callback(args, 1);
 				};
-				a.onerror = function () {
-					a.onreadystatechange = null;
-					a.title = b;
-					d(c, 0);
+				img.onerror = function () {
+					img.onreadystatechange = null;
+					img.title = src;
+					callback(args, 0);
 				};
-				a.src = b;
+				img.src = src;
 			}
-		: function (b, d, c) {
-				var a = new Image();
-				a.src = b;
-				a.complete
-					? d(c, 1)
-					: ((a.onload = function () {
-							a.complete && d(c, 1);
-						}),
-						(a.onerror = function () {
-							a.title = b;
-							d(c, 0);
-						}));
+		: function (src, callback, args) {
+				const img = new Image();
+				img.src = src;
+				if (img.complete) {
+					callback(args, 1);
+				} else {
+					img.onload = function () {
+						if (img.complete) callback(args, 1);
+					};
+					img.onerror = function () {
+						img.title = src;
+						callback(args, 0);
+					};
+				}
 			},
 	LoadScript: $User.Browser.IE
-		? function (f, c, e, a, d) {
-				var b = NewEle(f, "script", 0, { type: "text/javascript" });
-				b.onreadystatechange = function () {
-					(b.readyState === "loaded" || b.readyState === "complete") && ((b.onreadystatechange = null), e(d, 1));
+		? function (id, src, callback, parent, args) {
+				const script = NewEle(id, "script", 0, { type: "text/javascript" });
+				script.onreadystatechange = function () {
+					if (script.readyState === "loaded" || script.readyState === "complete") {
+						script.onreadystatechange = null;
+						callback(args, 1);
+					}
 				};
-				b.onerror = function () {
-					b.onreadystatechange = null;
-					e(d, 0);
+				script.onerror = function () {
+					script.onreadystatechange = null;
+					callback(args, 0);
 				};
-				b.src = c;
-				a.appendChild(b);
+				script.src = src;
+				parent.appendChild(script);
 			}
-		: function (f, c, e, a, d) {
-				var b = NewEle(f, "script", 0, { type: "text/javascript" });
-				b.onload = function () {
-					e(d, 1);
+		: function (id, src, callback, parent, args) {
+				const script = NewEle(id, "script", 0, { type: "text/javascript" });
+				script.onload = function () {
+					callback(args, 1);
 				};
-				b.onerror = function () {
-					e(d, 0);
+				script.onerror = function () {
+					callback(args, 0);
 				};
-				b.src = c;
-				a.appendChild(b);
+				script.src = src;
+				parent.appendChild(script);
 			},
 	CheckImg(b, a) {
-		var c = oS;
-		if (c.AccessNum > c.PicNum || !c.MustAllReady) {
+		const self = oS;
+		if (self.AccessNum > self.PicNum || !self.MustAllReady) {
 			return;
 		}
-		b = 139 - (c.AccessNum++ * 140) / c.PicNum - 11;
-		$("imgFlagHead").style.left = b + "px";
+		// Calculate progress bar position
+		const pos = 139 - (self.AccessNum++ * 140) / self.PicNum - 11;
+		$("imgFlagHead").style.left = pos + "px";
 		$("sFlagMeterTitleF").innerHTML =
-			'<span style="cursor:url(images/interface/Pointer.cur),pointer;font-family:Tahoma;color:#fff">Loading...(' +
-			c.AccessNum +
-			"/" +
-			c.PicNum +
-			")</span>";
-		$("imgFlagMeterFull").style.clip = "rect(0,auto,21px," + (b + 11) + "px)";
-		if (c.AccessNum === c.PicNum) {
-			oS.Lvl === 0;
-			if (c.MustAllReady) {
-				c.LoadReady(c);
+			`<span style="cursor:url(images/interface/Pointer.cur),pointer;font-family:Tahoma;color:#fff">Loading...(${self.AccessNum}/${self.PicNum})</span>`;
+		$("imgFlagMeterFull").style.clip = "rect(0,auto,21px," + (pos + 11) + "px)";
+
+		if (self.AccessNum === self.PicNum) {
+			if (self.MustAllReady) {
+				self.LoadReady(self);
 			}
 		}
 	},
-	LoadReady(f) {
-		var c = $("dFlagMeterTitle");
-		if (c.onclick == null) {
-			return;
-		}
+	LoadReady(config) {
+		const titleDiv = $("dFlagMeterTitle");
+		if (titleDiv.onclick == null) return;
+
 		ClearChild($("dTips"));
 		oSym.NowStep = $User.Visitor.NowStep;
 		oSym.TimeStep = $User.Visitor.TimeStep;
-		c.onclick = null;
-		c.title = null;
-		c.style.cursor = "url(images/interface/Cursor.cur),default";
+		titleDiv.onclick = null;
+		titleDiv.title = null;
+		titleDiv.style.cursor = "url(images/interface/Cursor.cur),default";
+
 		SetHidden($("dFlagMeterContent"), dFlagMeter);
 		$("dFlagMeter").style.top = "490px";
-		//          $("dFlagMeter").style.left = "805px"; // not good
-		//           $("dFlagMeter").style.left = (currentLeft + 15) + "px"; // not good either
-		$("sFlagMeterTitleF").innerHTML = $("dFlagMeterTitleB").innerHTML = f.LevelName;
+		$("sFlagMeterTitleF").innerHTML = $("dFlagMeterTitleB").innerHTML = config.LevelName;
 		$("imgFlagHead").style.left = "139px";
 		$("imgFlagMeterFull").style.clip = "rect(0,auto,auto,157px)";
-		delete f.PicArr;
-		delete f.Coord;
-		delete f.LF;
-		delete f.ZF;
-		var a = {
-			background: "url(" + f.backgroundImage + ") no-repeat",
+
+		// Cleanup config object
+		delete config.PicArr;
+		delete config.Coord;
+		delete config.LF;
+		delete config.ZF;
+
+		const bgStyle = {
+			background: "url(" + config.backgroundImage + ") no-repeat",
 			visibility: "visible",
 		};
-		!f.ShowScroll && (a.left = "-115px");
-		SetStyle($("tGround"), a);
+		if (!config.ShowScroll) bgStyle.left = "-115px";
+
+		SetStyle($("tGround"), bgStyle);
 		$("tGround").innerHTML = oS.GifHTML;
-		var d = function (h) {
-			var i = oS;
-			var g = $User.Visitor;
+
+		const startGame = function (delay) {
+			const self = oS;
 			NewImg("imgGrowSoil", "images/interface/GrowSoil.gif", "visibility:hidden;z-index:50", EDAll);
 			NewImg("imgGrowSpray", "images/interface/GrowSpray.gif", "visibility:hidden;z-index:50", EDAll);
-			innerText(ESSunNum, i.SunNum);
+			innerText(ESSunNum, self.SunNum);
 			InitPCard();
-			i.ShowScroll
-				? oSym.addTask(
-						h === undefined ? 200 : h,
-						(j) => {
-							ClearChild(j);
-							i.ScrollScreen();
-						},
-						[NewEle("DivParty", "div", "line-height:50px;color:#FFFFFF;font-size:50px;font-family:Tahoma", {}, EDAll)]
-					)
-				: (SetVisible($("dMenu")), AutoSelectCard(), LetsGO());
+
+			if (self.ShowScroll) {
+				oSym.addTask(
+					delay === undefined ? 200 : delay,
+					(div) => {
+						ClearChild(div);
+						self.ScrollScreen();
+					},
+					[NewEle("DivParty", "div", "line-height:50px;color:#FFFFFF;font-size:50px;font-family:Tahoma", {}, EDAll)]
+				);
+			} else {
+				SetVisible($("dMenu"));
+				AutoSelectCard();
+				LetsGO();
+			}
 		};
-		f.LoadAccess ? f.LoadAccess(d) : d();
+
+		config.LoadAccess ? config.LoadAccess(startGame) : startGame();
 	},
 	ScrollScreen() {
-		(EDAll.scrollLeft += 25) < 500
-			? oSym.addTask(2, arguments.callee, [])
-			: (DisplayZombie(),
-				SetVisible($("dMenu")),
-				oS.CanSelectCard ? SetVisible($("dTop"), $("dSelectCard"), $("dCardList")) : (AutoSelectCard(), oSym.addTask(200, oS.ScrollBack, [LetsGO])));
+		if ((EDAll.scrollLeft += 25) < 500) {
+			oSym.addTask(2, arguments.callee, []);
+		} else {
+			DisplayZombie();
+			SetVisible($("dMenu"));
+			if (oS.CanSelectCard) {
+				SetVisible($("dTop"), $("dSelectCard"), $("dCardList"));
+			} else {
+				AutoSelectCard();
+				oSym.addTask(200, oS.ScrollBack, [LetsGO]);
+			}
+		}
 	},
-	ScrollBack(a) {
+	ScrollBack(callback) {
 		SetHidden($("dZombie"), $("dSelectCard"), $("dTitle"), $("dCardList"));
 		$("tGround").style.left = "-115px";
 		$("dZombie").innerHTML = "";
-		(function (c) {
-			var b = EDAll.scrollLeft;
-			(b -= 25) > 0 ? ((EDAll.scrollLeft = b), oSym.addTask(2, arguments.callee, [c])) : ((EDAll.scrollLeft = 0), c());
-		})(a);
+
+		(function scrollStep(cb) {
+			let scroll = EDAll.scrollLeft;
+			if ((scroll -= 25) > 0) {
+				EDAll.scrollLeft = scroll;
+				oSym.addTask(2, scrollStep, [cb]);
+			} else {
+				EDAll.scrollLeft = 0;
+				cb();
+			}
+		})(callback);
 	},
 };
+
 var oCoord = {
+	// 5-Row Layout
 	1() {
 		oS.R = 5;
-		ChosePlantX = function (a) {
-			return Compare(GetC(a), 1, oS.C, GetX);
+		ChosePlantX = function (x) {
+			return Compare(GetC(x), 1, oS.C, GetX);
 		};
-		ChosePlantY = function (a) {
+		ChosePlantY = function (y) {
 			return $SSml(
-				a,
+				y,
 				[86, 181, 281, 386, 476],
 				[
 					[75, 0],
@@ -488,14 +567,14 @@ var oCoord = {
 				]
 			);
 		};
-		GetC = function (a) {
-			return $SSml(a, [-50, 100, 140, 220, 295, 379, 460, 540, 625, 695, 775, 855, 935], [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+		GetC = function (x) {
+			return $SSml(x, [-50, 100, 140, 220, 295, 379, 460, 540, 625, 695, 775, 855, 935], [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
 		};
-		GetR = function (a) {
-			return $SSml(a, [86, 181, 281, 386, 476], [0, 1, 2, 3, 4, 5]);
+		GetR = function (y) {
+			return $SSml(y, [86, 181, 281, 386, 476], [0, 1, 2, 3, 4, 5]);
 		};
-		GetX = function (a) {
-			return $SEql(a, {
+		GetX = function (c) {
+			return $SEql(c, {
 				"-2": -50,
 				"-1": 100,
 				0: 140,
@@ -512,18 +591,11 @@ var oCoord = {
 				11: 950,
 			});
 		};
-		GetY = function (a) {
-			return $SEql(a, {
-				0: 75,
-				1: 175,
-				2: 270,
-				3: 380,
-				4: 470,
-				5: 575,
-			});
+		GetY = function (r) {
+			return $SEql(r, { 0: 75, 1: 175, 2: 270, 3: 380, 4: 470, 5: 575 });
 		};
-		GetY1Y2 = function (a) {
-			return $SEql(a, {
+		GetY1Y2 = function (r) {
+			return $SEql(r, {
 				0: [0, 85],
 				1: [86, 180],
 				2: [181, 280],
@@ -532,8 +604,8 @@ var oCoord = {
 				5: [476, 600],
 			});
 		};
-		GetX1X2 = function (a) {
-			return $SEql(a, {
+		GetX1X2 = function (c) {
+			return $SEql(c, {
 				"-2": [-100, -49],
 				"-1": [-50, 99],
 				0: [100, 139],
@@ -555,23 +627,23 @@ var oCoord = {
 			let columnWidth = 170;
 			return [Math.floor(pixelX / rowWidth) + 1, Math.floor(pixelY / columnWidth) + 1];
 		};
-		!oS.InitLawnMower &&
-			(oS.InitLawnMower = function () {
-				var a = 6;
-				while (--a) {
-					CustomSpecial(oLawnCleaner, a, -1);
-				}
-			});
+		if (!oS.InitLawnMower) {
+			oS.InitLawnMower = function () {
+				let r = 6;
+				while (--r) CustomSpecial(oLawnCleaner, r, -1);
+			};
+		}
 		oS.GifHTML = "";
 	},
+	// 6-Row Layout (Pool)
 	2() {
 		oS.R = 6;
-		ChosePlantX = function (a) {
-			return Compare(GetC(a), 1, oS.C, GetX);
+		ChosePlantX = function (x) {
+			return Compare(GetC(x), 1, oS.C, GetX);
 		};
-		ChosePlantY = function (a) {
+		ChosePlantY = function (y) {
 			return $SSml(
-				a,
+				y,
 				[86, 171, 264, 368, 440, 532],
 				[
 					[75, 0],
@@ -584,14 +656,14 @@ var oCoord = {
 				]
 			);
 		};
-		GetC = function (a) {
-			return $SSml(a, [-50, 100, 140, 220, 295, 379, 460, 540, 625, 695, 775, 855, 935], [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+		GetC = function (x) {
+			return $SSml(x, [-50, 100, 140, 220, 295, 379, 460, 540, 625, 695, 775, 855, 935], [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
 		};
-		GetR = function (a) {
-			return $SSml(a, [86, 171, 264, 368, 440, 532], [0, 1, 2, 3, 4, 5, 6]);
+		GetR = function (y) {
+			return $SSml(y, [86, 171, 264, 368, 440, 532], [0, 1, 2, 3, 4, 5, 6]);
 		};
-		GetX = function (a) {
-			return $SEql(a, {
+		GetX = function (c) {
+			return $SEql(c, {
 				"-2": -50,
 				"-1": 100,
 				0: 140,
@@ -608,19 +680,11 @@ var oCoord = {
 				11: 950,
 			});
 		};
-		GetY = function (a) {
-			return $SEql(a, {
-				0: 75,
-				1: 165,
-				2: 253,
-				3: 355,
-				4: 430,
-				5: 522,
-				6: 587,
-			});
+		GetY = function (r) {
+			return $SEql(r, { 0: 75, 1: 165, 2: 253, 3: 355, 4: 430, 5: 522, 6: 587 });
 		};
-		GetY1Y2 = function (a) {
-			return $SEql(a, {
+		GetY1Y2 = function (r) {
+			return $SEql(r, {
 				0: [0, 85],
 				1: [86, 170],
 				2: [171, 263],
@@ -630,8 +694,8 @@ var oCoord = {
 				6: [532, 600],
 			});
 		};
-		GetX1X2 = function (a) {
-			return $SEql(a, {
+		GetX1X2 = function (c) {
+			return $SEql(c, {
 				"-2": [-100, -49],
 				"-1": [-50, 99],
 				0: [100, 139],
@@ -648,102 +712,118 @@ var oCoord = {
 				11: [950, 1030],
 			});
 		};
-		!oS.InitLawnMower &&
-			(oS.InitLawnMower = function () {
+		if (!oS.InitLawnMower) {
+			oS.InitLawnMower = function () {
 				CustomSpecial(oLawnCleaner, 1, -1);
 				CustomSpecial(oLawnCleaner, 2, -1);
 				CustomSpecial(oPoolCleaner, 3, -1);
 				CustomSpecial(oPoolCleaner, 4, -1);
 				CustomSpecial(oLawnCleaner, 5, -1);
 				CustomSpecial(oLawnCleaner, 6, -1);
-			});
+			};
+		}
 		oS.GifHTML = '<img style="position:absolute;left:253px;top:278px" src="">';
-		!oS.DKind && oGd.MakeFog();
+		if (!oS.DKind) oGd.MakeFog();
 	},
 };
+
 var oP = {
-	Init(a) {
-		var r = this;
-		r.NumZombies = r.FlagZombies = 0;
-		if (a) {
-			var l;
-			for (l in a) {
-				r[l] = a[l];
+	Init(config) {
+		const self = this;
+		self.NumZombies = self.FlagZombies = 0;
+		self.AZ = [];
+		self.ArZ = [];
+		self.MustShowAtFlag = {};
+		if (config) {
+			for (let key in config) {
+				self[key] = config[key];
 			}
-			if (a.AZ) {
-				var k;
-				var b = {};
-				var g;
-				var c;
-				var q;
-				var p;
-				var d;
-				var m = [];
-				var h;
-				var e;
-				var n;
-				r.ArZ = [];
-				h = (k = r.AZ).sort((i, f) => {
-					return i[2] - f[2];
-				}).length;
-				while (h--) {
-					c = (n = k[h])[0];
-					q = n[1];
-					p = n[2];
-					while (q--) {
-						m.push([c, p]);
+			if (config.AZ) {
+				// Parse AZ (Array Zombies) configuration
+				let rawAZ = config.AZ;
+				let schedule = {};
+				let azList = [];
+				let i = rawAZ.sort((a, b) => a[2] - b[2]).length;
+
+				while (i--) {
+					let entry = rawAZ[i];
+					let zombieType = entry[0];
+					let count = entry[1];
+					let weight = entry[2];
+					let flags = entry[3];
+
+					while (count--) {
+						azList.push([zombieType, weight]);
 					}
-					if ((d = n[3])) {
-						e = d.length;
-						while (e--) {
-							b[(g = d[e])] ? b[g].push(c) : (b[g] = [c]);
+					if (flags) {
+						let fLen = flags.length;
+						while (fLen--) {
+							let flagNum = flags[fLen];
+							schedule[flagNum] ? schedule[flagNum].push(zombieType) : (schedule[flagNum] = [zombieType]);
 						}
 					}
 				}
-				r.AZ = m;
-				r.MustShowAtFlag = b;
+				self.AZ = azList;
+				self.MustShowAtFlag = schedule;
 			}
 		}
-		a && a.FlagNum
-			? ((r.FlagHeadStep = Math.floor(140 / (a.FlagNum - 1))),
-				(r.MonPrgs = function () {
-					var u = oP;
-					var j;
-					var i = u.FlagZombies;
-					var s;
-					var t;
-					var f = $User.Visitor;
-					!--u.NumZombies &&
-						(i < u.FlagNum
-							? ((u.ReadyFlag = ++i), oSym.addTask(500, u.FlagPrgs, []))
-							: (u.FlagToEnd(),
-								$User.isAuthorWebsite &&
-									$User.Visitor.UserName !== "" &&
-									(ClearChild($("JSPVZAjax")), f.SaveLvl && NewEle("JSPVZAjax", "script", 0, {}, document.body)),
-								f.SaveLvlCallBack &&
-									f.SaveLvlCallBack({
-										UserName: f.UserName,
-										SunNum: oS.SunNum,
-										Lvl: s,
-										T: oSym.Now - oS.StartTime,
-									}),
-								!isNaN(Math.floor(s)) &&
-									((t = $("dAdventure")),
-									($User.Visitor.Progress = ++s),
-									(t.firstChild.innerHTML = Math.ceil(s / 10)),
-									(t.childNodes[1].innerHTML = (s -= Math.floor(s / 10) * 10) ? s : s + 1)),
-								NewEle(
-									"DivA",
-									"div",
-									"position:absolute;width:900px;height:600px;background:#FFF;filter:alpha(opacity=0);opacity:0;z-index:255",
-									0,
-									EDAll
-								),
-								PauseGame($("dMenu0"), 1)));
-				}))
-			: (r.MonPrgs = function () {});
-		(!a || !a.FlagToEnd) &&
-			(r.FlagToEnd = function () {
+
+		if (config && config.FlagNum) {
+			self.FlagHeadStep = Math.floor(140 / (config.FlagNum - 1));
+			self.MonPrgs = function () {
+				const p = oP;
+				let curFlag = p.FlagZombies;
+				const user = $User.Visitor;
+
+				if (!--p.NumZombies) {
+					if (curFlag < p.FlagNum) {
+						p.ReadyFlag = ++curFlag;
+						oSym.addTask(500, p.FlagPrgs, []);
+					} else {
+						p.FlagToEnd();
+						if ($User.isAuthorWebsite && $User.Visitor.UserName !== "") {
+							ClearChild($("JSPVZAjax"));
+							if (user.SaveLvl) {
+								NewEle("JSPVZAjax", "script", 0, {}, document.body);
+							}
+						}
+						if (user.SaveLvlCallBack) {
+							user.SaveLvlCallBack({
+								UserName: user.UserName,
+								SunNum: oS.SunNum,
+								Lvl: oS.Lvl,
+								T: oSym.Now - oS.StartTime,
+							});
+						}
+
+						// Update Progress Display
+						if (!isNaN(Math.floor(oS.Lvl))) {
+							let advDiv = $("dAdventure");
+							$User.Visitor.Progress = ++oS.Lvl;
+							if (advDiv && advDiv.firstChild && advDiv.childNodes && advDiv.childNodes[1]) {
+								advDiv.firstChild.innerHTML = Math.ceil(oS.Lvl / 10);
+								let subLvl = oS.Lvl - Math.floor(oS.Lvl / 10) * 10;
+								advDiv.childNodes[1].innerHTML = subLvl ? subLvl : subLvl + 1;
+							}
+						}
+
+						NewEle(
+							"DivA",
+							"div",
+							"position:absolute;width:900px;height:600px;background:#FFF;filter:alpha(opacity=0);opacity:0;z-index:255",
+							0,
+							EDAll
+						);
+						PauseGame($("dMenu0"), 1);
+					}
+				}
+			};
+		} else {
+			self.MonPrgs = function () {};
+		}
+
+		if (!config || !config.FlagToEnd) {
+			self.FlagToEnd = function () {
 				NewImg("imgSF", "images/interface/trophy.png", "left:417px;top:233px;z-index:255", EDAll, {
 					onclick() {
 						PlayAudio("winmusic");
@@ -753,7 +833,8 @@ var oP = {
 						ShowNameDiv();
 					},
 				});
-			});
+			};
+		}
 	},
 	Balloon() {
 		let balloonId = Math.floor(1 + Math.random() * 1000);
@@ -785,77 +866,64 @@ var oP = {
 		const timeInSec = (ms) => ms / 100;
 		const toTicks = (ms) => Math.round(ms / timeStep);
 
-		oP.balloonStyleSheet.insertRule(
-			`
-			@keyframes moveLeft${balloonId} {
-				from { left: 910px; }
-				to { left: -75px; }
-			}
-		`,
-			oP.balloonStyleSheet.cssRules.length
-		);
+		oP.balloonStyleSheet.insertRule(`@keyframes moveLeft${balloonId} { from { left: 910px; } to { left: -75px; } }`, oP.balloonStyleSheet.cssRules.length);
 
 		oP.balloonStyleSheet.insertRule(
-			`
-			@keyframes bobbing${balloonId} {
-				0%, 100% { top: ${randomY}px; }
-				50% { top: ${randomY + 10}px; }
-			}
-		`,
+			`@keyframes bobbing${balloonId} { 0%, 100% { top: ${randomY}px; } 50% { top: ${randomY + 10}px; } }`,
 			oP.balloonStyleSheet.cssRules.length
 		);
 
 		let image = document.createElement("div");
 		image.style = `
-			background-image: url(images/Zombies/Balloon/balloonidle.png);
-			position: absolute;
-			display: block;
-			left: 875px;
-			top: ${randomY}px;
-			z-index: 999;
-			width: 154px;
-			height: 181px;
-			scale: 0.6038961039;
-			cursor: url(images/interface/Pointer.cur),pointer;
-			animation: 
-				spritesheetIdle ${timeInSec(timeStep * 10)}s steps(30) infinite, 
-				moveLeft${balloonId} ${timeInSec(timeStep * 130)}s linear, 
-				bobbing${balloonId} ${timeInSec(timeStep * 20)}s ease-in-out infinite;
-		`;
+            background-image: url(images/Zombies/Balloon/balloonidle.png);
+            position: absolute;
+            display: block;
+            left: 875px;
+            top: ${randomY}px;
+            z-index: 999;
+            width: 154px;
+            height: 181px;
+            scale: 0.6038961039;
+            cursor: url(images/interface/Pointer.cur),pointer;
+            animation: 
+                spritesheetIdle ${timeInSec(timeStep * 10)}s steps(30) infinite, 
+                moveLeft${balloonId} ${timeInSec(timeStep * 130)}s linear, 
+                bobbing${balloonId} ${timeInSec(timeStep * 20)}s ease-in-out infinite;
+        `;
 
 		$("dPZ").appendChild(image);
 
 		image.onclick = function () {
 			image.onclick = null;
 			image.style = `
-				background-image: url(images/Zombies/Balloon/popped.png);
-				position: absolute;
-				display: block;
-				left: ${getAnimatedPosition(image).left}px;
-				top: ${randomY}px;
-				z-index: 999;
-				width: 154px;
-				height: 181px;
-				scale: 0.6038961039;
-				pointer-events: none;
-				animation: spritesheetPop ${timeInSec(timeStep * 10)}s 1 normal forwards steps(21);
-			`;
+                background-image: url(images/Zombies/Balloon/popped.png);
+                position: absolute;
+                display: block;
+                left: ${getAnimatedPosition(image).left}px;
+                top: ${randomY}px;
+                z-index: 999;
+                width: 154px;
+                height: 181px;
+                scale: 0.6038961039;
+                pointer-events: none;
+                animation: spritesheetPop ${timeInSec(timeStep * 10)}s 1 normal forwards steps(21);
+            `;
 
 			image.addEventListener("animationend", () => {
 				if (endMode === "endOfAnimation") {
 					image.style = `
-						background-image: url(images/Zombies/Balloon/popped.png);
-						background-position-x: -3080px;
-						position: absolute;
-						display: block;
-						left: ${getAnimatedPosition(image).left}px;
-						top: ${randomY}px;
-						z-index: 999;
-						width: 154px;
-						height: 181px;
-						scale: 0.6038961039;
-						pointer-events: none;
-					`;
+                        background-image: url(images/Zombies/Balloon/popped.png);
+                        background-position-x: -3080px;
+                        position: absolute;
+                        display: block;
+                        left: ${getAnimatedPosition(image).left}px;
+                        top: ${randomY}px;
+                        z-index: 999;
+                        width: 154px;
+                        height: 181px;
+                        scale: 0.6038961039;
+                        pointer-events: none;
+                    `;
 					endMode = "remove";
 				} else {
 					image.parentNode.removeChild(image);
@@ -888,300 +956,342 @@ var oP = {
 		if (Math.floor(Math.random() * 5) === 1 && $("dSunNum").style.visibility === "") {
 			oP.Balloon();
 		}
-		var g = oP;
-		var c = oS.LargeWaveFlag;
-		var e;
-		var b = g.FlagHeadStep;
-		var a = g.FlagNum;
+		const self = oP;
+		const largeFlags = oS.LargeWaveFlag;
+		const step = self.FlagHeadStep;
+		const totalFlags = self.FlagNum;
+
 		SetVisible($("imgGQJC"), $("dFlagMeterContent"));
-		for (e in c) {
-			Math.floor(e) < a
-				? SetStyle(c[e], {
+
+		for (let flagIdx in largeFlags) {
+			Math.floor(flagIdx) < totalFlags
+				? SetStyle(largeFlags[flagIdx], {
 						visibility: "visible",
-						left: 150 - (e - 1) * b + "px",
+						left: 150 - (flagIdx - 1) * step + "px",
 					})
-				: SetVisible(c[e]);
+				: SetVisible(largeFlags[flagIdx]);
 		}
+
 		PlayAudio("awooga");
-		$User.HTML5 &&
-			(function () {
+
+		if ($User.HTML5) {
+			(function playGroans() {
 				oSym.addTask(
 					2e3,
 					function () {
-						[
-							function () {
-								PlayAudio(["groan1", "groan2"][Math.floor(Math.random() * 2)]);
-							},
-							function () {
-								PlayAudio(["groan3", "groan4"][Math.floor(Math.random() * 2)]);
-							},
-							function () {
-								PlayAudio(["groan5", "groan6"][Math.floor(Math.random() * 2)]);
-							},
-							function () {
+						const randomGroan = [
+							() => PlayAudio(["groan1", "groan2"][Math.floor(Math.random() * 2)]),
+							() => PlayAudio(["groan3", "groan4"][Math.floor(Math.random() * 2)]),
+							() => PlayAudio(["groan5", "groan6"][Math.floor(Math.random() * 2)]),
+							() => {
 								PlayAudio("groan1");
-								oSym.addTask(
-									150,
-									() => {
-										PlayAudio("groan5");
-									},
-									[]
-								);
+								oSym.addTask(150, () => PlayAudio("groan5"), []);
 							},
-							function () {
+							() => {
 								PlayAudio("groan2");
-								oSym.addTask(
-									150,
-									() => {
-										PlayAudio("groan6");
-									},
-									[]
-								);
+								oSym.addTask(150, () => PlayAudio("groan6"), []);
 							},
-						][Math.floor(Math.random() * 3)]();
-						oSym.addTask(2e3, arguments.callee, []);
+						][Math.floor(Math.random() * 3)];
+
+						randomGroan();
+						oSym.addTask(2e3, playGroans, []);
 					},
 					[]
 				);
 			})();
-		g.ReadyFlag = 1;
-		g.FlagPrgs(d);
+		}
+
+		self.ReadyFlag = 1;
+		self.FlagPrgs(d);
 	},
-	SelectFlagZombie(j, d) {
-		var e = oP;
-		var m = e.ArZ;
-		var k = e.AZ;
-		var s = k.length;
-		var q;
-		var r;
-		var i = [];
-		var g = 0;
-		var n = oS.LargeWaveFlag[d];
-		var c = false;
-		var h = !n ? 150 : (PlayAudio("siren"), (n.style.top = "5px"), --j, (i[g++] = oS.FlagZombie || oFlagZombie), 30);
-		var p;
-		var b;
-		var f = e.MustShowAtFlag;
-		var a;
-		while (s--) {
-			if ((r = (q = k[s])[1]) > d) {
+	SelectFlagZombie(totalLvl, flag) {
+		const self = oP;
+		const az = self.AZ || (self.AZ = []);
+		let azLen = az.length;
+		const zombiesToSpawn = [];
+		let count = 0;
+		const isLargeWave = oS.LargeWaveFlag[flag];
+		let remainingLvl = totalLvl;
+
+		const delay = !isLargeWave
+			? 150
+			: (PlayAudio("siren"), (isLargeWave.style.top = "5px"), --remainingLvl, (zombiesToSpawn[count++] = oS.FlagZombie || oFlagZombie), 30);
+
+		const availableZombies = [];
+		let hasNew = false;
+
+		// Filter zombies available for this wave
+		while (azLen--) {
+			let entry = az[azLen];
+			let entryFlag = entry[1];
+			if (entryFlag > flag) {
 				break;
 			} else {
-				m.push(q[0]);
-				--k.length;
-				c = true;
+				availableZombies.push(entry[0]);
+				--az.length;
+				hasNew = true;
 			}
 		}
-		c &&
-			m.sort((t, l) => {
-				return t.prototype.Lvl - l.prototype.Lvl;
-			});
-		if ((a = f[d])) {
-			s = a.length;
-			while (s--) {
-				j -= (i[g++] = a[s]).prototype.Lvl;
+
+		if (hasNew) {
+			if (!self.ArZ) self.ArZ = [];
+			self.ArZ.push(...availableZombies);
+			self.ArZ.sort((a, b) => a.prototype.Lvl - b.prototype.Lvl);
+		}
+
+		// Add forced zombies for this flag
+		const forcedMap = self.MustShowAtFlag || (self.MustShowAtFlag = {});
+		const forced = forcedMap[flag];
+		if (forced) {
+			let fLen = forced.length;
+			while (fLen--) {
+				remainingLvl -= (zombiesToSpawn[count++] = forced[fLen]).prototype.Lvl;
 			}
 		}
-		b = m[(s = (p = m.length) - 1)].prototype.Lvl;
-		while (j > 0) {
-			if (s && b > j) {
-				while (--s && m[s].prototype.Lvl > j) {}
-				p = s + 1;
-				b = m[s].prototype.Lvl;
+
+		// Fill remaining level with random zombies
+		let zombiePool = self.ArZ;
+		if (!zombiePool || zombiePool.length === 0) {
+			zombiePool = self.ArZ = oS.ZName && oS.ZName.slice ? oS.ZName.slice(0) : [];
+			if (zombiePool.length) zombiePool.sort((a, b) => a.prototype.Lvl - b.prototype.Lvl);
+		}
+		if (!zombiePool.length) {
+			// No available zombies configured; avoid throwing.
+			return;
+		}
+		let poolLen = zombiePool.length;
+		let maxIdx = poolLen - 1;
+		let maxLvl = zombiePool[maxIdx].prototype.Lvl;
+
+		while (remainingLvl > 0) {
+			if (maxIdx && maxLvl > remainingLvl) {
+				while (--maxIdx && zombiePool[maxIdx].prototype.Lvl > remainingLvl) {}
+				poolLen = maxIdx + 1;
+				maxLvl = zombiePool[maxIdx].prototype.Lvl;
 			}
-			j -= (i[g++] = m[Math.floor(Math.random() * p)]).prototype.Lvl;
+			remainingLvl -= (zombiesToSpawn[count++] = zombiePool[Math.floor(Math.random() * poolLen)]).prototype.Lvl;
 		}
-		e.NumZombies += g;
-		e.SetTimeoutZombie(i, h);
+
+		self.NumZombies += count;
+		self.SetTimeoutZombie(zombiesToSpawn, delay);
 	},
-	SelectFlagZombie1(d) {
-		var h = oP;
-		var c = [];
-		var a = 0;
-		var g = h.ArZ;
-		var f = oS.LargeWaveFlag[h.FlagZombies];
-		var e = h.SumToZombie;
-		var b = !f ? 150 : ((f.style.top = "5px"), --d, (c[a++] = oS.FlagZombie || oFlagZombie), 30);
-		while (d > 0) {
-			d -= (c[a++] = g[Math.floor(Math.random() * $SEql(d, e))]).prototype.Lvl;
+	SelectFlagZombie1(lvl) {
+		const self = oP;
+		const zombies = [];
+		let count = 0;
+		const pool = self.ArZ;
+		const isLargeWave = oS.LargeWaveFlag[self.FlagZombies];
+		const sumToZombie = self.SumToZombie;
+		const delay = !isLargeWave ? 150 : ((isLargeWave.style.top = "5px"), --lvl, (zombies[count++] = oS.FlagZombie || oFlagZombie), 30);
+
+		while (lvl > 0) {
+			lvl -= (zombies[count++] = pool[Math.floor(Math.random() * $SEql(lvl, sumToZombie))]).prototype.Lvl;
 		}
-		h.NumZombies += a;
-		h.SetTimeoutZombie(c, b);
+		self.NumZombies += count;
+		self.SetTimeoutZombie(zombies, delay);
 	},
-	SetTimeoutTomZombie(c) {
-		var f = [];
-		var d = [];
-		var e = 0;
-		var a = c.length;
-		var b;
-		var g;
-		for (b in oGd.$Tombstones) {
-			g = b.split("_");
-			d[e] = (f[e] = new c[Math.floor(Math.random() * a)]()).CustomBirth(g[0], g[1], 100);
-			++e;
+	SetTimeoutTomZombie(classes) {
+		const zombieList = [];
+		const protoList = [];
+		let count = 0;
+		const classLen = classes.length;
+
+		for (let key in oGd.$Tombstones) {
+			let coords = key.split("_");
+			let zombie = new classes[Math.floor(Math.random() * classLen)]();
+			protoList[count] = zombie;
+			zombieList[count] = zombie.CustomBirth(coords[0], coords[1], 100);
+			++count;
 		}
-		this.AppearUP(d, f, e);
+		this.AppearUP(zombieList, protoList, count);
 	},
-	SetTimeoutWaterZombie(j, b, e, h) {
-		var f = oGd.$LF;
-		var l = [];
-		var c = f.length;
-		var m = [];
-		var k = [];
-		var g = h.length;
-		var a;
-		var d = b - j + 1;
-		while (--c) {
-			f[c] === 2 && l.push(c);
+	SetTimeoutWaterZombie(rowStart, rowEnd, count, classes) {
+		const laneTypes = oGd.$LF;
+		const validRows = [];
+		let i = laneTypes.length;
+		while (--i) {
+			if (laneTypes[i] === 2) validRows.push(i);
 		}
-		a = l.length;
-		c = e;
+
+		const rowLen = validRows.length;
+		const zombies = [];
+		const protos = [];
+		const classLen = classes.length;
+		const range = rowEnd - rowStart + 1;
+
+		let c = count;
 		while (c--) {
-			k[c] = (m[c] = new h[Math.floor(Math.random() * g)]()).CustomBirth(l[Math.floor(Math.random() * a)], Math.floor(j + Math.random() * d));
+			let zombie = new classes[Math.floor(Math.random() * classLen)]();
+			protos[c] = zombie;
+			zombies[c] = zombie.CustomBirth(validRows[Math.floor(Math.random() * rowLen)], Math.floor(rowStart + Math.random() * range));
 		}
-		this.AppearUP(k, m, e);
+		this.AppearUP(zombies, protos, count);
 	},
-	AppearUP(a, c, b) {
-		oP.NumZombies += b;
+	AppearUP(htmlList, objList, count) {
+		oP.NumZombies += count;
 		asyncInnerHTML(
-			a.join(""),
-			(h, f) => {
-				EDPZ.appendChild(h);
-				var e = f.length;
-				var g;
-				var d;
-				while (e--) {
-					g = f[e];
-					g.Birth.call(g);
-					SetBlock(g.Ele);
+			htmlList.join(""),
+			(fragment, list) => {
+				EDPZ.appendChild(fragment);
+				let i = list.length;
+				while (i--) {
+					let zombie = list[i];
+					zombie.Birth.call(zombie);
+					SetBlock(zombie.Ele);
 					oSym.addTask(
 						10,
-						function (l, k, i, j) {
-							k = Math.max(k - j, 0);
-							SetStyle(l, {
-								top: k + "px",
-								clip: "rect(0,auto," + (i += j) + "px,0)",
+						function (ele, top, clipHeight, step) {
+							top = Math.max(top - step, 0);
+							SetStyle(ele, {
+								top: top + "px",
+								clip: "rect(0,auto," + (clipHeight += step) + "px,0)",
 							});
-							k && oSym.addTask(10, arguments.callee, [l, k, i, j]);
+							if (top) oSym.addTask(10, arguments.callee, [ele, top, clipHeight, step]);
 						},
-						[g.EleBody, (d = g.height), 0, d * 0.1]
+						[zombie.EleBody, zombie.height, 0, zombie.height * 0.1]
 					);
 				}
 			},
-			c
+			objList
 		);
 	},
-	SetZombie(j, b, e, h) {
-		var f = [];
-		var l = [];
-		var c = f.length;
-		var m = [];
-		var k = [];
-		var g = h.length;
-		var a;
-		var d = b - j + 1;
-		while (--c) {
-			f[c] === 2 && l.push(c);
+	SetZombie(rowStart, rowEnd, count, classes) {
+		// Redundant with SetTimeoutWaterZombie but keeping for legacy compatibility
+		const laneTypes = [];
+		const validRows = [];
+		let i = laneTypes.length;
+		// Logic seems broken in original script (f undefined), fixing assumption it uses oGd.$LF
+		const realLanes = oGd.$LF;
+		let j = realLanes.length;
+		while (--j) {
+			if (realLanes[j] === 2) validRows.push(j);
 		}
-		a = l.length;
-		c = e;
+
+		const rowLen = validRows.length;
+		const zombies = [];
+		const protos = [];
+		const classLen = classes.length;
+		const range = rowEnd - rowStart + 1;
+
+		let c = count;
 		while (c--) {
-			k[c] = (m[c] = new h[Math.floor(Math.random() * g)]()).CustomBirth(l[Math.floor(Math.random() * a)], Math.floor(j + Math.random() * d));
+			let zombie = new classes[Math.floor(Math.random() * classLen)]();
+			protos[c] = zombie;
+			zombies[c] = zombie.CustomBirth(validRows[Math.floor(Math.random() * rowLen)], Math.floor(rowStart + Math.random() * range));
 		}
-		this.AppearUP1(k, m, e);
+		this.AppearUP1(zombies, protos, count);
 	},
-	AppearUP1(a, c, b) {
-		oP.NumZombies += b;
+	AppearUP1(htmlList, objList, count) {
+		oP.NumZombies += count;
 		asyncInnerHTML(
-			a.join(""),
-			(h, f) => {
-				EDPZ.appendChild(h);
-				var e = f.length;
-				var g;
-				var d;
-				while (e--) {
-					g = f[e];
-					g.Birth.call(g);
-					SetBlock(g.Ele);
+			htmlList.join(""),
+			(fragment, list) => {
+				EDPZ.appendChild(fragment);
+				let i = list.length;
+				while (i--) {
+					let zombie = list[i];
+					zombie.Birth.call(zombie);
+					SetBlock(zombie.Ele);
 					oSym.addTask(
 						10,
-						function (l, k, i, j) {
-							k = Math.max(k - j, 0);
-							SetStyle(l, {
-								top: k + "px",
-								clip: "rect(0,auto," + (i += j) + "px,0)",
+						function (ele, top, clipHeight, step) {
+							top = Math.max(top - step, 0);
+							SetStyle(ele, {
+								top: top + "px",
+								clip: "rect(0,auto," + (clipHeight += step) + "px,0)",
 							});
-							k && oSym.addTask(10, arguments.callee, [l, k, i, j]);
+							if (top) oSym.addTask(10, arguments.callee, [ele, top, clipHeight, step]);
 						},
-						[g.EleBody, (d = g.height), 0, d * 0.1]
+						[zombie.EleBody, zombie.height, 0, zombie.height * 0.1]
 					);
 				}
 			},
-			c
+			objList
 		);
 	},
-	SetTimeoutZombie(b, d) {
-		var f = [];
-		var c = [];
-		var e = 0;
-		var g = 0;
-		var a = b.length;
-		while (e < a) {
-			c[e] = (f[e] = new b[e]()).prepareBirth(g);
-			g += d;
-			++e;
+	SetTimeoutZombie(zombieList, delay) {
+		const htmlBuffer = [];
+		const zombieObjs = [];
+		let idx = 0;
+		let timeOffset = 0;
+		const len = zombieList.length;
+
+		while (idx < len) {
+			const zombie = new zombieList[idx]();
+			htmlBuffer[idx] = zombie.prepareBirth(timeOffset);
+			zombieObjs[idx] = zombie;
+			timeOffset += delay;
+			++idx;
 		}
+
 		asyncInnerHTML(
-			c.join(""),
-			(k, j) => {
-				EDPZ.appendChild(k);
-				var h = j.length;
-				while (h--) {
-					j[h].Birth();
+			htmlBuffer.join(""),
+			(fragment, list) => {
+				EDPZ.appendChild(fragment);
+				let i = list.length;
+				while (i--) {
+					list[i].Birth();
 				}
 			},
-			f
+			zombieObjs
 		);
 	},
 	FlagPrgs() {
-		var f = oP;
-		var c = f.FlagZombies;
-		var e = f.FlagToSumNum;
-		var a = 139 - c * f.FlagHeadStep;
-		var d = $SSml(c, e.a1, e.a2);
-		var b;
-		f.FlagNum > (c = ++f.FlagZombies)
-			? (($("imgFlagHead").style.left = a + "px"),
-				($("imgFlagMeterFull").style.clip = "rect(0,157px,21px," + (a + 11) + "px)"),
-				(b = $SEql(c, f.FlagToMonitor)) &&
-					oSym.addTask(
-						1690,
-						(g) => {
-							!g[1] && (g[0](), (g[1] = 1));
-						},
-						[b]
-					),
+		const self = oP;
+		let curFlag = self.FlagZombies;
+		const flagSum = self.FlagToSumNum;
+		const headPos = 139 - curFlag * self.FlagHeadStep;
+		const lvl = $SSml(curFlag, flagSum.a1, flagSum.a2);
+
+		if (self.FlagNum > (curFlag = ++self.FlagZombies)) {
+			$("imgFlagHead").style.left = headPos + "px";
+			$("imgFlagMeterFull").style.clip = "rect(0,157px,21px," + (headPos + 11) + "px)";
+
+			// Monitor Flag
+			let monitorFunc = $SEql(curFlag, self.FlagToMonitor);
+			if (monitorFunc) {
 				oSym.addTask(
-					1990,
-					(g) => {
-						var h = oP;
-						h.ReadyFlag === g++ && ((h.ReadyFlag = g), h.FlagPrgs());
+					1690,
+					(args) => {
+						if (!args[1]) {
+							args[0]();
+							args[1] = 1;
+						}
 					},
-					[c]
-				))
-			: (($("imgFlagHead").style.left = "-1px"), ($("imgFlagMeterFull").style.clip = "rect(0,157px,21px,0)"));
-		f.SelectFlagZombie.call(f, d, c);
-		f.UserDefinedFlagFunc && f.UserDefinedFlagFunc();
+					[monitorFunc]
+				);
+			}
+
+			oSym.addTask(
+				1990,
+				(flag) => {
+					const p = oP;
+					if (p.ReadyFlag === flag++) {
+						p.ReadyFlag = flag;
+						p.FlagPrgs();
+					}
+				},
+				[curFlag]
+			);
+		} else {
+			$("imgFlagHead").style.left = "-1px";
+			$("imgFlagMeterFull").style.clip = "rect(0,157px,21px,0)";
+		}
+
+		self.SelectFlagZombie.call(self, lvl, curFlag);
+		if (self.UserDefinedFlagFunc) self.UserDefinedFlagFunc();
 	},
-	Monitor(a, b) {
-		a && a.f.apply(a.f, a.ar);
-		oP.UserDefinedFlagFunc = b ? b : null;
-		(function () {
+	Monitor(config, userFunc) {
+		if (config) config.f.apply(config.f, config.ar);
+		oP.UserDefinedFlagFunc = userFunc ? userFunc : null;
+
+		(function loop() {
 			oZ.traversalOf();
-			oSym.addTask(10, arguments.callee, []);
+			oSym.addTask(10, loop, []);
 		})();
 	},
 };
+
 var oGd = {
 	Init() {
 		this.$ = [];
@@ -1196,388 +1306,447 @@ var oGd = {
 		this.$Balloon = new Array(oS.R + 1);
 		this.$Fog = [];
 	},
-	add(c, a, b, d) {
-		(b = (d = this.$)[a]) && b.Die();
-		d[a] = c;
+	add(obj, c, r, dict) {
+		let old = (dict = this.$)[c];
+		if (old) old.Die();
+		dict[c] = obj;
 	},
-	del(a) {
-		delete this.$[a.R + "_" + a.C + "_" + a.PKind];
+	del(obj) {
+		delete this.$[obj.R + "_" + obj.C + "_" + obj.PKind];
 	},
 	MakeFog() {
-		var d = "";
-		var g = (tx = ri = cj = 0);
-		var c = oGd.$Fog;
-		var b;
-		var a = 2 * oS.HaveFog + 3;
-		var e = (function () {
-			return function (f) {
-				var h = $User.Browser.IE && !$User.Browser.IE9;
-				d +=
-					'<img id="' +
-					f +
-					'" src="images/interface/fog' +
-					Math.floor(Math.random() * 4) +
-					"." +
-					(h ? "gif" : "png") +
-					'" style="left:' +
-					g +
-					"px;top:" +
-					tx +
-					'px">';
-			};
-		})();
-		for (ri = 1, tx = 0; ri < 7; g = 0, ri++) {
-			for (ci = 0; ci <= a; ci++) {
-				e((c[(b = ri + "_" + ci)] = "Fog" + b));
-				g += 35;
+		let html = "";
+		let tx = 0,
+			ri = 0,
+			ci = 0,
+			left = 0;
+		const fogDict = oGd.$Fog;
+		const maxCol = 2 * oS.HaveFog + 3;
+		const isIE = $User.Browser.IE && !$User.Browser.IE9;
+
+		const addFog = function (id) {
+			html += `<img id="${id}" src="images/interface/fog${Math.floor(Math.random() * 4)}.${isIE ? "gif" : "png"}" style="left:${left}px;top:${tx}px">`;
+		};
+
+		for (ri = 1, tx = 0; ri < 7; left = 0, ri++) {
+			for (ci = 0; ci <= maxCol; ci++) {
+				let key = ri + "_" + ci;
+				fogDict[key] = "Fog" + key;
+				addFog(fogDict[key]);
+				left += 35;
 			}
 			tx += 90;
 		}
-		NewEle("dFog", "div", "", { innerHTML: d }, EDAll);
+		NewEle("dFog", "div", "", { innerHTML: html }, EDAll);
 	},
-	MoveFogLeft(a) {
-		(function (c, d, b, e) {
-			d -= 50;
-			d > b ? ((c.style.left = d + "px"), oSym.addTask(5, arguments.callee, [c, d, b, e])) : ((c.style.left = b + "px"), e && e());
-		})($("dFog"), 900, GetX(oS.C - oS.HaveFog) - 30, a);
+	MoveFogLeft(callback) {
+		(function (ele, currentX, limitX, cb) {
+			currentX -= 50;
+			if (currentX > limitX) {
+				ele.style.left = currentX + "px";
+				oSym.addTask(5, arguments.callee, [ele, currentX, limitX, cb]);
+			} else {
+				ele.style.left = limitX + "px";
+				if (cb) cb();
+			}
+		})($("dFog"), 900, GetX(oS.C - oS.HaveFog) - 30, callback);
 	},
 	MoveFogRight() {
-		if (arguments.callee.caller.caller == null) {
-			return;
-		}
-		(function (a, b) {
-			(b += 50) < 901 ? ((a.style.left = b + "px"), oSym.addTask(5, arguments.callee, [a, b])) : (a.style.left = "900px");
+		if (arguments.callee.caller.caller == null) return;
+		(function (ele, currentX) {
+			if ((currentX += 50) < 901) {
+				ele.style.left = currentX + "px";
+				oSym.addTask(5, arguments.callee, [ele, currentX]);
+			} else {
+				ele.style.left = "900px";
+			}
 		})($("dFog"), GetX(oS.C - oS.HaveFog) - 3);
 	},
-	GatherFog(d, r, x, t, z) {
-		var c = d - x;
-		var b = d + x;
-		var q = r - t;
-		var p = r + t;
-		var e = [SetNone, SetBlock][z];
-		var w = oS.C;
-		var m = oS.R;
-		var h = w + 1;
-		var g = oS.HaveFog;
-		var a = g * 2;
-		var k = [];
-		var l;
-		var j;
-		var u;
-		var n = function (i) {
-			return (i - w) * 2 + a;
+	GatherFog(r, c, rRange, cRange, mode) {
+		// mode 0 = SetNone (clear), 1 = SetBlock (restore)
+		const rowStart = r - rRange;
+		const rowEnd = r + rRange;
+		const colStart = c - cRange;
+		const colEnd = c + cRange;
+		const func = [SetNone, SetBlock][mode];
+
+		const cols = oS.C;
+		const rows = oS.R;
+		const maxCol = cols + 1;
+		const fogCount = oS.HaveFog * 2;
+		const list = [];
+
+		const mapCol = function (i) {
+			return (i - cols) * 2 + fogCount;
 		};
-		var s = function (i) {
-			return (i - w) * 2 + a - 2;
+		const mapColRev = function (i) {
+			return (i - cols) * 2 + fogCount - 2;
 		};
-		if (c > 0) {
-			l = s(q > 0 ? q + 1 : 1);
-			j = n(p > h ? h : p - 1);
+
+		// Collect fog elements to modify
+		let i, j;
+
+		if (rowStart > 0) {
+			i = mapColRev(colStart > 0 ? colStart + 1 : 1);
+			j = mapCol(colEnd > maxCol ? maxCol : colEnd - 1);
 			do {
-				l > -1 && k.push("Fog" + c + "_" + l);
-			} while (l++ < j);
+				if (i > -1) list.push("Fog" + rowStart + "_" + i);
+			} while (i++ < j);
 		}
-		if (b <= m) {
-			l = s(q > 0 ? q + 1 : 1);
-			j = n(p > h ? h : p - 1);
+
+		if (rowEnd <= rows) {
+			i = mapColRev(colStart > 0 ? colStart + 1 : 1);
+			j = mapCol(colEnd > maxCol ? maxCol : colEnd - 1);
 			do {
-				l > -1 && k.push("Fog" + b + "_" + l);
-			} while (l++ < j);
+				if (i > -1) list.push("Fog" + rowEnd + "_" + i);
+			} while (i++ < j);
 		}
-		++c;
-		--b;
-		l = s(q < 1 ? 1 : q);
-		j = n(p > h ? h : p);
-		u = l;
-		do {
+
+		let curRow = rowStart + 1;
+		let limitRow = rowEnd - 1;
+		let startI = mapColRev(colStart < 1 ? 1 : colStart);
+		let endJ = mapCol(colEnd > maxCol ? maxCol : colEnd);
+
+		while (curRow <= limitRow) {
+			i = startI;
 			do {
-				l > -1 && k.push("Fog" + c + "_" + l);
-			} while (l++ <= j);
-			l = u;
-		} while (c++ < b);
-		for (l = 0; l < k.length; e($(k[l])), l++) {}
-		if (z) {
-			var y = oGd.$Torch;
-			var f;
-			for (u in y) {
-				f = $P[y[u]];
-				this.GatherFog(f.R, f.C, 1, 1, 0);
+				if (i > -1) list.push("Fog" + curRow + "_" + i);
+			} while (i++ <= endJ);
+			curRow++;
+		}
+
+		for (let k = 0; k < list.length; k++) {
+			func($(list[k]));
+		}
+
+		// Recursive clear for Torchwood logic
+		if (mode) {
+			const torches = oGd.$Torch;
+			for (let u in torches) {
+				let p = $P[torches[u]];
+				this.GatherFog(p.R, p.C, 1, 1, 0);
 			}
 		}
 	},
 };
+
 var oZ = {
-	Init(b) {
+	Init(rows) {
 		this.$ = [];
 		this.$R = [];
-		var a;
-		for (a = b; a; this.$[a] = [], this.$R[a--] = []) {}
-	},
-	add(b, a) {
-		(a = oZ.$[b.R]).push(b);
-		a.sort((d, c) => {
-			return d.AttackedLX - c.AttackedLX;
-		});
-		a.RefreshTime = oSym.Now;
-	},
-	getZ0(b, d) {
-		if (d < 1 || d > oS.R) {
-			return;
+		let i = rows;
+		while (i) {
+			this.$[i] = [];
+			this.$R[i--] = [];
 		}
-		var c = 0;
-		var e = this.$[d];
-		var f;
-		var a = e.length;
-		while (c < a && (f = e[c++]).AttackedLX <= b) {
-			if (f.PZ && f.HP && f.AttackedRX >= b) {
-				return f;
+	},
+	add(zombie, list) {
+		list = oZ.$[zombie.R];
+		list.push(zombie);
+		list.sort((a, b) => a.AttackedLX - b.AttackedLX);
+		list.RefreshTime = oSym.Now;
+	},
+	getZ0(lx, row) {
+		if (row < 1 || row > oS.R) return;
+		const list = this.$[row];
+		let i = 0,
+			len = list.length,
+			zombie;
+		while (i < len && (zombie = list[i++]).AttackedLX <= lx) {
+			if (zombie.PZ && zombie.HP && zombie.AttackedRX >= lx) {
+				return zombie;
 			}
 		}
 	},
-	getZ1(h, b) {
-		if (b < 1 || b > oS.R) {
-			return;
+	getZ1(rx, row) {
+		if (row < 1 || row > oS.R) return;
+		const list = this.$[row];
+		const rightList = this.$R[row];
+		let sortedList;
+
+		if (list.RefreshTime === rightList.RefreshTime) {
+			sortedList = rightList;
+		} else {
+			sortedList = (this.$R[row] = list.slice(0)).sort((a, b) => b.AttackedRX - a.AttackedRX);
+			sortedList.RefreshTime = list.RefreshTime;
 		}
-		var d = 0;
-		var j = this.$[b];
-		var f = this.$R[b];
-		var g;
-		var c;
-		var k;
-		var e;
-		(k = j.RefreshTime) === f.RefreshTime
-			? (g = f)
-			: ((g = (this.$R[b] = j.slice(0)).sort((l, i) => {
-					return i.AttackedRX - l.AttackedRX;
-				})).RefreshTime = k);
-		e = g.length;
-		while (d < e && (c = g[d++]).AttackedRX >= h) {
-			if (c.PZ && c.HP && c.AttackedLX <= h) {
-				return c;
+
+		let i = 0,
+			len = sortedList.length,
+			zombie;
+		while (i < len && (zombie = sortedList[i++]).AttackedRX >= rx) {
+			if (zombie.PZ && zombie.HP && zombie.AttackedLX <= rx) {
+				return zombie;
 			}
 		}
 	},
-	getArZ(e, d, b) {
-		var g = 0;
-		var l = this.$[b];
-		var f = [];
-		var k = 0;
-		var c;
-		var h = l.length;
-		var j;
-		while (g < h && (j = (c = l[g++]).AttackedLX) < d) {
-			c.PZ && c.HP && (j > e || c.AttackedRX > e) && (f[k++] = c);
+	getArZ(lx, rx, row) {
+		const list = this.$[row];
+		const result = [];
+		let i = 0,
+			len = list.length,
+			zombie,
+			zLX;
+		while (i < len && (zLX = (zombie = list[i++]).AttackedLX) < rx) {
+			if (zombie.PZ && zombie.HP && (zLX > lx || zombie.AttackedRX > lx)) {
+				result.push(zombie);
+			}
 		}
-		return f;
+		return result;
 	},
-	getRangeLeftZ(e, d, b) {
-		if (b < 1 || b > oS.R) {
-			return;
-		}
-		var g = 0;
-		var l = this.$[b];
-		var f = [];
-		var k = 0;
-		var c;
-		var h = l.length;
-		var j;
-		while (g < h && (j = (c = l[g++]).AttackedLX) < d) {
-			if (c.PZ && c.HP && (j > e || c.AttackedRX > e)) {
-				return c;
+	getRangeLeftZ(lx, rx, row) {
+		if (row < 1 || row > oS.R) return;
+		const list = this.$[row];
+		let i = 0,
+			len = list.length,
+			zombie,
+			zLX;
+		while (i < len && (zLX = (zombie = list[i++]).AttackedLX) < rx) {
+			if (zombie.PZ && zombie.HP && (zLX > lx || zombie.AttackedRX > lx)) {
+				return zombie;
 			}
 		}
 	},
-	moveTo(g, f, c) {
-		var b = this.$[f];
-		var a = this.$[c];
-		var e = b.length;
-		var d;
-		while (e--) {
-			(o = b[e]).id === g &&
-				(b.splice(e, 1),
-				(o.R = c),
-				a.push(o),
-				(a.sort((i, h) => {
-					return i.AttackedLX - h.AttackedLX;
-				}).RefreshTime = b.RefreshTime =
-					oSym.Now),
-				(e = 0));
+	moveTo(id, oldR, newR) {
+		const oldList = this.$[oldR];
+		const newList = this.$[newR];
+		let i = oldList.length;
+		while (i--) {
+			let z = oldList[i];
+			if (z.id === id) {
+				oldList.splice(i, 1);
+				z.R = newR;
+				newList.push(z);
+				newList.sort((a, b) => a.AttackedLX - b.AttackedLX);
+				newList.RefreshTime = oldList.RefreshTime = oSym.Now;
+				return;
+			}
 		}
 	},
 	traversalOf() {
-		var a;
-		var b = this.$;
-		var j;
-		var l = 0;
-		var d = 0;
-		var k = 1e3;
-		var i;
-		var h;
-		var f = [
-			function (n) {
-				d = 1;
-				k = i;
+		const zRows = this.$;
+		let needsSort = 0;
+		let needsRef = 0;
+		let maxLX = 1000;
+		let curLX;
+
+		// Handlers for zombie status
+		const handlers = [
+			function (z) {
+				// Dead
+				needsRef = 1;
+				maxLX = curLX;
 			},
-			function (n) {
-				(i = n.AttackedLX) > k && (l = d = 1);
-				k = i;
+			function (z) {
+				// Alive/Moved
+				if ((curLX = z.AttackedLX) > maxLX) needsSort = needsRef = 1;
+				maxLX = curLX;
 			},
 		];
-		var e = b.length;
-		var m;
-		var c;
-		var g;
-		(function (r) {
-			var q = (j = b[r]).length;
-			var n = arguments.callee;
-			var p = oT.$[r];
-			var s = oT.$L[r];
-			while (q--) {
-				a = j[q];
-				a.HP && a.PZ && a.ZX < 901 && oT["chkD" + a.WalkDirection](a, r, p, s);
-				!a.HP ? (j.splice(q, 1), f[0](a)) : f[a.ChkActs(a, r, j, q)](a);
+
+		// Process rows recursively to avoid blocking
+		(function processRow(r) {
+			const list = zRows[r];
+			let i = list.length;
+			const triggers = oT.$[r];
+			const triggersL = oT.$L[r];
+
+			while (i--) {
+				let zombie = list[i];
+				if (zombie.HP && zombie.PZ && zombie.ZX < 901) {
+					oT["chkD" + zombie.WalkDirection](zombie, r, triggers, triggersL);
+				}
+
+				if (!zombie.HP) {
+					list.splice(i, 1);
+					handlers[0](zombie);
+				} else {
+					handlers[zombie.ChkActs(zombie, r, list, i)](zombie);
+				}
 			}
-			l
-				? ((l = d = 0),
-					j.sort((u, t) => {
-						return u.AttackedLX - t.AttackedLX;
-					}),
-					(j.RefreshTime = oSym.Now))
-				: d && ((d = 0), (j.RefreshTime = oSym.Now));
-			--r && oSym.addTask(0, n, [r]);
-		})(b.length - 1);
+
+			if (needsSort) {
+				needsSort = needsRef = 0;
+				list.sort((a, b) => a.AttackedLX - b.AttackedLX);
+				list.RefreshTime = oSym.Now;
+			} else if (needsRef) {
+				needsRef = 0;
+				list.RefreshTime = oSym.Now;
+			}
+
+			if (--r) oSym.addTask(0, processRow, [r]);
+		})(zRows.length - 1);
 	},
 };
+
 var oT = {
-	Init(b) {
+	Init(rows) {
 		this.$ = [];
 		this.$L = [];
-		for (var a = b; a; ) {
-			this.$[a] = [];
-			this.$L[a--] = [];
+		let i = rows;
+		while (i) {
+			this.$[i] = [];
+			this.$L[i--] = [];
 		}
 	},
-	add(f, c, g) {
-		if (f <= 0 || f > oS.R) {
-			return;
+	add(row, triggerBox, id) {
+		if (row <= 0 || row > oS.R) return;
+		const list = this.$[row];
+		// triggerBox: [left, right, type?, id]
+		let i = triggerBox.length;
+		while (i--) {
+			let t = triggerBox[i];
+			list.push([t[0], t[1], t[2], id]);
 		}
-		var e = this.$[f];
-		var d = c.length;
-		var b;
-		while (d--) {
-			b = c[d];
-			e.push([b[0], b[1], b[2], g]);
-		}
-		e.sort((i, h) => {
-			return h[1] - i[1];
-		});
-		e.RefreshTime = new Date();
+		list.sort((a, b) => b[1] - a[1]);
+		list.RefreshTime = new Date();
 	},
-	chkD0(g, e, d, h) {
-		var f = g.AttackedLX;
-		var c = 0;
-		var b;
-		var a;
-		while (c < d.length && (b = d[c])[1] >= f) {
-			(a = $P[b[3]]).canTrigger && b[0] <= f && a.TriggerCheck(g, b[2], c);
-			++c;
-		}
-	},
-	chkD1(b, e, c, g) {
-		var j = b.AttackedLX;
-		var h = b.AttackedRX;
-		var f = 0;
-		var m;
-		var l;
-		var d;
-		var a;
-		var k;
-		(l = c.RefreshTime) === g.RefreshTime
-			? (m = g)
-			: ((m = (this.$L[e] = c.slice(0)).sort((n, i) => {
-					return n[0] - i[0];
-				})).RefreshTime = l);
-		while (f < m.length && (d = m[f])[0] <= h) {
-			(a = $P[d[3]]).canTrigger && d[1] >= h && a.TriggerCheck(b, d[2], f);
-			++f;
+	chkD0(zombie, row, triggers, triggersL) {
+		// Check triggers moving Right? (Normal Direction)
+		const attackLX = zombie.AttackedLX;
+		let i = 0;
+		const len = triggers.length;
+		let t;
+		while (i < len) {
+			t = triggers[i];
+			if (!t) {
+				++i;
+				continue;
+			}
+			if (t[1] < attackLX) {
+				break;
+			}
+			let plant = $P[t[3]];
+			if (plant && plant.canTrigger && t[0] <= attackLX) {
+				plant.TriggerCheck(zombie, t[2], i);
+			}
+			++i;
 		}
 	},
-	delP(e) {
-		var b = e.oTrigger;
-		var f = e.id;
-		var d;
-		var a;
-		var c;
-		for (d in b) {
-			for (c = (a = this.$[d]).length; c--; a[c][3] === f && a.splice(c, 1)) {}
-			a.RefreshTime = new Date();
+	chkD1(zombie, row, triggers, triggersL) {
+		// Check triggers moving Left?
+		const attackRX = zombie.AttackedRX;
+		let i = 0,
+			t;
+
+		// Sync triggersL if stale
+		if (triggers.RefreshTime !== triggersL.RefreshTime) {
+			triggersL = (this.$L[row] = triggers.slice(0)).sort((a, b) => a[0] - b[0]);
+			triggersL.RefreshTime = triggers.RefreshTime;
+		}
+
+		while (i < triggersL.length) {
+			t = triggersL[i];
+			if (!t) {
+				++i;
+				continue;
+			}
+			if (t[0] > attackRX) {
+				break;
+			}
+			let plant = $P[t[3]];
+			if (plant && plant.canTrigger && t[1] >= attackRX) {
+				plant.TriggerCheck(zombie, t[2], i);
+			}
+			++i;
 		}
 	},
-	indexOf(j, d) {
-		var f = new RegExp(d + ",", "g");
-		var h = (j.toString() + ",").replace(f, "┢,").replace(/[^,┢]/g, "");
-		var i = 0;
-		var g = 0;
-		var b = [];
-		for (; (g = h.indexOf("┢", g)) > 0; b.push((g++ - i++ - 2) / 3)) {}
-		return b;
+	delP(plant) {
+		const triggers = plant.oTrigger;
+		const id = plant.id;
+		for (let row in triggers) {
+			const list = this.$[row];
+			let i = list.length;
+			while (i--) {
+				if (list[i][3] === id) list.splice(i, 1);
+			}
+			list.RefreshTime = new Date();
+		}
+	},
+	indexOf(arr, val) {
+		// Custom regex-based index finder (legacy implementation kept intact)
+		const re = new RegExp(val + ",", "g");
+		const str = (arr.toString() + ",").replace(re, "┢,").replace(/[^,┢]/g, "");
+		let idx = 0,
+			pos = 0;
+		const indices = [];
+		while ((pos = str.indexOf("┢", pos)) > 0) {
+			indices.push((pos++ - idx++ - 2) / 3);
+		}
+		return indices;
 	},
 };
-var asyncInnerHTML = function (d, c, a) {
-	var b = $n("div");
-	var e = document.createDocumentFragment();
-	b.innerHTML = d;
-	(function (g) {
-		var f = arguments.callee;
-		g--
-			? (e.appendChild(b.firstChild),
-				setTimeout(() => {
-					f(g);
-				}, 0))
-			: c(e, a);
-	})(b.childNodes.length);
+
+var asyncInnerHTML = function (html, callback, args) {
+	const div = $n("div");
+	const frag = document.createDocumentFragment();
+	div.innerHTML = html;
+
+	(function processNodes(count) {
+		if (count--) {
+			frag.appendChild(div.firstChild);
+			setTimeout(() => processNodes(count), 0);
+		} else {
+			callback(frag, args);
+		}
+	})(div.childNodes.length);
 };
-var WhichMouseButton = function (a) {
-	a = window.event || a;
-	var b = $User.Browser;
-	return !b.Gecko ? $SEql(a.button, { 1: 1, 0: b.IE ? 2 : 1, 2: 2, default: 1 }) : $SEql(a.which, { 1: 1, 3: 2, default: 1 });
-};
-var GroundOnmousedown = function (i) {
-	i = window.event || i;
-	var a = ((i.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9;
-	var k = ((i.clientY + EBody.scrollTop || EElement.scrollTop) * 10) / 9;
-	var g = ChosePlantX(a);
-	var h = ChosePlantY(k);
-	var d = g[0];
-	var c = h[0];
-	var f = h[1];
-	var b = g[1];
-	var j = GetAP(a, k, f, b);
-	switch (oS.Chose) {
-		case 1:
-			WhichMouseButton(i) < 2 ? GrowPlant(j[0], d, c, f, b) : (PlayAudio("tap"), CancelPlant());
-			break;
-		case -1:
-			WhichMouseButton(i) < 2 ? (PlayAudio("plant2"), ShovelPlant(j)) : (PlayAudio("tap"), CancelShovel());
+
+var WhichMouseButton = function (e) {
+	e = window.event || e;
+	const b = $User.Browser;
+	// Map buttons to 1 (left), 2 (right), 3 (middle)
+	if (!b.Gecko) {
+		return $SEql(e.button, { 1: 1, 0: b.IE ? 2 : 1, 2: 2, default: 1 });
+	} else {
+		return $SEql(e.which, { 1: 1, 3: 2, default: 1 });
 	}
 };
-var GetAP = function (a, h, d, c) {
-	var f;
-	var i = oGd.$;
-	var e;
-	var g = [];
-	var b;
-	for (
-		f = 0;
-		f < 4;
-		g.push((e = i[d + "_" + c + "_" + f++])), e && !(a < e.pixelLeft || a > e.pixelRight || h < e.pixelTop || h > e.pixelBottom) && (b = e)
-	) {}
-	return [g, b];
-};
-var GroundOnkeydown = function (b) {
-	var a = b || window.event;
 
-	if (a.key === "Escape") {
+var GroundOnmousedown = function (e) {
+	e = window.event || e;
+	const x = ((e.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9;
+	const y = ((e.clientY + EBody.scrollTop || EElement.scrollTop) * 10) / 9;
+
+	const cellX = ChosePlantX(x);
+	const cellY = ChosePlantY(y);
+	const c = cellX[0];
+	const r = cellY[0];
+	const rType = cellY[1];
+	const cType = cellX[1];
+
+	const ap = GetAP(x, y, rType, cType);
+
+	switch (oS.Chose) {
+		case 1: // Planting
+			WhichMouseButton(e) < 2 ? GrowPlant(ap[0], c, r, rType, cType) : (PlayAudio("tap"), CancelPlant());
+			break;
+		case -1: // Shoveling
+			WhichMouseButton(e) < 2 ? (PlayAudio("plant2"), ShovelPlant(ap)) : (PlayAudio("tap"), CancelShovel());
+	}
+};
+
+var GetAP = function (x, y, r, c) {
+	const grid = oGd.$;
+	let i = 0,
+		plant,
+		result = [],
+		topPlant;
+
+	while (i < 4) {
+		plant = grid[r + "_" + c + "_" + i++];
+		if (plant && !(x < plant.pixelLeft || x > plant.pixelRight || y < plant.pixelTop || y > plant.pixelBottom)) {
+			topPlant = plant;
+		}
+		result.push(plant);
+	}
+	return [result, topPlant];
+};
+
+var GroundOnkeydown = function (e) {
+	e = e || window.event;
+
+	if (e.key === "Escape") {
 		switch (oS.Chose) {
 			case 1:
 				CancelPlant();
@@ -1590,239 +1759,186 @@ var GroundOnkeydown = function (b) {
 	}
 
 	if (!oS.Chose) {
-		KeyBoardGrowPlant(a);
+		KeyBoardGrowPlant(e);
 	}
 };
 
-var KeyBoardGrowPlant = function (e, a) {
-	a = a || 0;
+var KeyBoardGrowPlant = function (e, mode) {
+	mode = mode || 0;
 	let plantIndex = -1;
 
-	// Handle top row numbers (Digit0–Digit9)
 	if (/^Digit[0-9]$/.test(e.code)) {
 		plantIndex = parseInt(e.code.replace("Digit", ""));
-	}
-
-	// Handle numpad numbers (Numpad0–Numpad9)
-	else if (/^Numpad[0-9]$/.test(e.code)) {
+	} else if (/^Numpad[0-9]$/.test(e.code)) {
 		plantIndex = parseInt(e.code.replace("Numpad", ""));
 	}
 
-	if (plantIndex !== -1 && a === 0) {
-		// Adjust so 0 = slot 9 (10th slot), 1–9 = slot 0–8
+	if (plantIndex !== -1 && mode === 0) {
 		plantIndex = plantIndex === 0 ? 9 : plantIndex - 1;
 		ChosePlant({ clientX: 450, clientY: 300 }, plantIndex.toString());
 	}
 };
 
 var GroundOnmousemove = function () {};
-var GroundOnmousemove1 = function (j) {
-	j = window.event || j;
-	var d = ((j.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9;
-	var b = ((j.clientY + EBody.scrollTop || EElement.scrollTop) * 10) / 9;
-	var k = oS.ChoseCard;
-	var h = ChosePlantX(d);
-	var i = ChosePlantY(b);
-	var f = h[0];
-	var c = i[0];
-	var g = i[1];
-	var a = h[1];
-	var m = GetAP(d, b, g, a);
-	var l = ArCard[k].PName.prototype;
+
+var GroundOnmousemove1 = function (e) {
+	e = window.event || e;
+	const x = ((e.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9;
+	const y = ((e.clientY + EBody.scrollTop || EElement.scrollTop) * 10) / 9;
+
+	const cardIdx = oS.ChoseCard;
+	const cellX = ChosePlantX(x);
+	const cellY = ChosePlantY(y);
+	const c = cellX[0];
+	const r = cellY[0];
+	const rType = cellY[1];
+	const cType = cellX[1];
+
+	const ap = GetAP(x, y, rType, cType);
+	const proto = ArCard[cardIdx].PName.prototype;
+
 	SetStyle($("MovePlant"), {
-		left: d - 0.5 * (l.beAttackedPointL + l.beAttackedPointR) + "px",
-		top: b + 20 - l.height + "px",
+		left: x - 0.5 * (proto.beAttackedPointL + proto.beAttackedPointR) + "px",
+		top: y + 20 - proto.height + "px",
 	});
-	l.CanGrow(m[0], g, a)
-		? SetStyle($("MovePlantAlpha"), {
-				visibility: "visible",
-				left: f + l.GetDX() + "px",
-				top: c - l.height + l.GetDY(g, a, m[0]) + "px",
-			})
-		: SetHidden($("MovePlantAlpha"));
+
+	if (proto.CanGrow(ap[0], rType, cType)) {
+		SetStyle($("MovePlantAlpha"), {
+			visibility: "visible",
+			left: c + proto.GetDX() + "px",
+			top: r - proto.height + proto.GetDY(rType, cType, ap[0]) + "px",
+		});
+	} else {
+		SetHidden($("MovePlantAlpha"));
+	}
 };
-var GroundOnmousemove2 = function (k) {
-	k = window.event || k;
-	var d = k.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
-	var b = k.clientY + EBody.scrollTop || EElement.scrollTop;
-	var m = oS.ChoseCard;
-	var h = ChosePlantX(d);
-	var i = ChosePlantY(b);
-	var f = h[0];
-	var c = i[0];
-	var g = i[1];
-	var a = h[1];
-	var n = GetAP(d, b, g, a);
-	var j = n[1];
-	var l = j ? j.id : "";
-	var p = oS.MPID;
-	p !== l && (p && SetAlpha($(p).childNodes[1], 100, 1), (oS.MPID = l) && SetAlpha($(l).childNodes[1], 60, 0.6));
+
+var GroundOnmousemove2 = function (e) {
+	e = window.event || e;
+	const x = e.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
+	const y = e.clientY + EBody.scrollTop || EElement.scrollTop;
+
+	const cellX = ChosePlantX(x);
+	const cellY = ChosePlantY(y);
+	const rType = cellY[1];
+	const cType = cellX[1];
+
+	const ap = GetAP(x, y, rType, cType);
+	const plant = ap[1];
+	const plantId = plant ? plant.id : "";
+	const prevId = oS.MPID;
+
+	if (prevId !== plantId) {
+		if (prevId) SetAlpha($(prevId).childNodes[1], 100, 1);
+		if ((oS.MPID = plantId)) SetAlpha($(plantId).childNodes[1], 60, 0.6);
+	}
+
 	SetStyle($("tShovel"), {
-		left: ((d - 15) * 10) / 9 + "px",
-		top: ((b - 16) * 10) / 9 + "px",
+		left: ((x - 15) * 10) / 9 + "px",
+		top: ((y - 16) * 10) / 9 + "px",
 	});
 };
+
 var DisplayZombie = function () {
 	SetVisible($("bShowHandBook"));
-	/* SetVisible($("bMainMenu")); */
-	var d = oP.AZ.slice(0);
-	var b = d.length;
-	var c;
-	var g;
-	var h = $("dZombie");
-	var f = [];
-	var e = [];
-	var a;
-	while (b--) {
-		d[b][0].prototype.CanDiaplay === 0 && d.splice(b, 1);
+
+	const azCopy = oP.AZ.slice(0);
+	let i = azCopy.length;
+	const zombieDiv = $("dZombie");
+	const positions = [];
+	const htmlList = [];
+
+	while (i--) {
+		if (azCopy[i][0].prototype.CanDiaplay === 0) azCopy.splice(i, 1);
 	}
-	c = b = d.length;
-	while (c--) {
-		f.push(Math.floor(150 + Math.random() * 444));
+
+	let count = (i = azCopy.length);
+	while (count--) {
+		positions.push(Math.floor(150 + Math.random() * 444));
 	}
-	f.sort((j, i) => {
-		return j - i;
-	});
-	while (b) {
-		g = d[(a = Math.floor(Math.random() * b))][0].prototype;
-		g.CanDisplay
-			? (d.splice(a, 1),
-				(e[b--] = g.getHTML(
-					"",
-					Math.floor(50 + Math.random() * 201) - g.width * 0.5,
-					f[b] - g.height,
-					1,
-					"block",
-					"auto",
-					g.GetDTop,
-					g.PicArr[g.StandGif]
-				)))
-			: --b;
+	positions.sort((a, b) => a - b);
+
+	while (i) {
+		let randIdx = Math.floor(Math.random() * i);
+		let proto = azCopy[randIdx][0].prototype;
+
+		if (proto.CanDisplay) {
+			azCopy.splice(randIdx, 1);
+			htmlList[i--] = proto.getHTML(
+				"",
+				Math.floor(50 + Math.random() * 201) - proto.width * 0.5,
+				positions[i] - proto.height,
+				1,
+				"block",
+				"auto",
+				proto.GetDTop,
+				proto.PicArr[proto.StandGif]
+			);
+		} else {
+			--i;
+		}
 	}
-	asyncInnerHTML(e.join(""), (i) => {
-		h.appendChild(i);
+
+	asyncInnerHTML(htmlList.join(""), (frag) => {
+		zombieDiv.appendChild(frag);
 	});
 };
+
 var AutoSelectCard = function () {
-	var c = oS.ArCard;
-	var b = -1;
-	var a = c.length;
-	while (++b < a) {
-		SelectCard(c[b].prototype.EName);
+	const cards = oS.ArCard;
+	let i = -1;
+	const len = cards.length;
+	while (++i < len) {
+		SelectCard(cards[i].prototype.EName);
 	}
 };
+
 var InitPCard = function () {
-	var d = "";
-	var f;
-	var e = oS.ArCard;
-	var a = e.length;
-	var b = 0;
-	var c;
-	while (b < a) {
-		f = e[b];
-		c = f.prototype;
-		if (!c.CanSelect) {
-			++b;
+	let html = "";
+	const cards = oS.ArCard;
+	const len = cards.length;
+	let i = 0;
+
+	while (i < len) {
+		let card = cards[i];
+		let proto = card.prototype;
+		if (!proto.CanSelect) {
+			++i;
 			continue;
 		}
-		ArPCard[(EName = c.EName)] = { Select: 0, PName: f };
-		d +=
-			'<div class="span1" id="Card' +
-			EName +
-			'" onmouseout="SetHidden($(\'dTitle\'))" onmousemove="ViewCardTitle(' +
-			EName +
-			',event)" onclick="SelectCard(\'' +
-			EName +
-			'\')"><img src="' +
-			c.PicArr[0] +
-			'"><span class="span2">' +
-			c.SunNum +
-			"</span></div>";
-		b++ % 6 === 5 && (d += "<br>");
+		let name = proto.EName;
+		ArPCard[name] = { Select: 0, PName: card };
+		html += `<div class="span1" id="Card${name}" onmouseout="SetHidden($('dTitle'))" onmousemove="ViewCardTitle(${name},event)" onclick="SelectCard('${name}')"><img src="${proto.PicArr[0]}"><span class="span2">${proto.SunNum}</span></div>`;
+		if (i++ % 6 === 5) html += "<br>";
 	}
-	$("dPCard").innerHTML = d;
+	$("dPCard").innerHTML = html;
 };
+
 var InitHandBookPCard = function () {
 	PlayAudio("gravebutton");
-	var d = "";
-	var g;
-	var f;
-	var e = [
-		oPeashooter,
-		oSunFlower,
-		oCherryBomb,
-		oWallNut,
-		oPotatoMine,
-		oSnowPea,
-		oChomper,
-		oRepeater,
-		oPuffShroom,
-		oSunShroom,
-		oFumeShroom,
-		oGraveBuster,
-		oHypnoShroom,
-		oScaredyShroom,
-		oIceShroom,
-		oDoomShroom,
-		oLilyPad,
-		oSquash,
-		oThreepeater,
-		oTangleKlep,
-		oJalapeno,
-		oSpikeweed,
-		oTorchwood,
-		oTallNut,
-		oCactus,
-		oPlantern,
-		oSplitPea,
-		oStarfruit,
-		oPumpkinHead,
-		oFlowerPot,
-		oCoffeeBean,
-		oGarlic,
-		oSeaShroom,
-		oOxygen,
-		ostar,
-		oTTS,
-		oGun,
-		oSeaAnemone,
-		oGatlingPea,
-		oGloomShroom,
-		oTwinSunflower,
-		oSpikerock,
-		oTenManNut,
-		oSnowRepeater,
-		oCattail,
-		oLotusRoot,
-		oIceFumeShroom,
-		oLaserBean,
-		oBigChomper,
-		oFlamesMushroom,
-		oBalloon,
-	];
-	var a = e.length;
-	var b = 0;
-	var c;
-	while (b < a) {
-		g = e[b];
-		c = g.prototype;
-		f = c.EName;
-		d += '<div class="span1" onclick="ViewProducePlant(' + f + ')"><img src="' + c.PicArr[0] + '"><div class="span2">' + c.SunNum + "</div></div>";
-		b++ % 6 === 5 && (d += "<br>");
+	let html = "";
+	let i = 0;
+	const len = allPlantsArray().length;
+
+	while (i < len) {
+		let proto = allPlantsArray()[i].prototype;
+		let name = proto.EName;
+		html += `<div class="span1" onclick="ViewProducePlant(${name})"><img src="${proto.PicArr[0]}"><div class="span2">${proto.SunNum}</div></div>`;
+		if (i++ % 6 === 5) html += "<br>";
 	}
-	$("dHandBookPCard").innerHTML = d;
-	ViewProducePlant(e[0]);
+
+	$("dHandBookPCard").innerHTML = html;
+	ViewProducePlant(allPlantsArray()[0]);
 	$("dHandBookPZ").className = "WindowFrame Almanac_PlantBack";
 	SetVisible($("dHandBookPZ"));
 	SetNone($("dHandBookZ"));
 	SetBlock($("dHandBookP"));
 };
+
 var InitHandBookZCard = function () {
 	PlayAudio("gravebutton");
-	var d = "";
-	var g;
-	var f;
-	var e = [
+	let html = "";
+	const zombies = [
 		oZombie,
 		oConeheadZombie,
 		oPoleVaultingZombie,
@@ -1860,698 +1976,794 @@ var InitHandBookZCard = function () {
 		oTrashZombie,
 		oLionDanceZombie,
 	];
-	var a = e.length;
-	var b = 0;
-	var c;
-	while (b < a) {
-		g = e[b];
-		c = g.prototype;
-		f = c.EName;
-		d += '<div class="span1" onclick="ViewProduceZombie(' + f + ')"><img src="' + c.PicArr[0] + '"><div class="span2">' + c.SunNum + "</div></div>";
-		b++;
+	let i = 0;
+	const len = zombies.length;
+
+	while (i < len) {
+		let proto = zombies[i].prototype;
+		let name = proto.EName;
+		html += `<div class="span1" onclick="ViewProduceZombie(${name})"><img src="${proto.PicArr[0]}"><div class="span2">${proto.SunNum}</div></div>`;
+		i++;
 	}
-	$("dHandBookZCard").innerHTML = d;
-	ViewProduceZombie(e[0]);
+
+	$("dHandBookZCard").innerHTML = html;
+	ViewProduceZombie(zombies[0]);
 	$("dHandBookPZ").className = "WindowFrame Almanac_ZombieBack";
 	SetVisible($("dHandBookPZ"));
 	SetNone($("dHandBookP"));
 	SetBlock($("dHandBookZ"));
 };
+
 var lastB;
-(ViewProducePlant = function (b) {
-	if (lastB !== b) {
-		lastB = b;
-		var a = b.prototype;
+var ViewProducePlant = function (plantClass) {
+	if (lastB !== plantClass) {
+		lastB = plantClass;
+		const proto = plantClass.prototype;
 		PlayAudio("tap");
-		$("pHandBookPlant").style.backgroundImage = "url(" + a.PicArr[a.AlmanacGif] + ")";
-		$("pHandBookPlant").style.backgroundPosition = a.BookHandPosition || "50% " + (45 + a.height / 4) + "%";
-		$("dProducePlant").innerHTML = a.Produce;
-		innerText($("dHandBookPlantName"), a.CName);
-		innerText($("spSunNum"), a.SunNum);
-		innerText($("spCoolTime"), a.coolTime + "s");
-		$("pPlantBack").style.background = "url('images/interface/Almanac_Ground" + a.BookHandBack + ".jpg')";
-		//	$("pPlantBack").style.backgroundPosition = -200 * a.BookHandBack + "px 0";
+		$("pHandBookPlant").style.backgroundImage = "url(" + proto.PicArr[proto.StaticGif] + ")";
+		$("pHandBookPlant").style.backgroundPosition = "50% " + (60 + proto.height / 4) + "%";
+		$("dProducePlant").innerHTML = proto.Produce;
+		innerText($("dHandBookPlantName"), proto.CName);
+		innerText($("spSunNum"), proto.SunNum);
+		innerText($("spCoolTime"), proto.coolTime + "s");
+		$("pPlantBack").style.backgroundPosition = -200 * proto.BookHandBack + "px 0";
 	}
-}),
-	(ViewProduceZombie = function (b) {
-		PlayAudio("tap");
-		var a = b.prototype;
-		$("pHandBookZombie").style.background = "url(" + a.PicArr[a.AlmanacGif] + ") no-repeat scroll " + a.BookHandPosition;
-		$("dProduceZombie").innerHTML = a.Produce;
-		innerText($("dHandBookZombieName"), a.CName);
-		$("pZombieBack").style.background = "url('images/interface/Almanac_Ground" + a.BookHandBack + ".jpg')";
-	}),
-	(ViewCardTitle = function (b, c) {
-		c = c || window.event;
-		var f = $("dTitle");
-		var a = b.prototype;
-		f.innerHTML =
-			a.CName +
-			"<br>cooldown: " +
-			a.coolTime +
-			"s<br>" +
-			(oS.DKind && a.night
-				? '<span style="color:#F00">Nocturnal - sleeps during the day</span><br>' + a.Tooltip
-				: a.Tooltip || '<span style="text-align:left">' + a.Produce + "</span>");
-		SetStyle(f, {
-			left: c.clientX + (EBody.scrollLeft || EElement.scrollLeft) - 3 + "px",
-			top: c.clientY + 18 + EBody.scrollTop || EElement.scrollTop + "px",
-			visibility: "visible",
-		});
-	}),
-	(ViewGenericMouseover = function (b, c) {
-		// b is innerhtml, c is event
-		c = c || window.event;
-		var a = $("dTitle");
-		a.innerHTML = b;
-		SetStyle(a, {
-			left: c.clientX + (EBody.scrollLeft || EElement.scrollLeft) - 3 + "px",
-			top: c.clientY + 18 + (EBody.scrollTop || EElement.scrollTop) + "px",
-			visibility: "visible",
-		});
-	}),
-	(SelectCard = function (c) {
-		PlayAudio("tap");
-		var h = $("Card" + c).childNodes;
-		var f = h[0];
-		var b = ArPCard[c];
-		var i = b.PName.prototype;
-		var g;
-		var a;
-		var j;
-		var e = $("btnOK");
-		if (!b.Select) {
-			if (!(ArPCard.SelNum |= 0)) {
-				e.disabled = "";
-				e.style.color = "#FC6";
-			} else if (ArPCard.SelNum > 9) {
-				return;
-			}
-			++ArPCard.SelNum;
-			b.Select = 1;
-			oS.StaticCard &&
-				((g = NewEle(
-					"dCard" + c,
-					"div",
-					"",
-					{
-						onclick() {
-							SelectCard(c);
-						},
-					},
-					$("dCardList")
-				)),
-				NewImg(0, f.src, "width:100px;height:120px", g),
-				innerText(NewEle("sSunNum" + c, "span", 0, 0, g), i.SunNum),
-				(f.style.filter = "grayscale(1) brightness(1.15)"));
-		} else {
-			b.Select = 0;
-			!--ArPCard.SelNum && ((e.disabled = "disabled"), (e.style.color = "#888"));
-			(g = $("dCard" + c)).onclick = null;
-			ClearChild(g.firstChild, g.childNodes[1], g.lastChild, g);
-			f.style.filter = "grayscale(0) brightness(1)";
+};
+
+var ViewProduceZombie = function (zombieClass) {
+	PlayAudio("tap");
+	const proto = zombieClass.prototype;
+	$("pHandBookZombie").style.background = "url(" + proto.PicArr[proto.StaticGif] + ") no-repeat scroll " + proto.BookHandPosition;
+	$("dProduceZombie").innerHTML = proto.Produce;
+	innerText($("dHandBookZombieName"), proto.CName);
+	$("pZombieBack").style.backgroundPosition = -200 * proto.BookHandBack + "px 0";
+};
+
+var ViewCardTitle = function (plantClass, e) {
+	e = e || window.event;
+	const titleDiv = $("dTitle");
+	const proto = plantClass.prototype;
+	let html = proto.CName + "<br>cooldown: " + proto.coolTime + "s<br>";
+
+	if (oS.DKind && proto.night) {
+		html += '<span style="color:#F00">Nocturnal - sleeps during the day</span><br>' + proto.Tooltip;
+	} else {
+		html += proto.Tooltip || '<span style="text-align:left">' + proto.Produce + "</span>";
+	}
+
+	titleDiv.innerHTML = html;
+	SetStyle(titleDiv, {
+		left: e.clientX + (EBody.scrollLeft || EElement.scrollLeft) - 3 + "px",
+		top: e.clientY + 18 + EBody.scrollTop || EElement.scrollTop + "px",
+		visibility: "visible",
+	});
+};
+
+var ViewGenericMouseover = function (content, e) {
+	e = e || window.event;
+	const titleDiv = $("dTitle");
+	titleDiv.innerHTML = content;
+	SetStyle(titleDiv, {
+		left: e.clientX + (EBody.scrollLeft || EElement.scrollLeft) - 3 + "px",
+		top: e.clientY + 18 + (EBody.scrollTop || EElement.scrollTop) + "px",
+		visibility: "visible",
+	});
+};
+
+var SelectCard = function (name, retry) {
+	PlayAudio("tap");
+	retry |= 0;
+
+	const cardDom = $("Card" + name);
+	const btnOK = $("btnOK");
+	const cardObj = ArPCard && ArPCard[name];
+
+	if (!cardDom || !btnOK || !cardObj || !cardObj.PName) {
+		if (retry < 50 && typeof oSym !== "undefined" && oSym && typeof oSym.addTask === "function") {
+			oSym.addTask(1, SelectCard, [name, retry + 1]);
 		}
-	}),
-	(ResetSelectCard = function () {
-		var b;
-		var a = $("btnOK");
-		for (b in ArPCard) {
-			ArPCard[b].Select && SelectCard(b);
-		}
-		a.disabled = "disalbed";
-		a.style.color = "#888";
-	}),
-	(LetsGO = function () {
-		var e = $("dCardList");
-		var g = 0;
-		var k = e.childNodes.length;
-		var f;
-		var h;
-		var l;
-		var c;
-		var j;
-		var a;
-		var b = document.body;
-		SetStyle($("dTop"), { left: "105px", top: 0 });
-		e.style.left = 0;
-		SetVisible(e);
-		while (g < k) {
-			(function (d) {
-				f = (j = e.childNodes[d]).id.substr(5);
-				l = (h = ArPCard[f].PName).prototype;
-				j.onclick = function (i) {
-					ChosePlant(i, d);
-				};
-				j.onmouseover = function () {
-					SetVisible($("dTitle"));
-					ViewPlantTitle((oS.MCID = d));
-				};
-				j.onmouseout = function () {
-					SetHidden($("dTitle"));
-				};
-				j.firstChild.style.filter = "grayscale(1) brightness(1.15)";
-				(a = j.lastChild).id = "sSunNum" + d;
-				innerText(a, l.SunNum);
-				ArCard.push({ DID: j.id, CDReady: 0, SunReady: 0, PName: h });
-			})(g++);
-		}
-		b.onkeydown = function (d) {
-			GroundOnkeydown(d);
-		};
-		b.onmousedown = function (d) {
-			GroundOnmousedown(d);
-		};
-		b.onmousemove = function (d) {
-			GroundOnmousemove(d);
-		};
-		SetVisible(e);
-		!oS.BrainsNum && CustomSpecial(oBrains, oS.R - 1, -2);
-		(
-			oS.StartGame ||
-			function () {
-				StopMusic();
-				PlayMusic((oS.LoadMusic = oS.StartGameMusic));
-				NewMusic((oS.LoadMusic = oS.StartGameMusic));
-				SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
-				oS.InitLawnMower();
-				PrepareGrowPlants(() => {
-					oP.Monitor(oS.Monitor, oS.UserDefinedFlagFunc);
-					BeginCool();
-					oS.DKind && AutoProduceSun(25);
-					oSym.addTask(
-						1500,
-						() => {
-							oP.AddZombiesFlag();
-							SetVisible($("dFlagMeterContent"));
-						},
-						[]
-					);
-				});
-			}
-		)();
-		oS.StartTime = oSym.Now;
-	}),
-	(ViewPlantTitle = function (b) {
-		var f = $("dTitle");
-		var e = ArCard[b];
-		var c = e.PName.prototype;
-		var a = c.CName;
-		!oS.CardKind && ((a += "<br>cooldown: " + c.coolTime + "s<br>" + c.Tooltip), !e.CDReady && (a += '<br><span style="color:#F00">recharging</span>'));
-		!e.SunReady && (a += '<br><span style="color:#F00">not enough sun</span>');
-		f.innerHTML = a;
-		SetStyle(f, { top: 60 * b + "px", left: EDAlloffsetLeft + 100 + "px" });
-	}),
-	(BeginCool = function () {
-		var b = ArCard.length;
-		var c;
-		var d;
-		var a;
-		var e;
-		while (b--) {
-			a = (c = (d = ArCard[b]).PName.prototype).coolTime;
-			e = c.SunNum;
-			switch (a) {
-				case 0:
-				case 7.5:
-					d.CDReady = 1;
-					e <= oS.SunNum && ((d.SunReady = 1), ($(d.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)"));
-					break;
-				case 30:
-					DoCoolTimer(b, 20);
-					break;
-				default:
-					DoCoolTimer(b, 35);
-			}
-		}
-	}),
-	(ImmediatelyCool = function () {
-		var b = ArCard.length;
-		var c;
-		var d;
-		var a;
-		var e;
-		while (b--) {
-			a = (c = (d = ArCard[b]).PName.prototype).coolTime;
-			e = c.SunNum;
-			d.CDReady = 1;
-			d.SunReady = 1;
-			$(d.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)";
-		}
-	}),
-	(MonitorCard = function (d) {
-		var b = ArCard.length;
-		var c;
-		var a = Number(ESSunNum.innerHTML);
-		a !== oS.SunNum && (oS.SunNum = Math.min(a, oS.SunNum));
-		if (oS.Chose < 1) {
-			while (b--) {
-				(c = (d = ArCard[b]).PName.prototype).SunNum > oS.SunNum
-					? (d.SunReady && (d.SunReady = 0), ($(d.DID).childNodes[0].style.filter = "grayscale(1) brightness(1.15)"))
-					: (!d.SunReady && (d.SunReady = 1), d.CDReady && ($(d.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)"));
-			}
-		} else {
-			while (b--) {
-				(c = (d = ArCard[b]).PName.prototype).SunNum > oS.SunNum ? d.SunReady && (d.SunReady = 0) : !d.SunReady && (d.SunReady = 1);
-			}
-		}
-		ViewPlantTitle(oS.MCID);
-	}),
-	(DoCoolTimer = function (c, b) {
-		var a = $(ArCard[c].DID);
-		NewEle("dCD1" + c, "span", "position:absolute;left:22px;top:22px;font-size:18px;font-weight:500;font-family:Verdana;color:#000", "", a);
-		NewEle("dCD2" + c, "span", "position:absolute;left:20px;top:20px;font-size:18px;font-weight:500;font-family:Verdana;color:#FF0", "", a);
-		(function (d, e) {
-			d > 0
-				? (innerText($("dCD1" + e), d), innerText($("dCD2" + e), d), oSym.addTask(50, arguments.callee, [(d - 0.5).toFixed(1), e]))
-				: (ClearChild($("dCD1" + e), $("dCD2" + e)), (ArCard[e].CDReady = 1), MonitorCard());
-		})(b, c);
-	}),
-	(ChosePlant = function (h, d) {
-		// PlayAudio("seedlift");
-		var g = ArCard[(oS.ChoseCard = d)];
-		if (!(g.CDReady && g.SunReady)) {
-			PlayAudio("buzzer");
+		return;
+	}
+
+	const cardEle = cardDom.childNodes;
+	const imgEle = cardEle && cardEle[0];
+	const proto = cardObj.PName.prototype;
+	if (!imgEle) {
+		return;
+	}
+
+	if (!cardObj.Select) {
+		if (!(ArPCard.SelNum |= 0)) {
+			btnOK.disabled = "";
+			btnOK.style.color = "#FC6";
+		} else if (ArPCard.SelNum > 9) {
 			return;
 		}
-		PlayAudio("seedlift");
-		h = window.event || h;
-		var b = h.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
-		var a = h.clientY + EBody.scrollTop || EElement.scrollTop;
-		var j = g.PName.prototype;
-		var e = ArCard.length;
-		var f;
-		var c = j.PicArr;
-		oS.Chose = 1;
-		!oS.CardKind
-			? EditImg(
-					NewImg(
-						"MovePlant",
-						c[j.StaticGif],
-						"left:" + b - 0.5 * (j.beAttackedPointL + j.beAttackedPointR) + "px;top:" + a + 20 - j.height + "px;z-index:254",
-						EDAll
-					).cloneNode(false),
-					"MovePlantAlpha",
-					"",
-					{
-						visibility: "hidden",
-						filter: "alpha(opacity=40)",
-						opacity: 0.4,
-						zIndex: 30,
-					},
-					EDAll
-				)
-			: (NewImg(
-					"MovePlant",
-					j.PicArr[j.StandGif],
-					"left:" + (b - 0.5 * (j.beAttackedPointL + j.beAttackedPointR)) + "px;top:" + (a + 20 - j.height) + "px;z-index:254",
-					EDAll
-				),
-				NewImg("MovePlantAlpha", j.PicArr[j.StandGif], "visibility:hidden;filter:alpha(opacity=40);opacity:0.4;z-index:30", EDAll));
-		while (e--) {
-			$(ArCard[e].DID).childNodes[0].style.filter = "grayscale(1) brightness(1.15)";
-		}
-		SetHidden($("dTitle"));
-		GroundOnmousemove = GroundOnmousemove1;
-	}),
-	(CancelPlant = function () {
-		ClearChild($("MovePlant"), $("MovePlantAlpha"));
-		oS.Chose = 0;
-		MonitorCard();
-		GroundOnmousemove = function () {};
-	}),
-	(ShovelPlant = function (a) {
-		PlayAudio("plant2");
-		var b = a[0];
-		var c = a[1];
-		c && (c.PKind || !(b[1] || b[2])) && (c.Die(), (oS.MPID = ""));
-		CancelShovel();
-	}),
-	(ChoseShovel = function (a) {
-		PlayAudio("shovel");
-		WhichMouseButton(a) < 2 &&
-			(SetHidden($("imgShovel")),
-			NewImg(
-				"tShovel",
-				"images/interface/Shovel/0.gif",
-				"left:" + (a.clientX - 10) + "px;top:" + (a.clientY + document.body.scrollTop - 17) + "px;z-index:1",
-				EDAll
-			),
-			(oS.Chose = -1),
-			(GroundOnmousemove = GroundOnmousemove2),
-			StopBubble(a));
-	}),
-	(CancelShovel = function (a) {
-		var b = oS.MPID;
-		ClearChild($("tShovel"));
-		oS.Chose = 0;
-		SetVisible($("imgShovel"));
-		b && SetAlpha($(b).childNodes[1], 100, 1);
-		GroundOnmousemove = function () {};
-	}),
-	(StopBubble = function (a) {
-		window.event ? (event.cancelBubble = true) : a.stopPropagation();
-	}),
-	(GrowPlant = function (l, d, c, e, b) {
-		var j = oS.ChoseCard;
-		var f = ArCard[j];
-		var h = f.PName;
-		var k = h.prototype;
-		var i = k.coolTime;
-		var a;
-		var g = oGd.$LF[e];
+		++ArPCard.SelNum;
+		cardObj.Select = 1;
 
-		// Check if the plant can grow at the selected location
-		if (k.CanGrow(l, e, b)) {
-			// Play planting audio based on soil type
-			PlayAudio(g !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water");
-
-			// Plant the selected plant at the specified location
-			!oS.CardKind
-				? new h().Birth(d, c, e, b, l)
-				: asyncInnerHTML(
-						(a = new h()).CustomBirth(e, b, 0, "auto"),
-						(n, m) => {
-							EDPZ.appendChild(n);
-							m.Birth();
-						},
-						a
-					);
-
-			// Deduct sun points based on plant's cost
-			innerText(ESSunNum, (oS.SunNum -= k.SunNum));
-
-			// Start cooldown timer for the plant
-			i && ((f.CDReady = 0), DoCoolTimer(j, k.coolTime));
-
-			// Show planting animation
-			oSym.addTask(20, SetHidden, [
-				SetStyle(g !== 2 ? $("imgGrowSoil") : $("imgGrowSpray"), {
-					left: d - 30 + "px",
-					top: c - 30 + "px",
-					zIndex: 3 * e + 1,
-					visibility: "visible",
-				}),
-			]);
-
-			// List of seed plants
-			const seedPlants = [
-				oSeedPeashooter,
-				oSeedSnowPea,
-				oSeedSquash,
-				oSeedPotatoMine,
-				oSeedWallNut,
-				oSeedRepeater2,
-				oSeedHypnoShroom,
-				oSeedPuffShroom,
-				oSeedPumpkinHead,
-				oSeedPlantern,
-				oSeedThreepeater,
-				oSeedTallNut,
-				oSeedTorchwood,
-				oSeedLilyPad,
-				oSeedCherryBomb,
-				oSeedChomper,
-				oSeedRepeater,
-				oSeedGarlic,
-				oSeedScaredyShroom,
-				oSeedBlover,
-				oSeedStarfruit,
-				oSeedCactus,
-				oSeedFumeShroom,
-				oSeedDoomShroom,
-				oSeedSeaShroom,
-				oSeedJalapeno,
-				oSeedTangleKelp,
-				oSeedIceShroom,
-				oSeedGloomShroom,
-			];
-			// Check if the chosen plant is a seed variant
-			if (seedPlants.includes(h)) {
-				// Hide the card instead of removing it
-				SetHidden($(f.DID));
+		if (oS.StaticCard) {
+			const cardList = $("dCardList");
+			if (!cardList) {
+				return;
 			}
+			const newCard = NewEle(
+				"dCard" + name,
+				"div",
+				"",
+				{
+					onclick() {
+						SelectCard(name);
+					},
+				},
+					cardList
+			);
+			NewImg(0, imgEle.src, "width:100px;height:120px", newCard);
+			innerText(NewEle("sSunNum" + name, "span", 0, 0, newCard), proto.SunNum);
+			imgEle.style.filter = "grayscale(1) brightness(1.15)";
 		}
+	} else {
+		cardObj.Select = 0;
+		if (!--ArPCard.SelNum) {
+			btnOK.disabled = "disabled";
+			btnOK.style.color = "#888";
+		}
+		const newCard = $("dCard" + name);
+		if (newCard) {
+			newCard.onclick = null;
+			ClearChild(newCard.firstChild, newCard.childNodes[1], newCard.lastChild, newCard);
+		}
+		imgEle.style.filter = "grayscale(0) brightness(1)";
+	}
+};
 
-		// Clear plant selection
-		CancelPlant();
-	});
+var ResetSelectCard = function () {
+	const btnOK = $("btnOK");
+	for (let name in ArPCard) {
+		if (ArPCard[name].Select) SelectCard(name);
+	}
+	btnOK.disabled = "disalbed";
+	btnOK.style.color = "#888";
+};
 
-(AutoProduceSun = function (a) {
-	//           console.log("ROBLNET13 on github")
-	AppearSun(GetX(Math.floor(1 + Math.random() * oS.C)), GetY(Math.floor(1 + Math.random() * oS.R)), a, 1);
-	oSym.addTask(Math.floor(9 + Math.random() * 3) * 100, AutoProduceSun, [a]);
-}),
-	(AppearSun = function (h, f, e, a) {
-		var b;
-		var d;
-		var g = "Sun" + Math.random();
-		var c = "cursor:url(images/interface/Pointer.cur),pointer;z-index:25;left:" + h + "px;";
-		switch (e) {
-			case 25:
-				c += "width:78px;height:78px";
-				b = 39;
+var LetsGO = function () {
+	const cardListDiv = $("dCardList");
+	let i = 0;
+	const len = cardListDiv.childNodes.length;
+	const body = document.body;
+
+	SetStyle($("dTop"), { left: "105px", top: 0 });
+	cardListDiv.style.left = 0;
+	SetVisible(cardListDiv);
+
+	while (i < len) {
+		(function (idx) {
+			const ele = cardListDiv.childNodes[idx];
+			const name = ele.id.substr(5);
+			const cardData = ArPCard[name].PName;
+			const proto = cardData.prototype;
+
+			ele.onclick = function (e) {
+				ChosePlant(e, idx);
+			};
+			ele.onmouseover = function () {
+				SetVisible($("dTitle"));
+				ViewPlantTitle((oS.MCID = idx));
+			};
+			ele.onmouseout = function () {
+				SetHidden($("dTitle"));
+			};
+
+			ele.firstChild.style.filter = "grayscale(1) brightness(1.15)";
+			ele.lastChild.id = "sSunNum" + idx;
+			innerText(ele.lastChild, proto.SunNum);
+			ArCard.push({ DID: ele.id, CDReady: 0, SunReady: 0, PName: cardData });
+		})(i++);
+	}
+
+	body.onkeydown = function (e) {
+		GroundOnkeydown(e);
+	};
+	body.onmousedown = function (e) {
+		GroundOnmousedown(e);
+	};
+	body.onmousemove = function (e) {
+		GroundOnmousemove(e);
+	};
+
+	SetVisible(cardListDiv);
+	if (!oS.BrainsNum) CustomSpecial(oBrains, oS.R - 1, -2);
+
+	(
+		oS.StartGame ||
+		function () {
+			StopMusic();
+			PlayMusic((oS.LoadMusic = oS.StartGameMusic));
+			NewMusic((oS.LoadMusic = oS.StartGameMusic));
+			SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
+			oS.InitLawnMower();
+
+			PrepareGrowPlants(() => {
+				oP.Monitor(oS.Monitor, oS.UserDefinedFlagFunc);
+				BeginCool();
+				if (oS.DKind) AutoProduceSun(25);
+				oSym.addTask(
+					1500,
+					() => {
+						oP.AddZombiesFlag();
+						SetVisible($("dFlagMeterContent"));
+					},
+					[]
+				);
+			});
+		}
+	)();
+
+	oS.StartTime = oSym.Now;
+};
+
+var ViewPlantTitle = function (index) {
+	const titleDiv = $("dTitle");
+	const card = ArCard[index];
+	const proto = card.PName.prototype;
+	let html = proto.CName;
+
+	if (!oS.CardKind) {
+		html += "<br>cooldown: " + proto.coolTime + "s<br>" + proto.Tooltip;
+		if (!card.CDReady) html += '<br><span style="color:#F00">recharging</span>';
+	}
+	if (!card.SunReady) {
+		html += '<br><span style="color:#F00">not enough sun</span>';
+	}
+
+	titleDiv.innerHTML = html;
+	SetStyle(titleDiv, { top: 60 * index + "px", left: EDAlloffsetLeft + 100 + "px" });
+};
+
+var BeginCool = function () {
+	let i = ArCard.length;
+	while (i--) {
+		const card = ArCard[i];
+		const proto = card.PName.prototype;
+		const coolTime = proto.coolTime;
+		const sunCost = proto.SunNum;
+
+		switch (coolTime) {
+			case 0:
+			case 7.5:
+				card.CDReady = 1;
+				if (sunCost <= oS.SunNum) {
+					card.SunReady = 1;
+					$(card.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)";
+				}
 				break;
-			case 15:
-				c += "width:46px;height:46px";
-				b = 23;
+			case 30:
+				DoCoolTimer(i, 20);
 				break;
 			default:
-				c += "width:100px;height:100px";
-				b = 55;
+				DoCoolTimer(i, 35);
 		}
-		a
-			? ((d = 0), oSym.addTask(10, MoveDropSun, [g, f]))
-			: ((d = f - b - 20),
-				(c += ";top:" + d + "px"),
-				oSym.addTask(
-					1,
-					function (q, p, n, j, l, k, m, i) {
-						if (ArSun[q] && ArSun[q].C) {
-							SetStyle($(q), {
-								left: (p += j * k) + "px",
-								top: (n += Number(l[0])) + "px",
-							});
-							l.shift();
-							--m;
-							m > 0 && (l.length === 0 && (l = [8, 16, 24, 32]), oSym.addTask(i, arguments.callee, [q, p, n, j, l, k, m, ++i]));
-						}
-					},
-					[g, h, d, Math.floor(Math.random() * 4), [-32, -24, -16, -8], [-1, 1][Math.floor(Math.random() * 2)], 8, 2]
-				),
-				oSym.addTask(800, DisappearSun, [g], 3));
-		ArSun[g] = { id: g, N: e, C: 1, left: h, top: d };
-		NewImg(g, "images/interface/Sun.webp", c, EDAll, {
-			onclick() {
-				ClickSun(this.id);
-			},
-		});
-		oS.AutoSun && oSym.addTask(100, ClickSun, [g]);
-	}),
-	(MoveDropSun = function (c, b) {
-		var a = ArSun[c];
-		a && a.C && (a.top < b - 53 ? (($(c).style.top = (a.top += 3) + "px"), oSym.addTask(5, MoveDropSun, [c, b])) : oSym.addTask(800, DisappearSun, [c]));
-	}),
-	(DisappearSun = function (b) {
-		var a = ArSun[b];
-		a && a.C && (delete ArSun[b], ClearChild($(b)));
-	}),
-	(ClickSun = function (b) {
-		PlayAudioLegacy("points");
-		var a = ArSun[b];
-		a && a.C && ((a.C = 0), oSym.addTask(0, MoveClickSun, [b]));
-	}),
-	(MoveClickSun = function (b) {
-		var a = 15;
-		var c = ArSun[b];
-		var e = 85;
-		var i = -20;
-		var d = c.left;
-		var h = c.top;
-		var g = Math.round((d - e) / a);
-		var f = Math.round((h - i) / a);
-		(function (k, l, n, s, m, r, j, q, p) {
-			(m -= q) > n
-				? (SetStyle($(k), { left: m + "px", top: (r -= p) + "px" }), oSym.addTask(j, arguments.callee, [k, l, n, s, m, r, (j += 0.3), q, p]))
-				: (SetStyle($(k), { left: n + "px", top: s + "px" }),
-					Number(ESSunNum.innerHTML) !== oS.SunNum && (oS.SunNum = Math.min(Number(ESSunNum.innerHTML), oS.SunNum)),
-					innerText(ESSunNum, (oS.SunNum = Math.min(oS.SunNum + l.N, 9990))),
-					MonitorCard(),
-					delete ArSun[k],
-					oSym.addTask(20, ClearChild, [$(k)]));
-		})(b, c, e, i, d, h, 1, g, f);
-	}),
-	(AutoClickSun = function () {
-		var a;
-		var b;
-		for (b in ArSun) {
-			ArSun[b].C && ClickSun(b);
-		}
-	}),
-	(ShowLargeWave = function (a) {
-		PlayAudio("hugewave");
-		NewImg("LargeWave", "images/interface/LargeWave.gif", "left:71px;top:249px;width:400px;height:200px;z-index:50", EDAll);
-		oSym.addTask(
-			4,
-			function (b, c, d) {
-				SetStyle($("LargeWave"), {
-					width: (b -= 57.2) + "px",
-					height: (c -= 6.8) + "px",
-					left: 500 - b * 0.5 + "px",
-					top: 300 - c * 0.5 + "px",
-				});
-				b > 286
-					? oSym.addTask(4, arguments.callee, [b, c, d])
-					: (oSym.addTask(
-							460,
-							() => {
-								ClearChild($("LargeWave"));
-							},
-							[]
-						),
-						d && d());
-			},
-			[858, 102, a]
-		);
-	}),
-	(ShowFinalWave = function () {
-		var a = function (b) {
-			PlayAudio("finalwave");
-			NewImg("FinalWave", "images/interface/FinalWave.gif", "left:122px;top:194px;width:756px;height:213px;z-index:50", EDAll);
-			oSym.addTask(
-				4,
-				function (c, e, d) {
-					SetStyle($("FinalWave"), {
-						width: (c -= 50.4) + "px",
-						height: (e -= 14.2) + "px",
-						left: 500 - c * 0.5 + "px",
-						top: 300 - e * 0.5 + "px",
-					});
-					c > 252
-						? oSym.addTask(4, arguments.callee, [c, e, d])
-						: oSym.addTask(d, () => {
-								ClearChild($("FinalWave"));
-							}, []);
-				},
-				[756, 213, b]
-			);
-		};
-		oP.FlagNum in oS.LargeWaveFlag
-			? ShowLargeWave(() => {
-					oSym.addTask(560, a, [150]);
-				})
-			: a(500);
-	}),
-	(ShowBOSS = function (a) {
-		PlayAudio("finalwave");
-		NewImg("ShowBOSS", "images/interface/BOSSWave.gif", "left:71px;top:249px;width:858px;height:102px;z-index:50", EDAll);
-		oSym.addTask(
-			4,
-			function (b, c, d) {
-				SetStyle($("LargeWave"), {
-					width: (b -= 57.2) + "px",
-					height: (c -= 6.8) + "px",
-					left: 500 - b * 0.5 + "px",
-					top: 300 - c * 0.5 + "px",
-				});
-				b > 286
-					? oSym.addTask(4, arguments.callee, [b, c, d])
-					: (oSym.addTask(
-							460,
-							() => {
-								ClearChild($("ShowBOSS"));
-							},
-							[]
-						),
-						d && d());
-			},
-			[858, 102, a]
-		);
-	}),
-	(GameOver = function () {
-		PlayAudio("scream");
-		NewImg("iGameOver", "images/interface/ZombiesWon.webp", "width:900px;height:600px;z-index:255", EDAll, {
-			onclick() {
-				SelectModal(oS.Lvl);
-			},
-		});
-		oSym.Stop();
-	}),
-	(GameOverZombies = function (c, a) {
-		var b = oSym;
-		StopMusic();
-		PlayAudioLegacy("losemusic");
-		b.Stop();
-		//innerText(c, "Speed");
-		SetBlock($("dSurface"), $("dZombieFail"));
-		oSym.Stop();
-	}),
-	(PrepareGrowPlants = function (a) {
-		var b = function () {
-			PlayAudio("readysetplant");
-			oSym.addTask(
-				60,
-				(d, c) => {
-					var e = d.style;
-					e.backgroundPosition = "0 -108px";
-					oSym.addTask(
-						40,
-						(g, h, f) => {
-							h.backgroundPosition = "0 -216px";
-							oSym.addTask(
-								100,
-								(j, i) => {
-									ClearChild(j);
-									i();
-								},
-								[g, f]
-							);
-						},
-						[d, e, c]
-					);
-				},
-				[
-					NewEle(
-						0,
-						"div",
-						"position:absolute;overflow:hidden;background:url(images/interface/PrepareGrowPlants.png) no-repeat;width:255px;height:108px;z-index:50;left:" +
-							(oS.W * 0.5 - 77) +
-							"px;top:" +
-							(oS.H * 0.5 - 54) +
-							"px",
-						0,
-						EDAll
-					),
-					a,
-				]
-			);
-		};
-		oS.HaveFog ? oGd.MoveFogLeft(b) : b();
-	}),
-	(CustomPlants = function (b, a, c) {
-		new ArCard[b].PName().Birth(GetX(c), GetY(a), a, c, []);
-	}),
-	(CustomSpecial = function (c, b, d, a) {
-		let plant = new c();
-		plant.Birth(GetX(d), GetY(b), b, d, [], a);
-		return plant;
-	}),
-	(CheckAutoSun = function (a) {
-		PlayAudio("buttonclick");
-		var b = a.checked ? 1 : 0;
-		if (b !== oS.AutoSun) {
-			oS.AutoSun = b;
-			localStorage.setItem("JSPVZAutoSun", b);
-			if (b) {
-				AutoClickSun();
+	}
+};
+
+var ImmediatelyCool = function () {
+	let i = ArCard.length;
+	while (i--) {
+		const card = ArCard[i];
+		card.CDReady = 1;
+		card.SunReady = 1;
+		$(card.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)";
+	}
+};
+
+var MonitorCard = function (card) {
+	let i = ArCard.length;
+	const currentSunHTML = Number(ESSunNum.innerHTML);
+
+	if (currentSunHTML !== oS.SunNum) {
+		oS.SunNum = Math.min(currentSunHTML, oS.SunNum);
+	}
+
+	if (oS.Chose < 1) {
+		while (i--) {
+			card = ArCard[i];
+			let proto = card.PName.prototype;
+
+			if (proto.SunNum > oS.SunNum) {
+				if (card.SunReady) card.SunReady = 0;
+				$(card.DID).childNodes[0].style.filter = "grayscale(1) brightness(1.15)";
+			} else {
+				if (!card.SunReady) card.SunReady = 1;
+				if (card.CDReady) $(card.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)";
 			}
 		}
+	} else {
+		while (i--) {
+			card = ArCard[i];
+			let proto = card.PName.prototype;
+			if (proto.SunNum > oS.SunNum) {
+				if (card.SunReady) card.SunReady = 0;
+			} else {
+				if (!card.SunReady) card.SunReady = 1;
+			}
+		}
+	}
+	ViewPlantTitle(oS.MCID);
+};
+
+var DoCoolTimer = function (index, duration) {
+	const ele = $(ArCard[index].DID);
+	NewEle("dCD1" + index, "span", "position:absolute;left:22px;top:22px;font-size:18px;font-weight:500;font-family:Verdana;color:#000", "", ele);
+	NewEle("dCD2" + index, "span", "position:absolute;left:20px;top:20px;font-size:18px;font-weight:500;font-family:Verdana;color:#FF0", "", ele);
+
+	(function tick(timeLeft, idx) {
+		if (timeLeft > 0) {
+			innerText($("dCD1" + idx), timeLeft);
+			innerText($("dCD2" + idx), timeLeft);
+			oSym.addTask(50, tick, [(timeLeft - 0.5).toFixed(1), idx]);
+		} else {
+			ClearChild($("dCD1" + idx), $("dCD2" + idx));
+			ArCard[idx].CDReady = 1;
+			MonitorCard();
+		}
+	})(duration, index);
+};
+
+var ChosePlant = function (e, index) {
+	const card = ArCard[(oS.ChoseCard = index)];
+	if (!(card.CDReady && card.SunReady)) {
+		PlayAudio("buzzer");
+		return;
+	}
+	PlayAudio("seedlift");
+	e = window.event || e;
+	const x = e.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
+	const y = e.clientY + EBody.scrollTop || EElement.scrollTop;
+
+	const proto = card.PName.prototype;
+	const len = ArCard.length;
+
+	oS.Chose = 1;
+
+	if (!oS.CardKind) {
+		EditImg(
+			NewImg(
+				"MovePlant",
+				proto.PicArr[proto.StaticGif],
+				`left:${x - 0.5 * (proto.beAttackedPointL + proto.beAttackedPointR)}px;top:${y + 20 - proto.height}px;z-index:254`,
+				EDAll
+			).cloneNode(false),
+			"MovePlantAlpha",
+			"",
+			{ visibility: "hidden", filter: "alpha(opacity=40)", opacity: 0.4, zIndex: 30 },
+			EDAll
+		);
+	} else {
+		NewImg(
+			"MovePlant",
+			proto.PicArr[proto.StandGif],
+			`left:${x - 0.5 * (proto.beAttackedPointL + proto.beAttackedPointR)}px;top:${y + 20 - proto.height}px;z-index:254`,
+			EDAll
+		);
+		NewImg("MovePlantAlpha", proto.PicArr[proto.StandGif], "visibility:hidden;filter:alpha(opacity=40);opacity:0.4;z-index:30", EDAll);
+	}
+
+	for (let i = 0; i < len; i++) {
+		$(ArCard[i].DID).childNodes[0].style.filter = "grayscale(1) brightness(1.15)";
+	}
+	SetHidden($("dTitle"));
+	GroundOnmousemove = GroundOnmousemove1;
+};
+
+var CancelPlant = function () {
+	ClearChild($("MovePlant"), $("MovePlantAlpha"));
+	oS.Chose = 0;
+	MonitorCard();
+	GroundOnmousemove = function () {};
+};
+
+var ShovelPlant = function (data) {
+	PlayAudio("plant2");
+	const plants = data[0];
+	const topPlant = data[1];
+	if (topPlant && (topPlant.PKind || !(plants[1] || plants[2]))) {
+		topPlant.Die();
+		oS.MPID = "";
+	}
+	CancelShovel();
+};
+
+var ChoseShovel = function (e) {
+	PlayAudio("shovel");
+	if (WhichMouseButton(e) < 2) {
+		SetHidden($("imgShovel"));
+		NewImg("tShovel", "images/interface/Shovel/0.gif", `left:${e.clientX - 10}px;top:${e.clientY + document.body.scrollTop - 17}px;z-index:1`, EDAll);
+		oS.Chose = -1;
+		GroundOnmousemove = GroundOnmousemove2;
+		StopBubble(e);
+	}
+};
+
+var CancelShovel = function (e) {
+	const prevId = oS.MPID;
+	ClearChild($("tShovel"));
+	oS.Chose = 0;
+	SetVisible($("imgShovel"));
+	if (prevId) SetAlpha($(prevId).childNodes[1], 100, 1);
+	GroundOnmousemove = function () {};
+};
+
+var StopBubble = function (e) {
+	window.event ? (event.cancelBubble = true) : e.stopPropagation();
+};
+
+var GrowPlant = function (plants, c, r, rType, cType) {
+	const cardIdx = oS.ChoseCard;
+	const card = ArCard[cardIdx];
+	const PlantClass = card.PName;
+	const proto = PlantClass.prototype;
+	const coolTime = proto.coolTime;
+	const laneType = oGd.$LF[rType];
+
+	// Check if the plant can grow at the selected location
+	if (proto.CanGrow(plants, rType, cType)) {
+		// Play planting audio based on soil type
+		PlayAudio(laneType !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water");
+
+		// Plant the selected plant at the specified location
+		if (!oS.CardKind) {
+			new PlantClass().Birth(c, r, rType, cType, plants);
+		} else {
+			let tempPlant = new PlantClass();
+			asyncInnerHTML(
+				tempPlant.CustomBirth(rType, cType, 0, "auto"),
+				(ele, instance) => {
+					EDPZ.appendChild(ele);
+					instance.Birth();
+				},
+				tempPlant
+			);
+		}
+
+		// Deduct sun points
+		innerText(ESSunNum, (oS.SunNum -= proto.SunNum));
+
+		// Start cooldown
+		if (coolTime) {
+			card.CDReady = 0;
+			DoCoolTimer(cardIdx, coolTime);
+		}
+
+		// Show planting animation
+		oSym.addTask(20, SetHidden, [
+			SetStyle(laneType !== 2 ? $("imgGrowSoil") : $("imgGrowSpray"), {
+				left: c - 30 + "px",
+				top: r - 30 + "px",
+				zIndex: 3 * rType + 1,
+				visibility: "visible",
+			}),
+		]);
+
+		const seedPlants = [
+			oSeedPeashooter,
+			oSeedSnowPea,
+			oSeedSquash,
+			oSeedPotatoMine,
+			oSeedWallNut,
+			oSeedRepeater2,
+			oSeedHypnoShroom,
+			oSeedPuffShroom,
+			oSeedPumpkinHead,
+			oSeedPlantern,
+			oSeedThreepeater,
+			oSeedTallNut,
+			oSeedTorchwood,
+			oSeedLilyPad,
+			oSeedCherryBomb,
+			oSeedChomper,
+			oSeedRepeater,
+			oSeedGarlic,
+			oSeedScaredyShroom,
+			oSeedBlover,
+			oSeedStarfruit,
+			oSeedCactus,
+			oSeedFumeShroom,
+			oSeedDoomShroom,
+			oSeedSeaShroom,
+			oSeedJalapeno,
+			oSeedTangleKelp,
+			oSeedIceShroom,
+			oSeedGloomShroom,
+		];
+
+		if (seedPlants.includes(PlantClass)) {
+			SetHidden($(card.DID));
+		}
+	}
+
+	CancelPlant();
+};
+
+var AutoProduceSun = function (amount) {
+	AppearSun(GetX(Math.floor(1 + Math.random() * oS.C)), GetY(Math.floor(1 + Math.random() * oS.R)), amount, 1);
+	oSym.addTask(Math.floor(9 + Math.random() * 3) * 100, AutoProduceSun, [amount]);
+};
+
+var AppearSun = function (x, y, amount, isDrop) {
+	let sizeDiff, endTop;
+	const id = "Sun" + Math.random();
+	let style = `cursor:url(images/interface/Pointer.cur),pointer;z-index:25;left:${x}px;`;
+
+	switch (amount) {
+		case 25:
+			style += "width:78px;height:78px";
+			sizeDiff = 39;
+			break;
+		case 15:
+			style += "width:46px;height:46px";
+			sizeDiff = 23;
+			break;
+		default:
+			style += "width:100px;height:100px";
+			sizeDiff = 55;
+	}
+
+	if (isDrop) {
+		endTop = 0;
+		oSym.addTask(10, MoveDropSun, [id, y]);
+	} else {
+		endTop = y - sizeDiff - 20;
+		style += ";top:" + endTop + "px";
+
+		// Parabolic arc movement for produced sun
+		oSym.addTask(
+			1,
+			function (sunId, curX, curY, xStep, ySteps, dir, stepsLeft, tick) {
+				if (ArSun[sunId] && ArSun[sunId].C) {
+					SetStyle($(sunId), {
+						left: (curX += xStep * dir) + "px",
+						top: (curY += Number(ySteps[0])) + "px",
+					});
+					ySteps.shift();
+					--stepsLeft;
+					if (stepsLeft > 0) {
+						if (ySteps.length === 0) ySteps = [8, 16, 24, 32];
+						oSym.addTask(tick, arguments.callee, [sunId, curX, curY, xStep, ySteps, dir, stepsLeft, ++tick]);
+					}
+				}
+			},
+			[id, x, endTop, Math.floor(Math.random() * 4), [-32, -24, -16, -8], [-1, 1][Math.floor(Math.random() * 2)], 8, 2]
+		);
+		oSym.addTask(800, DisappearSun, [id], 3);
+	}
+
+	ArSun[id] = { id: id, N: amount, C: 1, left: x, top: endTop };
+	NewImg(id, "images/interface/Sun.webp", style, EDAll, {
+		onclick() {
+			ClickSun(this.id);
+		},
 	});
 
-(GetNewCard = function (a, b, c) {
+	if (oS.AutoSun) oSym.addTask(100, ClickSun, [id]);
+};
+
+var MoveDropSun = function (id, targetY) {
+	const sun = ArSun[id];
+	if (sun && sun.C) {
+		if (sun.top < targetY - 53) {
+			$(id).style.top = (sun.top += 3) + "px";
+			oSym.addTask(5, MoveDropSun, [id, targetY]);
+		} else {
+			oSym.addTask(800, DisappearSun, [id]);
+		}
+	}
+};
+
+var DisappearSun = function (id) {
+	const sun = ArSun[id];
+	if (sun && sun.C) {
+		delete ArSun[id];
+		ClearChild($(id));
+	}
+};
+
+var ClickSun = function (id) {
+	PlayAudioLegacy("points");
+	const sun = ArSun[id];
+	if (sun && sun.C) {
+		sun.C = 0;
+		oSym.addTask(0, MoveClickSun, [id]);
+	}
+};
+
+var MoveClickSun = function (id) {
+	const speed = 15;
+	const sun = ArSun[id];
+	const destX = 85;
+	const destY = -20;
+	const startX = sun.left;
+	const startY = sun.top;
+
+	const stepsX = Math.round((startX - destX) / speed);
+	const stepsY = Math.round((startY - destY) / speed);
+
+	(function (elId, sunData, dX, dY, curX, curY, stepRate, stepX, stepY) {
+		if ((curX -= stepX) > dX) {
+			SetStyle($(elId), { left: curX + "px", top: (curY -= stepY) + "px" });
+			oSym.addTask(stepRate, arguments.callee, [elId, sunData, dX, dY, curX, curY, (stepRate += 0.3), stepX, stepY]);
+		} else {
+			SetStyle($(elId), { left: dX + "px", top: dY + "px" });
+			if (Number(ESSunNum.innerHTML) !== oS.SunNum) {
+				oS.SunNum = Math.min(Number(ESSunNum.innerHTML), oS.SunNum);
+			}
+			innerText(ESSunNum, (oS.SunNum = Math.min(oS.SunNum + sunData.N, 9990)));
+			MonitorCard();
+			delete ArSun[elId];
+			oSym.addTask(20, ClearChild, [$(elId)]);
+		}
+	})(id, sun, destX, destY, startX, startY, 1, stepsX, stepsY);
+};
+
+var AutoClickSun = function () {
+	for (let id in ArSun) {
+		if (ArSun[id].C) ClickSun(id);
+	}
+};
+
+var ShowLargeWave = function (callback) {
+	PlayAudio("hugewave");
+	NewImg("LargeWave", "images/interface/LargeWave.gif", "left:71px;top:249px;width:400px;height:200px;z-index:50", EDAll);
+	oSym.addTask(
+		4,
+		function (w, h, cb) {
+			SetStyle($("LargeWave"), {
+				width: (w -= 57.2) + "px",
+				height: (h -= 6.8) + "px",
+				left: 500 - w * 0.5 + "px",
+				top: 300 - h * 0.5 + "px",
+			});
+			if (w > 286) {
+				oSym.addTask(4, arguments.callee, [w, h, cb]);
+			} else {
+				oSym.addTask(460, () => ClearChild($("LargeWave")), []);
+				if (cb) cb();
+			}
+		},
+		[858, 102, callback]
+	);
+};
+
+var ShowFinalWave = function () {
+	const playAnim = function (delay) {
+		PlayAudio("finalwave");
+		NewImg("FinalWave", "images/interface/FinalWave.gif", "left:122px;top:194px;width:756px;height:213px;z-index:50", EDAll);
+		oSym.addTask(
+			4,
+			function (w, h, duration) {
+				SetStyle($("FinalWave"), {
+					width: (w -= 50.4) + "px",
+					height: (h -= 14.2) + "px",
+					left: 500 - w * 0.5 + "px",
+					top: 300 - h * 0.5 + "px",
+				});
+				if (w > 252) {
+					oSym.addTask(4, arguments.callee, [w, h, duration]);
+				} else {
+					oSym.addTask(duration, () => ClearChild($("FinalWave")), []);
+				}
+			},
+			[756, 213, delay]
+		);
+	};
+
+	oP.FlagNum in oS.LargeWaveFlag ? ShowLargeWave(() => oSym.addTask(560, playAnim, [150])) : playAnim(500);
+};
+
+var ShowBOSS = function (callback) {
+	PlayAudio("finalwave");
+	NewImg("ShowBOSS", "images/interface/BOSSWave.gif", "left:71px;top:249px;width:858px;height:102px;z-index:50", EDAll);
+	oSym.addTask(
+		4,
+		function (w, h, cb) {
+			SetStyle($("LargeWave"), {
+				width: (w -= 57.2) + "px",
+				height: (h -= 6.8) + "px",
+				left: 500 - w * 0.5 + "px",
+				top: 300 - h * 0.5 + "px",
+			});
+			if (w > 286) {
+				oSym.addTask(4, arguments.callee, [w, h, cb]);
+			} else {
+				oSym.addTask(460, () => ClearChild($("ShowBOSS")), []);
+				if (cb) cb();
+			}
+		},
+		[858, 102, callback]
+	);
+};
+
+var GameOver = function () {
+	PlayAudio("scream");
+	NewImg("iGameOver", "images/interface/ZombiesWon.webp", "width:900px;height:600px;z-index:255", EDAll, {
+		onclick() {
+			SelectModal(oS.Lvl);
+		},
+	});
+	oSym.Stop();
+};
+
+var GameOverZombies = function (c, a) {
+	StopMusic();
+	PlayAudioLegacy("losemusic");
+	oSym.Stop();
+	SetBlock($("dSurface"), $("dZombieFail"));
+	oSym.Stop();
+};
+
+var PrepareGrowPlants = function (callback) {
+	const run = function () {
+		PlayAudio("readysetplant");
+		oSym.addTask(
+			60,
+			(ele, cb) => {
+				const style = ele.style;
+				style.backgroundPosition = "0 -108px";
+				oSym.addTask(
+					40,
+					(e, s, c) => {
+						s.backgroundPosition = "0 -216px";
+						oSym.addTask(
+							100,
+							(el, call) => {
+								ClearChild(el);
+								call();
+							},
+							[e, c]
+						);
+					},
+					[ele, style, cb]
+				);
+			},
+			[
+				NewEle(
+					0,
+					"div",
+					`position:absolute;overflow:hidden;background:url(images/interface/PrepareGrowPlants.png) no-repeat;width:255px;height:108px;z-index:50;left:${oS.W * 0.5 - 77}px;top:${oS.H * 0.5 - 54}px`,
+					0,
+					EDAll
+				),
+				callback,
+			]
+		);
+	};
+	oS.HaveFog ? oGd.MoveFogLeft(run) : run();
+};
+
+var CustomPlants = function (idx, c, r) {
+	new ArCard[idx].PName().Birth(GetX(r), GetY(c), c, r, []);
+};
+
+var CustomSpecial = function (Class, r, c, args) {
+	let plant = new Class();
+	plant.Birth(GetX(c), GetY(r), r, c, [], args);
+	return plant;
+};
+
+var CheckAutoSun = function (checkbox) {
+	PlayAudio("buttonclick");
+	const val = checkbox.checked ? 1 : 0;
+	if (val !== oS.AutoSun) {
+		oS.AutoSun = val;
+		localStorage.setItem("JSPVZAutoSun", val);
+		if (val) AutoClickSun();
+	}
+};
+
+var GetNewCard = function (ele, plantClass, nextLvl) {
 	StopMusic();
 	PlayAudioLegacy("winmusic");
 	oSym.Clear();
-	SetStyle(a, {
+	SetStyle(ele, {
 		left: "350px",
 		top: "131px",
 		width: "200px",
@@ -2559,97 +2771,97 @@ var lastB;
 		clip: "rect(0,auto,120px,0)",
 		cursor: "url(images/interface/Cursor.cur),default",
 	}).onclick = null;
+
 	oSym.Init(
-		function (d, e) {
-			++d < 100
-				? (SetAlpha(e, d, d * 0.01), oSym.addTask(4, arguments.callee, [d, e]))
-				: (function () {
-						StopAudio("winmusic");
-						PlayAudio("plantsgarden", true);
-						SetHidden(EDAll, $("dTop"));
-						var f = b.prototype;
-						$("iNewPlantCard").src = f.PicArr[f.CardGif];
-						$("iNewPlantCard").style.width = 100 + "px";
-						$("iNewPlantCard").style.height = 120 + "px";
-						//                          $("iNewPlantCard").style.marginTop =
-						//                              180 - f.height + "px";
-						innerText($("dNewPlantName"), f.CName);
-						$("dNewPlantTooltip").innerHTML = f.Tooltip;
-						$("btnNextLevel").onclick = function () {
-							StopAudio("plantsgarden");
-							SetHidden($("bMainMenu"));
-							SelectModal(c);
-						};
-						SetStyle($("dNewPlant"), {
-							visibility: "visible",
-							zIndex: 255,
-						});
-						SetVisible($("bMainMenu"));
-					})();
+		function (opacity, element) {
+			if (++opacity < 100) {
+				SetAlpha(element, opacity, opacity * 0.01);
+				oSym.addTask(4, arguments.callee, [opacity, element]);
+			} else {
+				StopAudio("winmusic");
+				PlayAudio("plantsgarden", true);
+				SetHidden(EDAll, $("dTop"));
+
+				const proto = plantClass.prototype;
+				$("iNewPlantCard").src = proto.PicArr[proto.CardGif];
+				$("iNewPlantCard").style.width = "100px";
+				$("iNewPlantCard").style.height = "120px";
+				innerText($("dNewPlantName"), proto.CName);
+				$("dNewPlantTooltip").innerHTML = proto.Tooltip;
+
+				$("btnNextLevel").onclick = function () {
+					StopAudio("plantsgarden");
+					SetHidden($("bMainMenu"));
+					SelectModal(nextLvl);
+				};
+
+				SetStyle($("dNewPlant"), {
+					visibility: "visible",
+					zIndex: 255,
+				});
+				SetVisible($("bMainMenu"));
+			}
 		},
 		[0, $("DivA")]
 	);
-}),
-	(getCookie1 = function (b, g) {
-		var d = document.cookie;
-		var f = d.split(";");
-		var c = f.length;
-		var a;
-		var e;
-		var h;
-		while (c--) {
-			h = (a = f[c]).split("=");
-			if (h[0].replace(" ", "") === b) {
-				if ((e = h.length) === 2) {
-					return unescape(h[1]);
-				}
-				h.shift();
-				h = h.join("=").split("&");
-				if (g === undefined) {
-					return unescape(h);
-				}
-				e = h.length;
-				while (e--) {
-					if ((a = h[e].split("="))[0].replace(" ", "") === g) {
-						return unescape(a[1]);
-					}
-				}
+};
+
+var getCookie1 = function (key, subKey) {
+	const cookie = document.cookie;
+	const list = cookie.split(";");
+	let i = list.length;
+
+	while (i--) {
+		let entry = list[i].split("=");
+		if (entry[0].replace(" ", "") === key) {
+			if (entry.length === 2) return unescape(entry[1]);
+
+			entry.shift();
+			let subEntries = entry.join("=").split("&");
+			if (subKey === undefined) return unescape(subEntries);
+
+			let j = subEntries.length;
+			while (j--) {
+				let sub = subEntries[j].split("=");
+				if (sub[0].replace(" ", "") === subKey) return unescape(sub[1]);
 			}
 		}
-		return 0;
-	}),
-	(getCookie = function (b) {
-		var a = document.cookie.match(new RegExp("(^| )" + b + "=([^;]*)(;|$)"));
-		if (a != null) {
-			return unescape(a[2]);
-		}
-		return 0;
-	}),
-	(addCookie = function (b, d, e) {
-		var c = b + "=" + escape(d);
-		if (e) {
-			var a = new Date();
-			a.setTime(a.getTime + e * 3600 * 1e3);
-			c += ";expire=" + a.toGMTString();
-		}
-		document.cookie = c;
-	}),
-	(deleteCookie = function (a) {
-		document.cookie = a + "=0;";
-	}),
-	(WordUTF8 =
-		'<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><span id="commit" style="position: absolute;color: #ffffff0f;bottom: 0;user-select: none;"></span><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:url(images/interface/Pointer.cur),pointer" onclick="PlayAudio(\'gravebutton\');SetBlock($(\'dSurface\'),$(\'iSurfaceBackground\'));ShowNameDiv();sa_event(\'clickstart0js\')"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:url(images/interface/Pointer.cur),pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:url(images/interface/Pointer.cur),pointer;z-index:300" onclick="SetVisible($(\'dProcess\'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>');
+	}
+	return 0;
+};
 
-(ShowNameDiv = function () {
+var getCookie = function (key) {
+	const match = document.cookie.match(new RegExp("(^| )" + key + "=([^;]*)(;|$)"));
+	if (match != null) return unescape(match[2]);
+	return 0;
+};
+
+var addCookie = function (key, val, expireHours) {
+	let str = key + "=" + escape(val);
+	if (expireHours) {
+		const date = new Date();
+		date.setTime(date.getTime + expireHours * 3600 * 1e3);
+		str += ";expire=" + date.toGMTString();
+	}
+	document.cookie = str;
+};
+
+var deleteCookie = function (key) {
+	document.cookie = key + "=0;";
+};
+
+var WordUTF8 = `<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><span id="commit" style="position: absolute;color: #ffffff0f;bottom: 0;user-select: none;"></span><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:url(images/interface/Pointer.cur),pointer" onclick="PlayAudio('gravebutton');SetBlock($('dSurface'),$('iSurfaceBackground'));ShowNameDiv();"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:url(images/interface/Pointer.cur),pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:url(images/interface/Pointer.cur),pointer;z-index:300" onclick="SetVisible($('dProcess'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>`;
+
+var ShowNameDiv = function () {
 	oSym.Start();
-	(function (c) {
-		var b = c[0];
-		var d = 3;
-		c.shift();
-		while (d--) {
-			SetStyle(($("dNameDiv" + d).style.top = b[d] + "px"));
+	(function (config) {
+		let item = config[0];
+		let i = 3;
+		config.shift();
+		while (i--) {
+			SetStyle(($("dNameDiv" + i).style.top = item[i] + "px"));
 		}
-		c.length && oSym.addTask(b[3], arguments.callee, [c]);
+		if (config.length) oSym.addTask(item[3], arguments.callee, [config]);
 	})([
 		[-260, 96, 136, 10],
 		[-94, 96, 136, 10],
@@ -2659,789 +2871,1048 @@ var lastB;
 		[-8, 136, 189, 17],
 		[-8, 134, 187, 10],
 	]);
-}),
-	(ShowLoginDiv = function () {
-		$User.isAuthorWebsite ? PlayAudio("tap") : GotoAuthorWebsite("");
-	}),
-	(CheckLogin = function () {
-		var c = $("txtName").value;
-		var e = $("txtPass").value;
-		var a = /^\w{3,10}$/;
-		var b = /^[\u4e00-\u9fa5\w]{3,10}$/;
-		var d = /^\w{3,20}$/;
-		return !!((a.exec(c) || b.exec(c)) && d.exec(e));
-	}),
-	(SelectModal = function (g) {
-		HiddenLevel();
-		HiddenMiniGame(1);
-		HiddenRiddleGame(1);
-		StopMusic();
-		PausedAudioArr = [];
-		g === undefined && (g = $User.Visitor.Progress);
-		oS.LvlClearFunc && oS.LvlClearFunc();
-		var b = oS.GlobalVariables;
-		var c = oS.LvlVariables;
-		var e = oS.SelfVariables;
-		var a = window;
-		var d;
-		for (d in b) {
-			a[d] = b[d];
-		}
-		for (d in c) {
-			a[d] = null;
-		}
-		for (d = e.length; d--; delete oS[e[d]]) {}
-		for (d in $Pn) {
-			$Pn[d] = null;
-		}
-		oS.GlobalVariables = {};
-		oS.LvlVariables = {};
-		oS.SelfVariables.length = 0;
-		SetHidden($("dCardList"), $("tGround"), $("dSelectCard"), $("dTop"), $("dMenu"), $("dHandBook"), $("dNewPlant"), $("dProcess"));
-		SetNone($("dSurface"), $("iSurfaceBackground"));
-		ClearChild($("dFlagMeterTitleB").firstChild);
-		EDAll = $("dBody").replaceChild(EDNewAll, EDAll);
-		$("dBody").replaceChild(EDNewFlagMeter, $("dFlagMeter"));
-		LoadLvl(g);
-	}),
-	(GotoAuthorWebsite = function () {
-		window.open("https://github.com/ROBlNET13/pvz");
-	}),
-	(InitGame = function () {
-		var e = NewEle(
-			"dServer",
-			"div",
-			"position:absolute;line-height:28px;left:706px;top:245px;width:700px;height:100px;font-size:16px;color:#040;font-family:Tahoma;font-weight:bold;z-index:2;display:none",
-			0,
-			$("dAll")
-		);
-		var c = $User.Server;
-		var b = c.List;
-		var a = $("dProcess");
-		var floor = oS.B;
-		!$("dText1") &&
-			a.insertBefore(
-				NewEle(
-					"dText1",
-					"div",
-					0,
-					{
-						innerHTML: floor(
-							"PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OnNhbnMtc2VyaWY7Y29sb3I6I2JiYjt3aWR0aDo4NSU7ZGlzcGxheTpibG9jazttYXJnaW46MTVweCBhdXRvIDAgYXV0byI+PHNwYW4gc3R5bGU9ImNvbG9yOiNmNjA7Ij5XZWxjb21lIHRvIFBsYW50cyB2cy4gWm9tYmllczogTU9EREVEPGJyPjwvc3Bhbj48c3BhbiBzdHlsZT0iY29sb3I6I2VlZTsiPlBsYW50cyB2cy4gWm9tYmllcyBNT0RERUQgJmNvcHk7IDIwMjUgYnkgUk9CbE5FVDEzIGlzIGxpY2Vuc2VkIHVuZGVyIDxhIGhyZWY9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS1uYy1uZC80LjAvZGVlZC5lbiI+Q0MgQlktTkMtTkQgNC4wPC9hPi4gVGhpcyBsaWNlbnNlIGFwcGxpZXMgb25seSB0byBvcmlnaW5hbCBjb2RlL2NvbnRlbnQgY3JlYXRlZCBieSB0aGUgbW9kZGluZyB0ZWFtLiBBbGwgUGxhbnRzIHZzLiBab21iaWVzIGludGVsbGVjdHVhbCBwcm9wZXJ0eSByZW1haW5zIHRoZSBleGNsdXNpdmUgcHJvcGVydHkgb2YgUG9wQ2FwIEdhbWVzIGFuZCBFbGVjdHJvbmljIEFydHMgKEVBKS48L3NwYW4+PGJyPjxicj5QbGFudHMgdnMuIFpvbWJpZXMgTU9EREVEIGlzIGFuIHVub2ZmaWNpYWwgbW9kaWZpY2F0aW9uIGFuZCBpcyBub3QgYWZmaWxpYXRlZCB3aXRoLCBlbmRvcnNlZCBieSwgb3IgYXNzb2NpYXRlZCB3aXRoIFBvcENhcCBHYW1lcywgRWxlY3Ryb25pYyBBcnRzIChFQSksIG9yIHRoZSBvZmZpY2lhbCBQbGFudHMgdnMuIFpvbWJpZXMgZ2FtZS4gQWxsIGludGVsbGVjdHVhbCBwcm9wZXJ0eSwgdHJhZGVtYXJrcywgYW5kIGNvcHlyaWdodHMgcmVsYXRlZCB0byB0aGUgb3JpZ2luYWwgUGxhbnRzIHZzLiBab21iaWVzIGdhbWUgYXJlIHRoZSBwcm9wZXJ0eSBvZiBQb3BDYXAgR2FtZXMgYW5kIEVBLiBBbGwgY29kZSBpbiB0aGlzIGZhbmdhbWUgaXMgb3JpZ2luYWwsIGJhc2VkIG9uIGEgUHZaIHdlYmdhbWUgb3JpZ2luYWxseSBjcmVhdGVkIGJ5IEppYW5nTmFuIEdhbWUgRGV2ZWxvcG1lbnQgQ29tcGFueSBhbmQgTG9uZWx5U3Rhci4gVGhpcyBtb2QgZG9lcyBub3QgdXNlIGFueSBjb2RlIHdyaXR0ZW4gb3Igb3duZWQgYnkgUG9wQ2FwIEdhbWVzIG9yIEVBLiBUaGlzIG1vZCBpcyBjcmVhdGVkIGJ5IGZhbnMgZm9yIGVudGVydGFpbm1lbnQgcHVycG9zZXMgb25seSwgYW5kIG5vIGNvbW1lcmNpYWwgZ2FpbiBpcyBzb3VnaHQgb3Igb2J0YWluZWQgZnJvbSBpdHMgZGlzdHJpYnV0aW9uLiBVc2Ugb2YgdGhpcyBtb2QgaXMgYXQgeW91ciBvd24gcmlzaywgYW5kIHRoZSBjcmVhdG9ycyBvZiB0aGUgbW9kIGFyZSBub3QgbGlhYmxlIGZvciBhbnkgZGFtYWdlcyBvciBpc3N1ZXMgdGhhdCBtYXkgYXJpc2UgZnJvbSBpdHMgdXNlLjxicj48YnI+VXNlcyBvZiB0aGUgUG9wQ2FwIEdhbWVzIG9yIEVsZWN0cm9uaWMgQXJ0cyAoRUEpIG5hbWVzIGFyZSBmb3IgaWRlbnRpZmljYXRpb24gcHVycG9zZXMgb25seSBhbmQgZG8gbm90IGltcGx5IGFuIGVuZG9yc2VtZW50IGJ5IFBvcENhcCBHYW1lcyBvciBFQS48YnI+PGJyPjx1PkRvIG5vdCByZW1vdmUgdGhpcyB3YXJuaW5nLjwvdT4gRG9pbmcgc28gPHNwYW4gc3R5bGU9ImNvbG9yOnJlZCI+dmlvbGF0ZXM8L3NwYW4+IHRoZSB0ZXJtcyBvZiB0aGUgbGVnYWxseS1iaW5kaW5nIENyZWF0aXZlIENvbW1vbnMgTGljZW5zZSwgaWYgb3JpZ2luYWwgY29kZS9jb250ZW50IGNyZWF0ZWQgYnkgdGhlIG1vZGRpbmcgdGVhbSBpcyBpbmNsdWRlZC48YnI+PGJyPjxiPklmIHJlcXVlc3RlZCBieSBhbiBvZmZpY2lhbCBzb3VyY2UsIHdlIHdpbGwgcHJvbXB0bHkgdGFrZSBkb3duIHRoaXMgZmFuIGdhbWUgYW5kIHRoZSBhc3NvY2lhdGVkIEdpdEh1YiByZXBvLiBZb3UgbWF5IGNvbnRhY3QgdXMgdXNpbmcgdGhlIGVtYWlsIGxpc3RlZCBvbiA8YSBocmVmPSJodHRwczovL2dpdGh1Yi5jb20vUk9CbE5FVDEzL3B2ei9ibG9iL21haW4vUkVBRE1FLm1kI2xlZ2FsLWluZm8iPmh0dHBzOi8vZ2l0aHViLmNvbS9ST0JsTkVUMTMvcHZ6L2Jsb2IvbWFpbi9SRUFETUUubWQjbGVnYWwtaW5mbzwvYT4uPC9iPjwvc3Bhbj4="
-						),
-					},
-					0
-				),
-				a.firstChild
-			);
-		LoadLvl();
-	}),
-	(LoadLvl = function (e, c) {
-		oSym.Timer && oSym.Stop();
-		var b = oSym.Now === c;
-		var d = $User;
-		var a = d.Visitor;
-		oS.CenterContent && ((e === 0 && b) || e !== 0) && (oS.DisplayAD = true);
-		e = e || 0;
-		$("dServer") && e !== 0 && SetNone($("dServer"));
-		oSym.Init(
-			(g, f) => {
-				(f = $("JSPVZ")) && ClearChild(f);
-				NewEle(
-					"JSPVZ",
-					"script",
-					0,
-					{
-						src: "level/" + (oS.Lvl = g) + ".js",
-						type: "text/javascript",
-					},
-					document.getElementsByTagName("head").item(0)
-				);
-			},
-			[e && b ? 0 : e]
-		);
-		/* $("aLvlLink").href =
-            "html/2-1" + (e && !isNaN(e) ? "-" + e : "") + ".htm"; */
-	}),
-	(AppearTombstones = function (n, e, m) {
-		var r = oGd.$Tombstones;
-		var k = [];
-		var h = oS.R + 1;
-		var b;
-		var d = 0;
-		var q;
-		var a;
-		var g;
-		var f;
-		var s = oGd.$;
-		var l;
-		var p;
-		while (--h) {
-			g = e;
-			while (g >= n) {
-				!r[h + "_" + g] && (k[d++] = [h, g]);
-				--g;
-			}
-		}
-		while (m--) {
-			q = k[(g = Math.floor(Math.random() * k.length))];
-			r[(p = (h = q[0]) + "_" + (b = q[1]))] = 1;
-			for (f = 0; f < 4; f++) {
-				(l = s[p + "_" + f]) && l.Die();
-			}
-			k.splice(g, 1);
-			a = NewEle(
-				"dTombstones" + h + "_" + b,
-				"div",
-				"position:absolute;width:86px;height:91px;left:" + (GetX(b) - 43) + "px;top:" + (GetY(h) - 91) + "px",
-				0,
-				EDAll
-			);
-			h = Math.floor(Math.random() * 4);
-			b = Math.floor(Math.random() * 2);
-			var c;
-			a.appendChild(
-				(c = NewEle("", "div", "background-position:-" + 86 * h + "px -" + 91 * b + "px", { className: "Tom1" }, a).cloneNode(false))
-			).className = "Tom2";
-		}
-	}),
-	(ResetGame = function (b) {
-		AllAudioPauseCanceled();
-		var a = oSym;
-		a.Start();
-		innerText(b, "Speed");
-		$("dMenu1").onclick = ClickMenu;
-		$("dMenu0").onclick = ShowSpeed;
-		SetNone($("dSurface"), $("dPause"));
-		$("dPauseAD").innerHTML = "";
-	}),
-	(PauseGame = function (c, a) {
-		var b = oSym;
-		AllAudioPaused();
-		b.Stop();
-		innerText(c, "Speed");
-		$("dMenu1").onclick = null;
-		$("dMenu0").onclick = null;
-		!a && SetBlock($("dSurface"), $("dPause"));
-	}),
-	(ClickMenu = function (b, a) {
-		oSym.Timer && (AllAudioPaused(), PlayAudio("pause"), oSym.Stop(), SetBlock($("dSurface")), innerText($("dMenu0"), "Speed"), ShowOptions());
-		document.getElementById("sOptionsMenu").textContent = "Back To Game";
-		if (ArCard[oS.ChoseCard] && ArCard[oS.ChoseCard].DID != null) {
-			CancelPlant();
-		}
-	}),
-	(OptionsMenuDown = function (b, a) {
-		b.className = "OptionsMenuButtonDown";
-		a.style.paddingTop = "2px";
-	}),
-	(OptionsMenuUP = function (b, a) {
-		b.className = "OptionsMenuButton";
-		a.style.paddingTop = "0px";
-	}),
-	(ShowSpeed = function () {
-		var b = oSym;
-		b.Stop();
-		PlayAudio("gravebutton");
-		SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
-		SetBlock($("dSpeedContainer"));
-	}),
-	(HiddenSpeed = function () {
-		PlayAudio("tap");
-		SetNone($("dSpeedContainer"));
-		oS.Lvl && ResetGame($("dMenu0"));
-	}),
-	(CSpeed = function (a, c, b) {
-		$User.Visitor.NowStep = oSym.NowStep = a;
-		$User.Visitor.TimeStep = oSym.TimeStep = c;
-		$("dDisplaySpeed").innerHTML = b;
-	}),
-	(ShowLevel = function () {
-		PlayAudio("gravebutton");
-		SetNone($("dOptionsMenu"));
-		SetBlock($("dAdvSmallContainer"));
-	}),
-	(HiddenLevel = function () {
-		PlayAudio("tap");
-		SetNone($("dOptionsMenuback"), $("dAdvSmallContainer"));
-		oS.Lvl && (SetNone($("dSurface")), ResetGame($("dMenu0")));
-	}),
-	(ShowMiniGame = function () {
-		PlayAudio("gravebutton");
-		SetBlock($("dMiniSmallContainer"));
-	}),
-	(HiddenMiniGame = function (a) {
-		!a && PlayAudio("tap");
-		SetNone($("dMiniSmallContainer"));
-	}),
-	(ShowRiddleGame = function () {
-		PlayAudio("gravebutton");
-		SetBlock($("dRiddleSmallContainer"));
-	}),
-	(HiddenRiddleGame = function (a) {
-		!a && PlayAudio("tap");
-		SetNone($("dRiddleSmallContainer"));
-	}),
-	(ShowOptions = function () {
-		(document.getElementById("sOptionsMenu").textContent = "OK"), PlayAudio(oS.Lvl ? "gravebutton" : "tap");
-		SetBlock($("dOptionsMenuback"), $("dOptionsMenu"));
-	}),
-	(HiddenOptions = function () {
-		PlayAudio("gravebutton");
-		PlayAudio("buttonclick");
-		SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
-		oS.Lvl && (SetNone($("dSurface")), ResetGame($("dMenu0")));
-	}),
-	(ViewHandBook = function () {
-		SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
-		oS.Lvl
-			? (AllAudioPaused(),
-				PlayAudio("gravebutton"),
-				SetNone($("dSurface")),
-				oSym.Stop(),
-				innerText($("dMenu0"), "back to game"),
-				($("dMenu1").onclick = null))
-			: (AllAudioPaused(), PlayAudio("tap"));
-		PlayAudio("ChooseYourSeeds");
-		SetVisible($("dHandBook"));
-	}),
-	(ReturnHandBookInx = function () {
-		PlayAudio("tap");
-		SetNone($("dHandBookP"), $("dHandBookZ"));
-		SetHidden($("dHandBookPZ"));
-	}),
-	(CloseHandBook = function () {
-		PlayAudio("tap");
-		StopAudio("ChooseYourSeeds");
-		oS.Lvl ? ResetGame($("dMenu0")) : oSym.addTask(100, AllAudioPauseCanceled);
-		SetNone($("dHandBookP"), $("dHandBookZ"));
-		SetHidden($("dHandBookPZ"), $("dHandBook"));
-	}),
-	(ShowHelp = function () {
-		PlayAudio("tap");
-		SetBlock($("dHelp"));
-	}),
-	(HiddenHelp = function () {
-		PlayAudio("tap");
-		SetNone($("dHelp"));
-	}),
-	($ = function (a) {
-		return document.getElementById(a);
-	}),
-	($n = function (a) {
-		return document.createElement(a);
-	}),
-	(ClearChild = function () {
-		var a = arguments.length;
-		var c;
-		while (a--) {
-			try {
-				c = arguments[a];
-				c.parentNode.removeChild(c);
-				c = null;
-			} catch (b) {}
-		}
-	}),
-	(SetBlock = function () {
-		var a = arguments.length;
-		while (a--) {
-			arguments[a].style.display = "block";
-		}
-	}),
-	(SetNone = function () {
-		var a = arguments.length;
-		while (a--) {
-			if (arguments[a] && arguments[a].style) {
-				arguments[a].style.display = "none";
-			}
-		}
-	}),
-	(SetHidden = function () {
-		var a = arguments.length;
-		while (a--) {
-			arguments[a].style.visibility = "hidden";
-		}
-	}),
-	(SetVisible = function () {
-		var a = arguments.length;
-		while (a--) {
-			arguments[a].style.visibility = "visible";
-		}
-	}),
-	(SetAlpha = $User.Browser.IE6
-		? function (c, b, a) {
-				c.style.filter = "alpha(opacity=" + b + ")";
-			}
-		: function (c, b, a) {
-				c.style.opacity = a;
-			}),
-	(SetStyle = function (d, b) {
-		var c = d.style;
-		var a;
-		for (a in b) {
-			c[a] = b[a];
-		}
-		return d;
-	}),
-	(NewImg = function (f, e, b, c, d) {
-		var a = $n("img");
-		a.src = e;
-		b && (a.style.cssText = b);
-		if (d) {
-			for (v in d) {
-				a[v] = d[v];
-			}
-		}
-		f && (a.id = f);
-		c && c.appendChild(a);
-		return a;
-	}),
-	(EditImg = function (e, f, c, b, a) {
-		f && (e.id = f);
-		c && (e.src = c);
-		b && SetStyle(e, b);
-		a && a.appendChild(e);
-		return e;
-	}),
-	(NewEle = function (h, b, d, a, e, f, g, c) {
-		g = $n(b);
-		h && (g.id = h);
-		d && (g.style.cssText = d);
-		if (a) {
-			for (c in a) {
-				g[c] = a[c];
-			}
-		}
-		if (f) {
-			for (c in f) {
-				g.setAttribute(c, f[c]);
-			}
-		}
-		e && e.appendChild(g);
-		return g;
-	}),
-	(EditEle = function (g, f, a, e, b, c) {
-		if (f) {
-			for (c in f) {
-				g.setAttribute(c, f[c]);
-			}
-		}
-		a && SetStyle(g, a);
-		if (b) {
-			for (c in b) {
-				g[c] = b[c];
-			}
-		}
-		e && e.appendChild(g);
-		return g;
-	}),
-	(NewO = function (b, a) {
-		return ((a = function () {}).prototype = b), a;
-	}),
-	(SetPrototype = function (d, c, a) {
-		a = d.prototype;
-		for (var b in c) {
-			a[b] = c[b];
-		}
-	}),
-	(InheritO = function (d, i, c, g, b, h, f, e, a) {
-		var g = function () {};
-		g.prototype = new d();
-		i && SetPrototype(g, i);
-		if (c) {
-			a = g.prototype;
-			for (f in c) {
-				b = a[f].slice(0);
-				h = c[f];
-				for (e in h) {
-					b[e] = h[e];
-				}
-				g.prototype[f] = b;
-			}
-		}
-		return g;
-	}),
-	(Compare = function (e, b, a, c, d) {
-		return (d = e < b ? b : e > a ? a : e), c ? [c(d), d] : [d];
-	}),
-	($Switch = function (h, d, c, a, g, b, e) {
-		b = 0;
-		g = d.length;
-		e = c;
-		while (b < g) {
-			if (e(h, d[b])) {
-				break;
-			}
-			++b;
-		}
-		return a[b];
-	}),
-	($SEql = function (c, b, a) {
-		return c in b ? b[c] : b.default;
-	});
-($SSml = function (d, c, a) {
-	var b = 0;
-	LX = c.length;
-	while (b < LX) {
-		if (d < c[b]) {
-			break;
-		}
-		++b;
+};
+
+var ShowLoginDiv = function () {
+	$User.isAuthorWebsite ? PlayAudio("tap") : GotoAuthorWebsite("");
+};
+
+var CheckLogin = function () {
+	const user = $("txtName").value;
+	const pass = $("txtPass").value;
+	const regUser1 = /^\w{3,10}$/;
+	const regUser2 = /^[\u4e00-\u9fa5\w]{3,10}$/;
+	const regPass = /^\w{3,20}$/;
+	return !!((regUser1.exec(user) || regUser2.exec(user)) && regPass.exec(pass));
+};
+
+var SelectModal = function (level) {
+	HiddenLevel();
+	HiddenMiniGame(1);
+	HiddenRiddleGame(1);
+	StopMusic();
+	PausedAudioArr = [];
+
+	if (level === undefined) level = $User.Visitor.Progress;
+	if (oS.LvlClearFunc) oS.LvlClearFunc();
+	// check if loadedMenus exists - if it does, clear it
+	if (window.loadedMenus) {
+		window.loadedMenus.length = 0;
 	}
-	return a[b];
-}),
-	($SGrt = function (d, c, a) {
-		var b = 0;
-		LX = c.length;
-		while (b < LX) {
-			if (d > c[b]) {
-				break;
-			}
-			++b;
-		}
-		return a[b];
-	}),
-	(ImgSpriter = function (h, c, e, f, g) {
-		var b = e[f];
-		var d = b[2];
-		var a = $(h);
-		a &&
-			((a.style.backgroundPosition = b[0]),
-			oSym.addTask(
-				b[1],
-				(j) => {
-					j > -1 ? ImgSpriter(h, c, e, j, g) : g(h, c);
+
+	const globals = oS.GlobalVariables;
+	const lvls = oS.LvlVariables;
+	const selfs = oS.SelfVariables;
+	const win = window;
+
+	for (let key in globals) win[key] = globals[key];
+	for (let key in lvls) win[key] = null;
+	let i = selfs.length;
+	while (i--) delete oS[selfs[i]];
+	for (let key in $Pn) $Pn[key] = null;
+
+	oS.GlobalVariables = {};
+	oS.LvlVariables = {};
+	oS.SelfVariables.length = 0;
+
+	SetHidden($("dCardList"), $("tGround"), $("dSelectCard"), $("dTop"), $("dMenu"), $("dHandBook"), $("dNewPlant"), $("dProcess"));
+	SetNone($("dSurface"), $("iSurfaceBackground"));
+	ClearChild($("dFlagMeterTitleB").firstChild);
+
+	EDAll = $("dBody").replaceChild(EDNewAll, EDAll);
+	$("dBody").replaceChild(EDNewFlagMeter, $("dFlagMeter"));
+	LoadLvl(level);
+};
+
+var GotoAuthorWebsite = function () {
+	window.open("https://github.com/ROBlNET13/pvz");
+};
+
+var InitGame = function () {
+	const serverDiv = NewEle(
+		"dServer",
+		"div",
+		"position:absolute;line-height:28px;left:706px;top:245px;width:700px;height:100px;font-size:16px;color:#040;font-family:Tahoma;font-weight:bold;z-index:2;display:none",
+		0,
+		$("dAll")
+	);
+	const procDiv = $("dProcess");
+
+	if (!$("dText1")) {
+		procDiv.insertBefore(
+			NewEle(
+				"dText1",
+				"div",
+				0,
+				{
+					innerHTML: atob(
+						"PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OnNhbnMtc2VyaWY7Y29sb3I6I2JiYjt3aWR0aDo4NSU7ZGlzcGxheTpibG9jazttYXJnaW46MTVweCBhdXRvIDAgYXV0byI+PHNwYW4gc3R5bGU9ImNvbG9yOiNmNjA7Ij5XZWxjb21lIHRvIFBsYW50cyB2cy4gWm9tYmllczogTU9EREVEPGJyPjwvc3Bhbj48c3BhbiBzdHlsZT0iY29sb3I6I2VlZTsiPlBsYW50cyB2cy4gWm9tYmllcyBNT0RERUQgJmNvcHk7IDIwMjUgYnkgUk9CbE5FVDEzIGlzIGxpY2Vuc2VkIHVuZGVyIDxhIGhyZWY9Imh0dHBzOi8vY3JlYXRpdmVjb21tb25zLm9yZy9saWNlbnNlcy9ieS1uYy1uZC80LjAvZGVlZC5lbiI+Q0MgQlktTkMtTkQgNC4wPC9hPi4gVGhpcyBsaWNlbnNlIGFwcGxpZXMgb25seSB0byBvcmlnaW5hbCBjb2RlL2NvbnRlbnQgY3JlYXRlZCBieSB0aGUgbW9kZGluZyB0ZWFtLiBBbGwgUGxhbnRzIHZzLiBab21iaWVzIGludGVsbGVjdHVhbCBwcm9wZXJ0eSByZW1haW5zIHRoZSBleGNsdXNpdmUgcHJvcGVydHkgb2YgUG9wQ2FwIEdhbWVzIGFuZCBFbGVjdHJvbmljIEFydHMgKEVBKS48L3NwYW4+PGJyPjxicj5QbGFudHMgdnMuIFpvbWJpZXMgTU9EREVEIGlzIGFuIHVub2ZmaWNpYWwgbW9kaWZpY2F0aW9uIGFuZCBpcyBub3QgYWZmaWxpYXRlZCB3aXRoLCBlbmRvcnNlZCBieSwgb3IgYXNzb2NpYXRlZCB3aXRoIFBvcENhcCBHYW1lcywgRWxlY3Ryb25pYyBBcnRzIChFQSksIG9yIHRoZSBvZmZpY2lhbCBQbGFudHMgdnMuIFpvbWJpZXMgZ2FtZS4gQWxsIGludGVsbGVjdHVhbCBwcm9wZXJ0eSwgdHJhZGVtYXJrcywgYW5kIGNvcHlyaWdodHMgcmVsYXRlZCB0byB0aGUgb3JpZ2luYWwgUGxhbnRzIHZzLiBab21iaWVzIGdhbWUgYXJlIHRoZSBwcm9wZXJ0eSBvZiBQb3BDYXAgR2FtZXMgYW5kIEVBLiBBbGwgY29kZSBpbiB0aGlzIGZhbmdhbWUgaXMgb3JpZ2luYWwsIGJhc2VkIG9uIGEgUHZaIHdlYmdhbWUgb3JpZ2luYWxseSBjcmVhdGVkIGJ5IEppYW5nTmFuIEdhbWUgRGV2ZWxvcG1lbnQgQ29tcGFueSBhbmQgTG9uZWx5U3Rhci4gVGhpcyBtb2QgZG9lcyBub3QgdXNlIGFueSBjb2RlIHdyaXR0ZW4gb3Igb3duZWQgYnkgUG9wQ2FwIEdhbWVzIG9yIEVBLiBUaGlzIG1vZCBpcyBjcmVhdGVkIGJ5IGZhbnMgZm9yIGVudGVydGFpbm1lbnQgcHVycG9zZXMgb25seSwgYW5kIG5vIGNvbW1lcmNpYWwgZ2FpbiBpcyBzb3VnaHQgb3Igb2J0YWluZWQgZnJvbSBpdHMgZGlzdHJpYnV0aW9uLiBVc2Ugb2YgdGhpcyBtb2QgaXMgYXQgeW91ciBvd24gcmlzaywgYW5kIHRoZSBjcmVhdG9ycyBvZiB0aGUgbW9kIGFyZSBub3QgbGlhYmxlIGZvciBhbnkgZGFtYWdlcyBvciBpc3N1ZXMgdGhhdCBtYXkgYXJpc2UgZnJvbSBpdHMgdXNlLjxicj48YnI+VXNlcyBvZiB0aGUgUG9wQ2FwIEdhbWVzIG9yIEVsZWN0cm9uaWMgQXJ0cyAoRUEpIG5hbWVzIGFyZSBmb3IgaWRlbnRpZmljYXRpb24gcHVycG9zZXMgb25seSBhbmQgZG8gbm90IGltcGx5IGFuIGVuZG9yc2VtZW50IGJ5IFBvcENhcCBHYW1lcyBvciBFQS48YnI+PGJyPjx1PkRvIG5vdCByZW1vdmUgdGhpcyB3YXJuaW5nLjwvdT4gRG9pbmcgc28gPHNwYW4gc3R5bGU9ImNvbG9yOnJlZCI+dmlvbGF0ZXM8L3NwYW4+IHRoZSB0ZXJtcyBvZiB0aGUgbGVnYWxseS1iaW5kaW5nIENyZWF0aXZlIENvbW1vbnMgTGljZW5zZSwgaWYgb3JpZ2luYWwgY29kZS9jb250ZW50IGNyZWF0ZWQgYnkgdGhlIG1vZGRpbmcgdGVhbSBpcyBpbmNsdWRlZC48YnI+PGJyPjxiPklmIHJlcXVlc3RlZCBieSBhbiBvZmZpY2lhbCBzb3VyY2UsIHdlIHdpbGwgcHJvbXB0bHkgdGFrZSBkb3duIHRoaXMgZmFuIGdhbWUgYW5kIHRoZSBhc3NvY2lhdGVkIEdpdEh1YiByZXBvLiBZb3UgbWF5IGNvbnRhY3QgdXMgdXNpbmcgdGhlIGVtYWlsIGxpc3RlZCBvbiA8YSBocmVmPSJodHRwczovL2dpdGh1Yi5jb20vUk9CbE5FVDEzL3B2ei9ibG9iL21haW4vUkVBRE1FLm1kI2xlZ2FsLWluZm8iPmh0dHBzOi8vZ2l0aHViLmNvbS9ST0JsTkVUMTMvcHZ6L2Jsb2IvbWFpbi9SRUFETUUubWQjbGVnYWwtaW5mbzwvYT4uPC9iPjwvc3Bhbj4="
+					),
 				},
-				[d]
-			));
-	}),
-	(Ajax = function () {}),
-	(Date.prototype.format = function (b) {
-		var c = {
-			"M+": this.getMonth() + 1,
-			"d+": this.getDate(),
-			"h+": this.getHours(),
-			"m+": this.getMinutes(),
-			"s+": this.getSeconds(),
-			"q+": Math.floor((this.getMonth() + 3) / 3),
-			S: this.getMilliseconds(),
+				0
+			),
+			procDiv.firstChild
+		);
+	}
+	LoadLvl();
+	// check if izl_id query parameter exists
+	const urlParams = new URLSearchParams(window.location.search);
+	const izlId = urlParams.get("izl_id");
+	if (izlId) {
+		setTimeout(() => {
+			fetch(`${$User.Server.URL}/api/levels/${izlId}/download`, {
+				method: "GET",
+			})
+				.then((response) => response.arrayBuffer())
+				.then(async (arrayBuffer) => {
+					// load the level
+					const levelData = await fileToLevelData(arrayBuffer);
+					console.log(levelData);
+					levelDataToLoad = levelData[0] === "=" ? parseCloneTiny_OLD(levelData) : parseCloneTiny(levelData);
+					// load the izombiecustomlevel level
+					if (levelDataToLoad.lfValue[3] === 2) {
+						SelectModal("izombiecustomlevelwater");
+					} else {
+						SelectModal("izombiecustomlevelnormal");
+					}
+				})
+				.catch((e) => {
+					console.error(e);
+					alert("There was an error loading the level. Please try again later.");
+					LoadLvl();
+				});
+		}, 0);
+	}
+};
+
+var LoadLvl = function (level, startTime) {
+	if (oSym.Timer) oSym.Stop();
+	const isReplay = oSym.Now === startTime;
+	const user = $User;
+
+	if (oS.CenterContent && ((level === 0 && isReplay) || level !== 0)) {
+		oS.DisplayAD = true;
+	}
+
+	level = level || 0;
+	if ($("dServer") && level !== 0) SetNone($("dServer"));
+
+	oSym.Init(
+		(lvl) => {
+			const script = $("JSPVZ");
+			if (script) ClearChild(script);
+			NewEle(
+				"JSPVZ",
+				"script",
+				0,
+				{
+					src: "level/" + (oS.Lvl = lvl) + ".js",
+					type: "text/javascript",
+				},
+				document.getElementsByTagName("head").item(0)
+			);
+		},
+		[level && isReplay ? 0 : level]
+	);
+};
+
+var AppearTombstones = function (minR, maxR, count) {
+	const tombs = oGd.$Tombstones;
+	const candidates = [];
+	let r = oS.R + 1;
+
+	// Find valid locations
+	while (--r) {
+		let c = maxR;
+		while (c >= minR) {
+			if (!tombs[r + "_" + c]) candidates.push([r, c]);
+			--c;
+		}
+	}
+
+	while (count--) {
+		let randIdx = Math.floor(Math.random() * candidates.length);
+		let coord = candidates[randIdx];
+		let tr = coord[0];
+		let tc = coord[1];
+		let key = tr + "_" + tc;
+
+		tombs[key] = 1;
+
+		// Kill existing plants at location
+		for (let i = 0; i < 4; i++) {
+			let p = oGd.$[key + "_" + i];
+			if (p) p.Die();
+		}
+
+		candidates.splice(randIdx, 1);
+
+		const div = NewEle("dTombstones" + key, "div", `position:absolute;width:86px;height:91px;left:${GetX(tc) - 43}px;top:${GetY(tr) - 91}px`, 0, EDAll);
+		const bgX = Math.floor(Math.random() * 4);
+		const bgY = Math.floor(Math.random() * 2);
+
+		div.appendChild(NewEle("", "div", `background-position:-${86 * bgX}px -${91 * bgY}px`, { className: "Tom1" }, div).cloneNode(false)).className = "Tom2";
+	}
+};
+
+var ResetGame = function (menuBtn) {
+	AllAudioPauseCanceled();
+	oSym.Start();
+	innerText(menuBtn, "Speed");
+	$("dMenu1").onclick = ClickMenu;
+	$("dMenu0").onclick = ShowSpeed;
+	SetNone($("dSurface"), $("dPause"));
+	$("dPauseAD").innerHTML = "";
+};
+
+var PauseGame = function (menuBtn, showAd) {
+	AllAudioPaused();
+	oSym.Stop();
+	innerText(menuBtn, "Speed");
+	$("dMenu1").onclick = null;
+	$("dMenu0").onclick = null;
+	if (!showAd) SetBlock($("dSurface"), $("dPause"));
+};
+
+var ClickMenu = function (e, btn) {
+	if (oSym.Timer) {
+		AllAudioPaused();
+		PlayAudio("pause");
+		oSym.Stop();
+		SetBlock($("dSurface"));
+		innerText($("dMenu0"), "Speed");
+		ShowOptions();
+	}
+	document.getElementById("sOptionsMenu").textContent = "Back To Game";
+	if (ArCard[oS.ChoseCard] && ArCard[oS.ChoseCard].DID != null) {
+		CancelPlant();
+	}
+};
+
+var OptionsMenuDown = function (ele, wrapper) {
+	ele.className = "OptionsMenuButtonDown";
+	wrapper.style.paddingTop = "2px";
+};
+
+var OptionsMenuUP = function (ele, wrapper) {
+	ele.className = "OptionsMenuButton";
+	wrapper.style.paddingTop = "0px";
+};
+
+var ShowSpeed = function () {
+	oSym.Stop();
+	PlayAudio("gravebutton");
+	SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
+	SetBlock($("dSpeedContainer"));
+};
+
+var HiddenSpeed = function () {
+	PlayAudio("tap");
+	SetNone($("dSpeedContainer"));
+	if (oS.Lvl) ResetGame($("dMenu0"));
+};
+
+var CSpeed = function (nowStep, timeStep, displayLabel) {
+	$User.Visitor.NowStep = oSym.NowStep = nowStep;
+	$User.Visitor.TimeStep = oSym.TimeStep = timeStep;
+	$("dDisplaySpeed").innerHTML = displayLabel;
+};
+
+var ShowLevel = function () {
+	PlayAudio("gravebutton");
+	SetNone($("dOptionsMenu"));
+	SetBlock($("dAdvSmallContainer"));
+};
+
+var HiddenLevel = function () {
+	PlayAudio("tap");
+	SetNone($("dOptionsMenuback"), $("dAdvSmallContainer"));
+	if (oS.Lvl) {
+		SetNone($("dSurface"));
+		ResetGame($("dMenu0"));
+	}
+};
+
+var ShowMiniGame = function () {
+	PlayAudio("gravebutton");
+	SetBlock($("dMiniSmallContainer"));
+};
+
+var HiddenMiniGame = function (isSilent) {
+	if (!isSilent) PlayAudio("tap");
+	SetNone($("dMiniSmallContainer"));
+};
+
+var ShowRiddleGame = function () {
+	PlayAudio("gravebutton");
+	SetBlock($("dRiddleSmallContainer"));
+};
+
+var HiddenRiddleGame = function (isSilent) {
+	if (!isSilent) PlayAudio("tap");
+	SetNone($("dRiddleSmallContainer"));
+};
+
+var ShowOptions = function () {
+	document.getElementById("sOptionsMenu").textContent = "OK";
+	PlayAudio(oS.Lvl ? "gravebutton" : "tap");
+	SetBlock($("dOptionsMenuback"), $("dOptionsMenu"));
+};
+
+var HiddenOptions = function () {
+	PlayAudio("gravebutton");
+	PlayAudio("buttonclick");
+	SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
+	if (oS.Lvl) {
+		SetNone($("dSurface"));
+		ResetGame($("dMenu0"));
+	}
+};
+
+var ViewHandBook = function () {
+	SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
+	if (oS.Lvl) {
+		AllAudioPaused();
+		PlayAudio("gravebutton");
+		SetNone($("dSurface"));
+		oSym.Stop();
+		innerText($("dMenu0"), "back to game");
+		$("dMenu1").onclick = null;
+	} else {
+		AllAudioPaused();
+		PlayAudio("tap");
+	}
+	PlayAudio("ChooseYourSeeds");
+	SetVisible($("dHandBook"));
+};
+
+var ReturnHandBookInx = function () {
+	PlayAudio("tap");
+	SetNone($("dHandBookP"), $("dHandBookZ"));
+	SetHidden($("dHandBookPZ"));
+};
+
+var CloseHandBook = function () {
+	PlayAudio("tap");
+	StopAudio("ChooseYourSeeds");
+	if (oS.Lvl) {
+		ResetGame($("dMenu0"));
+	} else {
+		oSym.addTask(100, AllAudioPauseCanceled);
+	}
+	SetNone($("dHandBookP"), $("dHandBookZ"));
+	SetHidden($("dHandBookPZ"), $("dHandBook"));
+};
+
+var ShowHelp = function () {
+	PlayAudio("tap");
+	SetBlock($("dHelp"));
+};
+
+var HiddenHelp = function () {
+	PlayAudio("tap");
+	SetNone($("dHelp"));
+};
+
+var $ = function (id) {
+	return document.getElementById(id);
+};
+
+var $n = function (tag) {
+	return document.createElement(tag);
+};
+
+var ClearChild = function () {
+	let i = arguments.length;
+	while (i--) {
+		try {
+			let child = arguments[i];
+			child.parentNode.removeChild(child);
+			child = null;
+		} catch (e) {}
+	}
+};
+
+var SetBlock = function () {
+	let i = arguments.length;
+	while (i--) {
+		if (arguments[i]) arguments[i].style.display = "block";
+	}
+};
+
+var SetNone = function () {
+	let i = arguments.length;
+	while (i--) {
+		if (arguments[i] && arguments[i].style) {
+			arguments[i].style.display = "none";
+		}
+	}
+};
+
+var SetHidden = function () {
+	let i = arguments.length;
+	while (i--) {
+		if (arguments[i]) arguments[i].style.visibility = "hidden";
+	}
+};
+
+var SetVisible = function () {
+	let i = arguments.length;
+	while (i--) {
+		if (arguments[i]) arguments[i].style.visibility = "visible";
+	}
+};
+
+var SetAlpha = $User.Browser.IE6
+	? function (ele, val, opacity) {
+			ele.style.filter = "alpha(opacity=" + val + ")";
+		}
+	: function (ele, val, opacity) {
+			ele.style.opacity = opacity;
 		};
-		if (/(y+)/.test(b)) {
-			b = b.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+
+var SetStyle = function (ele, styles) {
+	const s = ele.style;
+	for (let key in styles) {
+		s[key] = styles[key];
+	}
+	return ele;
+};
+
+var NewImg = function (id, src, cssText, parent, props) {
+	const img = $n("img");
+	img.src = src;
+	if (cssText) img.style.cssText = cssText;
+	if (props) {
+		for (let key in props) {
+			img[key] = props[key];
 		}
-		for (var a in c) {
-			if (new RegExp("(" + a + ")").test(b)) {
-				b = b.replace(RegExp.$1, RegExp.$1.length === 1 ? c[a] : ("00" + c[a]).substr(("" + c[a]).length));
+	}
+	if (id) img.id = id;
+	if (parent) parent.appendChild(img);
+	return img;
+};
+
+var EditImg = function (img, id, src, styles, parent) {
+	if (id) img.id = id;
+	if (src) img.src = src;
+	if (styles) SetStyle(img, styles);
+	if (parent) parent.appendChild(img);
+	return img;
+};
+
+var NewEle = function (id, tag, cssText, props, parent, attrs) {
+	const ele = $n(tag);
+	if (id) ele.id = id;
+	if (cssText) ele.style.cssText = cssText;
+	if (props) {
+		for (let key in props) {
+			ele[key] = props[key];
+		}
+	}
+	if (attrs) {
+		for (let key in attrs) {
+			ele.setAttribute(key, attrs[key]);
+		}
+	}
+	if (parent) parent.appendChild(ele);
+	return ele;
+};
+
+var EditEle = function (ele, attrs, styles, props, parent) {
+	// Backward/forward compatibility:
+	// Many call sites use EditEle(ele, attrs, styles, parent) or
+	// EditEle(ele, attrs, styles, parent, props). Detect and normalize.
+	if (props && props.nodeType && parent && !parent.nodeType) {
+		// (ele, attrs, styles, parentEle, propsObj)
+		const realParent = props;
+		props = parent;
+		parent = realParent;
+	} else if (!parent && props && props.nodeType) {
+		// (ele, attrs, styles, parentEle)
+		parent = props;
+		props = null;
+	}
+	if (attrs) {
+		for (let key in attrs) {
+			ele.setAttribute(key, attrs[key]);
+		}
+	}
+	if (styles) SetStyle(ele, styles);
+	if (props) {
+		for (let key in props) {
+			if (key === "outerText" && !ele.parentNode) {
+				ele.textContent = props[key];
+			} else {
+				ele[key] = props[key];
 			}
 		}
-		return b;
-	}),
-	(NewMusic = $User.HTML5
-		? function (a) {
-				NewAudio({ autoplay: true, loop: true, source: a });
+	}
+	if (parent) parent.appendChild(ele);
+	return ele;
+};
+
+var NewO = function (proto, constructor) {
+	constructor = function () {};
+	constructor.prototype = proto;
+	return constructor;
+};
+
+var SetPrototype = function (child, parent) {
+	const p = child.prototype;
+	for (let key in parent) {
+		p[key] = parent[key];
+	}
+};
+
+var InheritO = function (Parent, properties, arrayProps, child, parentArr, childArr) {
+	const Child = function () {};
+	Child.prototype = new Parent();
+	if (properties) SetPrototype(Child, properties);
+
+	if (arrayProps) {
+		const proto = Child.prototype;
+		for (let key in arrayProps) {
+			parentArr = proto[key].slice(0);
+			childArr = arrayProps[key];
+			for (let k in childArr) {
+				parentArr[k] = childArr[k];
 			}
-		: function (a) {
-				!oS.Silence && ($("oEmbed").innerHTML = "");
-			}),
-	(PauseMusic = $User.HTML5
-		? function () {
-				var a = oAudio[oS.LoadMusic];
-				a.currentTime = 0;
-				a.pause();
-			}
-		: function () {
-				$("oEmbed").innerHTML = "";
-			}),
-	(StartAdventure = function (d) {
-		var c = $("ZombieHand");
-		var b = $("dAdventure");
-		var a = NewImg("", "images/interface/ZombieHand.png", "position:absolute;left:0", c);
-		b.onclick = b.onmouseover = b.onmouseout = null;
-		SetBlock(c);
-		StopMusic();
-		PlayAudio("losemusic");
+			Child.prototype[key] = parentArr;
+		}
+	}
+	return Child;
+};
+
+var Compare = function (val, min, max, func, arg) {
+	const result = val < min ? min : val > max ? max : val;
+	return func ? [func(result), result] : [result];
+};
+
+var $Switch = function (val, cases, comparer, result, len) {
+	let i = 0;
+	len = cases.length;
+	while (i < len) {
+		if (comparer(val, cases[i])) break;
+		++i;
+	}
+	return result[i];
+};
+
+var $SEql = function (key, map) {
+	return key in map ? map[key] : map.default;
+};
+
+var $SSml = function (val, thresholds, results) {
+	let i = 0;
+	const len = thresholds.length;
+	while (i < len) {
+		if (val < thresholds[i]) break;
+		++i;
+	}
+	return results[i];
+};
+
+var $SGrt = function (val, thresholds, results) {
+	let i = 0;
+	const len = thresholds.length;
+	while (i < len) {
+		if (val > thresholds[i]) break;
+		++i;
+	}
+	return results[i];
+};
+
+var ImgSpriter = function (id, cardId, config, frameIdx, callback) {
+	const frame = config[frameIdx];
+	const nextIdx = frame[2];
+	const ele = $(id);
+
+	if (ele) {
+		ele.style.backgroundPosition = frame[0];
 		oSym.addTask(
-			120,
-			() => {
-				PlayAudio("evillaugh");
+			frame[1],
+			(idx) => {
+				idx > -1 ? ImgSpriter(id, cardId, config, idx, callback) : callback(id, cardId);
 			},
-			[]
+			[nextIdx]
 		);
-		oSym.addTask(
-			7,
-			function (f, e, g) {
-				e.style.left = (g -= 330) + "px";
-				--f && oSym.addTask(7, arguments.callee, [f, e, g]);
-			},
-			[6, a, 0]
-		);
-		$User.HTML5
-			? (function (g, h, e) {
-					var f = oAudio.evillaugh;
-					if (--e) {
-						g.style.backgroundPosition = ["top", "bottom"][h];
-						oSym.addTask(10, arguments.callee, [g, h ? 0 : 1, e]);
-					} else {
-						(g.style.backgroundPosition = "top"), (g.onclick = StartAdventure);
-						g.onmouseover = function () {
-							this.style.backgroundPosition = "bottom";
-						};
-						g.onmouseout = function () {
-							this.style.backgroundPosition = "top";
-						};
-						StopAudio("evillaugh");
-						SelectModal(d);
-						c.innerHTML = "";
-					}
-				})(b, 1, 50)
-			: (NewMusic("evillaugh"),
-				(function (f, g, e) {
-					if (--e) {
-						f.style.backgroundPosition = ["top", "bottom"][g];
-						oSym.addTask(10, arguments.callee, [f, g ? 0 : 1, e]);
-					} else {
-						(f.style.backgroundPosition = "top"), (f.onclick = StartAdventure);
-						f.onmouseover = function () {
-							this.style.backgroundPosition = "bottom";
-						};
-						f.onmouseout = function () {
-							this.style.backgroundPosition = "top";
-						};
-						SelectModal(d);
-						c.innerHTML = "";
-					}
-				})(b, 1, 50));
-	}),
-	(oAudio = {}),
-	(PausedAudioArr = []),
-	(NewAudio = $User.HTML5
-		? function (b) {
-				var a = b.source;
-				if (oAudio[a]) {
-					return;
-				}
-				var f = document.createElement("audio");
-				var c = b.autoplay;
-				var g = b.loop;
-				var m;
-				var h = { mp3: "audio/mpeg" };
-				var k = b.preload;
-				var l = b.callback;
-				var j = ["mp3"];
-				var e = j.length;
-				var d;
-				f.autoplay = !!c;
-				g &&
-					f.addEventListener(
-						"ended",
-						() => {
-							f.play();
-						},
-						false
-					);
-				while (e--) {
-					(m = document.createElement("source")).type = h[(d = j[e])];
-					m.src = "audio/" + a + "." + "mp3";
-					f.appendChild(m);
-				}
-				f.preload = k === undefined ? "auto" : ["auto", "meta", "none"][k];
-				f.muted = oS.Silence;
-				l && f.addEventListener("canplaythrough", l, false);
-				return (oAudio[a] = f);
-			}
-		: function () {}),
-	(PlayMusic = $User.HTML5
-		? function (b) {
-				var a = oAudio[b];
-				if (a) {
-					try {
-						a.currentTime = 0;
-					} catch (c) {}
-					a.play();
-				} else {
-					NewMusic(b);
-					oAudio[b].play();
-				}
-			}
-		: function (a) {
-				NewMusic(a);
-			}),
-	(PlayAudioLegacy = $User.HTML5
-		? function (c, a) {
-				var b = oAudio[c];
-				if (b) {
-					b.loop = !!a;
-					b.play();
-				} else {
-					NewAudio({ source: c, loop: !!a }).play();
-				}
-			}
-		: function () {}),
-	(PlayAudio = $User.HTML5
-		? function (c, a) {
-				var b = oAudio[c];
+	}
+};
 
-				if (!b) {
-					b = NewAudio({ source: c, loop: !!a });
-					oAudio[c] = b;
-				} else {
-					b.loop = !!a;
-				}
+var Ajax = function () {};
 
-				b.currentTime = 0; // Restart to beginning
-				b.play();
-			}
-		: function () {}),
-	(PauseAudio = $User.HTML5
-		? function (a) {
-				oAudio[a].pause();
-			}
-		: function () {}),
-	(StopMusic = $User.HTML5
-		? function () {
-				var a = oAudio[oS.LoadMusic];
-				try {
-					a.currentTime = 0;
-				} catch (b) {}
-				a.pause();
-			}
-		: function () {}),
-	(StopAudio = $User.HTML5
-		? function (b) {
-				var a = oAudio[b];
-				try {
-					a.currentTime = 0;
-				} catch (c) {}
-				try {
-					a.pause();
-				} catch (c) {}
-			}
-		: function () {}),
-	(AllAudioPaused = $User.HTML5
-		? function () {
-				var a;
-				var b;
-				for (a in oAudio) {
-					b = oAudio[a];
-					!(b.paused || b.ended) && (PausedAudioArr.push(a), b.pause());
-				}
-			}
-		: function () {}),
-	(AllAudioPauseCanceled = $User.HTML5
-		? function () {
-				var a = PausedAudioArr.length;
-				while (a--) {
-					oAudio[PausedAudioArr[a]].play();
-				}
-				PausedAudioArr.length = 0;
-			}
-		: function () {}),
-	(AllAudioMuted = function () {
-		var a;
-		for (a in oAudio) {
-			oAudio[a].muted = true;
+Date.prototype.format = function (fmt) {
+	const o = {
+		"M+": this.getMonth() + 1,
+		"d+": this.getDate(),
+		"h+": this.getHours(),
+		"m+": this.getMinutes(),
+		"s+": this.getSeconds(),
+		"q+": Math.floor((this.getMonth() + 3) / 3),
+		S: this.getMilliseconds(),
+	};
+	if (/(y+)/.test(fmt)) {
+		fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+	}
+	for (let k in o) {
+		if (new RegExp("(" + k + ")").test(fmt)) {
+			fmt = fmt.replace(RegExp.$1, RegExp.$1.length === 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
 		}
-	}),
-	(AllAudioMuteCanceled = function () {
-		var a;
-		for (a in oAudio) {
-			oAudio[a].muted = false;
-		}
-	}),
-	(CheckSilence = $User.HTML5
-		? function (a) {
-				var b = a.checked ? 1 : 0;
-				b !== oS.Silence && (addCookie("JSPVZSilence", (oS.Silence = b)), b ? AllAudioMuted() : AllAudioMuteCanceled());
-			}
-		: function (a) {
-				var b = a.checked ? 1 : 0;
-				b !== oS.Silence && (addCookie("JSPVZSilence", (oS.Silence = b)), b ? PauseMusic() : NewMusic(oS.StartGameMusic));
-			}),
-	(AppearCard = function (h, f, e, a, t) {
-		// x, y, 植物id, 移动卡槽类型, 消失时间（默认 15s）
-		var b;
-		var d;
-		var g = "dCard" + Math.random();
-		var c = "opacity:1;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto);left:" + h + "px;top:-1000";
-		var t = t || 1500;
+	}
+	return fmt;
+};
 
-		if (a) {
-			(d = 0), oSym.addTask(1, MoveDropCard, [g, f, t]);
+var NewMusic = $User.HTML5
+	? function (src) {
+			NewAudio({ autoplay: true, loop: true, source: src });
 		}
-		// 从天而降，反之抛物线掉落
-		else {
-			(d = f - 15 - 20),
-				(c += ";top:" + d + "px"),
-				oSym.addTask(1, DisappearCard, [g, t]),
-				oSym.addTask(
-					1,
-					function (q, p, n, j, l, k, m, i) {
-						if (ArCard[q] && $(q)) {
-							SetStyle($(q), {
-								left: (p += j * k) + "px",
-								top: (n += Number(l[0])) + "px",
-							});
-							l.shift();
-							--m;
-							m > 0 && (l.length === 0 && (l = [8, 16, 24, 32]), oSym.addTask(i, arguments.callee, [q, p, n, j, l, k, m, ++i]));
-						}
+	: function (src) {
+			if (!oS.Silence) $("oEmbed").innerHTML = "";
+		};
+
+var PauseMusic = $User.HTML5
+	? function () {
+			const audio = oAudio[oS.LoadMusic];
+			if (audio) {
+				audio.currentTime = 0;
+				audio.pause();
+			}
+		}
+	: function () {
+			$("oEmbed").innerHTML = "";
+		};
+
+var StartAdventure = function (level) {
+	const handDiv = $("ZombieHand");
+	const advDiv = $("dAdventure");
+	const handImg = NewImg("", "images/interface/ZombieHand.png", "position:absolute;left:0", handDiv);
+
+	advDiv.onclick = advDiv.onmouseover = advDiv.onmouseout = null;
+	SetBlock(handDiv);
+	StopMusic();
+	PlayAudio("losemusic");
+
+	oSym.addTask(
+		120,
+		() => {
+			PlayAudio("evillaugh");
+		},
+		[]
+	);
+
+	oSym.addTask(
+		7,
+		function (count, ele, left) {
+			ele.style.left = (left -= 330) + "px";
+			if (--count) oSym.addTask(7, arguments.callee, [count, ele, left]);
+		},
+		[6, handImg, 0]
+	);
+
+	const animation = function (ele, frame, count) {
+		if (--count) {
+			ele.style.backgroundPosition = ["top", "bottom"][frame];
+			oSym.addTask(10, arguments.callee, [ele, frame ? 0 : 1, count]);
+		} else {
+			ele.style.backgroundPosition = "top";
+			ele.onclick = StartAdventure;
+			ele.onmouseover = function () {
+				this.style.backgroundPosition = "bottom";
+			};
+			ele.onmouseout = function () {
+				this.style.backgroundPosition = "top";
+			};
+
+			if ($User.HTML5) StopAudio("evillaugh");
+			SelectModal(level);
+			handDiv.innerHTML = "";
+		}
+	};
+
+	if ($User.HTML5) {
+		animation(advDiv, 1, 50);
+	} else {
+		NewMusic("evillaugh");
+		animation(advDiv, 1, 50);
+	}
+};
+
+var oAudio = {};
+var PausedAudioArr = [];
+
+var NewAudio = $User.HTML5
+	? function (config) {
+			const src = config.source;
+			if (oAudio[src]) return;
+
+			const audio = document.createElement("audio");
+			const types = { mp3: "audio/mpeg" };
+			const formats = ["mp3"];
+			let i = formats.length;
+
+			audio.autoplay = !!config.autoplay;
+
+			if (config.loop) {
+				audio.addEventListener(
+					"ended",
+					() => {
+						audio.play();
 					},
-					[g, h, d, Math.floor(Math.random() * 4), [-32, -24, -16, -8], [-1, 1][Math.floor(Math.random() * 2)], 8, 2]
+					false
 				);
-		} // 开始记时，确定抛物线，与阳光部分相似故压缩
-
-		ArCard[g] = {
-			DID: g,
-			PName: e,
-			PixelTop: 600,
-			CDReady: 1,
-			SunReady: 1,
-			top: d,
-			HasChosen: false,
-			Kind: 1,
-		}; // 生成卡片数据，是否被点击过
-		NewImg(g, e.prototype.PicArr[e.prototype.CardGif], c, $("dCardList"), {
-			// 生成卡片 ele
-			onclick(g) {
-				var self = this;
-				var { style } = self;
-				var { id } = self;
-				ClearChild($("MovePlant"), $("MovePlantAlpha")),
-					CancelPlant(),
-					style && (style.opacity = 0.5),
-					ChosePlant(g, id),
-					ArCard[id] && (ArCard[id].HasChosen = true);
-			},
-		});
-	}),
-	(MoveDropCard = function (c, b, t) {
-		// 掉落目标
-		var a = ArCard[c];
-		var ele = $(c);
-		a && ele && (!a.HasChosen && a.top < b - 52 ? ((ele.style.top = (a.top += 2) + "px"), oSym.addTask(5, MoveDropCard, [c, b, t])) : DisappearCard(c, t));
-	}),
-	(DisappearCard = function (d, r) {
-		var q = 5;
-		var e = $(d);
-		var f = function (t) {
-			switch (true) {
-				case !ArCard[d] || !e:
-					return; // 卡片已经消失，不做处理
-				case oS.Chose === 1 && oS.ChoseCard === d:
-					break; // 选中
-				case t > 500:
-					e.style.opacity = 1;
-					break; // 未到闪烁时间
-				case t > 0:
-					e.style.opacity = [1, 0.5][Math.ceil(t / 50) % 2];
-					break; // 闪烁
-				default:
-					delete ArCard[d], ClearChild(e);
-					return;
 			}
-			(e = $(d)), oSym.addTask(q, arguments.callee, [t - q]);
+
+			while (i--) {
+				let source = document.createElement("source");
+				source.type = types[formats[i]];
+				source.src = "audio/" + src + ".mp3";
+				audio.appendChild(source);
+			}
+
+			audio.preload = config.preload === undefined ? "auto" : ["auto", "meta", "none"][config.preload];
+			audio.muted = oS.Silence;
+
+			if (config.callback) audio.addEventListener("canplaythrough", config.callback, false);
+
+			return (oAudio[src] = audio);
+		}
+	: function () {};
+
+var PlayMusic = $User.HTML5
+	? function (src) {
+			let audio = oAudio[src];
+			if (audio) {
+				try {
+					audio.currentTime = 0;
+				} catch (e) {}
+				audio.play();
+			} else {
+				NewMusic(src);
+				oAudio[src].play();
+			}
+		}
+	: function (src) {
+			NewMusic(src);
 		};
-		f(r);
+
+var PlayAudioLegacy = $User.HTML5
+	? function (src, loop) {
+			const audio = oAudio[src];
+			if (audio) {
+				audio.loop = !!loop;
+				audio.play();
+			} else {
+				NewAudio({ source: src, loop: !!loop }).play();
+			}
+		}
+	: function () {};
+
+var PlayAudio = $User.HTML5
+	? function (src, loop) {
+			let audio = oAudio[src];
+			if (!audio) {
+				audio = NewAudio({ source: src, loop: !!loop });
+				oAudio[src] = audio;
+			} else {
+				audio.loop = !!loop;
+			}
+			audio.currentTime = 0;
+			audio.play();
+		}
+	: function () {};
+
+var PauseAudio = $User.HTML5
+	? function (src) {
+			oAudio[src].pause();
+		}
+	: function () {};
+
+var StopMusic = $User.HTML5
+	? function () {
+			const audio = oAudio[oS.LoadMusic];
+			try {
+				audio.currentTime = 0;
+			} catch (e) {}
+			if (audio) audio.pause();
+		}
+	: function () {};
+
+var StopAudio = $User.HTML5
+	? function (src) {
+			const audio = oAudio[src];
+			try {
+				audio.currentTime = 0;
+			} catch (e) {}
+			try {
+				audio.pause();
+			} catch (e) {}
+		}
+	: function () {};
+
+var AllAudioPaused = $User.HTML5
+	? function () {
+			for (let key in oAudio) {
+				let audio = oAudio[key];
+				if (!(audio.paused || audio.ended)) {
+					PausedAudioArr.push(key);
+					audio.pause();
+				}
+			}
+		}
+	: function () {};
+
+var AllAudioPauseCanceled = $User.HTML5
+	? function () {
+			let i = PausedAudioArr.length;
+			while (i--) {
+				oAudio[PausedAudioArr[i]].play();
+			}
+			PausedAudioArr.length = 0;
+		}
+	: function () {};
+
+var AllAudioMuted = function () {
+	for (let key in oAudio) {
+		oAudio[key].muted = true;
+	}
+};
+
+var AllAudioMuteCanceled = function () {
+	for (let key in oAudio) {
+		oAudio[key].muted = false;
+	}
+};
+
+var CheckSilence = $User.HTML5
+	? function (checkbox) {
+			const val = checkbox.checked ? 1 : 0;
+			if (val !== oS.Silence) {
+				addCookie("JSPVZSilence", (oS.Silence = val));
+				val ? AllAudioMuted() : AllAudioMuteCanceled();
+			}
+		}
+	: function (checkbox) {
+			const val = checkbox.checked ? 1 : 0;
+			if (val !== oS.Silence) {
+				addCookie("JSPVZSilence", (oS.Silence = val));
+				val ? PauseMusic() : NewMusic(oS.StartGameMusic);
+			}
+		};
+
+var AppearCard = function (x, y, PlantClass, moveType, duration) {
+	const id = "dCard" + Math.random();
+	let style = `opacity:1;width:100px;height:120px;cursor:url(images/interface/Pointer.cur),pointer;clip:rect(auto,auto,60px,auto);left:${x}px;top:-1000px`;
+	duration = duration || 1500;
+	let endTop;
+
+	if (moveType) {
+		endTop = 0;
+		oSym.addTask(1, MoveDropCard, [id, y, duration]);
+	} else {
+		endTop = y - 15 - 20;
+		style += ";top:" + endTop + "px";
+
+		oSym.addTask(1, DisappearCard, [id, duration]);
+
+		// Parabolic drop animation
+		oSym.addTask(
+			1,
+			function (cardId, curX, curY, xStep, ySteps, dir, stepsLeft, tick) {
+				if (ArCard[cardId] && $(cardId)) {
+					SetStyle($(cardId), {
+						left: (curX += xStep * dir) + "px",
+						top: (curY += Number(ySteps[0])) + "px",
+					});
+					ySteps.shift();
+					--stepsLeft;
+					if (stepsLeft > 0) {
+						if (ySteps.length === 0) ySteps = [8, 16, 24, 32];
+						oSym.addTask(tick, arguments.callee, [cardId, curX, curY, xStep, ySteps, dir, stepsLeft, ++tick]);
+					}
+				}
+			},
+			[id, x, endTop, Math.floor(Math.random() * 4), [-32, -24, -16, -8], [-1, 1][Math.floor(Math.random() * 2)], 8, 2]
+		);
+	}
+
+	ArCard[id] = {
+		DID: id,
+		PName: PlantClass,
+		PixelTop: 600,
+		CDReady: 1,
+		SunReady: 1,
+		top: endTop,
+		HasChosen: false,
+		Kind: 1,
+	};
+
+	NewImg(id, PlantClass.prototype.PicArr[PlantClass.prototype.CardGif], style, $("dCardList"), {
+		onclick(e) {
+			const self = this;
+			ClearChild($("MovePlant"), $("MovePlantAlpha"));
+			CancelPlant();
+			if (self.style) self.style.opacity = 0.5;
+			ChosePlant(e, self.id);
+			if (ArCard[self.id]) ArCard[self.id].HasChosen = true;
+		},
 	});
+};
+
+var MoveDropCard = function (id, targetY, duration) {
+	const card = ArCard[id];
+	const ele = $(id);
+	if (card && ele) {
+		if (!card.HasChosen && card.top < targetY - 52) {
+			ele.style.top = (card.top += 2) + "px";
+			oSym.addTask(5, MoveDropCard, [id, targetY, duration]);
+		} else {
+			DisappearCard(id, duration);
+		}
+	}
+};
+
+var DisappearCard = function (id, duration) {
+	const step = 5;
+	let ele = $(id);
+
+	(function tick(timeLeft) {
+		if (!ArCard[id] || !ele) return;
+
+		if (oS.Chose === 1 && oS.ChoseCard === id) {
+			// Selected, do nothing
+		} else if (timeLeft > 500) {
+			ele.style.opacity = 1;
+		} else if (timeLeft > 0) {
+			ele.style.opacity = [1, 0.5][Math.ceil(timeLeft / 50) % 2];
+		} else {
+			delete ArCard[id];
+			ClearChild(ele);
+			return;
+		}
+
+		ele = $(id);
+		oSym.addTask(step, tick, [timeLeft - step]);
+	})(duration);
+};
 
 NewEle("dTitle", "div", 0, 0, $("dBody"));
+
+const allPlantsStringArray = [
+	// for alamanac
+	"oPeashooter",
+	"oSunFlower",
+	"oCherryBomb",
+	"oWallNut",
+	"oPotatoMine",
+	"oSnowPea",
+	"oChomper",
+	"oRepeater",
+	"oPuffShroom",
+	"oSunShroom",
+	"oFumeShroom",
+	"oGraveBuster",
+	"oHypnoShroom",
+	"oScaredyShroom",
+	"oIceShroom",
+	"oDoomShroom",
+	"oLilyPad",
+	"oSquash",
+	"oThreepeater",
+	"oTangleKlep",
+	"oJalapeno",
+	"oSpikeweed",
+	"oTorchwood",
+	"oTallNut",
+	"oCactus",
+	"oPlantern",
+	"oSplitPea",
+	"oStarfruit",
+	"oPumpkinHead",
+	"oFlowerPot",
+	"oCoffeeBean",
+	"oGarlic",
+	"oSeaShroom",
+	"oOxygen",
+	"ostar",
+	"oTTS",
+	"oGun",
+	"oSeaAnemone",
+	"oGatlingPea",
+	"oGloomShroom",
+	"oTwinSunflower",
+	"oSpikerock",
+	"oTenManNut",
+	"oSnowRepeater",
+	"oCattail",
+	"oLotusRoot",
+	"oIceFumeShroom",
+	"oLaserBean",
+	"oBigChomper",
+	"oFlamesMushroom",
+	"oBalloon",
+];
+
+const allPlantsArray = () => {
+	// also for almanac
+	const arr = [];
+	for (let i = 0; i < allPlantsStringArray.length; i++) {
+		arr.push(window[allPlantsStringArray[i]]);
+	}
+	return arr;
+};
+
+const izombiePlantsMap = [
+	// for izombie (DONT CHANGE THE ORDER!!!!!!)
+	"oPeashooter",
+	"oSunFlower",
+	"oCherryBomb",
+	"oWallNut",
+	"oPotatoMine",
+	"oSnowPea",
+	"oChomper",
+	"oRepeater",
+	"oPuffShroom",
+	"oSunShroom",
+	"oFumeShroom",
+	"oGraveBuster",
+	"oHypnoShroom",
+	"oScaredyShroom",
+	"oIceShroom",
+	"oDoomShroom",
+	"oLilyPad",
+	"oILilyPad",
+	"oSquash",
+	"oThreepeater",
+	"oTangleKlep",
+	"oJalapeno",
+	"oSpikeweed",
+	"oTorchwood",
+	"oTallNut",
+	"oCactus",
+	"oPlantern",
+	"oSplitPea",
+	"oStarfruit",
+	"oPumpkinHead",
+	"oFlowerPot",
+	"oCoffeeBean",
+	"oGarlic",
+	"oSeaShroom",
+	"oOxygen",
+	"ostar",
+	"oTTS",
+	"oGun",
+	"oSeaAnemone",
+	"oGatlingPea",
+	"oGloomShroom",
+	"oTwinSunflower",
+	"oSpikerock",
+	"oTenManNut",
+	"oSnowRepeater",
+	"oCattail",
+	"oLotusRoot",
+	"oIceFumeShroom",
+	"oLaserBean",
+	"oBigChomper",
+	"oFlamesMushroom",
+];

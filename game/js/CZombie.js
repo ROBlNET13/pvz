@@ -346,7 +346,7 @@ var CZombies = (function (b, a) {
 				return true;
 			},
 			getRaven() {
-				return this.DisappearDie(), 1;
+				return (this.DisappearDie(), 1);
 			},
 			getExplosion() {
 				this.ExplosionDie();
@@ -1013,7 +1013,7 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 		b.ChkActs = b.ChkActs1;
 		b.ChangeChkActsTo1(b, a, b.EleBody);
 		b.ResetBackupDancer(b);
-		($(a + "_spotlightCon").style.left = "20px"), ($(a + "_spotlight2Con").style.left = "25px");
+		(($(a + "_spotlightCon").style.left = "20px"), ($(a + "_spotlight2Con").style.left = "25px"));
 		oP.MonPrgs();
 	},
 	ResetBackupDancer(f) {
@@ -1585,7 +1585,7 @@ var oIDancingZombie = InheritO(OrnNoneZombies, {
 		b.ChkActs = b.ChkActs1;
 		b.ChangeChkActsTo1(b, a, b.EleBody);
 		b.ResetBackupDancer(b);
-		($(a + "_spotlightCon").style.left = "20px"), ($(a + "_spotlight2Con").style.left = "25px");
+		(($(a + "_spotlightCon").style.left = "20px"), ($(a + "_spotlight2Con").style.left = "25px"));
 		oP.MonPrgs();
 	},
 	ResetBackupDancer(f) {
@@ -2610,7 +2610,7 @@ var oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		return false;
 	},
 	getRaven(a) {
-		return !this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0;
+		return (!this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0);
 	},
 	NormalAttack(d, b, g) {
 		var f = $Z[d];
@@ -2774,7 +2774,7 @@ var oIPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		return false;
 	},
 	getRaven(a) {
-		return !this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0;
+		return (!this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0);
 	},
 	NormalAttack(d, b, g) {
 		var f = $Z[d];
@@ -5258,7 +5258,7 @@ var oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		return false;
 	},
 	getRaven(a) {
-		return !this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0;
+		return (!this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0);
 	},
 	JudgeAttack() {
 		var f = this;
@@ -5861,7 +5861,7 @@ var oIJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 	EName: "oCJackinTheBoxZombie",
 });
-(oBalloonZombie = InheritO(OrnIZombies, {
+((oBalloonZombie = InheritO(OrnIZombies, {
 	EName: "oBalloonZombie",
 	CName: "Balloon Zombie",
 	OrnHP: 10,
@@ -6057,7 +6057,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 		MulBallNum() {
 			// 减去气球数
 			if (!this.BreakBall) {
-				(this.BreakBall = true), (oGd.$Balloon[this.R] |= 0), --oGd.$Balloon[this.R];
+				((this.BreakBall = true), (oGd.$Balloon[this.R] |= 0), --oGd.$Balloon[this.R]);
 			}
 		},
 		getShadow(a) {
@@ -6102,7 +6102,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 							var j = $Z[i];
 							var k = oGd.$Balloon;
 							j && ((j.FreeSetbodyTime = 0), SetBlock(g));
-							(k[c] |= 0), ++k[c]; // 增加数量
+							((k[c] |= 0), ++k[c]); // 增加数量
 							PlayAudio("ballooninflate");
 						},
 						[c, a, b]
@@ -6257,8 +6257,8 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 			this.Altitude === 1 && this.getHit0(this, 13);
 		},
 		prepareBirth: oZomboni.prototype.prepareBirth,
-	}));
-(oJY = InheritO(oBalloonZombie, {
+	})));
+((oJY = InheritO(oBalloonZombie, {
 	EName: "oJY",
 	CName: "Fish Thrower Imp",
 	OrnHP: 1,
@@ -6461,7 +6461,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 				9: "images/Zombies/wall/Zombie/1.gif",
 			},
 		}
-	));
+	)));
 oCConeheadZombie = InheritO(OrnIZombies, {
 	EName: "oCConeheadZombie",
 	CName: "Bamboo Baskethead Zombie",
@@ -6522,7 +6522,7 @@ oCBucketheadZombie = InheritO(
 		},
 	}
 );
-(othugZombie = InheritO(OrnNoneZombies, {
+((othugZombie = InheritO(OrnNoneZombies, {
 	EName: "othugZombie",
 	CName: "Assassin Zombie",
 	HP: 550,
@@ -6616,7 +6616,7 @@ oCBucketheadZombie = InheritO(
 		return false;
 	},
 	getRaven(a) {
-		return !this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0;
+		return (!this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0);
 	},
 	NormalAttack(d, b, g) {
 		var f = $Z[d];
@@ -6912,8 +6912,8 @@ oCBucketheadZombie = InheritO(
 					[h, f[[(g.NormalGif = g.OrnLostNormalGif), (g.AttackGif = g.OrnLostAttackGif)][b]]]
 				));
 		},
-	}));
-(oZZ = InheritO(OrnNoneZombies, {
+	})));
+((oZZ = InheritO(OrnNoneZombies, {
 	EName: "oZZ",
 	CName: "Wraith Zombie",
 	Lvl: 4,
@@ -7013,8 +7013,8 @@ oCBucketheadZombie = InheritO(
 		})(),
 		Produce:
 			'新一代僵王博士登场。<p>体力：<font color="#CC241D">不死之身</font></p>喂!你怎么会在出现在游戏里？我总会听到有玩家这么问。嗯，这都要怪一个叫严启伦的家伙。',
-	}));
-(oWJY1 = InheritO(oDuckyTubeZombie1, {
+	})));
+((oWJY1 = InheritO(oDuckyTubeZombie1, {
 	EName: "oWJY1",
 	CName: "Author Zombie-Water",
 	OSpeed: 0.1,
@@ -7613,7 +7613,7 @@ oCBucketheadZombie = InheritO(
 								return true;
 							},
 							getRaven() {
-								return this.DisappearDie(), 1;
+								return (this.DisappearDie(), 1);
 							},
 							getExplosion() {
 								this.ExplosionDie();
@@ -8298,7 +8298,7 @@ oCBucketheadZombie = InheritO(
 						b.ChkActs = b.ChkActs1;
 						b.ChangeChkActsTo1(b, a, b.EleBody);
 						b.ResetBackupDancer(b);
-						($(a + "_spotlightCon").style.left = "20px"), ($(a + "_spotlight2Con").style.left = "25px");
+						(($(a + "_spotlightCon").style.left = "20px"), ($(a + "_spotlight2Con").style.left = "25px"));
 						oP.MonPrgs();
 					},
 					ResetBackupDancer(f) {
@@ -9045,7 +9045,7 @@ oCBucketheadZombie = InheritO(
 						return false;
 					},
 					getRaven(a) {
-						return !this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0;
+						return (!this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0);
 					},
 					NormalAttack(d, b, g) {
 						var f = $Z[d];
@@ -9783,7 +9783,7 @@ oCBucketheadZombie = InheritO(
 					})(),
 					AudioArr: ["zombie_entering_water"],
 					BirthCallBack(a) {
-						oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
+						(oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this));
 					},
 					Jump(a) {
 						a.beAttacked &&
@@ -10556,7 +10556,7 @@ oCBucketheadZombie = InheritO(
 							var j = 3 * d + 1;
 							var i = (h.id = "Z_" + Math.random());
 
-							(h.R = d), (h.pixelTop = c), (h.zIndex = j), (h.delayT = 0); // 设置其本身不受 delayT 影响
+							((h.R = d), (h.pixelTop = c), (h.zIndex = j), (h.delayT = 0)); // 设置其本身不受 delayT 影响
 
 							return h.getHTML(i, h.X, c, j, "none", "auto", h.GetDTop, h.PicArr[h.NormalGif]);
 						},
@@ -10613,7 +10613,7 @@ oCBucketheadZombie = InheritO(
 						'海豚骑士僵尸善于利用你水池防御的弱点。<p>韧性：<font color="#CC241D">中</font><br>速度：<font color="#CC241D">快，慢（跳越后）</font><br>特点：<font color="#CC241D">跃过他所遇到的第一株植物</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
 					BirthCallBack(a) {
 						PlayAudio("dolphin_appears");
-						oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this);
+						(oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this));
 					},
 					Jump(a) {
 						a.beAttacked &&
@@ -10671,7 +10671,7 @@ oCBucketheadZombie = InheritO(
 						return false;
 					},
 					getRaven(a) {
-						return !this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0;
+						return (!this.isAttacking && this.NormalAttack(this.id, a, $P[a].AttackedLX), 0);
 					},
 					JudgeAttack() {
 						var f = this;
@@ -11073,7 +11073,7 @@ oCBucketheadZombie = InheritO(
 					MulBallNum() {
 						// 减去气球数
 						if (!this.BreakBall) {
-							(this.BreakBall = true), (oGd.$Balloon[this.R] |= 0), --oGd.$Balloon[this.R];
+							((this.BreakBall = true), (oGd.$Balloon[this.R] |= 0), --oGd.$Balloon[this.R]);
 						}
 					},
 					getShadow(a) {
@@ -11118,7 +11118,7 @@ oCBucketheadZombie = InheritO(
 										var j = $Z[i];
 										var k = oGd.$Balloon;
 										j && ((j.FreeSetbodyTime = 0), SetBlock(g));
-										(k[c] |= 0), ++k[c]; // 增加数量
+										((k[c] |= 0), ++k[c]); // 增加数量
 										PlayAudio("ballooninflate");
 									},
 									[c, a, b]
@@ -11276,7 +11276,7 @@ oCBucketheadZombie = InheritO(
 				});
 			},
 		});
-	})());
+	})()));
 oDiggerZombie = InheritO(OrnNoneZombies, {
 	EName: "oDiggerZombie",
 	CName: "Digger Zombie",
@@ -11317,7 +11317,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 		var e = f.delayT;
 		var d = f.id;
 		var c = (f.Ele = $(d));
-		(f.EleShadow = c.firstChild), (f.EleBody = c.childNodes[1]), SetHidden(f.EleShadow);
+		((f.EleShadow = c.firstChild), (f.EleBody = c.childNodes[1]), SetHidden(f.EleShadow));
 		e
 			? oSym.addTask(
 					e,
@@ -11393,7 +11393,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 	Go_Up(a, WD) {
 		// WD: 方向，1右0左
 		a.isUp = 1; //a.Ifgc=0;
-		a.beAttacked &&
+		(a.beAttacked &&
 			((a.WalkDirection = WD),
 			(a.BoomDieGif = 12),
 			PlayAudio("zombie_entering_water"),
@@ -11403,7 +11403,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 			(a.OSpeed = a.Speed = 0)),
 			(a.ChkActs = function () {
 				return 1;
-			}); // 跳起来
+			})); // 跳起来
 		oSym.addTask(
 			100,
 			(c, b) => {
@@ -11424,9 +11424,9 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 						WD ? 400 : 0,
 						(c, b) => {
 							// 行走
-							(b.EleBody.src = b.PicArr[(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)]),
+							((b.EleBody.src = b.PicArr[(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)]),
 								(b.OSpeed = b.Speed = 1.6),
-								(b.ChkActs = OrnNoneZombies.prototype[WD ? "ChkActs1" : "ChkActs"]);
+								(b.ChkActs = OrnNoneZombies.prototype[WD ? "ChkActs1" : "ChkActs"]));
 						},
 						[c, b]
 					);
@@ -11437,7 +11437,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 	ChkActs(f, d, g, c) {
 		// 到了左边自己钻出来
 		if (f.Altitude === 0 && f.AttackedRX < GetX(1) - 40) {
-			return f.Go_Up(f, 1), 1;
+			return (f.Go_Up(f, 1), 1);
 		}
 
 		var b;
@@ -11500,7 +11500,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 		g.Stone_of_Sinan_Up = function () {};
 	},
 });
-(oIDiggerZombie = InheritO(OrnNoneZombies, {
+((oIDiggerZombie = InheritO(OrnNoneZombies, {
 	EName: "oIDiggerZombie",
 	CName: "Digger Zombie",
 	Lvl: 4,
@@ -11540,7 +11540,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 		var e = f.delayT;
 		var d = f.id;
 		var c = (f.Ele = $(d));
-		(f.EleShadow = c.firstChild), (f.EleBody = c.childNodes[1]), SetHidden(f.EleShadow);
+		((f.EleShadow = c.firstChild), (f.EleBody = c.childNodes[1]), SetHidden(f.EleShadow));
 		e
 			? oSym.addTask(
 					e,
@@ -11616,7 +11616,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 	Go_Up(a, WD) {
 		// WD: 方向，1右0左
 		a.isUp = 1; //a.Ifgc=0;
-		a.beAttacked &&
+		(a.beAttacked &&
 			((a.WalkDirection = WD),
 			(a.BoomDieGif = 12),
 			PlayAudio("zombie_entering_water"),
@@ -11626,7 +11626,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 			(a.OSpeed = a.Speed = 0)),
 			(a.ChkActs = function () {
 				return 1;
-			}); // 跳起来
+			})); // 跳起来
 		oSym.addTask(
 			100,
 			(c, b) => {
@@ -11647,9 +11647,9 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 						WD ? 400 : 0,
 						(c, b) => {
 							// 行走
-							(b.EleBody.src = b.PicArr[(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)]),
+							((b.EleBody.src = b.PicArr[(b.NormalGif = WD ? b.WalkGif1 : b.WalkGif2)]),
 								(b.OSpeed = b.Speed = 1.6),
-								(b.ChkActs = OrnNoneZombies.prototype[WD ? "ChkActs1" : "ChkActs"]);
+								(b.ChkActs = OrnNoneZombies.prototype[WD ? "ChkActs1" : "ChkActs"]));
 						},
 						[c, b]
 					);
@@ -11660,7 +11660,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 	ChkActs(f, d, g, c) {
 		// 到了左边自己钻出来
 		if (f.Altitude === 0 && f.AttackedRX < GetX(1) - 40) {
-			return f.Go_Up(f, 1), 1;
+			return (f.Go_Up(f, 1), 1);
 		}
 
 		var b;
@@ -11794,7 +11794,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 			}
 			this.DisappearDie();
 		},
-	}));
+	})));
 oPeaZombie = InheritO(oZombie, {
 	EName: "oPeaZombie",
 	CName: "Peashooter Zombie",

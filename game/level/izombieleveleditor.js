@@ -7,7 +7,7 @@
 	*/
 	var IZMode = oS.NowLevel ?? "ChoseMode"; // 读取当前关卡模式
 	var Change_Level = function (ModeName) {
-		(oS.NowLevel = ModeName), SelectModal(oS.Lvl), (oS.NowLevel = ModeName);
+		((oS.NowLevel = ModeName), SelectModal(oS.Lvl), (oS.NowLevel = ModeName));
 	}; // 以特定模式重新载入本关
 	var $FJ = function (a, b) {
 		// 覆盖数组
@@ -86,7 +86,25 @@
 				$("tGround").style.left = 0;
 				ClearChild($("dButton1"), $("dButton2"));
 				(function () {
-					(EDAll.scrollLeft += 25) < 500 ? oSym.addTask(2, arguments.callee, []) : SetVisible($("dMenu"), $("dSelectCard"), $("dCardList"));
+					(EDAll.scrollLeft += 25) < 500
+						? oSym.addTask(2, arguments.callee, [])
+						: (() => {
+								SetVisible($("dMenu"), $("dSelectCard"), $("dCardList"));
+								if (typeof levelDataToLoad !== "undefined") {
+									// get a list of what plants are used
+									let plantsUsed = [];
+									for (let i = 0; i < levelDataToLoad.plants.length; i++) {
+										let plantName = levelDataToLoad.plants[i].plantName;
+										if (!plantsUsed.includes(plantName)) {
+											plantsUsed.push(plantName);
+										}
+									}
+									// select the plants
+									for (let i = 0; i < plantsUsed.length; i++) {
+										SelectCard(plantsUsed[i]);
+									}
+								}
+							})();
 				})();
 			};
 			a(0);
@@ -95,9 +113,12 @@
 			oP.Monitor({
 				ar: [],
 				f() {
+					if (typeof levelDataToLoad !== "undefined") {
+						restoreToPlants(levelDataToLoad);
+					}
 					var a = NewEle("DivTeach", "div", "line-height:40px;font-size:14px;top:380px", 0, EDAll); // 选择阵型列数
 					var b = function (c) {
-						ClearChild($("DivTeach")), ImmediatelyCool(); // 取消冻结全部植物
+						(ClearChild($("DivTeach")), ImmediatelyCool()); // 取消冻结全部植物
 						SetVisible($("tdShovel"), $("dFlagMeter")); // 显示铲子
 						NewImg("iStripe", "images/interface/Stripe.png", "left:" + (GetX1X2(c)[0] - 11) + "px;top:65px", EDAll); // 生成线
 						NewEle(
@@ -169,7 +190,7 @@
 
 									for (k in g) {
 										if (Object.hasOwn(g, k)) {
-											(z = (i = k.split("_"))[0] + i[1] + $SEql(g[k].EName, j)), (m = z + m), (r = Math.max(r, i[1]));
+											((z = (i = k.split("_"))[0] + i[1] + $SEql(g[k].EName, j)), (m = z + m), (r = Math.max(r, i[1])));
 										}
 									} // 生成植物数据，采用倒叙生成
 
@@ -196,7 +217,7 @@
 										if (l.length === 0) {
 											l = "My I, Zombie Level";
 										}
-										($("btnClickSave").innerHTML = "Saving.."), ($("btnClickSave").disabled = "disabled"); // 按钮样式
+										(($("btnClickSave").innerHTML = "Saving.."), ($("btnClickSave").disabled = "disabled")); // 按钮样式
 										// ajax("asp/ImZombieCreateGame.asp", "post", "mapkind=" + oS.MapKind + "&SNum=" + f + "&T=" + escape(l) + "&C=" + escape(m), function(c){eval(c)}); // 发送请求
 										$("btnClickSave").innerHTML = "Saved!";
 										let levelDataElement = document.createElement("input");
@@ -279,7 +300,6 @@
 										uploadButton.id = "btnNextLevel"; // not actually a next level button, but it's the same style
 										uploadButton.style.top = "60%";
 										uploadButton.style.left = "calc(50% - 56.5px)";
-										uploadButton.style.display = "none";
 										uploadButton.onclick = function () {
 											closeButton.style.display = "none";
 											uploadButton.style.display = "none";
@@ -288,18 +308,22 @@
 											copyButtonElement.style.display = "none";
 											titleElement.innerText = "Saving...";
 											const author = prompt("Author name:");
-											const newLevelData = compressStringAsBytes(tinyifyClone(cloneFromPlants(l, f, true)));
+											const newLevelData = stringifyCloneTinyAsBytes(cloneFromPlants(l, f, true));
 											titleElement.innerText = "Configuring...";
 											let serverConfig;
-											fetch("http://localhost:3000/api/config")
+											fetch(`${$User.Server.URL}/api/config`, {
+												headers: {
+													Accept: "application/msgpack",
+												},
+											})
 												.then((response) => {
 													if (!response.ok) {
 														throw new Error("Failed to get server configuration");
 													}
-													return response.json();
+													return response.arrayBuffer();
 												})
 												.then((config) => {
-													serverConfig = config;
+													serverConfig = msgpack.deserialize(config);
 													let turnstileToken;
 													let container;
 													if (serverConfig.turnstileEnabled) {
@@ -312,7 +336,7 @@
 														container.id = "turnstile-container";
 
 														window.turnstile.render(container, {
-															sitekey: config.turnstileSiteKey,
+															sitekey: serverConfig.turnstileSiteKey,
 															callback(token) {
 																turnstileToken = token;
 															},
@@ -352,7 +376,7 @@
 														}
 
 														// upload level data as octet-stream
-														fetch(`http://localhost:3000/api/levels?${queryParams.toString()}`, {
+														fetch(`${$User.Server.URL}/api/levels?${queryParams.toString()}`, {
 															method: "POST",
 															headers: {
 																"Content-Type": "application/octet-stream",
@@ -418,7 +442,7 @@
 										downloadButton.style.top = "60%";
 										downloadButton.style.left = "calc(66.666% - 56.5px)"; // "calc(50% + 5px)";
 										downloadButton.onclick = function () {
-											downloadBytesAsFile(compressStringAsBytes(tinyifyClone(cloneFromPlants(l, f))), l + ".izl2");
+											downloadBytesAsFile(stringifyCloneTinyAsBytes(cloneFromPlants(l, f)), l + ".izl3");
 										};
 										downloadButton.style.zIndex = "1000";
 
@@ -604,6 +628,8 @@
 				$FJ(oSys, {
 					PicArr: [],
 					LoadAccess() {
+						levelDataToLoad = undefined;
+
 						!oS.LvlVar ? (oS.LvlVar = { ScrollScreen: oS.ScrollScreen }) : (oS.LvlVar.ScrollScreen = oS.ScrollScreen); // 关卡数据
 
 						NewEle("dChosePanel", "div", "display:block;position:absolute;left:0px;top:0px", 0, EDAll, { class: "Almanac_ZombieBack" });
@@ -619,7 +645,7 @@
 						NewEle(
 							"dBack",
 							"div",
-							"position:absolute;width:89px;height:26px;top:564px;left:700px;background-position:center top;background:url(images/interface/Almanac_CloseButton.png);cursor:url(images/interface/Pointer.cur),pointer;text-align:center;line-height:26px;color:rgb(40, 50, 90);font-size:12px;",
+							"position:absolute;width:89px;height:26px;top:564px;left:700px;background-position:center top;background:url(images/interface/Almanac_CloseButton.png);cursor:url(images/interface/Pointer.cur),pointer;text-align:center;line-height:26px;color:#000080;font-size:12px;",
 							{
 								onmouseover() {
 									this.style.backgroundPosition = "bottom";
@@ -652,7 +678,7 @@
 							"div",
 							"text-align:center;line-height:60px;font-size:30px;font-weight:bold;font-family:黑体;color:#fff;position:relative;top:15px;",
 							{
-								innerHTML: 'Night<br><font style="font-size:20px">Click here to select this mode</font>',
+								innerHTML: 'Night<br><font style="font-size:20px">Click here to select</font>',
 							},
 							$("dGrassDiv")
 						);
@@ -673,9 +699,39 @@
 							"div",
 							"text-align:center;line-height:60px;font-size:30px;font-weight:bold;font-family:黑体;color:#fff;position:relative;top:15px;",
 							{
-								innerHTML: 'Night Pool<br><font style="font-size:20px">Click here to select this mode</font>',
+								innerHTML: 'Night Pool<br><font style="font-size:20px">Click here to select</font>',
 							},
 							$("dPoolDiv")
+						);
+
+						NewEle(
+							"dFileDiv",
+							"div",
+							"left:410px;top:100px;background-image:url(images/interface/background2.jpg);display:block;position:absolute;z-index:100;cursor:url(images/interface/Pointer.cur),pointer;background-position:-25px,0px;background-size:324px,139px;background-repeat:no-repeat;width:275px;height:139px;border:5px solid rgba(255,255,255,0.5);border-radius:15px;",
+							{
+								async onclick() {
+									// load the level
+									const levelData = await fileToLevelData();
+									console.log(levelData);
+									levelDataToLoad = levelData[0] === "=" ? parseCloneTiny_OLD(levelData) : parseCloneTiny(levelData);
+									// load the izombiecustomlevel level
+									if (levelDataToLoad.lfValue[3] === 2) {
+										Change_Level("NPool");
+									} else {
+										Change_Level("NGrass");
+									}
+								},
+							},
+							EDAll
+						);
+						NewEle(
+							"dFileTXT",
+							"div",
+							"text-align:center;line-height:60px;font-size:30px;font-weight:bold;font-family:黑体;color:#fff;position:relative;top:15px;",
+							{
+								innerHTML: 'Load from File<br><font style="font-size:20px">Click here to select</font>',
+							},
+							$("dFileDiv")
 						);
 
 						SetVisible($("dMenu")); // 显示菜单按钮
@@ -688,17 +744,161 @@
 				$FJ(oPlt, {}),
 				$FJ(oWin, {
 					Return_Block() {
-						SelectModal(0), HiddenOptions();
+						(SelectModal(0), HiddenOptions());
 						SetBlock($("dSurface"), $("iSurfaceBackground"));
 						ShowRiddleGame();
 					},
 				})
 			);
 		},
+		// eslint-disable-next-line complexity
 		NGrass() {
 			// 黑夜草地 NGrass
 			oS.Init($FJ(oSys, { MapKind: "0" }), $FJ(oPlt, {}), $FJ(oWin, {}));
+			// make sure everything in levelDataToLoad is defined
+			if (typeof levelDataToLoad !== "undefined") {
+				// make sure its a table the one with {}
+				if (typeof levelDataToLoad !== "object") {
+					alert("Invalid level data!");
+					SelectModal(0);
+				}
+				// make sure it has the right keys
+				if (
+					!Object.hasOwn(levelDataToLoad, "plants") ||
+					!Object.hasOwn(levelDataToLoad, "music") ||
+					!Object.hasOwn(levelDataToLoad, "sun") ||
+					!Object.hasOwn(levelDataToLoad, "lfValue") ||
+					!Object.hasOwn(levelDataToLoad, "stripeCol")
+				) {
+					/* alert("Invalid level data!");
+					SelectModal(0); */
+					levelDataToLoad = {
+						lfValue: [0, 1, 1, 1, 1, 1],
+						music: "Cerebrawl",
+						name: "Error",
+						plants: [
+							{
+								plantCol: 1,
+								plantName: "oWallNut",
+								plantRow: 2,
+								zIndex: 6,
+							},
+							{
+								plantCol: 1,
+								plantName: "oWallNut",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 1,
+								plantName: "oWallNut",
+								plantRow: 4,
+								zIndex: 12,
+							},
+							{
+								plantCol: 1,
+								plantName: "oWallNut",
+								plantRow: 1,
+								zIndex: 3,
+							},
+							{
+								plantCol: 2,
+								plantName: "oWallNut",
+								plantRow: 1,
+								zIndex: 3,
+							},
+							{
+								plantCol: 2,
+								plantName: "oWallNut",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 1,
+								plantName: "oWallNut",
+								plantRow: 5,
+								zIndex: 15,
+							},
+							{
+								plantCol: 2,
+								plantName: "oWallNut",
+								plantRow: 5,
+								zIndex: 15,
+							},
+							{
+								plantCol: 4,
+								plantName: "oWallNut",
+								plantRow: 5,
+								zIndex: 15,
+							},
+							{
+								plantCol: 4,
+								plantName: "oWallNut",
+								plantRow: 4,
+								zIndex: 12,
+							},
+							{
+								plantCol: 5,
+								plantName: "oWallNut",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 4,
+								plantName: "oWallNut",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 7,
+								plantName: "oWallNut",
+								plantRow: 5,
+								zIndex: 15,
+							},
+							{
+								plantCol: 7,
+								plantName: "oWallNut",
+								plantRow: 4,
+								zIndex: 12,
+							},
+							{
+								plantCol: 7,
+								plantName: "oWallNut",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 8,
+								plantName: "oWallNut",
+								plantRow: 3,
+								zIndex: 9,
+							},
+						],
+						stripeCol: 9,
+						sun: 0,
+					};
+				}
+				// make sure the keys are the right types
+				if (
+					!Array.isArray(levelDataToLoad.plants) ||
+					typeof levelDataToLoad.music !== "string" ||
+					typeof levelDataToLoad.sun !== "number" ||
+					typeof levelDataToLoad.name !== "string" ||
+					!Array.isArray(levelDataToLoad.lfValue) ||
+					typeof levelDataToLoad.stripeCol !== "number"
+				) {
+					alert("Invalid level data!");
+					SelectModal(0);
+				}
+				for (let i = 0; i < levelDataToLoad.plants.length; i++) {
+					let plant = levelDataToLoad.plants[i];
+					if (!pNameValue.includes(window[plant.plantName])) {
+						pNameValue.push(window[plant.plantName]);
+					}
+				}
+			}
 		},
+		// eslint-disable-next-line complexity
 		NPool() {
 			// 黑夜泳池 NPool
 			oS.Init(
@@ -746,6 +946,202 @@
 				$FJ(oPlt, {}),
 				$FJ(oWin, {})
 			);
+			// make sure everything in levelDataToLoad is defined
+			if (typeof levelDataToLoad !== "undefined") {
+				// make sure its a table the one with {}
+				if (typeof levelDataToLoad !== "object") {
+					alert("Invalid level data!");
+					SelectModal(0);
+				}
+				// make sure it has the right keys
+				if (
+					!Object.hasOwn(levelDataToLoad, "plants") ||
+					!Object.hasOwn(levelDataToLoad, "music") ||
+					!Object.hasOwn(levelDataToLoad, "sun") ||
+					!Object.hasOwn(levelDataToLoad, "lfValue") ||
+					!Object.hasOwn(levelDataToLoad, "stripeCol")
+				) {
+					/* alert("Invalid level data!");
+		SelectModal(0); */
+					levelDataToLoad = {
+						lfValue: [0, 1, 1, 2, 2, 1, 1],
+						music: "Cerebrawl",
+						name: "Error",
+						plants: [
+							{
+								plantCol: 2,
+								plantName: "oWallNut",
+								plantRow: 1,
+								zIndex: 3,
+							},
+							{
+								plantCol: 1,
+								plantName: "oWallNut",
+								plantRow: 1,
+								zIndex: 3,
+							},
+							{
+								plantCol: 1,
+								plantName: "oLilyPad",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 1,
+								plantName: "oLilyPad",
+								plantRow: 4,
+								zIndex: 12,
+							},
+							{
+								plantCol: 1,
+								plantName: "oWallNut",
+								plantRow: 2,
+								zIndex: 6,
+							},
+							{
+								plantCol: 1,
+								plantName: "oWallNut",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 2,
+								plantName: "oLilyPad",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 2,
+								plantName: "oWallNut",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 1,
+								plantName: "oWallNut",
+								plantRow: 4,
+								zIndex: 12,
+							},
+							{
+								plantCol: 1,
+								plantName: "oWallNut",
+								plantRow: 5,
+								zIndex: 15,
+							},
+							{
+								plantCol: 2,
+								plantName: "oWallNut",
+								plantRow: 5,
+								zIndex: 15,
+							},
+							{
+								plantCol: 4,
+								plantName: "oWallNut",
+								plantRow: 5,
+								zIndex: 15,
+							},
+							{
+								plantCol: 4,
+								plantName: "oLilyPad",
+								plantRow: 4,
+								zIndex: 12,
+							},
+							{
+								plantCol: 4,
+								plantName: "oLilyPad",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 4,
+								plantName: "oWallNut",
+								plantRow: 4,
+								zIndex: 12,
+							},
+							{
+								plantCol: 4,
+								plantName: "oWallNut",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 5,
+								plantName: "oLilyPad",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 5,
+								plantName: "oWallNut",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 7,
+								plantName: "oWallNut",
+								plantRow: 5,
+								zIndex: 15,
+							},
+							{
+								plantCol: 7,
+								plantName: "oLilyPad",
+								plantRow: 4,
+								zIndex: 12,
+							},
+							{
+								plantCol: 7,
+								plantName: "oLilyPad",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 8,
+								plantName: "oLilyPad",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 7,
+								plantName: "oWallNut",
+								plantRow: 4,
+								zIndex: 12,
+							},
+							{
+								plantCol: 7,
+								plantName: "oWallNut",
+								plantRow: 3,
+								zIndex: 9,
+							},
+							{
+								plantCol: 8,
+								plantName: "oWallNut",
+								plantRow: 3,
+								zIndex: 9,
+							},
+						],
+						stripeCol: 9,
+						sun: 0,
+					};
+				}
+				// make sure the keys are the right types
+				if (
+					!Array.isArray(levelDataToLoad.plants) ||
+					typeof levelDataToLoad.music !== "string" ||
+					typeof levelDataToLoad.sun !== "number" ||
+					typeof levelDataToLoad.name !== "string" ||
+					!Array.isArray(levelDataToLoad.lfValue) ||
+					typeof levelDataToLoad.stripeCol !== "number"
+				) {
+					alert("Invalid level data!");
+					SelectModal(0);
+				}
+			}
+			for (let i = 0; i < levelDataToLoad.plants.length; i++) {
+				let plant = levelDataToLoad.plants[i];
+				if (!pNameValue.includes(window[plant.plantName])) {
+					pNameValue.push(window[plant.plantName]);
+				}
+			}
 		},
 		default() {
 			// 未知模式

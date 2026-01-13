@@ -57,12 +57,12 @@ oS.Init(
 
 				oFlowerVase.prototype.SpecialBirth(Pos[0], Pos[1], Top.Type === "Plants" ? GNum-- > 0 : 0, Top); // 生成罐子
 
-				--VaseList.length, --GroundList.length;
+				(--VaseList.length, --GroundList.length);
 			}
 		},
 		StartGame() {
-			oP.Monitor(), SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop"));
-			StopMusic(), PlayMusic((oS.LoadMusic = oS.StartGameMusic));
+			(oP.Monitor(), SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop")));
+			(StopMusic(), PlayMusic((oS.LoadMusic = oS.StartGameMusic)));
 			for (var i in ArCard) {
 				DoCoolTimer(i, 0);
 			}
@@ -75,7 +75,7 @@ oS.Init(
 				}
 			};
 
-			oS.RiddleAutoGrow(), f(); // f 的调用一定要在生成罐子后面
+			(oS.RiddleAutoGrow(), f()); // f 的调用一定要在生成罐子后面
 		},
 
 		VaseArP: {

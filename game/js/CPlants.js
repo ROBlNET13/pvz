@@ -1832,7 +1832,7 @@ var oSplitPea = InheritO(oPeashooter, {
 	PrivateBirth(c) {
 		var b = c.PicArr;
 		var a = "px;top:" + (c.pixelTop + 3) + "px;visibility:hidden;z-index:" + (c.zIndex + 2);
-		(c.BulletEle = [NewImg(0, b[3], "left:" + (c.AttackedLX - 40) + a), NewImg(0, b[4], "left:" + (c.AttackedRX - 16) + a)]), (c.aTri = [0, 0]);
+		((c.BulletEle = [NewImg(0, b[3], "left:" + (c.AttackedLX - 40) + a), NewImg(0, b[4], "left:" + (c.AttackedRX - 16) + a)]), (c.aTri = [0, 0]));
 	},
 	PrivateDie(a) {
 		a.BulletEle.length = 0;
@@ -2139,7 +2139,7 @@ BirthStyle: function (c, e, b, a) {
 					oSym.addTask(
 						100,
 						(k, h, g, j, i) => {
-							AppearSun(Math.floor(h + Math.random() * 21), j, 25, 0),
+							(AppearSun(Math.floor(h + Math.random() * 21), j, 25, 0),
 								AppearSun(Math.floor(g + Math.random() * 21), j, 25, 0),
 								oSym.addTask(
 									100,
@@ -2148,7 +2148,7 @@ BirthStyle: function (c, e, b, a) {
 									},
 									[k]
 								),
-								oSym.addTask(2400, i, [k, h, g, j]);
+								oSym.addTask(2400, i, [k, h, g, j]));
 						},
 						[f, d, c, e, arguments.callee]
 					));
@@ -5911,7 +5911,7 @@ var oSunShroom = InheritO(oFumeShroom, {
 		);
 	},
 	ProduceSun(a, c, b) {
-		AppearSun(Math.floor(c + Math.random() * 41), b, !a.Status ? 15 : 25, 0),
+		(AppearSun(Math.floor(c + Math.random() * 41), b, !a.Status ? 15 : 25, 0),
 			oSym.addTask(
 				2400,
 				(g, f, e) => {
@@ -5919,7 +5919,7 @@ var oSunShroom = InheritO(oFumeShroom, {
 					d && d.ProduceSun(d, f, e);
 				},
 				[a.id, c, b]
-			);
+			));
 	},
 	WakeUP(a) {
 		var b = a.id;
@@ -6690,7 +6690,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 	Produce:
 		'海蘑菇，能够发射短程孢子的水生植物。<p>Harm:<font color="#CC241D">普通</font><br>射程：<font color="#CC241D">短<br>必须种在水上</font></p>海蘑菇从来没看到过大海，大海就在他的名字</font><br>里，他总听到关于大海的事。他只是没找到合适的</font><br>时间，总有一天……是的，他会见到海的。',
 });
-(oCactus = InheritO(CPlants, {
+((oCactus = InheritO(CPlants, {
 	EName: "oCactus",
 	CName: "Cactus",
 	width: 122,
@@ -7161,7 +7161,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			oSym.addTask(
 				50,
 				(id) => {
-					PlayAudio("blover"), ($(id).childNodes[1].src = "images/Plants/Blover/BloverBlow.gif"), $P[id].Dispel();
+					(PlayAudio("blover"), ($(id).childNodes[1].src = "images/Plants/Blover/BloverBlow.gif"), $P[id].Dispel());
 				},
 				[o.id]
 			);
@@ -7173,7 +7173,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			var oBalloon;
 
 			for (z in $Z) {
-				(oBalloon = $Z[z]), oBalloon.EName === "oBalloonZombie" && oBalloon.getDispelled();
+				((oBalloon = $Z[z]), oBalloon.EName === "oBalloonZombie" && oBalloon.getDispelled());
 			} //把气球吹跑
 
 			if (oS.HaveFog) {
@@ -7210,7 +7210,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			oSym.addTask(
 				50,
 				(id) => {
-					PlayAudio("blover"), ($(id).childNodes[1].src = "images/Plants/Blover/BloverBlow.gif"), $P[id].Dispel();
+					(PlayAudio("blover"), ($(id).childNodes[1].src = "images/Plants/Blover/BloverBlow.gif"), $P[id].Dispel());
 				},
 				[o.id]
 			);
@@ -7222,7 +7222,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			var oBalloon;
 
 			for (z in $Z) {
-				(oBalloon = $Z[z]), oBalloon.EName === "oBalloonZombie" && oBalloon.getDispelled();
+				((oBalloon = $Z[z]), oBalloon.EName === "oBalloonZombie" && oBalloon.getDispelled());
 			} //把气球吹跑
 
 			if (oS.HaveFog) {
@@ -7392,14 +7392,14 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			var b = c.C;
 			oGd.$Plantern[a + "_" + b] = c.id;
 			NewImg("", "images/Plants/Plantern/light.gif", "filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" + c.zIndex, $(c.id));
-			oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 0), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
+			(oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 0), oFlowerVase.prototype.FreshXRay()); // 刷新场地上花瓶 XRAY
 		},
 		InitTrigger() {},
 		PrivateDie(c) {
 			var a = c.R;
 			var b = c.C;
 			delete oGd.$Plantern[a + "_" + b];
-			oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 1), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
+			(oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 1), oFlowerVase.prototype.FreshXRay()); // 刷新场地上花瓶 XRAY
 		},
 		GetDY(b, c, a) {
 			return a[0] ? 70 : 74;
@@ -7427,14 +7427,14 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			var b = c.C;
 			oGd.$Plantern[a + "_" + b] = c.id;
 			NewImg("", "images/Plants/Plantern/light.gif", "filter:alpha(opacity=30);opacity:.3;left:0;top:0;z-index:" + c.zIndex, $(c.id));
-			oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 0), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
+			(oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 0), oFlowerVase.prototype.FreshXRay()); // 刷新场地上花瓶 XRAY
 		},
 		InitTrigger() {},
 		PrivateDie(c) {
 			var a = c.R;
 			var b = c.C;
 			delete oGd.$Plantern[a + "_" + b];
-			oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 1), oFlowerVase.prototype.FreshXRay(); // 刷新场地上花瓶 XRAY
+			(oS.HaveFog && oGd.GatherFog(a, b, 2, 3, 1), oFlowerVase.prototype.FreshXRay()); // 刷新场地上花瓶 XRAY
 		},
 		GetDY(b, c, a) {
 			return a[0] ? 70 : 74;
@@ -7651,7 +7651,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			var b = this;
 			var c = "PSB" + Math.random();
 			var a = b.AttackedLX;
-			(j = k.id),
+			((j = k.id),
 				(d = $(j)),
 				EditEle(
 					b.BulletEle.cloneNode(false),
@@ -7660,7 +7660,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 					},
 					0,
 					EDPZ
-				);
+				));
 			oSym.addTask(
 				15,
 				(e) => {
@@ -8131,7 +8131,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		beAttackedPointR: 70,
 		PicArr: ["images/interface/Shovel/ShovelCard.png", "images/interface/Shovel/0.gif"],
 		Tooltip: "Shovel up plants you don't want!",
-	}));
+	})));
 oFlowerVase = InheritO(CPlants, {
 	EName: "oFlowerVase",
 	CName: "Vase", // ID 中文名
@@ -8213,7 +8213,7 @@ oFlowerVase = InheritO(CPlants, {
 			self.ImgEle = ImgEle = Ele.childNodes[1];
 		} // 初始化 ImgEle
 		if (!EleBG) {
-			(self.EleBG = EleBG = self.ImgEle.cloneNode(false)), Ele.appendChild(EleBG);
+			((self.EleBG = EleBG = self.ImgEle.cloneNode(false)), Ele.appendChild(EleBG));
 		} // 初始化 EleBG，克隆图片，并复制到自己的图片下
 		if (!EleCard) {
 			self.EleCard = EleCard = NewEle("", "img", "", {}, Ele);
@@ -8252,14 +8252,14 @@ oFlowerVase = InheritO(CPlants, {
 					var LPoint = PT.beAttackedPointL; // 最终的相对位置
 
 					if (ZWidth > ZHeight) {
-						(EK = ZWidth / MaxW), (ZHeight /= EK), (ZWidth = MaxW);
+						((EK = ZWidth / MaxW), (ZHeight /= EK), (ZWidth = MaxW));
 					}
 					// 等比缩放
 					else if (ZHeight > ZWidth) {
-						(EK = ZHeight / MaxH), (ZWidth /= EK), (ZHeight = MaxH);
+						((EK = ZHeight / MaxH), (ZWidth /= EK), (ZHeight = MaxH));
 					} // 等比缩放
 
-					(ELeft = 20 / 2 + -LPoint / EK + (MaxW - ZWidth) / 2), (ETop = 15 / 2 + (MaxH - ZHeight) / 2);
+					((ELeft = 20 / 2 + -LPoint / EK + (MaxW - ZWidth) / 2), (ETop = 15 / 2 + (MaxH - ZHeight) / 2));
 
 					EleCard.style = "top:" + ETop + "px;left:" + ELeft + "px;width:" + PT.width / EK + "px;height:" + PT.height / EK + "px;"; // 确定位置
 					EleCard.src = VValue.prototype.PicArr[VValue.prototype.StaticGif]; // 显示僵尸站立图片
@@ -8272,15 +8272,15 @@ oFlowerVase = InheritO(CPlants, {
 				break;
 		}
 
-		self.SetStyle(Kind), self.SetXRay(XRay); // 初始化显示
+		(self.SetStyle(Kind), self.SetXRay(XRay)); // 初始化显示
 	},
 
 	BirthStyle(self, Id, Ele, Style) {
 		var Dom = Ele.childNodes[1]; // 获取植物实际图片
-		(Dom.src = self.PicArr[self.NormalGif]), (Dom.style.height = "202px"); // 设置实际宽高
-		(self.Ele = Ele), EditEle(Ele, { id: Id }, Style, EDPZ); // 修改
+		((Dom.src = self.PicArr[self.NormalGif]), (Dom.style.height = "202px")); // 设置实际宽高
+		((self.Ele = Ele), EditEle(Ele, { id: Id }, Style, EDPZ)); // 修改
 
-		self.InitImage(self.PotSize, self.XRay), self.FreshXRay(true); // 初始化图片等信息
+		(self.InitImage(self.PotSize, self.XRay), self.FreshXRay(true)); // 初始化图片等信息
 	},
 
 	PrivateBirth(self) {
@@ -8328,8 +8328,8 @@ oFlowerVase = InheritO(CPlants, {
 		var self = this;
 		var ID = self.id; // 定义需要用到的变量
 
-		self.oTrigger && oT.delP(self), (self.HP = 0); // 删除触发器 清空血量
-		delete $P[ID], delete oGd.$[self.R + "_" + self.C + "_" + self.PKind]; // 删除本格数据
+		(self.oTrigger && oT.delP(self), (self.HP = 0)); // 删除触发器 清空血量
+		(delete $P[ID], delete oGd.$[self.R + "_" + self.C + "_" + self.PKind]); // 删除本格数据
 		$P.length -= 1;
 		!ImgSave && ClearChild(self.Ele); // 清除图片
 
@@ -8338,7 +8338,7 @@ oFlowerVase = InheritO(CPlants, {
 		} // 随机播放音效
 
 		self.ControlBase("Delete", "Auto"); // 删除底座
-		ClearChild(self.EleClick), self.PlaceItem(); // 放置物品
+		(ClearChild(self.EleClick), self.PlaceItem()); // 放置物品
 	},
 	PlaceItem() {
 		var self = this;
@@ -8355,13 +8355,13 @@ oFlowerVase = InheritO(CPlants, {
 				break;
 
 			case "Zombie": // 生成僵尸
-				(Value = new Value()), ++oP.NumZombies; // 创建僵尸对象 增加僵尸数量
+				((Value = new Value()), ++oP.NumZombies); // 创建僵尸对象 增加僵尸数量
 
 				// 生成僵尸
 				asyncInnerHTML(
 					Value.CustomBirth(self.R, self.C, 0, "auto"),
 					(n, m) => {
-						EDPZ.appendChild(n), m.Birth();
+						(EDPZ.appendChild(n), m.Birth());
 						if (m.EName === "oJackinTheBoxZombie" && self.AutoJoker) {
 							m.OpenBox(m.id);
 						} // 如果是小丑僵尸，直接引爆爆炸
@@ -8372,12 +8372,12 @@ oFlowerVase = InheritO(CPlants, {
 
 			case "SunNum": // 生成阳光
 				if (Value > 500) {
-					AppearSun(GetX(self.C) - self.width / 2, GetY(self.R) - 30, Value - 500, 0), (Value = 500);
+					(AppearSun(GetX(self.C) - self.width / 2, GetY(self.R) - 30, Value - 500, 0), (Value = 500));
 				} // 大于五百的阳光直接生成一个大的
 				while (Value > 25) {
-					AppearSun(GetX(self.C) - self.width / 2, GetY(self.R) - 30, 25, 0), (Value -= 25);
+					(AppearSun(GetX(self.C) - self.width / 2, GetY(self.R) - 30, 25, 0), (Value -= 25));
 				} // 500 以内的，一个一个生成
-				AppearSun(GetX(self.C) - self.width / 2, GetY(self.R) - 30, Value, 0), (Value = 0); // 余下的单独生成
+				(AppearSun(GetX(self.C) - self.width / 2, GetY(self.R) - 30, Value, 0), (Value = 0)); // 余下的单独生成
 				break;
 		}
 	},
@@ -8472,7 +8472,7 @@ oFlowerVase = InheritO(CPlants, {
 	SpecialBirth(SetR, SetC, VaseColor, VaseValue, SpecialFunc) {
 		var Obj = new oFlowerVase();
 
-		(Obj.PotSize = VaseColor), (Obj.VaseValue = VaseValue); // 基本信息
+		((Obj.PotSize = VaseColor), (Obj.VaseValue = VaseValue)); // 基本信息
 
 		if (SpecialFunc) {
 			SpecialFunc(Obj);

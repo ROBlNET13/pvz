@@ -49,7 +49,7 @@ oS.Init({
 		while (Point.length && Arr.length) {
 			let placed = CustomSpecial(oS.PName[Arr.at(-1)], Point.at(-1)[1], Point.at(-1)[0], 1);
 			placed.plantImage.classList.add("cardboard");
-			Point.length--, Arr.length--;
+			(Point.length--, Arr.length--);
 		}
 	},
 	RiddleAutoGrow() {
@@ -95,7 +95,7 @@ oS.Init({
 		NewImg("iStripe", "images/interface/Stripe.png", "left:" + (GetX1X2(6)[0] - 11) + "px;top:65px", EDAll);
 	},
 	StartGame() {
-		oP.Monitor(), BeginCool();
+		(oP.Monitor(), BeginCool());
 		SetVisible($("dFlagMeter"), $("dFlagMeterContent"), $("dTop"));
 		oS.RiddleAutoGrow();
 	},

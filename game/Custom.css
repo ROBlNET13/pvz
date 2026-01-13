@@ -792,6 +792,9 @@ td {
 .cardboard {
 	filter: url("#cardboard");
 }
+.cardboardNoShadow {
+	filter: url("#cardboardNoShadow");
+}
 
 /*.balloonIdleSheet {
 	background-image: url(images/Zombies/Balloon/balloonidle.png);
@@ -1005,3 +1008,189 @@ input[type="checkbox"]:checked {
 	font-weight: normal !important;
 }
 /* yes i know this fix sucks*/
+
+.iz-level-play {
+	color: #00c400;
+	text-shadow:
+		1px 1px 0px rgb(92 97 111),
+		-1px -1.5px 0px rgba(0, 0, 0, 0.7);
+	font-size: x-large;
+	background: url(images/interface/Button_long.png) no-repeat;
+	background-size: 100% 100%;
+	line-height: 1.41;
+	border: none;
+	font-family: dwarventodcraft !important;
+	width: 170px;
+	height: 37px;
+	position: absolute;
+	bottom: 5px;
+	left: 10px;
+	text-align: center;
+	padding-bottom: 5px;
+	cursor: url(images/interface/Pointer.cur), pointer;
+}
+.iz-level-play:hover {
+	color: #01e901;
+}
+.iz-level-favorite {
+	box-shadow:
+		0 4px 1px -1px rgb(0 0 0 / 0.4),
+		0 2px 1px -2px rgb(0 0 0 / 0.4);
+	position: absolute !important;
+	top: 168px !important;
+	left: 185px !important;
+	height: 33px !important;
+	width: 80px !important;
+}
+.iz-level-report {
+	display: inline-block;
+	width: 1.35em;
+	height: 1.35em;
+	vertical-align: -0.3375em;
+	background: url("images/interface/icon_exclamation.png") no-repeat;
+	background-size: contain;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	border-width: 0;
+}
+.iz-level-title {
+	font-size: x-large;
+	font-weight: bolder;
+	margin: 7px 10px 0 10px;
+	color: #28325a;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	overflow-wrap: break-word;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.iz-level {
+	box-shadow:
+		0 4px 6px -1px rgb(0 0 0 / 0.25),
+		0 2px 4px -2px rgb(0 0 0 / 0.25);
+	position: relative;
+	border: 1px solid #511414;
+	background: linear-gradient(to left, #e8b57d, #fbc488, #e8b57d);
+	height: 210px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+.iz-level-container {
+	border: solid transparent;
+	border-width: 100px 0 0 25px;
+	width: calc(100% - 50px);
+	height: calc(100% - 145px);
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(272px, 1fr));
+	gap: 10px;
+	align-content: start;
+}
+.iz-level-thumbnail {
+	width: 135px;
+	height: 90px;
+	margin-left: 10px;
+	margin-top: 5px;
+	overflow: hidden;
+	position: relative;
+	float: left;
+}
+.iz-level-stats {
+	margin-top: 5px;
+	margin-right: 10px;
+	float: right;
+	text-align: right;
+	max-width: 115px;
+}
+.iz-level-stats span {
+	font-size: 16px;
+	color: #28325a;
+	white-space: nowrap;
+}
+.iz-level-stats span#author::before {
+	content: "";
+	display: inline-block;
+	width: 1.35em;
+	height: 1.35em;
+	vertical-align: -0.3375em;
+	margin-right: 5px;
+	background: url("images/interface/icon_author.png") no-repeat;
+	background-size: contain;
+}
+/* <img src="images/interface/icon_sun.png" alt="Sun" style="width:1.35em;vertical-align:middle;margin-left:5px"> */
+.iz-level-stats span#sun::before {
+	content: "";
+	display: inline-block;
+	width: 1.35em;
+	height: 1.35em;
+	vertical-align: -0.3375em;
+	margin-right: 5px;
+	background: url("images/interface/icon_sun.png") no-repeat;
+	background-size: contain;
+}
+.iz-level-stats span#downloads::before {
+	content: "";
+	display: inline-block;
+	width: 1.35em;
+	height: 1.35em;
+	vertical-align: -0.3375em;
+	margin-right: 5px;
+	background: url("images/interface/icon_download.png") no-repeat;
+	background-size: contain;
+}
+.iz-level-stats span#favorites::before {
+	content: "";
+	display: inline-block;
+	width: 1.35em;
+	height: 1.35em;
+	vertical-align: -0.3375em;
+	margin-right: 5px;
+	background: url("images/interface/icon_favorite.png") no-repeat;
+	background-size: contain;
+}
+.iz-pagination {
+	width: fit-content;
+	margin-left: auto;
+	margin-right: auto;
+}
+.iz-pagination-button {
+	width: 28px !important;
+}
+.iz-pagination-current {
+	cursor: url(images/interface/Cursor.cur), default !important;
+	pointer-events: none;
+}
+.iz-pagination-first,
+.iz-pagination-last {
+	width: 30px !important;
+}
+.iz-pagination-button:disabled {
+	display: none;
+}
+.iz-level-thumbnail-background {
+	width: 210px;
+	height: 90px;
+	position: absolute;
+	left: -17.25px;
+}
+.iz-reload {
+	padding-right: 8px !important;
+	position: absolute;
+	top: 60px;
+	left: 10px;
+	width: 89px !important;
+	background: url("images/interface/refreshbutton.png") center top !important;
+}
+.iz-sort {
+	padding-right: 20px !important;
+	position: absolute;
+	top: 60px;
+	left: 801px;
+	width: 89px !important;
+	background: url("images/interface/sortbutton.png") center top !important;
+}

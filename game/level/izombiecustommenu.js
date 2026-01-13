@@ -17,8 +17,8 @@ oS.Init({
 	LoadAccess(a) {
 		NewImg("imgSF", "images/interface/BackButton.png", "left:785px;top:530px", EDAll, {
 			onclick() {
-				SelectModal(0);
-				SetBlock($("dSurface"), $("iSurfaceBackground"));
+				PlayAudio("tap");
+				LoadMenu("izombieonline", "images/interface/IZombie_Background.png");
 			},
 		});
 		// native code from now on
@@ -61,7 +61,7 @@ oS.Init({
 			inputDataElement.value = "Loading...";
 			// decode the input value
 			try {
-				levelDataToLoad = levelData[0] === "=" ? parseCloneTiny(levelData) : parseClone(levelData);
+				levelDataToLoad = levelData[0] === "=" ? parseCloneTiny_OLD(levelData) : parseCloneTiny(levelData);
 			} catch (e) {
 				inputDataElement.value = "Invalid level data!";
 				inputDataElement.disabled = false;

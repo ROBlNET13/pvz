@@ -1,0 +1,84 @@
+<div class="iz-level-container">
+	<div class="iz-level" style="display: none" id="iz-level-template">
+		<button
+			class="iz-level-report"
+			onmouseout="SetHidden($('dTitle'))"
+			onmousemove="ViewGenericMouseover(`<span style='color:red'><b>Report Abuse</b></span> - Report this level for inappropriate content`, event)"
+		></button>
+		<h2 class="iz-level-title" title="{title}">{title}</h2>
+		<div class="iz-level-thumbnail">
+			<img class="iz-level-thumbnail-background" src="images/interface/background2.jpg" />
+		</div>
+		<div class="iz-level-stats">
+			<span id="author">{author}</span><br />
+			<span id="sun">{sun}</span><br />
+			<span id="downloads">{plays}</span><br />
+			<span id="favorites">{favorites}</span>
+		</div>
+		<button class="iz-level-play">Play Now</button>
+		<input type="button" is="text-button" value="Favorite" class="iz-level-favorite" />
+	</div>
+</div>
+<div class="iz-reload button1" onmouseover="this.style.backgroundPosition = 'bottom'" onmouseout="this.style.backgroundPosition = 'top'">RELOAD</div>
+<div
+	class="iz-sort button1"
+	onmouseover="this.style.backgroundPosition = 'bottom'"
+	onmouseout="
+		this.style.backgroundPosition = 'top';
+		SetHidden($('dTitle'));
+	"
+>
+	SORT
+</div>
+<div
+	class="button1"
+	onmouseover="this.style.backgroundPosition = 'bottom'"
+	onmouseout="this.style.backgroundPosition = 'top'"
+	onclick="
+		if (oS.Lvl == 'izombiecustommenu') {
+			SelectModal('izombiemenu');
+		} else {
+			PlayAudio('tap');
+			UnloadMenu('izombieonline');
+		}
+	"
+	style="padding-right: 30px; position: absolute; bottom: 7px; left: 10px"
+>
+	I, ZOMBIE INDEX
+</div>
+<div
+	class="button1"
+	onmouseover="this.style.backgroundPosition = 'bottom'"
+	onmouseout="this.style.backgroundPosition = 'top'"
+	onclick="
+		if (oS.Lvl == 'izombiecustommenu') {
+			PlayAudio('tap');
+			UnloadMenu('izombieonline');
+		} else {
+			SelectModal('izombiecustommenu');
+		}
+	"
+	style="padding-right: 30px; position: absolute; bottom: 7px; left: 180px"
+>
+	LOCAL LEVELS
+</div>
+<img
+	src="images/interface/BackButton.png"
+	style="bottom: 7px; right: 10px; cursor: url(images/interface/Pointer.cur), pointer"
+	onclick="
+		SelectModal(0);
+		SetBlock($('dSurface'), $('iSurfaceBackground'));
+	"
+/>
+<!-- pagination button template -->
+<div class="iz-pagination">
+	<input type="button" is="text-button" value="<<" class="iz-pagination-button iz-pagination-first" disabled />
+	<input type="button" is="text-button" value="<" class="iz-pagination-button iz-pagination-prev" disabled />
+	<input type="button" is="text-button" value="-1" class="iz-pagination-button iz-pagination-back2" disabled />
+	<input type="button" is="text-button" value="0" class="iz-pagination-button iz-pagination-back1" disabled />
+	<input type="button" is="text-button" value="1" class="iz-pagination-button iz-pagination-current" />
+	<input type="button" is="text-button" value="2" class="iz-pagination-button iz-pagination-forward1" />
+	<input type="button" is="text-button" value="3" class="iz-pagination-button iz-pagination-forward2" />
+	<input type="button" is="text-button" value=">" class="iz-pagination-button iz-pagination-next" />
+	<input type="button" is="text-button" value=">>" class="iz-pagination-button iz-pagination-last" />
+</div>

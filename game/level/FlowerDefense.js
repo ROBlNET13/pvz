@@ -81,12 +81,12 @@ oS.Init(
 				oS.ChangeBG($("Black_box"), $("BackGround_TF_night"), 1, () => {
 					AppearTombstones(4, 9, 8);
 					oP.SetTimeoutTomZombie([oZombie, oConeheadZombie]);
-					(oS.DKind = 0), (oS.AddSunNum = 1);
+					((oS.DKind = 0), (oS.AddSunNum = 1));
 				});
 			}
 			if (oP.FlagZombies === 41) {
 				oS.ChangeBG($("White_box"), $("BackGround_Unsodded"), 1, () => {
-					($("BackGround_TF_night").style.opacity = 0), (oS.AddSunNum = 5);
+					(($("BackGround_TF_night").style.opacity = 0), (oS.AddSunNum = 5));
 					dag.clear();
 					oS.DKind = 1;
 					for (let i in oGd.$Crater) {
@@ -130,7 +130,7 @@ oS.Init(
 		},
 		rewrite() {
 			oP.MonPrgs = function () {
-				innerText(ESSunNum, (oS.SunNum = Math.min(oS.SunNum + oS.AddSunNum, 9990))), MonitorCard();
+				(innerText(ESSunNum, (oS.SunNum = Math.min(oS.SunNum + oS.AddSunNum, 9990))), MonitorCard());
 				var u = oP;
 				var j;
 				var i = u.FlagZombies;
@@ -303,7 +303,7 @@ oS.Init(
 		redag: [],
 		init_dag() {
 			dag.add_edge = (u, v) => {
-				(u = JSON.stringify(u) || u.toString()), (v = JSON.stringify(v) || v.toString());
+				((u = JSON.stringify(u) || u.toString()), (v = JSON.stringify(v) || v.toString()));
 				if (Array.isArray(dag[u])) {
 					dag[u].push(v);
 				} else {
@@ -350,12 +350,12 @@ oS.Init(
 			let finaly = (ty - tp) * yS;
 			let finalx = (tx - x) * xS;
 			if (finaly > 0) {
-				(b.Reduce[0] = 0), (b.Ele.style.top = ty - b.height + b.GetDY() + "px"), (b.RSpeed = 0);
+				((b.Reduce[0] = 0), (b.Ele.style.top = ty - b.height + b.GetDY() + "px"), (b.RSpeed = 0));
 			}
 			if (finalx > 0) {
-				(b.Reduce[1] = 0), (b.AttackedLX -= b.X), (b.AttackedRX -= b.X);
-				(b.X = tx - point - b.beAttackedPointL), (b.AttackedLX += b.X), (b.AttackedRX += b.X);
-				(b.Ele.style.left = b.X + "px"), (b.Speed = 0);
+				((b.Reduce[1] = 0), (b.AttackedLX -= b.X), (b.AttackedRX -= b.X));
+				((b.X = tx - point - b.beAttackedPointL), (b.AttackedLX += b.X), (b.AttackedRX += b.X));
+				((b.Ele.style.left = b.X + "px"), (b.Speed = 0));
 			}
 			if (b.Reduce[0] === b.Reduce[1] && b.Reduce[0] === 0) {
 				delete b.Next_Edge;
@@ -372,7 +372,7 @@ oS.Init(
 					ar: [l],
 					CustomTop: tp,
 				});
-				(b.ZX -= r), (b.AttackedLX -= r), (b.AttackedRX -= r), (b.X -= r);
+				((b.ZX -= r), (b.AttackedLX -= r), (b.AttackedRX -= r), (b.X -= r));
 				b.Ele.style.left = b.X + "px";
 			}
 		},
@@ -408,14 +408,14 @@ oS.Init(
 					}
 				}
 				if (!to) {
-					(b.RSpeed = 0), (b.Speed = b.Speed2);
+					((b.RSpeed = 0), (b.Speed = b.Speed2));
 					continue;
 				}
 				let toArr = JSON.parse(to);
 				let Reduce = (b.Reduce = b.Reduce || [nowArr[0] - toArr[0], nowArr[1] - toArr[1]]);
 				b.Speed = b.Speed2 * Reduce[1] * (!!b.FreeSlowTime * 0.5 || 1) * !b.FreeFreezeTime;
 				b.RSpeed = b.Speed2 * Reduce[0] * (!!b.FreeSlowTime * 0.5 || 1) * !b.FreeFreezeTime;
-				(Eletop = Number(b.Ele.style.top.split("px")[0]) - b.RSpeed), (b.Ele.style.top = Eletop + "px");
+				((Eletop = Number(b.Ele.style.top.split("px")[0]) - b.RSpeed), (b.Ele.style.top = Eletop + "px"));
 				ctk_arrive_grid(b, toArr, Reduce, Eletop, b.ZX + point);
 				ctk_change_r(b, Eletop);
 				ctk_final_set(b);
@@ -448,9 +448,9 @@ oS.Init(
 			var d;
 			while (e--) {
 				(m = document.createElement("source")).type = j[e];
-				(m.src = a), f.appendChild(m);
+				((m.src = a), f.appendChild(m));
 			}
-			(f.autoplay = !!c), (f.preload = k === undefined ? "auto" : ["auto", "meta", "none"][k]), (f.muted = oS.Silence);
+			((f.autoplay = !!c), (f.preload = k === undefined ? "auto" : ["auto", "meta", "none"][k]), (f.muted = oS.Silence));
 			g &&
 				f.addEventListener(
 					"ended",

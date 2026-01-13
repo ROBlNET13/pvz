@@ -1,4 +1,5 @@
 {
+	"$schema": "./node_modules/oxfmt/configuration_schema.json",
 	"tabWidth": 4,
 	"useTabs": true,
 	"arrowParens": "always",
@@ -6,7 +7,6 @@
 	"bracketSpacing": true,
 	"embeddedLanguageFormatting": "auto",
 	"endOfLine": "lf",
-	"experimentalTernaries": false,
 	"htmlWhitespaceSensitivity": "css",
 	"insertPragma": false,
 	"printWidth": 160,
@@ -15,5 +15,6 @@
 	"semi": true,
 	"singleAttributePerLine": false,
 	"singleQuote": false,
-	"trailingComma": "es5"
+	"trailingComma": "es5",
+	"ignorePatterns": ["game/js/pako.js", "game/js/html2canvas.js", "game/js/msgpack.min.js", ".github/workflows", "pnpm-lock.yaml"]
 }

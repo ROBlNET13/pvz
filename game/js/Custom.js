@@ -200,7 +200,7 @@ function startInterval2() {
 	}, 100);
 }
 
-checkInterval2;
+checkInterval2();
 
 let playingSounds = [];
 function PlaySound2(path, name, loop = false) {
@@ -231,3 +231,30 @@ function EditSound2(name, loop = false) {
 		}
 	});
 }
+
+// new save system
+
+$User.Visitor.SaveLvl = 1;
+$User.Visitor.SaveLvlCallBack = function (o) {
+	/*
+		o is an object with these properties:
+		  - Lvl: level name (number for adventure mode, text for others)
+		  - SunNum: remaining sun after completing the level
+		  - UserName: player's name
+		  - T: time taken to complete the level (divide by 100 to get seconds)
+	*/
+	// check if o.Lvl is valid and is in the whitelist
+	if (!o.Lvl || !saveWhitelist.includes(o.Lvl)) {
+		return;
+	}
+	// save logic
+	let levels = {};
+	// check if "levels" exists in localStorage
+	if (localStorage.getItem("levels")) {
+		levels = JSON.parse(localStorage.getItem("levels"));
+	}
+	// add the level to the levels object if it doesn't exist
+	if (!levels[o.Lvl]) {
+		levels[o.Lvl] = o;
+	}
+};

@@ -75,8 +75,8 @@ oS.Init(
 			oP.FlagNum === oP.FlagZombies && oP.SetTimeoutWaterZombie(5, 9, 4, [oDuckyTubeZombie1, oDuckyTubeZombie2, oDuckyTubeZombie3]);
 		},
 		StartGame() {
-			StopMusic(), PlayMusic((oS.LoadMusic = oS.StartGameMusic));
-			SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop")), SetHidden($("dSunNum")); // 隐藏阳光和卡槽
+			(StopMusic(), PlayMusic((oS.LoadMusic = oS.StartGameMusic)));
+			(SetVisible($("tdShovel"), $("dFlagMeter"), $("dTop")), SetHidden($("dSunNum"))); // 隐藏阳光和卡槽
 
 			(function () {
 				// 隐藏原卡槽
@@ -86,13 +86,13 @@ oS.Init(
 				}
 			})();
 
-			oS.InitLawnMower(),
+			(oS.InitLawnMower(),
 				PrepareGrowPlants(() => {
 					oP.Monitor(oS.Monitor, oS.UserDefinedFlagFunc);
 					oSym.addTask(
 						1500,
 						() => {
-							oP.AddZombiesFlag(), SetVisible($("dFlagMeterContent"));
+							(oP.AddZombiesFlag(), SetVisible($("dFlagMeterContent")));
 						},
 						[]
 					);
@@ -100,9 +100,9 @@ oS.Init(
 						var a = dRand(GetX(0), GetX(oS.C));
 						var b = dRand(GetY(1), GetY(oS.R - 1));
 						var d = oS.PName[dRand(1, oS.PName.length) - 1];
-						AppearCard(a, b, d, 1, 1000), oSym.addTask(dRand(500, 900), arguments.callee, []);
+						(AppearCard(a, b, d, 1, 1000), oSym.addTask(dRand(500, 900), arguments.callee, []));
 					})();
-				});
+				}));
 		},
 	},
 	{
@@ -135,7 +135,7 @@ oS.Init(
 		FlagToEnd() {
 			NewImg("imgSF", "images/interface/trophy.png", "left:43.5%;top:220px", EDAll, {
 				onclick() {
-					SelectModal(0), PlayAudio("winmusic");
+					(SelectModal(0), PlayAudio("winmusic"));
 				},
 			});
 			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:51%", EDAll);
@@ -155,11 +155,11 @@ oS.Init(
 			var t = t || 1500;
 
 			if (a) {
-				(d = 0), oSym.addTask(1, MoveDropCard, [g, f, t]);
+				((d = 0), oSym.addTask(1, MoveDropCard, [g, f, t]));
 			}
 			// 从天而降，反之抛物线掉落
 			else {
-				(d = f - 15 - 20),
+				((d = f - 15 - 20),
 					(c += ";top:" + d + "px"),
 					oSym.addTask(1, DisappearCard, [g, t]),
 					oSym.addTask(
@@ -176,7 +176,7 @@ oS.Init(
 							}
 						},
 						[g, h, d, Math.floor(Math.random() * 4), [-32, -24, -16, -8], [-1, 1][Math.floor(Math.random() * 2)], 8, 2]
-					);
+					));
 			} // 开始记时，确定抛物线，与阳光部分相似故压缩
 
 			ArCard[g] = {
@@ -195,11 +195,11 @@ oS.Init(
 					var self = this;
 					var { style } = self;
 					var { id } = self;
-					ClearChild($("MovePlant"), $("MovePlantAlpha")),
+					(ClearChild($("MovePlant"), $("MovePlantAlpha")),
 						CancelPlant(),
 						style && (style.opacity = 0.5),
 						ChosePlant(g, id),
-						ArCard[id] && (ArCard[id].HasChosen = true);
+						ArCard[id] && (ArCard[id].HasChosen = true));
 				},
 			});
 		},
@@ -227,10 +227,10 @@ oS.Init(
 						e.style.opacity = [1, 0.5][Math.ceil(t / 50) % 2];
 						break; // 闪烁
 					default:
-						delete ArCard[d], ClearChild(e);
+						(delete ArCard[d], ClearChild(e));
 						return;
 				}
-				(e = $(d)), oSym.addTask(q, arguments.callee, [t - q]);
+				((e = $(d)), oSym.addTask(q, arguments.callee, [t - q]));
 			};
 			f(r);
 		},
@@ -251,7 +251,7 @@ oS.Init(
 					: asyncInnerHTML(
 							(a = new h()).CustomBirth(e, b, 0, "auto"),
 							(n, m) => {
-								EDPZ.appendChild(n), m.Birth();
+								(EDPZ.appendChild(n), m.Birth());
 							},
 							a
 						),
