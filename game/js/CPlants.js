@@ -4537,7 +4537,7 @@ var oChomper = InheritO(CPlants, {
 							var h;
 							g &&
 								((h = $Z[f]) && h.beAttacked && h.PZ
-									? ($(e).childNodes[1].src = h.getRaven(e)
+									? ($(e).childNodes[1].src = h.getRaven(e, h)
 											? (oSym.addTask(
 													4200,
 													(i) => {
@@ -4611,7 +4611,7 @@ var oSeedChomper = InheritO(CPlants, {
 							var h;
 							g &&
 								((h = $Z[f]) && h.beAttacked && h.PZ
-									? ($(e).childNodes[1].src = h.getRaven(e)
+									? ($(e).childNodes[1].src = h.getRaven(e, h)
 											? (oSym.addTask(
 													4200,
 													(i) => {
@@ -4673,7 +4673,7 @@ return c && c.EName == "oChomper"
 							var h;
 							g &&
 								((h = $Z[f]) && h.beAttacked && h.PZ
-									? ($(e).childNodes[1].src = h.getRaven(e)
+									? ($(e).childNodes[1].src = h.getRaven(e, h)
 											? (oSym.addTask(
 													2100,
 													(i) => {
