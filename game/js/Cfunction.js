@@ -2966,9 +2966,7 @@ var InitGame = function () {
 				.then((response) => response.arrayBuffer())
 				.then(async (arrayBuffer) => {
 					// load the level
-					const levelData = await fileToLevelData(arrayBuffer);
-					console.log(levelData);
-					levelDataToLoad = levelData[0] === "=" ? parseCloneTiny_OLD(levelData) : parseCloneTiny(levelData);
+					levelDataToLoad = await decodeFile();
 					// load the izombiecustomlevel level
 					if (levelDataToLoad.lfValue[3] === 2) {
 						SelectModal("izombiecustomlevelwater");

@@ -49,9 +49,14 @@ oS.Init({
 		buttonElementUpload.style.top = "60%";
 		buttonElementUpload.style.left = "calc(50% + 5px)";
 		buttonElementUpload.onclick = async function () {
-			let levelData = await fileToLevelData();
-			inputDataElement.value = levelData;
-			buttonElement.click();
+			levelDataToLoad = await decodeFile();
+			console.log(levelDataToLoad);
+			// load the izombiecustomlevel level
+			if (levelDataToLoad.lfValue[3] === 2) {
+				SelectModal("izombiecustomlevelwater");
+			} else {
+				SelectModal("izombiecustomlevelnormal");
+			}
 		};
 		$("dAll").appendChild(buttonElementUpload);
 		buttonElement.onclick = function () {
@@ -61,7 +66,7 @@ oS.Init({
 			inputDataElement.value = "Loading...";
 			// decode the input value
 			try {
-				levelDataToLoad = levelData[0] === "=" ? parseCloneTiny_OLD(levelData) : parseCloneTiny(levelData);
+				levelDataToLoad = decodeString(levelData);
 			} catch (e) {
 				inputDataElement.value = "Invalid level data!";
 				inputDataElement.disabled = false;
