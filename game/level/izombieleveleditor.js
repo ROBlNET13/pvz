@@ -308,7 +308,7 @@
 											copyButtonElement.style.display = "none";
 											titleElement.innerText = "Saving...";
 											const author = prompt("Author name:");
-											const newLevelData = stringifyCloneTinyAsBytes(cloneFromPlants(l, f, true));
+											const newLevelData = encodeIZL3(cloneFromPlants(l, f, true));
 											titleElement.innerText = "Configuring...";
 											let serverConfig;
 											fetch(`${$User.Server.URL}/api/config`, {
@@ -442,7 +442,7 @@
 										downloadButton.style.top = "60%";
 										downloadButton.style.left = "calc(66.666% - 56.5px)"; // "calc(50% + 5px)";
 										downloadButton.onclick = function () {
-											downloadBytesAsFile(stringifyCloneTinyAsBytes(cloneFromPlants(l, f)), l + ".izl3");
+											downloadBytesAsFile(encodeIZL3(cloneFromPlants(l, f)), l + ".izl3");
 										};
 										downloadButton.style.zIndex = "1000";
 
