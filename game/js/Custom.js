@@ -207,22 +207,114 @@ if (!Array.isArray(playingSounds)) {
 	playingSounds = [];
 }
 globalThis.playingSounds = playingSounds;
+const audioPools = globalThis.audioPools || new Map();
+globalThis.audioPools = audioPools;
+const MAX_TOTAL_SOUNDS = 32;
+const MAX_SOUNDS_PER_KEY = 4;
+const AUDIO_POOL_SIZE = 6;
+const CLEANUP_INTERVAL_MS = 5000;
+const MIN_INTERVAL_MS_PER_KEY = 50;
+const PLAY_RATE_WINDOW_MS = 250;
+const MAX_PLAYS_PER_WINDOW = 12;
+const lastPlayAt = globalThis.audioLastPlayAt || new Map();
+globalThis.audioLastPlayAt = lastPlayAt;
+const recentPlayTimes = globalThis.audioRecentPlayTimes || [];
+globalThis.audioRecentPlayTimes = recentPlayTimes;
+
+function getAudioKey(path, name, tag) {
+	return `${path}|${name || path}|${tag || "default"}`;
+}
+
+function getPool(key) {
+	if (!audioPools.has(key)) {
+		audioPools.set(key, []);
+	}
+	return audioPools.get(key);
+}
+
+function cleanupPlayingSounds() {
+	for (let i = playingSounds.length - 1; i >= 0; i -= 1) {
+		const audio = playingSounds[i];
+		if (!audio || audio.ended || audio.paused) {
+			playingSounds.splice(i, 1);
+		}
+	}
+}
+
+function canPlayNow(key) {
+	const now = Date.now();
+	const last = lastPlayAt.get(key) || 0;
+	if (now - last < MIN_INTERVAL_MS_PER_KEY) {
+		return false;
+	}
+	while (recentPlayTimes.length && now - recentPlayTimes[0] > PLAY_RATE_WINDOW_MS) {
+		recentPlayTimes.shift();
+	}
+	if (recentPlayTimes.length >= MAX_PLAYS_PER_WINDOW) {
+		return false;
+	}
+	recentPlayTimes.push(now);
+	lastPlayAt.set(key, now);
+	return true;
+}
+
+setInterval(cleanupPlayingSounds, CLEANUP_INTERVAL_MS);
 function PlaySound2(path, loop, name, tag) {
-	console.log(path, loop, name, tag);
 	name = name || path;
-	path = `audio/${path}.mp3`;
-	// console.log(`Playing sound: ${path}`);
-	let audio = new Audio(path);
-	audio.loop = loop;
+	const tagName = tag || "default";
+	const audioPath = `audio/${path}.mp3`;
+	const key = getAudioKey(audioPath, name, tagName);
+	const pool = getPool(key);
+
+	if (!canPlayNow(key)) {
+		return null;
+	}
+
+	cleanupPlayingSounds();
+	if (playingSounds.length >= MAX_TOTAL_SOUNDS) {
+		const oldest = playingSounds.shift();
+		if (oldest) {
+			oldest.pause();
+			oldest.currentTime = 0;
+		}
+	}
+
+	let playingForKeyCount = 0;
+	for (let i = 0; i < playingSounds.length; i += 1) {
+		const a = playingSounds[i];
+		if (a && a.dataset && a.dataset.name === name && a.dataset.tag === tagName) {
+			playingForKeyCount += 1;
+			if (playingForKeyCount >= MAX_SOUNDS_PER_KEY) {
+				return null;
+			}
+		}
+	}
+
+	let audio = pool.find((a) => a.paused || a.ended);
+	if (!audio) {
+		if (pool.length >= AUDIO_POOL_SIZE) {
+			return null;
+		} else {
+			audio = new Audio(audioPath);
+			audio.preload = "auto";
+			pool.push(audio);
+		}
+	}
+
+	audio.loop = Boolean(loop);
 	audio.muted = Boolean(oS.Silence);
-	audio.dataset.tag = tag || "default";
+	audio.dataset.tag = tagName;
 	audio.dataset.name = name;
-	audio.play();
-	playingSounds.push(audio);
-	// remove it after it's done playing
-	audio.onended = function () {
-		playingSounds.splice(playingSounds.indexOf(audio), 1);
-	};
+	audio.currentTime = 0;
+
+	const playPromise = audio.play();
+	if (playPromise && typeof playPromise.catch === "function") {
+		playPromise.catch(() => {});
+	}
+
+	if (!playingSounds.includes(audio)) {
+		playingSounds.push(audio);
+	}
 	return audio;
 }
 function StopSound2(name) {
@@ -230,6 +322,7 @@ function StopSound2(name) {
 	playingSounds.forEach((audio) => {
 		if (audio.dataset.name.includes(name)) {
 			audio.pause();
+			audio.currentTime = 0;
 		}
 	});
 }
@@ -238,6 +331,7 @@ function StopSoundTag2(tag) {
 	playingSounds.forEach((audio) => {
 		if (audio.dataset.tag === tag) {
 			audio.pause();
+			audio.currentTime = 0;
 		}
 	});
 }
@@ -245,7 +339,7 @@ function EditSound2(name, loop = false) {
 	// console.log(`Editing sound: ${name}`);
 	playingSounds.forEach((audio) => {
 		if (audio.src.includes(name)) {
-			audio.loop = loop;
+			audio.loop = Boolean(loop);
 		}
 	});
 }
