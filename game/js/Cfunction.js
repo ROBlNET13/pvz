@@ -47,7 +47,7 @@ var $User = (function () {
 			Gecko: userAgent.includes("Gecko") && !userAgent.includes("KHTML"),
 		},
 		Server: {
-			URL: "http://127.0.0.1:7896",
+			URL: "https://backend.pvzm.net",
 		},
 		HTML5: (function () {
 			return !!document.createElement("canvas").getContext;
