@@ -15,7 +15,7 @@ const paginationButtons = {
 };
 
 let page = 1;
-let limit = 12;
+let limit = 6;
 let requestId = 0;
 let sorts = {
 	plays: "Popular",
