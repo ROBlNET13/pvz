@@ -154,7 +154,7 @@ if (izlId) {
 			.then((response) => response.arrayBuffer())
 			.then(async (arrayBuffer) => {
 				// load the level
-				levelDataToLoad = await decodeFile();
+				levelDataToLoad = await decodeBytes(new Uint8Array(arrayBuffer));
 				// load the izombiecustomlevel level
 				if (levelDataToLoad.lfValue[3] === 2) {
 					SelectModal("izombiecustomlevelwater");
