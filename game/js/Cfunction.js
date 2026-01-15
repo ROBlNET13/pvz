@@ -2955,32 +2955,6 @@ var InitGame = function () {
 		);
 	}
 	LoadLvl();
-	// check if izl_id query parameter exists
-	const urlParams = new URLSearchParams(window.location.search);
-	const izlId = urlParams.get("izl_id");
-	if (izlId) {
-		setTimeout(() => {
-			fetch(`${$User.Server.URL}/api/levels/${izlId}/download`, {
-				method: "GET",
-			})
-				.then((response) => response.arrayBuffer())
-				.then(async (arrayBuffer) => {
-					// load the level
-					levelDataToLoad = await decodeFile();
-					// load the izombiecustomlevel level
-					if (levelDataToLoad.lfValue[3] === 2) {
-						SelectModal("izombiecustomlevelwater");
-					} else {
-						SelectModal("izombiecustomlevelnormal");
-					}
-				})
-				.catch((e) => {
-					console.error(e);
-					alert("There was an error loading the level. Please try again later.");
-					LoadLvl();
-				});
-		}, 0);
-	}
 };
 
 var LoadLvl = function (level, startTime) {
