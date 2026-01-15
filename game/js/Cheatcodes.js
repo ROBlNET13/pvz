@@ -40,7 +40,10 @@ document.addEventListener("keydown", (event) => {
 	}
 	// sun (j)
 	else if (keySequence.includes("j")) {
-		AppearSun(GetX(Math.floor(1 + Math.random() * oS.C)), GetY(Math.floor(1 + Math.random() * oS.R)), 25, 1);
+		const sunId = AppearSun($User.Mouse.x - 45, $User.Mouse.y + 45, 25, false);
+		if (!oS.AutoSun) {
+			oSym.addTask(Math.round(1000 / oSym.TimeStep), ClickSun, [sunId]);
+		}
 		keySequence = "";
 	}
 	// oneko (cat)

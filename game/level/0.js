@@ -116,6 +116,10 @@ oS.Init({
 			$("tGround")
 		);
 		EBody = document.body;
+		$User.Mouse.listener = EBody.addEventListener("mousemove", (event) => {
+			$User.Mouse.x = ((event.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9;
+			$User.Mouse.y = event.clientY + EBody.scrollTop || EElement.scrollTop;
+		});
 		EElement = document.documentElement;
 		EDAll.scrollLeft = 0;
 		EDAll.innerHTML += WordUTF8;

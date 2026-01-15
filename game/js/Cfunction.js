@@ -67,6 +67,7 @@ var $User = (function () {
 			SaveLvl: 1,
 			SaveLvlCallBack: null,
 		},
+		Mouse: { x: 0, y: 0 },
 	};
 })();
 
@@ -2666,6 +2667,8 @@ var AppearSun = function (x, y, amount, isDrop) {
 	if (oS.AutoSun) {
 		oSym.addTask(100, ClickSun, [id]);
 	}
+
+	return id;
 };
 
 var MoveDropSun = function (id, targetY) {
