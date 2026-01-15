@@ -307,6 +307,12 @@
 											levelDataElement.style.display = "none";
 											copyButtonElement.style.display = "none";
 											titleElement.innerText = "Saving...";
+											alert(
+												"RULES:\n\n" +
+												"1. Playability Required - Your level must be completable. Test it before submitting to ensure it's actually possible to beat.\n" +
+												"2. Be Yourself - Don't pretend to be other community members or moderators when submitting levels.\n" +
+												"3. Keep It Family-Friendly - Level names, author names, and the level itself must all be appropriate for all ages. No inappropriate content or language."
+											);
 											const author = prompt("Author name:");
 											const newLevelData = encodeIZL3(cloneFromPlants(l, f, true));
 											titleElement.innerText = "Configuring...";
