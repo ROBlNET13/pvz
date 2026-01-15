@@ -191,6 +191,24 @@ function decodeIZL3Bytes(bytes) {
 	return untinyifyClone(obj);
 }
 
+function bytesToBase64(bytes) {
+	// Convert Uint8Array -> base64 without blowing the call stack.
+	let binary = "";
+	const chunkSize = 0x8000;
+	for (let i = 0; i < bytes.length; i += chunkSize) {
+		const chunk = bytes.subarray(i, i + chunkSize);
+		binary += String.fromCharCode(...chunk);
+	}
+	return btoa(binary);
+}
+
+function encodeStringIZL3(levelData) {
+	const bytes = encodeIZL3(levelData);
+	// Strip the "IZL3" header; strings store only the compressed payload.
+	const compressed = bytes.slice(4);
+	return "|" + bytesToBase64(compressed);
+}
+
 function stringToBytesIZL3(str) {
 	// Remove "|" prefix if present
 	const base64 = str[0] === "|" ? str.slice(1) : str;

@@ -234,7 +234,7 @@
 										levelDataElement.style.borderRadius = "10px";
 										levelDataElement.style.fontSize = "large";
 										levelDataElement.style.zIndex = "1000";
-										levelDataElement.value = stringifyCloneTiny(cloneFromPlants(l, f));
+										levelDataElement.value = encodeStringIZL3(cloneFromPlants(l, f));
 										$("dAll").appendChild(levelDataElement);
 										const copyButtonElement = document.createElement("button");
 										copyButtonElement.style.position = "absolute";
