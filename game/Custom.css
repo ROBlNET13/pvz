@@ -1082,7 +1082,7 @@ input[type="checkbox"]:checked {
 	border: solid transparent;
 	border-width: 100px 0 0 25px;
 	width: calc(100% - 50px);
-	height: calc(100% - 145px);
+	height: 439px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	position: relative;
@@ -1164,6 +1164,7 @@ input[type="checkbox"]:checked {
 .iz-pagination-current {
 	cursor: url(images/interface/Cursor.cur), default !important;
 	pointer-events: none;
+	filter: brightness(0.7);
 }
 .iz-pagination-first,
 .iz-pagination-last {
@@ -1171,6 +1172,14 @@ input[type="checkbox"]:checked {
 }
 .iz-pagination-button:disabled {
 	display: none;
+}
+.iz-pagination-first:disabled,
+.iz-pagination-last:disabled,
+.iz-pagination-next:disabled,
+.iz-pagination-prev:disabled {
+	display: inline;
+	opacity: 0.5;
+	pointer-events: none;
 }
 .iz-level-thumbnail-background {
 	width: 210px;
@@ -1184,7 +1193,7 @@ input[type="checkbox"]:checked {
 	top: 60px;
 	left: 10px;
 	width: 89px !important;
-	background: url("images/interface/refreshbutton.png") center top !important;
+	background-image: url("images/interface/refreshbutton.png") !important;
 }
 .iz-sort {
 	padding-right: 20px !important;
@@ -1192,5 +1201,5 @@ input[type="checkbox"]:checked {
 	top: 60px;
 	left: 801px;
 	width: 89px !important;
-	background: url("images/interface/sortbutton.png") center top !important;
+	background-image: url("images/interface/sortbutton.png") !important;
 }

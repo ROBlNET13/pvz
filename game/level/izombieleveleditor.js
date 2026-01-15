@@ -386,7 +386,7 @@
 															.then((response) => {
 																if (!response.ok) {
 																	return response.json().then((data) => {
-																		throw new Error(data.error || "Failed to upload level");
+																		throw new Error(`${data.error} (${data.message})` || "Failed to upload level");
 																	});
 																}
 																return response.json();
@@ -711,9 +711,7 @@
 							{
 								async onclick() {
 									// load the level
-									const levelData = await fileToLevelData();
-									console.log(levelData);
-									levelDataToLoad = levelData[0] === "=" ? parseCloneTiny_OLD(levelData) : parseCloneTiny(levelData);
+									levelDataToLoad = await decodeFile();
 									// load the izombiecustomlevel level
 									if (levelDataToLoad.lfValue[3] === 2) {
 										Change_Level("NPool");

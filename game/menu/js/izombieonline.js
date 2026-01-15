@@ -22,7 +22,36 @@ let sorts = {
 	recent: "Recent",
 	favorites: "Favorites",
 };
-let currentSortIndex = 0;
+const SORT_STORAGE_KEY = "pvz.izombieonline.sort";
+
+function getDefaultSortIndex() {
+	const sortKeys = Object.keys(sorts);
+	const saved = (() => {
+		try {
+			return localStorage.getItem(SORT_STORAGE_KEY);
+		} catch {
+			return null;
+		}
+	})();
+
+	if (saved && sortKeys.includes(saved)) {
+		return sortKeys.indexOf(saved);
+	}
+
+	// Default to "Recent" if no valid saved preference.
+	const recentIndex = sortKeys.indexOf("recent");
+	return recentIndex >= 0 ? recentIndex : 0;
+}
+
+let currentSortIndex = getDefaultSortIndex();
+
+function persistCurrentSort() {
+	try {
+		localStorage.setItem(SORT_STORAGE_KEY, Object.keys(sorts)[currentSortIndex]);
+	} catch {
+		// Ignore storage errors (private mode, disabled storage, etc.)
+	}
+}
 
 document.querySelector(".iz-sort").addEventListener("click", (event) => {
 	PlayAudio("tap");
@@ -30,6 +59,7 @@ document.querySelector(".iz-sort").addEventListener("click", (event) => {
 	if (currentSortIndex === 3) {
 		currentSortIndex = 0;
 	}
+	persistCurrentSort();
 	ViewGenericMouseover(`<b>Current Sort</b>: ${Object.values(sorts)[currentSortIndex]}`, event);
 	clearLevels();
 	loadPage(page);
@@ -134,9 +164,7 @@ function createLevelCard(levelData) {
 			.then((response) => response.arrayBuffer())
 			.then(async (arrayBuffer) => {
 				// load the level
-				const levelData = await fileToLevelData(arrayBuffer);
-				console.log(levelData);
-				levelDataToLoad = levelData[0] === "=" ? parseCloneTiny_OLD(levelData) : parseCloneTiny(levelData);
+				levelDataToLoad = await decodeBytes(new Uint8Array(arrayBuffer));
 				// load the izombiecustomlevel level
 				if (levelDataToLoad.lfValue[3] === 2) {
 					SelectModal("izombiecustomlevelwater");
@@ -225,11 +253,19 @@ function renderPagination(pagination) {
 		paginationButtons.last.onclick = () => void loadPage(totalPages);
 	}
 
-	// Numbered neighbors.
-	setPaginationButtonPage(paginationButtons.back2, currentPage - 2, currentPage, totalPages);
+	// numbered neighbors
+	if (currentPage === totalPages) {
+		setPaginationButtonPage(paginationButtons.back2, currentPage - 2, currentPage, totalPages);
+	} else {
+		setPaginationButtonVisible(paginationButtons.back2, false);
+	}
 	setPaginationButtonPage(paginationButtons.back1, currentPage - 1, currentPage, totalPages);
 	setPaginationButtonPage(paginationButtons.forward1, currentPage + 1, currentPage, totalPages);
-	setPaginationButtonPage(paginationButtons.forward2, currentPage + 2, currentPage, totalPages);
+	if (currentPage === 1) {
+		setPaginationButtonPage(paginationButtons.forward2, currentPage + 2, currentPage, totalPages);
+	} else {
+		setPaginationButtonVisible(paginationButtons.forward2, false);
+	}
 }
 
 function clearLevels() {
