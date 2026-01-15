@@ -1,34 +1,57 @@
-let keysPressed = {};
+let keySequence = "";
+let sequenceTimeout = null;
 
+// oxlint-disable-next-line complexity
 document.addEventListener("keydown", (event) => {
-	keysPressed[event.key] = true;
-	// super fast
-	if (keysPressed.s && keysPressed.f && document.activeElement.nodeName !== "TEXTAREA" && document.activeElement.nodeName !== "INPUT") {
+	// Ignore if typing in input fields
+	if (document.activeElement.nodeName === "TEXTAREA" || document.activeElement.nodeName === "INPUT") {
+		return;
+	}
+
+	// Add key to sequence
+	keySequence += event.key.toLowerCase();
+
+	// Clear sequence after 2 seconds of inactivity
+	clearTimeout(sequenceTimeout);
+	sequenceTimeout = setTimeout(() => {
+		keySequence = "";
+	}, 2000);
+
+	// Check for cheat codes
+	// super fast (sf)
+	if (keySequence.includes("sf")) {
 		CSpeed(1000, 10, 1000);
+		keySequence = "";
 	}
-	// balloon
-	if (keysPressed.b && keysPressed.l && keysPressed.n && document.activeElement.nodeName !== "TEXTAREA" && document.activeElement.nodeName !== "INPUT") {
+	// balloon (bln)
+	else if (keySequence.includes("bln")) {
 		oP.Balloon();
+		keySequence = "";
 	}
-	// restart
-	/*if (keysPressed["r"] && document.activeElement.nodeName != 'TEXTAREA' && document.activeElement.nodeName != 'INPUT') {
+	// restart (r)
+	/*else if (keySequence.includes("r")) {
 		SelectModal(oS.Lvl);
+		keySequence = "";
 	}*/
-	// almanac (handbook)
-	if (keysPressed.k && document.activeElement.nodeName !== "TEXTAREA" && document.activeElement.nodeName !== "INPUT") {
+	// almanac (k)
+	else if (keySequence.includes("k")) {
 		ViewHandBook();
+		keySequence = "";
 	}
-	// sun
-	if (keysPressed.j && document.activeElement.nodeName !== "TEXTAREA" && document.activeElement.nodeName !== "INPUT") {
+	// sun (j)
+	else if (keySequence.includes("j")) {
 		AppearSun(GetX(Math.floor(1 + Math.random() * oS.C)), GetY(Math.floor(1 + Math.random() * oS.R)), 25, 1);
+		keySequence = "";
 	}
-	// oneko
-	/*if (keysPressed.c && keysPressed.a && keysPressed.t && document.activeElement.nodeName !== "TEXTAREA" && document.activeElement.nodeName !== "INPUT") {
+	// oneko (cat)
+	/*else if (keySequence.includes("cat")) {
 		// remove .hidden from #oneko
 		document.getElementById("oneko").classList.remove("hidden");
+		keySequence = "";
 	}*/
-});
 
-document.addEventListener("keyup", (event) => {
-	keysPressed[event.key] = false;
+	// Prevent sequence from getting too long
+	if (keySequence.length > 20) {
+		keySequence = keySequence.slice(-10);
+	}
 });

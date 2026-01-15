@@ -135,7 +135,7 @@ oS.Init(
 		FlagToEnd() {
 			NewImg("imgSF", "images/interface/trophy.png", "left:43.5%;top:220px", EDAll, {
 				onclick() {
-					(SelectModal(0), PlayAudio("winmusic"));
+					(SelectModal(0), PlaySound2("winmusic"));
 				},
 			});
 			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:51%", EDAll);
@@ -245,7 +245,7 @@ oS.Init(
 			var o = f.Kind;
 			var s = k.name === "Plants";
 			k.CanGrow(l, e, b) &&
-				(PlayAudio(g !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water"),
+				(PlaySound2(g !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water"),
 				s
 					? new h().Birth(d, c, e, b, l)
 					: asyncInnerHTML(

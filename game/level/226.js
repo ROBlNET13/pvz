@@ -101,7 +101,7 @@ oS.Init(
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio("crazydaveshort1");
+						PlaySound2("crazydaveshort1");
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							100,
@@ -116,7 +116,7 @@ oS.Init(
 						innerText(c, "伙计，离一百层越来越近了!");
 						break;
 					case 1:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -132,7 +132,7 @@ oS.Init(
 						innerText(c, "难度上升也越来越快了");
 						break;
 					case 2:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(

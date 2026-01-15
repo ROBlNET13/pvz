@@ -78,7 +78,7 @@ oS.Init(
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio("crazydaveshort1");
+						PlaySound2("crazydaveshort1");
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							100,
@@ -93,7 +93,7 @@ oS.Init(
 						innerText(c, "欢迎来到常青之塔");
 						break;
 					case 1:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -109,7 +109,7 @@ oS.Init(
 						innerText(c, "这里可是危机四伏,你必须一层一层的挑战");
 						break;
 					case 2:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -125,7 +125,7 @@ oS.Init(
 						innerText(c, "难度也会随着层数上涨!");
 						break;
 					case 3:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(

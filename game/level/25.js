@@ -48,7 +48,7 @@ oS.Init(
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio("crazydaveshort1");
+						PlaySound2("crazydaveshort1");
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							1,
@@ -63,7 +63,7 @@ oS.Init(
 						innerText(c, "Have you ever thought that zombies can also practice a pair of fast feet?");
 						break;
 					case 1:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -79,7 +79,7 @@ oS.Init(
 						innerText(c, "What a terrible thing that is!");
 						break;
 					case 2:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(

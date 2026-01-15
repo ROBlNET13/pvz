@@ -77,7 +77,7 @@ oS.Init(
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -93,7 +93,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">Welcome to hell my friend</span>';
 						break;
 					case 1:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -109,7 +109,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">I have to advise you,</span>';
 						break;
 					case 2:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -125,7 +125,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">This game is too dangerous, now every battle is difficult</span>';
 						break;
 					case 3:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -141,7 +141,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">No sunshine, no flowerpots,</span>';
 						break;
 					case 4:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -157,7 +157,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">The zombies even blew up two lines at the door,</span>';
 						break;
 					case 5:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(

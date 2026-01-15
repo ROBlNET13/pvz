@@ -54,7 +54,7 @@ function persistCurrentSort() {
 }
 
 document.querySelector(".iz-sort").addEventListener("click", (event) => {
-	PlayAudio("tap");
+	PlaySound2("tap");
 	currentSortIndex += 1;
 	if (currentSortIndex === 3) {
 		currentSortIndex = 0;
@@ -70,7 +70,7 @@ document.querySelector(".iz-sort").addEventListener("mousemove", (event) => {
 });
 
 document.querySelector(".iz-reload").addEventListener("click", () => {
-	PlayAudio("tap");
+	PlaySound2("tap");
 	clearLevels();
 	loadPage(page);
 });

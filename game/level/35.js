@@ -20,7 +20,7 @@ oS.Init(
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio("crazydaveshort1");
+						PlaySound2("crazydaveshort1");
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							1,
@@ -35,7 +35,7 @@ oS.Init(
 						innerText(c, "I still remember the fun of playing petanque with Peter as a kid");
 						break;
 					case 1:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -51,7 +51,7 @@ oS.Init(
 						innerText(c, "Now Peter's not in this damn place, come and play with me~");
 						break;
 					case 2:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -67,7 +67,7 @@ oS.Init(
 						innerText(c, "However, this time we are not rolling balls, but starfish! .");
 						break;
 					case 3:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -193,7 +193,7 @@ oS.Init(
 			return oS.ChoseCard;
 		},
 		ChosePlant(a, b) {
-			PlayAudio("seedlift");
+			PlaySound2("seedlift");
 			a = window.event || a;
 			var f = ArCard[oS.ChoseCard];
 			var e = a.clientX + EBody.scrollLeft || EElement.scrollLeft;

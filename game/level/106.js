@@ -79,7 +79,7 @@ oS.Init(
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -95,7 +95,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">Good evening, neighbors.</span>';
 						break;
 					case 1:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -111,7 +111,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">Looks like we were lucky and found this little village when it got dark</span>';
 						break;
 					case 2:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -127,7 +127,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">But it seems, there is a cemetery full of zombies behind the village</span>';
 						break;
 					case 3:
-						PlayAudio("crazydaveshort2");
+						PlaySound2("crazydaveshort2");
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -143,7 +143,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">Unfortunately, the road in front of the village is a stone road.</span>';
 						break;
 					case 4:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -159,7 +159,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">Worse yet, its already late at night.</span>';
 						break;
 					case 4:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -212,7 +212,7 @@ oS.Init(
 		FlagToEnd() {
 			NewImg("imgSF", "images/interface/ZombieNoteSmall.png", "left:667px;top:220px", EDAll, {
 				onclick() {
-					PlayAudio("winmusic");
+					PlaySound2("winmusic");
 					SetHidden($("PointerUD"));
 					SetStyle(this, {
 						width: "613px",

@@ -227,7 +227,7 @@ var oGraveBuster = InheritO(CPlants, {
 	Produce:
 		'<font color="#28325A">Plant Grave Busters on graves to remove the graves.</font><p>Usage: <font color="#CC241D">single use, must be planted on graves</font><br>Special: <font color="#CC241D">removes graves</font></p>Despite Grave Buster\'s fearsome appearance, he wants everyone to know that he loves kittens and spends his off hours volunteering at a local zombie rehabilitation center. "It\'s just the right thing to do," he says.',
 	PrivateBirth(a) {
-		PlayAudio("gravebusterchomp");
+		PlaySound2("gravebusterchomp");
 		oSym.addTask(
 			420,
 			(b) => {
@@ -272,7 +272,7 @@ var oLawnCleaner = InheritO(CPlants, {
 	BoomDie() {},
 	Tooltip: "Most common lawn mower",
 	NormalAttack(a) {
-		PlayAudio(a.AudioArr[0]);
+		PlaySound2(a.AudioArr[0]);
 		(function (b, c, k, j, e, g) {
 			var d = oZ.getArZ(k, j, e);
 			var f = d.length;
@@ -312,7 +312,7 @@ var oCleaner = InheritO(oCleaner1, {
 			(j) => {
 				var h = $P[j];
 				if (h) {
-					PlayAudio("jalapeno");
+					PlaySound2("jalapeno");
 					var b = $(j);
 					var f = h.R;
 					var c = oZ.getArZ(100, oS.W, f);
@@ -360,7 +360,7 @@ var oPoolCleaner = InheritO(oLawnCleaner, {
 	Tooltip: "Pond Sweeper",
 	AudioArr: ["pool_cleaner"],
 	NormalAttack(a) {
-		PlayAudio(a.AudioArr[0]);
+		PlaySound2(a.AudioArr[0]);
 		(function (b, c, k, j, e, g) {
 			var d = oZ.getArZ(k, j, e);
 			var f = d.length;
@@ -1007,7 +1007,7 @@ var oPeashooter = InheritO(CPlants, {
 				var l;
 				var e = GetC(n);
 				var d = oZ["getZ" + c](n, i);
-				m === 0 && g[i + "_" + e] && k !== e && (PlayAudio("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
+				m === 0 && g[i + "_" + e] && k !== e && (PlaySound2("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
 				d && d.Altitude === 1
 					? (d[
 							{
@@ -1078,7 +1078,7 @@ var oSeedPeashooter = InheritO(CPlants, {
 				var l;
 				var e = GetC(n);
 				var d = oZ["getZ" + c](n, i);
-				m === 0 && g[i + "_" + e] && k !== e && (PlayAudio("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
+				m === 0 && g[i + "_" + e] && k !== e && (PlaySound2("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
 				d && d.Altitude === 1
 					? (d[
 							{
@@ -1164,7 +1164,7 @@ var oLotusRoot = InheritO(oPeashooter, {
 				var l;
 				var e = GetC(n);
 				var d = oZ["getZ" + c](n, i);
-				m === 0 && g[i + "_" + e] && k !== e && (PlayAudio("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/LotusRoot/Missile.png"));
+				m === 0 && g[i + "_" + e] && k !== e && (PlaySound2("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/LotusRoot/Missile.png"));
 				d && d.Altitude === 1
 					? (d[
 							{
@@ -1226,7 +1226,7 @@ var oSnowPea = InheritO(oPeashooter, {
 				var l;
 				var e = GetC(n);
 				var d = oZ["getZ" + c](n, i);
-				m < 1 && g[i + "_" + e] && k !== e && (PlayAudio("firepea"), ++m && (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
+				m < 1 && g[i + "_" + e] && k !== e && (PlaySound2("firepea"), ++m && (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
 				d && d.Altitude === 1
 					? (d[
 							{
@@ -1288,7 +1288,7 @@ var oSeedSnowPea = InheritO(oPeashooter, {
 				var l;
 				var e = GetC(n);
 				var d = oZ["getZ" + c](n, i);
-				m < 1 && g[i + "_" + e] && k !== e && (PlayAudio("firepea"), ++m && (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
+				m < 1 && g[i + "_" + e] && k !== e && (PlaySound2("firepea"), ++m && (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
 				d && d.Altitude === 1
 					? (d[
 							{
@@ -1434,7 +1434,7 @@ var oSeedRepeater2 = InheritO(oRepeater, {
 				var l;
 				var e = GetC(n);
 				var d = oZ["getZ" + c](n, i);
-				m === 0 && g[i + "_" + e] && k !== e && (PlayAudio("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
+				m === 0 && g[i + "_" + e] && k !== e && (PlaySound2("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
 				d && d.Altitude === 1
 					? (d[
 							{
@@ -1495,7 +1495,7 @@ var oRepeater2 = InheritO(oRepeater, {
 				var l;
 				var e = GetC(n);
 				var d = oZ["getZ" + c](n, i);
-				m === 0 && g[i + "_" + e] && k !== e && (PlayAudio("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
+				m === 0 && g[i + "_" + e] && k !== e && (PlaySound2("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
 				d && d.Altitude === 1
 					? (d[
 							{
@@ -1624,7 +1624,7 @@ var oThreepeater = InheritO(oPeashooter, {
 					var n;
 					var g = GetC(p);
 					var f = oZ["getZ" + e](p, k);
-					o === 0 && i[k + "_" + g] && m !== g && (PlayAudio("firepea"), (o = 1), (j = 40), (m = g), (l.src = "images/Plants/PB" + o + e + ".png"));
+					o === 0 && i[k + "_" + g] && m !== g && (PlaySound2("firepea"), (o = 1), (j = 40), (m = g), (l.src = "images/Plants/PB" + o + e + ".png"));
 					f && f.Altitude === 1
 						? (f[
 								{
@@ -1723,7 +1723,7 @@ var oSeedThreepeater = InheritO(oPeashooter, {
 					var n;
 					var g = GetC(p);
 					var f = oZ["getZ" + e](p, k);
-					o === 0 && i[k + "_" + g] && m !== g && (PlayAudio("firepea"), (o = 1), (j = 40), (m = g), (l.src = "images/Plants/PB" + o + e + ".png"));
+					o === 0 && i[k + "_" + g] && m !== g && (PlaySound2("firepea"), (o = 1), (j = 40), (m = g), (l.src = "images/Plants/PB" + o + e + ".png"));
 					f && f.Altitude === 1
 						? (f[
 								{
@@ -1906,7 +1906,7 @@ var oSplitPea = InheritO(oPeashooter, {
 					var o;
 					var h = GetC(q);
 					var g = oZ["getZ" + f](q, l);
-					p === 0 && j[l + "_" + h] && n !== h && (PlayAudio("firepea"), (p = 1), (k = 40), (n = h), (m.src = "images/Plants/PB" + p + f + ".png"));
+					p === 0 && j[l + "_" + h] && n !== h && (PlaySound2("firepea"), (p = 1), (k = 40), (n = h), (m.src = "images/Plants/PB" + p + f + ".png"));
 					g && g.Altitude === 1
 						? (g[
 								{
@@ -2487,7 +2487,7 @@ var oPotatoMine = InheritO(CPlants, {
 			(a = c[f]).Altitude < 2 && a.getThump();
 		}
 		g.Die(1);
-		PlayAudio("potato_mine");
+		PlaySound2("potato_mine");
 		EditEle(
 			d.childNodes[1],
 			{
@@ -2602,7 +2602,7 @@ var oSeedPotatoMine = InheritO(CPlants, {
 			(a = c[f]).Altitude < 2 && a.getThump();
 		}
 		g.Die(1);
-		PlayAudio("potato_mine");
+		PlaySound2("potato_mine");
 		EditEle(
 			d.childNodes[1],
 			{
@@ -2708,7 +2708,7 @@ var oIPotatoMine = InheritO(CPlants, {
 			(a = c[f]).Altitude < 2 && a.getThump();
 		}
 		g.Die(1);
-		PlayAudio("potato_mine");
+		PlaySound2("potato_mine");
 		EditEle(
 			d.childNodes[1],
 			{
@@ -2796,7 +2796,7 @@ var oTorchwood = InheritO(CPlants, {
 				var l;
 				var e = GetC(n);
 				var d = oZ["getZ" + c](n, i);
-				m === 0 && g[i + "_" + e] && k !== e && (PlayAudio("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
+				m === 0 && g[i + "_" + e] && k !== e && (PlaySound2("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
 				d && d.Altitude === 1
 					? (d[
 							{
@@ -2876,7 +2876,7 @@ var oSeedTorchwood = InheritO(CPlants, {
 				var l;
 				var e = GetC(n);
 				var d = oZ["getZ" + c](n, i);
-				m === 0 && g[i + "_" + e] && k !== e && (PlayAudio("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
+				m === 0 && g[i + "_" + e] && k !== e && (PlaySound2("firepea"), (m = 1), (h = 40), (k = e), (j.src = "images/Plants/PB" + m + c + ".png"));
 				d && d.Altitude === 1
 					? (d[
 							{
@@ -3212,7 +3212,7 @@ var oCattail = InheritO(oPeashooter, {
 			oSym.addTask(120, (_) => $P[self.id] && (ele.childNodes[1].src = self.PicArr[self.NormalGif] + "?" + this.id));
 		}
 		oSym.addTask(85, (_) => {
-			//PlayAudio(self.AudioArr.slice(0, 2).random());
+			//PlaySound2(self.AudioArr.slice(0, 2).random());
 			if (!$P[self.id]) {
 				return;
 			}
@@ -3383,7 +3383,7 @@ var oNutBowling = InheritO(CPlants, {
 	NormalAttack: null,
 	PrivateBirth(c) {
 		var d = $(c.id);
-		PlayAudio("bowling");
+		PlaySound2("bowling");
 		EditEle(d.childNodes[1], {
 			style: `animation: wallnutSpin ${0.75 * ($User.Visitor.TimeStep / 10)}s linear infinite`,
 		});
@@ -3399,7 +3399,7 @@ var oNutBowling = InheritO(CPlants, {
 			var t = false;
 			if (z.CanAttack && (A = oZ.getZ0(r, a)) && A.getCrushed(z)) {
 				u = A.id;
-				PlayAudio(["bowlingimpact", "bowlingimpact2"][Math.floor(Math.random() * 2)]);
+				PlaySound2(["bowlingimpact", "bowlingimpact2"][Math.floor(Math.random() * 2)]);
 				switch (A.Ornaments) {
 					case 0:
 						A.NormalDie();
@@ -3475,7 +3475,7 @@ var oHugeNutBowling = InheritO(oNutBowling, {
 	Stature: 1,
 	PicArr: ["images/Card/Plants/HugeWallNut.png", "images/Plants/WallNut/2.webp", "images/Plants/WallNut/2.webp"],
 	PrivateBirth(a) {
-		PlayAudio("bowling");
+		PlaySound2("bowling");
 		EditEle($(a.id).childNodes[1], {
 			style: `animation: hugeWallnutSpin ${1.25 * ($User.Visitor.TimeStep / 10)}s linear infinite`,
 		});
@@ -3518,7 +3518,7 @@ var oBoomNutBowling = InheritO(oNutBowling, {
 	],
 	AudioArr: ["cherrybomb", "bowling"],
 	PrivateBirth(a) {
-		PlayAudio("bowling");
+		PlaySound2("bowling");
 		EditEle($(a.id).childNodes[1], {
 			style: `animation: wallnutSpin ${0.75 * ($User.Visitor.TimeStep / 10)}s linear infinite`,
 		});
@@ -3537,7 +3537,7 @@ var oBoomNutBowling = InheritO(oNutBowling, {
 				EditEle($(a.id).childNodes[1], {
 					style: "",
 				});
-				PlayAudio("cherrybomb");
+				PlaySound2("cherrybomb");
 				do {
 					k = (e = oZ.getArZ(u, r, j)).length;
 					while (k--) {
@@ -3778,7 +3778,7 @@ var oCherryBomb = InheritO(CPlants, {
 			(b) => {
 				var c = $P[b];
 				if (c) {
-					PlayAudio("cherrybomb");
+					PlaySound2("cherrybomb");
 					var f = $(b);
 					var j = c.R;
 					var g = j > 2 ? j - 1 : 1;
@@ -3839,7 +3839,7 @@ var oSeedCherryBomb = InheritO(CPlants, {
 			(b) => {
 				var c = $P[b];
 				if (c) {
-					PlayAudio("cherrybomb");
+					PlaySound2("cherrybomb");
 					var f = $(b);
 					var j = c.R;
 					var g = j > 2 ? j - 1 : 1;
@@ -3898,7 +3898,7 @@ var oJalapeno = InheritO(oCherryBomb, {
 			(j) => {
 				var h = $P[j];
 				if (h) {
-					PlayAudio("jalapeno");
+					PlaySound2("jalapeno");
 					var b = $(j);
 					var f = h.R;
 					var c = oZ.getArZ(100, oS.W, f);
@@ -3957,7 +3957,7 @@ var oSeedJalapeno = InheritO(oCherryBomb, {
 			(j) => {
 				var h = $P[j];
 				if (h) {
-					PlayAudio("jalapeno");
+					PlaySound2("jalapeno");
 					var b = $(j);
 					var f = h.R;
 					var c = oZ.getArZ(100, oS.W, f);
@@ -4265,9 +4265,9 @@ var oGarlic = InheritO(CPlants, {
 	getHurt(e, b, a) {
 		let yuckrng = Math.floor(Math.random() * 2) + 1; // note the uppercase M in Math
 		if (yuckrng === 1) {
-			PlayAudio("yuck");
+			PlaySound2("yuck");
 		} else if (yuckrng === 2) {
-			PlayAudio("yuck2");
+			PlaySound2("yuck2");
 		}
 		var c = this;
 		var d = $(c.id).childNodes[1];
@@ -4320,9 +4320,9 @@ var oSeedGarlic = InheritO(CPlants, {
 	getHurt(e, b, a) {
 		let yuckrng = Math.floor(Math.random() * 2) + 1; // note the uppercase M in Math
 		if (yuckrng === 1) {
-			PlayAudio("yuck");
+			PlaySound2("yuck");
 		} else if (yuckrng === 2) {
-			PlayAudio("yuck2");
+			PlaySound2("yuck2");
 		}
 		var c = this;
 		var d = $(c.id).childNodes[1];
@@ -4377,7 +4377,7 @@ var oSquash = InheritO(CPlants, {
 			h.Altitude > -1 &&
 			h.Altitude < 2 &&
 			(f || (!f && c - this.AttackedRX < 71)) &&
-			(PlayAudio("squash_hmm"),
+			(PlaySound2("squash_hmm"),
 			oT.$[this.R].splice(e, 1),
 			(a.src = c > this.AttackedRX ? "images/Plants/Squash/SquashR.png" : "images/Plants/Squash/SquashL.png"),
 			oSym.addTask(
@@ -4401,7 +4401,7 @@ var oSquash = InheritO(CPlants, {
 		oSym.addTask(
 			45,
 			(f, l, j) => {
-				PlayAudio("gargantuar_thump");
+				PlaySound2("gargantuar_thump");
 				var g = oZ.getArZ(l, l + 100, j);
 				var h = g.length;
 				var k;
@@ -4452,7 +4452,7 @@ var oSeedSquash = InheritO(CPlants, {
 			h.Altitude > -1 &&
 			h.Altitude < 2 &&
 			(f || (!f && c - this.AttackedRX < 71)) &&
-			(PlayAudio("squash_hmm"),
+			(PlaySound2("squash_hmm"),
 			oT.$[this.R].splice(e, 1),
 			(a.src = c > this.AttackedRX ? "images/Plants/Squash/SquashR.png" : "images/Plants/Squash/SquashL.png"),
 			oSym.addTask(
@@ -4476,7 +4476,7 @@ var oSeedSquash = InheritO(CPlants, {
 		oSym.addTask(
 			45,
 			(f, l, j) => {
-				PlayAudio("gargantuar_thump");
+				PlaySound2("gargantuar_thump");
 				var g = oZ.getArZ(l, l + 100, j);
 				var h = g.length;
 				var k;
@@ -4528,7 +4528,7 @@ var oChomper = InheritO(CPlants, {
 		oSym.addTask(
 			70,
 			(c, d) => {
-				PlayAudio("bigchomp");
+				PlaySound2("bigchomp");
 				$P[c] &&
 					oSym.addTask(
 						18,
@@ -4602,7 +4602,7 @@ var oSeedChomper = InheritO(CPlants, {
 		oSym.addTask(
 			70,
 			(c, d) => {
-				PlayAudio("bigchomp");
+				PlaySound2("bigchomp");
 				$P[c] &&
 					oSym.addTask(
 						18,
@@ -4664,7 +4664,7 @@ return c && c.EName == "oChomper"
 		oSym.addTask(
 			70,
 			(c, d) => {
-				PlayAudio("bigchomp");
+				PlaySound2("bigchomp");
 				$P[c] &&
 					oSym.addTask(
 						9,
@@ -4762,7 +4762,7 @@ var oFumeShroom = InheritO(CPlants, {
 		return [[b, Math.min(c + 330, oS.W), 0]];
 	},
 	NormalAttack() {
-		PlayAudio("fume");
+		PlaySound2("fume");
 		var f = this;
 		var d = oZ.getArZ(f.AttackedLX, Math.min(f.AttackedRX + 330, oS.W), f.R);
 		var e = d.length;
@@ -4857,7 +4857,7 @@ var oSeedFumeShroom = InheritO(CPlants, {
 		return [[b, Math.min(c + 330, oS.W), 0]];
 	},
 	NormalAttack() {
-		PlayAudio("fume");
+		PlaySound2("fume");
 		var f = this;
 		var d = oZ.getArZ(f.AttackedLX, Math.min(f.AttackedRX + 330, oS.W), f.R);
 		var e = d.length;
@@ -4922,7 +4922,7 @@ var oIceFumeShroom = InheritO(oFumeShroom, {
 		);
 	},
 	NormalAttack() {
-		PlayAudio("fume");
+		PlaySound2("fume");
 		var f = this;
 		var d = oZ.getArZ(f.AttackedLX, Math.min(f.AttackedRX + 330, oS.W), f.R);
 		var e = d.length;
@@ -5000,11 +5000,11 @@ var oCoffeeBean = InheritO(CPlants, {
 	},
 	PrivateBirth(a) {
 		SetHidden($(a.id).firstChild);
-		PlayAudio("coffee");
+		PlaySound2("coffee");
 		oSym.addTask(
 			240,
 			(c) => {
-				PlayAudio("wakeup");
+				PlaySound2("wakeup");
 				var d = oGd.$[c];
 				var b;
 				d && ((b = d.WakeUP), !b ? (($(d.id).childNodes[1].src = d.PicArr[d.NormalGif]), (d.canTrigger = 1), (d.Sleep = 0)) : b(d));
@@ -5093,7 +5093,7 @@ var oGloomShroom = InheritO(oFumeShroom, {
 		oSym.addTask(
 			100,
 			function (i) {
-				PlayAudio(["kernelpult", "kernelpult2"][Math.floor(Math.random() * 2)]);
+				PlaySound2(["kernelpult", "kernelpult2"][Math.floor(Math.random() * 2)]);
 				--i && oSym.addTask(100, arguments.callee, [i]);
 			},
 			[4]
@@ -5204,7 +5204,7 @@ var oSeedGloomShroom = InheritO(oSeedFumeShroom, {
 		oSym.addTask(
 			100,
 			function (i) {
-				PlayAudio(["kernelpult", "kernelpult2"][Math.floor(Math.random() * 2)]);
+				PlaySound2(["kernelpult", "kernelpult2"][Math.floor(Math.random() * 2)]);
 				--i && oSym.addTask(100, arguments.callee, [i]);
 			},
 			[4]
@@ -5274,7 +5274,7 @@ var oPuffShroom = InheritO(oFumeShroom, {
 		a.BulletEle = null;
 	},
 	NormalAttack() {
-		PlayAudio("puff");
+		PlaySound2("puff");
 		var b = this;
 		var c = "PSB" + Math.random();
 		var a = b.AttackedLX;
@@ -5349,7 +5349,7 @@ var oSeedPuffShroom = InheritO(oFumeShroom, {
 		a.BulletEle = null;
 	},
 	NormalAttack() {
-		PlayAudio("puff");
+		PlaySound2("puff");
 		var b = this;
 		var c = "PSB" + Math.random();
 		var a = b.AttackedLX;
@@ -5665,7 +5665,7 @@ var oHypnoShroom = InheritO(oFumeShroom, {
 			case 0:
 				!c.Sleep && d.bedevil(d);
 				d.EleBody.style.filter += " hue-rotate(180deg) saturate(2)";
-				PlayAudio("mindcontrolled");
+				PlaySound2("mindcontrolled");
 				c.Die();
 				break;
 			default:
@@ -5702,7 +5702,7 @@ var oSeedHypnoShroom = InheritO(oFumeShroom, {
 			case 0:
 				!c.Sleep && d.bedevil(d);
 				d.EleBody.style.filter += " hue-rotate(180deg) saturate(2)";
-				PlayAudio("mindcontrolled");
+				PlaySound2("mindcontrolled");
 				c.Die();
 				break;
 			default:
@@ -5750,7 +5750,7 @@ var oIceShroom = InheritO(oFumeShroom, {
 			(c) => {
 				var f = $P[c];
 				if (f) {
-					PlayAudio("frozen");
+					PlaySound2("frozen");
 					var e;
 					var d;
 					var b = "Snow_" + Math.random();
@@ -5822,7 +5822,7 @@ var oSeedIceShroom = InheritO(oSeedFumeShroom, {
 			(c) => {
 				var f = $P[c];
 				if (f) {
-					PlayAudio("frozen");
+					PlaySound2("frozen");
 					var e;
 					var d;
 					var b = "Snow_" + Math.random();
@@ -5989,7 +5989,7 @@ var oDoomShroom = InheritO(oFumeShroom, {
 		oSym.addTask(
 			50,
 			(c) => {
-				PlayAudio("doomshroom");
+				PlaySound2("doomshroom");
 				var d = $P[c];
 				var q = c + "_Boom";
 				if (d) {
@@ -6193,7 +6193,7 @@ var oSeedDoomShroom = InheritO(oFumeShroom, {
 		oSym.addTask(
 			50,
 			(c) => {
-				PlayAudio("doomshroom");
+				PlaySound2("doomshroom");
 				var d = $P[c];
 				var q = c + "_Boom";
 				if (d) {
@@ -6409,7 +6409,7 @@ var oTangleKlep = InheritO(CPlants, {
 		oSym.addTask(
 			50,
 			(g, h) => {
-				PlayAudio("TangleKlep");
+				PlaySound2("TangleKlep");
 				var e = g.id;
 				var f = h.id;
 				var d = e + "_splash";
@@ -6541,7 +6541,7 @@ var oSeedTangleKelp = InheritO(CPlants, {
 		oSym.addTask(
 			50,
 			(g, h) => {
-				PlayAudio("TangleKlep");
+				PlaySound2("TangleKlep");
 				var e = g.id;
 				var f = h.id;
 				var d = e + "_splash";
@@ -6785,7 +6785,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		if (!oGd.$Balloon[a.R] > 0) {
 			return true;
 		}
-		PlayAudio("plantgrow");
+		PlaySound2("plantgrow");
 		a.canTrigger = 0;
 		a.Status = 1;
 		$(b).childNodes[1].src = "images/Plants/Cactus/Elongation.gif";
@@ -7011,7 +7011,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			if (!oGd.$Balloon[a.R] > 0) {
 				return true;
 			}
-			PlayAudio("plantgrow");
+			PlaySound2("plantgrow");
 			a.canTrigger = 0;
 			a.Status = 1;
 			$(b).childNodes[1].src = "images/Plants/Cactus/Elongation.gif";
@@ -7161,7 +7161,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			oSym.addTask(
 				50,
 				(id) => {
-					(PlayAudio("blover"), ($(id).childNodes[1].src = "images/Plants/Blover/BloverBlow.gif"), $P[id].Dispel());
+					(PlaySound2("blover"), ($(id).childNodes[1].src = "images/Plants/Blover/BloverBlow.gif"), $P[id].Dispel());
 				},
 				[o.id]
 			);
@@ -7210,7 +7210,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			oSym.addTask(
 				50,
 				(id) => {
-					(PlayAudio("blover"), ($(id).childNodes[1].src = "images/Plants/Blover/BloverBlow.gif"), $P[id].Dispel());
+					(PlaySound2("blover"), ($(id).childNodes[1].src = "images/Plants/Blover/BloverBlow.gif"), $P[id].Dispel());
 				},
 				[o.id]
 			);
@@ -7473,7 +7473,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		NormalAttack: null,
 		PrivateBirth(c) {
 			var d = $(c.id);
-			PlayAudio("seastar_roll");
+			PlaySound2("seastar_roll");
 			(function (z, y, q, r, p, x, e, g, b) {
 				var a = z.R;
 				var l = z.C;
@@ -7486,7 +7486,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 				var t = false;
 				if (z.CanAttack && (A = oZ.getZ0(r, a)) && A.getCrushed(z)) {
 					u = A.id;
-					//           PlayAudio(["bowlingimpact", "bowlingimpact2"][Math.floor(Math.random() * 2)]);
+					//           PlaySound2(["bowlingimpact", "bowlingimpact2"][Math.floor(Math.random() * 2)]);
 					switch (A.Ornaments) {
 						case 0:
 							A.NormalDie();
@@ -7568,7 +7568,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 		Tooltip: "",
 		Produce: "",
 		PrivateBirth(a) {
-			PlayAudio("bowling");
+			PlaySound2("bowling");
 			(function (b, c, n, m, e, g) {
 				var d = oZ.getArZ(n, m, e);
 				var f = d.length;
@@ -7646,7 +7646,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			a.BulletEle = null;
 		},
 		NormalAttack() {
-			PlayAudio("puff");
+			PlaySound2("puff");
 			var k = this;
 			var b = this;
 			var c = "PSB" + Math.random();
@@ -7767,7 +7767,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			);
 		},
 		NormalAttack() {
-			PlayAudio("SeaAnemone");
+			PlaySound2("SeaAnemone");
 			var k = this;
 			var g;
 			var f = k.MaxR;
@@ -7786,7 +7786,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			oSym.addTask(
 				100,
 				function (i) {
-					PlayAudio(["kernelpult", "kernelpult2"][Math.floor(Math.random() * 2)]);
+					PlaySound2(["kernelpult", "kernelpult2"][Math.floor(Math.random() * 2)]);
 					--i && oSym.addTask(100, arguments.callee, [i]);
 				},
 				[4]
@@ -7872,7 +7872,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			b.AttackedLX < GetX(9) && b.beAttacked && ((this.canTrigger = 0), this.NormalAttack(this, b));
 		},
 		NormalAttack(a, b) {
-			PlayAudio("TTS");
+			PlaySound2("TTS");
 			a.getHurt = function () {};
 			b.getHurt = function () {};
 			b.beAttacked = 0;
@@ -7965,7 +7965,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 				(j) => {
 					var h = $P[j];
 					if (h) {
-						PlayAudio("Magneticmu");
+						PlaySound2("Magneticmu");
 						var b = $(j);
 						var f = h.R;
 						var c = oZ.getArZ(100, oS.W, f);
@@ -8083,7 +8083,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 			return [[b, Math.min(c + 686, oS.W), 0]];
 		},
 		NormalAttack() {
-			PlayAudio("LaserBean");
+			PlaySound2("LaserBean");
 			var f = this;
 			var d = oZ.getArZ(f.AttackedLX, Math.min(f.AttackedRX + 686, oS.W), f.R);
 			var e = d.length;
@@ -8334,7 +8334,7 @@ oFlowerVase = InheritO(CPlants, {
 		!ImgSave && ClearChild(self.Ele); // 清除图片
 
 		if (OnAudio !== false) {
-			PlayAudio(self.AudioArr[Math.floor(Math.random() * self.AudioArr.length)]);
+			PlaySound2(self.AudioArr[Math.floor(Math.random() * self.AudioArr.length)]);
 		} // 随机播放音效
 
 		self.ControlBase("Delete", "Auto"); // 删除底座

@@ -24,7 +24,7 @@ oS.Init(
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio("crazydaveshort1");
+						PlaySound2("crazydaveshort1");
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
 							1,
@@ -39,7 +39,7 @@ oS.Init(
 						innerText(c, "Neighbors, we managed to fight off some zombies after all the hard work! congratulations");
 						break;
 					case 1:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -55,7 +55,7 @@ oS.Init(
 						innerText(c, "Now, I have a surprise for you.");
 						break;
 					case 2:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -71,7 +71,7 @@ oS.Init(
 						innerText(c, "But first, you must clean your lawn.");
 						break;
 					case 3:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -87,7 +87,7 @@ oS.Init(
 						innerText(c, "Dig out those plants with your shovel!");
 						break;
 					case 4:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(

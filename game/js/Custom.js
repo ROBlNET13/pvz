@@ -200,25 +200,43 @@ function startInterval2() {
 	}, 100);
 }
 
-checkInterval2();
+startInterval2();
 
-let playingSounds = [];
-function PlaySound2(path, name, loop = false) {
-	path = `audio/${path}`;
+var playingSounds = globalThis.playingSounds;
+if (!Array.isArray(playingSounds)) {
+	playingSounds = [];
+}
+globalThis.playingSounds = playingSounds;
+function PlaySound2(path, loop, name, tag) {
+	console.log(path, loop, name, tag);
+	name = name || path;
+	path = `audio/${path}.mp3`;
 	// console.log(`Playing sound: ${path}`);
 	let audio = new Audio(path);
 	audio.loop = loop;
+	audio.muted = Boolean(oS.Silence);
+	audio.dataset.tag = tag || "default";
+	audio.dataset.name = name;
 	audio.play();
 	playingSounds.push(audio);
 	// remove it after it's done playing
 	audio.onended = function () {
 		playingSounds.splice(playingSounds.indexOf(audio), 1);
 	};
+	return audio;
 }
 function StopSound2(name) {
 	// console.log(`Stopping sound: ${name}`);
 	playingSounds.forEach((audio) => {
-		if (audio.src.includes(name)) {
+		if (audio.dataset.name.includes(name)) {
+			audio.pause();
+		}
+	});
+}
+function StopSoundTag2(tag) {
+	// console.log(`Stopping sound tag: ${tag}`);
+	playingSounds.forEach((audio) => {
+		if (audio.dataset.tag === tag) {
 			audio.pause();
 		}
 	});

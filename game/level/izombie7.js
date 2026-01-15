@@ -60,7 +60,7 @@ oS.Init(
 			var b = -1;
 			var a = c.length - 1;
 			while (++b < a) {
-				SelectCard(c[b].prototype.EName);
+				SelectCard(c[b].prototype.EName, undefined, false);
 			}
 		},
 	}

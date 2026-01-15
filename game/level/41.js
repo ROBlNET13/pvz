@@ -76,7 +76,7 @@ oS.Init(
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -92,7 +92,7 @@ oS.Init(
 						innerText(c, "We finally escaped from the Dragon Palace, the famous land of fish and rice: Jiaxing");
 						break;
 					case 1:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -108,7 +108,7 @@ oS.Init(
 						innerText(c, "A small town in Xincheng.");
 						break;
 					case 2:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -124,7 +124,7 @@ oS.Init(
 						innerText(c, "Look at the beautiful bridges and the food there");
 						break;
 					case 3:
-						PlayAudio("crazydaveshort2");
+						PlaySound2("crazydaveshort2");
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -140,7 +140,7 @@ oS.Init(
 						innerText(c, "However, the author zombie also seems to be stationed here with troops");
 						break;
 					case 4:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(

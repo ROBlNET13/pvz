@@ -90,7 +90,7 @@ oS.Init(
 				var c = $("DivTeach");
 				switch (d) {
 					case 0:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -106,7 +106,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">Ah! The night view of the Great Wall of China is also good.</span>';
 						break;
 					case 1:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -122,7 +122,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">However, the zombies dont have time to appreciate the beauty</span>';
 						break;
 					case 2:
-						PlayAudio("crazydavelong" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("crazydavelong" + Math.floor(1 + Math.random() * 3));
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(
@@ -138,7 +138,7 @@ oS.Init(
 						c.innerHTML = '<span style="font-size:22px">Here...And Sadako!</span>';
 						break;
 					case 3:
-						PlayAudio("crazydaveshort2");
+						PlaySound2("crazydaveshort2");
 						c.onclick = null;
 						$("dDave").src = "images/interface/Dave3.gif";
 						oSym.addTask(

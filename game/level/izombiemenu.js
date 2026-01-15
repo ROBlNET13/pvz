@@ -93,7 +93,7 @@ oS.Init({
 			onclick() {
 				// SelectModal("" + "izombiecustommenu" + "");
 				LoadMenu("izombieonline", "images/interface/IZombie_Background.png");
-				PlayAudio("tap");
+				PlaySound2("tap");
 			},
 			onmouseover() {
 				PreloadMenu("izombieonline");

@@ -86,7 +86,7 @@ oS.Init(
 		FlagToEnd() {
 			NewImg("imgSF", "images/interface/ZombieNoteSmall.png", "left:667px;top:220px", EDAll, {
 				onclick() {
-					PlayAudio("winmusic");
+					PlaySound2("winmusic");
 					SetHidden($("PointerUD"));
 					SetStyle(this, {
 						width: "613px",

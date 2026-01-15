@@ -164,7 +164,7 @@
 									{ c: "718,512,790,558", k: "ShowHelp()" },
 									{
 										c: "800,495,879,548",
-										k: "SetNone($('dSurface'));PlayAudio('tap')",
+										k: "SetNone($('dSurface'));PlaySound2('tap')",
 									},
 								];
 							for (var i = 0; i <= 2; i++) s += '<area href="javascript:;" shape="rect" coords="' + ar[i].c + '" onclick="' + ar[i].k + '">';
@@ -266,7 +266,7 @@
 									</label>
 								</div>
 								<div>
-									<input type="checkbox" id="cSilence" value="1" onchange="PlayAudio('buttonclick')" />
+									<input type="checkbox" id="cSilence" value="1" onchange="PlaySound2('buttonclick')" />
 									<label for="cSilence" id="lSilence">
 										Mute Audio<img
 											src="images/interface/icon_musicnote.png"

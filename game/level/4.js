@@ -20,7 +20,7 @@ oS.Init(
 			NewImg("SodRollCap_1", "images/interface/SodRollCap.png", "left:117px;top:131px;z-index:1", EDPZ);
 			NewImg("SodRoll_2", "images/interface/SodRoll.png", "left:122px;top:428px;z-index:1", EDPZ);
 			NewImg("SodRollCap_2", "images/interface/SodRollCap.png", "left:117px;top:511px;z-index:1", EDPZ);
-			PlayAudio("dirt_rise");
+			PlaySound2("dirt_rise");
 			(function (e, h, b, d, c, g, a, f) {
 				e += 15;
 				h += 16;

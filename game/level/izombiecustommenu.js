@@ -17,7 +17,7 @@ oS.Init({
 	LoadAccess(a) {
 		NewImg("imgSF", "images/interface/BackButton.png", "left:785px;top:530px", EDAll, {
 			onclick() {
-				PlayAudio("tap");
+				PlaySound2("tap");
 				LoadMenu("izombieonline", "images/interface/IZombie_Background.png");
 			},
 		});

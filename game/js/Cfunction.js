@@ -250,24 +250,54 @@ var oS = {
 		}
 
 		// Defaults
-		if (!this.PicArr) this.PicArr = [];
-		if (!this.PName) this.PName = [];
-		if (!this.ZName) this.ZName = [];
-		if (!this.backgroundImage) this.backgroundImage = "images/interface/background1.jpg";
-		if (!this.LF) this.LF = [0, 1, 1, 1, 1, 1]; // Lane types
-		if (!this.ZF) this.ZF = this.LF; // Zombie spawn lanes
-		if (!this.LargeWaveFlag) this.LargeWaveFlag = {};
-		if (!this.StartGameMusic) this.StartGameMusic = "Grasswalk";
+		if (!this.PicArr) {
+			this.PicArr = [];
+		}
+		if (!this.PName) {
+			this.PName = [];
+		}
+		if (!this.ZName) {
+			this.ZName = [];
+		}
+		if (!this.backgroundImage) {
+			this.backgroundImage = "images/interface/background1.jpg";
+		}
+		if (!this.LF) {
+			this.LF = [0, 1, 1, 1, 1, 1];
+		} // Lane types
+		if (!this.ZF) {
+			this.ZF = this.LF;
+		} // Zombie spawn lanes
+		if (!this.LargeWaveFlag) {
+			this.LargeWaveFlag = {};
+		}
+		if (!this.StartGameMusic) {
+			this.StartGameMusic = "Grasswalk";
+		}
 
 		this.ArCard = this.CardKind === sunNum ? config.PName : config.ZName;
 
-		if (this.SunNum === sunNum) this.SunNum = 50;
-		if (this.CanSelectCard === sunNum) this.CanSelectCard = 1;
-		if (this.DKind === sunNum) this.DKind = 1;
-		if (this.StaticCard === sunNum) this.StaticCard = 1;
-		if (this.ShowScroll === sunNum) this.ShowScroll = true;
-		if (this.ProduceSun === sunNum) this.ProduceSun = true;
-		if (this.Coord === sunNum) this.Coord = 1;
+		if (this.SunNum === sunNum) {
+			this.SunNum = 50;
+		}
+		if (this.CanSelectCard === sunNum) {
+			this.CanSelectCard = 1;
+		}
+		if (this.DKind === sunNum) {
+			this.DKind = 1;
+		}
+		if (this.StaticCard === sunNum) {
+			this.StaticCard = 1;
+		}
+		if (this.ShowScroll === sunNum) {
+			this.ShowScroll = true;
+		}
+		if (this.ProduceSun === sunNum) {
+			this.ProduceSun = true;
+		}
+		if (this.Coord === sunNum) {
+			this.Coord = 1;
+		}
 
 		// Initialize Systems
 		oCoord[this.Coord]();
@@ -388,7 +418,9 @@ var oS = {
 		? function (src, callback, args) {
 				const img = new Image();
 				img.onreadystatechange = function () {
-					if (img.readyState === "complete") callback(args, 1);
+					if (img.readyState === "complete") {
+						callback(args, 1);
+					}
 				};
 				img.onerror = function () {
 					img.onreadystatechange = null;
@@ -404,7 +436,9 @@ var oS = {
 					callback(args, 1);
 				} else {
 					img.onload = function () {
-						if (img.complete) callback(args, 1);
+						if (img.complete) {
+							callback(args, 1);
+						}
 					};
 					img.onerror = function () {
 						img.title = src;
@@ -459,7 +493,9 @@ var oS = {
 	},
 	LoadReady(config) {
 		const titleDiv = $("dFlagMeterTitle");
-		if (titleDiv.onclick == null) return;
+		if (titleDiv.onclick == null) {
+			return;
+		}
 
 		ClearChild($("dTips"));
 		oSym.NowStep = $User.Visitor.NowStep;
@@ -484,7 +520,9 @@ var oS = {
 			background: "url(" + config.backgroundImage + ") no-repeat",
 			visibility: "visible",
 		};
-		if (!config.ShowScroll) bgStyle.left = "-115px";
+		if (!config.ShowScroll) {
+			bgStyle.left = "-115px";
+		}
 
 		SetStyle($("tGround"), bgStyle);
 		$("tGround").innerHTML = oS.GifHTML;
@@ -630,7 +668,9 @@ var oCoord = {
 		if (!oS.InitLawnMower) {
 			oS.InitLawnMower = function () {
 				let r = 6;
-				while (--r) CustomSpecial(oLawnCleaner, r, -1);
+				while (--r) {
+					CustomSpecial(oLawnCleaner, r, -1);
+				}
 			};
 		}
 		oS.GifHTML = "";
@@ -723,7 +763,9 @@ var oCoord = {
 			};
 		}
 		oS.GifHTML = '<img style="position:absolute;left:253px;top:278px" src="">';
-		if (!oS.DKind) oGd.MakeFog();
+		if (!oS.DKind) {
+			oGd.MakeFog();
+		}
 	},
 };
 
@@ -826,7 +868,7 @@ var oP = {
 			self.FlagToEnd = function () {
 				NewImg("imgSF", "images/interface/trophy.png", "left:417px;top:233px;z-index:255", EDAll, {
 					onclick() {
-						PlayAudio("winmusic");
+						PlaySound2("winmusic");
 						SelectModal(0);
 						HiddenOptions();
 						SetBlock($("dSurface"), $("iSurfaceBackground"));
@@ -880,7 +922,7 @@ var oP = {
             display: block;
             left: 875px;
             top: ${randomY}px;
-            z-index: 999;
+            z-index: 99;
             width: 154px;
             height: 181px;
             scale: 0.6038961039;
@@ -901,7 +943,7 @@ var oP = {
                 display: block;
                 left: ${getAnimatedPosition(image).left}px;
                 top: ${randomY}px;
-                z-index: 999;
+                z-index: 99;
                 width: 154px;
                 height: 181px;
                 scale: 0.6038961039;
@@ -918,7 +960,7 @@ var oP = {
                         display: block;
                         left: ${getAnimatedPosition(image).left}px;
                         top: ${randomY}px;
-                        z-index: 999;
+                        z-index: 99;
                         width: 154px;
                         height: 181px;
                         scale: 0.6038961039;
@@ -931,12 +973,12 @@ var oP = {
 			});
 
 			oSym.addTask(toTicks(300), () => {
-				PlayAudio("balloon_pop");
-
-				if ($("dSunNum").style.visibility === "") {
-					AppearSun(GetX(Math.floor(1 + Math.random() * oS.C)), GetY(Math.floor(1 + Math.random() * oS.R)), 75, 1);
-				}
-
+				PlaySound2("balloon_pop");
+				oSym.addTask(toTicks(150), () => {
+					if ($("dSunNum").style.visibility === "") {
+						AppearSun(getAnimatedPosition(image).left + 40, randomY + 60, 125, false);
+					}
+				});
 				oSym.addTask(toTicks(2500), () => {
 					SetStyle(image, {
 						transition: "opacity 0.2s ease",
@@ -950,7 +992,7 @@ var oP = {
 			});
 		};
 
-		PlayAudio("ballooninflate");
+		PlaySound2("ballooninflate");
 	},
 	AddZombiesFlag(d) {
 		if (Math.floor(Math.random() * 5) === 1 && $("dSunNum").style.visibility === "") {
@@ -972,7 +1014,7 @@ var oP = {
 				: SetVisible(largeFlags[flagIdx]);
 		}
 
-		PlayAudio("awooga");
+		PlaySound2("awooga");
 
 		if ($User.HTML5) {
 			(function playGroans() {
@@ -980,16 +1022,16 @@ var oP = {
 					2e3,
 					function () {
 						const randomGroan = [
-							() => PlayAudio(["groan1", "groan2"][Math.floor(Math.random() * 2)]),
-							() => PlayAudio(["groan3", "groan4"][Math.floor(Math.random() * 2)]),
-							() => PlayAudio(["groan5", "groan6"][Math.floor(Math.random() * 2)]),
+							() => PlaySound2(["groan1", "groan2"][Math.floor(Math.random() * 2)]),
+							() => PlaySound2(["groan3", "groan4"][Math.floor(Math.random() * 2)]),
+							() => PlaySound2(["groan5", "groan6"][Math.floor(Math.random() * 2)]),
 							() => {
-								PlayAudio("groan1");
-								oSym.addTask(150, () => PlayAudio("groan5"), []);
+								PlaySound2("groan1");
+								oSym.addTask(150, () => PlaySound2("groan5"), []);
 							},
 							() => {
-								PlayAudio("groan2");
-								oSym.addTask(150, () => PlayAudio("groan6"), []);
+								PlaySound2("groan2");
+								oSym.addTask(150, () => PlaySound2("groan6"), []);
 							},
 						][Math.floor(Math.random() * 3)];
 
@@ -1015,7 +1057,7 @@ var oP = {
 
 		const delay = !isLargeWave
 			? 150
-			: (PlayAudio("siren"), (isLargeWave.style.top = "5px"), --remainingLvl, (zombiesToSpawn[count++] = oS.FlagZombie || oFlagZombie), 30);
+			: (PlaySound2("siren"), (isLargeWave.style.top = "5px"), --remainingLvl, (zombiesToSpawn[count++] = oS.FlagZombie || oFlagZombie), 30);
 
 		const availableZombies = [];
 		let hasNew = false;
@@ -1034,7 +1076,9 @@ var oP = {
 		}
 
 		if (hasNew) {
-			if (!self.ArZ) self.ArZ = [];
+			if (!self.ArZ) {
+				self.ArZ = [];
+			}
 			self.ArZ.push(...availableZombies);
 			self.ArZ.sort((a, b) => a.prototype.Lvl - b.prototype.Lvl);
 		}
@@ -1053,7 +1097,9 @@ var oP = {
 		let zombiePool = self.ArZ;
 		if (!zombiePool || zombiePool.length === 0) {
 			zombiePool = self.ArZ = oS.ZName && oS.ZName.slice ? oS.ZName.slice(0) : [];
-			if (zombiePool.length) zombiePool.sort((a, b) => a.prototype.Lvl - b.prototype.Lvl);
+			if (zombiePool.length) {
+				zombiePool.sort((a, b) => a.prototype.Lvl - b.prototype.Lvl);
+			}
 		}
 		if (!zombiePool.length) {
 			// No available zombies configured; avoid throwing.
@@ -1110,7 +1156,9 @@ var oP = {
 		const validRows = [];
 		let i = laneTypes.length;
 		while (--i) {
-			if (laneTypes[i] === 2) validRows.push(i);
+			if (laneTypes[i] === 2) {
+				validRows.push(i);
+			}
 		}
 
 		const rowLen = validRows.length;
@@ -1146,7 +1194,9 @@ var oP = {
 								top: top + "px",
 								clip: "rect(0,auto," + (clipHeight += step) + "px,0)",
 							});
-							if (top) oSym.addTask(10, arguments.callee, [ele, top, clipHeight, step]);
+							if (top) {
+								oSym.addTask(10, arguments.callee, [ele, top, clipHeight, step]);
+							}
 						},
 						[zombie.EleBody, zombie.height, 0, zombie.height * 0.1]
 					);
@@ -1164,7 +1214,9 @@ var oP = {
 		const realLanes = oGd.$LF;
 		let j = realLanes.length;
 		while (--j) {
-			if (realLanes[j] === 2) validRows.push(j);
+			if (realLanes[j] === 2) {
+				validRows.push(j);
+			}
 		}
 
 		const rowLen = validRows.length;
@@ -1200,7 +1252,9 @@ var oP = {
 								top: top + "px",
 								clip: "rect(0,auto," + (clipHeight += step) + "px,0)",
 							});
-							if (top) oSym.addTask(10, arguments.callee, [ele, top, clipHeight, step]);
+							if (top) {
+								oSym.addTask(10, arguments.callee, [ele, top, clipHeight, step]);
+							}
 						},
 						[zombie.EleBody, zombie.height, 0, zombie.height * 0.1]
 					);
@@ -1279,10 +1333,14 @@ var oP = {
 		}
 
 		self.SelectFlagZombie.call(self, lvl, curFlag);
-		if (self.UserDefinedFlagFunc) self.UserDefinedFlagFunc();
+		if (self.UserDefinedFlagFunc) {
+			self.UserDefinedFlagFunc();
+		}
 	},
 	Monitor(config, userFunc) {
-		if (config) config.f.apply(config.f, config.ar);
+		if (config) {
+			config.f.apply(config.f, config.ar);
+		}
 		oP.UserDefinedFlagFunc = userFunc ? userFunc : null;
 
 		(function loop() {
@@ -1308,7 +1366,9 @@ var oGd = {
 	},
 	add(obj, c, r, dict) {
 		let old = (dict = this.$)[c];
-		if (old) old.Die();
+		if (old) {
+			old.Die();
+		}
 		dict[c] = obj;
 	},
 	del(obj) {
@@ -1347,12 +1407,16 @@ var oGd = {
 				oSym.addTask(5, arguments.callee, [ele, currentX, limitX, cb]);
 			} else {
 				ele.style.left = limitX + "px";
-				if (cb) cb();
+				if (cb) {
+					cb();
+				}
 			}
 		})($("dFog"), 900, GetX(oS.C - oS.HaveFog) - 30, callback);
 	},
 	MoveFogRight() {
-		if (arguments.callee.caller.caller == null) return;
+		if (arguments.callee.caller.caller == null) {
+			return;
+		}
 		(function (ele, currentX) {
 			if ((currentX += 50) < 901) {
 				ele.style.left = currentX + "px";
@@ -1390,7 +1454,9 @@ var oGd = {
 			i = mapColRev(colStart > 0 ? colStart + 1 : 1);
 			j = mapCol(colEnd > maxCol ? maxCol : colEnd - 1);
 			do {
-				if (i > -1) list.push("Fog" + rowStart + "_" + i);
+				if (i > -1) {
+					list.push("Fog" + rowStart + "_" + i);
+				}
 			} while (i++ < j);
 		}
 
@@ -1398,7 +1464,9 @@ var oGd = {
 			i = mapColRev(colStart > 0 ? colStart + 1 : 1);
 			j = mapCol(colEnd > maxCol ? maxCol : colEnd - 1);
 			do {
-				if (i > -1) list.push("Fog" + rowEnd + "_" + i);
+				if (i > -1) {
+					list.push("Fog" + rowEnd + "_" + i);
+				}
 			} while (i++ < j);
 		}
 
@@ -1410,7 +1478,9 @@ var oGd = {
 		while (curRow <= limitRow) {
 			i = startI;
 			do {
-				if (i > -1) list.push("Fog" + curRow + "_" + i);
+				if (i > -1) {
+					list.push("Fog" + curRow + "_" + i);
+				}
 			} while (i++ <= endJ);
 			curRow++;
 		}
@@ -1447,7 +1517,9 @@ var oZ = {
 		list.RefreshTime = oSym.Now;
 	},
 	getZ0(lx, row) {
-		if (row < 1 || row > oS.R) return;
+		if (row < 1 || row > oS.R) {
+			return;
+		}
 		const list = this.$[row];
 		let i = 0,
 			len = list.length,
@@ -1459,7 +1531,9 @@ var oZ = {
 		}
 	},
 	getZ1(rx, row) {
-		if (row < 1 || row > oS.R) return;
+		if (row < 1 || row > oS.R) {
+			return;
+		}
 		const list = this.$[row];
 		const rightList = this.$R[row];
 		let sortedList;
@@ -1495,7 +1569,9 @@ var oZ = {
 		return result;
 	},
 	getRangeLeftZ(lx, rx, row) {
-		if (row < 1 || row > oS.R) return;
+		if (row < 1 || row > oS.R) {
+			return;
+		}
 		const list = this.$[row];
 		let i = 0,
 			len = list.length,
@@ -1539,7 +1615,9 @@ var oZ = {
 			},
 			function (z) {
 				// Alive/Moved
-				if ((curLX = z.AttackedLX) > maxLX) needsSort = needsRef = 1;
+				if ((curLX = z.AttackedLX) > maxLX) {
+					needsSort = needsRef = 1;
+				}
 				maxLX = curLX;
 			},
 		];
@@ -1574,7 +1652,9 @@ var oZ = {
 				list.RefreshTime = oSym.Now;
 			}
 
-			if (--r) oSym.addTask(0, processRow, [r]);
+			if (--r) {
+				oSym.addTask(0, processRow, [r]);
+			}
 		})(zRows.length - 1);
 	},
 };
@@ -1590,7 +1670,9 @@ var oT = {
 		}
 	},
 	add(row, triggerBox, id) {
-		if (row <= 0 || row > oS.R) return;
+		if (row <= 0 || row > oS.R) {
+			return;
+		}
 		const list = this.$[row];
 		// triggerBox: [left, right, type?, id]
 		let i = triggerBox.length;
@@ -1658,7 +1740,9 @@ var oT = {
 			const list = this.$[row];
 			let i = list.length;
 			while (i--) {
-				if (list[i][3] === id) list.splice(i, 1);
+				if (list[i][3] === id) {
+					list.splice(i, 1);
+				}
 			}
 			list.RefreshTime = new Date();
 		}
@@ -1698,9 +1782,8 @@ var WhichMouseButton = function (e) {
 	// Map buttons to 1 (left), 2 (right), 3 (middle)
 	if (!b.Gecko) {
 		return $SEql(e.button, { 1: 1, 0: b.IE ? 2 : 1, 2: 2, default: 1 });
-	} else {
-		return $SEql(e.which, { 1: 1, 3: 2, default: 1 });
 	}
+	return $SEql(e.which, { 1: 1, 3: 2, default: 1 });
 };
 
 var GroundOnmousedown = function (e) {
@@ -1719,10 +1802,10 @@ var GroundOnmousedown = function (e) {
 
 	switch (oS.Chose) {
 		case 1: // Planting
-			WhichMouseButton(e) < 2 ? GrowPlant(ap[0], c, r, rType, cType) : (PlayAudio("tap"), CancelPlant());
+			WhichMouseButton(e) < 2 ? GrowPlant(ap[0], c, r, rType, cType) : (PlaySound2("tap"), CancelPlant());
 			break;
 		case -1: // Shoveling
-			WhichMouseButton(e) < 2 ? (PlayAudio("plant2"), ShovelPlant(ap)) : (PlayAudio("tap"), CancelShovel());
+			WhichMouseButton(e) < 2 ? (PlaySound2("plant2"), ShovelPlant(ap)) : (PlaySound2("tap"), CancelShovel());
 	}
 };
 
@@ -1829,8 +1912,12 @@ var GroundOnmousemove2 = function (e) {
 	const prevId = oS.MPID;
 
 	if (prevId !== plantId) {
-		if (prevId) SetAlpha($(prevId).childNodes[1], 100, 1);
-		if ((oS.MPID = plantId)) SetAlpha($(plantId).childNodes[1], 60, 0.6);
+		if (prevId) {
+			SetAlpha($(prevId).childNodes[1], 100, 1);
+		}
+		if ((oS.MPID = plantId)) {
+			SetAlpha($(plantId).childNodes[1], 60, 0.6);
+		}
 	}
 
 	SetStyle($("tShovel"), {
@@ -1849,7 +1936,9 @@ var DisplayZombie = function () {
 	const htmlList = [];
 
 	while (i--) {
-		if (azCopy[i][0].prototype.CanDiaplay === 0) azCopy.splice(i, 1);
+		if (azCopy[i][0].prototype.CanDiaplay === 0) {
+			azCopy.splice(i, 1);
+		}
 	}
 
 	let count = (i = azCopy.length);
@@ -1889,7 +1978,7 @@ var AutoSelectCard = function () {
 	let i = -1;
 	const len = cards.length;
 	while (++i < len) {
-		SelectCard(cards[i].prototype.EName);
+		SelectCard(cards[i].prototype.EName, undefined, false);
 	}
 };
 
@@ -1909,13 +1998,15 @@ var InitPCard = function () {
 		let name = proto.EName;
 		ArPCard[name] = { Select: 0, PName: card };
 		html += `<div class="span1" id="Card${name}" onmouseout="SetHidden($('dTitle'))" onmousemove="ViewCardTitle(${name},event)" onclick="SelectCard('${name}')"><img src="${proto.PicArr[0]}"><span class="span2">${proto.SunNum}</span></div>`;
-		if (i++ % 6 === 5) html += "<br>";
+		if (i++ % 6 === 5) {
+			html += "<br>";
+		}
 	}
 	$("dPCard").innerHTML = html;
 };
 
 var InitHandBookPCard = function () {
-	PlayAudio("gravebutton");
+	PlaySound2("gravebutton");
 	let html = "";
 	let i = 0;
 	const len = allPlantsArray().length;
@@ -1924,7 +2015,9 @@ var InitHandBookPCard = function () {
 		let proto = allPlantsArray()[i].prototype;
 		let name = proto.EName;
 		html += `<div class="span1" onclick="ViewProducePlant(${name})"><img src="${proto.PicArr[0]}"><div class="span2">${proto.SunNum}</div></div>`;
-		if (i++ % 6 === 5) html += "<br>";
+		if (i++ % 6 === 5) {
+			html += "<br>";
+		}
 	}
 
 	$("dHandBookPCard").innerHTML = html;
@@ -1936,7 +2029,7 @@ var InitHandBookPCard = function () {
 };
 
 var InitHandBookZCard = function () {
-	PlayAudio("gravebutton");
+	PlaySound2("gravebutton");
 	let html = "";
 	const zombies = [
 		oZombie,
@@ -1999,7 +2092,7 @@ var ViewProducePlant = function (plantClass) {
 	if (lastB !== plantClass) {
 		lastB = plantClass;
 		const proto = plantClass.prototype;
-		PlayAudio("tap");
+		PlaySound2("tap");
 		$("pHandBookPlant").style.backgroundImage = "url(" + proto.PicArr[proto.StaticGif] + ")";
 		$("pHandBookPlant").style.backgroundPosition = "50% " + (60 + proto.height / 4) + "%";
 		$("dProducePlant").innerHTML = proto.Produce;
@@ -2011,7 +2104,7 @@ var ViewProducePlant = function (plantClass) {
 };
 
 var ViewProduceZombie = function (zombieClass) {
-	PlayAudio("tap");
+	PlaySound2("tap");
 	const proto = zombieClass.prototype;
 	$("pHandBookZombie").style.background = "url(" + proto.PicArr[proto.StaticGif] + ") no-repeat scroll " + proto.BookHandPosition;
 	$("dProduceZombie").innerHTML = proto.Produce;
@@ -2050,8 +2143,10 @@ var ViewGenericMouseover = function (content, e) {
 	});
 };
 
-var SelectCard = function (name, retry) {
-	PlayAudio("tap");
+var SelectCard = function (name, retry, playTap = true) {
+	if (playTap) {
+		PlaySound2("tap");
+	}
 	retry |= 0;
 
 	const cardDom = $("Card" + name);
@@ -2120,7 +2215,9 @@ var SelectCard = function (name, retry) {
 var ResetSelectCard = function () {
 	const btnOK = $("btnOK");
 	for (let name in ArPCard) {
-		if (ArPCard[name].Select) SelectCard(name);
+		if (ArPCard[name].Select) {
+			SelectCard(name);
+		}
 	}
 	btnOK.disabled = "disalbed";
 	btnOK.style.color = "#888";
@@ -2172,7 +2269,9 @@ var LetsGO = function () {
 	};
 
 	SetVisible(cardListDiv);
-	if (!oS.BrainsNum) CustomSpecial(oBrains, oS.R - 1, -2);
+	if (!oS.BrainsNum) {
+		CustomSpecial(oBrains, oS.R - 1, -2);
+	}
 
 	(
 		oS.StartGame ||
@@ -2186,7 +2285,9 @@ var LetsGO = function () {
 			PrepareGrowPlants(() => {
 				oP.Monitor(oS.Monitor, oS.UserDefinedFlagFunc);
 				BeginCool();
-				if (oS.DKind) AutoProduceSun(25);
+				if (oS.DKind) {
+					AutoProduceSun(25);
+				}
 				oSym.addTask(
 					1500,
 					() => {
@@ -2210,7 +2311,9 @@ var ViewPlantTitle = function (index) {
 
 	if (!oS.CardKind) {
 		html += "<br>cooldown: " + proto.coolTime + "s<br>" + proto.Tooltip;
-		if (!card.CDReady) html += '<br><span style="color:#F00">recharging</span>';
+		if (!card.CDReady) {
+			html += '<br><span style="color:#F00">recharging</span>';
+		}
 	}
 	if (!card.SunReady) {
 		html += '<br><span style="color:#F00">not enough sun</span>';
@@ -2270,11 +2373,17 @@ var MonitorCard = function (card) {
 			let proto = card.PName.prototype;
 
 			if (proto.SunNum > oS.SunNum) {
-				if (card.SunReady) card.SunReady = 0;
+				if (card.SunReady) {
+					card.SunReady = 0;
+				}
 				$(card.DID).childNodes[0].style.filter = "grayscale(1) brightness(1.15)";
 			} else {
-				if (!card.SunReady) card.SunReady = 1;
-				if (card.CDReady) $(card.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)";
+				if (!card.SunReady) {
+					card.SunReady = 1;
+				}
+				if (card.CDReady) {
+					$(card.DID).childNodes[0].style.filter = "grayscale(0) brightness(1)";
+				}
 			}
 		}
 	} else {
@@ -2282,9 +2391,13 @@ var MonitorCard = function (card) {
 			card = ArCard[i];
 			let proto = card.PName.prototype;
 			if (proto.SunNum > oS.SunNum) {
-				if (card.SunReady) card.SunReady = 0;
+				if (card.SunReady) {
+					card.SunReady = 0;
+				}
 			} else {
-				if (!card.SunReady) card.SunReady = 1;
+				if (!card.SunReady) {
+					card.SunReady = 1;
+				}
 			}
 		}
 	}
@@ -2312,10 +2425,10 @@ var DoCoolTimer = function (index, duration) {
 var ChosePlant = function (e, index) {
 	const card = ArCard[(oS.ChoseCard = index)];
 	if (!(card.CDReady && card.SunReady)) {
-		PlayAudio("buzzer");
+		PlaySound2("buzzer");
 		return;
 	}
-	PlayAudio("seedlift");
+	PlaySound2("seedlift");
 	e = window.event || e;
 	const x = e.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
 	const y = e.clientY + EBody.scrollTop || EElement.scrollTop;
@@ -2363,7 +2476,7 @@ var CancelPlant = function () {
 };
 
 var ShovelPlant = function (data) {
-	PlayAudio("plant2");
+	PlaySound2("plant2");
 	const plants = data[0];
 	const topPlant = data[1];
 	if (topPlant && (topPlant.PKind || !(plants[1] || plants[2]))) {
@@ -2374,7 +2487,7 @@ var ShovelPlant = function (data) {
 };
 
 var ChoseShovel = function (e) {
-	PlayAudio("shovel");
+	PlaySound2("shovel");
 	if (WhichMouseButton(e) < 2) {
 		SetHidden($("imgShovel"));
 		NewImg("tShovel", "images/interface/Shovel/0.gif", `left:${e.clientX - 10}px;top:${e.clientY + document.body.scrollTop - 17}px;z-index:1`, EDAll);
@@ -2389,7 +2502,9 @@ var CancelShovel = function (e) {
 	ClearChild($("tShovel"));
 	oS.Chose = 0;
 	SetVisible($("imgShovel"));
-	if (prevId) SetAlpha($(prevId).childNodes[1], 100, 1);
+	if (prevId) {
+		SetAlpha($(prevId).childNodes[1], 100, 1);
+	}
 	GroundOnmousemove = function () {};
 };
 
@@ -2408,7 +2523,7 @@ var GrowPlant = function (plants, c, r, rType, cType) {
 	// Check if the plant can grow at the selected location
 	if (proto.CanGrow(plants, rType, cType)) {
 		// Play planting audio based on soil type
-		PlayAudio(laneType !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water");
+		PlaySound2(laneType !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water");
 
 		// Plant the selected plant at the specified location
 		if (!oS.CardKind) {
@@ -2527,7 +2642,9 @@ var AppearSun = function (x, y, amount, isDrop) {
 					ySteps.shift();
 					--stepsLeft;
 					if (stepsLeft > 0) {
-						if (ySteps.length === 0) ySteps = [8, 16, 24, 32];
+						if (ySteps.length === 0) {
+							ySteps = [8, 16, 24, 32];
+						}
 						oSym.addTask(tick, arguments.callee, [sunId, curX, curY, xStep, ySteps, dir, stepsLeft, ++tick]);
 					}
 				}
@@ -2540,11 +2657,15 @@ var AppearSun = function (x, y, amount, isDrop) {
 	ArSun[id] = { id: id, N: amount, C: 1, left: x, top: endTop };
 	NewImg(id, "images/interface/Sun.webp", style, EDAll, {
 		onclick() {
-			ClickSun(this.id);
+			if (!oS.AutoSun) {
+				ClickSun(id);
+			}
 		},
 	});
 
-	if (oS.AutoSun) oSym.addTask(100, ClickSun, [id]);
+	if (oS.AutoSun) {
+		oSym.addTask(100, ClickSun, [id]);
+	}
 };
 
 var MoveDropSun = function (id, targetY) {
@@ -2568,7 +2689,8 @@ var DisappearSun = function (id) {
 };
 
 var ClickSun = function (id) {
-	PlayAudioLegacy("points");
+	$(id).onclick = null;
+	PlaySound2("points");
 	const sun = ArSun[id];
 	if (sun && sun.C) {
 		sun.C = 0;
@@ -2606,12 +2728,14 @@ var MoveClickSun = function (id) {
 
 var AutoClickSun = function () {
 	for (let id in ArSun) {
-		if (ArSun[id].C) ClickSun(id);
+		if (ArSun[id].C) {
+			ClickSun(id);
+		}
 	}
 };
 
 var ShowLargeWave = function (callback) {
-	PlayAudio("hugewave");
+	PlaySound2("hugewave");
 	NewImg("LargeWave", "images/interface/LargeWave.gif", "left:71px;top:249px;width:400px;height:200px;z-index:50", EDAll);
 	oSym.addTask(
 		4,
@@ -2626,7 +2750,9 @@ var ShowLargeWave = function (callback) {
 				oSym.addTask(4, arguments.callee, [w, h, cb]);
 			} else {
 				oSym.addTask(460, () => ClearChild($("LargeWave")), []);
-				if (cb) cb();
+				if (cb) {
+					cb();
+				}
 			}
 		},
 		[858, 102, callback]
@@ -2635,7 +2761,7 @@ var ShowLargeWave = function (callback) {
 
 var ShowFinalWave = function () {
 	const playAnim = function (delay) {
-		PlayAudio("finalwave");
+		PlaySound2("finalwave");
 		NewImg("FinalWave", "images/interface/FinalWave.gif", "left:122px;top:194px;width:756px;height:213px;z-index:50", EDAll);
 		oSym.addTask(
 			4,
@@ -2660,7 +2786,7 @@ var ShowFinalWave = function () {
 };
 
 var ShowBOSS = function (callback) {
-	PlayAudio("finalwave");
+	PlaySound2("finalwave");
 	NewImg("ShowBOSS", "images/interface/BOSSWave.gif", "left:71px;top:249px;width:858px;height:102px;z-index:50", EDAll);
 	oSym.addTask(
 		4,
@@ -2675,7 +2801,9 @@ var ShowBOSS = function (callback) {
 				oSym.addTask(4, arguments.callee, [w, h, cb]);
 			} else {
 				oSym.addTask(460, () => ClearChild($("ShowBOSS")), []);
-				if (cb) cb();
+				if (cb) {
+					cb();
+				}
 			}
 		},
 		[858, 102, callback]
@@ -2683,7 +2811,7 @@ var ShowBOSS = function (callback) {
 };
 
 var GameOver = function () {
-	PlayAudio("scream");
+	PlaySound2("scream");
 	NewImg("iGameOver", "images/interface/ZombiesWon.webp", "width:900px;height:600px;z-index:255", EDAll, {
 		onclick() {
 			SelectModal(oS.Lvl);
@@ -2694,7 +2822,7 @@ var GameOver = function () {
 
 var GameOverZombies = function (c, a) {
 	StopMusic();
-	PlayAudioLegacy("losemusic");
+	PlaySound2("losemusic");
 	oSym.Stop();
 	SetBlock($("dSurface"), $("dZombieFail"));
 	oSym.Stop();
@@ -2702,7 +2830,7 @@ var GameOverZombies = function (c, a) {
 
 var PrepareGrowPlants = function (callback) {
 	const run = function () {
-		PlayAudio("readysetplant");
+		PlaySound2("readysetplant");
 		oSym.addTask(
 			60,
 			(ele, cb) => {
@@ -2750,18 +2878,20 @@ var CustomSpecial = function (Class, r, c, args) {
 };
 
 var CheckAutoSun = function (checkbox) {
-	PlayAudio("buttonclick");
+	PlaySound2("buttonclick");
 	const val = checkbox.checked ? 1 : 0;
 	if (val !== oS.AutoSun) {
 		oS.AutoSun = val;
 		localStorage.setItem("JSPVZAutoSun", val);
-		if (val) AutoClickSun();
+		if (val) {
+			AutoClickSun();
+		}
 	}
 };
 
 var GetNewCard = function (ele, plantClass, nextLvl) {
 	StopMusic();
-	PlayAudioLegacy("winmusic");
+	PlaySound2("winmusic");
 	oSym.Clear();
 	SetStyle(ele, {
 		left: "350px",
@@ -2778,8 +2908,8 @@ var GetNewCard = function (ele, plantClass, nextLvl) {
 				SetAlpha(element, opacity, opacity * 0.01);
 				oSym.addTask(4, arguments.callee, [opacity, element]);
 			} else {
-				StopAudio("winmusic");
-				PlayAudio("plantsgarden", true);
+				StopSound2("winmusic");
+				PlaySound2("plantsgarden", true);
 				SetHidden(EDAll, $("dTop"));
 
 				const proto = plantClass.prototype;
@@ -2790,7 +2920,7 @@ var GetNewCard = function (ele, plantClass, nextLvl) {
 				$("dNewPlantTooltip").innerHTML = proto.Tooltip;
 
 				$("btnNextLevel").onclick = function () {
-					StopAudio("plantsgarden");
+					StopSound2("plantsgarden");
 					SetHidden($("bMainMenu"));
 					SelectModal(nextLvl);
 				};
@@ -2814,16 +2944,22 @@ var getCookie1 = function (key, subKey) {
 	while (i--) {
 		let entry = list[i].split("=");
 		if (entry[0].replace(" ", "") === key) {
-			if (entry.length === 2) return unescape(entry[1]);
+			if (entry.length === 2) {
+				return unescape(entry[1]);
+			}
 
 			entry.shift();
 			let subEntries = entry.join("=").split("&");
-			if (subKey === undefined) return unescape(subEntries);
+			if (subKey === undefined) {
+				return unescape(subEntries);
+			}
 
 			let j = subEntries.length;
 			while (j--) {
 				let sub = subEntries[j].split("=");
-				if (sub[0].replace(" ", "") === subKey) return unescape(sub[1]);
+				if (sub[0].replace(" ", "") === subKey) {
+					return unescape(sub[1]);
+				}
 			}
 		}
 	}
@@ -2832,7 +2968,9 @@ var getCookie1 = function (key, subKey) {
 
 var getCookie = function (key) {
 	const match = document.cookie.match(new RegExp("(^| )" + key + "=([^;]*)(;|$)"));
-	if (match != null) return unescape(match[2]);
+	if (match != null) {
+		return unescape(match[2]);
+	}
 	return 0;
 };
 
@@ -2850,7 +2988,7 @@ var deleteCookie = function (key) {
 	document.cookie = key + "=0;";
 };
 
-var WordUTF8 = `<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><span id="commit" style="position: absolute;color: #ffffff0f;bottom: 0;user-select: none;"></span><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:url(images/interface/Pointer.cur),pointer" onclick="PlayAudio('gravebutton');SetBlock($('dSurface'),$('iSurfaceBackground'));ShowNameDiv();"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:url(images/interface/Pointer.cur),pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:url(images/interface/Pointer.cur),pointer;z-index:300" onclick="SetVisible($('dProcess'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>`;
+var WordUTF8 = `<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><span id="commit" style="position: absolute;color: #ffffff0f;bottom: 0;user-select: none;"></span><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:url(images/interface/Pointer.cur),pointer" onclick="PlaySound2('gravebutton');SetBlock($('dSurface'),$('iSurfaceBackground'));ShowNameDiv();"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:url(images/interface/Pointer.cur),pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:url(images/interface/Pointer.cur),pointer;z-index:300" onclick="SetVisible($('dProcess'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>`;
 
 var ShowNameDiv = function () {
 	oSym.Start();
@@ -2861,7 +2999,9 @@ var ShowNameDiv = function () {
 		while (i--) {
 			SetStyle(($("dNameDiv" + i).style.top = item[i] + "px"));
 		}
-		if (config.length) oSym.addTask(item[3], arguments.callee, [config]);
+		if (config.length) {
+			oSym.addTask(item[3], arguments.callee, [config]);
+		}
 	})([
 		[-260, 96, 136, 10],
 		[-94, 96, 136, 10],
@@ -2874,7 +3014,7 @@ var ShowNameDiv = function () {
 };
 
 var ShowLoginDiv = function () {
-	$User.isAuthorWebsite ? PlayAudio("tap") : GotoAuthorWebsite("");
+	$User.isAuthorWebsite ? PlaySound2("tap") : GotoAuthorWebsite("");
 };
 
 var CheckLogin = function () {
@@ -2893,8 +3033,12 @@ var SelectModal = function (level) {
 	StopMusic();
 	PausedAudioArr = [];
 
-	if (level === undefined) level = $User.Visitor.Progress;
-	if (oS.LvlClearFunc) oS.LvlClearFunc();
+	if (level === undefined) {
+		level = $User.Visitor.Progress;
+	}
+	if (oS.LvlClearFunc) {
+		oS.LvlClearFunc();
+	}
 	// check if loadedMenus exists - if it does, clear it
 	if (window.loadedMenus) {
 		window.loadedMenus.length = 0;
@@ -2905,11 +3049,19 @@ var SelectModal = function (level) {
 	const selfs = oS.SelfVariables;
 	const win = window;
 
-	for (let key in globals) win[key] = globals[key];
-	for (let key in lvls) win[key] = null;
+	for (let key in globals) {
+		win[key] = globals[key];
+	}
+	for (let key in lvls) {
+		win[key] = null;
+	}
 	let i = selfs.length;
-	while (i--) delete oS[selfs[i]];
-	for (let key in $Pn) $Pn[key] = null;
+	while (i--) {
+		delete oS[selfs[i]];
+	}
+	for (let key in $Pn) {
+		$Pn[key] = null;
+	}
 
 	oS.GlobalVariables = {};
 	oS.LvlVariables = {};
@@ -2958,7 +3110,9 @@ var InitGame = function () {
 };
 
 var LoadLvl = function (level, startTime) {
-	if (oSym.Timer) oSym.Stop();
+	if (oSym.Timer) {
+		oSym.Stop();
+	}
 	const isReplay = oSym.Now === startTime;
 	const user = $User;
 
@@ -2967,12 +3121,16 @@ var LoadLvl = function (level, startTime) {
 	}
 
 	level = level || 0;
-	if ($("dServer") && level !== 0) SetNone($("dServer"));
+	if ($("dServer") && level !== 0) {
+		SetNone($("dServer"));
+	}
 
 	oSym.Init(
 		(lvl) => {
 			const script = $("JSPVZ");
-			if (script) ClearChild(script);
+			if (script) {
+				ClearChild(script);
+			}
 			NewEle(
 				"JSPVZ",
 				"script",
@@ -2997,7 +3155,9 @@ var AppearTombstones = function (minR, maxR, count) {
 	while (--r) {
 		let c = maxR;
 		while (c >= minR) {
-			if (!tombs[r + "_" + c]) candidates.push([r, c]);
+			if (!tombs[r + "_" + c]) {
+				candidates.push([r, c]);
+			}
 			--c;
 		}
 	}
@@ -3014,7 +3174,9 @@ var AppearTombstones = function (minR, maxR, count) {
 		// Kill existing plants at location
 		for (let i = 0; i < 4; i++) {
 			let p = oGd.$[key + "_" + i];
-			if (p) p.Die();
+			if (p) {
+				p.Die();
+			}
 		}
 
 		candidates.splice(randIdx, 1);
@@ -3043,13 +3205,15 @@ var PauseGame = function (menuBtn, showAd) {
 	innerText(menuBtn, "Speed");
 	$("dMenu1").onclick = null;
 	$("dMenu0").onclick = null;
-	if (!showAd) SetBlock($("dSurface"), $("dPause"));
+	if (!showAd) {
+		SetBlock($("dSurface"), $("dPause"));
+	}
 };
 
 var ClickMenu = function (e, btn) {
 	if (oSym.Timer) {
 		AllAudioPaused();
-		PlayAudio("pause");
+		PlaySound2("pause");
 		oSym.Stop();
 		SetBlock($("dSurface"));
 		innerText($("dMenu0"), "Speed");
@@ -3073,15 +3237,17 @@ var OptionsMenuUP = function (ele, wrapper) {
 
 var ShowSpeed = function () {
 	oSym.Stop();
-	PlayAudio("gravebutton");
+	PlaySound2("gravebutton");
 	SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
 	SetBlock($("dSpeedContainer"));
 };
 
 var HiddenSpeed = function () {
-	PlayAudio("tap");
+	PlaySound2("tap");
 	SetNone($("dSpeedContainer"));
-	if (oS.Lvl) ResetGame($("dMenu0"));
+	if (oS.Lvl) {
+		ResetGame($("dMenu0"));
+	}
 };
 
 var CSpeed = function (nowStep, timeStep, displayLabel) {
@@ -3091,13 +3257,13 @@ var CSpeed = function (nowStep, timeStep, displayLabel) {
 };
 
 var ShowLevel = function () {
-	PlayAudio("gravebutton");
+	PlaySound2("gravebutton");
 	SetNone($("dOptionsMenu"));
 	SetBlock($("dAdvSmallContainer"));
 };
 
 var HiddenLevel = function () {
-	PlayAudio("tap");
+	PlaySound2("tap");
 	SetNone($("dOptionsMenuback"), $("dAdvSmallContainer"));
 	if (oS.Lvl) {
 		SetNone($("dSurface"));
@@ -3106,34 +3272,37 @@ var HiddenLevel = function () {
 };
 
 var ShowMiniGame = function () {
-	PlayAudio("gravebutton");
+	PlaySound2("gravebutton");
 	SetBlock($("dMiniSmallContainer"));
 };
 
 var HiddenMiniGame = function (isSilent) {
-	if (!isSilent) PlayAudio("tap");
+	if (!isSilent) {
+		PlaySound2("tap");
+	}
 	SetNone($("dMiniSmallContainer"));
 };
 
 var ShowRiddleGame = function () {
-	PlayAudio("gravebutton");
+	PlaySound2("gravebutton");
 	SetBlock($("dRiddleSmallContainer"));
 };
 
 var HiddenRiddleGame = function (isSilent) {
-	if (!isSilent) PlayAudio("tap");
+	if (!isSilent) {
+		PlaySound2("tap");
+	}
 	SetNone($("dRiddleSmallContainer"));
 };
 
 var ShowOptions = function () {
 	document.getElementById("sOptionsMenu").textContent = "OK";
-	PlayAudio(oS.Lvl ? "gravebutton" : "tap");
+	PlaySound2(oS.Lvl ? "gravebutton" : "tap");
 	SetBlock($("dOptionsMenuback"), $("dOptionsMenu"));
 };
 
 var HiddenOptions = function () {
-	PlayAudio("gravebutton");
-	PlayAudio("buttonclick");
+	PlaySound2("gravebutton");
 	SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
 	if (oS.Lvl) {
 		SetNone($("dSurface"));
@@ -3145,28 +3314,28 @@ var ViewHandBook = function () {
 	SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
 	if (oS.Lvl) {
 		AllAudioPaused();
-		PlayAudio("gravebutton");
+		PlaySound2("gravebutton");
 		SetNone($("dSurface"));
 		oSym.Stop();
 		innerText($("dMenu0"), "back to game");
 		$("dMenu1").onclick = null;
 	} else {
 		AllAudioPaused();
-		PlayAudio("tap");
+		PlaySound2("tap");
 	}
-	PlayAudio("ChooseYourSeeds");
+	PlaySound2("ChooseYourSeeds");
 	SetVisible($("dHandBook"));
 };
 
 var ReturnHandBookInx = function () {
-	PlayAudio("tap");
+	PlaySound2("tap");
 	SetNone($("dHandBookP"), $("dHandBookZ"));
 	SetHidden($("dHandBookPZ"));
 };
 
 var CloseHandBook = function () {
-	PlayAudio("tap");
-	StopAudio("ChooseYourSeeds");
+	PlaySound2("tap");
+	StopSound2("ChooseYourSeeds");
 	if (oS.Lvl) {
 		ResetGame($("dMenu0"));
 	} else {
@@ -3177,12 +3346,12 @@ var CloseHandBook = function () {
 };
 
 var ShowHelp = function () {
-	PlayAudio("tap");
+	PlaySound2("tap");
 	SetBlock($("dHelp"));
 };
 
 var HiddenHelp = function () {
-	PlayAudio("tap");
+	PlaySound2("tap");
 	SetNone($("dHelp"));
 };
 
@@ -3208,7 +3377,9 @@ var ClearChild = function () {
 var SetBlock = function () {
 	let i = arguments.length;
 	while (i--) {
-		if (arguments[i]) arguments[i].style.display = "block";
+		if (arguments[i]) {
+			arguments[i].style.display = "block";
+		}
 	}
 };
 
@@ -3224,14 +3395,18 @@ var SetNone = function () {
 var SetHidden = function () {
 	let i = arguments.length;
 	while (i--) {
-		if (arguments[i]) arguments[i].style.visibility = "hidden";
+		if (arguments[i]) {
+			arguments[i].style.visibility = "hidden";
+		}
 	}
 };
 
 var SetVisible = function () {
 	let i = arguments.length;
 	while (i--) {
-		if (arguments[i]) arguments[i].style.visibility = "visible";
+		if (arguments[i]) {
+			arguments[i].style.visibility = "visible";
+		}
 	}
 };
 
@@ -3254,29 +3429,47 @@ var SetStyle = function (ele, styles) {
 var NewImg = function (id, src, cssText, parent, props) {
 	const img = $n("img");
 	img.src = src;
-	if (cssText) img.style.cssText = cssText;
+	if (cssText) {
+		img.style.cssText = cssText;
+	}
 	if (props) {
 		for (let key in props) {
 			img[key] = props[key];
 		}
 	}
-	if (id) img.id = id;
-	if (parent) parent.appendChild(img);
+	if (id) {
+		img.id = id;
+	}
+	if (parent) {
+		parent.appendChild(img);
+	}
 	return img;
 };
 
 var EditImg = function (img, id, src, styles, parent) {
-	if (id) img.id = id;
-	if (src) img.src = src;
-	if (styles) SetStyle(img, styles);
-	if (parent) parent.appendChild(img);
+	if (id) {
+		img.id = id;
+	}
+	if (src) {
+		img.src = src;
+	}
+	if (styles) {
+		SetStyle(img, styles);
+	}
+	if (parent) {
+		parent.appendChild(img);
+	}
 	return img;
 };
 
 var NewEle = function (id, tag, cssText, props, parent, attrs) {
 	const ele = $n(tag);
-	if (id) ele.id = id;
-	if (cssText) ele.style.cssText = cssText;
+	if (id) {
+		ele.id = id;
+	}
+	if (cssText) {
+		ele.style.cssText = cssText;
+	}
 	if (props) {
 		for (let key in props) {
 			ele[key] = props[key];
@@ -3287,7 +3480,9 @@ var NewEle = function (id, tag, cssText, props, parent, attrs) {
 			ele.setAttribute(key, attrs[key]);
 		}
 	}
-	if (parent) parent.appendChild(ele);
+	if (parent) {
+		parent.appendChild(ele);
+	}
 	return ele;
 };
 
@@ -3310,7 +3505,9 @@ var EditEle = function (ele, attrs, styles, props, parent) {
 			ele.setAttribute(key, attrs[key]);
 		}
 	}
-	if (styles) SetStyle(ele, styles);
+	if (styles) {
+		SetStyle(ele, styles);
+	}
 	if (props) {
 		for (let key in props) {
 			if (key === "outerText" && !ele.parentNode) {
@@ -3320,7 +3517,9 @@ var EditEle = function (ele, attrs, styles, props, parent) {
 			}
 		}
 	}
-	if (parent) parent.appendChild(ele);
+	if (parent) {
+		parent.appendChild(ele);
+	}
 	return ele;
 };
 
@@ -3340,7 +3539,9 @@ var SetPrototype = function (child, parent) {
 var InheritO = function (Parent, properties, arrayProps, child, parentArr, childArr) {
 	const Child = function () {};
 	Child.prototype = new Parent();
-	if (properties) SetPrototype(Child, properties);
+	if (properties) {
+		SetPrototype(Child, properties);
+	}
 
 	if (arrayProps) {
 		const proto = Child.prototype;
@@ -3365,7 +3566,9 @@ var $Switch = function (val, cases, comparer, result, len) {
 	let i = 0;
 	len = cases.length;
 	while (i < len) {
-		if (comparer(val, cases[i])) break;
+		if (comparer(val, cases[i])) {
+			break;
+		}
 		++i;
 	}
 	return result[i];
@@ -3379,7 +3582,9 @@ var $SSml = function (val, thresholds, results) {
 	let i = 0;
 	const len = thresholds.length;
 	while (i < len) {
-		if (val < thresholds[i]) break;
+		if (val < thresholds[i]) {
+			break;
+		}
 		++i;
 	}
 	return results[i];
@@ -3389,7 +3594,9 @@ var $SGrt = function (val, thresholds, results) {
 	let i = 0;
 	const len = thresholds.length;
 	while (i < len) {
-		if (val > thresholds[i]) break;
+		if (val > thresholds[i]) {
+			break;
+		}
 		++i;
 	}
 	return results[i];
@@ -3440,7 +3647,9 @@ var NewMusic = $User.HTML5
 			NewAudio({ autoplay: true, loop: true, source: src });
 		}
 	: function (src) {
-			if (!oS.Silence) $("oEmbed").innerHTML = "";
+			if (!oS.Silence) {
+				$("oEmbed").innerHTML = "";
+			}
 		};
 
 var PauseMusic = $User.HTML5
@@ -3463,12 +3672,12 @@ var StartAdventure = function (level) {
 	advDiv.onclick = advDiv.onmouseover = advDiv.onmouseout = null;
 	SetBlock(handDiv);
 	StopMusic();
-	PlayAudio("losemusic");
+	PlaySound2("losemusic");
 
 	oSym.addTask(
 		120,
 		() => {
-			PlayAudio("evillaugh");
+			PlaySound2("evillaugh");
 		},
 		[]
 	);
@@ -3477,7 +3686,9 @@ var StartAdventure = function (level) {
 		7,
 		function (count, ele, left) {
 			ele.style.left = (left -= 330) + "px";
-			if (--count) oSym.addTask(7, arguments.callee, [count, ele, left]);
+			if (--count) {
+				oSym.addTask(7, arguments.callee, [count, ele, left]);
+			}
 		},
 		[6, handImg, 0]
 	);
@@ -3496,7 +3707,9 @@ var StartAdventure = function (level) {
 				this.style.backgroundPosition = "top";
 			};
 
-			if ($User.HTML5) StopAudio("evillaugh");
+			if ($User.HTML5) {
+				StopSound2("evillaugh");
+			}
 			SelectModal(level);
 			handDiv.innerHTML = "";
 		}
@@ -3516,7 +3729,9 @@ var PausedAudioArr = [];
 var NewAudio = $User.HTML5
 	? function (config) {
 			const src = config.source;
-			if (oAudio[src]) return;
+			if (oAudio[src]) {
+				return;
+			}
 
 			const audio = document.createElement("audio");
 			const types = { mp3: "audio/mpeg" };
@@ -3545,7 +3760,9 @@ var NewAudio = $User.HTML5
 			audio.preload = config.preload === undefined ? "auto" : ["auto", "meta", "none"][config.preload];
 			audio.muted = oS.Silence;
 
-			if (config.callback) audio.addEventListener("canplaythrough", config.callback, false);
+			if (config.callback) {
+				audio.addEventListener("canplaythrough", config.callback, false);
+			}
 
 			return (oAudio[src] = audio);
 		}
@@ -3606,7 +3823,9 @@ var StopMusic = $User.HTML5
 			try {
 				audio.currentTime = 0;
 			} catch (e) {}
-			if (audio) audio.pause();
+			if (audio) {
+				audio.pause();
+			}
 		}
 	: function () {};
 
@@ -3648,11 +3867,19 @@ var AllAudioMuted = function () {
 	for (let key in oAudio) {
 		oAudio[key].muted = true;
 	}
+	// also playingSounds
+	for (let key in playingSounds) {
+		playingSounds[key].muted = true;
+	}
 };
 
 var AllAudioMuteCanceled = function () {
 	for (let key in oAudio) {
 		oAudio[key].muted = false;
+	}
+	// also playingSounds
+	for (let key in playingSounds) {
+		playingSounds[key].muted = false;
 	}
 };
 
@@ -3699,7 +3926,9 @@ var AppearCard = function (x, y, PlantClass, moveType, duration) {
 					ySteps.shift();
 					--stepsLeft;
 					if (stepsLeft > 0) {
-						if (ySteps.length === 0) ySteps = [8, 16, 24, 32];
+						if (ySteps.length === 0) {
+							ySteps = [8, 16, 24, 32];
+						}
 						oSym.addTask(tick, arguments.callee, [cardId, curX, curY, xStep, ySteps, dir, stepsLeft, ++tick]);
 					}
 				}
@@ -3724,9 +3953,13 @@ var AppearCard = function (x, y, PlantClass, moveType, duration) {
 			const self = this;
 			ClearChild($("MovePlant"), $("MovePlantAlpha"));
 			CancelPlant();
-			if (self.style) self.style.opacity = 0.5;
+			if (self.style) {
+				self.style.opacity = 0.5;
+			}
 			ChosePlant(e, self.id);
-			if (ArCard[self.id]) ArCard[self.id].HasChosen = true;
+			if (ArCard[self.id]) {
+				ArCard[self.id].HasChosen = true;
+			}
 		},
 	});
 };
@@ -3749,7 +3982,9 @@ var DisappearCard = function (id, duration) {
 	let ele = $(id);
 
 	(function tick(timeLeft) {
-		if (!ArCard[id] || !ele) return;
+		if (!ArCard[id] || !ele) {
+			return;
+		}
 
 		if (oS.Chose === 1 && oS.ChoseCard === id) {
 			// Selected, do nothing

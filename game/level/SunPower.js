@@ -75,7 +75,7 @@ oS.Init(
 				a > 9
 					? NewImg("imgSF", "images/interface/trophy.png", "left:417px;top:233px;z-index:256", EDAll, {
 							onclick() {
-								PlayAudio("winmusic");
+								PlaySound2("winmusic");
 								SelectModal(0);
 								HiddenOptions();
 								SetBlock($("dSurface"), $("iSurfaceBackground"));

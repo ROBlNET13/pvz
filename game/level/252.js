@@ -106,7 +106,7 @@ oS.Init(
 			return oS.ChoseCard;
 		},
 		ChosePlant(a, b) {
-			PlayAudio("seedlift");
+			PlaySound2("seedlift");
 			a = window.event || a;
 			var f = ArCard[oS.ChoseCard];
 			var e = a.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
@@ -151,7 +151,7 @@ oS.Init(
 			var h = oGd.$LF[f];
 			k.CanGrow(l, f, a) &&
 				(function () {
-					PlayAudio(h !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water");
+					PlaySound2(h !== 2 ? "plant" + Math.floor(1 + Math.random() * 2) : "plant_water");
 					new i().Birth(c, b, f, a, l);
 					oSym.addTask(20, SetNone, [
 						SetStyle($("imgGrowSoil"), {

@@ -198,7 +198,7 @@ var CZombies = (function (b, a) {
 								: (c < 100 &&
 										!h.PointZombie &&
 										((h.PointZombie = 1),
-										!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+										!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 										h.ChangeR({
 											R: f,
 											ar: [oS.R - 1],
@@ -385,13 +385,13 @@ var CZombies = (function (b, a) {
 				this.SequentialDeath(thumpDamage, () => this.DisappearDie());
 			},
 			PlayNormalballAudio() {
-				PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
+				PlaySound2("splat" + Math.floor(1 + Math.random() * 3));
 			},
 			PlayFireballAudio() {
-				PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
+				PlaySound2(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
 			},
 			PlaySlowballAudio() {
-				PlayAudio("frozen");
+				PlaySound2("frozen");
 			},
 			getFireball(h, e, g) {
 				h.FreeSlowTime = 0;
@@ -462,7 +462,7 @@ var CZombies = (function (b, a) {
 			},
 			NormalDie() {
 				var c = this;
-				PlayAudio("zombie_falling_1");
+				PlaySound2("zombie_falling_1");
 				c.EleBody.src = c.PicArr[c.DieGif];
 				oSym.addTask(250, ClearChild, [c.Ele]);
 				c.HP = 0;
@@ -605,7 +605,7 @@ var CZombies = (function (b, a) {
 				);
 			},
 			NormalAttack(d, c) {
-				PlayAudio(["chomp", "chomp2", "chompsoft"][Math.floor(Math.random() * 2)]);
+				PlaySound2(["chomp", "chomp2", "chompsoft"][Math.floor(Math.random() * 2)]);
 				console.log("chomp");
 				oSym.addTask(
 					100,
@@ -891,7 +891,7 @@ var oBackupDancer = InheritO(OrnNoneZombies, {
 						: (a < 100 &&
 								!g.PointZombie &&
 								((g.PointZombie = 1),
-								!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+								!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 								g.ChangeR({
 									R: d,
 									ar: [oS.R - 1],
@@ -1206,7 +1206,7 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 						: (a < 100 &&
 								!g.PointZombie &&
 								((g.PointZombie = 1),
-								!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+								!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 								g.ChangeR({
 									R: d,
 									ar: [oS.R - 1],
@@ -1410,7 +1410,7 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 		d.ChkActs = d.ChkTmp;
 		d.ChkTmp = b;
 		a.src = "images/Zombies/DancingZombie/Summon1.gif";
-		PlayAudio("dancer");
+		PlaySound2("dancer");
 		oSym.addTask(
 			10,
 			(f, e) => {
@@ -1778,7 +1778,7 @@ var oIDancingZombie = InheritO(OrnNoneZombies, {
 						: (a < 100 &&
 								!g.PointZombie &&
 								((g.PointZombie = 1),
-								!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+								!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 								g.ChangeR({
 									R: d,
 									ar: [oS.R - 1],
@@ -1982,7 +1982,7 @@ var oIDancingZombie = InheritO(OrnNoneZombies, {
 		d.ChkActs = d.ChkTmp;
 		d.ChkTmp = b;
 		a.src = "images/Zombies/DancingZombie/Summon1.gif";
-		PlayAudio("dancer");
+		PlaySound2("dancer");
 		oSym.addTask(
 			10,
 			(f, e) => {
@@ -2250,7 +2250,7 @@ var oConeheadZombie = InheritO(OrnIZombies, {
 	})(),
 	AudioArr: ["plastichit"],
 	PlayNormalballAudio() {
-		PlayAudio("plastichit");
+		PlaySound2("plastichit");
 	},
 	Produce:
 		'他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#CC241D">中</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。',
@@ -2296,7 +2296,7 @@ var oIConeheadZombie = InheritO(OrnIZombies, {
 	})(),
 	AudioArr: ["plastichit"],
 	PlayNormalballAudio() {
-		PlayAudio("plastichit");
+		PlaySound2("plastichit");
 	},
 	Produce:
 		'他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#CC241D">中</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。',
@@ -2371,7 +2371,7 @@ var oBucketheadZombie = InheritO(
 			},
 		],
 		PlayNormalballAudio() {
-			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 		},
 		Produce:
 			'他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#CC241D">高</font><br>弱点：<font color="#CC241D">土豆雷</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。',
@@ -2396,7 +2396,7 @@ var oIBucketheadZombie = InheritO(
 		Lvl: 3,
 		SunNum: 125,
 		PlayNormalballAudio() {
-			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 		},
 		Produce:
 			'他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#CC241D">高</font><br>弱点：<font color="#CC241D">土豆雷</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。',
@@ -2426,7 +2426,7 @@ var oFootballZombie = InheritO(oConeheadZombie, {
 	beAttackedPointL: 40,
 	beAttackedPointR: 134,
 	PlayNormalballAudio() {
-		PlayAudio("plastichit");
+		PlaySound2("plastichit");
 	},
 	BookHandPosition: "71% 70%",
 	PicArr: (function () {
@@ -2466,7 +2466,7 @@ var oIFootballZombie = InheritO(oConeheadZombie, {
 	beAttackedPointL: 40,
 	beAttackedPointR: 134,
 	PlayNormalballAudio() {
-		PlayAudio("plastichit");
+		PlaySound2("plastichit");
 	},
 	PicArr: (function () {
 		var a = "images/Zombies/FootballZombie/";
@@ -2648,7 +2648,7 @@ var oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		var c = f.EleShadow;
 		var e = f.EleBody;
 		e.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump.gif" + $Random + Math.random();
-		PlayAudio("grassstep");
+		PlaySound2("grassstep");
 		SetHidden(c);
 		f.isAttacking = 1;
 		f.Altitude = 2;
@@ -2658,7 +2658,7 @@ var oPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		oSym.addTask(
 			50,
 			(h) => {
-				$Z[h] && PlayAudio("polevault");
+				$Z[h] && PlaySound2("polevault");
 			},
 			[d]
 		);
@@ -2812,7 +2812,7 @@ var oIPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		var c = f.EleShadow;
 		var e = f.EleBody;
 		e.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump.gif" + $Random + Math.random();
-		PlayAudio("grassstep");
+		PlaySound2("grassstep");
 		SetHidden(c);
 		f.isAttacking = 1;
 		f.Altitude = 2;
@@ -2822,7 +2822,7 @@ var oIPoleVaultingZombie = InheritO(OrnNoneZombies, {
 		oSym.addTask(
 			50,
 			(h) => {
-				$Z[h] && PlayAudio("polevault");
+				$Z[h] && PlaySound2("polevault");
 			},
 			[d]
 		);
@@ -2905,7 +2905,7 @@ var oCPoleVaultingZombie = InheritO(oPoleVaultingZombie, {
 		var c = f.EleShadow;
 		var e = f.EleBody;
 		e.src = "images/Zombies/wall/PoleVaultingZombie/PoleVaultingZombieJump.gif" + $Random + Math.random();
-		PlayAudio("grassstep");
+		PlaySound2("grassstep");
 		SetHidden(c);
 		f.isAttacking = 1;
 		f.Altitude = 2;
@@ -2915,7 +2915,7 @@ var oCPoleVaultingZombie = InheritO(oPoleVaultingZombie, {
 		oSym.addTask(
 			50,
 			(h) => {
-				$Z[h] && PlayAudio("polevault");
+				$Z[h] && PlaySound2("polevault");
 			},
 			[d]
 		);
@@ -3077,7 +3077,7 @@ var oNewspaperZombie = InheritO(OrnIIZombies, {
 		);
 	},
 	getSnowPea(c, a, b) {
-		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
+		PlaySound2("splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit0(c, a, b);
 	},
 	getFirePea(f, b, e) {
@@ -3202,7 +3202,7 @@ var oNewspaperZombie = InheritO(OrnIIZombies, {
 					if (!k.beAttacked) {
 						return;
 					}
-					PlayAudio("newspaper_rarrgh2");
+					PlaySound2("newspaper_rarrgh2");
 					k.EleBody.src = l;
 					k.JudgeAttack();
 				},
@@ -3247,22 +3247,22 @@ var oScreenDoorZombie = InheritO(oNewspaperZombie, {
 		];
 	})(),
 	PlayNormalballAudio() {
-		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
+		PlaySound2("splat" + Math.floor(1 + Math.random() * 3));
 	},
 	Produce:
 		'他的铁栅门是有效的盾牌。<p>韧性：<font color="#CC241D">低</font><br>铁栅门韧性：<font color="#CC241D">高</font><br>弱点：大喷菇和磁力菇</p>门板僵尸上次拜访过的房主防守并不专业，在吃掉房主的脑子后拿走了他家的铁栅门。',
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea(c, a, b) {
-		PlayAudio(b === c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
+		PlaySound2(b === c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit0(c, a, b);
 	},
 	getFirePeaSputtering() {},
 	getSnowPea(c, a, b) {
-		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+		PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 		c.getHit0(c, a, b);
 	},
 	getPea(c, a, b) {
-		PlayAudio(b === c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
+		PlaySound2(b === c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit0(c, a, b);
 	},
 	getHit0(c, a, b) {
@@ -3339,22 +3339,22 @@ var oIScreenDoorZombie = InheritO(oNewspaperZombie, {
 		];
 	})(),
 	PlayNormalballAudio() {
-		PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
+		PlaySound2("splat" + Math.floor(1 + Math.random() * 3));
 	},
 	Produce:
 		'他的铁栅门是有效的盾牌。<p>韧性：<font color="#CC241D">低</font><br>铁栅门韧性：<font color="#CC241D">高</font><br>弱点：大喷菇和磁力菇</p>门板僵尸上次拜访过的房主防守并不专业，在吃掉房主的脑子后拿走了他家的铁栅门。',
 	GoingDie: CZombies.prototype.GoingDie,
 	getFirePea(c, a, b) {
-		PlayAudio(b === c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
+		PlaySound2(b === c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit0(c, a, b);
 	},
 	getFirePeaSputtering() {},
 	getSnowPea(c, a, b) {
-		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+		PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 		c.getHit0(c, a, b);
 	},
 	getPea(c, a, b) {
-		PlayAudio(b === c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
+		PlaySound2(b === c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3));
 		c.getHit0(c, a, b);
 	},
 	getHit0(c, a, b) {
@@ -3505,7 +3505,7 @@ var oAquaticZombie = InheritO(OrnNoneZombies, {
 		!(f.FreeFreezeTime || f.FreeSetbodyTime) &&
 			((f.AttackedRX -= c = f.Speed), (LX = f.ZX = f.AttackedLX -= c), (f.Ele.style.left = Math.floor((f.X -= c)) + "px"));
 		f.AttackedLX < GetX(9) &&
-			(PlayAudio("zombie_entering_water"),
+			(PlaySound2("zombie_entering_water"),
 			(f.WalkStatus = 1),
 			(f.EleBody.src = f.PicArr[(f.NormalGif = f.WalkGif1)]),
 			SetHidden(f.EleShadow),
@@ -3715,7 +3715,7 @@ var oDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 	OrnLostNormalGif: 9,
 	OrnLostAttackGif: 10,
 	PlayNormalballAudio() {
-		PlayAudio("plastichit");
+		PlaySound2("plastichit");
 	},
 	PicArr: (function () {
 		var b = "images/Zombies/DuckyTubeZombie2/";
@@ -3751,7 +3751,7 @@ var oIDuckyTubeZombie2 = InheritO(oDuckyTubeZombie1, {
 	OrnLostNormalGif: 9,
 	OrnLostAttackGif: 10,
 	PlayNormalballAudio() {
-		PlayAudio("plastichit");
+		PlaySound2("plastichit");
 	},
 	PicArr: (function () {
 		var b = "images/Zombies/DuckyTubeZombie2/";
@@ -3784,7 +3784,7 @@ var oDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 	Lvl: 3,
 	SunNum: 125,
 	PlayNormalballAudio() {
-		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+		PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 	},
 	AudioArr: ["shieldhit", "shieldhit2", "zombie_entering_water"],
 	PicArr: (function () {
@@ -3812,7 +3812,7 @@ var oIDuckyTubeZombie3 = InheritO(oDuckyTubeZombie2, {
 	Lvl: 3,
 	SunNum: 125,
 	PlayNormalballAudio() {
-		PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+		PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 	},
 	AudioArr: ["shieldhit", "shieldhit2", "zombie_entering_water"],
 	PicArr: (function () {
@@ -3941,7 +3941,7 @@ var oAquaticZombie = InheritO(OrnNoneZombies, {
 		!(f.FreeFreezeTime || f.FreeSetbodyTime) &&
 			((f.AttackedRX -= c = f.Speed), (LX = f.ZX = f.AttackedLX -= c), (f.Ele.style.left = Math.floor((f.X -= c)) + "px"));
 		f.AttackedLX < GetX(9) &&
-			(PlayAudio("zombie_entering_water"),
+			(PlaySound2("zombie_entering_water"),
 			(f.WalkStatus = 1),
 			(f.EleBody.src = f.PicArr[(f.NormalGif = f.WalkGif1)]),
 			SetHidden(f.EleShadow),
@@ -4161,7 +4161,7 @@ var oSnorkelZombie = InheritO(oDuckyTubeZombie1, {
 	AudioArr: ["zombie_entering_water"],
 	Jump(a) {
 		a.beAttacked &&
-			(PlayAudio("zombie_entering_water"),
+			(PlaySound2("zombie_entering_water"),
 			(a.Altitude = 2),
 			SetHidden(a.EleShadow),
 			(a.EleBody.src = a.PicArr[8]),
@@ -4696,11 +4696,11 @@ var oZomboni = (function () {
 						g,
 						(j, i) => {
 							var k = $Z[j];
-							k && ((k.FreeSetbodyTime = 0), SetBlock(i), PlayAudio("zamboni"));
+							k && ((k.FreeSetbodyTime = 0), SetBlock(i), PlaySound2("zamboni"));
 						},
 						[e, c]
 					)
-				: (SetBlock(c), PlayAudio("zamboni"));
+				: (SetBlock(c), PlaySound2("zamboni"));
 		},
 		ChkActs(e, j, q, k) {
 			var b;
@@ -4719,7 +4719,7 @@ var oZomboni = (function () {
 				: (r < 100 &&
 						!e.PointZombie &&
 						((e.PointZombie = 1),
-						!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+						!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 						e.ChangeR({
 							R: j,
 							ar: [oS.R - 1],
@@ -4749,15 +4749,15 @@ var oZomboni = (function () {
 			return e;
 		},
 		getPea(c, b) {
-			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b);
 		},
 		getFirePea(c, b) {
-			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b);
 		},
 		getSnowPea(c, b) {
-			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b);
 		},
 		getFirePeaSputtering() {},
@@ -4779,7 +4779,7 @@ var oZomboni = (function () {
 		},
 		NormalDie() {
 			var b = this;
-			PlayAudio("explosion");
+			PlaySound2("explosion");
 			b.EleBody.src = b.PicArr[b.DieGif];
 			oSym.addTask(70, ClearChild, [b.Ele]);
 			b.HP = 0;
@@ -4981,11 +4981,11 @@ var oCZomboni = (function () {
 						g,
 						(j, i) => {
 							var k = $Z[j];
-							k && ((k.FreeSetbodyTime = 0), SetBlock(i), PlayAudio("zamboni"));
+							k && ((k.FreeSetbodyTime = 0), SetBlock(i), PlaySound2("zamboni"));
 						},
 						[e, c]
 					)
-				: (SetBlock(c), PlayAudio("zamboni"));
+				: (SetBlock(c), PlaySound2("zamboni"));
 		},
 		ChkActs(e, j, q, k) {
 			var b;
@@ -5004,7 +5004,7 @@ var oCZomboni = (function () {
 				: (r < 100 &&
 						!e.PointZombie &&
 						((e.PointZombie = 1),
-						!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+						!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 						e.ChangeR({
 							R: j,
 							ar: [oS.R - 1],
@@ -5034,15 +5034,15 @@ var oCZomboni = (function () {
 			return e;
 		},
 		getPea(c, b) {
-			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b);
 		},
 		getFirePea(c, b) {
-			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b);
 		},
 		getSnowPea(c, b) {
-			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 			c.getHit0(c, b);
 		},
 		getFirePeaSputtering() {},
@@ -5064,7 +5064,7 @@ var oCZomboni = (function () {
 		},
 		NormalDie() {
 			var b = this;
-			PlayAudio("explosion");
+			PlaySound2("explosion");
 			b.EleBody.src = b.PicArr[b.DieGif];
 			oSym.addTask(70, ClearChild, [b.Ele]);
 			b.HP = 0;
@@ -5231,12 +5231,12 @@ var oDolphinRiderZombie = InheritO(oAquaticZombie, {
 	Produce:
 		'海豚骑士僵尸善于利用你水池防御的弱点。<p>韧性：<font color="#CC241D">中</font><br>速度：<font color="#CC241D">快，慢（跳越后）</font><br>特点：<font color="#CC241D">跃过他所遇到的第一株植物</font><br>只在水池Level出现</font></p>那海豚其实也是个僵尸。',
 	BirthCallBack(a) {
-		PlayAudio("dolphin_appears");
+		PlaySound2("dolphin_appears");
 		oAquaticZombie.prototype.BirthCallBack(a);
 	},
 	Jump(a) {
 		a.beAttacked &&
-			(PlayAudio("zombie_entering_water"),
+			(PlaySound2("zombie_entering_water"),
 			(a.Altitude = 2),
 			SetHidden(a.EleShadow),
 			(a.EleBody.src = a.PicArr[8]),
@@ -5329,7 +5329,7 @@ var oDolphinRiderZombie = InheritO(oAquaticZombie, {
 		f.isAttacking = 1;
 		f.Altitude = 2;
 		f.haveDolphin = 0;
-		PlayAudio("dolphin_before_jumping");
+		PlaySound2("dolphin_before_jumping");
 		f.getFreeze = function () {
 			f.getSnow(f, 20, 0);
 		};
@@ -5570,8 +5570,8 @@ var oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 			(c) => {
 				$Z[c] &&
 					((a.Status = 0),
-					!--oGd.$JackinTheBox && StopAudio("jackinthebox"),
-					PlayAudio("jackinthebox"),
+					!--oGd.$JackinTheBox && StopSound2("jackinthebox"),
+					PlaySound2("jackinthebox"),
 					oSym.addTask(
 						90,
 						(f) => {
@@ -5579,7 +5579,7 @@ var oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 							var d;
 							e &&
 								((d = NewImg("", "", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20")),
-								PlayAudio("explosion"),
+								PlaySound2("explosion"),
 								(d.src = e.PicArr[8]),
 								EDPZ.appendChild(d),
 								oSym.addTask(70, ClearChild, [d]),
@@ -5639,15 +5639,15 @@ var oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 					c,
 					(f, e) => {
 						var g = $Z[f];
-						g && (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, (g.FreeSetbodyTime = 0), SetBlock(e), g.RandomOpenBox(f));
+						g && (PlaySound2("jackinthebox", true), ++oGd.$JackinTheBox, (g.FreeSetbodyTime = 0), SetBlock(e), g.RandomOpenBox(f));
 					},
 					[b, a]
 				)
-			: (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a), d.RandomOpenBox(b));
+			: (PlaySound2("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a), d.RandomOpenBox(b));
 	},
 	NormalDie() {
 		var a = this;
-		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+		a.Status && !--oGd.$JackinTheBox && StopSound2("jackinthebox");
 		a.EleBody.src = a.PicArr[a.DieGif];
 		oSym.addTask(250, ClearChild, [a.Ele]);
 		a.HP = 0;
@@ -5656,7 +5656,7 @@ var oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	},
 	ExplosionDie() {
 		var a = this;
-		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+		a.Status && !--oGd.$JackinTheBox && StopSound2("jackinthebox");
 		a.EleBody.src = a.PicArr[a.BoomDieGif];
 		oSym.addTask(300, ClearChild, [a.Ele]);
 		a.HP = 0;
@@ -5664,7 +5664,7 @@ var oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		a.PZ && oP.MonPrgs();
 	},
 	DisappearDie() {
-		this.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+		this.Status && !--oGd.$JackinTheBox && StopSound2("jackinthebox");
 		ClearChild(this.Ele);
 		this.HP = 0;
 		delete $Z[this.id];
@@ -5672,7 +5672,7 @@ var oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	},
 	CrushDie() {
 		var a = this;
-		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+		a.Status && !--oGd.$JackinTheBox && StopSound2("jackinthebox");
 		a.GoingDieHead(a.id, a.PicArr, a);
 		ClearChild(a.Ele);
 		a.HP = 0;
@@ -5778,8 +5778,8 @@ var oIJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 			(c) => {
 				$Z[c] &&
 					((a.Status = 0),
-					!--oGd.$JackinTheBox && StopAudio("jackinthebox"),
-					PlayAudio("jackinthebox"),
+					!--oGd.$JackinTheBox && StopSound2("jackinthebox"),
+					PlaySound2("jackinthebox"),
 					oSym.addTask(
 						90,
 						(f) => {
@@ -5787,7 +5787,7 @@ var oIJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 							var d;
 							e &&
 								((d = NewImg("", "", "width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20")),
-								PlayAudio("explosion"),
+								PlaySound2("explosion"),
 								(d.src = e.PicArr[8]),
 								EDPZ.appendChild(d),
 								oSym.addTask(70, ClearChild, [d]),
@@ -5847,15 +5847,15 @@ var oIJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 					c,
 					(f, e) => {
 						var g = $Z[f];
-						g && (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, (g.FreeSetbodyTime = 0), SetBlock(e), g.RandomOpenBox(f));
+						g && (PlaySound2("jackinthebox", true), ++oGd.$JackinTheBox, (g.FreeSetbodyTime = 0), SetBlock(e), g.RandomOpenBox(f));
 					},
 					[b, a]
 				)
-			: (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a), d.RandomOpenBox(b));
+			: (PlaySound2("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a), d.RandomOpenBox(b));
 	},
 	NormalDie() {
 		var a = this;
-		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+		a.Status && !--oGd.$JackinTheBox && StopSound2("jackinthebox");
 		a.EleBody.src = a.PicArr[a.DieGif];
 		oSym.addTask(250, ClearChild, [a.Ele]);
 		a.HP = 0;
@@ -5864,7 +5864,7 @@ var oIJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	},
 	ExplosionDie() {
 		var a = this;
-		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+		a.Status && !--oGd.$JackinTheBox && StopSound2("jackinthebox");
 		a.EleBody.src = a.PicArr[a.BoomDieGif];
 		oSym.addTask(300, ClearChild, [a.Ele]);
 		a.HP = 0;
@@ -5872,7 +5872,7 @@ var oIJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 		a.PZ && oP.MonPrgs();
 	},
 	DisappearDie() {
-		this.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+		this.Status && !--oGd.$JackinTheBox && StopSound2("jackinthebox");
 		ClearChild(this.Ele);
 		this.HP = 0;
 		delete $Z[this.id];
@@ -5880,7 +5880,7 @@ var oIJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	},
 	CrushDie() {
 		var a = this;
-		a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+		a.Status && !--oGd.$JackinTheBox && StopSound2("jackinthebox");
 		a.GoingDieHead(a.id, a.PicArr, a);
 		ClearChild(a.Ele);
 		a.HP = 0;
@@ -5953,11 +5953,11 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 						var h = j.R;
 						j && ((j.FreeSetbodyTime = 0), SetBlock(g));
 						k[h] === undefined ? (k[h] = 1) : ++k[h];
-						PlayAudio("ballooninflate");
+						PlaySound2("ballooninflate");
 					},
 					[c, a]
 				)
-			: (SetBlock(a), f[b] === undefined ? (f[b] = 1) : ++f[b], PlayAudio("ballooninflate"));
+			: (SetBlock(a), f[b] === undefined ? (f[b] = 1) : ++f[b], PlaySound2("ballooninflate"));
 	},
 	ChkActs(f, d, g, c) {
 		var b;
@@ -5969,7 +5969,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 				: (a < 100 &&
 						!f.PointZombie &&
 						((f.PointZombie = 1),
-						!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+						!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 						f.ChangeR({
 							R: d,
 							ar: [oS.R - 1],
@@ -5983,7 +5983,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 	},
 	Drop() {
 		var a = this;
-		PlayAudio("balloon_pop");
+		PlaySound2("balloon_pop");
 		a.EleBody.src = "images/Zombies/BalloonZombie/Drop.gif" + $Random + Math.random();
 		a.ChkActs = function () {
 			return 1;
@@ -6133,11 +6133,11 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 							var k = oGd.$Balloon;
 							j && ((j.FreeSetbodyTime = 0), SetBlock(g));
 							((k[c] |= 0), ++k[c]); // 增加数量
-							PlayAudio("ballooninflate");
+							PlaySound2("ballooninflate");
 						},
 						[c, a, b]
 					)
-				: (SetBlock(a), f[b] === undefined ? (f[b] = 1) : ++f[b], PlayAudio("ballooninflate"));
+				: (SetBlock(a), f[b] === undefined ? (f[b] = 1) : ++f[b], PlaySound2("ballooninflate"));
 		},
 		ChkActs(f, d, g, c) {
 			var b;
@@ -6154,7 +6154,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 					: (a < 100 &&
 							!f.PointZombie &&
 							((f.PointZombie = 1),
-							!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+							!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 							f.ChangeR({
 								R: d,
 								ar: [oS.R - 1],
@@ -6168,7 +6168,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 		},
 		Drop() {
 			var a = this;
-			PlayAudio("balloon_pop");
+			PlaySound2("balloon_pop");
 			a.EleBody.src = "images/Zombies/BalloonZombie/Drop.gif" + $Random + Math.random();
 			a.ChkActs = function () {
 				return 1;
@@ -6334,11 +6334,11 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 						var h = j.R;
 						j && ((j.FreeSetbodyTime = 0), SetBlock(g));
 						k[h] === undefined ? (k[h] = 1) : ++k[h];
-						PlayAudio("ballooninflate");
+						PlaySound2("ballooninflate");
 					},
 					[c, a]
 				)
-			: (SetBlock(a), f[b] === undefined ? (f[b] = 1) : ++f[b], PlayAudio("ballooninflate"));
+			: (SetBlock(a), f[b] === undefined ? (f[b] = 1) : ++f[b], PlaySound2("ballooninflate"));
 	},
 	ChkActs(f, d, g, c) {
 		var b;
@@ -6350,7 +6350,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 				: (a < 100 &&
 						!f.PointZombie &&
 						((f.PointZombie = 1),
-						!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+						!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 						f.ChangeR({
 							R: d,
 							ar: [oS.R - 1],
@@ -6364,7 +6364,7 @@ var oCJackinTheBoxZombie = InheritO(oJackinTheBoxZombie, {
 	},
 	Drop() {
 		var a = this;
-		PlayAudio("balloon_pop");
+		PlaySound2("balloon_pop");
 		a.EleBody.src = "images/Zombies/JY/Drop.gif" + $Random + Math.random();
 		a.ChkActs = function () {
 			return 1;
@@ -6521,7 +6521,7 @@ oCConeheadZombie = InheritO(OrnIZombies, {
 	})(),
 	AudioArr: ["plastichit"],
 	PlayNormalballAudio() {
-		PlayAudio("plastichit");
+		PlaySound2("plastichit");
 	},
 	Produce:
 		'他的竹篓头盔使他更能经受来自植物的打击<p>韧性：<font color="#CC241D">携带一般防具</font></p>竹篓僵尸是个持家的好父亲，他最大的爱好就是追着别人询问哪里可以买到特价的脑子。',
@@ -6536,7 +6536,7 @@ oCBucketheadZombie = InheritO(
 		SunNum: 125,
 
 		PlayNormalballAudio() {
-			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 		},
 		Produce:
 			'他的瓷碗能有效抵挡弹丸的冲击<p>韧性：<font color="#CC241D">携带坚固防具</font></p>僵尸们都不忍心把乞丐僵尸送上战场，他们害怕听到“碎了一个，碎了两个…”。',
@@ -6663,7 +6663,7 @@ oCBucketheadZombie = InheritO(
 		oSym.addTask(
 			50,
 			(h) => {
-				$Z[h] && PlayAudio("polevault");
+				$Z[h] && PlaySound2("polevault");
 			},
 			[d]
 		);
@@ -6810,7 +6810,7 @@ oCBucketheadZombie = InheritO(
 			);
 		},
 		getSnowPea(c, a, b) {
-			PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
+			PlaySound2("splat" + Math.floor(1 + Math.random() * 3));
 			c.getHit0(c, a, b);
 		},
 		getFirePea(f, b, e) {
@@ -6935,7 +6935,7 @@ oCBucketheadZombie = InheritO(
 						if (!k.beAttacked) {
 							return;
 						}
-						PlayAudio("newspaper_rarrgh2");
+						PlaySound2("newspaper_rarrgh2");
 						k.EleBody.src = l;
 						k.JudgeAttack();
 					},
@@ -6990,7 +6990,7 @@ oCBucketheadZombie = InheritO(
 		Attack: 3600,
 		BookHandPosition: "25% 45%",
 		PlayNormalballAudio() {
-			PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+			PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 		},
 		PicArr: (function () {
 			var a = "images/Zombies/wall/Emperor/";
@@ -7238,11 +7238,11 @@ oCBucketheadZombie = InheritO(
 							g,
 							(j, i) => {
 								var k = $Z[j];
-								k && ((k.FreeSetbodyTime = 0), SetBlock(i), PlayAudio("zamboni"));
+								k && ((k.FreeSetbodyTime = 0), SetBlock(i), PlaySound2("zamboni"));
 							},
 							[e, c]
 						)
-					: (SetBlock(c), PlayAudio("zamboni"));
+					: (SetBlock(c), PlaySound2("zamboni"));
 			},
 			ChkActs(e, j, q, k) {
 				var b;
@@ -7261,7 +7261,7 @@ oCBucketheadZombie = InheritO(
 					: (r < 100 &&
 							!e.PointZombie &&
 							((e.PointZombie = 1),
-							!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+							!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 							e.ChangeR({
 								R: j,
 								ar: [oS.R - 1],
@@ -7291,15 +7291,15 @@ oCBucketheadZombie = InheritO(
 				return e;
 			},
 			getPea(c, b) {
-				PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+				PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 				c.getHit0(c, b);
 			},
 			getFirePea(c, b) {
-				PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+				PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 				c.getHit0(c, b);
 			},
 			getSnowPea(c, b) {
-				PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+				PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 				c.getHit0(c, b);
 			},
 			getFirePeaSputtering() {},
@@ -7321,7 +7321,7 @@ oCBucketheadZombie = InheritO(
 			},
 			NormalDie() {
 				var b = this;
-				PlayAudio("explosion");
+				PlaySound2("explosion");
 				b.EleBody.src = b.PicArr[b.DieGif];
 				oSym.addTask(70, ClearChild, [b.Ele]);
 				b.HP = 0;
@@ -7495,7 +7495,7 @@ oCBucketheadZombie = InheritO(
 												: (c < 100 &&
 														!h.PointZombie &&
 														((h.PointZombie = 1),
-														!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+														!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 														h.ChangeR({
 															R: f,
 															ar: [oS.R - 1],
@@ -7652,13 +7652,13 @@ oCBucketheadZombie = InheritO(
 								this.DisappearDie();
 							},
 							PlayNormalballAudio() {
-								PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
+								PlaySound2("splat" + Math.floor(1 + Math.random() * 3));
 							},
 							PlayFireballAudio() {
-								PlayAudio(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
+								PlaySound2(["ignite", "ignite2"][Math.floor(Math.random() * 2)]);
 							},
 							PlaySlowballAudio() {
-								PlayAudio("frozen");
+								PlaySound2("frozen");
 							},
 							getFireball(h, e, g) {
 								h.FreeSlowTime = 0;
@@ -7877,7 +7877,7 @@ oCBucketheadZombie = InheritO(
 								);
 							},
 							NormalAttack(d, c) {
-								PlayAudio(["chomp", "chomp2", "chompsoft"][Math.floor(Math.random() * 2)]);
+								PlaySound2(["chomp", "chomp2", "chompsoft"][Math.floor(Math.random() * 2)]);
 								oSym.addTask(85, console.log("chomp"));
 								oSym.addTask(
 									100,
@@ -8162,7 +8162,7 @@ oCBucketheadZombie = InheritO(
 										: (a < 100 &&
 												!g.PointZombie &&
 												((g.PointZombie = 1),
-												!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+												!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 												g.ChangeR({
 													R: d,
 													ar: [oS.R - 1],
@@ -8491,7 +8491,7 @@ oCBucketheadZombie = InheritO(
 										: (a < 100 &&
 												!g.PointZombie &&
 												((g.PointZombie = 1),
-												!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+												!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 												g.ChangeR({
 													R: d,
 													ar: [oS.R - 1],
@@ -8695,7 +8695,7 @@ oCBucketheadZombie = InheritO(
 						d.ChkActs = d.ChkTmp;
 						d.ChkTmp = b;
 						a.src = "images/Zombies/DancingZombie/Summon1.gif";
-						PlayAudio("dancer");
+						PlaySound2("dancer");
 						oSym.addTask(
 							10,
 							(f, e) => {
@@ -8909,7 +8909,7 @@ oCBucketheadZombie = InheritO(
 					})(),
 					AudioArr: ["plastichit"],
 					PlayNormalballAudio() {
-						PlayAudio("plastichit");
+						PlaySound2("plastichit");
 					},
 					Produce:
 						'他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#CC241D">中</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。',
@@ -8923,7 +8923,7 @@ oCBucketheadZombie = InheritO(
 						Lvl: 3,
 						SunNum: 125,
 						PlayNormalballAudio() {
-							PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+							PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 						},
 						Produce:
 							'他的铁桶头盔，能极大程度的承受伤害。<p>韧性：<font color="#CC241D">高</font><br>弱点：<font color="#CC241D">磁力菇</font></p>铁桶头僵尸经常戴着水桶，在冷漠的世界里显得独一无二。但事实上，他只是忘记了，那铁桶还在他头上而已。',
@@ -8953,7 +8953,7 @@ oCBucketheadZombie = InheritO(
 					beAttackedPointL: 40,
 					beAttackedPointR: 134,
 					PlayNormalballAudio() {
-						PlayAudio("plastichit");
+						PlaySound2("plastichit");
 					},
 					PicArr: (function () {
 						var a = "images/Zombies/FootballZombie/";
@@ -9083,7 +9083,7 @@ oCBucketheadZombie = InheritO(
 						var c = f.EleShadow;
 						var e = f.EleBody;
 						e.src = "images/Zombies/PoleVaultingZombie/PoleVaultingZombieJump.gif" + $Random + Math.random();
-						PlayAudio("grassstep");
+						PlaySound2("grassstep");
 						SetHidden(c);
 						f.isAttacking = 1;
 						f.Altitude = 2;
@@ -9093,7 +9093,7 @@ oCBucketheadZombie = InheritO(
 						oSym.addTask(
 							50,
 							(h) => {
-								$Z[h] && PlayAudio("polevault");
+								$Z[h] && PlaySound2("polevault");
 							},
 							[d]
 						);
@@ -9257,7 +9257,7 @@ oCBucketheadZombie = InheritO(
 						);
 					},
 					getSnowPea(c, a, b) {
-						PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("splat" + Math.floor(1 + Math.random() * 3));
 						c.getHit0(c, a, b);
 					},
 					getFirePea(f, b, e) {
@@ -9382,7 +9382,7 @@ oCBucketheadZombie = InheritO(
 									if (!k.beAttacked) {
 										return;
 									}
-									PlayAudio("newspaper_rarrgh2");
+									PlaySound2("newspaper_rarrgh2");
 									k.EleBody.src = l;
 									k.JudgeAttack();
 								},
@@ -9422,24 +9422,24 @@ oCBucketheadZombie = InheritO(
 						];
 					})(),
 					PlayNormalballAudio() {
-						PlayAudio("splat" + Math.floor(1 + Math.random() * 3));
+						PlaySound2("splat" + Math.floor(1 + Math.random() * 3));
 					},
 					Produce:
 						'他的铁栅门是有效的盾牌。<p>韧性：<font color="#CC241D">低</font><br>铁栅门韧性：<font color="#CC241D">高</font><br>弱点：大喷菇和磁力菇</p>门板僵尸上次拜访过的房主防守并不专业，在吃掉房主的脑子后拿走了他家的铁栅门。',
 					GoingDie: CZombies.prototype.GoingDie,
 					getFirePea(c, a, b) {
-						PlayAudio(
+						PlaySound2(
 							b === c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3)
 						);
 						c.getHit0(c, a, b);
 					},
 					getFirePeaSputtering() {},
 					getSnowPea(c, a, b) {
-						PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+						PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 						c.getHit0(c, a, b);
 					},
 					getPea(c, a, b) {
-						PlayAudio(
+						PlaySound2(
 							b === c.WalkDirection ? ["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)] : "splat" + Math.floor(1 + Math.random() * 3)
 						);
 						c.getHit0(c, a, b);
@@ -9568,7 +9568,7 @@ oCBucketheadZombie = InheritO(
 						!(f.FreeFreezeTime || f.FreeSetbodyTime) &&
 							((f.AttackedRX -= c = f.Speed), (LX = f.ZX = f.AttackedLX -= c), (f.Ele.style.left = Math.floor((f.X -= c)) + "px"));
 						f.AttackedLX < GetX(9) &&
-							(PlayAudio("zombie_entering_water"),
+							(PlaySound2("zombie_entering_water"),
 							(f.WalkStatus = 1),
 							(f.EleBody.src = f.PicArr[(f.NormalGif = f.WalkGif1)]),
 							SetHidden(f.EleShadow),
@@ -9722,7 +9722,7 @@ oCBucketheadZombie = InheritO(
 					OrnLostNormalGif: 9,
 					OrnLostAttackGif: 10,
 					PlayNormalballAudio() {
-						PlayAudio("plastichit");
+						PlaySound2("plastichit");
 					},
 					PicArr: (function () {
 						var b = "images/Zombies/DuckyTubeZombie2/";
@@ -9755,7 +9755,7 @@ oCBucketheadZombie = InheritO(
 					Lvl: 3,
 					SunNum: 125,
 					PlayNormalballAudio() {
-						PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+						PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 					},
 					AudioArr: ["shieldhit", "shieldhit2", "zombie_entering_water"],
 					PicArr: (function () {
@@ -9817,7 +9817,7 @@ oCBucketheadZombie = InheritO(
 					},
 					Jump(a) {
 						a.beAttacked &&
-							(PlayAudio("zombie_entering_water"),
+							(PlaySound2("zombie_entering_water"),
 							(a.Altitude = 2),
 							SetHidden(a.EleShadow),
 							(a.EleBody.src = a.PicArr[8]),
@@ -10356,11 +10356,11 @@ oCBucketheadZombie = InheritO(
 										g,
 										(j, i) => {
 											var k = $Z[j];
-											k && ((k.FreeSetbodyTime = 0), SetBlock(i), PlayAudio("zamboni"));
+											k && ((k.FreeSetbodyTime = 0), SetBlock(i), PlaySound2("zamboni"));
 										},
 										[e, c]
 									)
-								: (SetBlock(c), PlayAudio("zamboni"));
+								: (SetBlock(c), PlaySound2("zamboni"));
 						},
 						ChkActs(e, j, q, k) {
 							var b;
@@ -10399,7 +10399,7 @@ oCBucketheadZombie = InheritO(
 								: (r < 100 &&
 										!e.PointZombie &&
 										((e.PointZombie = 1),
-										!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+										!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 										e.ChangeR({
 											R: j,
 											ar: [oS.R - 1],
@@ -10429,15 +10429,15 @@ oCBucketheadZombie = InheritO(
 							return e;
 						},
 						getPea(c, b) {
-							PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+							PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 							c.getHit0(c, b);
 						},
 						getFirePea(c, b) {
-							PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+							PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 							c.getHit0(c, b);
 						},
 						getSnowPea(c, b) {
-							PlayAudio(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
+							PlaySound2(["shieldhit", "shieldhit2"][Math.floor(Math.random() * 2)]);
 							c.getHit0(c, b);
 						},
 						getFirePeaSputtering() {},
@@ -10459,7 +10459,7 @@ oCBucketheadZombie = InheritO(
 						},
 						NormalDie() {
 							var b = this;
-							PlayAudio("explosion");
+							PlaySound2("explosion");
 							b.EleBody.src = b.PicArr[b.DieGif];
 							oSym.addTask(70, ClearChild, [b.Ele]);
 							b.HP = 0;
@@ -10642,12 +10642,12 @@ oCBucketheadZombie = InheritO(
 					Produce:
 						'海豚骑士僵尸善于利用你水池防御的弱点。<p>韧性：<font color="#CC241D">中</font><br>速度：<font color="#CC241D">快，慢（跳越后）</font><br>特点：<font color="#CC241D">跃过他所遇到的第一株植物</font><br>只在水池关卡出现</font></p>那海豚其实也是个僵尸。',
 					BirthCallBack(a) {
-						PlayAudio("dolphin_appears");
+						PlaySound2("dolphin_appears");
 						(oAquaticZombie.prototype.BirthCallBack(a), GetC(this.ZX) <= 9 && this.Jump(this));
 					},
 					Jump(a) {
 						a.beAttacked &&
-							(PlayAudio("zombie_entering_water"),
+							(PlaySound2("zombie_entering_water"),
 							(a.Altitude = 2),
 							SetHidden(a.EleShadow),
 							(a.EleBody.src = a.PicArr[8]),
@@ -10744,7 +10744,7 @@ oCBucketheadZombie = InheritO(
 						f.isAttacking = 1;
 						f.Altitude = 2;
 						f.haveDolphin = 0;
-						PlayAudio("dolphin_before_jumping");
+						PlaySound2("dolphin_before_jumping");
 						f.getFreeze = function () {
 							f.getSnow(f, 20, 0);
 						};
@@ -10971,8 +10971,8 @@ oCBucketheadZombie = InheritO(
 							(c) => {
 								$Z[c] &&
 									((a.Status = 0),
-									!--oGd.$JackinTheBox && StopAudio("jackinthebox"),
-									PlayAudio("jack_surprise"),
+									!--oGd.$JackinTheBox && StopSound2("jackinthebox"),
+									PlaySound2("jack_surprise"),
 									oSym.addTask(
 										90,
 										(f) => {
@@ -10984,7 +10984,7 @@ oCBucketheadZombie = InheritO(
 													"images/interface/blank.png",
 													"width:306px;height:300px;left:" + (e.X - 16) + "px;top:" + (e.pixelTop - 90) + "px;z-index:20"
 												)),
-												PlayAudio("explosion"),
+												PlaySound2("explosion"),
 												(d.src = e.PicArr[8] + Math.random()),
 												EDPZ.appendChild(d),
 												oSym.addTask(70, ClearChild, [d]),
@@ -11044,15 +11044,15 @@ oCBucketheadZombie = InheritO(
 									c,
 									(f, e) => {
 										var g = $Z[f];
-										g && (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, (g.FreeSetbodyTime = 0), SetBlock(e), g.RandomOpenBox(f));
+										g && (PlaySound2("jackinthebox", true), ++oGd.$JackinTheBox, (g.FreeSetbodyTime = 0), SetBlock(e), g.RandomOpenBox(f));
 									},
 									[b, a]
 								)
-							: (PlayAudio("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a), d.RandomOpenBox(b));
+							: (PlaySound2("jackinthebox", true), ++oGd.$JackinTheBox, SetBlock(a), d.RandomOpenBox(b));
 					},
 					NormalDie() {
 						var a = this;
-						a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+						a.Status && !--oGd.$JackinTheBox && StopSound2("jackinthebox");
 						a.EleBody.src = a.PicArr[a.DieGif];
 						oSym.addTask(250, ClearChild, [a.Ele]);
 						a.HP = 0;
@@ -11061,7 +11061,7 @@ oCBucketheadZombie = InheritO(
 					},
 					ExplosionDie() {
 						var a = this;
-						a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+						a.Status && !--oGd.$JackinTheBox && StopSound2("jackinthebox");
 						a.EleBody.src = a.PicArr[a.BoomDieGif];
 						oSym.addTask(300, ClearChild, [a.Ele]);
 						a.HP = 0;
@@ -11069,7 +11069,7 @@ oCBucketheadZombie = InheritO(
 						a.PZ && oP.MonPrgs();
 					},
 					DisappearDie() {
-						this.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+						this.Status && !--oGd.$JackinTheBox && StopSound2("jackinthebox");
 						ClearChild(this.Ele);
 						this.HP = 0;
 						delete $Z[this.id];
@@ -11077,7 +11077,7 @@ oCBucketheadZombie = InheritO(
 					},
 					CrushDie() {
 						var a = this;
-						a.Status && !--oGd.$JackinTheBox && StopAudio("jackinthebox");
+						a.Status && !--oGd.$JackinTheBox && StopSound2("jackinthebox");
 						a.GoingDieHead(a.id, a.PicArr, a);
 						ClearChild(a.Ele);
 						a.HP = 0;
@@ -11149,11 +11149,11 @@ oCBucketheadZombie = InheritO(
 										var k = oGd.$Balloon;
 										j && ((j.FreeSetbodyTime = 0), SetBlock(g));
 										((k[c] |= 0), ++k[c]); // 增加数量
-										PlayAudio("ballooninflate");
+										PlaySound2("ballooninflate");
 									},
 									[c, a, b]
 								)
-							: (SetBlock(a), f[b] === undefined ? (f[b] = 1) : ++f[b], PlayAudio("ballooninflate"));
+							: (SetBlock(a), f[b] === undefined ? (f[b] = 1) : ++f[b], PlaySound2("ballooninflate"));
 					},
 					ChkActs(f, d, g, c) {
 						var b;
@@ -11170,7 +11170,7 @@ oCBucketheadZombie = InheritO(
 								: (a < 100 &&
 										!f.PointZombie &&
 										((f.PointZombie = 1),
-										!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+										!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 										f.ChangeR({
 											R: d,
 											ar: [oS.R - 1],
@@ -11184,7 +11184,7 @@ oCBucketheadZombie = InheritO(
 					},
 					Drop() {
 						var a = this;
-						PlayAudio("balloon_pop");
+						PlaySound2("balloon_pop");
 						a.EleBody.src = "images/Zombies/BalloonZombie/Drop.gif" + $Random + Math.random();
 						a.ChkActs = function () {
 							return 1;
@@ -11426,7 +11426,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 		(a.beAttacked &&
 			((a.WalkDirection = WD),
 			(a.BoomDieGif = 12),
-			PlayAudio("zombie_entering_water"),
+			PlaySound2("zombie_entering_water"),
 			(a.Altitude = 4),
 			SetVisible(a.EleShadow),
 			(a.EleBody.src = a.PicArr[a.UpGif]),
@@ -11481,7 +11481,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 						: (a < 80 &&
 								!f.PointZombie &&
 								((f.PointZombie = 1),
-								!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+								!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 								f.ChangeR({
 									R: d,
 									ar: [oS.R - 1],
@@ -11649,7 +11649,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 		(a.beAttacked &&
 			((a.WalkDirection = WD),
 			(a.BoomDieGif = 12),
-			PlayAudio("zombie_entering_water"),
+			PlaySound2("zombie_entering_water"),
 			(a.Altitude = 4),
 			SetVisible(a.EleShadow),
 			(a.EleBody.src = a.PicArr[a.UpGif]),
@@ -11704,7 +11704,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 						: (a < 80 &&
 								!f.PointZombie &&
 								((f.PointZombie = 1),
-								!oS.CardKind && (StopMusic(), PlayAudio("losemusic", false)),
+								!oS.CardKind && (StopMusic(), PlaySound2("losemusic", false)),
 								f.ChangeR({
 									R: d,
 									ar: [oS.R - 1],
@@ -11806,7 +11806,7 @@ oDiggerZombie = InheritO(OrnNoneZombies, {
 			);
 		},
 		BoomFire(y) {
-			PlayAudio("jalapeno");
+			PlaySound2("jalapeno");
 			fireid = "fire_" + Math.random();
 			NewImg(fireid, "images/Plants/Jalapeno/JalapenoAttack.gif", "width:755px;height:131px;left:120px;top:" + (GetY(y - 1) - 42) + "px", EDAll);
 			oSym.addTask(
@@ -12040,7 +12040,7 @@ var oGargantuar = InheritO(OrnIZombies, {
 	})(),
 	AudioArr: ["plastichit"],
 	PlayNormalballAudio() {
-		PlayAudio("plastichit");
+		PlaySound2("plastichit");
 	},
 	Produce:
 		'他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#CC241D">中</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。',

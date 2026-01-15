@@ -286,7 +286,7 @@ oS.Init(
 			NewImg("imgSF", "images/interface/trophy.png", "left:43.5%;top:220px", EDAll, {
 				onclick() {
 					SelectModal(0);
-					PlayAudio("winmusic");
+					PlaySound2("winmusic");
 				},
 			});
 			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:51%", EDAll);

@@ -42,7 +42,7 @@ oS.Init(
 			);
 			NewImg("SodRoll_1", "images/interface/SodRoll.png", "left:112px;top:244px;z-index:1", EDPZ);
 			NewImg("SodRollCap_1", "images/interface/SodRollCap.png", "left:17px;top:322px;z-index:1", EDPZ);
-			PlayAudio("dirt_rise");
+			PlaySound2("dirt_rise");
 			(function (e, h, b, d, c, g, a, f) {
 				e += 15;
 				h += 16;

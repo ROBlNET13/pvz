@@ -117,7 +117,7 @@ oS.Init(
 			return oS.ChoseCard;
 		},
 		ChosePlant(a, b) {
-			PlayAudio("seedlift");
+			PlaySound2("seedlift");
 			a = window.event || a;
 			var f = ArCard[oS.ChoseCard];
 			var e = a.clientX + EBody.scrollLeft || EElement.scrollLeft;
