@@ -7686,7 +7686,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 				},
 				[c, $(c), a, b.R, a - 46]
 			);
-			d.childNodes[1].src = "images/Plants/Gun/SeaShroomShoot.gif";
+			d.childNodes[1].src = "images/Plants/gun/SeaShroomShoot.gif";
 			ImgSpriter(
 				k.id,
 				j,
@@ -7707,7 +7707,7 @@ oSeedSeaShroom = InheritO(oPuffShroom, {
 				0,
 				(m, n) => {
 					var i = $(n);
-					$P[n] && (i.childNodes[1].src = "images/Plants/Gun/SeaShroom.gif");
+					$P[n] && (i.childNodes[1].src = "images/Plants/gun/SeaShroom.gif");
 				}
 			);
 		},
