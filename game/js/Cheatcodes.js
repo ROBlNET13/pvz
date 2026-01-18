@@ -2,17 +2,25 @@ let keySequence = "";
 let sequenceTimeout = null;
 
 let cheatCodes = {
-	"speed": () => { CSpeed(1000, 10, 1000); },
-	"balloon": () => { oP.Balloon(); },
-	"restartlevel": () => { SelectModal(oS.Lvl); },
-	"handbook": () => { ViewHandBook(); },
-	"j": () => {
+	speed: () => {
+		CSpeed(1000, 10, 1000);
+	},
+	balloon: () => {
+		oP.Balloon();
+	},
+	restartlevel: () => {
+		SelectModal(oS.Lvl);
+	},
+	handbook: () => {
+		ViewHandBook();
+	},
+	j: () => {
 		const sunId = AppearSun($User.Mouse.x - 45, $User.Mouse.y + 45, 25, false);
 		if (!oS.AutoSun) {
 			oSym.addTask(Math.round(1000 / oSym.TimeStep), ClickSun, [sunId]);
 		}
 	},
-}
+};
 
 // oxlint-disable-next-line complexity
 document.addEventListener("keydown", (event) => {
