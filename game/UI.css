@@ -24,6 +24,7 @@
 	src: url("fonts/continuumbold.ttf");
 }
 body {
+	user-select: none;
 	-moz-user-select: none;
 	overflow-x: hidden;
 	/*	overflow-y: hidden;
@@ -1535,6 +1536,7 @@ dd.yellow {
 }
 
 .flipH {
+	transform:  matrix(-1, 0, 0, 1, 0, 0);
 	-moz-transform: matrix(-1, 0, 0, 1, 0, 0);
 	-webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
 	-o-transform: matrix(-1, 0, 0, 1, 0, 0);
@@ -2263,6 +2265,7 @@ dd.yellow {
 button.jhp {
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
 	background-image: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+	user-select: none;
 	-webkit-border-radius: 2px;
 	-webkit-user-select: none;
 	background-color: #f5f5f5;
