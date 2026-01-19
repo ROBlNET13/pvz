@@ -84,8 +84,10 @@ function renderThumbnail(thumb, thumbContainer) {
 		img.style.top = `${plant[2] * 0.15}px`;
 		img.style.width = `${plant[3] * 0.15}px`;
 		img.style.height = `${plant[4] * 0.15}px`;
-		img.style.transform = "scale(1.5)";
 		img.style.zIndex = plant[5];
+		if (window[izombiePlantsMap[plant[0]]] !== oPumpkinHead) {
+			img.style.transform = "scale(1.5)";
+		}
 		img.className = "cardboardNoShadow";
 		thumbContainer.appendChild(img);
 	});
