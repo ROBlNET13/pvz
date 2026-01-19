@@ -2991,8 +2991,33 @@ var deleteCookie = function (key) {
 	document.cookie = key + "=0;";
 };
 
-var WordUTF8 = `<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><span id="commit" style="position: absolute;color: #ffffff0f;bottom: 0;user-select: none;"></span><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:url(images/interface/Pointer.cur),pointer" onclick="PlaySound2('gravebutton');SetBlock($('dSurface'),$('iSurfaceBackground'));ShowNameDiv();"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:url(images/interface/Pointer.cur),pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:url(images/interface/Pointer.cur),pointer;z-index:300" onclick="SetVisible($('dProcess'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>`;
+var WordUTF8 = `<div id="dLogo" style="position:absolute;width:900px;height:600px;z-index:1"><span id="commit" style="position: absolute;color: #ffffff0f;bottom: 0;user-select: none;"></span><div id="LogoWord" style="position:absolute;color:#FF0;top:300px;width:100%;height:100px"><span style="position:absolute;width:305px;height:150px;left:285px;top:5px;cursor:url(images/interface/Pointer.cur),pointer" onclick="PlaySound2('gravebutton');SetBlock($('dSurface'),$('iSurfaceBackground'));ShowNameDiv();CheckIzlParameter();"></span><div style="position:absolute;font-size:14px;left:660px;text-align:center;width:140px;top:185px;line-height:1.5;font-weight:bold"><span style="cursor:url(images/interface/Pointer.cur),pointer"><span id="" style=""></span></span></div></div><div style="position:absolute;width:74px;height:41px;left:807px;top:502px;cursor:url(images/interface/Pointer.cur),pointer;z-index:300" onclick="SetVisible($('dProcess'))"></div><img src="" style="position:absolute;left:550px;top:-40px"></div>`;
 
+var CheckIzlParameter = function () {
+	// check if izl_id query parameter exists
+	let urlParams = new URLSearchParams(window.location.search);
+	let izlId = urlParams.get("izl_id");
+	if (izlId) {
+		fetch(`${$User.Server.URL}/api/levels/${izlId}/download`, {
+			method: "GET",
+		})
+			.then((response) => response.arrayBuffer())
+			.then(async (arrayBuffer) => {
+				// load the level
+				levelDataToLoad = await decodeBytes(new Uint8Array(arrayBuffer));
+				// load the izombiecustomlevel level
+				if (levelDataToLoad.lfValue[3] === 2) {
+					SelectModal("izombiecustomlevelwater");
+				} else {
+					SelectModal("izombiecustomlevelnormal");
+				}
+			})
+			.catch((e) => {
+				console.error(e);
+				alert("There was an error loading the level. Please try again later.");
+			});
+	}
+};
 var ShowNameDiv = function () {
 	oSym.Start();
 	(function (config) {
