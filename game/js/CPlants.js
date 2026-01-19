@@ -2179,7 +2179,7 @@ var oPumpkinHead = InheritO(CPlants, {
 		"images/Plants/PumpkinHead/Pumpkin_damage1.gif",
 		"images/Plants/PumpkinHead/Pumpkin_damage2.gif",
 		"images/Plants/PumpkinHead/Pumpkin_back.gif",
-		"images/plants/PumpkinHead/PumpkinHead1_static.webp",
+		"images/Plants/PumpkinHead/PumpkinHead1_static.webp",
 	],
 	Tooltip: "Protects plants that are within its shell",
 	Produce:
