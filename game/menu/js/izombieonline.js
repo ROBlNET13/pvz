@@ -87,6 +87,7 @@ function renderThumbnail(thumb, thumbContainer) {
 		img.style.zIndex = plant[5];
 		if (window[izombiePlantsMap[plant[0]]] !== oPumpkinHead) {
 			img.style.transform = "scale(1.5)";
+			img.src = window[izombiePlantsMap[plant[0]]].prototype.PicArr[8];
 		}
 		img.className = "cardboardNoShadow";
 		thumbContainer.appendChild(img);
