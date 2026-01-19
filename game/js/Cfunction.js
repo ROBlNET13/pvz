@@ -2213,7 +2213,7 @@ var BeginCool = function () {
 	while (i--) {
 		const card = ArCard[i];
 		const proto = card.PName.prototype;
-		const coolTime = proto.coolTime;
+		const coolTime = typeof proto.coolTime === "string" ? 0 : proto.coolTime;
 		const sunCost = proto.SunNum;
 
 		switch (coolTime) {
