@@ -2998,41 +2998,130 @@ var oBalloon = InheritO(CPlants, {
 	width: 65,
 	height: 73,
 	beAttackedPointR: 45,
-	SunNum: "+75",
+	SunNum: "+150",
 	coolTime: "Wave",
 	HP: 1,
 	AlmanacGif: 1,
 	PicArr: ["images/Card/Plants/BalloonGoober.png", "images/Zombies/Balloon/0.png", "images/Zombies/Balloon/popped.png"],
 	Tooltip: "Drops sun when popped",
 	Produce:
-		'<font color="#28325A">Balloonatics have a chance to spawn every wave. Popping them produces 75 sun</font>.</font><br><p>Toughness: <font color="CC241D">low</font></p> ">:3" says the Balloonatic. ">:3" says the Balloonatic, again.',
-	CanGrow(c, b, f) {
-		var a = b + "_" + f;
-		var d = c[1];
-		var e = oS.ArP;
-		return e
-			? oGd.$LF[b] === 1
-				? f > 0 && f < e.ArC[1] && !(oGd.$Crater[a] || oGd.$Tombstones[a] || d)
-				: c[0] && !d
-			: d && d.EName === "oBalloon"
-				? 1
-				: oGd.$LF[b] === 1
-					? !(f < 1 || f > 9 || oGd.$Crater[a] || oGd.$Tombstones[a] || d)
-					: c[0] && !d;
+		'<font color="#28325A">Balloonatics have a chance to spawn every wave. Popping them produces 150 sun</font>.</font><br><p>Toughness: <font color="CC241D">low</font></p> ">:3" says the Balloonatic. ">:3" says the Balloonatic, again.',
+	Birth(_1, _2, row, _4) {
+		let balloonId = Math.floor(1 + Math.random() * 1000);
+		let endMode = "endOfAnimation";
+
+		function getAnimatedPosition(element) {
+			const computedStyle = getComputedStyle(element);
+			const left = parseFloat(computedStyle.left);
+			const top = parseFloat(computedStyle.top);
+			return { left, top };
+		}
+
+		if (!oBalloon.StyleSheet) {
+			let dynamicStyle = document.createElement("style");
+			document.head.appendChild(dynamicStyle);
+			oBalloon.StyleSheet = dynamicStyle.sheet;
+		}
+
+		function getRandomY() {
+			if (row) {
+				return GetY(row - 2) + 45;
+			}
+			return GetY(-1 + Math.floor(Math.random() * oS.R)) + 45;
+		}
+
+		let randomY = getRandomY();
+		let timeStep = oSym.TimeStep;
+		const timeInSec = (ms) => ms / 100;
+		const toTicks = (ms) => Math.round(ms / timeStep);
+
+		oBalloon.StyleSheet.insertRule(`@keyframes moveLeft${balloonId} { from { left: 910px; } to { left: -75px; } }`, oBalloon.StyleSheet.cssRules.length);
+
+		oBalloon.StyleSheet.insertRule(
+			`@keyframes bobbing${balloonId} { 0%, 100% { top: ${randomY}px; } 50% { top: ${randomY + 10}px; } }`,
+			oBalloon.StyleSheet.cssRules.length
+		);
+
+		let image = document.createElement("div");
+		image.style = `
+            background-image: url(images/Zombies/Balloon/balloonidle.png);
+            position: absolute;
+            display: block;
+            left: 875px;
+            top: ${randomY}px;
+            z-index: 99;
+            width: 154px;
+            height: 181px;
+            scale: 0.6038961039;
+            cursor: url(images/interface/Pointer.cur),pointer;
+            animation: 
+                spritesheetIdle ${timeInSec(timeStep * 10)}s steps(30) infinite, 
+                moveLeft${balloonId} ${timeInSec(timeStep * 130)}s linear, 
+                bobbing${balloonId} ${timeInSec(timeStep * 20)}s ease-in-out infinite;
+        `;
+
+		EDPZ.appendChild(image);
+
+		image.onclick = function () {
+			image.onclick = null;
+			image.style = `
+                background-image: url(images/Zombies/Balloon/popped.png);
+                position: absolute;
+                display: block;
+                left: ${getAnimatedPosition(image).left}px;
+                top: ${randomY}px;
+                z-index: 99;
+                width: 154px;
+                height: 181px;
+                scale: 0.6038961039;
+                pointer-events: none;
+                animation: spritesheetPop ${timeInSec(timeStep * 10)}s 1 normal forwards steps(21);
+            `;
+
+			image.addEventListener("animationend", () => {
+				if (endMode === "endOfAnimation") {
+					image.style = `
+                        background-image: url(images/Zombies/Balloon/popped.png);
+                        background-position-x: -3080px;
+                        position: absolute;
+                        display: block;
+                        left: ${getAnimatedPosition(image).left}px;
+                        top: ${randomY}px;
+                        z-index: 99;
+                        width: 154px;
+                        height: 181px;
+                        scale: 0.6038961039;
+                        pointer-events: none;
+                    `;
+					endMode = "remove";
+				} else {
+					image.parentNode.removeChild(image);
+				}
+			});
+
+			oSym.addTask(toTicks(300), () => {
+				PlaySound2("balloon_pop");
+				oSym.addTask(toTicks(150), () => {
+					if ($("dSunNum").style.visibility === "") {
+						AppearSun(getAnimatedPosition(image).left + 40, randomY + 60, 125, false);
+					}
+				});
+				oSym.addTask(toTicks(2500), () => {
+					SetStyle(image, {
+						transition: "opacity 0.2s ease",
+						opacity: 0,
+					});
+
+					oSym.addTask(toTicks(400), () => {
+						image.parentNode.removeChild(image);
+					});
+				});
+			});
+		};
+
+		PlaySound2("ballooninflate");
 	},
 	InitTrigger() {},
-	HurtStatus: 0,
-	getHurt(e, b, a) {
-		var c = this;
-		var d = $(c.id).childNodes[1];
-		!(b % 3)
-			? (c.HP -= a) < 1
-				? c.Die()
-				: c.HP < 1334
-					? c.HurtStatus < 2 && ((c.HurtStatus = 2), (d.src = "images/Card/Plants/BalloonGoober.png"))
-					: c.HP < 2667 && c.HurtStatus < 1 && ((c.HurtStatus = 1), (d.src = "images/Zombies/Balloon/popped.png"))
-			: c.Die(1);
-	},
 });
 var oCattail = InheritO(oPeashooter, {
 	EName: "oCattail",

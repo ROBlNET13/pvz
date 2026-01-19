@@ -6,7 +6,7 @@ let cheatCodes = {
 		CSpeed(1000, 10, 1000);
 	},
 	balloon: () => {
-		oP.Balloon();
+		oBalloon.prototype.Birth();
 	},
 	restartlevel: () => {
 		SelectModal(oS.Lvl);
