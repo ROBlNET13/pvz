@@ -2,13 +2,13 @@ let keySequence = "";
 let sequenceTimeout = null;
 
 let cheatCodes = {
-	speed: () => {
+	fast: () => {
 		CSpeed(1000, 10, 1000);
 	},
 	balloon: () => {
 		oBalloon.prototype.Birth();
 	},
-	restartlevel: () => {
+	re: () => {
 		SelectModal(oS.Lvl);
 	},
 	handbook: () => {
@@ -20,6 +20,15 @@ let cheatCodes = {
 			oSym.addTask(Math.round(1000 / oSym.TimeStep), ClickSun, [sunId]);
 		}
 	},
+	abminArrowUp: () => {
+		window.open("https://backend.pvzm.net/admin.html", "_blank");
+	},
+	mustache: () => {
+		alert("yearn for the mustache");
+	},
+	moustache: () => {
+		alert("yearn for the moustache");
+	},
 };
 
 // oxlint-disable-next-line complexity
@@ -30,7 +39,7 @@ document.addEventListener("keydown", (event) => {
 	}
 
 	// Add key to sequence
-	keySequence += event.key.toLowerCase();
+	keySequence += event.key;
 
 	// Clear sequence after 5 seconds of inactivity
 	clearTimeout(sequenceTimeout);
@@ -50,4 +59,5 @@ document.addEventListener("keydown", (event) => {
 	if (keySequence.length > 20) {
 		keySequence = keySequence.slice(-10);
 	}
+	console.log(keySequence);
 });
