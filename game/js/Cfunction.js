@@ -3235,7 +3235,7 @@ var ViewHandBook = function () {
 		AllAudioPaused();
 		PlaySound2("tap");
 	}
-	PlaySound2("ChooseYourSeeds");
+	PlaySound2("ChooseYourSeeds", true);
 	SetVisible($("dHandBook"));
 };
 

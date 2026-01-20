@@ -260,6 +260,7 @@ function canPlayNow(key) {
 
 setInterval(cleanupPlayingSounds, CLEANUP_INTERVAL_MS);
 function PlaySound2(path, loop, name, tag) {
+	// console.log(`Playing sound: path=${path}, loop=${loop}, name=${name}, tag=${tag}`);
 	name = name || path;
 	const tagName = tag || "default";
 	const audioPath = `audio/${path}.mp3`;
