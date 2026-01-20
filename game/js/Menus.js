@@ -51,18 +51,23 @@ async function PreloadMenu(menuId) {
 	// fetch menu/html/{menuId}.html and menu/js/{menuId}.js, return nothing and do nothing with it
 	await Promise.all([
 		fetch(`menu/html/${menuId}.html`).then((response) => response.text()),
-		fetch(`menu/js/${menuId}.js`).then((response) => response.text()),
+		fetch(`menu/js/${menuId}.js`).then((response) => response.ok ? response.text() : null).catch(() => null),
 	]);
 }
 
 async function LoadMenu(menuId, background) {
 	menusAmount++;
 	const dAll = await getDAll();
+	const dSurface = document.querySelector("#dSurface");
+	const container = dSurface && dSurface.style.display === "block" ? dSurface : dAll;
 	// fetch menu/html/{menuId}.html and menu/js/{menuId}.js. run the js code after injecting the html into the #dAll element.
-	const [htmlResponse, jsResponse] = await Promise.all([fetch(`menu/html/${menuId}.html`), fetch(`menu/js/${menuId}.js`)]);
+	const [htmlResponse, jsResponse] = await Promise.all([
+		fetch(`menu/html/${menuId}.html`),
+		fetch(`menu/js/${menuId}.js`).catch(() => null),
+	]);
 
 	const html = await htmlResponse.text();
-	const js = await jsResponse.text();
+	const js = jsResponse && jsResponse.ok ? await jsResponse.text() : null;
 
 	// make menuContainer for menu
 	const menuContainer = document.createElement("div");
@@ -80,12 +85,14 @@ async function LoadMenu(menuId, background) {
 	menuContainer.innerHTML = html;
 
 	// inject first so the menu script can query its DOM
-	dAll.appendChild(menuContainer);
+	container.appendChild(menuContainer);
 	await new Promise((resolve) => requestAnimationFrame(resolve));
 
-	// run the js code (provide menuContainer to the menu script)
-	const runMenuScript = new Function("menuContainer", "menuId", `"use strict";\n${js}\n`);
-	runMenuScript(menuContainer, menuId, background);
+	// run the js code if it exists (provide menuContainer to the menu script)
+	if (js) {
+		const runMenuScript = new Function("menuContainer", "menuId", `"use strict";\n${js}\n`);
+		runMenuScript(menuContainer, menuId, background);
+	}
 
 	visibleMenus.push(menuId);
 	console.log(menuContainer);
@@ -94,11 +101,10 @@ async function LoadMenu(menuId, background) {
 }
 
 async function UnloadMenu(menuId) {
-	const dAll = await getDAll();
-	// remove the menu menuContainer from #dAll
+	// remove the menu menuContainer from its parent
 	const menuContainer = document.getElementById(`dMenu_${menuId}`);
-	if (menuContainer) {
-		dAll.removeChild(menuContainer);
+	if (menuContainer && menuContainer.parentNode) {
+		menuContainer.parentNode.removeChild(menuContainer);
 	}
 	const index = visibleMenus.indexOf(menuId);
 	if (index !== -1) {

@@ -1,6 +1,9 @@
 let keySequence = "";
 let sequenceTimeout = null;
 
+// Cheat codes can be:
+// - A function (clears sequence after use)
+// - An object with { action: function, clearSequence: boolean }
 let cheatCodes = {
 	fast: () => {
 		CSpeed(1000, 10, 1000);
@@ -29,7 +32,19 @@ let cheatCodes = {
 	moustache: () => {
 		alert("yearn for the moustache");
 	},
+	debug: () => {
+		LoadMenu("debug_levels", "images/interface/Challenge_Background.jpg");
+	},
 };
+
+function getCheatAction(cheat) {
+	return typeof cheat === "function" ? cheat : cheat.action;
+}
+
+function shouldClearSequence(cheat) {
+	if (typeof cheat === "function") return true;
+	return cheat.clearSequence !== false;
+}
 
 // oxlint-disable-next-line complexity
 document.addEventListener("keydown", (event) => {
@@ -50,8 +65,11 @@ document.addEventListener("keydown", (event) => {
 	// Check for cheat codes
 	for (i in cheatCodes) {
 		if (keySequence.includes(i)) {
-			cheatCodes[i]();
-			keySequence = "";
+			const cheat = cheatCodes[i];
+			getCheatAction(cheat)();
+			if (shouldClearSequence(cheat)) {
+				keySequence = "";
+			}
 		}
 	}
 
