@@ -1,6 +1,6 @@
 oS.Init(
 	{
-		PName: allPlantsStringArray(),
+		PName: allPlantsArray(),
 		ZName: [
 			oZombie,
 			oZombie2,
