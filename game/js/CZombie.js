@@ -1418,10 +1418,11 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 				g &&
 					g.beAttacked &&
 					((e.src = "images/Zombies/DancingZombie/Summon2.gif"),
-					oSym.addTask(
+					oSym.addTask( // zombie existed here
 						10,
 						(t, s, x) => {
 							var h = $Z[t];
+							if (!h) return;
 							var v = h.ZX;
 							var m = h.ArDZ;
 							var n = [];
@@ -1432,7 +1433,7 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 							var o = 0;
 							var q;
 							var l;
-							if (h && h.beAttacked) {
+							if (h.beAttacked) {
 								s.src = "images/Zombies/DancingZombie/Summon3.gif";
 								while (r--) {
 									(q = m[r]) &&
