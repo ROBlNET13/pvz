@@ -1418,7 +1418,8 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 				g &&
 					g.beAttacked &&
 					((e.src = "images/Zombies/DancingZombie/Summon2.gif"),
-					oSym.addTask( // zombie existed here
+					oSym.addTask(
+						// zombie existed here
 						10,
 						(t, s, x) => {
 							var h = $Z[t];
