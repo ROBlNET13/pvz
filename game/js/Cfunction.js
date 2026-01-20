@@ -3492,8 +3492,8 @@ var $SEql = function (key, map) {
 
 var $SSml = function (val, thresholds, results) {
 	let i = 0;
-	const len = thresholds.length;
-	while (i < len) {
+	window.LX = thresholds.length;
+	while (i < LX) {
 		if (val < thresholds[i]) {
 			break;
 		}
@@ -3504,8 +3504,8 @@ var $SSml = function (val, thresholds, results) {
 
 var $SGrt = function (val, thresholds, results) {
 	let i = 0;
-	const len = thresholds.length;
-	while (i < len) {
+	window.LX = thresholds.length;
+	while (i < LX) {
 		if (val > thresholds[i]) {
 			break;
 		}
