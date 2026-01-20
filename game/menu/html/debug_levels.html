@@ -1,13 +1,4 @@
-<div
-	style="
-		width: fit-content;
-		height: fit-content;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	"
->
+<div style="width: fit-content; height: fit-content; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
 	<select id="houseSide">
 		<option value="front">front</option>
 		<option value="back">back</option>
@@ -16,10 +7,6 @@
 		<option value="day">day</option>
 		<option value="night">night</option>
 	</select>
-	<button
-		onclick="SelectModal(`debug_${document.getElementById('houseSide').value}_${document.getElementById('timeOfDay').value}`)"
-	>
-		Load Level
-	</button>
+	<button onclick="SelectModal(`debug_${document.getElementById('houseSide').value}_${document.getElementById('timeOfDay').value}`)">Load Level</button>
 </div>
-<button onclick="UnloadMenu('debug_levels')" style="position: absolute; right: 10px; bottom: 10px;">Close</button>
+<button onclick="UnloadMenu('debug_levels')" style="position: absolute; right: 10px; bottom: 10px">Close</button>

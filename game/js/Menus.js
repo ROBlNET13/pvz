@@ -51,7 +51,9 @@ async function PreloadMenu(menuId) {
 	// fetch menu/html/{menuId}.html and menu/js/{menuId}.js, return nothing and do nothing with it
 	await Promise.all([
 		fetch(`menu/html/${menuId}.html`).then((response) => response.text()),
-		fetch(`menu/js/${menuId}.js`).then((response) => response.ok ? response.text() : null).catch(() => null),
+		fetch(`menu/js/${menuId}.js`)
+			.then((response) => (response.ok ? response.text() : null))
+			.catch(() => null),
 	]);
 }
 
@@ -61,10 +63,7 @@ async function LoadMenu(menuId, background) {
 	const dSurface = document.querySelector("#dSurface");
 	const container = dSurface && dSurface.style.display === "block" ? dSurface : dAll;
 	// fetch menu/html/{menuId}.html and menu/js/{menuId}.js. run the js code after injecting the html into the #dAll element.
-	const [htmlResponse, jsResponse] = await Promise.all([
-		fetch(`menu/html/${menuId}.html`),
-		fetch(`menu/js/${menuId}.js`).catch(() => null),
-	]);
+	const [htmlResponse, jsResponse] = await Promise.all([fetch(`menu/html/${menuId}.html`), fetch(`menu/js/${menuId}.js`).catch(() => null)]);
 
 	const html = await htmlResponse.text();
 	const js = jsResponse && jsResponse.ok ? await jsResponse.text() : null;
