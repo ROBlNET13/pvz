@@ -14,7 +14,7 @@ let cheatCodes = {
 	re: () => {
 		SelectModal(oS.Lvl);
 	},
-	handy	: () => {
+	handy: () => {
 		ViewHandBook();
 	},
 	j: () => {
