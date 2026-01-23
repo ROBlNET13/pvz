@@ -61,4 +61,4 @@ export var oSeedSnowPea = InheritO(oPeashooter, {
 			[b, $(b), 30, 0, a.AttackedLX, a.R, -1, 0, a.AttackedLX - 40, oGd.$Torch]
 		);
 	},
-})
+});

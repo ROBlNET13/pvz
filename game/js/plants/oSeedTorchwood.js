@@ -77,4 +77,4 @@ export var oSeedTorchwood = InheritO(CPlants, {
 			[b, $(b), 20, 0, a.AttackedLX, a.R, 0, 0, a.AttackedLX - 40, oGd.$Torch]
 		);
 	},
-})
+});

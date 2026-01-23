@@ -71,10 +71,6 @@ BirthStyle: function (c, e, b, a) {
 					[f, d, c, e, recurse]
 				));
 		};
-		oSym.addTask(
-			500,
-			produceLoop,
-			[a.id, b - 40, b - 20, GetY(a.R), produceLoop]
-		);
+		oSym.addTask(500, produceLoop, [a.id, b - 40, b - 20, GetY(a.R), produceLoop]);
 	},
-})
+});

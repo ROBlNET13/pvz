@@ -21,4 +21,4 @@ export var oLilyPad = InheritO(oFlowerPot, {
 	Tooltip: "Lilypads allow you to grow non-aquatic plants on them。",
 	Produce:
 		'<font color="#28325A">Lily pads let you plant non-aquatic plants on top of them.</font><p>Special: <font color="#CC241D">non-aquatic plants can be planted on top of it</font><br><font color="#0ca1db">Must be planted in water</font></p>Lily Pad never complains. Lily Pad never wants to know what\'s going on. Put a plant on top of Lily Pad, he won\'t say a thing. Does he have startling opinions or shocking secrets? Nobody knows. Lily Pad keeps it all inside.',
-})
+});

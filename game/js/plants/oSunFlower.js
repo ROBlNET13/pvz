@@ -148,4 +148,4 @@ export var oSunFlower = InheritO(CPlants, {
 	},
 
 	InitTrigger() {}, // Empty function - sunflowers don't need triggers
-})
+});

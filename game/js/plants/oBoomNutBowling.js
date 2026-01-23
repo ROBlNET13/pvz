@@ -73,4 +73,4 @@ export var oBoomNutBowling = InheritO(oNutBowling, {
 		};
 		moveNut(a, oS.W, a.AttackedLX, a.AttackedRX, $(a.id));
 	},
-})
+});

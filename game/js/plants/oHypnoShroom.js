@@ -37,4 +37,4 @@ export var oHypnoShroom = InheritO(oFumeShroom, {
 				c.Die(1);
 		}
 	},
-})
+});

@@ -53,4 +53,4 @@ export var oGarlic = InheritO(CPlants, {
 						: c.HP < 267 && c.HurtStatus < 1 && ((c.HurtStatus = 1), (d.src = "images/Plants/Garlic/Garlic_body2.gif")))
 			: c.Die(1);
 	},
-})
+});

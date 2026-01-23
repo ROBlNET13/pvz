@@ -58,4 +58,4 @@ export var oSeedCherryBomb = InheritO(CPlants, {
 			[a.id]
 		);
 	},
-})
+});

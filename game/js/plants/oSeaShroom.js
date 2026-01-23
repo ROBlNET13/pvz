@@ -39,4 +39,4 @@ export var oSeaShroom = InheritO(oPuffShroom, {
 	Tooltip: "Aquatic plant that shoots short-ranged spores",
 	Produce:
 		'<font color="#28325A">Sea-shrooms are aquatic plants that shoot short ranged spores.</font><p>Damage: <font color="#CC241D">normal</font><br>Range: <font color="#CC241D">short</font><br><font color="#0ca1db">Must be planted in water</font><br><font color="#8832aa">Sleeps during the day</font></p>Sea-shroom has never seen the sea. It\'s in his name, he\'s heard loads about it, but he\'s just never found the time. One day, though, it\'ll go down.',
-})
+});

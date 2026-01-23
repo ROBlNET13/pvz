@@ -73,4 +73,4 @@ export var oSquash = InheritO(CPlants, {
 			[a, b, d.R]
 		);
 	},
-})
+});

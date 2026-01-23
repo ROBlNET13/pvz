@@ -107,4 +107,4 @@ export var oIPotatoMine = InheritO(CPlants, {
 			[d]
 		);
 	},
-})
+});

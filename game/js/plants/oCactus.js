@@ -183,11 +183,7 @@ export const oCactus = InheritO(CPlants, {
 					? ((i.style.left = (l += j) + "px"), oSym.addTask(1, movePea, [g, i, d, k, h, l]))
 					: ClearChild(i);
 		};
-		oSym.addTask(
-			1,
-			movePea,
-			[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40]
-		);
+		oSym.addTask(1, movePea, [c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40]);
 	},
 	NormalAttack2() {
 		var b = this;
@@ -222,10 +218,6 @@ export const oCactus = InheritO(CPlants, {
 					? ((i.style.left = (l += j) + "px"), oSym.addTask(1, movePea2, [g, i, d, k, h, l]))
 					: ClearChild(i);
 		};
-		oSym.addTask(
-			1,
-			movePea2,
-			[c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40]
-		);
+		oSym.addTask(1, movePea2, [c, $(c), 0, b.AttackedLX, b.R, b.AttackedLX - 40]);
 	},
 });

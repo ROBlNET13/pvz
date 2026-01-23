@@ -128,4 +128,4 @@ export var oBalloon = InheritO(CPlants, {
 		PlaySound2("ballooninflate");
 	},
 	InitTrigger() {},
-})
+});

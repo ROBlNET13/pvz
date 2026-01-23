@@ -43,4 +43,4 @@ export var oCleaner = InheritO(oCleaner1, {
 			[a.id]
 		);
 	},
-})
+});

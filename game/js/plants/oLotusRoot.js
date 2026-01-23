@@ -85,4 +85,4 @@ export var oLotusRoot = InheritO(oPeashooter, {
 			[b, $(b), 500, 0, a.AttackedLX, a.R, 0, 0, a.AttackedLX - 40, oGd.$Torch]
 		);
 	},
-})
+});

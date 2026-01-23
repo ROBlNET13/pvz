@@ -124,4 +124,4 @@ export var oThreepeater = InheritO(oPeashooter, {
 			);
 		}
 	},
-})
+});

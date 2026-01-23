@@ -55,4 +55,4 @@ export var oCoffeeBean = InheritO(CPlants, {
 			[a.R + "_" + a.C + "_1"]
 		);
 	},
-})
+});

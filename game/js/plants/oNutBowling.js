@@ -103,4 +103,4 @@ export var oNutBowling = InheritO(CPlants, {
 		};
 		moveNut(c, oS.W, c.AttackedLX, c.AttackedRX, c.pixelLeft, d, 0, GetY1Y2(1)[0], 600);
 	},
-})
+});

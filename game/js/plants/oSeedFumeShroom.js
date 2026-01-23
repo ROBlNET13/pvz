@@ -92,4 +92,4 @@ export var oSeedFumeShroom = InheritO(CPlants, {
 			}
 		);
 	},
-})
+});

@@ -11,4 +11,4 @@ export var oCleaner1 = InheritO(oLawnCleaner, {
 	PicArr: ["images/interface/BZ.png", "images/Plants/Jalapeno/JalapenoAttack.gif"],
 	Tooltip: "Firecrackers",
 	AudioArr: ["jalapeno"],
-})
+});

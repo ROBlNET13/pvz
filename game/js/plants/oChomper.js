@@ -72,4 +72,4 @@ export var oChomper = InheritO(CPlants, {
 			[a, b]
 		);
 	},
-})
+});

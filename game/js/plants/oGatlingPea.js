@@ -46,10 +46,6 @@ export var oGatlingPea = InheritO(oPeashooter, {
 			c && c.NormalAttack1();
 			--b && oSym.addTask(15, repeatAttack, [d, b]);
 		};
-		oSym.addTask(
-			15,
-			repeatAttack,
-			[this.id, 3]
-		);
+		oSym.addTask(15, repeatAttack, [this.id, 3]);
 	},
-})
+});

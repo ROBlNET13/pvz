@@ -44,4 +44,4 @@ export var oWallNut = InheritO(CPlants, {
 					: c.HP < 2667 && c.HurtStatus < 1 && ((c.HurtStatus = 1), (d.src = "images/Plants/WallNut/Wallnut_cracked1.webp"))
 			: c.Die(1);
 	},
-})
+});

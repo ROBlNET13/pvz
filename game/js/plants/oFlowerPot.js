@@ -24,4 +24,4 @@ export var oFlowerPot = InheritO(CPlants, {
 	Produce:
 		'<font color="#28325A">Flower Pots let you plant on the roof.</font><p>Special: <font color="#CC241D">allows you to plant on the roof</font></p>"I\'m a pot for planting. Yet I\'m also a plant. HAS YOUR MIND EXPLODED YET?"',
 	InitTrigger() {},
-})
+});

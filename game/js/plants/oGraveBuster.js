@@ -54,4 +54,4 @@ export var oGraveBuster = InheritO(CPlants, {
 			[a.id]
 		);
 	},
-})
+});

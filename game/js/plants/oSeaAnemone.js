@@ -75,11 +75,7 @@ export var oSeaAnemone = InheritO(oGloomShroom, {
 			PlaySound2(["kernelpult", "kernelpult2"][Math.floor(Math.random() * 2)]);
 			--i && oSym.addTask(100, soundLoop, [i]);
 		};
-		oSym.addTask(
-			100,
-			soundLoop,
-			[4]
-		);
+		oSym.addTask(100, soundLoop, [4]);
 		d.childNodes[1].src = "images/Plants/SeaAnemone/GloomShroomAttack.gif";
 		SetVisible($(l));
 		ImgSpriter(

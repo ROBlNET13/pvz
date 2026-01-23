@@ -103,4 +103,4 @@ export var oSpikeweed = InheritO(CPlants, {
 	AttackCheck2(a) {
 		return a.Altitude === 1 && a.beAttacked;
 	},
-})
+});

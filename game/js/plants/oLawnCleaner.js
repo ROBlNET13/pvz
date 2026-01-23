@@ -43,4 +43,4 @@ export var oLawnCleaner = InheritO(CPlants, {
 		};
 		moveClean(a, oS.W, a.AttackedLX, a.AttackedRX, a.R, $(a.id));
 	},
-})
+});

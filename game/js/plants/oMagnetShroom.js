@@ -24,11 +24,7 @@ export var oMagnetShroom = InheritO(CPlants, {
 			self.NormalAttack();
 			oSym.addTask(1, attackLoop, [self]);
 		};
-		oSym.addTask(
-			1,
-			attackLoop,
-			[c]
-		);
+		oSym.addTask(1, attackLoop, [c]);
 		EditEle(
 			b,
 			{

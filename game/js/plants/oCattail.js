@@ -293,4 +293,4 @@ export var oCattail = InheritO(oPeashooter, {
 			})();
 		});
 	},
-})
+});

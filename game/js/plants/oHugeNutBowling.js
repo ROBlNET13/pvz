@@ -42,4 +42,4 @@ export var oHugeNutBowling = InheritO(oNutBowling, {
 					oSym.addTask(1, moveItem1, [b, c, n, m, e, g]));
 		})(a, oS.W, a.AttackedLX, a.AttackedRX, a.R, $(a.id));
 	},
-})
+});

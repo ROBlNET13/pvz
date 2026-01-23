@@ -59,4 +59,4 @@ export var oJalapeno = InheritO(oCherryBomb, {
 			[a.id]
 		);
 	},
-})
+});

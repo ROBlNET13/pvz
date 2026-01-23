@@ -71,4 +71,4 @@ export var oSeedChomper = InheritO(CPlants, {
 			[a, b]
 		);
 	},
-})
+});

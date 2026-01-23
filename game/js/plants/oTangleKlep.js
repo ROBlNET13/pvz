@@ -130,4 +130,4 @@ export var oTangleKlep = InheritO(CPlants, {
 			[a, b]
 		);
 	},
-})
+});

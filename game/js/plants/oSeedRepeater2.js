@@ -61,4 +61,4 @@ export var oSeedRepeater2 = InheritO(oRepeater, {
 	getTriggerRange(a, b, c) {
 		return [[100, b + 25, 1]];
 	},
-})
+});

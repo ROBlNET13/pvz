@@ -80,4 +80,4 @@ export var oSunShroom = InheritO(oFumeShroom, {
 			[b]
 		);
 	},
-})
+});

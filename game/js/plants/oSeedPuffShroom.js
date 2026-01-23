@@ -69,10 +69,6 @@ export var oSeedPuffShroom = InheritO(oFumeShroom, {
 					? ((d.style.left = (g += 5) + "px"), oSym.addTask(1, moveBullet, [j, d, e, f, g]))
 					: ClearChild(d);
 		};
-		oSym.addTask(
-			1,
-			moveBullet,
-			[c, $(c), a, b.R, a - 46]
-		);
+		oSym.addTask(1, moveBullet, [c, $(c), a, b.R, a - 46]);
 	},
-})
+});

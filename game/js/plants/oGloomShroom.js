@@ -111,4 +111,4 @@ export var oGloomShroom = InheritO(oFumeShroom, {
 			}
 		);
 	},
-})
+});

@@ -124,12 +124,8 @@ export var oSplitPea = InheritO(oPeashooter, {
 						? ((m.style.left = (r += o) + "px"), oSym.addTask(1, moveBullet, [i, m, k, f, q, l, p, n, r, j]))
 						: ClearChild(m);
 			};
-			oSym.addTask(
-				1,
-				moveBullet,
-				[e, $(e), 20, c, d.AttackedLX, d.R, 0, 0, a, oGd.$Torch]
-			);
+			oSym.addTask(1, moveBullet, [e, $(e), 20, c, d.AttackedLX, d.R, 0, 0, a, oGd.$Torch]);
 		};
 		b();
 	},
-})
+});

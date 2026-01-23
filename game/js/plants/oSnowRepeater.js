@@ -26,4 +26,4 @@ export var oSnowRepeater = InheritO(oSnowPea, {
 			[this.id]
 		);
 	},
-})
+});

@@ -71,4 +71,4 @@ export var oSeedIceShroom = InheritO(oSeedFumeShroom, {
 			[a]
 		);
 	},
-})
+});

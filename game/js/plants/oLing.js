@@ -31,4 +31,4 @@ export var oLing = InheritO(oWallNut, {
 					: c.HP < 2667 && c.HurtStatus < 1 && ((c.HurtStatus = 1), (d.src = "images/Plants/Ling/Ling.gif"))
 			: c.Die(1);
 	},
-})
+});

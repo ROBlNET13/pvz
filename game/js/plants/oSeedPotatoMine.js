@@ -108,4 +108,4 @@ export var oSeedPotatoMine = InheritO(CPlants, {
 			[d]
 		);
 	},
-})
+});

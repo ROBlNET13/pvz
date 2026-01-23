@@ -68,4 +68,4 @@ export var oSeedPumpkinHead = InheritO(CPlants, {
 	PrivateDie(a) {
 		ClearChild($(a.id + "_2"));
 	},
-})
+});

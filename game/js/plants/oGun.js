@@ -55,15 +55,15 @@ export var oGun = InheritO(oPuffShroom, {
 		var c = "PSB" + Math.random();
 		var a = b.AttackedLX;
 		((j = k.id),
-		(d = $(j)),
-		EditEle(
-			b.BulletEle.cloneNode(false),
-			{
-				id: c,
-			},
-			0,
-			EDPZ
-		));
+			(d = $(j)),
+			EditEle(
+				b.BulletEle.cloneNode(false),
+				{
+					id: c,
+				},
+				0,
+				EDPZ
+			));
 		oSym.addTask(
 			15,
 			(e) => {
@@ -85,11 +85,7 @@ export var oGun = InheritO(oPuffShroom, {
 					? ((d.style.left = (g += 5) + "px"), oSym.addTask(1, moveBullet, [j, d, e, f, g]))
 					: ClearChild(d);
 		};
-		oSym.addTask(
-			1,
-			moveBullet,
-			[c, $(c), a, b.R, a - 46]
-		);
+		oSym.addTask(1, moveBullet, [c, $(c), a, b.R, a - 46]);
 		d.childNodes[1].src = "images/Plants/gun/SeaShroomShoot.gif";
 		ImgSpriter(
 			k.id,

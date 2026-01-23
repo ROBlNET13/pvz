@@ -31,4 +31,4 @@ export var oBrains = InheritO(CPlants, {
 	GetDX() {
 		return -40;
 	},
-})
+});

@@ -93,4 +93,4 @@ export var oFumeShroom = InheritO(CPlants, {
 			}
 		);
 	},
-})
+});

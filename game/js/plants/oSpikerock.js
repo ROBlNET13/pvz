@@ -49,4 +49,4 @@ export var oSpikerock = InheritO(oSpikeweed, {
 				a.src = "images/Plants/Spikerock/2.gif";
 		}
 	},
-})
+});

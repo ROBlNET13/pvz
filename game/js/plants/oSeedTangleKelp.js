@@ -129,4 +129,4 @@ export var oSeedTangleKelp = InheritO(CPlants, {
 			[a, b]
 		);
 	},
-})
+});

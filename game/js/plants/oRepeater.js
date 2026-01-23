@@ -30,4 +30,4 @@ export var oRepeater = InheritO(oPeashooter, {
 			[this.id]
 		);
 	},
-})
+});

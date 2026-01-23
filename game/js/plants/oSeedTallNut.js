@@ -45,4 +45,4 @@ export var oSeedTallNut = InheritO(oWallNut, {
 					: c.HP < 5333 && c.HurtStatus < 1 && ((c.HurtStatus = 1), (d.src = "images/Plants/TallNut/TallnutCracked1.gif"))
 			: c.Die(1);
 	},
-})
+});

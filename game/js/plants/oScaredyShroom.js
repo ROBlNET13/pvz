@@ -123,4 +123,4 @@ export var oScaredyShroom = InheritO(oFumeShroom, {
 			[a]
 		);
 	},
-})
+});

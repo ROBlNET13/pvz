@@ -269,4 +269,4 @@ export var oStarfruit = InheritO(CPlants, {
 			);
 		})("StarB" + Math.random());
 	},
-})
+});
