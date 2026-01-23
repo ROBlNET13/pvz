@@ -3,10 +3,15 @@
 		<link rel="stylesheet" href="Custom.css" />
 		<meta http-equiv="X-Frame-Options" content="DENY" />
 		<title>Plants vs. Zombies - MODDED Official</title>
-		<link rel="icon" href="https://pvzm.net/game/images/gameicon2.png" type="image/png" />
+		<link
+			rel="icon"
+			href="https://pvzm.net/game/images/gameicon2.png"
+			type="image/png"
+		/>
 		<script>
 			window.addEventListener("beforeunload", function (e) {
-				var confirmationMessage = "Are you sure you want to leave? Progress does not save and any progress will be lost.";
+				var confirmationMessage =
+					"Are you sure you want to leave? Progress does not save and any progress will be lost.";
 				e.returnValue = confirmationMessage; // For most browsers
 				return confirmationMessage; // For some older browsers
 			});
@@ -14,7 +19,7 @@
 		<script src="js/pako.js" defer></script>
 		<!-- <script src="js/html2canvas.js" defer></script> -->
 		<script src="js/msgpack.min.js" defer></script>
-		<script src="oneko.js"></script>
+		<script src="js/oneko.js"></script>
 		<script src="js/WebComponents.js" defer></script>
 		<meta property="og:title" content="Play Plants vs Zombies Modded Online" />
 		<meta
@@ -23,14 +28,23 @@
 		/>
 		<meta property="og:url" content="https://pvzm.net/game.html" />
 		<meta property="og:site_name" content="ROBLNET13" />
-		<meta property="og:image" content="https://pvzm.net/game/images/gamethumbnail5.png" />
+		<meta
+			property="og:image"
+			content="https://pvzm.net/game/images/gamethumbnail5.png"
+		/>
 		<meta property="og:image:alt" content="Plants vs. Zombies - MODDED" />
 		<meta property="og:image:type" content="image/png" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="theme-color" content="#ff2200" />
 		<meta name="twitter:title" content="Play Plants vs. Zombies Modded Online" />
-		<meta name="twitter:description" content="Play Plants vs. Zombie Modded here for Free - Mod by ROBlNET13 on Github." />
-		<meta name="twitter:image" content="https://pvzm.net/game/images/gamethumbnail5.png" />
+		<meta
+			name="twitter:description"
+			content="Play Plants vs. Zombie Modded here for Free - Mod by ROBlNET13 on Github."
+		/>
+		<meta
+			name="twitter:image"
+			content="https://pvzm.net/game/images/gamethumbnail5.png"
+		/>
 		<link rel="stylesheet" href="UI.css" />
 		<!-- REMOVE THIS SCRIPT AFTER REFACTOR IS DONE -->
 		<script>
@@ -98,8 +112,14 @@
 							}
 						});
 					} else if (mutation.type === "attributes") {
-						if (mutation.target.nodeType === Node.ELEMENT_NODE && mutation.target.tagName === "FONT") {
-							console.log(`Attribute '${mutation.attributeName}' changed on:`, mutation.target);
+						if (
+							mutation.target.nodeType === Node.ELEMENT_NODE &&
+							mutation.target.tagName === "FONT"
+						) {
+							console.log(
+								`Attribute '${mutation.attributeName}' changed on:`,
+								mutation.target,
+							);
 							replaceSingleFontTag(mutation.target);
 						}
 					}
@@ -121,15 +141,27 @@
 
 				observer.observe(document.body, config);
 
-				console.log("MutationObserver started, watching for new <font> tags and attribute changes.");
+				console.log(
+					"MutationObserver started, watching for new <font> tags and attribute changes.",
+				);
 			}
 
 			document.addEventListener("DOMContentLoaded", initializeFontReplacement);
 		</script>
-		<meta name="google-site-verification" content="fJLVF6HtXXMM2ag1_bMLijwLhOVj9XWFtUb8KlkdS0I" />
+		<meta
+			name="google-site-verification"
+			content="fJLVF6HtXXMM2ag1_bMLijwLhOVj9XWFtUb8KlkdS0I"
+		/>
 	</head>
 
-	<body id="dBody" topmargin="0" leftmargin="0" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false">
+	<body
+		id="dBody"
+		topmargin="0"
+		leftmargin="0"
+		oncontextmenu="return false;"
+		ondragstart="return false;"
+		onselectstart="return false"
+	>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<!--   <div id="preloader"> -->
 		<!--	    <div id="status" class="WindowFrame"></div> -->
@@ -170,13 +202,21 @@
 										k: "SetNone($('dSurface'));PlaySound2('tap')",
 									},
 								];
-							for (var i = 0; i <= 2; i++) s += '<area href="javascript:;" shape="rect" coords="' + ar[i].c + '" onclick="' + ar[i].k + '">';
+							for (var i = 0; i <= 2; i++)
+								s +=
+									'<area href="javascript:;" shape="rect" coords="' +
+									ar[i].c +
+									'" onclick="' +
+									ar[i].k +
+									'">';
 							document.write(s);
 						})();
 					</script>
 				</map>
 				<img src="images/interface/Surface.jpg" usemap="#FPMap0" border="0" />
-				<div style="position: absolute; width: 350px; height: 150px; left: 468px; top: 82px"></div>
+				<div
+					style="position: absolute; width: 350px; height: 150px; left: 468px; top: 82px"
+				></div>
 				<div
 					class="adventure0"
 					id="dAdventure"
@@ -184,14 +224,18 @@
 					onmouseout="this.style.backgroundPosition = 'top'"
 					onclick="StartAdventure()"
 				></div>
-				<div style="position: absolute; width: 318px; height: 136px; left: 476px; top: 208px"></div>
+				<div
+					style="position: absolute; width: 318px; height: 136px; left: 476px; top: 208px"
+				></div>
 				<div
 					class="mini"
 					onmouseover="this.style.backgroundPosition = 'bottom'"
 					onmouseout="this.style.backgroundPosition = 'top'"
 					onclick="ShowMiniGame()"
 				></div>
-				<div style="position: absolute; width: 289px; height: 127px; left: 480px; top: 307px"></div>
+				<div
+					style="position: absolute; width: 289px; height: 127px; left: 480px; top: 307px"
+				></div>
 				<div
 					class="riddle"
 					onmouseover="this.style.backgroundPosition = 'bottom'"
@@ -203,7 +247,7 @@
 				<div class="Sunflower_trophy">
 					<script>
 						document.write(
-							'<img onclick="window.open(\'https://github.com/ROBlNET13/pvz\')" title="Producer" alt="3" src="images/interface/Sunflower_trophy32.png">'
+							'<img onclick="window.open(\'https://github.com/ROBlNET13/pvz\')" title="Producer" alt="3" src="images/interface/Sunflower_trophy32.png">',
 						);
 					</script>
 				</div>
@@ -228,7 +272,12 @@
 				<table border="0" width="434" cellspacing="0" cellpadding="0" height="484">
 					<tr>
 						<td width="107" height="142" valign="bottom">
-							<img border="0" src="images/interface/dialog_topleft.png" width="423" height="401" />
+							<img
+								border="0"
+								src="images/interface/dialog_topleft.png"
+								width="423"
+								height="401"
+							/>
 						</td>
 					</tr>
 				</table>
@@ -242,7 +291,12 @@
 				<table border="0" width="434" cellspacing="0" cellpadding="0" height="484">
 					<tr>
 						<td width="107" height="142" valign="bottom">
-							<img border="0" src="images/interface/dialog_topleft.png" width="423" height="401" />
+							<img
+								border="0"
+								src="images/interface/dialog_topleft.png"
+								width="423"
+								height="401"
+							/>
 						</td>
 					</tr>
 				</table>
@@ -269,7 +323,12 @@
 									</label>
 								</div>
 								<div>
-									<input type="checkbox" id="cSilence" value="1" onchange="PlaySound2('buttonclick')" />
+									<input
+										type="checkbox"
+										id="cSilence"
+										value="1"
+										onchange="PlaySound2('buttonclick')"
+									/>
 									<label for="cSilence" id="lSilence">
 										Mute Audio<img
 											src="images/interface/icon_musicnote.png"
@@ -310,7 +369,9 @@
 							"
 						/>
 
-						<div class="BigLevel button almanacButton" onclick="ViewHandBook()">Almanac</div>
+						<div class="BigLevel button almanacButton" onclick="ViewHandBook()">
+							Almanac
+						</div>
 
 						<img
 							src="images/interface/icon_plant.png"
@@ -325,7 +386,11 @@
 							"
 						/>
 
-						<div class="trophy" onclick="SelectModal('achievements')" style="display: none"></div>
+						<div
+							class="trophy"
+							onclick="SelectModal('achievements')"
+							style="display: none"
+						></div>
 						<div class="BigLevel button" onclick="SelectModal(oS.Lvl)">Restart</div>
 
 						<img
@@ -397,7 +462,12 @@
 								var s = "",
 									startlvl = BLvl * 10;
 								do {
-									s += '<span class="lvl" onclick="SelectModal(' + (startlvl + SLvl1) + ')">' + ArLvl[SLvl1] + "</span>";
+									s +=
+										'<span class="lvl" onclick="SelectModal(' +
+										(startlvl + SLvl1) +
+										')">' +
+										ArLvl[SLvl1] +
+										"</span>";
 								} while (SLvl1++ < SLvl2);
 								document.write(s);
 							};
@@ -416,7 +486,13 @@
 								width="61"
 								height="61"
 							/>
-							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
+							<img
+								class="img2"
+								border="0"
+								src="images/interface/Almanac_ZombieWindow2.png"
+								width="76"
+								height="76"
+							/>
 						</div>
 						<div class="lvl2">
 							<script>
@@ -435,7 +511,13 @@
 								width="61"
 								height="61"
 							/>
-							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
+							<img
+								class="img2"
+								border="0"
+								src="images/interface/Almanac_ZombieWindow2.png"
+								width="76"
+								height="76"
+							/>
 						</div>
 						<div class="lvl2">
 							<script>
@@ -454,7 +536,13 @@
 								width="61"
 								height="61"
 							/>
-							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
+							<img
+								class="img2"
+								border="0"
+								src="images/interface/Almanac_ZombieWindow2.png"
+								width="76"
+								height="76"
+							/>
 						</div>
 						<div class="lvl2">
 							<script>
@@ -473,7 +561,13 @@
 								width="61"
 								height="61"
 							/>
-							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
+							<img
+								class="img2"
+								border="0"
+								src="images/interface/Almanac_ZombieWindow2.png"
+								width="76"
+								height="76"
+							/>
 						</div>
 						<div class="lvl2">
 							<script>
@@ -492,7 +586,13 @@
 								width="61"
 								height="61"
 							/>
-							<img class="img2" border="0" src="images/interface/Almanac_ZombieWindow2.png" width="76" height="76" />
+							<img
+								class="img2"
+								border="0"
+								src="images/interface/Almanac_ZombieWindow2.png"
+								width="76"
+								height="76"
+							/>
 						</div>
 						<div class="lvl2">
 							<script>
@@ -598,9 +698,15 @@
 					</div>
 				</div>
 			</div>
-			<div id="dRiddleSmallContainer" class="Challenge_Background TitleSmallContainer">
+			<div
+				id="dRiddleSmallContainer"
+				class="Challenge_Background TitleSmallContainer"
+			>
 				<div id="dMiniSmallTitle">Mini-Games</div>
-				<div id="dMini0" style="overflow-y: auto; height: 476px; width: 890px; margin-top: 2px">
+				<div
+					id="dMini0"
+					style="overflow-y: auto; height: 476px; width: 890px; margin-top: 2px"
+				>
 					<table cellspacing="10" width="100%" style="color: #2a2a5a">
 						<script>
 							(function () {
@@ -713,10 +819,37 @@
 				</div>
 				<!--对战界面已作废，无特殊请勿乱动-->
 				<div id="dRiddle1">
-					<div style="position: relative; width: 94%; font-size: 12px; margin-top: 10px; margin-left: auto; margin-right: auto; color: #000">
-						<button class="jhp" style="height: 23px" onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(0)">all games</button>
-						<button class="jhp" style="height: 23px" onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(1)">I created</button>
-						<button class="jhp" style="height: 23px" onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(2)">i played</button
+					<div
+						style="
+							position: relative;
+							width: 94%;
+							font-size: 12px;
+							margin-top: 10px;
+							margin-left: auto;
+							margin-right: auto;
+							color: #000;
+						"
+					>
+						<button
+							class="jhp"
+							style="height: 23px"
+							onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(0)"
+						>
+							all games
+						</button>
+						<button
+							class="jhp"
+							style="height: 23px"
+							onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(1)"
+						>
+							I created
+						</button>
+						<button
+							class="jhp"
+							style="height: 23px"
+							onclick="window.frames['fRiddleAlreadyCreateGame'].SearchLvl(2)"
+						>
+							i played</button
 						>&nbsp;&nbsp;&nbsp; <input type="text" id="tRiddleID" size="1" /><button
 							class="jhp"
 							style="height: 23px"
@@ -736,7 +869,9 @@
 						>
 							Title query
 						</button>
-						<div style="border: 1px solid #000; height: 440px; width: 100%; background: #fafafa">
+						<div
+							style="border: 1px solid #000; height: 440px; width: 100%; background: #fafafa"
+						>
 							<iframe
 								name="fRiddleAlreadyCreateGame"
 								id="fRiddleAlreadyCreateGame"
@@ -802,7 +937,15 @@
 				<div class="title"></div>
 				<div id="dPCard"></div>
 				<div class="bTitle">
-					<input class="button" onclick="ResetSelectCard()" type="button" value="Clear" name="btnReset" id="btnReset" style="color: #fc6" />
+					<input
+						class="button"
+						onclick="ResetSelectCard()"
+						type="button"
+						value="Clear"
+						name="btnReset"
+						id="btnReset"
+						style="color: #fc6"
+					/>
 					<input
 						class="button"
 						onclick="oS.ScrollBack(LetsGO)"
@@ -820,7 +963,11 @@
 					<span id="sSunNum"></span>
 				</div>
 				<div id="tdShovel">
-					<img id="imgShovel" src="images/interface/Shovel/0.gif" onmousedown="ChoseShovel(event)" />
+					<img
+						id="imgShovel"
+						src="images/interface/Shovel/0.gif"
+						onmousedown="ChoseShovel(event)"
+					/>
 				</div>
 			</div>
 			<div id="dPZ"></div>
@@ -842,12 +989,38 @@
 			<div class="title">Suburban Almanac - Index</div>
 			<div class="content">
 				<div>
-					<img border="0" src="images/Plants/SunFlower/SunFlower1.gif" width="73" height="74" style="position: relative; left: 10px" /><br />
-					<input class="button" type="button" value="View Plants" name="btnViewPlant" id="btnViewPlant" onclick="InitHandBookPCard()" />
+					<img
+						border="0"
+						src="images/Plants/SunFlower/SunFlower1.gif"
+						width="73"
+						height="74"
+						style="position: relative; left: 10px"
+					/><br />
+					<input
+						class="button"
+						type="button"
+						value="View Plants"
+						name="btnViewPlant"
+						id="btnViewPlant"
+						onclick="InitHandBookPCard()"
+					/>
 				</div>
 				<div style="left: 50%; padding-top: 95px">
-					<img border="0" src="images/Zombies/Zombie/1.gif" width="149" height="130" style="position: relative; right: 40px" /><br />
-					<input class="button" type="button" value="View Zombies" name="btnViewZombie" id="btnViewZombie" onclick="InitHandBookZCard()" />
+					<img
+						border="0"
+						src="images/Zombies/Zombie/1.gif"
+						width="149"
+						height="130"
+						style="position: relative; right: 40px"
+					/><br />
+					<input
+						class="button"
+						type="button"
+						value="View Zombies"
+						name="btnViewZombie"
+						id="btnViewZombie"
+						onclick="InitHandBookZCard()"
+					/>
 				</div>
 			</div>
 			<div
@@ -870,7 +1043,8 @@
 					<div id="dHandBookPlantName"></div>
 					<div id="dProducePlant"></div>
 					<div class="cost_cool">
-						<span class="cost">Cost: </span><span id="spSunNum"></span><span class="cool">Recharge: </span><span id="spCoolTime"></span>
+						<span class="cost">Cost: </span><span id="spSunNum"></span
+						><span class="cool">Recharge: </span><span id="spCoolTime"></span>
 					</div>
 				</div>
 			</div>
@@ -932,18 +1106,32 @@
 			>
 				MAIN MENU
 			</div>
-			<input type="button" value="NEXT LEVEL!" name="btnNextLevel" id="btnNextLevel" />
+			<input
+				type="button"
+				value="NEXT LEVEL!"
+				name="btnNextLevel"
+				id="btnNextLevel"
+			/>
 		</div>
 		<div id="dProcess">
-			<input class="button" type="button" value="Close" onclick="SetHidden($('dProcess'))" style="margin-top: 330px" />
+			<input
+				class="button"
+				type="button"
+				value="Close"
+				onclick="SetHidden($('dProcess'))"
+				style="margin-top: 330px"
+			/>
 			<script>
 				document.write(
-					'<a style="margin-left:50px;cursor:url(images/interface/Pointer.cur),pointer;color:#FF0;font-size:15px;text-decoration:none;font-weight:bold;display:none" target="_blank" ></a>'
+					'<a style="margin-left:50px;cursor:url(images/interface/Pointer.cur),pointer;color:#FF0;font-size:15px;text-decoration:none;font-weight:bold;display:none" target="_blank" ></a>',
 				);
 			</script>
 		</div>
 		<div id="dSpeedContainer">
-			<div class="title">At the request of players, the game speed adjustment function is especially introduced</div>
+			<div class="title">
+				At the request of players, the game speed adjustment function is especially
+				introduced
+			</div>
 			<div class="dSpeed" title="Click on a speed to select soft acceleration">
 				<div class="dS1">Click on the corresponding speed</div>
 				<div class="dS2">
@@ -956,14 +1144,17 @@
 			</div>
 			<div class="nowspeed">Current game speed:<span id="dDisplaySpeed">1</span></div>
 			<div class="content">
-				<span>&nbsp;&nbsp;&nbsp; Speed Continue</span>: Ideally, the speed adjustment provided by the game is
-				<font color="#FFFF00">1/2 speed - 10 times speed</font>. But the speed Continue effect is related to your browser and computer. For example, IE6
-				browser can't be expected to be 10 times faster on a good computer.<br />&nbsp;&nbsp;&nbsp; After the speed adjustment, the visual visual of the
-				screen may feel a bit sluggish, and at high speeds, some browsers may not be able to accelerate or can only accelerate for a short time and then
-				slow down.<br />&nbsp;&nbsp;&nbsp;
+				<span>&nbsp;&nbsp;&nbsp; Speed Continue</span>: Ideally, the speed adjustment
+				provided by the game is <font color="#FFFF00">1/2 speed - 10 times speed</font>.
+				But the speed Continue effect is related to your browser and computer. For
+				example, IE6 browser can't be expected to be 10 times faster on a good
+				computer.<br />&nbsp;&nbsp;&nbsp; After the speed adjustment, the visual visual
+				of the screen may feel a bit sluggish, and at high speeds, some browsers may not
+				be able to accelerate or can only accelerate for a short time and then slow
+				down.<br />&nbsp;&nbsp;&nbsp;
 				<span style="color: #ff0"
-					>Finally, it is strongly recommended to use: Chrome, FireFox, Brave, so that you can experience the feeling of a machine gun with a
-					peashooter!<br />&nbsp;&nbsp;&nbsp;
+					>Finally, it is strongly recommended to use: Chrome, FireFox, Brave, so that you
+					can experience the feeling of a machine gun with a peashooter!<br />&nbsp;&nbsp;&nbsp;
 				</span>
 			</div>
 			<br />
@@ -974,7 +1165,19 @@
 		</div>
 		<!-- izombie lvl saving stuffs -->
 		<!--本网页来自江南游戏 || pvzweb.usa3v.net-->
-		<button id="changelog" style="z-index: 99999; position: relative; margin-top: 544px; left: 50%; margin-left: -400px; display: none">Changelog</button>
+		<button
+			id="changelog"
+			style="
+				z-index: 99999;
+				position: relative;
+				margin-top: 544px;
+				left: 50%;
+				margin-left: -400px;
+				display: none;
+			"
+		>
+			Changelog
+		</button>
 		<svg style="width: 0; height: 0">
 			<defs>
 				<filter id="cardboard" x="-50%" y="-50%" width="200%" height="200%">
@@ -1020,7 +1223,13 @@
 						in="SourceGraphic"
 						result="fullSepia"
 					/>
-					<feBlend in="brightenedImage" in2="fullSepia" mode="normal" result="sepiaBlended" style="mix-blend-mode: lighten"></feBlend>
+					<feBlend
+						in="brightenedImage"
+						in2="fullSepia"
+						mode="normal"
+						result="sepiaBlended"
+						style="mix-blend-mode: lighten"
+					></feBlend>
 
 					<feColorMatrix
 						type="matrix"
@@ -1043,17 +1252,32 @@
 					<feGaussianBlur in="SourceAlpha" stdDeviation="0" result="blur1" />
 					<feOffset dx="-2" dy="-2" in="blur1" result="offsetBlur1" />
 					<feFlood flood-color="rgb(171, 135, 107)" result="shadowColor1" />
-					<feComposite in="shadowColor1" in2="offsetBlur1" operator="in" result="shadow1" />
+					<feComposite
+						in="shadowColor1"
+						in2="offsetBlur1"
+						operator="in"
+						result="shadow1"
+					/>
 
 					<feGaussianBlur in="SourceAlpha" stdDeviation="0" result="blur2" />
 					<feOffset dx="4" dy="4" in="blur3" result="offsetBlur3" />
 					<feFlood flood-color="rgb(122, 86, 58)" result="shadowColor3" />
-					<feComposite in="shadowColor3" in2="offsetBlur3" operator="in" result="shadow3" />
+					<feComposite
+						in="shadowColor3"
+						in2="offsetBlur3"
+						operator="in"
+						result="shadow3"
+					/>
 
 					<feGaussianBlur in="SourceAlpha" stdDeviation="0" result="blur3" />
 					<feOffset dx="2" dy="2" in="blur2" result="offsetBlur2" />
 					<feFlood flood-color="rgb(171, 135, 107)" result="shadowColor2" />
-					<feComposite in="shadowColor2" in2="offsetBlur2" operator="in" result="shadow2" />
+					<feComposite
+						in="shadowColor2"
+						in2="offsetBlur2"
+						operator="in"
+						result="shadow2"
+					/>
 
 					<feMerge>
 						<feMergeNode in="shadow1" />
@@ -1109,7 +1333,13 @@
 						in="SourceGraphic"
 						result="fullSepia"
 					/>
-					<feBlend in="brightenedImage" in2="fullSepia" mode="normal" result="sepiaBlended" style="mix-blend-mode: lighten"></feBlend>
+					<feBlend
+						in="brightenedImage"
+						in2="fullSepia"
+						mode="normal"
+						result="sepiaBlended"
+						style="mix-blend-mode: lighten"
+					></feBlend>
 
 					<feColorMatrix
 						type="matrix"
@@ -1132,29 +1362,22 @@
 			</defs>
 		</svg>
 		<!-- cloudflare turnstile -->
-		<script async defer src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
+		<script
+			async
+			defer
+			src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+		></script>
 		<!-- cfunction -->
-		<script src="js/Cfunction.js" defer></script>
+		<script src="js/Cfunction.js"></script>
+		<script src="js/Welcome.js"></script>
+		<script src="js/Menus.js"></script>
+		<script src="js/Custom.js"></script>
+		<script src="js/Cheatcodes.js"></script>
+		<script src="js/CreateCPlants.js"></script>
+		<script src="js/CPlants.js" type="module"></script>
+		<script src="js/CZombie.js"></script>
+		<script src="js/IZombie.js"></script>
 		<script>
-			/*
-				<script src="js/Welcome.js"><\/script>
-				<script src="js/Menus.js" defer><\/script>
-				<script src="js/Custom.js" defer><\/script>
-				<script src="js/Cheatcodes.js" defer><\/script>
-				<script src="js/CPlants.js"><\/script>
-				<script src="js/CZombie.js"><\/script>
-				<script src="js/IZombie.js"><\/script>
-			*/
-			const scriptUrls = [
-				"js/Welcome.js",
-				"js/Menus.js",
-				"js/Custom.js",
-				"js/Cheatcodes.js",
-				"js/CPlants.js",
-				"js/CZombie.js",
-				"js/IZombie.js",
-				"js/Init.js",
-			];
 			// check if autoplay is allowed
 			let testAudio = new Audio("audio/achievement.mp3");
 			testAudio
@@ -1163,12 +1386,17 @@
 					// autoplay is allowed, destroy the test audio element
 					testAudio.muted = true;
 					testAudio.src = "";
-					// add the scripts
-					scriptUrls.forEach((url) => {
-						const script = document.createElement("script");
-						script.src = url;
-						document.body.appendChild(script);
-					});
+					// init the game
+					$User.Client.PC && $User.HTTP
+						? ((oS.AutoSun = Math.floor(getCookie("JSPVZAutoSun"))) &&
+								($("cAutoSun").checked = true),
+							(oS.Silence = Math.floor(getCookie("JSPVZSilence"))) &&
+								($("cSilence").checked = true))
+						: ((oS.AutoSun = 1),
+							($("cAutoSun").checked = true),
+							(oS.Silence = 0),
+							($("cSilence").checked = false));
+					InitGame();
 				})
 				.catch(() => {
 					// autoplay is not allowed, add the button to enable audio
@@ -1191,19 +1419,25 @@
 					btnEnableAudio.onclick = () => {
 						// remove the cover
 						cover.remove();
-						// add the scripts
-						scriptUrls.forEach((url) => {
-							const script = document.createElement("script");
-							script.src = url;
-							document.body.appendChild(script);
-						});
+						// init the game
+						$User.Client.PC && $User.HTTP
+							? ((oS.AutoSun = Math.floor(getCookie("JSPVZAutoSun"))) &&
+									($("cAutoSun").checked = true),
+								(oS.Silence = Math.floor(getCookie("JSPVZSilence"))) &&
+									($("cSilence").checked = true))
+							: ((oS.AutoSun = 1),
+								($("cAutoSun").checked = true),
+								(oS.Silence = 0),
+								($("cSilence").checked = false));
+						InitGame();
+
 						// remove the button
 						btnEnableAudio.remove();
 					};
 					document.querySelector("#dAll").appendChild(btnEnableAudio);
 				});
 			eval(
-				`try{throw new TextDecoder().decode(Uint8Array.from(atob(new TextDecoder().decode(Uint8Array.from(atob("WTI5dWMzUWdjM1I1YkdVOVpHOWpkVzFsYm5RdVkzSmxZWFJsUld4bGJXVnVkQ2duYzNSNWJHVW5LVHR6ZEhsc1pTNTBaWGgwUTI5dWRHVnVkRDFnSTNOMGIyeGxiaTEzWVhKdWFXNW5lM0J2YzJsMGFXOXVPbVpwZUdWa08zUnZjRG93TzJ4bFpuUTZNRHQzYVdSMGFEb3hNREFsTzJobGFXZG9kRG94TURBbE8ySmhZMnRuY205MWJtUTZjbWRpWVNnd0xEQXNNQ3d1T1RVcE8zb3RhVzVrWlhnNk9UazVPVGs1TzJScGMzQnNZWGs2Ym05dVpUdHFkWE4wYVdaNUxXTnZiblJsYm5RNlkyVnVkR1Z5TzJGc2FXZHVMV2wwWlcxek9tTmxiblJsY24wdWMzUnZiR1Z1TFhkaGNtNXBibWN0WTI5dWRHVnVkSHRpWVdOclozSnZkVzVrT2lObVptWTdjR0ZrWkdsdVp6b3laVzA3WW05eVpHVnlMWEpoWkdsMWN6b3lNSEI0TzNSbGVIUXRZV3hwWjI0NlkyVnVkR1Z5TzIxaGVDMTNhV1IwYURvNE1DVTdZbTl5WkdWeU9qaHdlQ0J6YjJ4cFpDQWpabVk1T0RBd08ySnZlQzF6YUdGa2IzYzZNQ0F3SURVd2NIZ2djbWRpWVNneU5UVXNNVFV5TERBc0xqTXBmUzV6ZEc5c1pXNHRkMkZ5Ym1sdVp5MWpiMjUwWlc1MElHZ3llMk52Ykc5eU9pTm1aams0TURBN2JXRnlaMmx1TFhSdmNEb3dPMlp2Ym5RdGMybDZaVG95TGpWbGJUdHRZWEpuYVc0dFltOTBkRzl0T2k0MVpXMDdabTl1ZEMxbVlXMXBiSGs2YUc5MWMyVnZablJsY25KdmNtMWxaR2wxYlNGcGJYQnZjblJoYm5RN2RHVjRkQzF6YUdGa2IzYzZNQ0F6Y0hnZ01DQWpNREF3TERGd2VDQXpjSGdnTUNBak1EQXdMREp3ZUNBemNIZ2dNQ0FqTURBd0xETndlQ0F6Y0hnZ01DQWpNREF3TEROd2VDQXljSGdnTUNBak1EQXdMRE53ZUNBeGNIZ2dNQ0FqTURBd0xETndlQ0F3SURBZ0l6QXdNQ3d6Y0hnZ0xURndlQ0F3SUNNd01EQXNNM0I0SUMweWNIZ2dNQ0FqTURBd0xETndlQ0F0TTNCNElEQWdJekF3TUN3eWNIZ2dMVEZ3ZUNBd0lDTXdNREFzTW5CNElDMHljSGdnTUNBak1EQXdMREp3ZUNBdE0zQjRJREFnSXpBd01Dd3hjSGdnTFRGd2VDQXdJQ013TURBc01YQjRJQzB5Y0hnZ01DQWpNREF3TERGd2VDQXRNM0I0SURBZ0l6QXdNQ3d3SUMweGNIZ2dNQ0FqTURBd0xEQWdMVEp3ZUNBd0lDTXdNREFzTUNBdE0zQjRJREFnSXpBd01Dd3RNWEI0SUMweGNIZ2dNQ0FqTURBd0xDMHhjSGdnTFRKd2VDQXdJQ013TURBc0xURndlQ0F0TTNCNElEQWdJekF3TUN3dE1uQjRJQzB4Y0hnZ01DQWpNREF3TEMweWNIZ2dMVEp3ZUNBd0lDTXdNREFzTFRKd2VDQXRNM0I0SURBZ0l6QXdNQ3d0TTNCNElDMHhjSGdnTUNBak1EQXdMQzB6Y0hnZ0xUSndlQ0F3SUNNd01EQXNMVE53ZUNBdE0zQjRJREFnSXpBd01Dd3RNM0I0SURBZ01DQWpNREF3TEMwemNIZ2dNWEI0SURBZ0l6QXdNQ3d0TTNCNElESndlQ0F3SUNNd01EQXNMVE53ZUNBemNIZ2dNQ0FqTURBd0xESndlQ0ExY0hnZ01DQWpNREF3TEROd2VDQTFjSGdnTUNBak1EQXdMRFJ3ZUNBMWNIZ2dNQ0FqTURBd0xEVndlQ0ExY0hnZ01DQWpNREF3TERWd2VDQTBjSGdnTUNBak1EQXdMRFZ3ZUNBemNIZ2dNQ0FqTURBd0xEVndlQ0F5Y0hnZ01DQWpNREF3TERWd2VDQXhjSGdnTUNBak1EQXdMRFZ3ZUNBd0lEQWdJekF3TUN3MWNIZ2dMVEZ3ZUNBd0lDTXdNREFzTkhCNElERndlQ0F3SUNNd01EQXNOSEI0SURBZ01DQWpNREF3TERSd2VDQXRNWEI0SURBZ0l6QXdNQ3d6Y0hnZ01YQjRJREFnSXpBd01Dd3pjSGdnTUNBd0lDTXdNREFzTTNCNElDMHhjSGdnTUNBak1EQXdMREp3ZUNBeGNIZ2dNQ0FqTURBd0xESndlQ0F3SURBZ0l6QXdNQ3d5Y0hnZ0xURndlQ0F3SUNNd01EQXNNWEI0SURGd2VDQXdJQ013TURBc01YQjRJREFnTUNBak1EQXdMREZ3ZUNBdE1YQjRJREFnSXpBd01Dd3dJREZ3ZUNBd0lDTXdNREFzTUNBd0lEQWdJekF3TUN3d0lDMHhjSGdnTUNBak1EQXdMQzB4Y0hnZ01YQjRJREFnSXpBd01Dd3RNWEI0SURBZ01DQWpNREF3TEMweGNIZ2dMVEZ3ZUNBd0lDTXdNREFzTFRGd2VDQXljSGdnTUNBak1EQXdMQzB4Y0hnZ00zQjRJREFnSXpBd01Dd3RNWEI0SURSd2VDQXdJQ013TURBc0xURndlQ0ExY0hnZ01DQWpNREF3ZlM1emRHOXNaVzR0ZDJGeWJtbHVaeTFqYjI1MFpXNTBJR0Y3WkdsemNHeGhlVHBwYm14cGJtVXRZbXh2WTJzN1kyOXNiM0k2SXpBMll6dG1iMjUwTFhOcGVtVTZNUzQwWlcwN2JXRnlaMmx1T2pGbGJTQXdPM1JsZUhRdFpHVmpiM0poZEdsdmJqcHViMjVsTzJadmJuUXRabUZ0YVd4NU9tTnZiblJwYm5WMWJXSnZiR1FoYVcxd2IzSjBZVzUwZlM1emRHOXNaVzR0ZDJGeWJtbHVaeTFqYjI1MFpXNTBJR0U2YUc5MlpYSjdkR1Y0ZEMxa1pXTnZjbUYwYVc5dU9uVnVaR1Z5YkdsdVpUdGpiMnh2Y2pvak1UTTNPR1JrZlM1emRHOXNaVzR0ZDJGeWJtbHVaeTFqYjI1MFpXNTBJQzVpYVdjdFluVjBkRzl1ZTJadmJuUXRabUZ0YVd4NU9tUjNZWEoyWlc1MGIyUmpjbUZtZENGcGJYQnZjblJoYm5RN1kyOXNiM0k2STJVMlpXUmpPRHR3WVdSa2FXNW5PakUxY0hnZ016QndlRHRpYjNKa1pYSXRjbUZrYVhWek9qRXdjSGc3ZEdWNGRDMWtaV052Y21GMGFXOXVPbTV2Ym1VN2JXRnlaMmx1T2pJd2NIZ2dNRHRrYVhOd2JHRjVPbUpzYjJOck8zUnlZVzV6YVhScGIyNDZkSEpoYm5ObWIzSnRJQzR5Y3p0aWIzZ3RjMmhoWkc5M09tbHVjMlYwSUMweGNIZ2dMVEZ3ZUNBeWNIZ2dNQ0J5WjJKaEtEQXNNQ3d3TEM0eUtTeHBibk5sZENBeGNIZ2dNWEI0SURKd2VDQXdJQ00yWW1VMU5tWTdZbUZqYTJkeWIzVnVaRHBzYVc1bFlYSXRaM0poWkdsbGJuUW9PVEJrWldjc0l6UmpZV1kxTUN3ak5EQTVaRFEwS1gwdWMzUnZiR1Z1TFhkaGNtNXBibWN0WTI5dWRHVnVkQ0F1WW1sbkxXSjFkSFJ2Ympwb2IzWmxjbnRqYjJ4dmNqb2paakptWldKbE8zUnlZVzV6Wm05eWJUcHpZMkZzWlNneExqQTFLVHRpWVdOclozSnZkVzVrT214cGJtVmhjaTFuY21Ga2FXVnVkQ2c1TUdSbFp5d2pOVGRqTURWaUxDTTFNV0l5TlRZcE8zUmxlSFF0WkdWamIzSmhkR2x2YmpwdWIyNWxmUzV6ZEc5c1pXNHRkMkZ5Ym1sdVp5MWpiMjUwWlc1MElDNXpiV0ZzYkMxaWRYUjBiMjU3WW1GamEyZHliM1Z1WkRvak5qWTJPMk52Ykc5eU9pTm1abVk3WW05eVpHVnlPbTV2Ym1VN2NHRmtaR2x1WnpveE1IQjRJREl3Y0hnN1ltOXlaR1Z5TFhKaFpHbDFjem8xY0hnN1kzVnljMjl5T25WeWJDaHBiV0ZuWlhNdmFXNTBaWEptWVdObEwxQnZhVzUwWlhJdVkzVnlLU3h3YjJsdWRHVnlPMjFoY21kcGJpMTBiM0E2TVRCd2VEdG1iMjUwTFhOcGVtVTZMamxsYlR0dmNHRmphWFI1T2k0M08ySnZlQzF6YUdGa2IzYzZhVzV6WlhRZ0xURndlQ0F0TVhCNElESndlQ0F3SUhKblltRW9NQ3d3TERBc0xqSXBMR2x1YzJWMElERndlQ0F4Y0hnZ01uQjRJREFnSTJFNFlUaGhPRHRpWVdOclozSnZkVzVrT214cGJtVmhjaTFuY21Ga2FXVnVkQ2c1TUdSbFp5d2pOalkyTENNMU1EUm1OR1lwZlM1emRHOXNaVzR0ZDJGeWJtbHVaeTFqYjI1MFpXNTBJQzV6YldGc2JDMWlkWFIwYjI0NmFHOTJaWEo3YjNCaFkybDBlVG94ZlM1emRHOXNaVzR0ZDJGeWJtbHVaeTFqYjI1MFpXNTBJQzV1YjNSbExXSnZlSHRpWVdOclozSnZkVzVrT2lObU5XWTFaalU3WW05eVpHVnlPakZ3ZUNCemIyeHBaQ0FqWkdSa08ySnZjbVJsY2kxeVlXUnBkWE02T0hCNE8zQmhaR1JwYm1jNk1UQndlRHR0WVhKbmFXNDZNVFZ3ZUNBd2ZXQXNaRzlqZFcxbGJuUXVhR1ZoWkM1aGNIQmxibVJEYUdsc1pDaHpkSGxzWlNrc1pHOWpkVzFsYm5RdVoyVjBSV3hsYldWdWRFSjVTV1FvSjJSQ2IyUjVKeWt1YVc1dVpYSklWRTFNS3oxZ1BHUnBkaUJwWkQwbmMzUnZiR1Z1TFhkaGNtNXBibWNuSUhOMGVXeGxQU2RrYVhOd2JHRjVPbTV2Ym1VN0p6NDhaR2wySUdOc1lYTnpQU2R6ZEc5c1pXNHRkMkZ5Ym1sdVp5MWpiMjUwWlc1MEp6NDhhREkrNHBxZ0lFUnBabVpsY21WdWRDQlhaV0p6YVhSbElGZGhjbTVwYm1jZzRwcWdQQzlvTWo0OGNDQnpkSGxzWlQwblptOXVkQzF6YVhwbE9qRXVNbVZ0Sno1WmIzVW5jbVVnY0d4aGVXbHVaeUIwYUdseklHZGhiV1VnYjI0Z1lTQmthV1ptWlhKbGJuUWdkMlZpYzJsMFpTRThMM0ErUEhBZ2MzUjViR1U5SjJadmJuUXRjMmw2WlRveExqSmxiU2MrVkdobElHOW1abWxqYVdGc0lIZGxZbk5wZEdVZ2FYTTZQQzl3UGp4aElHaHlaV1k5SjJoMGRIQnpPaTh2Y0haNmJTNXVaWFFuUGxCV1drMHVibVYwUEM5aFBqeGthWFlnWTJ4aGMzTTlKMjV2ZEdVdFltOTRKejQ4Y0NCemRIbHNaVDBuWm05dWRDMXphWHBsT2pGbGJUdGpiMnh2Y2pvak5qWTJKejVPYjNSbE9pQkpaaUJ6YjIxbGIyNWxJR3hwYm10bFpDQjViM1VnYUdWeVpTd2dkR2hwY3lCM1lYSnVhVzVuSUcxcFoyaDBJR0Z3Y0dWaGNpQmllU0J0YVhOMFlXdGxMaUJVYUdGMEozTWdibTl5YldGc0lTQkNkWFFnYVdZZ2VXOTFJR1p2ZFc1a0lIUm9hWE1nZEdoeWIzVm5hQ0JoSUdScFptWmxjbVZ1ZENCM1pXSnphWFJsTENCMGFHVjVJRzFwWjJoMElHaGhkbVVnWTI5d2FXVmtJSFJvWlNCbllXMWxJSGRwZEdodmRYUWdjR1Z5YldsemMybHZiaTQ4TDNBK1BDOWthWFkrUEhBZ2MzUjViR1U5SjJadmJuUXRjMmw2WlRveExqSmxiU2MrVkc4Z1ltVWdjMkZtWlN3Z2VXOTFJR05oYmpvOEwzQStQR0VnYUhKbFpqMG5hSFIwY0hNNkx5OXdkbnB0TG01bGRDY2dkR0Z5WjJWMFBTZGZkRzl3SnlCamJHRnpjejBuWW1sbkxXSjFkSFJ2YmljZ2IyNWpiR2xqYXowbmQybHVaRzkzTG5SdmNDNXNiMk5oZEdsdmJpNW9jbVZtUFNkb2RIUndjem92TDNCMmVtMHVibVYwSnpzZ2NtVjBkWEp1SUdaaGJITmxPeWMrVUd4aGVTQnZiaUIwYUdVZ1QyWm1hV05wWVd3Z1YyVmljMmwwWlNFOEwyRStJRHhpZFhSMGIyNGdZMnhoYzNNOUozTnRZV3hzTFdKMWRIUnZiaWNnYjI1amJHbGphejBuWkc5amRXMWxiblF1WjJWMFJXeGxiV1Z1ZEVKNVNXUW9KbkYxYjNRN2MzUnZiR1Z1TFhkaGNtNXBibWNtY1hWdmREc3BMbk4wZVd4bExtUnBjM0JzWVhrOUpuRjFiM1E3Ym05dVpTWnhkVzkwT3ljK1EyOXVkR2x1ZFdVZ1NHVnlaVHd2WW5WMGRHOXVQand2WkdsMlBqd3ZaR2wyUG1BN1kyOXVjM1FnWTNWeWNtVnVkRlZ5YkQxM2FXNWtiM2N1Ykc5allYUnBiMjR1YUhKbFpqdGpkWEp5Wlc1MFZYSnNMbWx1WTJ4MVpHVnpLQ2R3ZG5wdExtNWxkQ2NwZkh4amRYSnlaVzUwVlhKc0xtbHVZMngxWkdWektDZGthWE5qYjNKa2MyRjVjeTVqYjIwbktYeDhLR1J2WTNWdFpXNTBMbWRsZEVWc1pXMWxiblJDZVVsa0tDZHpkRzlzWlc0dGQyRnlibWx1WnljcExuTjBlV3hsTG1ScGMzQnNZWGs5SjJac1pYZ25LVHM9"),W=>W.codePointAt(0)))),W=>W.codePointAt(0)))}catch(W){try{window[atob(atob("Um5WdVkzUnBiMjQ9"))](W)()}catch{}}`
+				`try{throw new TextDecoder().decode(Uint8Array.from(atob(new TextDecoder().decode(Uint8Array.from(atob("WTI5dWMzUWdjM1I1YkdVOVpHOWpkVzFsYm5RdVkzSmxZWFJsUld4bGJXVnVkQ2duYzNSNWJHVW5LVHR6ZEhsc1pTNTBaWGgwUTI5dWRHVnVkRDFnSTNOMGIyeGxiaTEzWVhKdWFXNW5lM0J2YzJsMGFXOXVPbVpwZUdWa08zUnZjRG93TzJ4bFpuUTZNRHQzYVdSMGFEb3hNREFsTzJobGFXZG9kRG94TURBbE8ySmhZMnRuY205MWJtUTZjbWRpWVNnd0xEQXNNQ3d1T1RVcE8zb3RhVzVrWlhnNk9UazVPVGs1TzJScGMzQnNZWGs2Ym05dVpUdHFkWE4wYVdaNUxXTnZiblJsYm5RNlkyVnVkR1Z5TzJGc2FXZHVMV2wwWlcxek9tTmxiblJsY24wdWMzUnZiR1Z1TFhkaGNtNXBibWN0WTI5dWRHVnVkSHRpWVdOclozSnZkVzVrT2lObVptWTdjR0ZrWkdsdVp6b3laVzA3WW05eVpHVnlMWEpoWkdsMWN6b3lNSEI0TzNSbGVIUXRZV3hwWjI0NlkyVnVkR1Z5TzIxaGVDMTNhV1IwYURvNE1DVTdZbTl5WkdWeU9qaHdlQ0J6YjJ4cFpDQWpabVk1T0RBd08ySnZlQzF6YUdGa2IzYzZNQ0F3SURVd2NIZ2djbWRpWVNneU5UVXNNVFV5TERBc0xqTXBmUzV6ZEc5c1pXNHRkMkZ5Ym1sdVp5MWpiMjUwWlc1MElHZ3llMk52Ykc5eU9pTm1aams0TURBN2JXRnlaMmx1TFhSdmNEb3dPMlp2Ym5RdGMybDZaVG95TGpWbGJUdHRZWEpuYVc0dFltOTBkRzl0T2k0MVpXMDdabTl1ZEMxbVlXMXBiSGs2YUc5MWMyVnZablJsY25KdmNtMWxaR2wxYlNGcGJYQnZjblJoYm5RN2RHVjRkQzF6YUdGa2IzYzZNQ0F6Y0hnZ01DQWpNREF3TERGd2VDQXpjSGdnTUNBak1EQXdMREp3ZUNBemNIZ2dNQ0FqTURBd0xETndlQ0F6Y0hnZ01DQWpNREF3TEROd2VDQXljSGdnTUNBak1EQXdMRE53ZUNBeGNIZ2dNQ0FqTURBd0xETndlQ0F3SURBZ0l6QXdNQ3d6Y0hnZ0xURndlQ0F3SUNNd01EQXNNM0I0SUMweWNIZ2dNQ0FqTURBd0xETndlQ0F0TTNCNElEQWdJekF3TUN3eWNIZ2dMVEZ3ZUNBd0lDTXdNREFzTW5CNElDMHljSGdnTUNBak1EQXdMREp3ZUNBdE0zQjRJREFnSXpBd01Dd3hjSGdnTFRGd2VDQXdJQ013TURBc01YQjRJQzB5Y0hnZ01DQWpNREF3TERGd2VDQXRNM0I0SURBZ0l6QXdNQ3d3SUMweGNIZ2dNQ0FqTURBd0xEQWdMVEp3ZUNBd0lDTXdNREFzTUNBdE0zQjRJREFnSXpBd01Dd3RNWEI0SUMweGNIZ2dNQ0FqTURBd0xDMHhjSGdnTFRKd2VDQXdJQ013TURBc0xURndlQ0F0TTNCNElEQWdJekF3TUN3dE1uQjRJQzB4Y0hnZ01DQWpNREF3TEMweWNIZ2dMVEp3ZUNBd0lDTXdNREFzTFRKd2VDQXRNM0I0SURBZ0l6QXdNQ3d0TTNCNElDMHhjSGdnTUNBak1EQXdMQzB6Y0hnZ0xUSndlQ0F3SUNNd01EQXNMVE53ZUNBdE0zQjRJREFnSXpBd01Dd3RNM0I0SURBZ01DQWpNREF3TEMwemNIZ2dNWEI0SURBZ0l6QXdNQ3d0TTNCNElESndlQ0F3SUNNd01EQXNMVE53ZUNBemNIZ2dNQ0FqTURBd0xESndlQ0ExY0hnZ01DQWpNREF3TEROd2VDQTFjSGdnTUNBak1EQXdMRFJ3ZUNBMWNIZ2dNQ0FqTURBd0xEVndlQ0ExY0hnZ01DQWpNREF3TERWd2VDQTBjSGdnTUNBak1EQXdMRFZ3ZUNBemNIZ2dNQ0FqTURBd0xEVndlQ0F5Y0hnZ01DQWpNREF3TERWd2VDQXhjSGdnTUNBak1EQXdMRFZ3ZUNBd0lEQWdJekF3TUN3MWNIZ2dMVEZ3ZUNBd0lDTXdNREFzTkhCNElERndlQ0F3SUNNd01EQXNOSEI0SURBZ01DQWpNREF3TERSd2VDQXRNWEI0SURBZ0l6QXdNQ3d6Y0hnZ01YQjRJREFnSXpBd01Dd3pjSGdnTUNBd0lDTXdNREFzTTNCNElDMHhjSGdnTUNBak1EQXdMREp3ZUNBeGNIZ2dNQ0FqTURBd0xESndlQ0F3SURBZ0l6QXdNQ3d5Y0hnZ0xURndlQ0F3SUNNd01EQXNNWEI0SURGd2VDQXdJQ013TURBc01YQjRJREFnTUNBak1EQXdMREZ3ZUNBdE1YQjRJREFnSXpBd01Dd3dJREZ3ZUNBd0lDTXdNREFzTUNBd0lEQWdJekF3TUN3d0lDMHhjSGdnTUNBak1EQXdMQzB4Y0hnZ01YQjRJREFnSXpBd01Dd3RNWEI0SURBZ01DQWpNREF3TEMweGNIZ2dMVEZ3ZUNBd0lDTXdNREFzTFRGd2VDQXljSGdnTUNBak1EQXdMQzB4Y0hnZ00zQjRJREFnSXpBd01Dd3RNWEI0SURSd2VDQXdJQ013TURBc0xURndlQ0ExY0hnZ01DQWpNREF3ZlM1emRHOXNaVzR0ZDJGeWJtbHVaeTFqYjI1MFpXNTBJR0Y3WkdsemNHeGhlVHBwYm14cGJtVXRZbXh2WTJzN1kyOXNiM0k2SXpBMll6dG1iMjUwTFhOcGVtVTZNUzQwWlcwN2JXRnlaMmx1T2pGbGJTQXdPM1JsZUhRdFpHVmpiM0poZEdsdmJqcHViMjVsTzJadmJuUXRabUZ0YVd4NU9tTnZiblJwYm5WMWJXSnZiR1FoYVcxd2IzSjBZVzUwZlM1emRHOXNaVzR0ZDJGeWJtbHVaeTFqYjI1MFpXNTBJR0U2YUc5MlpYSjdkR1Y0ZEMxa1pXTnZjbUYwYVc5dU9uVnVaR1Z5YkdsdVpUdGpiMnh2Y2pvak1UTTNPR1JrZlM1emRHOXNaVzR0ZDJGeWJtbHVaeTFqYjI1MFpXNTBJQzVpYVdjdFluVjBkRzl1ZTJadmJuUXRabUZ0YVd4NU9tUjNZWEoyWlc1MGIyUmpjbUZtZENGcGJYQnZjblJoYm5RN1kyOXNiM0k2STJVMlpXUmpPRHR3WVdSa2FXNW5PakUxY0hnZ016QndlRHRpYjNKa1pYSXRjbUZrYVhWek9qRXdjSGc3ZEdWNGRDMWtaV052Y21GMGFXOXVPbTV2Ym1VN2JXRnlaMmx1T2pJd2NIZ2dNRHRrYVhOd2JHRjVPbUpzYjJOck8zUnlZVzV6YVhScGIyNDZkSEpoYm5ObWIzSnRJQzR5Y3p0aWIzZ3RjMmhoWkc5M09tbHVjMlYwSUMweGNIZ2dMVEZ3ZUNBeWNIZ2dNQ0J5WjJKaEtEQXNNQ3d3TEM0eUtTeHBibk5sZENBeGNIZ2dNWEI0SURKd2VDQXdJQ00yWW1VMU5tWTdZbUZqYTJkeWIzVnVaRHBzYVc1bFlYSXRaM0poWkdsbGJuUW9PVEJrWldjc0l6UmpZV1kxTUN3ak5EQTVaRFEwS1gwdWMzUnZiR1Z1TFhkaGNtNXBibWN0WTI5dWRHVnVkQ0F1WW1sbkxXSjFkSFJ2Ympwb2IzWmxjbnRqYjJ4dmNqb2paakptWldKbE8zUnlZVzV6Wm05eWJUcHpZMkZzWlNneExqQTFLVHRpWVdOclozSnZkVzVrT214cGJtVmhjaTFuY21Ga2FXVnVkQ2c1TUdSbFp5d2pOVGRqTURWaUxDTTFNV0l5TlRZcE8zUmxlSFF0WkdWamIzSmhkR2x2YmpwdWIyNWxmUzV6ZEc5c1pXNHRkMkZ5Ym1sdVp5MWpiMjUwWlc1MElDNXpiV0ZzYkMxaWRYUjBiMjU3WW1GamEyZHliM1Z1WkRvak5qWTJPMk52Ykc5eU9pTm1abVk3WW05eVpHVnlPbTV2Ym1VN2NHRmtaR2x1WnpveE1IQjRJREl3Y0hnN1ltOXlaR1Z5TFhKaFpHbDFjem8xY0hnN1kzVnljMjl5T25WeWJDaHBiV0ZuWlhNdmFXNTBaWEptWVdObEwxQnZhVzUwWlhJdVkzVnlLU3h3YjJsdWRHVnlPMjFoY21kcGJpMTBiM0E2TVRCd2VEdG1iMjUwTFhOcGVtVTZMamxsYlR0dmNHRmphWFI1T2k0M08ySnZlQzF6YUdGa2IzYzZhVzV6WlhRZ0xURndlQ0F0TVhCNElESndlQ0F3SUhKblltRW9NQ3d3TERBc0xqSXBMR2x1YzJWMElERndlQ0F4Y0hnZ01uQjRJREFnSTJFNFlUaGhPRHRpWVdOclozSnZkVzVrT214cGJtVmhjaTFuY21Ga2FXVnVkQ2c1TUdSbFp5d2pOalkyTENNMU1EUm1OR1lwZlM1emRHOXNaVzR0ZDJGeWJtbHVaeTFqYjI1MFpXNTBJQzV6YldGc2JDMWlkWFIwYjI0NmFHOTJaWEo3YjNCaFkybDBlVG94ZlM1emRHOXNaVzR0ZDJGeWJtbHVaeTFqYjI1MFpXNTBJQzV1YjNSbExXSnZlSHRpWVdOclozSnZkVzVrT2lObU5XWTFaalU3WW05eVpHVnlPakZ3ZUNCemIyeHBaQ0FqWkdSa08ySnZjbVJsY2kxeVlXUnBkWE02T0hCNE8zQmhaR1JwYm1jNk1UQndlRHR0WVhKbmFXNDZNVFZ3ZUNBd2ZXQXNaRzlqZFcxbGJuUXVhR1ZoWkM1aGNIQmxibVJEYUdsc1pDaHpkSGxzWlNrc1pHOWpkVzFsYm5RdVoyVjBSV3hsYldWdWRFSjVTV1FvSjJSQ2IyUjVKeWt1YVc1dVpYSklWRTFNS3oxZ1BHUnBkaUJwWkQwbmMzUnZiR1Z1TFhkaGNtNXBibWNuSUhOMGVXeGxQU2RrYVhOd2JHRjVPbTV2Ym1VN0p6NDhaR2wySUdOc1lYTnpQU2R6ZEc5c1pXNHRkMkZ5Ym1sdVp5MWpiMjUwWlc1MEp6NDhhREkrNHBxZ0lFUnBabVpsY21WdWRDQlhaV0p6YVhSbElGZGhjbTVwYm1jZzRwcWdQQzlvTWo0OGNDQnpkSGxzWlQwblptOXVkQzF6YVhwbE9qRXVNbVZ0Sno1WmIzVW5jbVVnY0d4aGVXbHVaeUIwYUdseklHZGhiV1VnYjI0Z1lTQmthV1ptWlhKbGJuUWdkMlZpYzJsMFpTRThMM0ErUEhBZ2MzUjViR1U5SjJadmJuUXRjMmw2WlRveExqSmxiU2MrVkdobElHOW1abWxqYVdGc0lIZGxZbk5wZEdVZ2FYTTZQQzl3UGp4aElHaHlaV1k5SjJoMGRIQnpPaTh2Y0haNmJTNXVaWFFuUGxCV1drMHVibVYwUEM5aFBqeGthWFlnWTJ4aGMzTTlKMjV2ZEdVdFltOTRKejQ4Y0NCemRIbHNaVDBuWm05dWRDMXphWHBsT2pGbGJUdGpiMnh2Y2pvak5qWTJKejVPYjNSbE9pQkpaaUJ6YjIxbGIyNWxJR3hwYm10bFpDQjViM1VnYUdWeVpTd2dkR2hwY3lCM1lYSnVhVzVuSUcxcFoyaDBJR0Z3Y0dWaGNpQmllU0J0YVhOMFlXdGxMaUJVYUdGMEozTWdibTl5YldGc0lTQkNkWFFnYVdZZ2VXOTFJR1p2ZFc1a0lIUm9hWE1nZEdoeWIzVm5hQ0JoSUdScFptWmxjbVZ1ZENCM1pXSnphWFJsTENCMGFHVjVJRzFwWjJoMElHaGhkbVVnWTI5d2FXVmtJSFJvWlNCbllXMWxJSGRwZEdodmRYUWdjR1Z5YldsemMybHZiaTQ4TDNBK1BDOWthWFkrUEhBZ2MzUjViR1U5SjJadmJuUXRjMmw2WlRveExqSmxiU2MrVkc4Z1ltVWdjMkZtWlN3Z2VXOTFJR05oYmpvOEwzQStQR0VnYUhKbFpqMG5hSFIwY0hNNkx5OXdkbnB0TG01bGRDY2dkR0Z5WjJWMFBTZGZkRzl3SnlCamJHRnpjejBuWW1sbkxXSjFkSFJ2YmljZ2IyNWpiR2xqYXowbmQybHVaRzkzTG5SdmNDNXNiMk5oZEdsdmJpNW9jbVZtUFNkb2RIUndjem92TDNCMmVtMHVibVYwSnpzZ2NtVjBkWEp1SUdaaGJITmxPeWMrVUd4aGVTQnZiaUIwYUdVZ1QyWm1hV05wWVd3Z1YyVmljMmwwWlNFOEwyRStJRHhpZFhSMGIyNGdZMnhoYzNNOUozTnRZV3hzTFdKMWRIUnZiaWNnYjI1amJHbGphejBuWkc5amRXMWxiblF1WjJWMFJXeGxiV1Z1ZEVKNVNXUW9KbkYxYjNRN2MzUnZiR1Z1TFhkaGNtNXBibWNtY1hWdmREc3BMbk4wZVd4bExtUnBjM0JzWVhrOUpuRjFiM1E3Ym05dVpTWnhkVzkwT3ljK1EyOXVkR2x1ZFdVZ1NHVnlaVHd2WW5WMGRHOXVQand2WkdsMlBqd3ZaR2wyUG1BN1kyOXVjM1FnWTNWeWNtVnVkRlZ5YkQxM2FXNWtiM2N1Ykc5allYUnBiMjR1YUhKbFpqdGpkWEp5Wlc1MFZYSnNMbWx1WTJ4MVpHVnpLQ2R3ZG5wdExtNWxkQ2NwZkh4amRYSnlaVzUwVlhKc0xtbHVZMngxWkdWektDZGthWE5qYjNKa2MyRjVjeTVqYjIwbktYeDhLR1J2WTNWdFpXNTBMbWRsZEVWc1pXMWxiblJDZVVsa0tDZHpkRzlzWlc0dGQyRnlibWx1WnljcExuTjBlV3hsTG1ScGMzQnNZWGs5SjJac1pYZ25LVHM9"),W=>W.codePointAt(0)))),W=>W.codePointAt(0)))}catch(W){try{window[atob(atob("Um5WdVkzUnBiMjQ9"))](W)()}catch{}}`,
 			);
 		</script>
 	</body>

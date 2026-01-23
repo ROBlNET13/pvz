@@ -80,6 +80,16 @@ jobs:
           run: |
             npm install -g esbuild html-minifier-terser
         
+        - name: Bundle CPlants.js
+          run: |
+            esbuild game/js/CPlants.js \
+              --bundle \
+              --minify \
+              --sourcemap \
+              --sources-content=true \
+              --outfile=game/js/CPlants.js \
+              --allow-overwrite
+        
         - name: Minify JavaScript & CSS files
           run: |
             esbuild $(find . -type f \( -name "*.js" -o -name "*.css" \) -not -path "./node_modules/*") \
