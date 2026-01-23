@@ -14,7 +14,7 @@ let cheatCodes = {
 	re: () => {
 		SelectModal(oS.Lvl);
 	},
-	handbook: () => {
+	handy	: () => {
 		ViewHandBook();
 	},
 	j: () => {
@@ -34,6 +34,14 @@ let cheatCodes = {
 	},
 	debug: () => {
 		LoadMenu("debug_levels", "images/interface/Challenge_Background.jpg");
+	},
+	ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba: () => {
+		PlaySound2("tap");
+	},
+	trickedout: () => {
+		// todo: actually do the thing!!!
+		alert("get tricked (out)!");
+		// PlaySound2("tap");
 	},
 };
 
@@ -74,7 +82,7 @@ document.addEventListener("keydown", (event) => {
 	}
 
 	// Prevent sequence from getting too long
-	if (keySequence.length > 20) {
+	if (keySequence.length > 100) {
 		keySequence = keySequence.slice(-10);
 	}
 	console.log(keySequence);

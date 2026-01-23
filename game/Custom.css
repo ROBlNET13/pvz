@@ -927,6 +927,33 @@ input[type="checkbox"]:checked {
 	line-height: 1.65;
 }
 
+#dCoinBank {
+	user-select: none;
+	display: none;
+	position: absolute;
+	top: 512px;
+	left: 50%;
+	margin-left: -300px;
+	cursor: url(images/interface/Cursor.cur), default;
+    background: url(images/interface/coinbank.png) no-repeat;
+	width: 128px;
+	height: 31px;
+	z-index: 256;
+}
+
+#dCoinBank #dCoinBankText {
+    position: absolute;
+    top: 17%;
+    left: 39px;
+    visibility: visible;
+    font-family: "continuumbold" !important;
+    text-align: right;
+    width: 80px;
+	height: 16px;
+    font-size: 18px;
+	color: rgb(180, 255, 90);
+}
+
 .day-text {
 	color: #9ee69e !important;
 	font-family: "houseofterrormedium" !important;

@@ -477,19 +477,20 @@ var CZombies = (function (b, a) {
 				delete $Z[c.id];
 				c.PZ && oP.MonPrgs();
 			},
-			DisappearDie() {
+			Die() {
+				// todo: coins drop
 				ClearChild(this.Ele);
 				this.HP = 0;
 				delete $Z[this.id];
 				this.PZ && oP.MonPrgs();
 			},
+			DisappearDie() {
+				this.Die();
+			},
 			CrushDie() {
 				var c = this;
 				c.GoingDieHead(c.id, c.PicArr, c);
-				ClearChild(c.Ele);
-				c.HP = 0;
-				delete $Z[c.id];
-				c.PZ && oP.MonPrgs();
+				this.Die();
 			},
 			GoingDieHead(e, c, d) {
 				oSym.addTask(200, ClearChild, [
