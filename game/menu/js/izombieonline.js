@@ -28,7 +28,7 @@ function getDefaultSortIndex() {
 	const sortKeys = Object.keys(sorts);
 	const saved = (() => {
 		try {
-			return localStorage.getItem(SORT_STORAGE_KEY);
+			return StorageUtil.getItem(SORT_STORAGE_KEY);
 		} catch {
 			return null;
 		}
@@ -47,7 +47,7 @@ let currentSortIndex = getDefaultSortIndex();
 
 function persistCurrentSort() {
 	try {
-		localStorage.setItem(SORT_STORAGE_KEY, Object.keys(sorts)[currentSortIndex]);
+		StorageUtil.setItem(SORT_STORAGE_KEY, Object.keys(sorts)[currentSortIndex]);
 	} catch {
 		// Ignore storage errors (private mode, disabled storage, etc.)
 	}

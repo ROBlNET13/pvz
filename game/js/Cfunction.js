@@ -217,7 +217,7 @@ var oS = {
 		this.HaveFog = 0;
 
 		// AutoSun Logic
-		const savedAutoSun = localStorage.getItem("JSPVZAutoSun");
+		const savedAutoSun = StorageUtil.getItem("JSPVZAutoSun");
 		if (savedAutoSun !== null) {
 			this.AutoSun = parseInt(savedAutoSun);
 			if (this.AutoSun) {
@@ -2769,7 +2769,7 @@ var CheckAutoSun = function (checkbox) {
 	const val = checkbox.checked ? 1 : 0;
 	if (val !== oS.AutoSun) {
 		oS.AutoSun = val;
-		localStorage.setItem("JSPVZAutoSun", val);
+		StorageUtil.setItem("JSPVZAutoSun", val);
 		if (val) {
 			AutoClickSun();
 		}

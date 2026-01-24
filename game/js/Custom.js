@@ -157,10 +157,10 @@ let checkInterval = setInterval(() => {
 								console.log(`Starting adventure with level: ${hLvl}`);
 								StartAdventure(hLvl);
 							};
-						} else if (typeof localStorage.getItem("level") === "undefined") {
-							$("dAdventure").onclick = function () {
-								console.log("Starting adventure with level: " + localStorage.getItem("level") + " (from localStorage)");
-								StartAdventure(localStorage.getItem("level"));
+					} else if (typeof StorageUtil.getItem("level") === "undefined") {
+						$("dAdventure").onclick = function () {
+							console.log("Starting adventure with level: " + StorageUtil.getItem("level") + " (from localStorage)");
+							StartAdventure(StorageUtil.getItem("level"));
 							};
 						} else {
 							$("dAdventure").onclick = function () {
@@ -171,7 +171,7 @@ let checkInterval = setInterval(() => {
 					}
 					if (saveWhitelist.includes(oS.Lvl)) {
 						console.log(`Saving level ${oS.Lvl} to localStorage.`);
-						localStorage.setItem("level", oS.Lvl);
+						StorageUtil.setItem("level", oS.Lvl);
 					} else {
 						console.log(`Level ${oS.Lvl} isn't whitelisted, not saving to localStorage.`);
 					}
@@ -189,11 +189,11 @@ function startInterval2() {
 		/*console.log(
             "Checking if dAdventure is defined and saved level exists & is not blacklisted..."
         );*/
-		if ($("dAdventure") && localStorage.getItem("level") && saveWhitelist.includes(localStorage.getItem("level"))) {
+		if ($("dAdventure") && StorageUtil.getItem("level") && saveWhitelist.includes(StorageUtil.getItem("level"))) {
 			console.log("dAdventure is defined and level is valid, setting onclick...");
 			$("dAdventure").onclick = function () {
-				console.log(`Starting adventure with level from localStorage: ${localStorage.getItem("level")}`);
-				StartAdventure(localStorage.getItem("level"));
+				console.log(`Starting adventure with level from localStorage: ${StorageUtil.getItem("level")}`);
+				StartAdventure(StorageUtil.getItem("level"));
 			};
 			clearInterval(checkInterval2);
 		}
@@ -363,8 +363,8 @@ $User.Visitor.SaveLvlCallBack = function (o) {
 	// save logic
 	let levels = {};
 	// check if "levels" exists in localStorage
-	if (localStorage.getItem("levels")) {
-		levels = JSON.parse(localStorage.getItem("levels"));
+	if (StorageUtil.getItem("levels")) {
+		levels = JSON.parse(StorageUtil.getItem("levels"));
 	}
 	// add the level to the levels object if it doesn't exist
 	if (!levels[o.Lvl]) {
