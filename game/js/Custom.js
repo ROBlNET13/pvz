@@ -157,10 +157,10 @@ let checkInterval = setInterval(() => {
 								console.log(`Starting adventure with level: ${hLvl}`);
 								StartAdventure(hLvl);
 							};
-					} else if (typeof StorageUtil.getItem("level") === "undefined") {
-						$("dAdventure").onclick = function () {
-							console.log("Starting adventure with level: " + StorageUtil.getItem("level") + " (from localStorage)");
-							StartAdventure(StorageUtil.getItem("level"));
+						} else if (typeof StorageUtil.getItem("level") === "undefined") {
+							$("dAdventure").onclick = function () {
+								console.log("Starting adventure with level: " + StorageUtil.getItem("level") + " (from localStorage)");
+								StartAdventure(StorageUtil.getItem("level"));
 							};
 						} else {
 							$("dAdventure").onclick = function () {
