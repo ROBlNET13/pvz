@@ -107,7 +107,7 @@ export var oSeedStarfruit = InheritO(CPlants, {
 			);
 			oSym.addTask(
 				1,
-				function (m, k, l, i, j) {
+				function moveItem1(m, k, l, i, j) {
 					j(oZ.getZ1(m, k), 4, i) &&
 						((m -= 5) < 100 ? ClearChild(i) : ((i.style.left = (l -= 5) + "px"), oSym.addTask(1, moveItem1, [m, k, l, i, j])));
 				},
@@ -138,7 +138,7 @@ export var oSeedStarfruit = InheritO(CPlants, {
 			);
 			oSym.addTask(
 				1,
-				function (m, n, l, k, i, j) {
+				function moveItem2(m, n, l, k, i, j) {
 					j(oZ.getRangeLeftZ(m, n, l), 6, i) &&
 						((k -= 5) < -15 ? ClearChild(i) : ((i.style.top = k + "px"), oSym.addTask(1, moveItem2, [m, n, GetR(k + 15), k, i, j])));
 				},
@@ -170,7 +170,7 @@ export var oSeedStarfruit = InheritO(CPlants, {
 			);
 			oSym.addTask(
 				1,
-				function (m, n, l, k, i, j) {
+				function moveItem3(m, n, l, k, i, j) {
 					j(oZ.getRangeLeftZ(m, n, l), 2, i) &&
 						((k += 5) > 600 ? ClearChild(i) : ((i.style.top = k + "px"), oSym.addTask(1, moveItem3, [m, n, GetR(k + 15), k, i, j])));
 				},
@@ -202,7 +202,7 @@ export var oSeedStarfruit = InheritO(CPlants, {
 			);
 			oSym.addTask(
 				1,
-				function (n, l, m, k, i, j) {
+				function moveItem4(n, l, m, k, i, j) {
 					j(oZ.getZ0(n, l), 7, i) &&
 						((n += 4) > 900 || (k -= 3) < -15
 							? ClearChild(i)
@@ -240,7 +240,7 @@ export var oSeedStarfruit = InheritO(CPlants, {
 			);
 			oSym.addTask(
 				1,
-				function (n, l, m, k, i, j) {
+				function moveItem5(n, l, m, k, i, j) {
 					j(oZ.getZ0(n, l), 1, i) &&
 						((n += 4) > 900 || (k += 3) > 600
 							? ClearChild(i)

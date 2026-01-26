@@ -15,7 +15,7 @@ export var oHugeNutBowling = InheritO(oNutBowling, {
 		EditEle($(a.id).childNodes[1], {
 			style: `animation: hugeWallnutSpin ${1.25 * ($User.Visitor.TimeStep / 10)}s linear infinite`,
 		});
-		(function (b, c, n, m, e, g) {
+		(function moveItem1(b, c, n, m, e, g) {
 			var d = oZ.getArZ(n, m, e);
 			var f = d.length;
 			var k;

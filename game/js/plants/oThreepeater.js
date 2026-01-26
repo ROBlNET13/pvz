@@ -99,7 +99,7 @@ export var oThreepeater = InheritO(oPeashooter, {
 			);
 			oSym.addTask(
 				1,
-				function (h, l, j, e, p, k, o, m, q, i) {
+				function moveItem1(h, l, j, e, p, k, o, m, q, i) {
 					var n;
 					var g = GetC(p);
 					var f = oZ["getZ" + e](p, k);

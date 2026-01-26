@@ -53,7 +53,7 @@ export var oSeedTorchwood = InheritO(CPlants, {
 		);
 		oSym.addTask(
 			1,
-			function (f, j, h, c, n, i, m, k, o, g) {
+			function moveItem1(f, j, h, c, n, i, m, k, o, g) {
 				var l;
 				var e = GetC(n);
 				var d = oZ["getZ" + c](n, i);
