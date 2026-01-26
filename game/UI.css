@@ -42,7 +42,8 @@ td {
 div {
 	left: 0;
 }
-div[class^="tp-"], .WindowFrame {
+div[class^="tp-"],
+.WindowFrame {
 	left: initial;
 }
 
