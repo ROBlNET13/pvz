@@ -39,8 +39,11 @@ td {
 	font-size: 12px;
 }
 
-div:not([class^="tp-"]):not(.WindowFrame) {
+div {
 	left: 0;
+}
+div[class^="tp-"], .WindowFrame {
+	left: initial;
 }
 
 #preloader {
