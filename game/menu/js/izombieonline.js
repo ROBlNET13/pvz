@@ -22,7 +22,7 @@ let sorts = {
 	featured: "Featured",
 	recent: "Recent",
 	plays: "Popular",
-	favorites: "Favorited",
+	favorites: "Favorite",
 };
 const SORT_STORAGE_KEY = "pvz.izombieonline.sort";
 
@@ -311,5 +311,7 @@ async function loadPage(targetPage) {
 	renderPagination(pagination);
 }
 
+// set initial menu title
+menuTitle.textContent = `${Object.values(sorts)[currentSortIndex]} Online Levels`;
 // fetch first page from server
 void loadPage(page);
