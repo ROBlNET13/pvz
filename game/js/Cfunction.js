@@ -24,24 +24,21 @@ window.clearInterval = function (data) {
 	}
 };
 
-window.setTimeout = function(delay, fn, ctx) {
-  var start = now();
-  var data = Object.create(null);
-  data.id = requestAnimationFrame(loop);
+window.setTimeout = function (delay, fn, ctx) {
+	var start = now();
+	var data = Object.create(null);
+	data.id = requestAnimationFrame(loop);
 
-  return data;
+	return data;
 
-  function loop() {
-    (now() - start) >= delay
-      ? fn.call(ctx)
-      : data.id = requestAnimationFrame(loop);
-  }
-}
+	function loop() {
+		now() - start >= delay ? fn.call(ctx) : (data.id = requestAnimationFrame(loop));
+	}
+};
 
-
-window.clearTimeout = function(data) {
-  requestAnimationFrame.cancel(data.id);
-}
+window.clearTimeout = function (data) {
+	requestAnimationFrame.cancel(data.id);
+};
 
 var $User = (function () {
 	const platform = navigator.platform;
