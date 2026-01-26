@@ -661,6 +661,7 @@ td.HandBookZombie {
 }
 
 #dAll {
+	contain: layout style;
 	background: url("images/interface/ing.png");
 }
 
