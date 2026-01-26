@@ -218,8 +218,7 @@ const audioBuffers = globalThis.audioBuffers || new Map();
 globalThis.audioBuffers = audioBuffers;
 
 // Playing sounds tracking
-const playingSounds = globalThis.playingSounds || [];
-globalThis.playingSounds = playingSounds;
+window.playingSounds = [];
 
 // Configuration
 const MAX_TOTAL_SOUNDS = 64; // Increased since Web Audio API is more efficient

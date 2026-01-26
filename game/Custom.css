@@ -23,7 +23,7 @@
 	font-family: "continuumbold";
 	src: url("fonts/continuumbold.ttf");
 }
-* {
+*:not([class^="tp-"]) {
 	font-family: "briannetod" !important;
 }
 [id^="sSunNum"]:not([id="sSunNum"]) {
