@@ -14,18 +14,10 @@ const [levelTab, cheatsTab, variablesTab] = tab.pages;
 
 const stringifyProxy = (obj) =>
 	new Proxy(obj, {
-		get: (t, k) =>
-			typeof t[k] === "object" && t[k] !== null
-				? JSON.stringify(t[k])
-				: String(t[k]),
+		get: (t, k) => (typeof t[k] === "object" && t[k] !== null ? JSON.stringify(t[k]) : String(t[k])),
 	});
 
-function syncKeys({
-	keys,
-	bindings,
-	add,
-	remove,
-}) {
+function syncKeys({ keys, bindings, add, remove }) {
 	for (const k of bindings.keys()) {
 		if (!keys.includes(k)) {
 			remove(k);
@@ -50,8 +42,12 @@ function dynamicObjectFolder(container, source, title, { expanded = false, inclu
 
 	const validKeys = () =>
 		Object.keys(obj).filter((k) => {
-			if (exclude.includes(k)) {return false;}
-			if (include && !include.includes(k)) {return false;}
+			if (exclude.includes(k)) {
+				return false;
+			}
+			if (include && !include.includes(k)) {
+				return false;
+			}
 			return typeof obj[k] !== "function";
 		});
 
@@ -85,7 +81,9 @@ function dynamicObjectFolder(container, source, title, { expanded = false, inclu
 		folder,
 		observed,
 		setSource(newObj) {
-			for (const b of bindings.values()) {b.dispose();}
+			for (const b of bindings.values()) {
+				b.dispose();
+			}
 			bindings.clear();
 			obj = newObj;
 			proxy = stringifyProxy(obj);
@@ -104,7 +102,9 @@ function dynamicArrayFolder(container, array, title, { expanded = false, itemExp
 
 	const syncItem = (i) => {
 		const el = arr[i];
-		if (!el || typeof el !== "object") {return;}
+		if (!el || typeof el !== "object") {
+			return;
+		}
 
 		const entry = items.get(i);
 		const keys = Object.keys(el).filter((k) => typeof el[k] !== "function");
@@ -112,11 +112,7 @@ function dynamicArrayFolder(container, array, title, { expanded = false, itemExp
 		syncKeys({
 			keys,
 			bindings: entry.bindings,
-			add: (k) =>
-				entry.bindings.set(
-					k,
-					entry.folder.addBinding(entry.proxy, k, { readonly: true })
-				),
+			add: (k) => entry.bindings.set(k, entry.folder.addBinding(entry.proxy, k, { readonly: true })),
 			remove: (k) => {
 				entry.bindings.get(k).dispose();
 				entry.bindings.delete(k);
@@ -134,7 +130,9 @@ function dynamicArrayFolder(container, array, title, { expanded = false, itemExp
 
 		for (let i = 0; i < arr.length; i++) {
 			const el = arr[i];
-			if (!el || typeof el !== "object") {continue;}
+			if (!el || typeof el !== "object") {
+				continue;
+			}
 
 			if (!items.has(i)) {
 				const entry = {
@@ -147,7 +145,9 @@ function dynamicArrayFolder(container, array, title, { expanded = false, itemExp
 				syncItem(i);
 			} else if (items.get(i).source !== el) {
 				const entry = items.get(i);
-				for (const b of entry.bindings.values()) {b.dispose();}
+				for (const b of entry.bindings.values()) {
+					b.dispose();
+				}
 				entry.bindings.clear();
 				entry.proxy = stringifyProxy(el);
 				entry.source = el;
@@ -178,12 +178,7 @@ function dynamicArrayFolder(container, array, title, { expanded = false, itemExp
 
 const osFolder = dynamicObjectFolder(variablesTab, oS, "oS");
 const userFolder = dynamicObjectFolder(variablesTab, $User, "$User");
-const soundsFolder = dynamicArrayFolder(
-	variablesTab,
-	playingSounds,
-	"playingSounds",
-	{ itemExpanded: true }
-);
+const soundsFolder = dynamicArrayFolder(variablesTab, playingSounds, "playingSounds", { itemExpanded: true });
 
 window.oS = osFolder.observed;
 window.$User = userFolder.observed;
@@ -246,12 +241,7 @@ const sun = cheatsTab.addBlade({
 });
 
 cheatsTab.addButton({ title: "Gain Sun" }).on("click", () => {
-	const id = AppearSun(
-		$User.Mouse.x - 45,
-		$User.Mouse.y + 45,
-		Math.round(sun.value),
-		false
-	);
+	const id = AppearSun($User.Mouse.x - 45, $User.Mouse.y + 45, Math.round(sun.value), false);
 
 	if (!oS.AutoSun) {
 		oSym.addTask(Math.round(1000 / oSym.TimeStep), ClickSun, [id]);

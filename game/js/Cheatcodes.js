@@ -45,7 +45,7 @@ let cheatCodes = {
 	},
 	debug: () => {
 		import("./Debug.js");
-	}
+	},
 };
 
 function getCheatAction(cheat) {
@@ -53,7 +53,9 @@ function getCheatAction(cheat) {
 }
 
 function shouldClearSequence(cheat) {
-	if (typeof cheat === "function") {return true;}
+	if (typeof cheat === "function") {
+		return true;
+	}
 	return cheat.clearSequence !== false;
 }
 
