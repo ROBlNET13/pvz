@@ -1907,7 +1907,8 @@ dd.yellow {
 #dRiddleTitle,
 #dRiddleTitle1,
 #dMiniSmallTitle,
-#dAdvSmallTitle {
+#dAdvSmallTitle,
+#iz-menu-title {
 	position: relative;
 	text-align: center;
 	line-height: 88px;

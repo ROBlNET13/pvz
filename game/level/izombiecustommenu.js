@@ -18,7 +18,7 @@ oS.Init({
 		NewImg("imgSF", "images/interface/BackButton.png", "left:785px;top:530px", EDAll, {
 			onclick() {
 				PlaySound2("tap");
-				LoadMenu("izombieonline", "images/interface/IZombie_Background.png");
+				LoadMenu("izombieonline", "images/interface/Challenge_Background.jpg");
 			},
 		});
 		// native code from now on

@@ -1,6 +1,7 @@
 const levelContainer = menuContainer.querySelector(".iz-level-container");
 const levelTemplate = levelContainer.querySelector("#iz-level-template");
 const paginationContainer = menuContainer.querySelector(".iz-pagination");
+const menuTitle = menuContainer.querySelector("#iz-menu-title");
 
 const paginationButtons = {
 	first: paginationContainer?.querySelector(".iz-pagination-first"),
@@ -62,6 +63,7 @@ document.querySelector(".iz-sort").addEventListener("click", (event) => {
 	}
 	persistCurrentSort();
 	ViewGenericMouseover(`<b>Current Sort</b>: ${Object.values(sorts)[currentSortIndex]}`, event);
+	menuTitle.textContent = `${Object.values(sorts)[currentSortIndex]} Online Levels`;
 	clearLevels();
 	loadPage(page);
 });
