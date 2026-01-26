@@ -57,7 +57,7 @@ function persistCurrentSort() {
 document.querySelector(".iz-sort").addEventListener("click", (event) => {
 	PlaySound2("tap");
 	currentSortIndex += 1;
-	if (currentSortIndex === 5) {
+	if (currentSortIndex === 4) {
 		currentSortIndex = 0;
 	}
 	persistCurrentSort();
