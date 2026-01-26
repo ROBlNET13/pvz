@@ -1232,3 +1232,6 @@ input[type="checkbox"]:checked {
 	width: 89px !important;
 	background-image: url("images/interface/sortbutton.png") !important;
 }
+.iz-menu-title {
+	margin-bottom: -88px;
+}
