@@ -2198,69 +2198,163 @@ dd.yellow {
 	cursor: url(images/interface/Pointer.cur), pointer;
 }
 
-#dSpeedContainer {
-	position: absolute;
-	left: 50%;
-	padding: 10px;
-	margin-left: -300px;
-	top: 87px;
-	width: 600px;
-	font-size: 14px;
-	height: 430px;
-	border: 1px solid #000;
-	background: #666;
-	color: #fff;
-	text-align: center;
+#dSpeedContainerContainer {
 	display: none;
 	z-index: 255;
 }
 
-#dSpeedContainer .title {
-	position: relative;
-	height: 25px;
-	width: 538px;
-	line-height: 25px;
-	font-weight: bold;
-	color: #ff0;
+#dSpeedContainer {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 360px;
+	padding: 0;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	background: #fff;
+	color: #333;
+	font-family: system-ui, -apple-system, sans-serif;
+	font-size: 14px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+	z-index: 255;
+	display: block;
 }
 
-#dSpeedContainer .nowspeed {
-	height: 50px;
-	line-height: 50px;
-	font-weight: bold;
-	color: #ff0;
+#dSpeedContainer .speed-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px 16px;
+	border-bottom: 1px solid #eee;
 }
 
-#dSpeedContainer .content {
-	text-align: left;
-	line-height: 30px;
+#dSpeedContainer .speed-header h3 {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 600;
+	color: #333;
 }
 
-#dSpeedContainer .content span {
-	font-weight: 700;
-	color: #ff0;
+#dSpeedContainer .speed-close {
+	background: none;
+	border: none;
+	font-size: 20px;
+	color: #999;
+	cursor: pointer;
+	padding: 0;
+	line-height: 1;
 }
 
-.dSpeed {
-	position: relative;
-	margin-top: 20px;
-	height: 50px;
-	width: 100%;
+#dSpeedContainer .speed-close:hover {
+	color: #333;
 }
 
-.dSpeed div {
-	cursor: url(images/interface/Pointer.cur), pointer;
+#dSpeedContainer .speed-selector {
+	padding: 16px;
 }
 
-.dSpeed .dS1 {
-	float: left;
-	width: 40%;
-	line-height: 50px;
-	font-weight: bold;
+#dSpeedContainer .speed-selector label {
+	display: block;
+	margin-bottom: 10px;
+	font-size: 13px;
+	color: #666;
 }
 
-.dSpeed .dS2 div {
-	float: left;
+#dSpeedContainer .speed-buttons {
+	display: flex;
+	gap: 8px;
+}
+
+#dSpeedContainer .speed-btn {
+	flex: 1;
+	padding: 10px 8px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background: #f5f5f5;
+	color: #333;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background 0.15s, border-color 0.15s;
+}
+
+#dSpeedContainer .speed-btn:hover {
+	background: #e8e8e8;
+	border-color: #bbb;
+}
+
+#dSpeedContainer .speed-btn:active {
+	background: #ddd;
+}
+
+#dSpeedContainer .speed-current {
+	padding: 12px 16px;
+	background: #f9f9f9;
+	text-align: center;
+	font-size: 15px;
+	color: #333;
+}
+
+#dSpeedContainer .speed-current strong {
+	color: #111;
+}
+
+#dSpeedContainer .speed-info {
+	padding: 12px 16px;
+	border-top: 1px solid #eee;
+}
+
+#dSpeedContainer .speed-info p {
+	margin: 0 0 8px 0;
+	font-size: 12px;
+	color: #666;
+	line-height: 1.5;
+}
+
+#dSpeedContainer .speed-info p:last-child {
+	margin-bottom: 0;
+}
+
+#dSpeedContainer .speed-info strong {
+	color: #333;
+}
+
+#dSpeedContainer .speed-info em {
+	font-style: normal;
+	color: #555;
+}
+
+#dSpeedContainer .speed-actions {
+	display: flex;
+	gap: 8px;
+	padding: 12px 16px;
+	border-top: 1px solid #eee;
+}
+
+#dSpeedContainer .speed-actions button {
+	flex: 1;
+	padding: 10px 16px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background: #fff;
+	color: #333;
+	font-size: 14px;
+	cursor: pointer;
+	transition: background 0.15s;
+}
+
+#dSpeedContainer .speed-actions button:hover {
+	background: #f5f5f5;
+}
+
+#dSpeedContainer .speed-actions button:last-child {
+	background: #f0f0f0;
+	font-weight: 500;
+}
+
+#dSpeedContainer .speed-actions button:last-child:hover {
+	background: #e5e5e5;
 }
 
 button.jhp {

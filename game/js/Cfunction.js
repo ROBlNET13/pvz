@@ -3156,12 +3156,12 @@ var ShowSpeed = function () {
 	oSym.Stop();
 	PlaySound2("gravebutton");
 	SetNone($("dOptionsMenuback"), $("dOptionsMenu"));
-	SetBlock($("dSpeedContainer"));
+	SetBlock($("dSpeedContainer").parentElement);
 };
 
 var HiddenSpeed = function () {
 	PlaySound2("tap");
-	SetNone($("dSpeedContainer"));
+	SetNone($("dSpeedContainer").parentElement);
 	if (oS.Lvl) {
 		ResetGame($("dMenu0"));
 	}
