@@ -18,8 +18,9 @@ let page = 1;
 let limit = 6;
 let requestId = 0;
 let sorts = {
-	plays: "Popular",
+	featured: "Featured",
 	recent: "Recent",
+	plays: "Popular",
 	favorites: "Favorites",
 };
 const SORT_STORAGE_KEY = "pvz.izombieonline.sort";
@@ -38,9 +39,9 @@ function getDefaultSortIndex() {
 		return sortKeys.indexOf(saved);
 	}
 
-	// Default to "Recent" if no valid saved preference.
-	const recentIndex = sortKeys.indexOf("recent");
-	return recentIndex >= 0 ? recentIndex : 0;
+	// Default to "Featured" if no valid saved preference.
+	const featuredIndex = sortKeys.indexOf("featured");
+	return featuredIndex >= 0 ? featuredIndex : 0;
 }
 
 let currentSortIndex = getDefaultSortIndex();
@@ -56,7 +57,7 @@ function persistCurrentSort() {
 document.querySelector(".iz-sort").addEventListener("click", (event) => {
 	PlaySound2("tap");
 	currentSortIndex += 1;
-	if (currentSortIndex === 3) {
+	if (currentSortIndex === 5) {
 		currentSortIndex = 0;
 	}
 	persistCurrentSort();
