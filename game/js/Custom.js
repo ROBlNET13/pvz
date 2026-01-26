@@ -202,45 +202,73 @@ function startInterval2() {
 
 startInterval2();
 
-var playingSounds = globalThis.playingSounds;
-if (!Array.isArray(playingSounds)) {
-	playingSounds = [];
+// Web Audio API-based audio engine
+const audioContext = globalThis.audioContext || new (window.AudioContext || window.webkitAudioContext)();
+globalThis.audioContext = audioContext;
+
+// Master gain node for volume control
+const masterGain = globalThis.masterGain || audioContext.createGain();
+if (!globalThis.masterGain) {
+	masterGain.connect(audioContext.destination);
+	globalThis.masterGain = masterGain;
 }
+
+// Audio buffer cache
+const audioBuffers = globalThis.audioBuffers || new Map();
+globalThis.audioBuffers = audioBuffers;
+
+// Playing sounds tracking
+const playingSounds = globalThis.playingSounds || [];
 globalThis.playingSounds = playingSounds;
-const audioPools = globalThis.audioPools || new Map();
-globalThis.audioPools = audioPools;
-const MAX_TOTAL_SOUNDS = 32;
-const MAX_SOUNDS_PER_KEY = 4;
-const AUDIO_POOL_SIZE = 6;
-const CLEANUP_INTERVAL_MS = 5000;
-const MIN_INTERVAL_MS_PER_KEY = 50;
+
+// Configuration
+const MAX_TOTAL_SOUNDS = 64; // Increased since Web Audio API is more efficient
+const MAX_SOUNDS_PER_KEY = 8;
+const CLEANUP_INTERVAL_MS = 3000;
+const MIN_INTERVAL_MS_PER_KEY = 30;
 const PLAY_RATE_WINDOW_MS = 250;
-const MAX_PLAYS_PER_WINDOW = 12;
+const MAX_PLAYS_PER_WINDOW = 20;
+
+// Rate limiting
 const lastPlayAt = globalThis.audioLastPlayAt || new Map();
 globalThis.audioLastPlayAt = lastPlayAt;
 const recentPlayTimes = globalThis.audioRecentPlayTimes || [];
 globalThis.audioRecentPlayTimes = recentPlayTimes;
 
+// Helper to generate unique keys
 function getAudioKey(path, name, tag) {
 	return `${path}|${name || path}|${tag || "default"}`;
 }
 
-function getPool(key) {
-	if (!audioPools.has(key)) {
-		audioPools.set(key, []);
+// Load and decode audio file
+async function loadAudioBuffer(url) {
+	if (audioBuffers.has(url)) {
+		return audioBuffers.get(url);
 	}
-	return audioPools.get(key);
+
+	try {
+		const response = await fetch(url);
+		const arrayBuffer = await response.arrayBuffer();
+		const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+		audioBuffers.set(url, audioBuffer);
+		return audioBuffer;
+	} catch (error) {
+		console.warn(`Failed to load audio: ${url}`, error);
+		return null;
+	}
 }
 
+// Cleanup finished sounds
 function cleanupPlayingSounds() {
 	for (let i = playingSounds.length - 1; i >= 0; i -= 1) {
-		const audio = playingSounds[i];
-		if (!audio || audio.ended || audio.paused) {
+		const sound = playingSounds[i];
+		if (!sound || !sound.source || sound.stopped) {
 			playingSounds.splice(i, 1);
 		}
 	}
 }
 
+// Rate limiting check
 function canPlayNow(key) {
 	const now = Date.now();
 	const last = lastPlayAt.get(key) || 0;
@@ -259,31 +287,38 @@ function canPlayNow(key) {
 }
 
 setInterval(cleanupPlayingSounds, CLEANUP_INTERVAL_MS);
-function PlaySound2(path, loop, name, tag) {
-	// console.log(`Playing sound: path=${path}, loop=${loop}, name=${name}, tag=${tag}`);
+
+// Main play function
+async function PlaySound2(path, loop, name, tag) {
+	// Resume audio context if suspended (browser autoplay policy)
+	if (audioContext.state === 'suspended') {
+		await audioContext.resume();
+	}
+
 	name = name || path;
 	const tagName = tag || "default";
 	const audioPath = `audio/${path}.mp3`;
 	const key = getAudioKey(audioPath, name, tagName);
-	const pool = getPool(key);
 
 	if (!canPlayNow(key)) {
 		return null;
 	}
 
 	cleanupPlayingSounds();
+	
+	// Enforce total sound limit
 	if (playingSounds.length >= MAX_TOTAL_SOUNDS) {
 		const oldest = playingSounds.shift();
-		if (oldest) {
-			oldest.pause();
-			oldest.currentTime = 0;
+		if (oldest && oldest.source) {
+			oldest.source.stop();
+			oldest.stopped = true;
 		}
 	}
 
+	// Check per-key limits
 	let playingForKeyCount = 0;
-	for (let i = 0; i < playingSounds.length; i += 1) {
-		const a = playingSounds[i];
-		if (a && a.dataset && a.dataset.name === name && a.dataset.tag === tagName) {
+	for (const sound of playingSounds) {
+		if (sound.name === name && sound.tag === tagName) {
 			playingForKeyCount += 1;
 			if (playingForKeyCount >= MAX_SOUNDS_PER_KEY) {
 				return null;
@@ -291,59 +326,100 @@ function PlaySound2(path, loop, name, tag) {
 		}
 	}
 
-	let audio = pool.find((a) => a.paused || a.ended);
-	if (!audio) {
-		if (pool.length >= AUDIO_POOL_SIZE) {
-			return null;
-		} else {
-			audio = new Audio(audioPath);
-			audio.preload = "auto";
-			pool.push(audio);
+	// Load audio buffer
+	const buffer = await loadAudioBuffer(audioPath);
+	if (!buffer) {
+		return null;
+	}
+
+	// Create source node
+	const source = audioContext.createBufferSource();
+	source.buffer = buffer;
+	source.loop = Boolean(loop);
+
+	// Create gain node for this sound
+	const gainNode = audioContext.createGain();
+	gainNode.gain.value = oS.Silence ? 0 : 1;
+
+	// Connect: source -> gain -> master -> destination
+	source.connect(gainNode);
+	gainNode.connect(masterGain);
+
+	// Track the sound
+	const soundObj = {
+		source,
+		gainNode,
+		name,
+		tag: tagName,
+		path: audioPath,
+		stopped: false,
+		startTime: audioContext.currentTime
+	};
+
+	// Auto-cleanup when sound ends
+	source.onended = () => {
+		soundObj.stopped = true;
+		const idx = playingSounds.indexOf(soundObj);
+		if (idx !== -1) {
+			playingSounds.splice(idx, 1);
 		}
-	}
+	};
 
-	audio.loop = Boolean(loop);
-	audio.muted = Boolean(oS.Silence);
-	audio.dataset.tag = tagName;
-	audio.dataset.name = name;
-	audio.currentTime = 0;
+	source.start(0);
+	playingSounds.push(soundObj);
 
-	const playPromise = audio.play();
-	if (playPromise && typeof playPromise.catch === "function") {
-		playPromise.catch(() => {});
-	}
-
-	if (!playingSounds.includes(audio)) {
-		playingSounds.push(audio);
-	}
-	return audio;
+	return soundObj;
 }
+
+// Stop sounds by name
 function StopSound2(name) {
-	// console.log(`Stopping sound: ${name}`);
-	playingSounds.forEach((audio) => {
-		if (audio.dataset.name.includes(name)) {
-			audio.pause();
-			audio.currentTime = 0;
+	playingSounds.forEach((sound) => {
+		if (sound.name && sound.name.includes(name)) {
+			if (sound.source && !sound.stopped) {
+				try {
+					sound.source.stop();
+					sound.stopped = true;
+				} catch (e) {
+					// Already stopped
+				}
+			}
 		}
 	});
+	cleanupPlayingSounds();
 }
+
+// Stop sounds by tag
 function StopSoundTag2(tag) {
-	// console.log(`Stopping sound tag: ${tag}`);
-	playingSounds.forEach((audio) => {
-		if (audio.dataset.tag === tag) {
-			audio.pause();
-			audio.currentTime = 0;
+	playingSounds.forEach((sound) => {
+		if (sound.tag === tag) {
+			if (sound.source && !sound.stopped) {
+				try {
+					sound.source.stop();
+					sound.stopped = true;
+				} catch (e) {
+					// Already stopped
+				}
+			}
 		}
 	});
+	cleanupPlayingSounds();
 }
+
+// Edit sound properties (loop)
 function EditSound2(name, loop = false) {
-	// console.log(`Editing sound: ${name}`);
-	playingSounds.forEach((audio) => {
-		if (audio.src.includes(name)) {
-			audio.loop = Boolean(loop);
+	playingSounds.forEach((sound) => {
+		if (sound.path && sound.path.includes(name) && sound.source) {
+			sound.source.loop = Boolean(loop);
 		}
 	});
 }
+
+// Update master volume based on oS.Silence
+setInterval(() => {
+	if (typeof oS !== 'undefined' && masterGain) {
+		masterGain.gain.value = oS.Silence ? 0 : 1;
+	}
+}, 100);
 
 // new save system
 
