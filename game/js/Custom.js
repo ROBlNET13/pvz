@@ -291,7 +291,7 @@ setInterval(cleanupPlayingSounds, CLEANUP_INTERVAL_MS);
 // Main play function
 async function PlaySound2(path, loop, name, tag) {
 	// Resume audio context if suspended (browser autoplay policy)
-	if (audioContext.state === 'suspended') {
+	if (audioContext.state === "suspended") {
 		await audioContext.resume();
 	}
 
@@ -305,7 +305,7 @@ async function PlaySound2(path, loop, name, tag) {
 	}
 
 	cleanupPlayingSounds();
-	
+
 	// Enforce total sound limit
 	if (playingSounds.length >= MAX_TOTAL_SOUNDS) {
 		const oldest = playingSounds.shift();
@@ -353,7 +353,7 @@ async function PlaySound2(path, loop, name, tag) {
 		tag: tagName,
 		path: audioPath,
 		stopped: false,
-		startTime: audioContext.currentTime
+		startTime: audioContext.currentTime,
 	};
 
 	// Auto-cleanup when sound ends
@@ -416,7 +416,7 @@ function EditSound2(name, loop = false) {
 
 // Update master volume based on oS.Silence
 setInterval(() => {
-	if (typeof oS !== 'undefined' && masterGain) {
+	if (typeof oS !== "undefined" && masterGain) {
 		masterGain.gain.value = oS.Silence ? 0 : 1;
 	}
 }, 100);

@@ -37,7 +37,7 @@ window.setTimeout = function (fn, delay, ...args) {
 };
 
 window.clearTimeout = function (data) {
-	if (data && typeof data === 'object' && data.id !== undefined) {
+	if (data && typeof data === "object" && data.id !== undefined) {
 		try {
 			cancelAnimationFrame(data.id);
 		} catch (e) {
