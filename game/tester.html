@@ -53,13 +53,7 @@
 						in="SourceGraphic"
 						result="fullSepia"
 					/>
-					<feBlend
-						in="brightenedImage"
-						in2="fullSepia"
-						mode="normal"
-						result="sepiaBlended"
-						style="mix-blend-mode: lighten"
-					></feBlend>
+					<feBlend in="brightenedImage" in2="fullSepia" mode="normal" result="sepiaBlended" style="mix-blend-mode: lighten"></feBlend>
 
 					<feColorMatrix
 						type="matrix"
@@ -82,32 +76,17 @@
 					<feGaussianBlur in="SourceAlpha" stdDeviation="0" result="blur1" />
 					<feOffset dx="-2" dy="-2" in="blur1" result="offsetBlur1" />
 					<feFlood flood-color="rgb(171, 135, 107)" result="shadowColor1" />
-					<feComposite
-						in="shadowColor1"
-						in2="offsetBlur1"
-						operator="in"
-						result="shadow1"
-					/>
+					<feComposite in="shadowColor1" in2="offsetBlur1" operator="in" result="shadow1" />
 
 					<feGaussianBlur in="SourceAlpha" stdDeviation="0" result="blur2" />
 					<feOffset dx="4" dy="4" in="blur3" result="offsetBlur3" />
 					<feFlood flood-color="rgb(122, 86, 58)" result="shadowColor3" />
-					<feComposite
-						in="shadowColor3"
-						in2="offsetBlur3"
-						operator="in"
-						result="shadow3"
-					/>
+					<feComposite in="shadowColor3" in2="offsetBlur3" operator="in" result="shadow3" />
 
 					<feGaussianBlur in="SourceAlpha" stdDeviation="0" result="blur3" />
 					<feOffset dx="2" dy="2" in="blur2" result="offsetBlur2" />
 					<feFlood flood-color="rgb(171, 135, 107)" result="shadowColor2" />
-					<feComposite
-						in="shadowColor2"
-						in2="offsetBlur2"
-						operator="in"
-						result="shadow2"
-					/>
+					<feComposite in="shadowColor2" in2="offsetBlur2" operator="in" result="shadow2" />
 
 					<feMerge>
 						<feMergeNode in="shadow1" />
@@ -163,13 +142,7 @@
 						in="SourceGraphic"
 						result="fullSepia"
 					/>
-					<feBlend
-						in="brightenedImage"
-						in2="fullSepia"
-						mode="normal"
-						result="sepiaBlended"
-						style="mix-blend-mode: lighten"
-					></feBlend>
+					<feBlend in="brightenedImage" in2="fullSepia" mode="normal" result="sepiaBlended" style="mix-blend-mode: lighten"></feBlend>
 
 					<feColorMatrix
 						type="matrix"
