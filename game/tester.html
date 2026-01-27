@@ -184,6 +184,9 @@
 		<script src="js/CZombie.js"></script>
 		<script src="js/IZombie.js"></script>
 		<script>
+			UnloadMenu = function (menuName) {
+				alert("UnloadMenu called for " + menuName);
+			};
 			// check if theres a menu to load
 			const search = window.location.search;
 
