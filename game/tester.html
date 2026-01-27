@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="UI.css" />
 		<title>UI Tester</title>
 	</head>
-	<body>
+	<body id="dBody">
 		<div id="dAll" class="WindowFrame"></div>
 		<svg style="width: 0; height: 0">
 			<defs>
@@ -164,6 +164,10 @@
 				</filter>
 			</defs>
 		</svg>
+		<script>
+			window.EBody = document.body;
+			window.EElement = document.documentElement;
+		</script>
 		<script src="js/pako.js" defer></script>
 		<!-- <script src="js/html2canvas.js" defer></script> -->
 		<script src="js/msgpack.min.js" defer></script>
