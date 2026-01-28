@@ -2417,7 +2417,12 @@ var ChoseShovel = function (e) {
 	if (WhichMouseButton(e) < 2) {
 		var zoom = parseFloat(document.body.style.zoom) || 1;
 		SetHidden($("imgShovel"));
-		NewImg("tShovel", "images/interface/Shovel/0.gif", `left:${e.clientX / zoom - 10}px;top:${e.clientY / zoom + document.body.scrollTop - 17}px;z-index:1`, EDAll);
+		NewImg(
+			"tShovel",
+			"images/interface/Shovel/0.gif",
+			`left:${e.clientX / zoom - 10}px;top:${e.clientY / zoom + document.body.scrollTop - 17}px;z-index:1`,
+			EDAll
+		);
 		oS.Chose = -1;
 		GroundOnmousemove = GroundOnmousemove2;
 		StopBubble(e);
