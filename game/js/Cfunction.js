@@ -2622,12 +2622,12 @@ var MoveClickSun = function (id) {
 	const destY = -20;
 	const cssX = sun.left;
 	const cssY = sun.top;
-	const startX = (sun.offsetX || 0);
-	const startY = (sun.offsetY || 0);
+	const startX = sun.offsetX || 0;
+	const startY = sun.offsetY || 0;
 
 	const el = $(id);
 	el.style.setProperty("--sun-start", startX + "px " + startY + "px");
-	el.style.setProperty("--sun-end", (destX - cssX) + "px " + (destY - cssY) + "px");
+	el.style.setProperty("--sun-end", destX - cssX + "px " + (destY - cssY) + "px");
 	el.classList.add("sun-collect");
 
 	el.addEventListener("animationend", function onEnd() {
