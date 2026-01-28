@@ -905,7 +905,8 @@ td.HandBookZombie {
 	}
 }
 @keyframes sun-collect-scale {
-	0%, 70% {
+	0%,
+	70% {
 		transform: scale(1);
 		opacity: 1;
 	}
