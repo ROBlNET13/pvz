@@ -1708,8 +1708,9 @@ var WhichMouseButton = function (e) {
 
 var GroundOnmousedown = function (e) {
 	e = window.event || e;
-	const x = ((e.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9;
-	const y = ((e.clientY + EBody.scrollTop || EElement.scrollTop) * 10) / 9;
+	var zoom = parseFloat(document.body.style.zoom) || 1;
+	const x = ((e.clientX / zoom - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9;
+	const y = ((e.clientY / zoom + EBody.scrollTop || EElement.scrollTop) * 10) / 9;
 
 	const cellX = ChosePlantX(x);
 	const cellY = ChosePlantY(y);
@@ -1786,8 +1787,9 @@ var GroundOnmousemove = function () {};
 
 var GroundOnmousemove1 = function (e) {
 	e = window.event || e;
-	const x = ((e.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9;
-	const y = ((e.clientY + EBody.scrollTop || EElement.scrollTop) * 10) / 9;
+	var zoom = parseFloat(document.body.style.zoom) || 1;
+	const x = ((e.clientX / zoom - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9;
+	const y = ((e.clientY / zoom + EBody.scrollTop || EElement.scrollTop) * 10) / 9;
 
 	const cardIdx = oS.ChoseCard;
 	const cellX = ChosePlantX(x);
@@ -1818,8 +1820,9 @@ var GroundOnmousemove1 = function (e) {
 
 var GroundOnmousemove2 = function (e) {
 	e = window.event || e;
-	const x = e.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
-	const y = e.clientY + EBody.scrollTop || EElement.scrollTop;
+	var zoom = parseFloat(document.body.style.zoom) || 1;
+	const x = e.clientX / zoom - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
+	const y = e.clientY / zoom + EBody.scrollTop || EElement.scrollTop;
 
 	const cellX = ChosePlantX(x);
 	const cellY = ChosePlantY(y);
@@ -2034,6 +2037,7 @@ var ViewProduceZombie = function (zombieClass) {
 
 var ViewCardTitle = function (plantClass, e) {
 	e = e || window.event;
+	var zoom = parseFloat(document.body.style.zoom) || 1;
 	const titleDiv = $("dTitle");
 	const proto = plantClass.prototype;
 	let html = proto.CName + "<br>cooldown: " + proto.coolTime + "s<br>";
@@ -2046,19 +2050,20 @@ var ViewCardTitle = function (plantClass, e) {
 
 	titleDiv.innerHTML = html;
 	SetStyle(titleDiv, {
-		left: e.clientX + (EBody.scrollLeft || EElement.scrollLeft) - 3 + "px",
-		top: e.clientY + 18 + EBody.scrollTop || EElement.scrollTop + "px",
+		left: e.clientX / zoom + (EBody.scrollLeft || EElement.scrollLeft) - 3 + "px",
+		top: e.clientY / zoom + 18 + (EBody.scrollTop || EElement.scrollTop) + "px",
 		visibility: "visible",
 	});
 };
 
 var ViewGenericMouseover = function (content, e) {
 	e = e || window.event;
+	var zoom = parseFloat(document.body.style.zoom) || 1;
 	const titleDiv = $("dTitle");
 	titleDiv.innerHTML = content;
 	SetStyle(titleDiv, {
-		left: e.clientX + (EBody.scrollLeft || EElement.scrollLeft) - 3 + "px",
-		top: e.clientY + 18 + (EBody.scrollTop || EElement.scrollTop) + "px",
+		left: e.clientX / zoom + (EBody.scrollLeft || EElement.scrollLeft) - 3 + "px",
+		top: e.clientY / zoom + 18 + (EBody.scrollTop || EElement.scrollTop) + "px",
 		visibility: "visible",
 	});
 };
@@ -2350,8 +2355,9 @@ var ChosePlant = function (e, index) {
 	}
 	PlaySound2("seedlift");
 	e = window.event || e;
-	const x = e.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
-	const y = e.clientY + EBody.scrollTop || EElement.scrollTop;
+	var zoom = parseFloat(document.body.style.zoom) || 1;
+	const x = e.clientX / zoom - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
+	const y = e.clientY / zoom + EBody.scrollTop || EElement.scrollTop;
 
 	const proto = card.PName.prototype;
 	const len = ArCard.length;
@@ -2409,8 +2415,9 @@ var ShovelPlant = function (data) {
 var ChoseShovel = function (e) {
 	PlaySound2("shovel");
 	if (WhichMouseButton(e) < 2) {
+		var zoom = parseFloat(document.body.style.zoom) || 1;
 		SetHidden($("imgShovel"));
-		NewImg("tShovel", "images/interface/Shovel/0.gif", `left:${e.clientX - 10}px;top:${e.clientY + document.body.scrollTop - 17}px;z-index:1`, EDAll);
+		NewImg("tShovel", "images/interface/Shovel/0.gif", `left:${e.clientX / zoom - 10}px;top:${e.clientY / zoom + document.body.scrollTop - 17}px;z-index:1`, EDAll);
 		oS.Chose = -1;
 		GroundOnmousemove = GroundOnmousemove2;
 		StopBubble(e);

@@ -117,8 +117,9 @@ oS.Init({
 		);
 		EBody = document.body;
 		$User.Mouse.listener = EBody.addEventListener("mousemove", (event) => {
-			$User.Mouse.x = Math.floor(((event.clientX - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9);
-			$User.Mouse.y = Math.floor(event.clientY + EBody.scrollTop || EElement.scrollTop);
+			var zoom = parseFloat(document.body.style.zoom) || 1;
+			$User.Mouse.x = Math.floor(((event.clientX / zoom - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9);
+			$User.Mouse.y = Math.floor(event.clientY / zoom + EBody.scrollTop || EElement.scrollTop);
 		});
 		EElement = document.documentElement;
 		EDAll.scrollLeft = 0;

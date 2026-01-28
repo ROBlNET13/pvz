@@ -3,6 +3,7 @@
 		<link rel="stylesheet" href="Custom.css" />
 		<meta http-equiv="X-Frame-Options" content="DENY" />
 		<title>Plants vs. Zombies - MODDED Official</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script>
 			// Scale document to 0.9 if running in an extension (localStorage is unavailable)
 			try {
@@ -166,27 +167,10 @@
 		</div>
 		<div id="dSurface" class="WindowFrame">
 			<div id="iSurfaceBackground">
-				<map name="FPMap0">
-					<script>
-						(function () {
-							var s = "",
-								ar = [
-									{
-										c: "641,466,724,527",
-										k: "ShowOptions()",
-									},
-									{ c: "718,512,790,558", k: "ShowHelp()" },
-									{
-										c: "800,495,879,548",
-										k: "SetNone($('dSurface'));PlaySound2('tap')",
-									},
-								];
-							for (var i = 0; i <= 2; i++) s += '<area href="javascript:;" shape="rect" coords="' + ar[i].c + '" onclick="' + ar[i].k + '">';
-							document.write(s);
-						})();
-					</script>
-				</map>
-				<img src="images/interface/Surface.jpg" usemap="#FPMap0" border="0" />
+				<img src="images/interface/Surface.jpg" border="0" />
+				<div style="position: absolute; left: 641px; top: 466px; width: 83px; height: 61px; cursor: pointer" onclick="ShowOptions()"></div>
+				<div style="position: absolute; left: 718px; top: 512px; width: 72px; height: 46px; cursor: pointer" onclick="ShowHelp()"></div>
+				<div style="position: absolute; left: 800px; top: 495px; width: 79px; height: 53px; cursor: pointer" onclick="SetNone($('dSurface'));PlaySound2('tap')"></div>
 				<div style="position: absolute; width: 350px; height: 150px; left: 468px; top: 82px"></div>
 				<div
 					class="adventure0"
