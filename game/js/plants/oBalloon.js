@@ -37,9 +37,7 @@ export var oBalloon = InheritO(CPlants, {
 		}
 
 		let randomY = getRandomY();
-		let timeStep = oSym.TimeStep;
-		const timeInSec = (ms) => ms / 100;
-		const toTicks = (ms) => Math.round(ms / timeStep);
+		const toTicks = (ms) => Math.round(ms / oSym.TimeStep);
 
 		oBalloon.StyleSheet.insertRule(`@keyframes moveLeft${balloonId} { from { left: 910px; } to { left: -75px; } }`, oBalloon.StyleSheet.cssRules.length);
 
@@ -60,13 +58,14 @@ export var oBalloon = InheritO(CPlants, {
             height: 181px;
             scale: 0.6038961039;
             cursor: url(images/interface/Pointer.cur),pointer;
-            animation: 
-                spritesheetIdle ${timeInSec(timeStep * 10)}s steps(30) infinite, 
-                moveLeft${balloonId} ${timeInSec(timeStep * 130)}s linear, 
-                bobbing${balloonId} ${timeInSec(timeStep * 20)}s ease-in-out infinite;
+            animation:
+                spritesheetIdle 1s steps(30) infinite,
+                moveLeft${balloonId} 13s linear,
+                bobbing${balloonId} 2s ease-in-out infinite;
         `;
 
 		EDPZ.appendChild(image);
+		image.getAnimations().forEach(a => a.playbackRate = oSym.NowStep);
 
 		image.onclick = function () {
 			image.onclick = null;
@@ -81,8 +80,9 @@ export var oBalloon = InheritO(CPlants, {
                 height: 181px;
                 scale: 0.6038961039;
                 pointer-events: none;
-                animation: spritesheetPop ${timeInSec(timeStep * 10)}s 1 normal forwards steps(21);
+                animation: spritesheetPop 1s 1 normal forwards steps(21);
             `;
+			image.getAnimations().forEach(a => a.playbackRate = oSym.NowStep);
 
 			image.addEventListener("animationend", () => {
 				if (endMode === "endOfAnimation") {

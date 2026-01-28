@@ -576,9 +576,7 @@ var oS = {
 				if (oS.CanSelectCard) {
 					SetVisible($("dTop"), $("dCardList"));
 					$("dSelectCard").className = "show";
-					$("dSelectCard")
-						.getAnimations()
-						.forEach((a) => (a.playbackRate = 10 / oSym.TimeStep));
+					$("dSelectCard").getAnimations().forEach(a => a.playbackRate = oSym.NowStep);
 				} else {
 					AutoSelectCard();
 					oSym.addTask(200, oS.ScrollBack, [LetsGO]);
@@ -592,9 +590,7 @@ var oS = {
 		SetHidden($("dTop"));
 		if ($("dSelectCard").className === "show") {
 			$("dSelectCard").className = "hide";
-			$("dSelectCard")
-				.getAnimations()
-				.forEach((a) => (a.playbackRate = 10 / oSym.TimeStep));
+			$("dSelectCard").getAnimations().forEach(a => a.playbackRate = oSym.NowStep);
 		}
 
 		EDAll.scrollLeft = 500;
@@ -2639,7 +2635,7 @@ var MoveClickSun = function (id) {
 	el.style.setProperty("--sun-start", startX + "px " + startY + "px");
 	el.style.setProperty("--sun-end", destX - cssX + "px " + (destY - cssY) + "px");
 	el.classList.add("sun-collect");
-	el.getAnimations().forEach((a) => (a.playbackRate = 10 / oSym.TimeStep));
+	el.getAnimations().forEach(a => a.playbackRate = oSym.NowStep);
 
 	el.addEventListener("animationend", function onEnd() {
 		el.removeEventListener("animationend", onEnd);
@@ -3206,8 +3202,7 @@ var CSpeed = function (nowStep, timeStep, displayLabel) {
 	$User.Visitor.NowStep = oSym.NowStep = nowStep;
 	$User.Visitor.TimeStep = oSym.TimeStep = timeStep;
 	$("dDisplaySpeed").innerHTML = displayLabel;
-	const playbackRate = 10 / timeStep;
-	document.getAnimations().forEach((anim) => (anim.playbackRate = playbackRate));
+	document.getAnimations().forEach(anim => anim.playbackRate = nowStep);
 };
 
 var ShowLevel = function () {

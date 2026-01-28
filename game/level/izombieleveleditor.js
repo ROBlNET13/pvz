@@ -83,28 +83,39 @@
 			$("tGround").style.left = "-115px";
 			oS.ScrollScreen = function () {
 				// 移动重写
-				$("tGround").style.left = 0;
+				var tGround = $("tGround");
+				tGround.style.left = 0;
 				ClearChild($("dButton1"), $("dButton2"));
-				(function () {
-					(EDAll.scrollLeft += 25) < 500
-						? oSym.addTask(2, arguments.callee, [])
-						: (() => {
-								SetVisible($("dMenu"), $("dSelectCard"), $("dCardList"));
-								if (typeof levelDataToLoad !== "undefined") {
-									// get a list of what plants are used
-									let plantsUsed = [];
-									for (let i = 0; i < levelDataToLoad.plants.length; i++) {
-										let plantName = levelDataToLoad.plants[i].plantName;
-										if (!plantsUsed.includes(plantName)) {
-											plantsUsed.push(plantName);
-										}
-									}
-									// select the plants
-									for (let i = 0; i < plantsUsed.length; i++) {
-										SelectCard(plantsUsed[i]);
-									}
+				var progress = 0;
+				var steps = 60;
+				(function scrollStep() {
+					progress += 1 / steps;
+					if (progress < 1) {
+						EDAll.scrollLeft = interpolate(0, 500, progress, easeInOutSine);
+						tGround.style.transform = "translateX(" + interpolate(-115, 0, progress, easeInOutSine) + "px)";
+						oSym.addTask(2, scrollStep, []);
+					} else {
+						EDAll.scrollLeft = 500;
+						tGround.style.transform = "";
+						tGround.style.left = 0;
+						SetVisible($("dMenu"), $("dSelectCard"), $("dCardList"));
+						$("dSelectCard").className = "show";
+						$("dSelectCard").getAnimations().forEach(a => a.playbackRate = oSym.NowStep);
+						if (typeof levelDataToLoad !== "undefined") {
+							// get a list of what plants are used
+							let plantsUsed = [];
+							for (let i = 0; i < levelDataToLoad.plants.length; i++) {
+								let plantName = levelDataToLoad.plants[i].plantName;
+								if (!plantsUsed.includes(plantName)) {
+									plantsUsed.push(plantName);
 								}
-							})();
+							}
+							// select the plants
+							for (let i = 0; i < plantsUsed.length; i++) {
+								SelectCard(plantsUsed[i]);
+							}
+						}
+					}
 				})();
 			};
 			a(0);
