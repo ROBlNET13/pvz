@@ -91,6 +91,7 @@ var oSym = {
 	},
 	// Start timers
 	Start() {
+		document.body.classList.remove("game-paused");
 		if (this.Timer == null) {
 			// Timer 1: Advance internal game time (Now)
 			(function stepTime() {
@@ -133,6 +134,7 @@ var oSym = {
 		clearTimeout(oSym.execTask);
 		oSym.Timer = null;
 		oSym.execTask = null;
+		document.body.classList.add("game-paused");
 	},
 	// Add task to queue
 	addTask(delay, func, args) {
@@ -574,6 +576,7 @@ var oS = {
 				if (oS.CanSelectCard) {
 					SetVisible($("dTop"), $("dCardList"));
 					$("dSelectCard").className = "show";
+					$("dSelectCard").getAnimations().forEach(a => a.playbackRate = 10 / oSym.TimeStep);
 				} else {
 					AutoSelectCard();
 					oSym.addTask(200, oS.ScrollBack, [LetsGO]);
@@ -585,7 +588,10 @@ var oS = {
 		SetHidden($("dZombie"), $("dTitle"), $("dCardList"));
 		$("dZombie").innerHTML = "";
 		SetHidden($("dTop"));
-		$("dSelectCard").className = "hide";
+		if ($("dSelectCard").className === "show") {
+			$("dSelectCard").className = "hide";
+			$("dSelectCard").getAnimations().forEach(a => a.playbackRate = 10 / oSym.TimeStep);
+		}
 
 		EDAll.scrollLeft = 500;
 		var tGround = $("tGround");
@@ -2629,6 +2635,7 @@ var MoveClickSun = function (id) {
 	el.style.setProperty("--sun-start", startX + "px " + startY + "px");
 	el.style.setProperty("--sun-end", destX - cssX + "px " + (destY - cssY) + "px");
 	el.classList.add("sun-collect");
+	el.getAnimations().forEach(a => a.playbackRate = 10 / oSym.TimeStep);
 
 	el.addEventListener("animationend", function onEnd() {
 		el.removeEventListener("animationend", onEnd);
@@ -3195,6 +3202,8 @@ var CSpeed = function (nowStep, timeStep, displayLabel) {
 	$User.Visitor.NowStep = oSym.NowStep = nowStep;
 	$User.Visitor.TimeStep = oSym.TimeStep = timeStep;
 	$("dDisplaySpeed").innerHTML = displayLabel;
+	const playbackRate = 10 / timeStep;
+	document.getAnimations().forEach(anim => anim.playbackRate = playbackRate);
 };
 
 var ShowLevel = function () {
