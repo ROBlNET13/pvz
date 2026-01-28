@@ -559,31 +559,51 @@ var oS = {
 		config.LoadAccess ? config.LoadAccess(startGame) : startGame();
 	},
 	ScrollScreen() {
-		if ((EDAll.scrollLeft += 25) < 500) {
-			oSym.addTask(2, arguments.callee, []);
-		} else {
-			DisplayZombie();
-			SetVisible($("dMenu"));
-			if (oS.CanSelectCard) {
-				SetVisible($("dTop"), $("dSelectCard"), $("dCardList"));
+		var startScroll = EDAll.scrollLeft;
+		var progress = 0;
+		var steps = 60;
+		(function scrollStep() {
+			progress += 1 / steps;
+			if (progress < 1) {
+				EDAll.scrollLeft = interpolate(startScroll, 500, progress, easeInOutSine);
+				oSym.addTask(2, scrollStep, []);
 			} else {
-				AutoSelectCard();
-				oSym.addTask(200, oS.ScrollBack, [LetsGO]);
+				EDAll.scrollLeft = 500;
+				DisplayZombie();
+				SetVisible($("dMenu"));
+				if (oS.CanSelectCard) {
+					SetVisible($("dTop"), $("dCardList"));
+					$("dSelectCard").className = "show";
+				} else {
+					AutoSelectCard();
+					oSym.addTask(200, oS.ScrollBack, [LetsGO]);
+				}
 			}
-		}
+		})();
 	},
 	ScrollBack(callback) {
-		SetHidden($("dZombie"), $("dSelectCard"), $("dTitle"), $("dCardList"));
-		$("tGround").style.left = "-115px";
+		SetHidden($("dZombie"), $("dTitle"), $("dCardList"));
 		$("dZombie").innerHTML = "";
+		SetHidden($("dTop"));
+		$("dSelectCard").className = "hide";
 
+		EDAll.scrollLeft = 500;
+		var tGround = $("tGround");
+		var progress = 0;
+		var steps = 60;
 		(function scrollStep(cb) {
-			let scroll = EDAll.scrollLeft;
-			if ((scroll -= 25) > 0) {
-				EDAll.scrollLeft = scroll;
+			progress += 1 / steps;
+			if (progress < 1) {
+				EDAll.scrollLeft = interpolate(500, 0, progress, easeInOutSine);
+				tGround.style.transform = "translateX(" + interpolate(0, -115, progress, easeInOutSine) + "px)";
 				oSym.addTask(2, scrollStep, [cb]);
 			} else {
 				EDAll.scrollLeft = 0;
+				tGround.style.transform = "";
+				tGround.style.left = "-115px";
+				if (oS.CanSelectCard) {
+					SetVisible($("dTop"));
+				}
 				cb();
 			}
 		})(callback);
@@ -2515,7 +2535,7 @@ var AppearSun = function (x, y, amount, isDrop) {
 
 	if (isDrop) {
 		endTop = 0;
-		oSym.addTask(10, MoveDropSun, [id, y]);
+		oSym.addTask(10, MoveDropSun, [id, y, 0]);
 	} else {
 		endTop = y - sizeDiff - 20;
 		style += ";top:" + endTop + "px";
@@ -2523,23 +2543,25 @@ var AppearSun = function (x, y, amount, isDrop) {
 		// Parabolic arc movement for produced sun
 		oSym.addTask(
 			1,
-			function (sunId, curX, curY, xStep, ySteps, dir, stepsLeft, tick) {
+			function (sunId, offsetX, offsetY, xStep, ySteps, dir, stepsLeft, tick) {
 				if (ArSun[sunId] && ArSun[sunId].C) {
-					SetStyle($(sunId), {
-						left: (curX += xStep * dir) + "px",
-						top: (curY += Number(ySteps[0])) + "px",
-					});
+					offsetX += xStep * dir;
+					offsetY += Number(ySteps[0]);
+					$(sunId).style.transform = "translate(" + offsetX + "px," + offsetY + "px)";
 					ySteps.shift();
 					--stepsLeft;
 					if (stepsLeft > 0) {
 						if (ySteps.length === 0) {
 							ySteps = [8, 16, 24, 32];
 						}
-						oSym.addTask(tick, arguments.callee, [sunId, curX, curY, xStep, ySteps, dir, stepsLeft, ++tick]);
+						oSym.addTask(tick, arguments.callee, [sunId, offsetX, offsetY, xStep, ySteps, dir, stepsLeft, ++tick]);
+					} else {
+						ArSun[sunId].offsetX = offsetX;
+						ArSun[sunId].offsetY = offsetY;
 					}
 				}
 			},
-			[id, x, endTop, Math.floor(Math.random() * 4), [-32, -24, -16, -8], [-1, 1][Math.floor(Math.random() * 2)], 8, 2]
+			[id, 0, 0, Math.floor(Math.random() * 4), [-32, -24, -16, -8], [-1, 1][Math.floor(Math.random() * 2)], 8, 2]
 		);
 		oSym.addTask(800, DisappearSun, [id], 3);
 	}
@@ -2560,13 +2582,17 @@ var AppearSun = function (x, y, amount, isDrop) {
 	return id;
 };
 
-var MoveDropSun = function (id, targetY) {
+var MoveDropSun = function (id, targetY, offsetY) {
 	const sun = ArSun[id];
 	if (sun && sun.C) {
-		if (sun.top < targetY - 53) {
-			$(id).style.top = (sun.top += 3) + "px";
-			oSym.addTask(5, MoveDropSun, [id, targetY]);
+		const endOffset = targetY - 53;
+		if (offsetY < endOffset) {
+			offsetY += 3;
+			sun.offsetY = offsetY;
+			$(id).style.transform = "translateY(" + offsetY + "px)";
+			oSym.addTask(5, MoveDropSun, [id, targetY, offsetY]);
 		} else {
+			sun.offsetY = offsetY;
 			oSym.addTask(800, DisappearSun, [id]);
 		}
 	}
@@ -2591,31 +2617,29 @@ var ClickSun = function (id) {
 };
 
 var MoveClickSun = function (id) {
-	const speed = 15;
 	const sun = ArSun[id];
 	const destX = 85;
 	const destY = -20;
-	const startX = sun.left;
-	const startY = sun.top;
+	const cssX = sun.left;
+	const cssY = sun.top;
+	const startX = (sun.offsetX || 0);
+	const startY = (sun.offsetY || 0);
 
-	const stepsX = Math.round((startX - destX) / speed);
-	const stepsY = Math.round((startY - destY) / speed);
+	const el = $(id);
+	el.style.setProperty("--sun-start", startX + "px " + startY + "px");
+	el.style.setProperty("--sun-end", (destX - cssX) + "px " + (destY - cssY) + "px");
+	el.classList.add("sun-collect");
 
-	(function (elId, sunData, dX, dY, curX, curY, stepRate, stepX, stepY) {
-		if ((curX -= stepX) > dX) {
-			SetStyle($(elId), { left: curX + "px", top: (curY -= stepY) + "px" });
-			oSym.addTask(stepRate, arguments.callee, [elId, sunData, dX, dY, curX, curY, (stepRate += 0.3), stepX, stepY]);
-		} else {
-			SetStyle($(elId), { left: dX + "px", top: dY + "px" });
-			if (Number(ESSunNum.innerHTML) !== oS.SunNum) {
-				oS.SunNum = Math.min(Number(ESSunNum.innerHTML), oS.SunNum);
-			}
-			innerText(ESSunNum, (oS.SunNum = Math.min(oS.SunNum + sunData.N, 9990)));
-			MonitorCard();
-			delete ArSun[elId];
-			oSym.addTask(20, ClearChild, [$(elId)]);
+	el.addEventListener("animationend", function onEnd() {
+		el.removeEventListener("animationend", onEnd);
+		if (Number(ESSunNum.innerHTML) !== oS.SunNum) {
+			oS.SunNum = Math.min(Number(ESSunNum.innerHTML), oS.SunNum);
 		}
-	})(id, sun, destX, destY, startX, startY, 1, stepsX, stepsY);
+		innerText(ESSunNum, (oS.SunNum = Math.min(oS.SunNum + sun.N, 9990)));
+		MonitorCard();
+		delete ArSun[id];
+		oSym.addTask(20, ClearChild, [el]);
+	});
 };
 
 var AutoClickSun = function () {

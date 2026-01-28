@@ -770,6 +770,32 @@ td.HandBookZombie {
 	z-index: 20;
 	background: url("images/interface/SeedChooser_Background.png") no-repeat;
 }
+@keyframes selectCardShow {
+	from {
+		transform: translateY(600px);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+@keyframes selectCardHide {
+	from {
+		transform: translateY(0);
+		visibility: visible;
+	}
+	to {
+		transform: translateY(600px);
+		visibility: hidden;
+	}
+}
+#dSelectCard.show {
+	visibility: visible;
+	animation: selectCardShow 0.2s cubic-bezier(0.61, 1, 0.88, 1) forwards;
+}
+#dSelectCard.hide {
+	visibility: visible;
+	animation: selectCardHide 0.2s cubic-bezier(0.12, 0, 0.39, 0) forwards;
+}
 
 #dSelectCard .title {
 	text-align: center;
@@ -868,6 +894,33 @@ td.HandBookZombie {
 	font-family: Verdana;
 	font-weight: bold;
 	font-size: 18pt;
+}
+
+@keyframes sun-collect {
+	0% {
+		translate: var(--sun-start);
+	}
+	100% {
+		translate: var(--sun-end);
+	}
+}
+@keyframes sun-collect-scale {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	75% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(0.5);
+		opacity: 0;
+	}
+}
+
+.sun-collect {
+	animation: sun-collect 1s cubic-bezier(0.25, 1, 0.5, 1) forwards, sun-collect-scale 0.75s cubic-bezier(0.12, 0, 0.39, 0) forwards;
 }
 
 #tdShovel {
