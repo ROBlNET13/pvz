@@ -100,7 +100,9 @@
 						tGround.style.left = 0;
 						SetVisible($("dMenu"), $("dSelectCard"), $("dCardList"));
 						$("dSelectCard").className = "show";
-						$("dSelectCard").getAnimations().forEach(a => a.playbackRate = oSym.NowStep);
+						$("dSelectCard")
+							.getAnimations()
+							.forEach((a) => (a.playbackRate = oSym.NowStep));
 						if (typeof levelDataToLoad !== "undefined") {
 							// get a list of what plants are used
 							let plantsUsed = [];

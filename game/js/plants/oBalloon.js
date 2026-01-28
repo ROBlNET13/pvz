@@ -65,7 +65,7 @@ export var oBalloon = InheritO(CPlants, {
         `;
 
 		EDPZ.appendChild(image);
-		image.getAnimations().forEach(a => a.playbackRate = oSym.NowStep);
+		image.getAnimations().forEach((a) => (a.playbackRate = oSym.NowStep));
 
 		image.onclick = function () {
 			image.onclick = null;
@@ -82,7 +82,7 @@ export var oBalloon = InheritO(CPlants, {
                 pointer-events: none;
                 animation: spritesheetPop 1s 1 normal forwards steps(21);
             `;
-			image.getAnimations().forEach(a => a.playbackRate = oSym.NowStep);
+			image.getAnimations().forEach((a) => (a.playbackRate = oSym.NowStep));
 
 			image.addEventListener("animationend", () => {
 				if (endMode === "endOfAnimation") {
