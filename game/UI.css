@@ -161,7 +161,7 @@ td.HandBookZombie {
 	transform-origin: left;
 	/* Đặt điểm gốc cho hiệu ứng scale */
 	position: absolute;
-	top: -27;
+	top: -30px;
 	width: 900px;
 	left: 50%;
 	margin-left: -405px;
