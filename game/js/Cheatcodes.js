@@ -18,7 +18,7 @@ let cheatCodes = {
 		ViewHandBook();
 	},
 	j: () => {
-		const sunId = AppearSun($User.Mouse.x - 45, $User.Mouse.y + 45, 25, false);
+		const sunId = AppearSun($User.Mouse.x, $User.Mouse.y, 25, false);
 		if (!oS.AutoSun) {
 			oSym.addTask(Math.round(1000 / oSym.TimeStep), ClickSun, [sunId]);
 		}

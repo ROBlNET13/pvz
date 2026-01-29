@@ -202,10 +202,14 @@ var oS = {
 		// DOM Element setup
 		EDAll = $("dAll");
 		EDPZ = $("dPZ");
-		EDAlloffsetLeft = EDAll.offsetLeft;
-		window.addEventListener("resize", function () {
-			EDAlloffsetLeft = EDAll.offsetLeft;
-		});
+		// Use getBoundingClientRect to get actual visual position after CSS transforms
+		function updateEDAllOffset() {
+			const rect = EDAll.getBoundingClientRect();
+			EDAlloffsetLeft = rect.left;
+			EDAlloffsetTop = rect.top;
+		}
+		updateEDAllOffset();
+		window.addEventListener("resize", updateEDAllOffset);
 		EDNewAll = EDAll.cloneNode(true);
 		EDNewFlagMeter = $("dFlagMeter").cloneNode(true);
 		ESSunNum = $("sSunNum");
@@ -561,6 +565,7 @@ var oS = {
 		config.LoadAccess ? config.LoadAccess(startGame) : startGame();
 	},
 	ScrollScreen() {
+		DisplayZombie();
 		var startScroll = EDAll.scrollLeft;
 		var progress = 0;
 		var steps = 60;
@@ -571,7 +576,6 @@ var oS = {
 				oSym.addTask(2, scrollStep, []);
 			} else {
 				EDAll.scrollLeft = 500;
-				DisplayZombie();
 				SetVisible($("dMenu"));
 				if (oS.CanSelectCard) {
 					SetVisible($("dTop"), $("dCardList"));
@@ -587,8 +591,7 @@ var oS = {
 		})();
 	},
 	ScrollBack(callback) {
-		SetHidden($("dZombie"), $("dTitle"), $("dCardList"));
-		$("dZombie").innerHTML = "";
+		SetHidden($("dTitle"), $("dCardList"));
 		SetHidden($("dTop"));
 		if ($("dSelectCard").className === "show") {
 			$("dSelectCard").className = "hide";
@@ -606,14 +609,18 @@ var oS = {
 			if (progress < 1) {
 				EDAll.scrollLeft = interpolate(500, 0, progress, easeInOutSine);
 				tGround.style.transform = "translateX(" + interpolate(0, -115, progress, easeInOutSine) + "px)";
+				$("dZombie").style.transform = "translateX(" + interpolate(0, -115, progress, easeInOutSine) + "px)";
 				oSym.addTask(2, scrollStep, [cb]);
 			} else {
 				EDAll.scrollLeft = 0;
 				tGround.style.transform = "";
+				$("dZombie").style.transform = "";
 				tGround.style.left = "-115px";
 				if (oS.CanSelectCard) {
 					SetVisible($("dTop"));
 				}
+				SetHidden($("dZombie"));
+				$("dZombie").innerHTML = "";
 				cb();
 			}
 		})(callback);
@@ -1709,8 +1716,8 @@ var WhichMouseButton = function (e) {
 var GroundOnmousedown = function (e) {
 	e = window.event || e;
 	var zoom = parseFloat(document.body.style.zoom) || 1;
-	const x = ((e.clientX / zoom - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9;
-	const y = ((e.clientY / zoom + EBody.scrollTop || EElement.scrollTop) * 10) / 9;
+	const x = (e.clientX / zoom - EDAlloffsetLeft) / 0.9;
+	const y = (e.clientY / zoom - EDAlloffsetTop) / 0.9;
 
 	const cellX = ChosePlantX(x);
 	const cellY = ChosePlantY(y);
@@ -1788,8 +1795,8 @@ var GroundOnmousemove = function () {};
 var GroundOnmousemove1 = function (e) {
 	e = window.event || e;
 	var zoom = parseFloat(document.body.style.zoom) || 1;
-	const x = ((e.clientX / zoom - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft) * 10) / 9;
-	const y = ((e.clientY / zoom + EBody.scrollTop || EElement.scrollTop) * 10) / 9;
+	const x = (e.clientX / zoom - EDAlloffsetLeft) / 0.9;
+	const y = (e.clientY / zoom - EDAlloffsetTop) / 0.9;
 
 	const cardIdx = oS.ChoseCard;
 	const cellX = ChosePlantX(x);
@@ -1821,8 +1828,8 @@ var GroundOnmousemove1 = function (e) {
 var GroundOnmousemove2 = function (e) {
 	e = window.event || e;
 	var zoom = parseFloat(document.body.style.zoom) || 1;
-	const x = e.clientX / zoom - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
-	const y = e.clientY / zoom + EBody.scrollTop || EElement.scrollTop;
+	const x = (e.clientX / zoom - EDAlloffsetLeft) / 0.9;
+	const y = (e.clientY / zoom - EDAlloffsetTop) / 0.9;
 
 	const cellX = ChosePlantX(x);
 	const cellY = ChosePlantY(y);
@@ -1844,8 +1851,8 @@ var GroundOnmousemove2 = function (e) {
 	}
 
 	SetStyle($("tShovel"), {
-		left: ((x - 15) * 10) / 9 + "px",
-		top: ((y - 16) * 10) / 9 + "px",
+		left: x - 15 + "px",
+		top: y - 16 + "px",
 	});
 };
 
@@ -2050,7 +2057,7 @@ var ViewCardTitle = function (plantClass, e) {
 
 	titleDiv.innerHTML = html;
 	SetStyle(titleDiv, {
-		left: e.clientX / zoom + (EBody.scrollLeft || EElement.scrollLeft) - 3 + "px",
+		left: e.clientX / zoom + (EBody.scrollLeft || EElement.scrollLeft) + "px",
 		top: e.clientY / zoom + 18 + (EBody.scrollTop || EElement.scrollTop) + "px",
 		visibility: "visible",
 	});
@@ -2062,7 +2069,7 @@ var ViewGenericMouseover = function (content, e) {
 	const titleDiv = $("dTitle");
 	titleDiv.innerHTML = content;
 	SetStyle(titleDiv, {
-		left: e.clientX / zoom + (EBody.scrollLeft || EElement.scrollLeft) - 3 + "px",
+		left: e.clientX / zoom + (EBody.scrollLeft || EElement.scrollLeft) + "px",
 		top: e.clientY / zoom + 18 + (EBody.scrollTop || EElement.scrollTop) + "px",
 		visibility: "visible",
 	});
@@ -2359,8 +2366,8 @@ var ChosePlant = function (e, index) {
 	PlaySound2("seedlift");
 	e = window.event || e;
 	var zoom = parseFloat(document.body.style.zoom) || 1;
-	const x = e.clientX / zoom - EDAlloffsetLeft + EBody.scrollLeft || EElement.scrollLeft;
-	const y = e.clientY / zoom + EBody.scrollTop || EElement.scrollTop;
+	const x = (e.clientX / zoom - EDAlloffsetLeft) / 0.9;
+	const y = (e.clientY / zoom - EDAlloffsetTop) / 0.9;
 
 	const proto = card.PName.prototype;
 	const len = ArCard.length;
@@ -2419,11 +2426,13 @@ var ChoseShovel = function (e) {
 	PlaySound2("shovel");
 	if (WhichMouseButton(e) < 2) {
 		var zoom = parseFloat(document.body.style.zoom) || 1;
+		const x = (e.clientX / zoom - EDAlloffsetLeft) / 0.9;
+		const y = (e.clientY / zoom - EDAlloffsetTop) / 0.9;
 		SetHidden($("imgShovel"));
 		NewImg(
 			"tShovel",
 			"images/interface/Shovel/0.gif",
-			`left:${e.clientX / zoom - 10}px;top:${e.clientY / zoom + document.body.scrollTop - 17}px;z-index:1`,
+			`left:${x - 10}px;top:${y - 17}px;z-index:1`,
 			EDAll
 		);
 		oS.Chose = -1;
@@ -3298,11 +3307,11 @@ var CloseHandBook = function () {
 	SetHidden($("dHandBookPZ"), $("dHandBook"));
 };
 
-var ShowHelp = function () {
+var ShowHelp = function (ele) {
 	LoadMenu("note", "images/interface/NoteBG.png", {
 		overlayImage: "images/interface/ZombieNoteHelp.png",
 		callback: HiddenHelp,
-	});
+	}, ele);
 };
 
 var HiddenHelp = function () {

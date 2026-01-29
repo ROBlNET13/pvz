@@ -93,7 +93,7 @@ oS.Init(
 						callback: () => {
 							SelectModal(50);
 						},
-					});
+					}, this);
 				},
 			});
 			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);

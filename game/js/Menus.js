@@ -57,14 +57,21 @@ async function PreloadMenu(menuId) {
 	]);
 }
 
-async function LoadMenu(menuId, background, extraData = {}) {
+async function LoadMenu(menuId, background, extraData = {}, debounceElement) {
 	menusAmount++;
 	const dAll = await getDAll();
 	const dSurface = document.querySelector("#dSurface");
 	const container = dSurface && dSurface.style.display === "block" ? dSurface : dAll;
+	if (debounceElement) {
+		// add .cantSelect
+		debounceElement.classList.add("cantSelect");
+	}
 	// fetch menu/html/{menuId}.html and menu/js/{menuId}.js. run the js code after injecting the html into the #dAll element.
 	const [htmlResponse, jsResponse] = await Promise.all([fetch(`menu/html/${menuId}.html`), fetch(`menu/js/${menuId}.js`).catch(() => null)]);
-
+	if (debounceElement) {
+		// remove .cantSelect
+		debounceElement.classList.remove("cantSelect");
+	}
 	const html = await htmlResponse.text();
 	const js = jsResponse && jsResponse.ok ? await jsResponse.text() : null;
 

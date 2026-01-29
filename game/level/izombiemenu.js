@@ -92,7 +92,7 @@ oS.Init({
 		NewImg("imgSF", "images/interface/izombieload.png", "left:200px;top:410px", EDAll, {
 			onclick() {
 				// SelectModal("izombiecustommenu");
-				LoadMenu("izombieonline", "images/interface/Challenge_Background.jpg");
+				LoadMenu("izombieonline", "images/interface/Challenge_Background.jpg", {}, this);
 				PlaySound2("tap");
 			},
 			onmouseover() {
