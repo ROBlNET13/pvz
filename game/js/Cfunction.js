@@ -2957,6 +2957,8 @@ var CheckIzlParameter = function () {
 var ShowNameDiv = function () {
 	oSym.Start();
 	$("dNameDiv0").className = "";
+	// trigger reflow to restart the animation
+	void $("dNameDiv0").offsetWidth;
 	$("dNameDiv0").className = "animate";
 };
 
