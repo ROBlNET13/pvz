@@ -2429,12 +2429,7 @@ var ChoseShovel = function (e) {
 		const x = (e.clientX / zoom - EDAlloffsetLeft) / 0.9;
 		const y = (e.clientY / zoom - EDAlloffsetTop) / 0.9;
 		SetHidden($("imgShovel"));
-		NewImg(
-			"tShovel",
-			"images/interface/Shovel/0.gif",
-			`left:${x - 10}px;top:${y - 17}px;z-index:1`,
-			EDAll
-		);
+		NewImg("tShovel", "images/interface/Shovel/0.gif", `left:${x - 10}px;top:${y - 17}px;z-index:1`, EDAll);
 		oS.Chose = -1;
 		GroundOnmousemove = GroundOnmousemove2;
 		StopBubble(e);
@@ -3308,10 +3303,15 @@ var CloseHandBook = function () {
 };
 
 var ShowHelp = function (ele) {
-	LoadMenu("note", "images/interface/NoteBG.png", {
-		overlayImage: "images/interface/ZombieNoteHelp.png",
-		callback: HiddenHelp,
-	}, ele);
+	LoadMenu(
+		"note",
+		"images/interface/NoteBG.png",
+		{
+			overlayImage: "images/interface/ZombieNoteHelp.png",
+			callback: HiddenHelp,
+		},
+		ele
+	);
 };
 
 var HiddenHelp = function () {

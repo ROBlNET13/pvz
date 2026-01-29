@@ -80,12 +80,17 @@ oS.Init(
 				onclick() {
 					PlaySound2("winmusic");
 					SetHidden($("PointerUD"));
-					LoadMenu("note", "images/interface/NoteBG_DragonPalace.png", {
-						overlayImage: "images/interface/Zombiefinalnote.png",
-						callback: () => {
-							SelectModal(40);
+					LoadMenu(
+						"note",
+						"images/interface/NoteBG_DragonPalace.png",
+						{
+							overlayImage: "images/interface/Zombiefinalnote.png",
+							callback: () => {
+								SelectModal(40);
+							},
 						},
-					}, this);
+						this
+					);
 				},
 			});
 			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
