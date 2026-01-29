@@ -2839,12 +2839,19 @@ var GetNewCard = function (ele, plantClass, nextLvl) {
 	StopMusic();
 	PlaySound2("winmusic");
 	oSym.Clear();
+	ele.style.transition = "all 3s ease-out";
+	ele.style.width = "100px";
+	ele.style.height = "120px";
+	ele.style.clip = "";
+	ele.style.clipPath = "inset(0 0 60px 0)";
+	// force reflow
+	void ele.offsetWidth;
 	SetStyle(ele, {
 		left: "350px",
 		top: "131px",
 		width: "200px",
 		height: "240px",
-		clip: "rect(0,auto,120px,0)",
+		clipPath: "inset(0 0 120px 0)",
 		cursor: "url(images/interface/Cursor.cur),default",
 	}).onclick = null;
 

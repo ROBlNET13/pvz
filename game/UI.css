@@ -1428,8 +1428,7 @@ td.HandBookZombie {
 	visibility: hidden;
 	position: absolute;
 	top: -30px;
-	left: 50%;
-	margin-left: -445px;
+	left: calc(50% - 450px);
 	width: 900px;
 	height: 603px;
 	background: url(images/interface/AwardScreen_Back.jpg) no-repeat center center;
