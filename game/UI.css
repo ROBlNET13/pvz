@@ -157,16 +157,12 @@ td.HandBookZombie {
 
 .WindowFrame {
 	transform: scale(0.9);
-	/* Điều chỉnh tỷ lệ theo nhu cầu */
-	transform-origin: left;
-	/* Đặt điểm gốc cho hiệu ứng scale */
-	position: absolute;
 	top: -30px;
 	width: 900px;
-	left: 50%;
-	margin-left: -405px;
 	height: 600px;
 	overflow: hidden;
+	left: calc(50% - 450px);
+	position: absolute;
 }
 
 #dLvlLink {
