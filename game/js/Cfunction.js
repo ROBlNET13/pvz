@@ -2245,7 +2245,10 @@ var ViewPlantTitle = function (index) {
 	}
 
 	titleDiv.innerHTML = html;
-	SetStyle(titleDiv, { top: 60 * index + "px", left: EDAlloffsetLeft + 100 + "px" });
+	SetStyle(titleDiv, {
+		top: 60 * index + "px",
+		left: EDAlloffsetLeft + 100 + "px",
+	});
 };
 
 var BeginCool = function () {
@@ -3289,20 +3292,24 @@ var CloseHandBook = function () {
 	if (oS.Lvl) {
 		ResetGame($("dMenu0"));
 	} else {
-		oSym.addTask(100, AllAudioPauseCanceled);
+		AllAudioPauseCanceled();
 	}
 	SetNone($("dHandBookP"), $("dHandBookZ"));
 	SetHidden($("dHandBookPZ"), $("dHandBook"));
 };
 
 var ShowHelp = function () {
-	PlaySound2("tap");
-	SetBlock($("dHelp"));
+	LoadMenu("note", "images/interface/NoteBG.png", {
+		overlayImage: "images/interface/ZombieNoteHelp.png",
+		callback: HiddenHelp,
+	});
 };
 
 var HiddenHelp = function () {
 	PlaySound2("tap");
-	SetNone($("dHelp"));
+	AllAudioPauseCanceled();
+	ShowNameDiv();
+	UnloadMenu("note");
 };
 
 var $ = function (id) {

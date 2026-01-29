@@ -6,7 +6,7 @@ let sequenceTimeout = null;
 // - An object with { action: function, clearSequence: boolean }
 let cheatCodes = {
 	fast: () => {
-		CSpeed(100, 0.1, "really damn fast");
+		CSpeed(1000, 10, "really damn fast");
 	},
 	balloon: () => {
 		oBalloon.prototype.Birth();

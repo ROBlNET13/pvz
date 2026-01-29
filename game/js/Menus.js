@@ -57,7 +57,7 @@ async function PreloadMenu(menuId) {
 	]);
 }
 
-async function LoadMenu(menuId, background) {
+async function LoadMenu(menuId, background, extraData = {}) {
 	menusAmount++;
 	const dAll = await getDAll();
 	const dSurface = document.querySelector("#dSurface");
@@ -89,8 +89,8 @@ async function LoadMenu(menuId, background) {
 
 	// run the js code if it exists (provide menuContainer to the menu script)
 	if (js) {
-		const runMenuScript = new Function("menuContainer", "menuId", `"use strict";\n${js}\n`);
-		runMenuScript(menuContainer, menuId, background);
+		const runMenuScript = new Function("menuContainer", "menuId", "extraData", `"use strict";\n${js}\n`);
+		runMenuScript(menuContainer, menuId, extraData);
 	}
 
 	visibleMenus.push(menuId);

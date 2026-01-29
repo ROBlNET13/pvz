@@ -58,15 +58,13 @@ oS.Init(
 			NewImg("imgSF", "images/interface/ZombieNoteSmall.png", "left:667px;top:220px", EDAll, {
 				onclick() {
 					SetHidden($("PointerUD"));
-					SetStyle(this, {
-						width: "613px",
-						height: "399px",
-						left: "193px",
-						top: "100px",
-					}).src = "images/interface/ZombieNote2.png";
-					this.onclick = function () {
-						SelectModal(20);
-					};
+					PlaySound2("winmusic");
+					LoadMenu("note", "images/interface/NoteBG_Night.png", {
+						overlayImage: "images/interface/ZombieNote2.png",
+						callback: () => {
+							SelectModal(20);
+						},
+					});
 				},
 			});
 			NewImg("PointerUD", "images/interface/PointerDown.gif", "top:185px;left:676px", EDAll);
