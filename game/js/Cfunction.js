@@ -2956,25 +2956,8 @@ var CheckIzlParameter = function () {
 };
 var ShowNameDiv = function () {
 	oSym.Start();
-	(function (config) {
-		let item = config[0];
-		let i = 3;
-		config.shift();
-		while (i--) {
-			SetStyle(($("dNameDiv" + i).style.top = item[i] + "px"));
-		}
-		if (config.length) {
-			oSym.addTask(item[3], arguments.callee, [config]);
-		}
-	})([
-		[-260, 96, 136, 10],
-		[-94, 96, 136, 10],
-		[-6, 127, 176, 10],
-		[-8, 134, 188, 17],
-		[-8, 130, 179, 17],
-		[-8, 136, 189, 17],
-		[-8, 134, 187, 10],
-	]);
+	$("dNameDiv0").className = "";
+	$("dNameDiv0").className = "animate";
 };
 
 var ShowLoginDiv = function () {

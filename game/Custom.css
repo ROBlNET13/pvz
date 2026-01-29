@@ -850,7 +850,8 @@ input[type="checkbox"] {
 	margin: 0 4px 0 0;
 	vertical-align: middle;
 
-	background: url("images/interface/options_checkbox0.png") center center no-repeat;
+	background: url("images/interface/options_checkbox0.png") center center
+		no-repeat;
 	background-size: contain;
 
 	cursor: url(images/interface/Pointer.cur), pointer !important;
@@ -860,7 +861,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-	background: url("images/interface/options_checkbox1.png") center center no-repeat;
+	background: url("images/interface/options_checkbox1.png") center center
+		no-repeat;
 	background-size: contain;
 }
 #lAutoSun,
@@ -1236,4 +1238,88 @@ input[type="checkbox"]:checked {
 }
 #iz-menu-title {
 	margin-bottom: -88px;
+}
+
+@keyframes showNameDiv0 {
+	0% {
+		top: -260px;
+	}
+	12.35% {
+		top: -94px;
+	}
+	24.69% {
+		top: -6px;
+	}
+	37.04% {
+		top: -8px;
+	}
+	58.02% {
+		top: -8px;
+	}
+	79.01% {
+		top: -8px;
+	}
+	100% {
+		top: -8px;
+	}
+}
+
+@keyframes showNameDiv1 {
+	0% {
+		top: 96px;
+	}
+	12.35% {
+		top: 96px;
+	}
+	24.69% {
+		top: 127px;
+	}
+	37.04% {
+		top: 134px;
+	}
+	58.02% {
+		top: 130px;
+	}
+	79.01% {
+		top: 136px;
+	}
+	100% {
+		top: 134px;
+	}
+}
+
+@keyframes showNameDiv2 {
+	0% {
+		top: 136px;
+	}
+	12.35% {
+		top: 136px;
+	}
+	24.69% {
+		top: 176px;
+	}
+	37.04% {
+		top: 188px;
+	}
+	58.02% {
+		top: 179px;
+	}
+	79.01% {
+		top: 189px;
+	}
+	100% {
+		top: 187px;
+	}
+}
+
+#dNameDiv0.animate {
+	animation: showNameDiv0 810ms linear forwards;
+}
+
+#dNameDiv0.animate > #dNameDiv1 {
+	animation: showNameDiv1 810ms linear forwards;
+}
+
+#dNameDiv0.animate > #dNameDiv2 {
+	animation: showNameDiv2 810ms linear forwards;
 }
