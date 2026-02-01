@@ -1,3 +1,5 @@
+pNameValue = [];
+zNameValue = [];
 // make sure everything in levelDataToLoad is defined
 if (typeof levelDataToLoad === "undefined") {
 	alert("Invalid level data!");
@@ -143,6 +145,14 @@ for (let i = 0; i < levelDataToLoad.plants.length; i++) {
 		pNameValue.push(window[plant.plantName]);
 	}
 }
+if (levelDataToLoad.selectedZombies) {
+	for (let i = 0; i < levelDataToLoad.selectedZombies.length; i++) {
+		let zombie = levelDataToLoad.selectedZombies[i];
+		if (!zNameValue.includes(window[zombie])) {
+			zNameValue.push(window[zombie]);
+		}
+	}
+}
 // if lfValue is [0, 1, 1, 2, 2, 1, 1], then we use background4, otherwise background2
 backgroundImage = levelDataToLoad.lfValue[3] === 2 ? "images/interface/background4.jpg" : "images/interface/background2.jpg";
 // if its [0, 1, 1, 2, 2, 1, 1], then we use 6 brains, otherwise 5
@@ -150,7 +160,10 @@ brainsNum = levelDataToLoad.lfValue[3] === 2 ? 6 : 5;
 
 oS.Init({
 	PName: pNameValue,
-	ZName: [oIImp, oIConeheadZombie, oIPoleVaultingZombie, oIBucketheadZombie, oIFootballZombie, oIJackinTheBoxZombie, oIScreenDoorZombie],
+	ZName:
+		zNameValue.length === 0
+			? [oIImp, oIConeheadZombie, oIPoleVaultingZombie, oIBucketheadZombie, oIFootballZombie, oIJackinTheBoxZombie, oIScreenDoorZombie]
+			: zNameValue,
 	PicArr: [backgroundImage, "images/interface/trophy.png", "images/interface/Stripe.png"],
 	LF: levelDataToLoad.lfValue,
 	backgroundImage,

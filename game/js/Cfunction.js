@@ -2051,17 +2051,17 @@ var ViewProduceZombie = function (zombieClass) {
 	$("pZombieBack").style.background = "url('images/interface/Almanac_Ground" + proto.BookHandBack + ".jpg')";
 };
 
-var ViewCardTitle = function (plantClass, e) {
+var ViewCardTitle = function (plantClass, e, showCooldown = true, showProduce = true) {
 	e = e || window.event;
 	var zoom = parseFloat(document.body.style.zoom) || 1;
 	const titleDiv = $("dTitle");
 	const proto = plantClass.prototype;
-	let html = proto.CName + "<br>cooldown: " + proto.coolTime + "s<br>";
+	let html = proto.CName + "<br>" + (showCooldown ? "cooldown: " + proto.coolTime + "s<br>" : "");
 
 	if (oS.DKind && proto.night) {
 		html += '<span style="color:#F00">Nocturnal - sleeps during the day</span><br>' + proto.Tooltip;
 	} else {
-		html += proto.Tooltip || '<span style="text-align:left">' + proto.Produce + "</span>";
+		html += proto.Tooltip || (showProduce ? '<span style="text-align:left">' + proto.Produce + "</span>" : "");
 	}
 
 	titleDiv.innerHTML = html;

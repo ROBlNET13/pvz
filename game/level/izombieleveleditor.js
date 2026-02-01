@@ -55,6 +55,21 @@
 			oSpikerock,
 		],
 		ZName: [oZombie],
+		IZName: {
+			NGrass: [oIImp, oIConeheadZombie, oIPoleVaultingZombie, oIBucketheadZombie, oIFootballZombie, oIJackinTheBoxZombie, oIScreenDoorZombie],
+			NPool: [
+				oIZombie,
+				oIConeheadZombie,
+				oIBucketheadZombie,
+				oIDuckyTubeZombie1,
+				oIDuckyTubeZombie2,
+				oIDuckyTubeZombie3,
+				oIScreenDoorZombie,
+				oIPoleVaultingZombie,
+				oIBalloonZombie,
+			],
+		},
+		ChosenZombies: [],
 		PicArr: ["images/interface/background2.jpg", "images/interface/trophy.png"],
 		backgroundImage: "images/interface/background2.jpg",
 		BrainsNum: 5,
@@ -74,15 +89,27 @@
 		},
 		LvlClearFunc() {
 			oS.ScrollScreen = oS.LvlVar.ScrollScreen;
+			delete oS.ScrollScreenZombies;
+			delete oS.ScrollBackZombies;
 			delete oS.LvlVar.ScrollScreen;
 			delete oS.NowLevel; // 清除关卡阶段数据
+			delete oS.ChosenZombies;
+			$("dSelectCard").className = "";
+			$("btnOK").onclick = () => oS.ScrollBack(LetsGO);
+			$("btnOK").value = "Start";
+			$("btnReset").onclick = ResetSelectCard;
 		},
 		ArP: { ArC: [1, 4], ArR: [1, 5] },
 		LoadAccess(a) {
 			!oS.LvlVar ? (oS.LvlVar = { ScrollScreen: oS.ScrollScreen }) : (oS.LvlVar.ScrollScreen = oS.ScrollScreen); // 关卡数据
 			$("tGround").style.left = "-115px";
+			oS.ChosenZombies = oS.IZName[oS.NowLevel || "NGrass"];
 			oS.ScrollScreen = function () {
 				// 移动重写
+				$("dSelectCard").className = "";
+				$("btnOK").onclick = () => oS.ScrollBack(LetsGO);
+				$("btnOK").value = "Start";
+				$("btnReset").onclick = ResetSelectCard;
 				var tGround = $("tGround");
 				tGround.style.left = 0;
 				ClearChild($("dButton1"), $("dButton2"));
@@ -120,7 +147,163 @@
 					}
 				})();
 			};
-			a(0);
+			oS.InitZCard = function () {
+				const container = $("dPCard");
+				container.innerHTML = "";
+				const cards = oS.IZName[oS.NowLevel];
+				const len = cards.length;
+				let i = 0;
+
+				while (i < len) {
+					let card = cards[i];
+					let proto = card.prototype;
+					if (!proto.CanSelect) {
+						++i;
+						continue;
+					}
+					let name = proto.EName;
+					ArPCard[name] = { Select: 0, PName: card };
+
+					const div = document.createElement("div");
+					div.className = "span1";
+					div.id = "Card" + name;
+					div.onmouseout = function () {
+						SetHidden($("dTitle"));
+					};
+					div.onmousemove = function (event) {
+						ViewCardTitle(card, event, false, false);
+					};
+					div.onclick = function () {
+						if (oS.ChosenZombies.includes(card)) {
+							if (oS.ChosenZombies.length > 1) {
+								oS.ChosenZombies = oS.ChosenZombies.filter((z) => z !== card);
+								this.style.filter = "none";
+								PlaySound2("tap");
+							}
+						} else {
+							oS.ChosenZombies.push(card);
+							this.style.filter = "grayscale(100%)";
+							PlaySound2("tap");
+						}
+					};
+
+					if (oS.ChosenZombies.includes(card)) {
+						div.style.filter = "grayscale(100%)";
+					}
+
+					const img = document.createElement("img");
+					img.src = proto.PicArr[0];
+					div.appendChild(img);
+
+					const span = document.createElement("span");
+					span.className = "span2";
+					span.textContent = proto.SunNum;
+					div.appendChild(span);
+
+					container.appendChild(div);
+
+					if (i++ % 6 === 5) {
+						container.appendChild(document.createElement("br"));
+					}
+				}
+			};
+			oS.ScrollScreenZombies = function () {
+				SetHidden(
+					$("dSelectCard"),
+					$("dCardList"),
+					$("dTop"),
+					$("dTitle"),
+					$("tdShovel"),
+					$("btnClickSave"),
+					$("btnClickZombies"),
+					$("iStripe"),
+					$("dPZ")
+				);
+				$("dSelectCard").className = "zombies";
+				$("btnOK").onclick = oS.ScrollBackZombies;
+				$("btnOK").value = "Back";
+				$("btnReset").onclick = () => {
+					oS.ChosenZombies = [];
+					oS.InitZCard();
+				};
+				// 移动重写
+				var tGround = $("tGround");
+				tGround.style.left = 0;
+				ClearChild($("dButton1"), $("dButton2"));
+				var progress = 0;
+				var steps = 60;
+				(function scrollStep() {
+					progress += 1 / steps;
+					if (progress < 1) {
+						EDAll.scrollLeft = interpolate(0, 500, progress, easeInOutSine);
+						tGround.style.transform = "translateX(" + interpolate(-115, 0, progress, easeInOutSine) + "px)";
+						oSym.addTask(2, scrollStep, []);
+					} else {
+						oS.InitZCard();
+						EDAll.scrollLeft = 500;
+						tGround.style.transform = "";
+						tGround.style.left = 0;
+						SetVisible($("dMenu"), $("dSelectCard"), $("dCardList"));
+						if ($("dSelectCard").className === "zombies") {
+							$("dSelectCard").className = "show";
+							$("dSelectCard").classList.add("zombies");
+						} else {
+							$("dSelectCard").className = "show";
+						}
+						$("dSelectCard")
+							.getAnimations()
+							.forEach((a) => (a.playbackRate = oSym.NowStep));
+					}
+				})();
+			};
+			((oS.ScrollBackZombies = function (callback) {
+				SetHidden($("dTitle"), $("dCardList"));
+				SetHidden($("dTop"));
+				if ($("dSelectCard").classList.contains("show")) {
+					$("dSelectCard").className = "hide";
+					$("dSelectCard").classList.add("zombies");
+					$("dSelectCard")
+						.getAnimations()
+						.forEach((a) => (a.playbackRate = oSym.NowStep));
+				}
+
+				EDAll.scrollLeft = 500;
+				var tGround = $("tGround");
+				var progress = 0;
+				var steps = 60;
+				(function scrollStep(cb) {
+					progress += 1 / steps;
+					if (progress < 1) {
+						EDAll.scrollLeft = interpolate(500, 0, progress, easeInOutSine);
+						tGround.style.transform = "translateX(" + interpolate(0, -115, progress, easeInOutSine) + "px)";
+						$("dZombie").style.transform = "translateX(" + interpolate(0, -115, progress, easeInOutSine) + "px)";
+						oSym.addTask(2, scrollStep, [cb]);
+					} else {
+						EDAll.scrollLeft = 0;
+						tGround.style.transform = "";
+						$("dZombie").style.transform = "";
+						tGround.style.left = "-115px";
+						if (oS.CanSelectCard) {
+							SetVisible($("dTop"));
+						}
+						SetHidden($("dZombie"));
+						$("dZombie").innerHTML = "";
+						SetVisible(
+							$("dMenu"),
+							$("dSelectCard"),
+							$("dCardList"),
+							$("dTop"),
+							$("tdShovel"),
+							$("btnClickSave"),
+							$("btnClickZombies"),
+							$("iStripe"),
+							$("dPZ")
+						);
+						// cb();
+					}
+				})(callback);
+			}),
+				a(0));
 		},
 		StartGame() {
 			oP.Monitor({
@@ -405,7 +588,7 @@
 															.then((response) => {
 																if (!response.ok) {
 																	return response.json().then((data) => {
-																		throw new Error(`${data.error} (${data.message})` || "Failed to upload level");
+																		throw new Error(data.error + (data.message ? ` (${data.message})` : "") || "Failed to upload level");
 																	});
 																}
 																return response.json();
@@ -470,6 +653,19 @@
 										$("dAll").appendChild(uploadButton);
 										$("dAll").appendChild(downloadButton);
 									}
+								},
+							},
+							EDAll
+						);
+						NewEle(
+							"btnClickZombies",
+							"button",
+							"position:absolute;left:750px;top:305px;height:50px;width:100px;font-family:幼圆;font-size:18px;z-index:100",
+							{
+								// 保存按钮
+								innerHTML: "Choose Zombies",
+								onclick() {
+									oS.ScrollScreenZombies();
 								},
 							},
 							EDAll

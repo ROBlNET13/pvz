@@ -19,7 +19,24 @@ const TINYIFIER_MAP = {
 	eleTop: 13,
 	eleWidth: 14,
 	eleHeight: 15,
+	// zombies
+	selectedZombies: 16,
 };
+
+const iZombies = [
+	oIImp,
+	oIConeheadZombie,
+	oIPoleVaultingZombie,
+	oIBucketheadZombie,
+	oIFootballZombie,
+	oIJackinTheBoxZombie,
+	oIScreenDoorZombie,
+	oIZombie,
+	oIDuckyTubeZombie1,
+	oIDuckyTubeZombie2,
+	oIDuckyTubeZombie3,
+	oIBalloonZombie,
+];
 
 const REVERSE_TINYIFIER_MAP = Object.fromEntries(Object.entries(TINYIFIER_MAP).map(([key, value]) => [value, key]));
 
@@ -28,6 +45,7 @@ const IZL3_HEADER = new Uint8Array([0x49, 0x5a, 0x4c, 0x33]); // "IZL3"
 // for level loading, not used in this script
 let levelDataToLoad = null;
 let pNameValue = [];
+let zNameValue = [];
 
 // ============================================================================
 // VERSION DETECTION
@@ -135,6 +153,11 @@ function tinyifyClone(obj) {
 			} else if (key === "plantName" && typeof value === "string") {
 				const plantIndex = izombiePlantsMap.indexOf(value);
 				result[newKey] = plantIndex !== -1 ? plantIndex : value;
+			} else if (key === "selectedZombies" && Array.isArray(value)) {
+				result[newKey] = value.map((zombieName) => {
+					const index = iZombies.findIndex((z) => z.prototype.EName === zombieName);
+					return index !== -1 ? index : zombieName;
+				});
 			} else {
 				result[newKey] = tinyifyClone(value);
 			}
@@ -157,6 +180,13 @@ function untinyifyClone(obj) {
 
 			if (newKey === "plantName" && typeof value === "number") {
 				result[newKey] = izombiePlantsMap[value] || value;
+			} else if (newKey === "selectedZombies" && Array.isArray(value)) {
+				result[newKey] = value.map((zombieIndex) => {
+					if (typeof zombieIndex === "number" && iZombies[zombieIndex]) {
+						return iZombies[zombieIndex].prototype.EName;
+					}
+					return zombieIndex;
+				});
 			} else {
 				result[newKey] = untinyifyClone(value);
 			}
@@ -387,6 +417,13 @@ function cloneFromPlants(name, sun, includeXY, screenshot) {
 
 	let levelData = {
 		plants: plantArray,
+		selectedZombies: (() => {
+			let zombies = [];
+			for (let i = 0; i < oS.ChosenZombies.length; i++) {
+				zombies.push(oS.ChosenZombies[i].prototype.EName);
+			}
+			return zombies;
+		})(),
 		music: oS.LoadMusic,
 		sun,
 		name,
