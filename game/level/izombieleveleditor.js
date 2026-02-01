@@ -97,7 +97,7 @@
 			$("dSelectCard").className = "";
 			$("btnOK").onclick = () => oS.ScrollBack(LetsGO);
 			$("btnOK").value = "Start";
-			$("btnReset").onclick = ResetSelectCard;
+			$("btnReset").style.display = "initial";
 		},
 		ArP: { ArC: [1, 4], ArR: [1, 5] },
 		LoadAccess(a) {
@@ -109,7 +109,7 @@
 				$("dSelectCard").className = "";
 				$("btnOK").onclick = () => oS.ScrollBack(LetsGO);
 				$("btnOK").value = "Start";
-				$("btnReset").onclick = ResetSelectCard;
+				$("btnReset").style.display = "initial";
 				var tGround = $("tGround");
 				tGround.style.left = 0;
 				ClearChild($("dButton1"), $("dButton2"));
@@ -142,6 +142,11 @@
 							// select the plants
 							for (let i = 0; i < plantsUsed.length; i++) {
 								SelectCard(plantsUsed[i]);
+							}
+
+							// select the zombies
+							if (levelDataToLoad.selectedZombies.length > 0) {
+								oS.ChosenZombies = levelDataToLoad.selectedZombies.map((zName) => window[zName]);
 							}
 						}
 					}
@@ -222,10 +227,7 @@
 				$("dSelectCard").className = "zombies";
 				$("btnOK").onclick = oS.ScrollBackZombies;
 				$("btnOK").value = "Back";
-				$("btnReset").onclick = () => {
-					oS.ChosenZombies = [];
-					oS.InitZCard();
-				};
+				$("btnReset").style.display = "none";
 				// 移动重写
 				var tGround = $("tGround");
 				tGround.style.left = 0;
