@@ -539,12 +539,16 @@ var oS = {
 		SetStyle($("tGround"), bgStyle);
 		$("tGround").innerHTML = oS.GifHTML;
 
-		const startGame = function (delay) {
+		const startGame = function (delay, zombies) {
 			const self = oS;
 			NewImg("imgGrowSoil", "images/interface/GrowSoil.gif", "visibility:hidden;z-index:50", EDAll);
 			NewImg("imgGrowSpray", "images/interface/GrowSpray.gif", "visibility:hidden;z-index:50", EDAll);
 			innerText(ESSunNum, self.SunNum);
-			InitPCard();
+			if (zombies) {
+				InitZCard();
+			} else {
+				InitPCard();
+			}
 
 			if (self.ShowScroll) {
 				oSym.addTask(
@@ -579,7 +583,12 @@ var oS = {
 				SetVisible($("dMenu"));
 				if (oS.CanSelectCard) {
 					SetVisible($("dTop"), $("dCardList"));
-					$("dSelectCard").className = "show";
+					if ($("dSelectCard").className === "zombies") {
+						$("dSelectCard").className = "show";
+						$("dSelectCard").classList.add("zombies");
+					} else {
+						$("dSelectCard").className = "show";
+					}
 					$("dSelectCard")
 						.getAnimations()
 						.forEach((a) => (a.playbackRate = oSym.NowStep));
@@ -1866,7 +1875,7 @@ var DisplayZombie = function () {
 	const htmlList = [];
 
 	while (i--) {
-		if (azCopy[i][0].prototype.CanDiaplay === 0) {
+		if (azCopy[i][0].prototype.CanDisplay === 0) {
 			azCopy.splice(i, 1);
 		}
 	}
@@ -2440,7 +2449,7 @@ var CancelShovel = function (e) {
 	const prevId = oS.MPID;
 	ClearChild($("tShovel"));
 	oS.Chose = 0;
-	SetVisible($("imgShovel"));
+	$("imgShovel").style = "";
 	if (prevId) {
 		SetAlpha($(prevId).childNodes[1], 100, 1);
 	}
