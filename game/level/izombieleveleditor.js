@@ -588,7 +588,9 @@
 															.then((response) => {
 																if (!response.ok) {
 																	return response.json().then((data) => {
-																		throw new Error(data.error + (data.message ? ` (${data.message})` : "") || "Failed to upload level");
+																		throw new Error(
+																			data.error + (data.message ? ` (${data.message})` : "") || "Failed to upload level"
+																		);
 																	});
 																}
 																return response.json();
