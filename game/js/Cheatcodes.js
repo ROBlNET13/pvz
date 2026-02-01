@@ -32,9 +32,6 @@ let cheatCodes = {
 	moustache: () => {
 		alert("yearn for the moustache");
 	},
-	debug: () => {
-		LoadMenu("debug_levels", "images/interface/Challenge_Background.jpg");
-	},
 	ArrowUpArrowUpArrowDownArrowDownArrowLeftArrowRightArrowLeftArrowRightba: () => {
 		PlaySound2("tap");
 	},
