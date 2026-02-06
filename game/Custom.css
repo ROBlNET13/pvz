@@ -850,8 +850,7 @@ input[type="checkbox"] {
 	margin: 0 4px 0 0;
 	vertical-align: middle;
 
-	background: url("images/interface/options_checkbox0.png") center center
-		no-repeat;
+	background: url("images/interface/options_checkbox0.png") center center no-repeat;
 	background-size: contain;
 
 	cursor: url(images/interface/Pointer.cur), pointer !important;
@@ -861,8 +860,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-	background: url("images/interface/options_checkbox1.png") center center
-		no-repeat;
+	background: url("images/interface/options_checkbox1.png") center center no-repeat;
 	background-size: contain;
 }
 #lAutoSun,
@@ -1371,7 +1369,8 @@ body.game-paused #cover {
 }
 
 @keyframes credits_finale_fade {
-	0%, 90% {
+	0%,
+	90% {
 		opacity: 0;
 	}
 	100% {
@@ -1398,7 +1397,8 @@ body.game-paused #cover {
 			font-family: "houseofterrormedium" !important;
 			font-weight: normal;
 		}
-		& h1, & h2 {
+		& h1,
+		& h2 {
 			margin-top: 0.5rem;
 			margin-bottom: 0.5rem;
 		}
