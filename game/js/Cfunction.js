@@ -3194,11 +3194,11 @@ var ClickMenu = function (e, btn) {
 	$("sOptionsMenu").textContent = "Back To Game";
 	$("pauseHome").textContent = "Home";
 	$("pauseHome").onclick = function () {
-										let oldLv = oS.Lvl;
-								SelectModal(0);
-								SetBlock($('dSurface'), $('iSurfaceBackground'));
-								ShowNameDiv();
-								oS.Lvl = oldLv;
+		let oldLv = oS.Lvl;
+		SelectModal(0);
+		SetBlock($("dSurface"), $("iSurfaceBackground"));
+		ShowNameDiv();
+		oS.Lvl = oldLv;
 	};
 	SetVisible($("pauseHomeIcon"));
 	if (ArCard[oS.ChoseCard] && ArCard[oS.ChoseCard].DID != null) {
