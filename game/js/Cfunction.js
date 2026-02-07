@@ -3191,7 +3191,16 @@ var ClickMenu = function (e, btn) {
 		innerText($("dMenu0"), "Speed");
 		ShowOptions();
 	}
-	document.getElementById("sOptionsMenu").textContent = "Back To Game";
+	$("sOptionsMenu").textContent = "Back To Game";
+	$("pauseHome").textContent = "Home";
+	$("pauseHome").onclick = function () {
+										let oldLv = oS.Lvl;
+								SelectModal(0);
+								SetBlock($('dSurface'), $('iSurfaceBackground'));
+								ShowNameDiv();
+								oS.Lvl = oldLv;
+	};
+	SetVisible($("pauseHomeIcon"));
 	if (ArCard[oS.ChoseCard] && ArCard[oS.ChoseCard].DID != null) {
 		CancelPlant();
 	}
@@ -3269,7 +3278,13 @@ var HiddenRiddleGame = function (isSilent) {
 };
 
 var ShowOptions = function () {
-	document.getElementById("sOptionsMenu").textContent = "OK";
+	$("sOptionsMenu").textContent = "OK";
+	$("pauseHome").textContent = "Credits";
+	SetHidden($("pauseHomeIcon"));
+	$("pauseHome").onclick = function () {
+		PlaySound2("tap");
+		LoadMenu("credits");
+	};
 	PlaySound2(oS.Lvl ? "gravebutton" : "tap");
 	SetBlock($("dOptionsMenuback"), $("dOptionsMenu"));
 };

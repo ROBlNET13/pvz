@@ -1361,7 +1361,7 @@ body.game-paused #cover {
 
 @keyframes credits_scroll {
 	from {
-		transform: translateY(510px);
+		transform: translateY(550px);
 	}
 	to {
 		transform: translateY(-100%);
