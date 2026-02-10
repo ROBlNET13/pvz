@@ -179,30 +179,41 @@
 						ViewCardTitle(card, event, false, false);
 					};
 					div.onclick = function () {
+						const cb = this.querySelector(".zombie-check");
+						const grayTargets = this.querySelectorAll("img, .span2");
 						if (oS.ChosenZombies.includes(card)) {
 							if (oS.ChosenZombies.length > 1) {
 								oS.ChosenZombies = oS.ChosenZombies.filter((z) => z !== card);
-								this.style.filter = "none";
+								grayTargets.forEach((el) => el.style.filter = "none");
+								if (cb) cb.checked = false;
 								PlaySound2("tap");
 							}
 						} else {
 							oS.ChosenZombies.push(card);
-							this.style.filter = "grayscale(100%)";
+							grayTargets.forEach((el) => el.style.filter = "grayscale(100%)");
+							if (cb) cb.checked = true;
 							PlaySound2("tap");
 						}
 					};
 
-					if (oS.ChosenZombies.includes(card)) {
-						div.style.filter = "grayscale(100%)";
-					}
+					const isSelected = oS.ChosenZombies.includes(card);
+
+					const checkbox = document.createElement("input");
+					checkbox.type = "checkbox";
+					checkbox.className = "zombie-check";
+					checkbox.checked = isSelected;
+					checkbox.onclick = function (e) { e.stopPropagation(); div.click(); };
+					div.appendChild(checkbox);
 
 					const img = document.createElement("img");
 					img.src = proto.PicArr[0];
+					if (isSelected) img.style.filter = "grayscale(100%)";
 					div.appendChild(img);
 
 					const span = document.createElement("span");
 					span.className = "span2";
 					span.textContent = proto.SunNum;
+					if (isSelected) span.style.filter = "grayscale(100%)";
 					div.appendChild(span);
 
 					container.appendChild(div);

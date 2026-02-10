@@ -1349,6 +1349,15 @@ body.game-paused #cover {
 #dSelectCard.zombies {
 	background: url("images/interface/ZombieChooser_Background.png") no-repeat;
 }
+#dSelectCard.zombies .span1 .zombie-check {
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	z-index: 2;
+	margin: 0;
+	cursor: url(images/interface/Pointer.cur), pointer;
+	pointer-events: auto;
+}
 #dSelectCard.zombies #btnOK,
 #dSelectCard.zombies #btnReset {
 	color: #00f500 !important;
