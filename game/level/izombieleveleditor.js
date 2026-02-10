@@ -184,13 +184,13 @@
 						if (oS.ChosenZombies.includes(card)) {
 							if (oS.ChosenZombies.length > 1) {
 								oS.ChosenZombies = oS.ChosenZombies.filter((z) => z !== card);
-								grayTargets.forEach((el) => el.style.filter = "none");
+								grayTargets.forEach((el) => (el.style.filter = "none"));
 								if (cb) cb.checked = false;
 								PlaySound2("tap");
 							}
 						} else {
 							oS.ChosenZombies.push(card);
-							grayTargets.forEach((el) => el.style.filter = "grayscale(100%)");
+							grayTargets.forEach((el) => (el.style.filter = "grayscale(100%)"));
 							if (cb) cb.checked = true;
 							PlaySound2("tap");
 						}
@@ -202,7 +202,10 @@
 					checkbox.type = "checkbox";
 					checkbox.className = "zombie-check";
 					checkbox.checked = isSelected;
-					checkbox.onclick = function (e) { e.stopPropagation(); div.click(); };
+					checkbox.onclick = function (e) {
+						e.stopPropagation();
+						div.click();
+					};
 					div.appendChild(checkbox);
 
 					const img = document.createElement("img");
