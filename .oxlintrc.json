@@ -12,7 +12,6 @@
 			"files": ["**/*.{js,mjs,cjs}"],
 			"rules": {
 				"curly": ["error", "all"],
-				"eqeqeq-fix/eqeqeq": ["error", "smart"],
 				"prefer-spread": "error",
 				"prefer-rest-params": "error",
 				"no-sequences": "error",
@@ -29,7 +28,6 @@
 				"no-lonely-if": "warn",
 				"no-extra-boolean-cast": "warn"
 			},
-			"jsPlugins": ["eslint-plugin-eqeqeq-fix"],
 			"env": {
 				"browser": true
 			}
