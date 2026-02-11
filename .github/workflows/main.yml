@@ -42,11 +42,11 @@ jobs:
                   path: |
                       ~/.local/share/pnpm/global
                       ~/.local/share/pnpm/store
-                  key: pnpm-global-${{ hashFiles('.github/workflows/deploy.yml') }}
+                  key: pnpm-global-${{ hashFiles('.github/workflows/main.yml') }}
                   restore-keys: pnpm-global-
 
             - name: Install dependencies
-              run: pnpm add -g oxlint oxfmt esbuild html-minifier-terser wrangler
+              run: pnpm add -g oxlint oxfmt esbuild html-minifier-terser wrangler@3
 
             - name: Lint, format & version stamp
               run: |
