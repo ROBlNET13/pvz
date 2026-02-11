@@ -21,95 +21,70 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v4
+              with:
+                  fetch-depth: 1
 
-            - name: Setup Node.js
+            - name: Setup Node.js & pnpm
               uses: actions/setup-node@v3
               with:
                   node-version: "lts/*"
 
+            - name: Install pnpm
+              run: corepack enable pnpm
+
+            - name: Cache pnpm global packages
+              uses: actions/cache@v4
+              with:
+                  path: |
+                      ~/.local/share/pnpm/global
+                      ~/.local/share/pnpm/store
+                  key: pnpm-global-${{ hashFiles('.github/workflows/deploy.yml') }}
+                  restore-keys: pnpm-global-
+
             - name: Install dependencies
-              run: npm i -g oxlint oxfmt esbuild html-minifier-terser
+              run: pnpm add -g oxlint oxfmt esbuild html-minifier-terser
 
-            - name: Beautify code
+            - name: Lint, format & version stamp
               run: |
-                  npm run fix || true
-                  npx oxfmt --write . "**/*.{js,md,html,css,yml}"
-
-            - name: Create v.html with commit hash
-              run: |
+                  pnpm run fix || true
+                  pnpm oxfmt --write . "**/*.{js,md,html,css,yml}"
                   echo "${{ github.sha }}" > game/images/Zombies/CX/v.html
-
-            - name: Get commit message & author email
-              id: get_commit_message
-              run: |
-                  COMMIT_MSG=$(git log -1 --pretty=format:%s)
-                  AUTHOR_EMAIL=$(git log -1 --pretty=format:%ae)
-                  echo "message=$COMMIT_MSG" >> $GITHUB_OUTPUT
-                  echo "author_email=$AUTHOR_EMAIL" >> $GITHUB_OUTPUT
 
             - name: Commit changes
               run: |
+                  COMMIT_MSG=$(git log -1 --pretty=format:%s)
+                  AUTHOR_EMAIL=$(git log -1 --pretty=format:%ae)
                   git config user.name github-actions
                   git config user.email github-actions@github.com
                   git add .
-                  git commit -m "Format \"${{ steps.get_commit_message.outputs.message }}\"
+                  git commit -m "Format \"$COMMIT_MSG\"
                   Original commit: https://github.com/${{ github.repository }}/commit/${{ github.sha }}
                   
-                  Co-authored-by: ${{ github.actor }} <${{ steps.get_commit_message.outputs.author_email }}>" || exit 0
+                  Co-authored-by: ${{ github.actor }} <$AUTHOR_EMAIL>" || exit 0
                   git push
 
-            - name: Bundle CPlants.js
+            - name: Bundle & minify all assets
               run: |
                   esbuild game/js/CPlants.js \
-                    --bundle \
-                    --minify \
-                    --sourcemap \
-                    --sources-content=true \
-                    --outfile=game/js/CPlants.js \
-                    --allow-overwrite
+                    --bundle --minify --sourcemap --sources-content=true \
+                    --outfile=game/js/CPlants.js --allow-overwrite
 
-            - name: Minify JavaScript & CSS files
-              run: |
-                  esbuild $(find . -type f \( -name "*.js" -o -name "*.css" \) -not -path "./node_modules/*") \
-                    --minify \
-                    --sourcemap \
-                    --sources-content=true \
-                    --outdir=. \
-                    --allow-overwrite
+                  esbuild $(find . -type f \( -name "*.js" -o -name "*.css" \) \
+                    -not -path "./node_modules/*" -not -name "CPlants.js") \
+                    --minify --sourcemap --sources-content=true \
+                    --outdir=. --allow-overwrite &
 
-            - name: Minify HTML files
-              run: |
-                  find . -type f -name "*.html" -not -path "./node_modules/*" | while read file; do
-                    html-minifier-terser \
-                      --collapse-whitespace \
-                      --remove-comments \
-                      --remove-tag-whitespace \
-                      --minify-css true \
-                      --minify-js true \
-                      -o "$file" \
-                      "$file"
-                  done
+                  find . -type f -name "*.html" -not -path "./node_modules/*" | \
+                    xargs -P4 -I{} html-minifier-terser \
+                      --collapse-whitespace --remove-comments --remove-tag-whitespace \
+                      --minify-css true --minify-js true -o {} {} &
 
-            - name: Deploy to Cloudflare Pages (Direct Upload)
+                  wait
+
+            - name: Deploy to Cloudflare Pages
               uses: cloudflare/wrangler-action@v3
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                   command: pages deploy . --project-name=pvz
                   gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-
-    # discord-notify:
-    #   runs-on: ubuntu-latest
-    #   needs: build-and-deploy
-    #   if: always()
-    #   steps:
-    #     - name: Notify Discord
-    #       uses: sarisia/actions-status-discord@v1
-    #       if: always()
-    #       with:
-    #         webhook: ${{ secrets.DISCORD_WEBHOOK }}
-    #         ack_no_webhook: true
-    #         status: ${{ (contains(needs.*.result, 'failure') || contains(needs.*.result, 'skipped')) && 'Failure' || contains(needs.*.result, 'cancelled') && 'Cancelled' || 'Success' }}
-    #         title: ${{ github.workflow }}
-    #         description: ${{ github.repository }} @ ${{ github.ref_name }}\n${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
-    #         url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
