@@ -46,7 +46,7 @@ jobs:
                   restore-keys: pnpm-global-
 
             - name: Install dependencies
-              run: pnpm add -g oxlint oxfmt esbuild html-minifier-terser
+              run: pnpm add -g oxlint oxfmt esbuild html-minifier-terser wrangler
 
             - name: Lint, format & version stamp
               run: |
@@ -86,9 +86,7 @@ jobs:
                   wait
 
             - name: Deploy to Cloudflare Pages
-              uses: cloudflare/wrangler-action@v3
-              with:
-                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: pages deploy . --project-name=pvz
-                  gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+              run: wrangler pages deploy . --project-name=pvz --commit-dirty=true
+              env:
+                  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
