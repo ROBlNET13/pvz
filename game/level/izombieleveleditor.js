@@ -185,13 +185,17 @@
 							if (oS.ChosenZombies.length > 1) {
 								oS.ChosenZombies = oS.ChosenZombies.filter((z) => z !== card);
 								grayTargets.forEach((el) => (el.style.filter = "none"));
-								if (cb) cb.checked = false;
+								if (cb) {
+									cb.checked = false;
+								}
 								PlaySound2("tap");
 							}
 						} else {
 							oS.ChosenZombies.push(card);
 							grayTargets.forEach((el) => (el.style.filter = "grayscale(100%)"));
-							if (cb) cb.checked = true;
+							if (cb) {
+								cb.checked = true;
+							}
 							PlaySound2("tap");
 						}
 					};
@@ -210,13 +214,17 @@
 
 					const img = document.createElement("img");
 					img.src = proto.PicArr[0];
-					if (isSelected) img.style.filter = "grayscale(100%)";
+					if (isSelected) {
+						img.style.filter = "grayscale(100%)";
+					}
 					div.appendChild(img);
 
 					const span = document.createElement("span");
 					span.className = "span2";
 					span.textContent = proto.SunNum;
-					if (isSelected) span.style.filter = "grayscale(100%)";
+					if (isSelected) {
+						span.style.filter = "grayscale(100%)";
+					}
 					div.appendChild(span);
 
 					container.appendChild(div);

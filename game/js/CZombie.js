@@ -1424,7 +1424,9 @@ var oDancingZombie = InheritO(OrnNoneZombies, {
 						10,
 						(t, s, x) => {
 							var h = $Z[t];
-							if (!h) return;
+							if (!h) {
+								return;
+							}
 							var v = h.ZX;
 							var m = h.ArDZ;
 							var n = [];
