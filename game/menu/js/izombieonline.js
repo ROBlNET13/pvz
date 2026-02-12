@@ -3,6 +3,11 @@ const levelTemplate = levelContainer.querySelector("#iz-level-template");
 const paginationContainer = menuContainer.querySelector(".iz-pagination");
 const menuTitle = menuContainer.querySelector("#iz-menu-title");
 
+const bgNormal = new Image();
+bgNormal.src = "images/interface/background2.jpg";
+const bgWater = new Image();
+bgWater.src = "images/interface/background4.jpg";
+
 const paginationButtons = {
 	first: paginationContainer?.querySelector(".iz-pagination-first"),
 	prev: paginationContainer?.querySelector(".iz-pagination-prev"),
@@ -78,24 +83,57 @@ document.querySelector(".iz-reload").addEventListener("click", () => {
 	loadPage(page);
 });
 
-function renderThumbnail(thumb, thumbContainer) {
-	thumb.forEach((plant) => {
-		const img = document.createElement("img");
-		img.src = window[izombiePlantsMap[plant[0]]].prototype.PicArr[1];
-		img.style.position = "absolute";
-		img.style.left = `${plant[1] * 0.15}px`;
-		img.style.top = `${plant[2] * 0.15}px`;
-		img.style.width = `${plant[3] * 0.15}px`;
-		img.style.height = `${plant[4] * 0.15}px`;
-		img.style.zIndex = plant[5];
-		if (window[izombiePlantsMap[plant[0]]] !== oPumpkinHead) {
-			img.style.transform = "scale(1.5)";
-		} else {
-			img.src = window[izombiePlantsMap[plant[0]]].prototype.PicArr[8];
-		}
-		img.className = "cardboardNoShadow";
-		thumbContainer.appendChild(img);
+function loadImage(src) {
+	return new Promise((resolve, reject) => {
+		const img = new Image();
+		img.onload = () => resolve(img);
+		img.onerror = reject;
+		img.src = src;
 	});
+}
+
+async function renderThumbnailCanvas(thumb, background, small) {
+	const s = small ? 0.15 : 1;
+	const canvas = document.createElement("canvas");
+	canvas.width = 900 * s;
+	canvas.height = 600 * s;
+	const ctx = canvas.getContext("2d");
+	// draw bg, position −115px size 1400x600
+	ctx.drawImage(background, -115 * s, 0, 1400 * s, 600 * s);
+	// sort thumbnail by zindex (plant[5])
+	thumb.sort((a, b) => a[5] - b[5]);
+	// preload all plant images
+	const plantImages = await Promise.all(
+		thumb.map((plant) => {
+			const plantClass = window[izombiePlantsMap[plant[0]]];
+			const src = plantClass !== oPumpkinHead ? plantClass.prototype.PicArr[1] : plantClass.prototype.PicArr[8];
+			return loadImage(src);
+		})
+	);
+	// draw thumbnail with cardboard filter
+	ctx.filter = small ? "url(#cardboardNoShadow)" : "url(#cardboard)";
+	thumb.forEach((plant, i) => {
+		const plantClass = window[izombiePlantsMap[plant[0]]];
+		if (plantClass !== oPumpkinHead) {
+			const scale = 1.5;
+			const newW = plant[3] * scale * s;
+			const newH = plant[4] * scale * s;
+			const newX = (plant[1] - (plant[3] * scale - plant[3]) / 2) * s;
+			const newY = (plant[2] - (plant[4] * scale - plant[4]) / 2) * s;
+			ctx.drawImage(plantImages[i], newX, newY, newW, newH);
+		} else {
+			ctx.drawImage(plantImages[i], plant[1] * s, plant[2] * s, plant[3] * s, plant[4] * s);
+		}
+	});
+	return canvas;
+}
+
+async function renderThumbnail(thumb, thumbContainer, backgroundImg) {
+	const canvas = await renderThumbnailCanvas(thumb, backgroundImg, true);
+	thumbContainer.innerHTML = "";
+	canvas.style.width = "100%";
+	canvas.style.height = "100%";
+	thumbContainer.appendChild(canvas);
 }
 
 function createLevelCard(levelData) {
@@ -107,10 +145,10 @@ function createLevelCard(levelData) {
 	levelCard.querySelector(".iz-level-stats > #sun").textContent = levelData.sun;
 	levelCard.querySelector(".iz-level-stats > #downloads").textContent = levelData.plays;
 	levelCard.querySelector(".iz-level-stats > #favorites").textContent = levelData.favorites;
-	levelCard.querySelector(".iz-level-thumbnail-background").src = levelData.is_water
-		? "images/interface/background4.jpg"
-		: "images/interface/background2.jpg";
-	renderThumbnail(levelData.thumbnail, levelCard.querySelector(".iz-level-thumbnail"));
+	const bg = levelData.is_water ? bgWater : bgNormal;
+	if (levelData.thumbnail?.every((p) => p[1] != null)) {
+		renderThumbnail(levelData.thumbnail, levelCard.querySelector(".iz-level-thumbnail"), bg);
+	}
 	levelCard.style.display = null;
 
 	levelCard.querySelector(".iz-level-report").onclick = () => {

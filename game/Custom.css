@@ -1212,12 +1212,6 @@ input[type="checkbox"]:checked {
 	opacity: 0.5;
 	pointer-events: none;
 }
-.iz-level-thumbnail-background {
-	width: 210px;
-	height: 90px;
-	position: absolute;
-	left: -17.25px;
-}
 .iz-reload {
 	padding-right: 8px !important;
 	position: absolute;
