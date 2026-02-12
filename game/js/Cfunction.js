@@ -3049,7 +3049,7 @@ var SelectModal = function (level) {
 };
 
 var GotoAuthorWebsite = function () {
-	window.open("https://github.com/ROBlNET13/pvz");
+	window.open("https://github.com/Plants-vs-Zombies-MODDED/game");
 };
 
 var InitGame = function () {
