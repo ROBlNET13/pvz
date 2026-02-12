@@ -4476,14 +4476,14 @@ var easeInOutBounce = function (x) {
 };
 
 function createZombie(zombieClass, row, column) {
-  let zombie = new zombieClass(),
-      zombieHTML = zombie.CustomBirth(row, column, 0, "auto");
-  asyncInnerHTML(
-    zombieHTML,
-    (fragment, zombieObj) => {
-      EDPZ.appendChild(fragment);
-      zombieObj.Birth();
-    },
-    zombie,
-  );
+	let zombie = new zombieClass(),
+		zombieHTML = zombie.CustomBirth(row, column, 0, "auto");
+	asyncInnerHTML(
+		zombieHTML,
+		(fragment, zombieObj) => {
+			EDPZ.appendChild(fragment);
+			zombieObj.Birth();
+		},
+		zombie
+	);
 }

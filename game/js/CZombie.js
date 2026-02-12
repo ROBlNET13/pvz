@@ -11849,8 +11849,7 @@ oPeaZombie = InheritO(oZombie, {
 			a + "1.gif",
 		];
 	})(),
-	Produce:
-		'peashootr',
+	Produce: "peashootr",
 });
 var oGargantuar = InheritO(OrnIZombies, {
 	EName: "oGargantuar",
@@ -11900,7 +11899,7 @@ var oGargantuar = InheritO(OrnIZombies, {
 	})(),
 	AudioArr: ["plastichit"],
 	GetDX() {
-		return -200;	
+		return -200;
 	},
 	getShadow(a) {
 		return "left:200px;top:250px";
