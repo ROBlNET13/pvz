@@ -5480,7 +5480,6 @@ var oJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	CName: "Jack-in-the-Box Zombie",
 	SunNum: 100,
 	HP: 270,
-	BreakPoint: 167,
 	Lvl: 3,
 	Status: 1,
 	BookHandPosition: "30% 70%",
@@ -5690,7 +5689,6 @@ var oIJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	CName: "Jack-in-the-Box Zombie",
 	SunNum: 100,
 	HP: 270,
-	BreakPoint: 167,
 	Lvl: 3,
 	Status: 1,
 	BookHandPosition: "30% 70%",
@@ -5706,8 +5704,8 @@ var oIJackinTheBoxZombie = InheritO(OrnNoneZombies, {
 	LostHeadGif: 9,
 	LostHeadAttackGif: 10,
 	AttackGif: 2,
-	OSpeed: 3.6,
-	Speed: 3.6,
+	OSpeed: 3.2,
+	Speed: 3.2,
 	Produce:
 		'这种僵尸带着个会爆炸的潘多拉盒子。</p><p>韧性：<font color="#CC241D">中</font><br>速度：<font color="#CC241D">快</font><br>特点：<font color="#CC241D">打开玩偶匣会爆炸</font><br>弱点：<font color="#CC241D">磁力菇</font><br>这种僵尸令人不寒而栗，不是因为他的冰冷身躯而是因为他的疯狂。',
 	AudioArr: ["jackinthebox", "explosion"],
@@ -10880,7 +10878,6 @@ oCBucketheadZombie = InheritO(
 					CName: "小丑僵尸",
 					SunNum: 100,
 					HP: 500,
-					BreakPoint: 167,
 					Lvl: 3,
 					Status: 1,
 					BookHandPosition: "30% 70%",
@@ -11853,150 +11850,7 @@ oPeaZombie = InheritO(oZombie, {
 		];
 	})(),
 	Produce:
-		'韧性：<font color="#CC241D">低</font></p>这种僵尸喜爱脑髓，贪婪而不知足。脑髓，脑髓，脑髓，夜以继日地追求着。老而臭的脑髓？腐烂的脑髓？都没关系。僵尸需要它们。',
-	BirthCallBack(f) {
-		var e = f.delayT;
-		var d = f.id;
-		var c = (f.Ele = $(d));
-		f.EleShadow = c.firstChild;
-		f.EleBody = c.childNodes[1];
-		e
-			? oSym.addTask(
-					e,
-					(h, g) => {
-						var i = $Z[h];
-						i && ((i.FreeSetbodyTime = 0), SetBlock(g));
-					},
-					[d, c]
-				)
-			: SetBlock(c);
-		f.StartAttackCheck(f); // Start the continuous attack check
-	},
-	StartAttackCheck(f) {
-		oSym.addTask(
-			1, // Check every frame (or a very small interval)
-			function (currentZombie) {
-				if ($Z[currentZombie.id]) {
-					currentZombie.CheckAndAttack();
-				}
-				oSym.addTask(1, arguments.callee, [currentZombie]);
-			},
-			[f]
-		);
-	},
-	CheckAndAttack() {
-		var a = this;
-		var plantTarget = null;
-
-		console.log("oPeaZombie ID:", a.id, "Checking $P for plants (keys starting with 'P_').");
-
-		for (var plantId in oP) {
-			if (Object.hasOwn(oP, plantId) && plantId.startsWith("P_")) {
-				var plant = oP[plantId];
-				console.log("  Found Plant ID:", plantId, "Object:", plant);
-				// Now try to access the properties we need
-				if (plant && plant.R !== undefined && plant.Altitude !== undefined && plant.AttackedLX !== undefined) {
-					console.log(
-						"    Plant Properties:",
-						"Name:",
-						plant.CName,
-						"Row:",
-						plant.R,
-						"Altitude:",
-						plant.Altitude,
-						"LX:",
-						plant.AttackedLX,
-						"Zombie Row:",
-						a.R,
-						"Zombie Right:",
-						a.X + a.width
-					);
-					if (plant.R === a.R && plant.Altitude === 1 && plant.AttackedLX < a.X + a.width) {
-						plantTarget = plant;
-						console.log("    Target Plant Found:", plant.CName, "LX:", plant.AttackedLX, "Zombie Right:", a.X + a.width, "Zombie Row:", a.R);
-						break;
-					}
-				} else {
-					console.log("    Plant Missing Required Properties (R, Altitude, LX).");
-				}
-			}
-		}
-
-		if (plantTarget) {
-			console.log("Calling Attack with target:", plantTarget.CName);
-			a.Attack(plantTarget);
-		}
-	},
-	Attack(targetPlant) {
-		var a = this;
-		var b = "ZB" + Math.random(); // Zombie Bullet ID
-
-		a.PlayAttack(3); // Play the attack animation
-		oSym.addTask(
-			15,
-			(d) => {
-				var c = $(d);
-				c && SetVisible(c);
-			},
-			[b]
-		);
-		oSym.addTask(
-			1,
-			function (f, j, h, c, n, i, m, k, o, g, targetPlant) {
-				// Pass targetPlant
-				var l;
-				var e = GetC(n); // Likely gets the column
-
-				if (targetPlant && targetPlant.Altitude === 1 && targetPlant.id === g) {
-					// Check if the target is still valid
-					targetPlant.getHurt(h, c); // Call a hypothetical getHurt method on the plant
-					SetStyle(j, {
-						left: o + targetPlant.width - 20 + "px", // Adjust bullet impact position
-					}).src = "images/Plants/PeaBulletHit.gif"; // Use a pea hit effect for now
-					oSym.addTask(10, ClearChild, [j]);
-				} else {
-					n += l = c ? -5 : 5;
-					if (n > -20 && n < oS.W) {
-						// Move towards the right
-						j.style.left = (o += l) + "px";
-						oSym.addTask(1, arguments.callee, [
-							f,
-							j,
-							h,
-							c,
-							n,
-							i,
-							m,
-							k,
-							o,
-							g,
-							targetPlant, // Pass targetPlant in the recursive call
-						]);
-					} else {
-						ClearChild(j);
-					}
-				}
-			},
-			[
-				b,
-				NewImg(
-					b,
-					"images/Plants/PB00.gif",
-					"left:" + (a.X + a.width - 20) + "px;top:" + (a.pixelTop + 35) + "px;visibility:hidden;z-index:" + (a.zIndex + 2),
-					EDPZ
-				), // Create a bullet image
-				20, // Damage
-				0, // Direction (towards right: 0 makes l = 5)
-				a.X + a.width - 20, // Initial X position (right side of zombie)
-				a.R, // Row
-				0,
-				0,
-				a.X + a.width - 20,
-				oGd.$Torch,
-				targetPlant.id, // Pass the target plant's ID
-			]
-		);
-	},
+		'peashootr',
 });
 var oGargantuar = InheritO(OrnIZombies, {
 	EName: "oGargantuar",
@@ -12004,12 +11858,14 @@ var oGargantuar = InheritO(OrnIZombies, {
 	OrnHP: 2000,
 	HP: 1000,
 	Lvl: 2,
-	width: 1,
-	height: 299,
+	width: 390,
+	height: 275,
+	beAttackedPointL: 150,
+	beAttackedPointR: 300,
 	SunNum: 300,
 	StandGif: 11,
 	AlmanacGif: 11,
-	Attack: 50,
+	Attack: 1800,
 	HeadPosition: [
 		{
 			x: 82,
@@ -12026,13 +11882,12 @@ var oGargantuar = InheritO(OrnIZombies, {
 	],
 	BookHandPosition: "35% 70%",
 	PicArr: (function () {
-		var b = "images/Zombies/Gargantuar/";
-		var a = "images/Zombies/Zombie/";
+		var a = "images/Zombies/Gargantuar/";
 		return [
 			"images/Card/Zombies/Gargantuar.png",
-			b + "0.png",
-			b + "Walk.webp",
-			b + "Attack.webp",
+			a + "0.png",
+			a + "Walk.webp",
+			a + "Attack.webp",
 			a + "ZombieLostHead.gif",
 			a + "ZombieLostHeadAttack.gif",
 			a + "ZombieHead.gif" + $Random,
@@ -12040,12 +11895,15 @@ var oGargantuar = InheritO(OrnIZombies, {
 			"images/Zombies/BoomDie.gif" + $Random,
 			a + "WalkNoImp.webp",
 			a + "Attack.webp",
-			b + "Idle.webp",
+			a + "Idle.webp",
 		];
 	})(),
 	AudioArr: ["plastichit"],
-	PlayNormalballAudio() {
-		PlaySound2("plastichit");
+	GetDX() {
+		return -200;	
+	},
+	getShadow(a) {
+		return "left:200px;top:250px";
 	},
 	Produce:
 		'他的路障头盔，使他两倍坚韧于普通僵尸。<p>韧性：<font color="#CC241D">中</font></p>和其他僵尸一样，路障头僵尸盲目地向前。但某些事物却使他停下脚步，捡起一个交通路障，并固实在自己的脑袋上。是的，他很喜欢参加聚会。',

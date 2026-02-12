@@ -4474,3 +4474,16 @@ var easeInBounce = function (x) {
 var easeInOutBounce = function (x) {
 	return x < 0.5 ? (1 - easeOutBounce(1 - 2 * x)) / 2 : (1 + easeOutBounce(2 * x - 1)) / 2;
 };
+
+function createZombie(zombieClass, row, column) {
+  let zombie = new zombieClass(),
+      zombieHTML = zombie.CustomBirth(row, column, 0, "auto");
+  asyncInnerHTML(
+    zombieHTML,
+    (fragment, zombieObj) => {
+      EDPZ.appendChild(fragment);
+      zombieObj.Birth();
+    },
+    zombie,
+  );
+}
