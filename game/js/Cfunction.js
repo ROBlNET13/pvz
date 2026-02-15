@@ -49,7 +49,7 @@ var $User = (function () {
 			Gecko: userAgent.includes("Gecko") && !userAgent.includes("KHTML"),
 		},
 		Server: {
-			URL: "https://backend.pvzm.net",
+			URL: "http://localhost:7896",
 		},
 		HTML5: (function () {
 			return !!document.createElement("canvas").getContext;
@@ -4487,3 +4487,8 @@ function createZombie(zombieClass, row, column) {
 		zombie
 	);
 }
+
+function getLevelString(level) {
+  if (!level) { level = 1; }
+    return `${Math.ceil(level / 10)}-${((level - 1) % 10) + 1}`;
+} 
