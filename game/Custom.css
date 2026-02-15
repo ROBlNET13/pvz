@@ -1494,6 +1494,7 @@ body.game-paused #cover {
 	text-align: left;
 }
 
-#dMenu0, #dMenu1 {
+#dMenu0,
+#dMenu1 {
 	font-family: "dwarventodcraft" !important;
 }
