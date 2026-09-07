@@ -386,7 +386,11 @@ oS.Init(
 									.then((data) => {
 										console.log("Level uploaded successfully:", data);
 										titleElement.innerText = `Level uploaded successfully! ID: ${data.id}`;
-
+										if (posthog) {
+											posthog.capture("level_upload", {
+												id: data.id,
+											});
+										}
 										// show close button again
 										closeButton.style.display = "";
 										closeButton.style.top = "75%";

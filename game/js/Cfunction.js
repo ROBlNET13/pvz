@@ -3129,6 +3129,9 @@ var LoadLvl = function (level, startTime) {
 			id: level,
 			start_time: startTime || oSym.Now,
 		});
+		posthog.capture("level_load_" + level, {
+			start_time: startTime || oSym.Now,
+		});
 	}
 	if (oSym.Timer) {
 		oSym.Stop();
