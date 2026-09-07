@@ -3124,6 +3124,12 @@ var InitGame = function () {
 };
 
 var LoadLvl = function (level, startTime) {
+	if (posthog) {
+		posthog.capture("level_load", {
+			id: level,
+			start_time: startTime || oSym.Now,
+		});
+	}
 	if (oSym.Timer) {
 		oSym.Stop();
 	}

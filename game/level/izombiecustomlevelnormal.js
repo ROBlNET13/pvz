@@ -139,6 +139,12 @@ if (typeof levelDataToLoad === "undefined") {
 		SelectModal(0);
 	}
 }
+if (posthog) {
+	posthog.capture("level_load_izombie", {
+		name: levelDataToLoad.name,
+		id: levelDataToLoad.id || "unknown",
+	});
+}
 for (let i = 0; i < levelDataToLoad.plants.length; i++) {
 	let plant = levelDataToLoad.plants[i];
 	if (!pNameValue.includes(window[plant.plantName])) {
