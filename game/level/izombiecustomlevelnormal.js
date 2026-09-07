@@ -142,6 +142,7 @@ if (typeof levelDataToLoad === "undefined") {
 if (posthog) {
 	posthog.capture("level_load_izombie", {
 		name: levelDataToLoad.name,
+		author: levelDataToLoad.author || "unknown",
 		id: levelDataToLoad.id || "unknown",
 	});
 }

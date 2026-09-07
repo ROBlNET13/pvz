@@ -211,6 +211,7 @@ function createLevelCard(levelData) {
 				// load the level
 				levelDataToLoad = await decodeBytes(new Uint8Array(arrayBuffer));
 				levelDataToLoad.id = levelData.id;
+				levelDataToLoad.author = levelData.author;
 				// load the izombiecustomlevel level
 				if (levelDataToLoad.lfValue[3] === 2) {
 					SelectModal("izombiecustomlevelwater");
