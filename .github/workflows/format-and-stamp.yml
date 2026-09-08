@@ -76,5 +76,5 @@ jobs:
                   ssh_private_key: ${{ secrets.TANGLED_SSH_PRIVATE_KEY }}
             - uses: pixta-dev/repository-mirroring-action@v1
               with:
-                  target_repo_url: git@codeberg.org/PVZM/game.git
+                  target_repo_url: git@codeberg.org:pvzm/game.git
                   ssh_private_key: ${{ secrets.CODEBERG_SSH_PRIVATE_KEY }}
