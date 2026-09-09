@@ -162,6 +162,7 @@ function createLevelCard(levelData) {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/msgpack",
+				"X-Requested-With": "XMLHttpRequest",
 			},
 			body: msgpack.serialize({ reason }),
 		})
@@ -182,6 +183,7 @@ function createLevelCard(levelData) {
 			method: "POST",
 			headers: {
 				Accept: "application/msgpack",
+				"X-Requested-With": "XMLHttpRequest",
 			},
 		})
 			.then((response) => {
